@@ -1,4 +1,4 @@
-/* DELETE 'messagesDB' database*/
+/* DELETE* 'messagesDB' database*/
 DROP SCHEMA IF EXISTS messagesDB;
 /* DELETE USER 'spq' AT LOCAL SERVER*/
 DROP USER IF EXISTS 'spq'@'localhost';
