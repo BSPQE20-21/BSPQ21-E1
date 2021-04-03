@@ -2893,3 +2893,207 @@
 14:14:25,022 (qtp-559774735-31) DEBUG [DataNucleus.Lifecycle] - Objeto "es.deusto.bspq21e1.server.jdo.User@820ac54b" (id="es.deusto.bspq21e1.server.jdo.User:dipina") tiene cambio de lifeycle : "P_DIRTY"->"HOLLOW"
 14:14:25,022 (qtp-559774735-31) DEBUG [DataNucleus.Transaction] - Objeto "es.deusto.bspq21e1.server.jdo.User@820ac54b" (id="es.deusto.bspq21e1.server.jdo.User:dipina") fue ser borrado de la cache transactional
 14:14:25,022 (qtp-559774735-31) DEBUG [DataNucleus.Transaction] - Transacción committed en 14 ms
+16:22:59,506 (qtp-559774735-40) DEBUG [DataNucleus.General] - Using PluginRegistry org.datanucleus.plugin.NonManagedPluginRegistry
+16:22:59,514 (qtp-559774735-40) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus version 5.2.6 at URL file:/C:/Users/olatz/.m2/repository/org/datanucleus/datanucleus-core/5.2.6/datanucleus-core-5.2.6.jar.
+16:22:59,518 (qtp-559774735-40) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/olatz/.m2/repository/org/datanucleus/datanucleus-core/5.2.6/datanucleus-core-5.2.6.jar!/plugin.xml.
+16:22:59,533 (qtp-559774735-40) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.api.jdo version 5.2.5 at URL file:/C:/Users/olatz/.m2/repository/org/datanucleus/datanucleus-api-jdo/5.2.5/datanucleus-api-jdo-5.2.5.jar.
+16:22:59,542 (qtp-559774735-40) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/olatz/.m2/repository/org/datanucleus/datanucleus-api-jdo/5.2.5/datanucleus-api-jdo-5.2.5.jar!/plugin.xml.
+16:22:59,565 (qtp-559774735-40) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.store.rdbms version 5.2.6 at URL file:/C:/Users/olatz/.m2/repository/org/datanucleus/datanucleus-rdbms/5.2.6/datanucleus-rdbms-5.2.6.jar.
+16:22:59,575 (qtp-559774735-40) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/olatz/.m2/repository/org/datanucleus/datanucleus-rdbms/5.2.6/datanucleus-rdbms-5.2.6.jar!/plugin.xml.
+16:22:59,659 (qtp-559774735-40) DEBUG [DataNucleus.General] - Registering bundle org.eclipse.sisu.inject version 0.3.3 at URL file:/C:/Users/olatz/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.3/org.eclipse.sisu.inject-0.3.3.jar.
+16:22:59,672 (qtp-559774735-40) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/olatz/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.3/org.eclipse.sisu.inject-0.3.3.jar!/plugin.xml.
+16:22:59,677 (qtp-559774735-40) INFO  [DataNucleus.Persistence] - Propiedad datanucleus.validateTables desconocida - vamos a ignorarla
+16:22:59,678 (qtp-559774735-40) INFO  [DataNucleus.Persistence] - Propiedad datanucleus.validateConstraints desconocida - vamos a ignorarla
+16:22:59,680 (qtp-559774735-40) INFO  [DataNucleus.Persistence] - Propiedad datanucleus.metadata.validate desconocida - vamos a ignorarla
+16:22:59,681 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - Tipos de Java inicializando ...
+16:22:59,685 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - Soporte para tipos de Java listo : tipos soportados = [B, [C, [D, [F, [I, [J, [Ljava.lang.Boolean;, [Ljava.lang.Byte;, [Ljava.lang.Character;, [Ljava.lang.Double;, [Ljava.lang.Enum;, [Ljava.lang.Float;, [Ljava.lang.Integer;, [Ljava.lang.Long;, [Ljava.lang.Number;, [Ljava.lang.Object;, [Ljava.lang.Short;, [Ljava.lang.String;, [Ljava.math.BigDecimal;, [Ljava.math.BigInteger;, [Ljava.util.Date;, [Ljava.util.Locale;, [S, [Z, boolean, byte, char, double, float, int, java.awt.Color, java.awt.image.BufferedImage, java.lang.Boolean, java.lang.Byte, java.lang.Character, java.lang.Class, java.lang.Double, java.lang.Enum, java.lang.Float, java.lang.Integer, java.lang.Long, java.lang.Number, java.lang.Short, java.lang.String, java.lang.StringBuffer, java.lang.StringBuilder, java.math.BigDecimal, java.math.BigInteger, java.net.URI, java.net.URL, java.sql.Date, java.sql.Time, java.sql.Timestamp, java.time.Duration, java.time.Instant, java.time.LocalDate, java.time.LocalDateTime, java.time.LocalTime, java.time.MonthDay, java.time.OffsetDateTime, java.time.OffsetTime, java.time.Period, java.time.Year, java.time.YearMonth, java.time.ZonedDateTime, java.time.ZoneId, java.time.ZoneOffset, java.util.ArrayList, java.util.Arrays$ArrayList, java.util.BitSet, java.util.Calendar, java.util.Collection, java.util.Currency, java.util.Date, java.util.GregorianCalendar, java.util.HashMap, java.util.HashSet, java.util.Hashtable, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.LinkedList, java.util.List, java.util.Locale, java.util.Map, java.util.Optional, java.util.PriorityQueue, java.util.Properties, java.util.Queue, java.util.Set, java.util.SortedMap, java.util.SortedSet, java.util.Stack, java.util.TimeZone, java.util.TreeMap, java.util.TreeSet, java.util.UUID, java.util.Vector, long, short
+16:22:59,686 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - Inicializando TypeConverters ...
+16:22:59,693 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverters listo
+16:22:59,694 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for byte[] to : java.nio.ByteBuffer
+16:22:59,694 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for char[] to : java.nio.ByteBuffer
+16:22:59,694 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for double[] to : java.nio.ByteBuffer
+16:22:59,694 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for float[] to : java.nio.ByteBuffer
+16:22:59,694 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for int[] to : java.nio.ByteBuffer
+16:22:59,694 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for long[] to : java.nio.ByteBuffer
+16:22:59,694 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigDecimal; to : java.nio.ByteBuffer
+16:22:59,694 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigInteger; to : java.nio.ByteBuffer
+16:22:59,695 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for short[] to : java.nio.ByteBuffer
+16:22:59,695 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for boolean[] to : java.nio.ByteBuffer
+16:22:59,695 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.Color to : java.lang.String,int[]
+16:22:59,695 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.image.BufferedImage to : byte[],java.nio.ByteBuffer
+16:22:59,695 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.io.Serializable to : java.lang.String,byte[],java.nio.ByteBuffer
+16:22:59,695 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Boolean to : java.lang.Character,java.lang.Integer
+16:22:59,695 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Character to : java.lang.String
+16:22:59,695 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Class to : java.lang.String
+16:22:59,696 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Integer to : java.lang.String
+16:22:59,696 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Long to : java.lang.String
+16:22:59,696 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuffer to : java.lang.String
+16:22:59,696 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuilder to : java.lang.String
+16:22:59,696 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigDecimal to : java.lang.Double,java.lang.String
+16:22:59,697 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigInteger to : java.lang.String,java.lang.Long
+16:22:59,697 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URI to : java.lang.String
+16:22:59,697 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URL to : java.lang.String
+16:22:59,697 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Date to : java.lang.String,java.util.Date,java.lang.Long
+16:22:59,697 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Time to : java.lang.String,java.util.Date,java.lang.Long
+16:22:59,697 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Timestamp to : java.lang.String,java.util.Date,java.lang.Long
+16:22:59,697 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Duration to : java.lang.Double,java.lang.String,java.lang.Long
+16:22:59,697 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Instant to : java.sql.Timestamp,java.lang.String,java.util.Date,java.lang.Long
+16:22:59,697 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDate to : java.lang.String,java.util.Date,java.sql.Date
+16:22:59,697 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDateTime to : java.sql.Timestamp,java.lang.String,java.util.Date
+16:22:59,698 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalTime to : java.lang.String,java.util.Date,java.sql.Time,java.lang.Long
+16:22:59,698 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.MonthDay to : java.lang.String,java.util.Date,int[],java.sql.Date
+16:22:59,698 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetDateTime to : java.sql.Timestamp,java.lang.String,java.util.Date
+16:22:59,698 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetTime to : java.lang.String,java.sql.Time,java.lang.Long
+16:22:59,698 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Period to : java.lang.String,int[]
+16:22:59,698 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Year to : java.lang.String,java.lang.Integer
+16:22:59,698 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.YearMonth to : java.lang.String,java.util.Date,int[],java.sql.Date
+16:22:59,698 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZonedDateTime to : java.sql.Timestamp,java.lang.String
+16:22:59,698 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneId to : java.lang.String
+16:22:59,699 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneOffset to : java.lang.String
+16:22:59,699 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.BitSet to : java.lang.String
+16:22:59,699 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Calendar to : java.sql.Timestamp,java.lang.String,java.util.Date,[Ljava.lang.Object;
+16:22:59,700 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Currency to : java.lang.String
+16:22:59,700 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Date to : java.lang.String,java.lang.Long
+16:22:59,700 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Locale to : java.lang.String
+16:22:59,700 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.TimeZone to : java.lang.String
+16:22:59,700 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.UUID to : java.lang.String
+16:22:59,701 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - MetaDataManager : Input=(XML,Annotations), XML-Validation=false, XML-Suffices=(persistence=*.jdo, orm=orm, query=*.jdoquery) mapping-name=mysql, JDO-listener=true
+16:22:59,717 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - Registering listener for metadata initialisation
+16:22:59,717 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - Listener found initialisation for persistable class es.deusto.bspq21e1.server.jdo.User
+16:22:59,722 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.User" en /META-INF/package.jdo
+16:22:59,723 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.User" en /WEB-INF/package.jdo
+16:22:59,724 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.User" en /package.jdo
+16:22:59,725 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.User" en /es/package.jdo
+16:22:59,726 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.User" en /es/deusto/package.jdo
+16:22:59,727 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.User" en /es/deusto/bspq21e1/package.jdo
+16:22:59,728 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.User" en /es/deusto/bspq21e1/server/package.jdo
+16:22:59,730 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.User" en /es/deusto/bspq21e1/server/jdo/package.jdo
+16:22:59,732 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.User" en /es/deusto/bspq21e1/server/jdo/User.jdo
+16:22:59,732 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.User"
+16:22:59,733 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.jdo.User" tiene anotaciones de JDO y vamos a usarlas.
+16:22:59,734 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.jdo.User" : Populando Meta-Data
+16:22:59,735 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.User" en /META-INF/package-mysql.orm
+16:22:59,736 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.User" en /WEB-INF/package-mysql.orm
+16:22:59,738 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.User" en /package-mysql.orm
+16:22:59,740 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.User" en /es/package-mysql.orm
+16:22:59,741 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.User" en /es/deusto/package-mysql.orm
+16:22:59,742 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.User" en /es/deusto/bspq21e1/package-mysql.orm
+16:22:59,743 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.User" en /es/deusto/bspq21e1/server/package-mysql.orm
+16:22:59,744 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.User" en /es/deusto/bspq21e1/server/jdo/package-mysql.orm
+16:22:59,745 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.User" en /es/deusto/bspq21e1/server/jdo/User-mysql.orm
+16:22:59,745 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.User"
+16:22:59,745 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.jdo.User" campo "password" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+16:22:59,748 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /META-INF/package.jdo
+16:22:59,750 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /WEB-INF/package.jdo
+16:22:59,750 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /package.jdo
+16:22:59,751 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /es/package.jdo
+16:22:59,752 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /es/deusto/package.jdo
+16:22:59,754 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /es/deusto/bspq21e1/package.jdo
+16:22:59,755 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /es/deusto/bspq21e1/server/package.jdo
+16:22:59,756 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /es/deusto/bspq21e1/server/jdo/package.jdo
+16:22:59,757 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /es/deusto/bspq21e1/server/jdo/Message.jdo
+16:22:59,757 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.jdo.Message"
+16:22:59,758 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.jdo.Message" tiene anotaciones de JDO y vamos a usarlas.
+16:22:59,758 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.jdo.Message" : Populando Meta-Data
+16:22:59,760 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /META-INF/package-mysql.orm
+16:22:59,761 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /WEB-INF/package-mysql.orm
+16:22:59,762 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /package-mysql.orm
+16:22:59,763 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /es/package-mysql.orm
+16:22:59,770 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /es/deusto/package-mysql.orm
+16:22:59,771 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /es/deusto/bspq21e1/package-mysql.orm
+16:22:59,772 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /es/deusto/bspq21e1/server/package-mysql.orm
+16:22:59,773 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /es/deusto/bspq21e1/server/jdo/package-mysql.orm
+16:22:59,774 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.Message" en /es/deusto/bspq21e1/server/jdo/Message-mysql.orm
+16:22:59,774 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "orm" por la clase "es.deusto.bspq21e1.server.jdo.Message"
+16:22:59,774 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.jdo.Message" campo "user" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+16:22:59,774 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.jdo.Message" campo "text" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+16:22:59,774 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.jdo.Message" campo "timestamp" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+16:22:59,776 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.jdo.Message" : Inicializando Meta-Data
+16:22:59,777 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.jdo.User" : Inicializando Meta-Data
+16:22:59,777 (qtp-559774735-40) DEBUG [DataNucleus.MetaData] - Listener found initialisation for persistable class es.deusto.bspq21e1.server.jdo.Message
+16:22:59,777 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Creating StoreManager for datastore
+16:22:59,781 (qtp-559774735-40) DEBUG [DataNucleus.Connection] - Creado ConnectionPool "tx" con data source de tipo dbcp2-builtin
+16:22:59,781 (qtp-559774735-40) DEBUG [DataNucleus.Connection] - Registrado la factoria de connecciones transaccionales bajo el nombre "rdbms/tx"
+16:22:59,781 (qtp-559774735-40) DEBUG [DataNucleus.Connection] - Registrado la factoria de connecciones nontransaccionales bajo el nombre "rdbms/nontx"
+16:22:59,784 (qtp-559774735-40) DEBUG [DataNucleus.Connection] - Creado ConnectionPool "nontx" con data source de tipo dbcp2-builtin
+16:22:59,842 (qtp-559774735-40) DEBUG [DataNucleus.Connection] - ManagedConnection ABIERTO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@d52899d5 [conn=null, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" en resource "nontx"
+16:22:59,883 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.lang.Integer, jdbc-type=NUMERIC
+16:22:59,883 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.math.BigDecimal, jdbc-type=NUMERIC
+16:22:59,884 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.lang.Long, jdbc-type=NUMERIC
+16:22:59,884 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.math.BigInteger, jdbc-type=NUMERIC
+16:22:59,884 (qtp-559774735-40) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+16:22:59,884 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java org.datanucleus.identity.DatastoreId, jdbc-type=NUMERIC
+16:22:59,884 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.lang.Float, jdbc-type=REAL
+16:22:59,884 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.lang.String, jdbc-type=NVARCHAR
+16:22:59,884 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - No Soportando el tipo RDBMS de Java java.lang.String, jdbc-type=NCHAR
+16:22:59,889 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "[B" con jdbc-types=[BLOB, BINARY, VARBINARY, LONGVARBINARY], sql-types=[BLOB, BINARY, VARBINARY, LONGVARBINARY] y defecto (jdbc-type=LONGVARBINARY, sql-type=LONGVARBINARY)
+16:22:59,892 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.io.File" con jdbc-types=[LONGVARBINARY], sql-types=[LONGVARBINARY] y defecto (jdbc-type=LONGVARBINARY, sql-type=LONGVARBINARY)
+16:22:59,892 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.io.Serializable" con jdbc-types=[BLOB, BINARY, VARBINARY, LONGVARBINARY], sql-types=[BLOB, BINARY, VARBINARY, LONGVARBINARY] y defecto (jdbc-type=LONGVARBINARY, sql-type=LONGVARBINARY)
+16:22:59,893 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Boolean" con jdbc-types=[SMALLINT, CHAR, BIT, BOOLEAN, TINYINT], sql-types=[SMALLINT, CHAR, BIT, BOOLEAN, TINYINT] y defecto (jdbc-type=BIT, sql-type=BIT)
+16:22:59,893 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Byte" con jdbc-types=[SMALLINT, TINYINT], sql-types=[SMALLINT, TINYINT] y defecto (jdbc-type=TINYINT, sql-type=TINYINT)
+16:22:59,893 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Character" con jdbc-types=[CHAR, INTEGER], sql-types=[CHAR, INTEGER] y defecto (jdbc-type=CHAR, sql-type=CHAR)
+16:22:59,893 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Double" con jdbc-types=[DECIMAL, DOUBLE], sql-types=[DECIMAL, DOUBLE] y defecto (jdbc-type=DOUBLE, sql-type=DOUBLE)
+16:22:59,893 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Float" con jdbc-types=[FLOAT, DECIMAL, DOUBLE], sql-types=[FLOAT, DECIMAL, DOUBLE] y defecto (jdbc-type=FLOAT, sql-type=FLOAT)
+16:22:59,893 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Integer" con jdbc-types=[SMALLINT, BIGINT, TINYINT, INTEGER], sql-types=[SMALLINT, BIGINT, TINYINT, INTEGER] y defecto (jdbc-type=INTEGER, sql-type=INTEGER)
+16:22:59,894 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Long" con jdbc-types=[SMALLINT, BIGINT, TINYINT, INTEGER], sql-types=[SMALLINT, BIGINT, INT, TINYINT] y defecto (jdbc-type=BIGINT, sql-type=BIGINT)
+16:22:59,894 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.Short" con jdbc-types=[SMALLINT, TINYINT, INTEGER], sql-types=[SMALLINT, TINYINT, INTEGER] y defecto (jdbc-type=SMALLINT, sql-type=SMALLINT)
+16:22:59,894 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.lang.String" con jdbc-types=[BLOB, LONGVARCHAR, CLOB, VARCHAR, CHAR, BIGINT], sql-types=[BLOB, LONGVARCHAR, CLOB, LONGTEXT, CHAR, BIGINT, TEXT, MEDIUMTEXT, MEDIUMBLOB, VARCHAR, LONGBLOB] y defecto (jdbc-type=VARCHAR, sql-type=VARCHAR)
+16:22:59,894 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.math.BigDecimal" con jdbc-types=[DECIMAL], sql-types=[DECIMAL] y defecto (jdbc-type=DECIMAL, sql-type=DECIMAL)
+16:22:59,894 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.math.BigInteger" con jdbc-types=[<none>], sql-types=[<none>] y defecto (jdbc-type=, sql-type=)
+16:22:59,894 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.sql.Date" con jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, BIGINT], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, BIGINT] y defecto (jdbc-type=DATE, sql-type=DATE)
+16:22:59,894 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.sql.Time" con jdbc-types=[TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT], sql-types=[TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT] y defecto (jdbc-type=TIME, sql-type=TIME)
+16:22:59,895 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.sql.Timestamp" con jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME] y defecto (jdbc-type=TIMESTAMP, sql-type=TIMESTAMP)
+16:22:59,895 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "java.util.Date" con jdbc-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT], sql-types=[DATE, TIMESTAMP, VARCHAR, CHAR, TIME, BIGINT] y defecto (jdbc-type=TIMESTAMP, sql-type=TIMESTAMP)
+16:22:59,895 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Soporte de RDBMS configurado para el tipo "org.datanucleus.identity.DatastoreId" con jdbc-types=[VARCHAR, CHAR, BIGINT, INTEGER], sql-types=[VARCHAR, CHAR, BIGINT, INTEGER] y defecto (jdbc-type=BIGINT, sql-type=BIGINT)
+16:22:59,895 (qtp-559774735-40) DEBUG [DataNucleus.Datastore.Schema] - Vamos a añadir/drop una tabla para determinar el catalogo/esquema para el datasource. Pon "datanucleus.mapping.Catalog"/"datanucleus.mapping.Schema" para evitarlo
+16:22:59,897 (qtp-559774735-40) DEBUG [DataNucleus.Datastore.Schema] - CREATE TABLE `DELETEME1617114179895`
+(
+    `UNUSED` INTEGER NOT NULL
+) ENGINE=INNODB
+16:23:00,015 (qtp-559774735-40) DEBUG [DataNucleus.Datastore.Schema] - SQL Tiempo de cumplir = 118 ms
+16:23:00,034 (qtp-559774735-40) DEBUG [DataNucleus.Datastore.Schema] - No era posible determinar el nombre del esquema por este DataStore
+16:23:00,036 (qtp-559774735-40) DEBUG [DataNucleus.Datastore.Schema] - DROP TABLE `DELETEME1617114179895` CASCADE
+16:23:00,059 (qtp-559774735-40) DEBUG [DataNucleus.Datastore.Schema] - SQL Tiempo de cumplir = 22 ms
+16:23:00,060 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - ======================= Datastore =========================
+16:23:00,060 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - StoreManager : "rdbms" (org.datanucleus.store.rdbms.RDBMSStoreManager)
+16:23:00,060 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Datastore : read-write
+16:23:00,062 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Schema Control : AutoCreate(Tables,Columns,Constraints), Validate(None)
+16:23:00,063 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Schema : NamingFactory=datanucleus2 identifierCase=null
+16:23:00,063 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Query Languages : JDOQL, JPQL, STOREDPROC, SQL
+16:23:00,063 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Queries : Timeout=0
+16:23:00,063 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - ===========================================================
+16:23:00,063 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Datastore Adapter : org.datanucleus.store.rdbms.adapter.MySQLAdapter
+16:23:00,063 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Datastore : name="MySQL" version="8.0.22"
+16:23:00,063 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Datastore Driver : name="MySQL Connector/J" version="mysql-connector-java-8.0.15 (Revision: 79a4336f140499bd22dd07f02b708e163844e3d5)"
+16:23:00,063 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Primary Connection Factory : URL[jdbc:mysql://localhost/messagesDB?verifyServerCertificate=false&useSSL=true&useLegacyDatetimeCode=false&serverTimezone=UTC]
+16:23:00,063 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Secondary Connection Factory : URL[jdbc:mysql://localhost/messagesDB?verifyServerCertificate=false&useSSL=true&useLegacyDatetimeCode=false&serverTimezone=UTC]
+16:23:00,063 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Datastore Identifiers : factory="datanucleus2" case="UPPERCASE" catalog=messagesdb
+16:23:00,063 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Supported Identifier Cases : lowercase "lowercase" "UPPERCASE" 
+16:23:00,063 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Supported Identifier Lengths (max) : Table=64 Column=64 Constraint=64 Index=64 Delimiter=`
+16:23:00,064 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Support for Identifiers in DDL : catalog=true schema=false
+16:23:00,064 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Datastore : rdbmsConstraintCreateMode=DataNucleus, initialiseColumnInfo=ALL, checkTableViewExistence
+16:23:00,064 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Support Statement Batching : yes (max-batch-size=50)
+16:23:00,064 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Queries : Results direction=forward, type=forward-only, concurrency=read-only
+16:23:00,064 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - Java-Types : string-default-length=255
+16:23:00,064 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - JDBC-Types : VARCHAR, LONGVARCHAR, BOOLEAN, BINARY, VARBINARY, LONGVARBINARY, BIGINT, TINYINT, BIT, CHAR, DECIMAL, INTEGER, CLOB, SMALLINT, BLOB, FLOAT, DOUBLE, DATE, TIME, TIMESTAMP
+16:23:00,064 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - ===========================================================
+16:23:00,064 (qtp-559774735-40) DEBUG [DataNucleus.Connection] - ManagedConnection CERRADO : "org.datanucleus.store.rdbms.ConnectionFactoryImpl$ManagedConnectionImpl@d52899d5 [conn=org.datanucleus.store.rdbms.datasource.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper@2ba99542, commitOnRelease=true, closeOnRelease=true, closeOnTxnEnd=true]" 
+16:23:00,064 (qtp-559774735-40) DEBUG [DataNucleus.Datastore] - StoreManager now created
+16:23:00,065 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - Started pool of ExecutionContext (maxPool=20, reaperThread=false)
+16:23:00,065 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - ================= NucleusContext ===============
+16:23:00,065 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - DataNucleus Context : Versión: "5.2.6" con JRE "16" en "Windows 10"
+16:23:00,065 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - Persistence API : JDO
+16:23:00,065 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - Plugin Registry : org.datanucleus.plugin.NonManagedPluginRegistry
+16:23:00,065 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - ClassLoading : default
+16:23:00,065 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - Persistence : pm-singlethreaded, nontransactional-read, nontransactional-write, reachability-at-commit, copy-on-attach, managed-relations(checked), deletion-policy=JDO2, serverTimeZone=Europe/Madrid
+16:23:00,065 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - Transactions : type=RESOURCE_LOCAL, mode=datastore, isolation=read-committed
+16:23:00,065 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - ValueGeneration : txn-isolation=read-committed connection=New
+16:23:00,065 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - Cache : Level1 (soft), Level2 (soft, mode=UNSPECIFIED), QueryResults (soft), Collections/Maps 
+16:23:00,065 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - ================================================
+16:23:00,066 (qtp-559774735-40) DEBUG [DataNucleus.Persistence] - ExecutionContext "org.datanucleus.ExecutionContextImpl@43e1c91a" se abrió para la base de datos "org.datanucleus.store.rdbms.RDBMSStoreManager@b8bf2f36" con transaccion="org.datanucleus.TransactionImpl@e29c2699"
+23:33:05,634 (Finalizer thread) DEBUG [DataNucleus.Persistence] - ExecutionContext "org.datanucleus.ExecutionContextImpl@43e1c91a" se cerró
+23:33:05,642 (Finalizer thread) DEBUG [DataNucleus.Connection] - Cerrando ConnectionPool "tx"
+23:33:05,645 (Finalizer thread) DEBUG [DataNucleus.Connection] - Cerrando ConnectionPool "nontx"
+23:33:06,091 (Finalizer thread) DEBUG [DataNucleus.Persistence] - Desmanejando la persistencia de todas las clases
+23:33:06,092 (Finalizer thread) DEBUG [DataNucleus.MetaData] - Deregistering listener for metadata initialisation
+23:33:06,092 (Finalizer thread) DEBUG [DataNucleus.Cache] - Cache de nivel 2 vaciada.
