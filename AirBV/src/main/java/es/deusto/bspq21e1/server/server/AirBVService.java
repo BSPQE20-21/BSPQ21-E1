@@ -26,6 +26,7 @@ public class AirBVService {
     public boolean cancelReservation(String code) {
         if(reservations.get(code) != null) {
             reservations.remove(code);
+            //TODO falta eliminar de BD
             return true;
         }
         return false;
