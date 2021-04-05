@@ -21,5 +21,9 @@ public class AirBV extends UnicastRemoteObject implements IAirBV {
         return airbvService.registerUser(dni, name, email);
     }
 
+    public boolean cancelReservation(String code) {
+        return airbvService.cancelReservation(code);
+    }
+
 
 }

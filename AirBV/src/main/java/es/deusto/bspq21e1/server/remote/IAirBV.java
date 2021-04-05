@@ -6,4 +6,5 @@ import es.deusto.bspq21e1.server.data.User;
 
 public interface IAirBV extends Remote {
     public User registerUser(String dni, String name, String email);
+    public boolean cancelReservation(String code);
 }
