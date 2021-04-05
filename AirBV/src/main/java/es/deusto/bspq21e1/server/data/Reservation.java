@@ -3,6 +3,9 @@ package es.deusto.bspq21e1.server.data;
 import java.util.Calendar;
 import java.util.Random;
 
+import javax.jdo.annotations.PersistenceCapable;
+
+@PersistenceCapable
 public class Reservation {
     
     private String code;
