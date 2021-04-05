@@ -24,6 +24,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 public class SearchWindow extends JFrame{
 
@@ -35,7 +37,9 @@ public class SearchWindow extends JFrame{
 	
 	private JFrame frame;
 	private JPanel searchPanel;
+	private JPanel visualizePanel;
 	private JLabel lblSearchTitle;
+	private JLabel lblResultsTitle;
 	private JLabel lblLocation;
 	private JLabel lblPickUp;
 	private JLabel lblReturn;
@@ -43,6 +47,8 @@ public class SearchWindow extends JFrame{
 	private JTextField txtPickUp;
 	private JTextField txtReturn;
 	private JSeparator separator;
+	private JList<String> jlVansList;
+	private JScrollPane scrollVans;
 	
 	private javax.swing.DefaultListModel<String> vansList;
 
@@ -121,20 +127,24 @@ public class SearchWindow extends JFrame{
 		separator.setBounds(0, 131, 585, 2);
 		searchPanel.add(separator);
 		
-		JPanel visualizePanel = new JPanel();
+		visualizePanel = new JPanel();
 		visualizePanel.setBounds(0, 133, 586, 128);
 		frame.getContentPane().add(visualizePanel);
 		visualizePanel.setLayout(null);
 		
-		JLabel lblResultsTitle = new JLabel("Results");
+		lblResultsTitle = new JLabel("Results");
 		lblResultsTitle.setBounds(10, 11, 56, 19);
 		lblResultsTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
 		visualizePanel.add(lblResultsTitle);
 		
-		JList jlVansList = new JList();
+		jlVansList = new JList<String>();
 		jlVansList.setBounds(574, 118, -558, -83);
 		jlVansList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		visualizePanel.add(jlVansList);
+		
+		scrollVans = new JScrollPane();
+		scrollVans.setBounds(10, 33, 566, 84);
+		scrollVans.setViewportView(jlVansList);
+		visualizePanel.add(scrollVans);
 	}
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
@@ -143,7 +153,7 @@ public class SearchWindow extends JFrame{
 		vansList.clear();
 		for (int i = 0; i < vans.size(); i++) {
 			VanDTO v = (VanDTO) vans.get(i);
-			vansList.addElement("Van: " + v.getNumber() + " - " + v.getPrice());
+			vansList.addElement("Van: " + v.getBrand() + " " + v.getModel() + " (" + v.getCapacity() + "people) Price: " + v.getPricePerday());
 		}
 		jlVansList.setSelectedIndex(0);
 	}
