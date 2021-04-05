@@ -1,5 +1,8 @@
 package es.deusto.bspq21e1.server.data;
 
+import javax.jdo.annotations.PersistenceCapable;
+
+@PersistenceCapable
 public class Review {
     
     private int number;
