@@ -7,19 +7,20 @@ import es.deusto.bspq21e1.server.data.Van;
 
 public class Assembler {
     
-    public UserDTO assembleUser(User u) {
+    /*public UserDTO assembleUser(User u) {
 
-    }
+    }*/
 
-    public ReservationDTO assembleReservation(Reservation r) {
+	/*public ReservationDTO assembleReservation(Reservation r) {
 
-    }
+    }*/
 
     public VanDTO assembleVan(Van v) {
-
+    	VanDTO vanDTO = new VanDTO(v.getBrand(), v.getModel(), v.getLocation(), v.hasKitchen(), v.hasShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay());
+    	return vanDTO;	
     }
 
-    public ReviewDTO assembleReview(Review re) {
+    /*public ReviewDTO assembleReview(Review re) {
         
     }
 
@@ -37,5 +38,5 @@ public class Assembler {
 
     public Review disassembleReview(ReviewDTO re) {
         
-    }
+    }*/
 }
