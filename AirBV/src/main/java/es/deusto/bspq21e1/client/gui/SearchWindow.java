@@ -12,6 +12,7 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 
 import es.deusto.bspq21e1.client.controller.Controller;
+import es.deusto.bspq21e1.server.dto.VanDTO;
 
 import java.awt.FlowLayout;
 import javax.swing.JPanel;

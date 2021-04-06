@@ -6,6 +6,8 @@ import java.util.List;
 import es.deusto.bspq21e1.client.gui.Window;
 import es.deusto.bspq21e1.client.remote.ServiceLocator;
 
+import es.deusto.bspq21e1.server.dto.VanDTO;
+
 public class Controller {
 
     private ServiceLocator sl;

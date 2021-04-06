@@ -1,5 +1,7 @@
 package es.deusto.bspq21e1.client.remote;
 
+import es.deusto.bspq21e1.server.remote.IAirBV;
+
 public class ServiceLocator {
 
     private IAirBV airBVService;
