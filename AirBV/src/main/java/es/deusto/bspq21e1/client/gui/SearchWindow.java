@@ -154,7 +154,7 @@ public class SearchWindow extends JFrame{
 		vansList.clear();
 		for (int i = 0; i < vans.size(); i++) {
 			VanDTO v = (VanDTO) vans.get(i);
-			vansList.addElement("Van: " + v.getBrand() + " " + v.getModel() + " (" + v.getCapacity() + "people) Price: " + v.getPricePerday());
+			vansList.addElement("Van: " + v.getBrand() + " " + v.getModel() + " (" + v.getCapacity() + "people) Price: " + v.getPricePerDay());
 		}
 		jlVansList.setSelectedIndex(0);
 	}

@@ -16,16 +16,11 @@ public class User {
     private String email;
     private List<Integer> stars;
 
-    @Join
-    @Persistent(mappedBy = "owner", dependentElement = "true")
-    private List<Van> vans;
-
     public User(String dni, String name, String email) {
         this.dni = dni;
         this.name = name;
         this.email = email;
         this.stars = new ArrayList<Integer>();
-        this.vans =  new ArrayList<Van>();
     }
 
     /**
@@ -43,4 +38,38 @@ public class User {
         return average; 
     }
     // Getters and setters
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public List<Integer> getStars() {
+		return stars;
+	}
+
+	public void setStars(List<Integer> stars) {
+		this.stars = stars;
+	}
+
+    
 }
