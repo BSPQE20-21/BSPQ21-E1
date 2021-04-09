@@ -31,7 +31,11 @@ public class Controller {
     }
     
     public void registerUsers(String dni, String name, String email) {
-        
+        try {
+			sl.getAirBVService().registerUser(dni, name, email);
+		} catch (Exception e) {
+    		System.out.println("$ Error registering user: " + e.getMessage());
+		}
     }
 
 

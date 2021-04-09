@@ -24,7 +24,7 @@ public class RegisterUser extends JFrame{
 	private JTextField txtEmail;
 	
 	
-	public RegisterUser() {
+	public RegisterUser(Controller controller) {
 		this.controller = controller;
 		initialize();
 		frame.setVisible(true);
@@ -76,7 +76,14 @@ public class RegisterUser extends JFrame{
 		btnRegister.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 				
+				if(txtId.getText() != "" && txtName.getText() != "" && txtEmail.getText() != "") {
+					controller.registerUsers(txtId.getText(), txtName.getText(), txtEmail.getText());
+				}
+				frame.dispose();
 				
+				RegisterVanWindow registerVanWindow = new RegisterVanWindow(controller);
+				SearchWindow searchWindow = new SearchWindow(controller);
+				//TODO Open the cancellation window
 				
 			}
 		});
