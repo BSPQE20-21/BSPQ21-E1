@@ -7,16 +7,35 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
+
+import es.deusto.bspq21e1.client.controller.Controller;
+
 import javax.swing.JButton;
 
 public class RegisterUser extends JFrame{
+	
+	private static final long serialVersionUID = 1L;
+	private Controller controller;
+	
+	private JFrame frame;
+
 	private JTextField txtId;
 	private JTextField txtName;
 	private JTextField txtEmail;
+	
+	
 	public RegisterUser() {
-		setResizable(false);
-		getContentPane().setLayout(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.controller = controller;
+		initialize();
+		frame.setVisible(true);
+
+	}
+	
+	private void initialize() {
+		frame = new JFrame();
+		frame.setResizable(false);
+		frame.getContentPane().setLayout(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel lblRegisterTitle = new JLabel("Register as a new user");
 		lblRegisterTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
