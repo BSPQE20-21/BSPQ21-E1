@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 
 import es.deusto.bspq21e1.client.controller.Controller;
+import es.deusto.bspq21e1.server.dto.UserDTO;
 
 import javax.swing.JButton;
 
@@ -40,20 +41,20 @@ public class RegisterUser extends JFrame{
 		JLabel lblRegisterTitle = new JLabel("Register as a new user");
 		lblRegisterTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblRegisterTitle.setBounds(127, 11, 177, 28);
-		getContentPane().add(lblRegisterTitle);
+		frame.getContentPane().add(lblRegisterTitle);
 		
 		//JLabels
 		JLabel lblId = new JLabel("Id number");
 		lblId.setBounds(102, 65, 95, 14);
-		getContentPane().add(lblId);
+		frame.getContentPane().add(lblId);
 		
 		JLabel lblName = new JLabel("Name");
 		lblName.setBounds(102, 90, 46, 14);
-		getContentPane().add(lblName);
+		frame.getContentPane().add(lblName);
 		
 		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setBounds(102, 116, 46, 14);
-		getContentPane().add(lblEmail);
+		frame.getContentPane().add(lblEmail);
 		
 		//txtFields
 		txtId = new JTextField();
@@ -81,13 +82,15 @@ public class RegisterUser extends JFrame{
 				}
 				frame.dispose();
 				
-				RegisterVanWindow registerVanWindow = new RegisterVanWindow(controller);
-				SearchWindow searchWindow = new SearchWindow(controller);
-				//TODO Open the cancellation window
+				UserDTO userDTO = new UserDTO(txtId.getText(), txtName.getText(), txtEmail.getText());
+				
+				RegisterVanWindow registerVanWindow = new RegisterVanWindow(controller, userDTO);
+				SearchWindow searchWindow = new SearchWindow(controller, userDTO);
+				CancelReservationWindow cancelReservationWindow = new CancelReservationWindow(controller, userDTO);
 				
 			}
 		});
 		btnRegister.setBounds(161, 166, 89, 23);
-		getContentPane().add(btnRegister);
+		frame.getContentPane().add(btnRegister);
 	}
 }
