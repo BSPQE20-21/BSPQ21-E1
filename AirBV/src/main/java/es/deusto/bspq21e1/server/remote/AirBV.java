@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 import es.deusto.bspq21e1.server.data.User;
+import es.deusto.bspq21e1.server.data.Van;
+import es.deusto.bspq21e1.server.dto.Assembler;
 import es.deusto.bspq21e1.server.dto.VanDTO;
 import es.deusto.bspq21e1.server.server.AirBVService;
 
@@ -23,13 +25,19 @@ public class AirBV extends UnicastRemoteObject implements IAirBV {
         airbvService.registerUser(dni, name, email);
     }
     
-    public void registerVan(VanDTO van) {
-    
+    /**
+     * Transforms VanDTO into Van and uses a method from the Application Service to store a Van
+     * @param vanDTO
+     */
+    public void registerVan(VanDTO vanDTO) {
+    	Assembler as = new Assembler();
+    	
+    	Van van = as.disassembleVan(vanDTO);
+    	airbvService.registerVan(van);
     }
 
     public boolean cancelReservation(String code) {
         return airbvService.cancelReservation(code);
     }
-
 
 }

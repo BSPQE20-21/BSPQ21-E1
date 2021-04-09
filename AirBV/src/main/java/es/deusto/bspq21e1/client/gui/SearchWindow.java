@@ -12,6 +12,7 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 
 import es.deusto.bspq21e1.client.controller.Controller;
+import es.deusto.bspq21e1.server.dto.UserDTO;
 import es.deusto.bspq21e1.server.dto.VanDTO;
 
 import java.awt.FlowLayout;
@@ -56,7 +57,7 @@ public class SearchWindow extends JFrame{
 	/**
 	 * Create the application.
 	 */
-	public SearchWindow(Controller controller) {
+	public SearchWindow(Controller controller, UserDTO user) {
 		this.controller = controller;
 		frame.setVisible(true);
 		jlVansList.setModel(vansList);

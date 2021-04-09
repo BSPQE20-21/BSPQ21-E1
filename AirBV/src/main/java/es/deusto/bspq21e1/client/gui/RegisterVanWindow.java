@@ -11,6 +11,8 @@ import javax.swing.JSpinner;
 import javax.swing.JRadioButton;
 
 import es.deusto.bspq21e1.client.controller.Controller;
+import es.deusto.bspq21e1.server.dto.UserDTO;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -59,7 +61,7 @@ public class RegisterVanWindow extends JFrame{
 	/**
 	 * Create the application.
 	 */
-	public RegisterVanWindow(Controller controller) {
+	public RegisterVanWindow(Controller controller, UserDTO user) {
 		this.controller = controller;
 		initialize();
 		frame.setVisible(true);
