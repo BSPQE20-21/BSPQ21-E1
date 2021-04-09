@@ -18,8 +18,8 @@ public class AirBV extends UnicastRemoteObject implements IAirBV {
     }
 
     // Here will go the methods
-    public User registerUser(String dni, String name, String email) {
-        return airbvService.registerUser(dni, name, email);
+    public void registerUser(String dni, String name, String email) {
+        airbvService.registerUser(dni, name, email);
     }
 
     public boolean cancelReservation(String code) {
