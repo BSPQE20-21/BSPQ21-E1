@@ -5,9 +5,10 @@ import java.util.List;
 
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
 public class Van {
-    
+    @PrimaryKey
     private String licensePlate;
     private String brand;
     private String model;

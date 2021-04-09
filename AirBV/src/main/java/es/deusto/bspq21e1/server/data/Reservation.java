@@ -1,32 +1,68 @@
 package es.deusto.bspq21e1.server.data;
 
-import java.util.Calendar;
-import java.util.Random;
+import java.util.Date;
 
+import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 public class Reservation {
-    
+	// Primary key is generated as AUTOINCREMENT.
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
     private String code;
-    private Calendar bookingDate;
+    private Date bookingDate;
     private int duration;
     
     private Van van;
     private User vanRenter;
 
-    public Reservation(int duration) {
-        Random rnd = new Random();
-        String c = "";
-        for (int i = 0; i < 10; i++) {
-            c += (char)(rnd.nextInt(91) + 65);
-        }
-        this.code = c;
-        // Date?
+    public Reservation(Date bookingDate, int duration, Van van, User vanRenter) {
+    	this.bookingDate = bookingDate;
         this.duration = duration;
         this.van = van;
         this.vanRenter = vanRenter;
     }
 
-    // Getters and setters
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public Date getBookingDate() {
+		return bookingDate;
+	}
+
+	public void setBookingDate(Date bookingDate) {
+		this.bookingDate = bookingDate;
+	}
+
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	public Van getVan() {
+		return van;
+	}
+
+	public void setVan(Van van) {
+		this.van = van;
+	}
+
+	public User getVanRenter() {
+		return vanRenter;
+	}
+
+	public void setVanRenter(User vanRenter) {
+		this.vanRenter = vanRenter;
+	}
 }

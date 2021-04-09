@@ -5,11 +5,12 @@ import java.util.List;
 
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.annotations.Join;
 
 @PersistenceCapable
 public class User {
-    
+    @PrimaryKey
     private String dni;
     private String name;
     private String email;
