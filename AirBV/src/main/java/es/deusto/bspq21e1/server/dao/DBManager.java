@@ -1,9 +1,7 @@
 package es.deusto.bspq21e1.server.dao;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
-import javax.jdo.Extent;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
@@ -13,6 +11,8 @@ import es.deusto.bspq21e1.server.data.Reservation;
 import es.deusto.bspq21e1.server.data.Review;
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
+
+
 
 /**
  * Singleton DBManager class.
@@ -60,7 +60,7 @@ public class DBManager {
 	 * Stores a review in the DB (makes the object persistent).
 	 * @param review
 	 */
-	public void store(Review review ) {
+	public void store( Review review ) {
 		this.storeObject( review );
 	}
 
@@ -159,9 +159,11 @@ public class DBManager {
 	}
 	
 	public static void main(String[] args) {
-		User u1 = new User("22", "Iñigo", "imarcosenciso@opendeusto.es");
+		
+		User u1 = new User("22", "Iñigo", "imarcosenciso@opendeusto.es");		
 		instance = getInstance();
 		instance.store(u1);
+		
 		
 		Van v1 = new Van("123ABC", "Ferrari", "F5", "Bilbao", true, true, true, 1, 222.22, u1);
 		instance.store(v1);

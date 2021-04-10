@@ -1,32 +1,24 @@
 package es.deusto.bspq21e1.client.gui;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import javax.swing.JTextField;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
 
 import es.deusto.bspq21e1.client.controller.Controller;
-import es.deusto.bspq21e1.server.dto.VanDTO;
 
-import java.awt.FlowLayout;
 import javax.swing.JPanel;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
-import javax.swing.JFormattedTextField;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.rmi.Naming;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
+
 
 public class SearchWindow extends JFrame{
 
@@ -36,7 +28,7 @@ public class SearchWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
 	
-	private JFrame frame;
+	private JFrame frmSearchVans = new JFrame();;
 	private JPanel searchPanel;
 	private JPanel visualizePanel;
 	private JLabel lblSearchTitle;
@@ -48,18 +40,19 @@ public class SearchWindow extends JFrame{
 	private JTextField txtPickUp;
 	private JTextField txtReturn;
 	private JSeparator separator;
-	private JList<String> jlVansList;
+	private JList<String> jlVansList = new JList<String>();
 	private JScrollPane scrollVans;
 	
-	private javax.swing.DefaultListModel<String> vansList;
+	private javax.swing.DefaultListModel<String> vansList = new javax.swing.DefaultListModel<String>();
 
 	/**
 	 * Create the application.
 	 */
-	public SearchWindow(Controller controller) {
+	public SearchWindow(Controller controller, UserDTO user) {
 		this.controller = controller;
-		frame.setVisible(true);
-		jlVansList.setModel(vansList);
+		frmSearchVans.setTitle("Search vans");
+		frmSearchVans.setResizable(false);
+		frmSearchVans.setVisible(true);
 		initialize();
 	}
 
@@ -67,42 +60,44 @@ public class SearchWindow extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 602, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmSearchVans.setBounds(100, 100, 668, 353);
+		frmSearchVans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmSearchVans.getContentPane().setLayout(null);
 		
 		searchPanel = new JPanel();
-		searchPanel.setBounds(0, 0, 585, 133);
-		frame.getContentPane().add(searchPanel);
+		searchPanel.setBounds(0, 0, 662, 140);
+		frmSearchVans.getContentPane().add(searchPanel);
 		searchPanel.setLayout(null);
 		
 		lblLocation = new JLabel("Location");
-		lblLocation.setBounds(10, 61, 40, 14);
+		lblLocation.setBounds(10, 61, 63, 14);
 		searchPanel.add(lblLocation);
 		
 		lblPickUp = new JLabel("Pick up date");
-		lblPickUp.setBounds(190, 61, 58, 14);
+		lblPickUp.setBounds(213, 61, 79, 14);
 		searchPanel.add(lblPickUp);
 		
 		lblReturn = new JLabel("Return date");
-		lblReturn.setBounds(388, 61, 58, 14);
+		lblReturn.setBounds(433, 61, 80, 14);
 		searchPanel.add(lblReturn);
 		
 		txtLocation = new JTextField();
-		txtLocation.setBounds(60, 58, 120, 20);
+		txtLocation.setBounds(70, 58, 133, 20);
 		searchPanel.add(txtLocation);
+		txtLocation.updateUI();
 		txtLocation.setToolTipText("\"Bilbao\", \"Madrid\" ...");
 		txtLocation.setColumns(10);
 		
 		txtPickUp = new JTextField();
-		txtPickUp.setBounds(258, 58, 120, 20);
+		txtPickUp.setBounds(289, 58, 133, 20);
 		searchPanel.add(txtPickUp);
+		txtPickUp.updateUI();
 		txtPickUp.setColumns(10);
 		
 		txtReturn = new JTextField();
-		txtReturn.setBounds(456, 58, 120, 20);
+		txtReturn.setBounds(510, 58, 133, 20);
 		searchPanel.add(txtReturn);
+		txtReturn.updateUI();
 		txtReturn.setColumns(10);
 		
 		JButton btnSearch = new JButton("Search");
@@ -116,36 +111,46 @@ public class SearchWindow extends JFrame{
 			}
 		});
 		btnSearch.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		btnSearch.setBounds(236, 99, 89, 23);
+		btnSearch.setBounds(275, 109, 87, 20);
 		searchPanel.add(btnSearch);
+		btnSearch.updateUI();
 		
 		lblSearchTitle = new JLabel("Search for your perfect van");
 		lblSearchTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblSearchTitle.setBounds(10, 11, 368, 30);
+		lblSearchTitle.setBounds(10, 11, 320, 34);
 		searchPanel.add(lblSearchTitle);
-		
-		separator = new JSeparator();
-		separator.setBounds(0, 131, 585, 2);
-		searchPanel.add(separator);
+		lblSearchTitle.updateUI();
 		
 		visualizePanel = new JPanel();
-		visualizePanel.setBounds(0, 133, 586, 128);
-		frame.getContentPane().add(visualizePanel);
+		visualizePanel.setBounds(0, 144, 662, 169);
+		frmSearchVans.getContentPane().add(visualizePanel);
 		visualizePanel.setLayout(null);
 		
 		lblResultsTitle = new JLabel("Results");
-		lblResultsTitle.setBounds(10, 11, 56, 19);
+		lblResultsTitle.setBounds(10, 11, 148, 29);
 		lblResultsTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
 		visualizePanel.add(lblResultsTitle);
+		lblResultsTitle.updateUI();
 		
-		jlVansList = new JList<String>();
 		jlVansList.setBounds(574, 118, -558, -83);
+		jlVansList.setModel(vansList);
 		jlVansList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		scrollVans = new JScrollPane();
-		scrollVans.setBounds(10, 33, 566, 84);
+		scrollVans.setBounds(10, 40, 633, 84);
 		scrollVans.setViewportView(jlVansList);
 		visualizePanel.add(scrollVans);
+		
+		JButton btnBook = new JButton("Book");
+		btnBook.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		btnBook.setBounds(275, 138, 87, 20);
+		visualizePanel.add(btnBook);
+		btnBook.updateUI();
+		
+		separator = new JSeparator();
+		separator.setBounds(0, 142, 662, 160);
+		frmSearchVans.getContentPane().add(separator);
+		separator.updateUI();
 	}
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
@@ -154,7 +159,7 @@ public class SearchWindow extends JFrame{
 		vansList.clear();
 		for (int i = 0; i < vans.size(); i++) {
 			VanDTO v = (VanDTO) vans.get(i);
-			vansList.addElement("Van: " + v.getBrand() + " " + v.getModel() + " (" + v.getCapacity() + "people) Price: " + v.getPricePerday());
+			vansList.addElement("Van: " + v.getBrand() + " " + v.getModel() + " (" + v.getCapacity() + "people) Price: " + v.getPricePerDay());
 		}
 		jlVansList.setSelectedIndex(0);
 	}
