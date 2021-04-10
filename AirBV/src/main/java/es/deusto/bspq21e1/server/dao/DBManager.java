@@ -1,11 +1,13 @@
 package es.deusto.bspq21e1.server.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
+import javax.jdo.Query;
 
 import es.deusto.bspq21e1.server.data.Reservation;
 import es.deusto.bspq21e1.server.data.Review;
@@ -81,8 +83,8 @@ public class DBManager {
 			System.out.println("   * Storing an object: " + object);
 			pm.makePersistent(object);
 			tx.commit();
-		} catch (Exception ex) {
-			System.out.println("   $ Error storing an object: " + ex.getMessage());
+		} catch (Exception e) {
+			System.out.println("   $ Error storing an object: " + e.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -91,8 +93,41 @@ public class DBManager {
 		}
 	}
 
-	
-	
+	/**
+	 * Method that finds and returns all of the reservations given a user.
+	 * @param vanRenter to retrieve the reservations from
+	 * @return an ArrayList with all of the user's reservations  
+	 */
+	@SuppressWarnings("unchecked")
+	public ArrayList<Reservation> getAllReservations( User vanRenter ) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = null;
+		
+		ArrayList<Reservation> listOfReservations = new ArrayList<>();
+		try {
+			System.out.println("   * Retrieving all reservations from van renter " + vanRenter.getName());
+			pm.getFetchPlan().setMaxFetchDepth(2);
+			tx = pm.currentTransaction();
+			tx.begin();
+			
+			Query<Reservation> query = pm.newQuery(Reservation.class);
+			query.setFilter("vanRenter== '" + vanRenter + "'"); // TODO: comprobar que poner un objeto como filtro funcione...
+			query.setOrdering("bookingDate descending");
+			
+			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
+			listOfReservations = (ArrayList<Reservation>)query.execute();
+
+		} catch (Exception e) {
+			System.out.println("   $ Error retrieving reservations from van renter: " + e.getMessage() );
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}	
+			pm.close();
+		}
+		
+		return listOfReservations;
+	}
 	
 	/**
 	 * Method for debugging.
@@ -114,8 +149,8 @@ public class DBManager {
 //			}
 			pm.getExtent(User.class, true).iterator().forEachRemaining(usersList::add); // Apparently faster.
 			tx.commit();
-		} catch (Exception ex) {
-			System.out.println("   $ Error retrieving all Users: " + ex.getMessage());
+		} catch (Exception e) {
+			System.out.println("   $ Error retrieving all Users: " + e.getMessage());
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();
@@ -146,8 +181,8 @@ public class DBManager {
 //			}
 			pm.getExtent(Van.class, true).iterator().forEachRemaining(vanList::add); // Apparently faster.
 			tx.commit();
-		} catch (Exception ex) {
-			System.out.println("   $ Error retrieving all Vans: " + ex.getMessage());
+		} catch (Exception e) {
+			System.out.println("   $ Error retrieving all Vans: " + e.getMessage());
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();
@@ -159,6 +194,9 @@ public class DBManager {
 	}
 	
 	public static void main(String[] args) {
+		
+		/* IMPORTANT!!
+		 * PROYECT NEEDS TO BE COMPILED IN MAVEN IN ORDER FOR OBJECT PERSISTANCE TO WORK!! */
 		
 		User u1 = new User("22", "Iñigo", "imarcosenciso@opendeusto.es");		
 		instance = getInstance();
