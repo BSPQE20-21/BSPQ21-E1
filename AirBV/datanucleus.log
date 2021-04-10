@@ -7590,3 +7590,933 @@
 13:00:58,635 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (Persistable) : es.deusto.bspq21e1.server.data.User
 13:00:58,635 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.bspq21e1.server.data.User" ha terminado
 13:00:58,635 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer ha terminado con exito para 3 clases. Tiempos : input=137 ms, enhance=18 ms, total=155 ms. Compruebe el LOG para los detalles
+13:39:40,957 (main) DEBUG [DataNucleus.General] - Using PluginRegistry org.datanucleus.plugin.NonManagedPluginRegistry
+13:39:40,986 (main) DEBUG [DataNucleus.General] - Registering bundle org.sonatype.inject version 2.3.0 at URL file:/C:/Users/amaia/.m2/repository/org/sonatype/sisu/sisu-inject-bean/2.3.0/sisu-inject-bean-2.3.0.jar.
+13:39:41,021 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/amaia/.m2/repository/org/sonatype/sisu/sisu-inject-bean/2.3.0/sisu-inject-bean-2.3.0.jar!/plugin.xml.
+13:39:41,025 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus version 5.2.6 at URL file:/C:/Users/amaia/.m2/repository/org/datanucleus/datanucleus-core/5.2.6/datanucleus-core-5.2.6.jar.
+13:39:41,031 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/amaia/.m2/repository/org/datanucleus/datanucleus-core/5.2.6/datanucleus-core-5.2.6.jar!/plugin.xml.
+13:39:41,044 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.api.jdo version 5.2.5 at URL file:/C:/Users/amaia/.m2/repository/org/datanucleus/datanucleus-api-jdo/5.2.5/datanucleus-api-jdo-5.2.5.jar.
+13:39:41,052 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/amaia/.m2/repository/org/datanucleus/datanucleus-api-jdo/5.2.5/datanucleus-api-jdo-5.2.5.jar!/plugin.xml.
+13:39:41,054 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.store.rdbms version 5.2.6 at URL file:/C:/Users/amaia/.m2/repository/org/datanucleus/datanucleus-rdbms/5.2.6/datanucleus-rdbms-5.2.6.jar.
+13:39:41,059 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/amaia/.m2/repository/org/datanucleus/datanucleus-rdbms/5.2.6/datanucleus-rdbms-5.2.6.jar!/plugin.xml.
+13:39:41,092 (main) DEBUG [DataNucleus.Persistence] - Tipos de Java inicializando ...
+13:39:41,150 (main) DEBUG [DataNucleus.Persistence] - Soporte para tipos de Java listo : tipos soportados = [B, [C, [D, [F, [I, [J, [Ljava.lang.Boolean;, [Ljava.lang.Byte;, [Ljava.lang.Character;, [Ljava.lang.Double;, [Ljava.lang.Enum;, [Ljava.lang.Float;, [Ljava.lang.Integer;, [Ljava.lang.Long;, [Ljava.lang.Number;, [Ljava.lang.Object;, [Ljava.lang.Short;, [Ljava.lang.String;, [Ljava.math.BigDecimal;, [Ljava.math.BigInteger;, [Ljava.util.Date;, [Ljava.util.Locale;, [S, [Z, boolean, byte, char, double, float, int, java.awt.Color, java.awt.image.BufferedImage, java.lang.Boolean, java.lang.Byte, java.lang.Character, java.lang.Class, java.lang.Double, java.lang.Enum, java.lang.Float, java.lang.Integer, java.lang.Long, java.lang.Number, java.lang.Short, java.lang.String, java.lang.StringBuffer, java.lang.StringBuilder, java.math.BigDecimal, java.math.BigInteger, java.net.URI, java.net.URL, java.sql.Date, java.sql.Time, java.sql.Timestamp, java.time.Duration, java.time.Instant, java.time.LocalDate, java.time.LocalDateTime, java.time.LocalTime, java.time.MonthDay, java.time.OffsetDateTime, java.time.OffsetTime, java.time.Period, java.time.Year, java.time.YearMonth, java.time.ZonedDateTime, java.time.ZoneId, java.time.ZoneOffset, java.util.ArrayList, java.util.Arrays$ArrayList, java.util.BitSet, java.util.Calendar, java.util.Collection, java.util.Currency, java.util.Date, java.util.GregorianCalendar, java.util.HashMap, java.util.HashSet, java.util.Hashtable, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.LinkedList, java.util.List, java.util.Locale, java.util.Map, java.util.Optional, java.util.PriorityQueue, java.util.Properties, java.util.Queue, java.util.Set, java.util.SortedMap, java.util.SortedSet, java.util.Stack, java.util.TimeZone, java.util.TreeMap, java.util.TreeSet, java.util.UUID, java.util.Vector, long, short
+13:39:41,151 (main) DEBUG [DataNucleus.Persistence] - Inicializando TypeConverters ...
+13:39:41,183 (main) DEBUG [DataNucleus.Persistence] - TypeConverters listo
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for byte[] to : java.nio.ByteBuffer
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for char[] to : java.nio.ByteBuffer
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for double[] to : java.nio.ByteBuffer
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for float[] to : java.nio.ByteBuffer
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for int[] to : java.nio.ByteBuffer
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for long[] to : java.nio.ByteBuffer
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigDecimal; to : java.nio.ByteBuffer
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigInteger; to : java.nio.ByteBuffer
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for short[] to : java.nio.ByteBuffer
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for boolean[] to : java.nio.ByteBuffer
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.Color to : java.lang.String,int[]
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.image.BufferedImage to : byte[],java.nio.ByteBuffer
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.io.Serializable to : java.lang.String,byte[],java.nio.ByteBuffer
+13:39:41,184 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Boolean to : java.lang.Integer,java.lang.Character
+13:39:41,185 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Character to : java.lang.String
+13:39:41,185 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Class to : java.lang.String
+13:39:41,185 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Integer to : java.lang.String
+13:39:41,185 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Long to : java.lang.String
+13:39:41,185 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuffer to : java.lang.String
+13:39:41,185 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuilder to : java.lang.String
+13:39:41,185 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigDecimal to : java.lang.String,java.lang.Double
+13:39:41,185 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigInteger to : java.lang.String,java.lang.Long
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URI to : java.lang.String
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URL to : java.lang.String
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Date to : java.lang.String,java.lang.Long,java.util.Date
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Time to : java.lang.String,java.lang.Long,java.util.Date
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Timestamp to : java.lang.String,java.lang.Long,java.util.Date
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Duration to : java.lang.String,java.lang.Long,java.lang.Double
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Instant to : java.lang.String,java.lang.Long,java.util.Date,java.sql.Timestamp
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDate to : java.lang.String,java.sql.Date,java.util.Date
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDateTime to : java.lang.String,java.util.Date,java.sql.Timestamp
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalTime to : java.lang.String,java.sql.Time,java.lang.Long,java.util.Date
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.MonthDay to : java.lang.String,int[],java.sql.Date,java.util.Date
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetDateTime to : java.lang.String,java.util.Date,java.sql.Timestamp
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetTime to : java.lang.String,java.sql.Time,java.lang.Long
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Period to : java.lang.String,int[]
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Year to : java.lang.String,java.lang.Integer
+13:39:41,186 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.YearMonth to : java.lang.String,int[],java.sql.Date,java.util.Date
+13:39:41,187 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZonedDateTime to : java.lang.String,java.sql.Timestamp
+13:39:41,187 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneId to : java.lang.String
+13:39:41,187 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneOffset to : java.lang.String
+13:39:41,187 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.BitSet to : java.lang.String
+13:39:41,187 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Calendar to : java.lang.String,[Ljava.lang.Object;,java.util.Date,java.sql.Timestamp
+13:39:41,187 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Currency to : java.lang.String
+13:39:41,187 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Date to : java.lang.String,java.lang.Long
+13:39:41,187 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Locale to : java.lang.String
+13:39:41,187 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.TimeZone to : java.lang.String
+13:39:41,187 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.UUID to : java.lang.String
+13:39:41,189 (main) DEBUG [DataNucleus.MetaData] - MetaDataManager : Input=(XML,Annotations), XML-Validation=false, XML-Suffices=(persistence=*.jdo, orm=orm, query=*.jdoquery), JDO-listener=false
+13:39:41,189 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (versión 5.2.6) para el API "JDO" utilisando el JRE "{2}"
+13:39:41,190 (main) DEBUG [DataNucleus.Enhancer] - DataNucleus Enhancer : Classpath
+13:39:41,190 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\datanucleus\datanucleus-maven-plugin\5.0.2\datanucleus-maven-plugin-5.0.2.jar
+13:39:41,190 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\codehaus\plexus\plexus-utils\3.0.8\plexus-utils-3.0.8.jar
+13:39:41,190 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\apache\maven\maven-artifact\3.0.4\maven-artifact-3.0.4.jar
+13:39:41,190 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\apache\maven\maven-plugin-api\3.0.4\maven-plugin-api-3.0.4.jar
+13:39:41,190 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\apache\maven\maven-model\3.0.4\maven-model-3.0.4.jar
+13:39:41,190 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\sonatype\sisu\sisu-inject-plexus\2.3.0\sisu-inject-plexus-2.3.0.jar
+13:39:41,191 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\codehaus\plexus\plexus-component-annotations\1.5.5\plexus-component-annotations-1.5.5.jar
+13:39:41,191 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\sonatype\sisu\sisu-inject-bean\2.3.0\sisu-inject-bean-2.3.0.jar
+13:39:41,191 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\sonatype\sisu\sisu-guice\3.1.0\sisu-guice-3.1.0-no_aop.jar
+13:39:41,191 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\sonatype\sisu\sisu-guava\0.9.9\sisu-guava-0.9.9.jar
+13:39:41,191 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\codehaus\plexus\plexus-container-default\1.5.5\plexus-container-default-1.5.5.jar
+13:39:41,191 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\codehaus\plexus\plexus-classworlds\2.2.2\plexus-classworlds-2.2.2.jar
+13:39:41,191 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\apache\xbean\xbean-reflect\3.4\xbean-reflect-3.4.jar
+13:39:41,191 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\log4j\log4j\1.2.12\log4j-1.2.12.jar
+13:39:41,191 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\commons-logging\commons-logging-api\1.1\commons-logging-api-1.1.jar
+13:39:41,192 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\google\collections\google-collections\1.0\google-collections-1.0.jar
+13:39:41,192 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\junit\junit\3.8.2\junit-3.8.2.jar
+13:39:41,192 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\Documents\TMP\Uni\Ingenieria informatica\3º\2º cuatri\SPQ\BSPQ21-E1\AirBV\target\classes
+13:39:41,192 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\datanucleus\datanucleus-core\5.2.6\datanucleus-core-5.2.6.jar
+13:39:41,192 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\datanucleus\datanucleus-api-jdo\5.2.5\datanucleus-api-jdo-5.2.5.jar
+13:39:41,192 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\datanucleus\datanucleus-rdbms\5.2.6\datanucleus-rdbms-5.2.6.jar
+13:39:41,192 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\datanucleus\javax.jdo\3.2.0-m13\javax.jdo-3.2.0-m13.jar
+13:39:41,192 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\javax\transaction\transaction-api\1.1\transaction-api-1.1.jar
+13:39:41,192 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\mysql\mysql-connector-java\8.0.15\mysql-connector-java-8.0.15.jar
+13:39:41,193 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\google\protobuf\protobuf-java\3.6.1\protobuf-java-3.6.1.jar
+13:39:41,193 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\core\jersey-server\2.29\jersey-server-2.29.jar
+13:39:41,193 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\core\jersey-client\2.29\jersey-client-2.29.jar
+13:39:41,193 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\jakarta\ws\rs\jakarta.ws.rs-api\2.1.5\jakarta.ws.rs-api-2.1.5.jar
+13:39:41,193 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\media\jersey-media-jaxb\2.29\jersey-media-jaxb-2.29.jar
+13:39:41,193 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.4\jakarta.annotation-api-1.3.4.jar
+13:39:41,193 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\hk2\external\jakarta.inject\2.5.0\jakarta.inject-2.5.0.jar
+13:39:41,193 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\javax\validation\validation-api\2.0.1.Final\validation-api-2.0.1.Final.jar
+13:39:41,193 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.2\jakarta.xml.bind-api-2.3.2.jar
+13:39:41,193 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.1\jakarta.activation-api-1.2.1.jar
+13:39:41,193 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\containers\jersey-container-servlet\2.29\jersey-container-servlet-2.29.jar
+13:39:41,194 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\containers\jersey-container-servlet-core\2.29\jersey-container-servlet-core-2.29.jar
+13:39:41,194 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\core\jersey-common\2.29\jersey-common-2.29.jar
+13:39:41,194 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\hk2\osgi-resource-locator\1.0.3\osgi-resource-locator-1.0.3.jar
+13:39:41,194 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\sun\activation\jakarta.activation\1.2.1\jakarta.activation-1.2.1.jar
+13:39:41,194 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\inject\jersey-hk2\2.29\jersey-hk2-2.29.jar
+13:39:41,194 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\hk2\hk2-locator\2.5.0\hk2-locator-2.5.0.jar
+13:39:41,195 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\hk2\external\aopalliance-repackaged\2.5.0\aopalliance-repackaged-2.5.0.jar
+13:39:41,195 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\hk2\hk2-api\2.5.0\hk2-api-2.5.0.jar
+13:39:41,195 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\hk2\hk2-utils\2.5.0\hk2-utils-2.5.0.jar
+13:39:41,195 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\javassist\javassist\3.22.0-CR2\javassist-3.22.0-CR2.jar
+13:39:41,195 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\media\jersey-media-json-jackson\2.29\jersey-media-json-jackson-2.29.jar
+13:39:41,195 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\ext\jersey-entity-filtering\2.29\jersey-entity-filtering-2.29.jar
+13:39:41,195 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.9.9\jackson-annotations-2.9.9.jar
+13:39:41,195 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.9.9\jackson-databind-2.9.9.jar
+13:39:41,195 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.9.9\jackson-core-2.9.9.jar
+13:39:41,195 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\fasterxml\jackson\module\jackson-module-jaxb-annotations\2.9.9\jackson-module-jaxb-annotations-2.9.9.jar
+13:39:41,195 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar
+13:39:41,195 (main) DEBUG [DataNucleus.Enhancer] - Reading fileListFile: C:\Users\amaia\AppData\Local\Temp\enhancer-5244580136214060123.flf
+13:39:41,197 (main) DEBUG [DataNucleus.Enhancer] - Enhancing classes
+13:39:41,223 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata de las clases "[es.deusto.bspq21e1.client.controller.Controller, es.deusto.bspq21e1.client.gui.CancelReservationWindow, es.deusto.bspq21e1.client.gui.InitialWindow$1, es.deusto.bspq21e1.client.gui.InitialWindow$2, es.deusto.bspq21e1.client.gui.InitialWindow, es.deusto.bspq21e1.client.gui.RegisterUser$1, es.deusto.bspq21e1.client.gui.RegisterUser, es.deusto.bspq21e1.client.gui.RegisterVanWindow, es.deusto.bspq21e1.client.gui.SearchWindow$1, es.deusto.bspq21e1.client.gui.SearchWindow, es.deusto.bspq21e1.client.remote.ServiceLocator, es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem, es.deusto.bspq21e1.paymentServer.remote.PaymentSystem, es.deusto.bspq21e1.paymentServer.server.PaymentServer, es.deusto.bspq21e1.server.dao.DBManager, es.deusto.bspq21e1.server.data.Reservation, es.deusto.bspq21e1.server.data.Review, es.deusto.bspq21e1.server.data.User, es.deusto.bspq21e1.server.data.Van, es.deusto.bspq21e1.server.dto.Assembler, es.deusto.bspq21e1.server.dto.ReservationDTO, es.deusto.bspq21e1.server.dto.ReviewDTO, es.deusto.bspq21e1.server.dto.UserDTO, es.deusto.bspq21e1.server.dto.VanDTO, es.deusto.bspq21e1.server.gateway.GatewayToPayment, es.deusto.bspq21e1.server.remote.AirBV, es.deusto.bspq21e1.server.remote.IAirBV, es.deusto.bspq21e1.server.server.AirBVServer, es.deusto.bspq21e1.server.server.AirBVService]" ...
+13:39:41,226 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /META-INF/package.jdo
+13:39:41,227 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /WEB-INF/package.jdo
+13:39:41,227 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /package.jdo
+13:39:41,227 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /es/package.jdo
+13:39:41,228 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /es/deusto/package.jdo
+13:39:41,228 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /es/deusto/bspq21e1/package.jdo
+13:39:41,228 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /es/deusto/bspq21e1/client/package.jdo
+13:39:41,228 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /es/deusto/bspq21e1/client/controller/package.jdo
+13:39:41,229 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /es/deusto/bspq21e1/client/controller/Controller.jdo
+13:39:41,229 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller"
+13:39:41,229 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.controller.Controller" no tener Meta-Data
+13:39:41,229 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.controller.Controller" no tiene MetaData o annotaciones.
+13:39:41,244 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /META-INF/package.jdo
+13:39:41,244 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /WEB-INF/package.jdo
+13:39:41,244 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /package.jdo
+13:39:41,245 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /es/package.jdo
+13:39:41,245 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /es/deusto/package.jdo
+13:39:41,245 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /es/deusto/bspq21e1/package.jdo
+13:39:41,245 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /es/deusto/bspq21e1/client/package.jdo
+13:39:41,246 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:39:41,246 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /es/deusto/bspq21e1/client/gui/CancelReservationWindow.jdo
+13:39:41,246 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow"
+13:39:41,246 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" no tener Meta-Data
+13:39:41,246 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" no tiene MetaData o annotaciones.
+13:39:41,247 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /META-INF/package.jdo
+13:39:41,247 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /WEB-INF/package.jdo
+13:39:41,247 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /package.jdo
+13:39:41,247 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /es/package.jdo
+13:39:41,248 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /es/deusto/package.jdo
+13:39:41,248 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /es/deusto/bspq21e1/package.jdo
+13:39:41,248 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /es/deusto/bspq21e1/client/package.jdo
+13:39:41,248 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:39:41,248 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /es/deusto/bspq21e1/client/gui/InitialWindow$1.jdo
+13:39:41,249 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1"
+13:39:41,249 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" no tener Meta-Data
+13:39:41,249 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" no tiene MetaData o annotaciones.
+13:39:41,249 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /META-INF/package.jdo
+13:39:41,250 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /WEB-INF/package.jdo
+13:39:41,250 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /package.jdo
+13:39:41,250 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /es/package.jdo
+13:39:41,250 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /es/deusto/package.jdo
+13:39:41,250 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /es/deusto/bspq21e1/package.jdo
+13:39:41,251 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /es/deusto/bspq21e1/client/package.jdo
+13:39:41,251 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:39:41,251 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /es/deusto/bspq21e1/client/gui/InitialWindow$2.jdo
+13:39:41,251 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2"
+13:39:41,251 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" no tener Meta-Data
+13:39:41,251 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" no tiene MetaData o annotaciones.
+13:39:41,252 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /META-INF/package.jdo
+13:39:41,252 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /WEB-INF/package.jdo
+13:39:41,252 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /package.jdo
+13:39:41,252 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /es/package.jdo
+13:39:41,253 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /es/deusto/package.jdo
+13:39:41,253 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /es/deusto/bspq21e1/package.jdo
+13:39:41,253 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /es/deusto/bspq21e1/client/package.jdo
+13:39:41,253 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:39:41,253 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /es/deusto/bspq21e1/client/gui/InitialWindow.jdo
+13:39:41,253 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow"
+13:39:41,253 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.InitialWindow" no tener Meta-Data
+13:39:41,253 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.InitialWindow" no tiene MetaData o annotaciones.
+13:39:41,254 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /META-INF/package.jdo
+13:39:41,254 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /WEB-INF/package.jdo
+13:39:41,254 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /package.jdo
+13:39:41,255 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /es/package.jdo
+13:39:41,255 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /es/deusto/package.jdo
+13:39:41,255 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /es/deusto/bspq21e1/package.jdo
+13:39:41,255 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /es/deusto/bspq21e1/client/package.jdo
+13:39:41,255 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:39:41,256 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /es/deusto/bspq21e1/client/gui/RegisterUser$1.jdo
+13:39:41,256 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1"
+13:39:41,256 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" no tener Meta-Data
+13:39:41,256 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" no tiene MetaData o annotaciones.
+13:39:41,256 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /META-INF/package.jdo
+13:39:41,256 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /WEB-INF/package.jdo
+13:39:41,257 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /package.jdo
+13:39:41,258 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /es/package.jdo
+13:39:41,258 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /es/deusto/package.jdo
+13:39:41,258 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /es/deusto/bspq21e1/package.jdo
+13:39:41,258 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /es/deusto/bspq21e1/client/package.jdo
+13:39:41,258 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:39:41,259 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /es/deusto/bspq21e1/client/gui/RegisterUser.jdo
+13:39:41,259 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser"
+13:39:41,259 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.RegisterUser" no tener Meta-Data
+13:39:41,259 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.RegisterUser" no tiene MetaData o annotaciones.
+13:39:41,260 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /META-INF/package.jdo
+13:39:41,260 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /WEB-INF/package.jdo
+13:39:41,260 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /package.jdo
+13:39:41,260 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /es/package.jdo
+13:39:41,260 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /es/deusto/package.jdo
+13:39:41,261 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /es/deusto/bspq21e1/package.jdo
+13:39:41,261 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /es/deusto/bspq21e1/client/package.jdo
+13:39:41,261 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:39:41,261 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /es/deusto/bspq21e1/client/gui/RegisterVanWindow.jdo
+13:39:41,261 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow"
+13:39:41,261 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" no tener Meta-Data
+13:39:41,261 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" no tiene MetaData o annotaciones.
+13:39:41,262 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /META-INF/package.jdo
+13:39:41,262 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /WEB-INF/package.jdo
+13:39:41,262 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /package.jdo
+13:39:41,262 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /es/package.jdo
+13:39:41,263 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /es/deusto/package.jdo
+13:39:41,263 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /es/deusto/bspq21e1/package.jdo
+13:39:41,263 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /es/deusto/bspq21e1/client/package.jdo
+13:39:41,263 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:39:41,263 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /es/deusto/bspq21e1/client/gui/SearchWindow$1.jdo
+13:39:41,263 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1"
+13:39:41,263 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" no tener Meta-Data
+13:39:41,263 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" no tiene MetaData o annotaciones.
+13:39:41,264 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /META-INF/package.jdo
+13:39:41,264 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /WEB-INF/package.jdo
+13:39:41,264 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /package.jdo
+13:39:41,265 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /es/package.jdo
+13:39:41,265 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /es/deusto/package.jdo
+13:39:41,265 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /es/deusto/bspq21e1/package.jdo
+13:39:41,265 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /es/deusto/bspq21e1/client/package.jdo
+13:39:41,265 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:39:41,265 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /es/deusto/bspq21e1/client/gui/SearchWindow.jdo
+13:39:41,265 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow"
+13:39:41,265 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.SearchWindow" no tener Meta-Data
+13:39:41,265 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.SearchWindow" no tiene MetaData o annotaciones.
+13:39:41,266 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /META-INF/package.jdo
+13:39:41,266 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /WEB-INF/package.jdo
+13:39:41,266 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /package.jdo
+13:39:41,267 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /es/package.jdo
+13:39:41,267 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /es/deusto/package.jdo
+13:39:41,267 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /es/deusto/bspq21e1/package.jdo
+13:39:41,267 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /es/deusto/bspq21e1/client/package.jdo
+13:39:41,267 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /es/deusto/bspq21e1/client/remote/package.jdo
+13:39:41,268 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /es/deusto/bspq21e1/client/remote/ServiceLocator.jdo
+13:39:41,268 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator"
+13:39:41,268 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" no tener Meta-Data
+13:39:41,268 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.remote.ServiceLocator" no tiene MetaData o annotaciones.
+13:39:41,268 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /META-INF/package.jdo
+13:39:41,268 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /WEB-INF/package.jdo
+13:39:41,269 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /package.jdo
+13:39:41,269 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /es/package.jdo
+13:39:41,269 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /es/deusto/package.jdo
+13:39:41,269 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /es/deusto/bspq21e1/package.jdo
+13:39:41,269 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /es/deusto/bspq21e1/paymentServer/package.jdo
+13:39:41,269 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /es/deusto/bspq21e1/paymentServer/remote/package.jdo
+13:39:41,270 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /es/deusto/bspq21e1/paymentServer/remote/IPaymentSystem.jdo
+13:39:41,270 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem"
+13:39:41,270 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" no tener Meta-Data
+13:39:41,270 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" no tiene MetaData o annotaciones.
+13:39:41,271 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /META-INF/package.jdo
+13:39:41,271 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /WEB-INF/package.jdo
+13:39:41,271 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /package.jdo
+13:39:41,271 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /es/package.jdo
+13:39:41,271 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /es/deusto/package.jdo
+13:39:41,271 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /es/deusto/bspq21e1/package.jdo
+13:39:41,271 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /es/deusto/bspq21e1/paymentServer/package.jdo
+13:39:41,272 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /es/deusto/bspq21e1/paymentServer/remote/package.jdo
+13:39:41,272 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /es/deusto/bspq21e1/paymentServer/remote/PaymentSystem.jdo
+13:39:41,272 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem"
+13:39:41,272 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" no tener Meta-Data
+13:39:41,272 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" no tiene MetaData o annotaciones.
+13:39:41,273 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /META-INF/package.jdo
+13:39:41,273 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /WEB-INF/package.jdo
+13:39:41,273 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /package.jdo
+13:39:41,273 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /es/package.jdo
+13:39:41,273 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /es/deusto/package.jdo
+13:39:41,273 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /es/deusto/bspq21e1/package.jdo
+13:39:41,273 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /es/deusto/bspq21e1/paymentServer/package.jdo
+13:39:41,274 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /es/deusto/bspq21e1/paymentServer/server/package.jdo
+13:39:41,274 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /es/deusto/bspq21e1/paymentServer/server/PaymentServer.jdo
+13:39:41,274 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer"
+13:39:41,274 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" no tener Meta-Data
+13:39:41,274 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" no tiene MetaData o annotaciones.
+13:39:41,276 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /META-INF/package.jdo
+13:39:41,276 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /WEB-INF/package.jdo
+13:39:41,276 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /package.jdo
+13:39:41,276 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /es/package.jdo
+13:39:41,276 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /es/deusto/package.jdo
+13:39:41,276 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /es/deusto/bspq21e1/package.jdo
+13:39:41,277 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /es/deusto/bspq21e1/server/package.jdo
+13:39:41,277 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /es/deusto/bspq21e1/server/dao/package.jdo
+13:39:41,277 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /es/deusto/bspq21e1/server/dao/DBManager.jdo
+13:39:41,277 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager"
+13:39:41,277 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.dao.DBManager" no tener Meta-Data
+13:39:41,277 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.dao.DBManager" no tiene MetaData o annotaciones.
+13:39:41,311 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" tiene anotaciones de JDO y vamos a usarlas.
+13:39:41,323 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Review" tiene anotaciones de JDO y vamos a usarlas.
+13:39:41,324 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.User" tiene anotaciones de JDO y vamos a usarlas.
+13:39:41,325 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /META-INF/package.jdo
+13:39:41,325 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /WEB-INF/package.jdo
+13:39:41,325 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /package.jdo
+13:39:41,326 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /es/package.jdo
+13:39:41,326 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /es/deusto/package.jdo
+13:39:41,326 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /es/deusto/bspq21e1/package.jdo
+13:39:41,326 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /es/deusto/bspq21e1/server/package.jdo
+13:39:41,326 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /es/deusto/bspq21e1/server/data/package.jdo
+13:39:41,326 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /es/deusto/bspq21e1/server/data/Van.jdo
+13:39:41,327 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van"
+13:39:41,327 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.data.Van" no tener Meta-Data
+13:39:41,327 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.data.Van" no tiene MetaData o annotaciones.
+13:39:41,327 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /META-INF/package.jdo
+13:39:41,328 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /WEB-INF/package.jdo
+13:39:41,328 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /package.jdo
+13:39:41,328 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /es/package.jdo
+13:39:41,328 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /es/deusto/package.jdo
+13:39:41,328 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /es/deusto/bspq21e1/package.jdo
+13:39:41,328 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /es/deusto/bspq21e1/server/package.jdo
+13:39:41,329 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /es/deusto/bspq21e1/server/dto/package.jdo
+13:39:41,329 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /es/deusto/bspq21e1/server/dto/Assembler.jdo
+13:39:41,329 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler"
+13:39:41,329 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.dto.Assembler" no tener Meta-Data
+13:39:41,329 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.dto.Assembler" no tiene MetaData o annotaciones.
+13:39:41,330 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /META-INF/package.jdo
+13:39:41,330 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /WEB-INF/package.jdo
+13:39:41,330 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /package.jdo
+13:39:41,330 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /es/package.jdo
+13:39:41,330 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /es/deusto/package.jdo
+13:39:41,330 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /es/deusto/bspq21e1/package.jdo
+13:39:41,331 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /es/deusto/bspq21e1/server/package.jdo
+13:39:41,331 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /es/deusto/bspq21e1/server/dto/package.jdo
+13:39:41,331 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /es/deusto/bspq21e1/server/dto/ReservationDTO.jdo
+13:39:41,331 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO"
+13:39:41,331 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" no tener Meta-Data
+13:39:41,331 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.dto.ReservationDTO" no tiene MetaData o annotaciones.
+13:39:41,332 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /META-INF/package.jdo
+13:39:41,332 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /WEB-INF/package.jdo
+13:39:41,332 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /package.jdo
+13:39:41,332 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /es/package.jdo
+13:39:41,332 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /es/deusto/package.jdo
+13:39:41,332 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /es/deusto/bspq21e1/package.jdo
+13:39:41,333 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /es/deusto/bspq21e1/server/package.jdo
+13:39:41,333 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /es/deusto/bspq21e1/server/dto/package.jdo
+13:39:41,333 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /es/deusto/bspq21e1/server/dto/ReviewDTO.jdo
+13:39:41,333 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO"
+13:39:41,333 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" no tener Meta-Data
+13:39:41,333 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.dto.ReviewDTO" no tiene MetaData o annotaciones.
+13:39:41,334 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /META-INF/package.jdo
+13:39:41,334 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /WEB-INF/package.jdo
+13:39:41,334 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /package.jdo
+13:39:41,334 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /es/package.jdo
+13:39:41,334 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /es/deusto/package.jdo
+13:39:41,334 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /es/deusto/bspq21e1/package.jdo
+13:39:41,335 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /es/deusto/bspq21e1/server/package.jdo
+13:39:41,335 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /es/deusto/bspq21e1/server/dto/package.jdo
+13:39:41,335 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /es/deusto/bspq21e1/server/dto/UserDTO.jdo
+13:39:41,335 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO"
+13:39:41,335 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.dto.UserDTO" no tener Meta-Data
+13:39:41,335 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.dto.UserDTO" no tiene MetaData o annotaciones.
+13:39:41,336 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /META-INF/package.jdo
+13:39:41,336 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /WEB-INF/package.jdo
+13:39:41,336 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /package.jdo
+13:39:41,336 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /es/package.jdo
+13:39:41,337 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /es/deusto/package.jdo
+13:39:41,337 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /es/deusto/bspq21e1/package.jdo
+13:39:41,337 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /es/deusto/bspq21e1/server/package.jdo
+13:39:41,337 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /es/deusto/bspq21e1/server/dto/package.jdo
+13:39:41,337 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /es/deusto/bspq21e1/server/dto/VanDTO.jdo
+13:39:41,337 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO"
+13:39:41,337 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.dto.VanDTO" no tener Meta-Data
+13:39:41,337 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.dto.VanDTO" no tiene MetaData o annotaciones.
+13:39:41,338 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /META-INF/package.jdo
+13:39:41,338 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /WEB-INF/package.jdo
+13:39:41,338 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /package.jdo
+13:39:41,338 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /es/package.jdo
+13:39:41,339 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /es/deusto/package.jdo
+13:39:41,339 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /es/deusto/bspq21e1/package.jdo
+13:39:41,339 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /es/deusto/bspq21e1/server/package.jdo
+13:39:41,339 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /es/deusto/bspq21e1/server/gateway/package.jdo
+13:39:41,339 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /es/deusto/bspq21e1/server/gateway/GatewayToPayment.jdo
+13:39:41,339 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment"
+13:39:41,339 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" no tener Meta-Data
+13:39:41,339 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" no tiene MetaData o annotaciones.
+13:39:41,340 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /META-INF/package.jdo
+13:39:41,340 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /WEB-INF/package.jdo
+13:39:41,341 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /package.jdo
+13:39:41,341 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /es/package.jdo
+13:39:41,341 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /es/deusto/package.jdo
+13:39:41,341 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /es/deusto/bspq21e1/package.jdo
+13:39:41,341 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /es/deusto/bspq21e1/server/package.jdo
+13:39:41,341 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /es/deusto/bspq21e1/server/remote/package.jdo
+13:39:41,342 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /es/deusto/bspq21e1/server/remote/AirBV.jdo
+13:39:41,342 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV"
+13:39:41,342 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.remote.AirBV" no tener Meta-Data
+13:39:41,342 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.remote.AirBV" no tiene MetaData o annotaciones.
+13:39:41,342 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /META-INF/package.jdo
+13:39:41,342 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /WEB-INF/package.jdo
+13:39:41,342 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /package.jdo
+13:39:41,342 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /es/package.jdo
+13:39:41,342 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /es/deusto/package.jdo
+13:39:41,343 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /es/deusto/bspq21e1/package.jdo
+13:39:41,343 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /es/deusto/bspq21e1/server/package.jdo
+13:39:41,343 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /es/deusto/bspq21e1/server/remote/package.jdo
+13:39:41,343 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /es/deusto/bspq21e1/server/remote/IAirBV.jdo
+13:39:41,343 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV"
+13:39:41,343 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.remote.IAirBV" no tener Meta-Data
+13:39:41,343 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.remote.IAirBV" no tiene MetaData o annotaciones.
+13:39:41,344 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /META-INF/package.jdo
+13:39:41,344 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /WEB-INF/package.jdo
+13:39:41,344 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /package.jdo
+13:39:41,346 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /es/package.jdo
+13:39:41,346 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /es/deusto/package.jdo
+13:39:41,346 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /es/deusto/bspq21e1/package.jdo
+13:39:41,346 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /es/deusto/bspq21e1/server/package.jdo
+13:39:41,346 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /es/deusto/bspq21e1/server/server/package.jdo
+13:39:41,346 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /es/deusto/bspq21e1/server/server/AirBVServer.jdo
+13:39:41,346 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer"
+13:39:41,347 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.server.AirBVServer" no tener Meta-Data
+13:39:41,347 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.server.AirBVServer" no tiene MetaData o annotaciones.
+13:39:41,347 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /META-INF/package.jdo
+13:39:41,347 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /WEB-INF/package.jdo
+13:39:41,348 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /package.jdo
+13:39:41,348 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /es/package.jdo
+13:39:41,348 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /es/deusto/package.jdo
+13:39:41,348 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /es/deusto/bspq21e1/package.jdo
+13:39:41,348 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /es/deusto/bspq21e1/server/package.jdo
+13:39:41,348 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /es/deusto/bspq21e1/server/server/package.jdo
+13:39:41,348 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /es/deusto/bspq21e1/server/server/AirBVService.jdo
+13:39:41,349 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService"
+13:39:41,349 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.server.AirBVService" no tener Meta-Data
+13:39:41,349 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.server.AirBVService" no tiene MetaData o annotaciones.
+13:39:41,349 (main) DEBUG [DataNucleus.MetaData] - Populación del MetaData ...
+13:39:41,349 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" : Populando Meta-Data
+13:39:41,350 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" campo "bookingDate" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:39:41,350 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" campo "duration" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:39:41,350 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" campo "van" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:39:41,350 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" campo "vanRenter" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:39:41,351 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Review" : Populando Meta-Data
+13:39:41,351 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Review" campo "stars" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:39:41,351 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Review" campo "comment" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:39:41,351 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.User" : Populando Meta-Data
+13:39:41,352 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.User" campo "name" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:39:41,352 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.User" campo "email" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:39:41,352 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.User" campo "stars" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:39:41,354 (main) DEBUG [DataNucleus.MetaData] - Inicialisación del MetaData ...
+13:39:41,355 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" : Inicializando Meta-Data
+13:39:41,356 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Review" : Inicializando Meta-Data
+13:39:41,357 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.User" : Inicializando Meta-Data
+13:39:41,357 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata ya ha terminado
+13:39:41,360 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.bspq21e1.server.data.Reservation" empezando ...
+13:39:41,377 (main) INFO  [DataNucleus.Enhancer] - La clase "es.deusto.bspq21e1.server.data.Reservation" esta enhanced.
+13:39:41,377 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (Persistable) : es.deusto.bspq21e1.server.data.Reservation
+13:39:41,377 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.bspq21e1.server.data.Reservation" ha terminado
+13:39:41,377 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.bspq21e1.server.data.Review" empezando ...
+13:39:41,378 (main) INFO  [DataNucleus.Enhancer] - La clase "es.deusto.bspq21e1.server.data.Review" esta enhanced.
+13:39:41,378 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (Persistable) : es.deusto.bspq21e1.server.data.Review
+13:39:41,378 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.bspq21e1.server.data.Review" ha terminado
+13:39:41,378 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.bspq21e1.server.data.User" empezando ...
+13:39:41,379 (main) INFO  [DataNucleus.Enhancer] - La clase "es.deusto.bspq21e1.server.data.User" esta enhanced.
+13:39:41,379 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (Persistable) : es.deusto.bspq21e1.server.data.User
+13:39:41,379 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.bspq21e1.server.data.User" ha terminado
+13:39:41,379 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer ha terminado con exito para 3 clases. Tiempos : input=160 ms, enhance=22 ms, total=182 ms. Compruebe el LOG para los detalles
+13:40:01,294 (main) DEBUG [DataNucleus.General] - Using PluginRegistry org.datanucleus.plugin.NonManagedPluginRegistry
+13:40:01,318 (main) DEBUG [DataNucleus.General] - Registering bundle org.sonatype.inject version 2.3.0 at URL file:/C:/Users/amaia/.m2/repository/org/sonatype/sisu/sisu-inject-bean/2.3.0/sisu-inject-bean-2.3.0.jar.
+13:40:01,349 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/amaia/.m2/repository/org/sonatype/sisu/sisu-inject-bean/2.3.0/sisu-inject-bean-2.3.0.jar!/plugin.xml.
+13:40:01,352 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus version 5.2.6 at URL file:/C:/Users/amaia/.m2/repository/org/datanucleus/datanucleus-core/5.2.6/datanucleus-core-5.2.6.jar.
+13:40:01,356 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/amaia/.m2/repository/org/datanucleus/datanucleus-core/5.2.6/datanucleus-core-5.2.6.jar!/plugin.xml.
+13:40:01,366 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.api.jdo version 5.2.5 at URL file:/C:/Users/amaia/.m2/repository/org/datanucleus/datanucleus-api-jdo/5.2.5/datanucleus-api-jdo-5.2.5.jar.
+13:40:01,371 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/amaia/.m2/repository/org/datanucleus/datanucleus-api-jdo/5.2.5/datanucleus-api-jdo-5.2.5.jar!/plugin.xml.
+13:40:01,377 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.store.rdbms version 5.2.6 at URL file:/C:/Users/amaia/.m2/repository/org/datanucleus/datanucleus-rdbms/5.2.6/datanucleus-rdbms-5.2.6.jar.
+13:40:01,382 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/amaia/.m2/repository/org/datanucleus/datanucleus-rdbms/5.2.6/datanucleus-rdbms-5.2.6.jar!/plugin.xml.
+13:40:01,420 (main) DEBUG [DataNucleus.Persistence] - Tipos de Java inicializando ...
+13:40:01,502 (main) DEBUG [DataNucleus.Persistence] - Soporte para tipos de Java listo : tipos soportados = [B, [C, [D, [F, [I, [J, [Ljava.lang.Boolean;, [Ljava.lang.Byte;, [Ljava.lang.Character;, [Ljava.lang.Double;, [Ljava.lang.Enum;, [Ljava.lang.Float;, [Ljava.lang.Integer;, [Ljava.lang.Long;, [Ljava.lang.Number;, [Ljava.lang.Object;, [Ljava.lang.Short;, [Ljava.lang.String;, [Ljava.math.BigDecimal;, [Ljava.math.BigInteger;, [Ljava.util.Date;, [Ljava.util.Locale;, [S, [Z, boolean, byte, char, double, float, int, java.awt.Color, java.awt.image.BufferedImage, java.lang.Boolean, java.lang.Byte, java.lang.Character, java.lang.Class, java.lang.Double, java.lang.Enum, java.lang.Float, java.lang.Integer, java.lang.Long, java.lang.Number, java.lang.Short, java.lang.String, java.lang.StringBuffer, java.lang.StringBuilder, java.math.BigDecimal, java.math.BigInteger, java.net.URI, java.net.URL, java.sql.Date, java.sql.Time, java.sql.Timestamp, java.time.Duration, java.time.Instant, java.time.LocalDate, java.time.LocalDateTime, java.time.LocalTime, java.time.MonthDay, java.time.OffsetDateTime, java.time.OffsetTime, java.time.Period, java.time.Year, java.time.YearMonth, java.time.ZonedDateTime, java.time.ZoneId, java.time.ZoneOffset, java.util.ArrayList, java.util.Arrays$ArrayList, java.util.BitSet, java.util.Calendar, java.util.Collection, java.util.Currency, java.util.Date, java.util.GregorianCalendar, java.util.HashMap, java.util.HashSet, java.util.Hashtable, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.LinkedList, java.util.List, java.util.Locale, java.util.Map, java.util.Optional, java.util.PriorityQueue, java.util.Properties, java.util.Queue, java.util.Set, java.util.SortedMap, java.util.SortedSet, java.util.Stack, java.util.TimeZone, java.util.TreeMap, java.util.TreeSet, java.util.UUID, java.util.Vector, long, short
+13:40:01,503 (main) DEBUG [DataNucleus.Persistence] - Inicializando TypeConverters ...
+13:40:01,553 (main) DEBUG [DataNucleus.Persistence] - TypeConverters listo
+13:40:01,553 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for byte[] to : java.nio.ByteBuffer
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for char[] to : java.nio.ByteBuffer
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for double[] to : java.nio.ByteBuffer
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for float[] to : java.nio.ByteBuffer
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for int[] to : java.nio.ByteBuffer
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for long[] to : java.nio.ByteBuffer
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigDecimal; to : java.nio.ByteBuffer
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigInteger; to : java.nio.ByteBuffer
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for short[] to : java.nio.ByteBuffer
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for boolean[] to : java.nio.ByteBuffer
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.Color to : int[],java.lang.String
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.image.BufferedImage to : byte[],java.nio.ByteBuffer
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.io.Serializable to : byte[],java.nio.ByteBuffer,java.lang.String
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Boolean to : java.lang.Character,java.lang.Integer
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Character to : java.lang.String
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Class to : java.lang.String
+13:40:01,554 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Integer to : java.lang.String
+13:40:01,555 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Long to : java.lang.String
+13:40:01,555 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuffer to : java.lang.String
+13:40:01,555 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuilder to : java.lang.String
+13:40:01,555 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigDecimal to : java.lang.Double,java.lang.String
+13:40:01,555 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigInteger to : java.lang.String,java.lang.Long
+13:40:01,555 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URI to : java.lang.String
+13:40:01,555 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URL to : java.lang.String
+13:40:01,555 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Date to : java.lang.String,java.lang.Long,java.util.Date
+13:40:01,555 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Time to : java.lang.String,java.lang.Long,java.util.Date
+13:40:01,555 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Timestamp to : java.lang.String,java.lang.Long,java.util.Date
+13:40:01,555 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Duration to : java.lang.Double,java.lang.String,java.lang.Long
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Instant to : java.sql.Timestamp,java.lang.String,java.util.Date,java.lang.Long
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDate to : java.sql.Date,java.lang.String,java.util.Date
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDateTime to : java.sql.Timestamp,java.lang.String,java.util.Date
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalTime to : java.sql.Time,java.lang.String,java.util.Date,java.lang.Long
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.MonthDay to : java.sql.Date,int[],java.lang.String,java.util.Date
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetDateTime to : java.sql.Timestamp,java.lang.String,java.util.Date
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetTime to : java.sql.Time,java.lang.String,java.lang.Long
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Period to : int[],java.lang.String
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Year to : java.lang.Integer,java.lang.String
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.YearMonth to : java.sql.Date,int[],java.lang.String,java.util.Date
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZonedDateTime to : java.sql.Timestamp,java.lang.String
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneId to : java.lang.String
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneOffset to : java.lang.String
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.BitSet to : java.lang.String
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Calendar to : [Ljava.lang.Object;,java.sql.Timestamp,java.lang.String,java.util.Date
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Currency to : java.lang.String
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Date to : java.lang.String,java.lang.Long
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Locale to : java.lang.String
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.TimeZone to : java.lang.String
+13:40:01,556 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.UUID to : java.lang.String
+13:40:01,559 (main) DEBUG [DataNucleus.MetaData] - MetaDataManager : Input=(XML,Annotations), XML-Validation=false, XML-Suffices=(persistence=*.jdo, orm=orm, query=*.jdoquery), JDO-listener=false
+13:40:01,559 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (versión 5.2.6) para el API "JDO" utilisando el JRE "{2}"
+13:40:01,559 (main) DEBUG [DataNucleus.Enhancer] - DataNucleus Enhancer : Classpath
+13:40:01,559 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\datanucleus\datanucleus-maven-plugin\5.0.2\datanucleus-maven-plugin-5.0.2.jar
+13:40:01,560 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\codehaus\plexus\plexus-utils\3.0.8\plexus-utils-3.0.8.jar
+13:40:01,560 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\apache\maven\maven-artifact\3.0.4\maven-artifact-3.0.4.jar
+13:40:01,560 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\apache\maven\maven-plugin-api\3.0.4\maven-plugin-api-3.0.4.jar
+13:40:01,560 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\apache\maven\maven-model\3.0.4\maven-model-3.0.4.jar
+13:40:01,560 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\sonatype\sisu\sisu-inject-plexus\2.3.0\sisu-inject-plexus-2.3.0.jar
+13:40:01,560 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\codehaus\plexus\plexus-component-annotations\1.5.5\plexus-component-annotations-1.5.5.jar
+13:40:01,561 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\sonatype\sisu\sisu-inject-bean\2.3.0\sisu-inject-bean-2.3.0.jar
+13:40:01,561 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\sonatype\sisu\sisu-guice\3.1.0\sisu-guice-3.1.0-no_aop.jar
+13:40:01,561 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\sonatype\sisu\sisu-guava\0.9.9\sisu-guava-0.9.9.jar
+13:40:01,561 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\codehaus\plexus\plexus-container-default\1.5.5\plexus-container-default-1.5.5.jar
+13:40:01,561 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\codehaus\plexus\plexus-classworlds\2.2.2\plexus-classworlds-2.2.2.jar
+13:40:01,562 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\apache\xbean\xbean-reflect\3.4\xbean-reflect-3.4.jar
+13:40:01,562 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\log4j\log4j\1.2.12\log4j-1.2.12.jar
+13:40:01,562 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\commons-logging\commons-logging-api\1.1\commons-logging-api-1.1.jar
+13:40:01,562 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\google\collections\google-collections\1.0\google-collections-1.0.jar
+13:40:01,562 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\junit\junit\3.8.2\junit-3.8.2.jar
+13:40:01,562 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\Documents\TMP\Uni\Ingenieria informatica\3º\2º cuatri\SPQ\BSPQ21-E1\AirBV\target\classes
+13:40:01,562 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\datanucleus\datanucleus-core\5.2.6\datanucleus-core-5.2.6.jar
+13:40:01,562 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\datanucleus\datanucleus-api-jdo\5.2.5\datanucleus-api-jdo-5.2.5.jar
+13:40:01,562 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\datanucleus\datanucleus-rdbms\5.2.6\datanucleus-rdbms-5.2.6.jar
+13:40:01,562 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\datanucleus\javax.jdo\3.2.0-m13\javax.jdo-3.2.0-m13.jar
+13:40:01,563 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\javax\transaction\transaction-api\1.1\transaction-api-1.1.jar
+13:40:01,563 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\mysql\mysql-connector-java\8.0.15\mysql-connector-java-8.0.15.jar
+13:40:01,563 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\google\protobuf\protobuf-java\3.6.1\protobuf-java-3.6.1.jar
+13:40:01,563 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\core\jersey-server\2.29\jersey-server-2.29.jar
+13:40:01,563 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\core\jersey-client\2.29\jersey-client-2.29.jar
+13:40:01,563 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\jakarta\ws\rs\jakarta.ws.rs-api\2.1.5\jakarta.ws.rs-api-2.1.5.jar
+13:40:01,563 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\media\jersey-media-jaxb\2.29\jersey-media-jaxb-2.29.jar
+13:40:01,563 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.4\jakarta.annotation-api-1.3.4.jar
+13:40:01,563 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\hk2\external\jakarta.inject\2.5.0\jakarta.inject-2.5.0.jar
+13:40:01,563 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\javax\validation\validation-api\2.0.1.Final\validation-api-2.0.1.Final.jar
+13:40:01,564 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.2\jakarta.xml.bind-api-2.3.2.jar
+13:40:01,564 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.1\jakarta.activation-api-1.2.1.jar
+13:40:01,564 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\containers\jersey-container-servlet\2.29\jersey-container-servlet-2.29.jar
+13:40:01,564 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\containers\jersey-container-servlet-core\2.29\jersey-container-servlet-core-2.29.jar
+13:40:01,564 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\core\jersey-common\2.29\jersey-common-2.29.jar
+13:40:01,564 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\hk2\osgi-resource-locator\1.0.3\osgi-resource-locator-1.0.3.jar
+13:40:01,564 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\sun\activation\jakarta.activation\1.2.1\jakarta.activation-1.2.1.jar
+13:40:01,564 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\inject\jersey-hk2\2.29\jersey-hk2-2.29.jar
+13:40:01,565 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\hk2\hk2-locator\2.5.0\hk2-locator-2.5.0.jar
+13:40:01,565 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\hk2\external\aopalliance-repackaged\2.5.0\aopalliance-repackaged-2.5.0.jar
+13:40:01,565 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\hk2\hk2-api\2.5.0\hk2-api-2.5.0.jar
+13:40:01,565 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\hk2\hk2-utils\2.5.0\hk2-utils-2.5.0.jar
+13:40:01,565 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\javassist\javassist\3.22.0-CR2\javassist-3.22.0-CR2.jar
+13:40:01,565 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\media\jersey-media-json-jackson\2.29\jersey-media-json-jackson-2.29.jar
+13:40:01,565 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\org\glassfish\jersey\ext\jersey-entity-filtering\2.29\jersey-entity-filtering-2.29.jar
+13:40:01,565 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.9.9\jackson-annotations-2.9.9.jar
+13:40:01,566 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.9.9\jackson-databind-2.9.9.jar
+13:40:01,566 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.9.9\jackson-core-2.9.9.jar
+13:40:01,566 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\com\fasterxml\jackson\module\jackson-module-jaxb-annotations\2.9.9\jackson-module-jaxb-annotations-2.9.9.jar
+13:40:01,566 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\amaia\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar
+13:40:01,566 (main) DEBUG [DataNucleus.Enhancer] - Reading fileListFile: C:\Users\amaia\AppData\Local\Temp\enhancer-15406672998286047056.flf
+13:40:01,568 (main) DEBUG [DataNucleus.Enhancer] - Enhancing classes
+13:40:01,586 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata de las clases "[es.deusto.bspq21e1.client.controller.Controller, es.deusto.bspq21e1.client.gui.CancelReservationWindow, es.deusto.bspq21e1.client.gui.InitialWindow$1, es.deusto.bspq21e1.client.gui.InitialWindow$2, es.deusto.bspq21e1.client.gui.InitialWindow, es.deusto.bspq21e1.client.gui.RegisterUser$1, es.deusto.bspq21e1.client.gui.RegisterUser, es.deusto.bspq21e1.client.gui.RegisterVanWindow, es.deusto.bspq21e1.client.gui.SearchWindow$1, es.deusto.bspq21e1.client.gui.SearchWindow, es.deusto.bspq21e1.client.remote.ServiceLocator, es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem, es.deusto.bspq21e1.paymentServer.remote.PaymentSystem, es.deusto.bspq21e1.paymentServer.server.PaymentServer, es.deusto.bspq21e1.server.dao.DBManager, es.deusto.bspq21e1.server.data.Reservation, es.deusto.bspq21e1.server.data.Review, es.deusto.bspq21e1.server.data.User, es.deusto.bspq21e1.server.data.Van, es.deusto.bspq21e1.server.dto.Assembler, es.deusto.bspq21e1.server.dto.ReservationDTO, es.deusto.bspq21e1.server.dto.ReviewDTO, es.deusto.bspq21e1.server.dto.UserDTO, es.deusto.bspq21e1.server.dto.VanDTO, es.deusto.bspq21e1.server.gateway.GatewayToPayment, es.deusto.bspq21e1.server.remote.AirBV, es.deusto.bspq21e1.server.remote.IAirBV, es.deusto.bspq21e1.server.server.AirBVServer, es.deusto.bspq21e1.server.server.AirBVService]" ...
+13:40:01,589 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /META-INF/package.jdo
+13:40:01,589 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /WEB-INF/package.jdo
+13:40:01,589 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /package.jdo
+13:40:01,590 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /es/package.jdo
+13:40:01,590 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /es/deusto/package.jdo
+13:40:01,590 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /es/deusto/bspq21e1/package.jdo
+13:40:01,590 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /es/deusto/bspq21e1/client/package.jdo
+13:40:01,591 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /es/deusto/bspq21e1/client/controller/package.jdo
+13:40:01,591 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller" en /es/deusto/bspq21e1/client/controller/Controller.jdo
+13:40:01,591 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.controller.Controller"
+13:40:01,591 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.controller.Controller" no tener Meta-Data
+13:40:01,591 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.controller.Controller" no tiene MetaData o annotaciones.
+13:40:01,608 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /META-INF/package.jdo
+13:40:01,608 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /WEB-INF/package.jdo
+13:40:01,608 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /package.jdo
+13:40:01,608 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /es/package.jdo
+13:40:01,608 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /es/deusto/package.jdo
+13:40:01,609 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /es/deusto/bspq21e1/package.jdo
+13:40:01,609 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /es/deusto/bspq21e1/client/package.jdo
+13:40:01,609 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:40:01,609 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" en /es/deusto/bspq21e1/client/gui/CancelReservationWindow.jdo
+13:40:01,609 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow"
+13:40:01,609 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" no tener Meta-Data
+13:40:01,609 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.CancelReservationWindow" no tiene MetaData o annotaciones.
+13:40:01,610 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /META-INF/package.jdo
+13:40:01,610 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /WEB-INF/package.jdo
+13:40:01,611 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /package.jdo
+13:40:01,611 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /es/package.jdo
+13:40:01,611 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /es/deusto/package.jdo
+13:40:01,611 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /es/deusto/bspq21e1/package.jdo
+13:40:01,611 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /es/deusto/bspq21e1/client/package.jdo
+13:40:01,611 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:40:01,612 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" en /es/deusto/bspq21e1/client/gui/InitialWindow$1.jdo
+13:40:01,612 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1"
+13:40:01,612 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" no tener Meta-Data
+13:40:01,612 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.InitialWindow$1" no tiene MetaData o annotaciones.
+13:40:01,613 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /META-INF/package.jdo
+13:40:01,613 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /WEB-INF/package.jdo
+13:40:01,613 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /package.jdo
+13:40:01,613 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /es/package.jdo
+13:40:01,613 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /es/deusto/package.jdo
+13:40:01,613 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /es/deusto/bspq21e1/package.jdo
+13:40:01,614 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /es/deusto/bspq21e1/client/package.jdo
+13:40:01,614 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:40:01,614 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" en /es/deusto/bspq21e1/client/gui/InitialWindow$2.jdo
+13:40:01,614 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2"
+13:40:01,614 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" no tener Meta-Data
+13:40:01,614 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.InitialWindow$2" no tiene MetaData o annotaciones.
+13:40:01,615 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /META-INF/package.jdo
+13:40:01,615 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /WEB-INF/package.jdo
+13:40:01,615 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /package.jdo
+13:40:01,615 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /es/package.jdo
+13:40:01,616 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /es/deusto/package.jdo
+13:40:01,616 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /es/deusto/bspq21e1/package.jdo
+13:40:01,616 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /es/deusto/bspq21e1/client/package.jdo
+13:40:01,616 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:40:01,616 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow" en /es/deusto/bspq21e1/client/gui/InitialWindow.jdo
+13:40:01,616 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.InitialWindow"
+13:40:01,616 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.InitialWindow" no tener Meta-Data
+13:40:01,616 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.InitialWindow" no tiene MetaData o annotaciones.
+13:40:01,617 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /META-INF/package.jdo
+13:40:01,617 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /WEB-INF/package.jdo
+13:40:01,617 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /package.jdo
+13:40:01,618 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /es/package.jdo
+13:40:01,618 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /es/deusto/package.jdo
+13:40:01,618 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /es/deusto/bspq21e1/package.jdo
+13:40:01,618 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /es/deusto/bspq21e1/client/package.jdo
+13:40:01,618 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:40:01,618 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" en /es/deusto/bspq21e1/client/gui/RegisterUser$1.jdo
+13:40:01,618 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1"
+13:40:01,618 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" no tener Meta-Data
+13:40:01,618 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.RegisterUser$1" no tiene MetaData o annotaciones.
+13:40:01,619 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /META-INF/package.jdo
+13:40:01,619 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /WEB-INF/package.jdo
+13:40:01,620 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /package.jdo
+13:40:01,620 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /es/package.jdo
+13:40:01,620 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /es/deusto/package.jdo
+13:40:01,620 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /es/deusto/bspq21e1/package.jdo
+13:40:01,620 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /es/deusto/bspq21e1/client/package.jdo
+13:40:01,620 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:40:01,621 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser" en /es/deusto/bspq21e1/client/gui/RegisterUser.jdo
+13:40:01,621 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterUser"
+13:40:01,621 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.RegisterUser" no tener Meta-Data
+13:40:01,621 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.RegisterUser" no tiene MetaData o annotaciones.
+13:40:01,622 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /META-INF/package.jdo
+13:40:01,622 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /WEB-INF/package.jdo
+13:40:01,622 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /package.jdo
+13:40:01,622 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /es/package.jdo
+13:40:01,623 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /es/deusto/package.jdo
+13:40:01,623 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /es/deusto/bspq21e1/package.jdo
+13:40:01,623 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /es/deusto/bspq21e1/client/package.jdo
+13:40:01,623 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:40:01,623 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" en /es/deusto/bspq21e1/client/gui/RegisterVanWindow.jdo
+13:40:01,623 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow"
+13:40:01,623 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" no tener Meta-Data
+13:40:01,623 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.RegisterVanWindow" no tiene MetaData o annotaciones.
+13:40:01,624 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /META-INF/package.jdo
+13:40:01,624 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /WEB-INF/package.jdo
+13:40:01,625 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /package.jdo
+13:40:01,625 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /es/package.jdo
+13:40:01,625 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /es/deusto/package.jdo
+13:40:01,625 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /es/deusto/bspq21e1/package.jdo
+13:40:01,625 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /es/deusto/bspq21e1/client/package.jdo
+13:40:01,625 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:40:01,626 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" en /es/deusto/bspq21e1/client/gui/SearchWindow$1.jdo
+13:40:01,626 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1"
+13:40:01,626 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" no tener Meta-Data
+13:40:01,626 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.SearchWindow$1" no tiene MetaData o annotaciones.
+13:40:01,626 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /META-INF/package.jdo
+13:40:01,627 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /WEB-INF/package.jdo
+13:40:01,627 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /package.jdo
+13:40:01,627 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /es/package.jdo
+13:40:01,627 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /es/deusto/package.jdo
+13:40:01,627 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /es/deusto/bspq21e1/package.jdo
+13:40:01,627 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /es/deusto/bspq21e1/client/package.jdo
+13:40:01,628 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /es/deusto/bspq21e1/client/gui/package.jdo
+13:40:01,628 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow" en /es/deusto/bspq21e1/client/gui/SearchWindow.jdo
+13:40:01,628 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.gui.SearchWindow"
+13:40:01,628 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.gui.SearchWindow" no tener Meta-Data
+13:40:01,628 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.gui.SearchWindow" no tiene MetaData o annotaciones.
+13:40:01,629 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /META-INF/package.jdo
+13:40:01,629 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /WEB-INF/package.jdo
+13:40:01,629 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /package.jdo
+13:40:01,629 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /es/package.jdo
+13:40:01,630 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /es/deusto/package.jdo
+13:40:01,630 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /es/deusto/bspq21e1/package.jdo
+13:40:01,630 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /es/deusto/bspq21e1/client/package.jdo
+13:40:01,630 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /es/deusto/bspq21e1/client/remote/package.jdo
+13:40:01,630 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" en /es/deusto/bspq21e1/client/remote/ServiceLocator.jdo
+13:40:01,630 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.client.remote.ServiceLocator"
+13:40:01,630 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.client.remote.ServiceLocator" no tener Meta-Data
+13:40:01,630 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.client.remote.ServiceLocator" no tiene MetaData o annotaciones.
+13:40:01,631 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /META-INF/package.jdo
+13:40:01,631 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /WEB-INF/package.jdo
+13:40:01,632 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /package.jdo
+13:40:01,632 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /es/package.jdo
+13:40:01,632 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /es/deusto/package.jdo
+13:40:01,632 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /es/deusto/bspq21e1/package.jdo
+13:40:01,632 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /es/deusto/bspq21e1/paymentServer/package.jdo
+13:40:01,632 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /es/deusto/bspq21e1/paymentServer/remote/package.jdo
+13:40:01,633 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" en /es/deusto/bspq21e1/paymentServer/remote/IPaymentSystem.jdo
+13:40:01,633 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem"
+13:40:01,633 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" no tener Meta-Data
+13:40:01,633 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem" no tiene MetaData o annotaciones.
+13:40:01,634 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /META-INF/package.jdo
+13:40:01,634 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /WEB-INF/package.jdo
+13:40:01,634 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /package.jdo
+13:40:01,634 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /es/package.jdo
+13:40:01,634 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /es/deusto/package.jdo
+13:40:01,634 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /es/deusto/bspq21e1/package.jdo
+13:40:01,634 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /es/deusto/bspq21e1/paymentServer/package.jdo
+13:40:01,635 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /es/deusto/bspq21e1/paymentServer/remote/package.jdo
+13:40:01,635 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" en /es/deusto/bspq21e1/paymentServer/remote/PaymentSystem.jdo
+13:40:01,635 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem"
+13:40:01,635 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" no tener Meta-Data
+13:40:01,635 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.paymentServer.remote.PaymentSystem" no tiene MetaData o annotaciones.
+13:40:01,636 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /META-INF/package.jdo
+13:40:01,636 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /WEB-INF/package.jdo
+13:40:01,636 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /package.jdo
+13:40:01,636 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /es/package.jdo
+13:40:01,636 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /es/deusto/package.jdo
+13:40:01,637 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /es/deusto/bspq21e1/package.jdo
+13:40:01,637 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /es/deusto/bspq21e1/paymentServer/package.jdo
+13:40:01,637 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /es/deusto/bspq21e1/paymentServer/server/package.jdo
+13:40:01,637 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" en /es/deusto/bspq21e1/paymentServer/server/PaymentServer.jdo
+13:40:01,637 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer"
+13:40:01,637 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" no tener Meta-Data
+13:40:01,637 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.paymentServer.server.PaymentServer" no tiene MetaData o annotaciones.
+13:40:01,638 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /META-INF/package.jdo
+13:40:01,638 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /WEB-INF/package.jdo
+13:40:01,640 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /package.jdo
+13:40:01,640 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /es/package.jdo
+13:40:01,640 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /es/deusto/package.jdo
+13:40:01,640 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /es/deusto/bspq21e1/package.jdo
+13:40:01,640 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /es/deusto/bspq21e1/server/package.jdo
+13:40:01,641 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /es/deusto/bspq21e1/server/dao/package.jdo
+13:40:01,641 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager" en /es/deusto/bspq21e1/server/dao/DBManager.jdo
+13:40:01,641 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dao.DBManager"
+13:40:01,641 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.dao.DBManager" no tener Meta-Data
+13:40:01,641 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.dao.DBManager" no tiene MetaData o annotaciones.
+13:40:01,672 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" tiene anotaciones de JDO y vamos a usarlas.
+13:40:01,685 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Review" tiene anotaciones de JDO y vamos a usarlas.
+13:40:01,686 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.User" tiene anotaciones de JDO y vamos a usarlas.
+13:40:01,686 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /META-INF/package.jdo
+13:40:01,687 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /WEB-INF/package.jdo
+13:40:01,687 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /package.jdo
+13:40:01,687 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /es/package.jdo
+13:40:01,687 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /es/deusto/package.jdo
+13:40:01,687 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /es/deusto/bspq21e1/package.jdo
+13:40:01,687 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /es/deusto/bspq21e1/server/package.jdo
+13:40:01,688 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /es/deusto/bspq21e1/server/data/package.jdo
+13:40:01,688 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van" en /es/deusto/bspq21e1/server/data/Van.jdo
+13:40:01,688 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.data.Van"
+13:40:01,688 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.data.Van" no tener Meta-Data
+13:40:01,688 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.data.Van" no tiene MetaData o annotaciones.
+13:40:01,689 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /META-INF/package.jdo
+13:40:01,689 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /WEB-INF/package.jdo
+13:40:01,689 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /package.jdo
+13:40:01,689 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /es/package.jdo
+13:40:01,689 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /es/deusto/package.jdo
+13:40:01,690 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /es/deusto/bspq21e1/package.jdo
+13:40:01,690 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /es/deusto/bspq21e1/server/package.jdo
+13:40:01,690 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /es/deusto/bspq21e1/server/dto/package.jdo
+13:40:01,690 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler" en /es/deusto/bspq21e1/server/dto/Assembler.jdo
+13:40:01,690 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.Assembler"
+13:40:01,690 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.dto.Assembler" no tener Meta-Data
+13:40:01,690 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.dto.Assembler" no tiene MetaData o annotaciones.
+13:40:01,691 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /META-INF/package.jdo
+13:40:01,692 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /WEB-INF/package.jdo
+13:40:01,692 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /package.jdo
+13:40:01,692 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /es/package.jdo
+13:40:01,692 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /es/deusto/package.jdo
+13:40:01,692 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /es/deusto/bspq21e1/package.jdo
+13:40:01,693 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /es/deusto/bspq21e1/server/package.jdo
+13:40:01,693 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /es/deusto/bspq21e1/server/dto/package.jdo
+13:40:01,693 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" en /es/deusto/bspq21e1/server/dto/ReservationDTO.jdo
+13:40:01,693 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReservationDTO"
+13:40:01,693 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.dto.ReservationDTO" no tener Meta-Data
+13:40:01,693 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.dto.ReservationDTO" no tiene MetaData o annotaciones.
+13:40:01,694 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /META-INF/package.jdo
+13:40:01,694 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /WEB-INF/package.jdo
+13:40:01,694 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /package.jdo
+13:40:01,694 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /es/package.jdo
+13:40:01,695 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /es/deusto/package.jdo
+13:40:01,695 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /es/deusto/bspq21e1/package.jdo
+13:40:01,695 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /es/deusto/bspq21e1/server/package.jdo
+13:40:01,695 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /es/deusto/bspq21e1/server/dto/package.jdo
+13:40:01,695 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" en /es/deusto/bspq21e1/server/dto/ReviewDTO.jdo
+13:40:01,695 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.ReviewDTO"
+13:40:01,695 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.dto.ReviewDTO" no tener Meta-Data
+13:40:01,695 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.dto.ReviewDTO" no tiene MetaData o annotaciones.
+13:40:01,696 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /META-INF/package.jdo
+13:40:01,696 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /WEB-INF/package.jdo
+13:40:01,697 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /package.jdo
+13:40:01,697 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /es/package.jdo
+13:40:01,697 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /es/deusto/package.jdo
+13:40:01,697 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /es/deusto/bspq21e1/package.jdo
+13:40:01,697 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /es/deusto/bspq21e1/server/package.jdo
+13:40:01,697 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /es/deusto/bspq21e1/server/dto/package.jdo
+13:40:01,698 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO" en /es/deusto/bspq21e1/server/dto/UserDTO.jdo
+13:40:01,698 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.UserDTO"
+13:40:01,698 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.dto.UserDTO" no tener Meta-Data
+13:40:01,698 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.dto.UserDTO" no tiene MetaData o annotaciones.
+13:40:01,699 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /META-INF/package.jdo
+13:40:01,699 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /WEB-INF/package.jdo
+13:40:01,699 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /package.jdo
+13:40:01,699 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /es/package.jdo
+13:40:01,699 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /es/deusto/package.jdo
+13:40:01,699 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /es/deusto/bspq21e1/package.jdo
+13:40:01,700 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /es/deusto/bspq21e1/server/package.jdo
+13:40:01,700 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /es/deusto/bspq21e1/server/dto/package.jdo
+13:40:01,700 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO" en /es/deusto/bspq21e1/server/dto/VanDTO.jdo
+13:40:01,700 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.dto.VanDTO"
+13:40:01,700 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.dto.VanDTO" no tener Meta-Data
+13:40:01,700 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.dto.VanDTO" no tiene MetaData o annotaciones.
+13:40:01,701 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /META-INF/package.jdo
+13:40:01,701 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /WEB-INF/package.jdo
+13:40:01,701 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /package.jdo
+13:40:01,701 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /es/package.jdo
+13:40:01,701 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /es/deusto/package.jdo
+13:40:01,702 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /es/deusto/bspq21e1/package.jdo
+13:40:01,702 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /es/deusto/bspq21e1/server/package.jdo
+13:40:01,702 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /es/deusto/bspq21e1/server/gateway/package.jdo
+13:40:01,702 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" en /es/deusto/bspq21e1/server/gateway/GatewayToPayment.jdo
+13:40:01,702 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment"
+13:40:01,702 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" no tener Meta-Data
+13:40:01,702 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.gateway.GatewayToPayment" no tiene MetaData o annotaciones.
+13:40:01,703 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /META-INF/package.jdo
+13:40:01,703 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /WEB-INF/package.jdo
+13:40:01,704 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /package.jdo
+13:40:01,704 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /es/package.jdo
+13:40:01,704 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /es/deusto/package.jdo
+13:40:01,704 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /es/deusto/bspq21e1/package.jdo
+13:40:01,704 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /es/deusto/bspq21e1/server/package.jdo
+13:40:01,704 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /es/deusto/bspq21e1/server/remote/package.jdo
+13:40:01,704 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV" en /es/deusto/bspq21e1/server/remote/AirBV.jdo
+13:40:01,705 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.AirBV"
+13:40:01,705 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.remote.AirBV" no tener Meta-Data
+13:40:01,705 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.remote.AirBV" no tiene MetaData o annotaciones.
+13:40:01,705 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /META-INF/package.jdo
+13:40:01,705 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /WEB-INF/package.jdo
+13:40:01,705 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /package.jdo
+13:40:01,705 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /es/package.jdo
+13:40:01,705 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /es/deusto/package.jdo
+13:40:01,706 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /es/deusto/bspq21e1/package.jdo
+13:40:01,706 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /es/deusto/bspq21e1/server/package.jdo
+13:40:01,706 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /es/deusto/bspq21e1/server/remote/package.jdo
+13:40:01,706 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV" en /es/deusto/bspq21e1/server/remote/IAirBV.jdo
+13:40:01,706 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.remote.IAirBV"
+13:40:01,706 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.remote.IAirBV" no tener Meta-Data
+13:40:01,706 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.remote.IAirBV" no tiene MetaData o annotaciones.
+13:40:01,707 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /META-INF/package.jdo
+13:40:01,707 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /WEB-INF/package.jdo
+13:40:01,707 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /package.jdo
+13:40:01,707 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /es/package.jdo
+13:40:01,707 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /es/deusto/package.jdo
+13:40:01,708 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /es/deusto/bspq21e1/package.jdo
+13:40:01,708 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /es/deusto/bspq21e1/server/package.jdo
+13:40:01,708 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /es/deusto/bspq21e1/server/server/package.jdo
+13:40:01,709 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer" en /es/deusto/bspq21e1/server/server/AirBVServer.jdo
+13:40:01,709 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVServer"
+13:40:01,709 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.server.AirBVServer" no tener Meta-Data
+13:40:01,709 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.server.AirBVServer" no tiene MetaData o annotaciones.
+13:40:01,710 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /META-INF/package.jdo
+13:40:01,710 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /WEB-INF/package.jdo
+13:40:01,710 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /package.jdo
+13:40:01,710 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /es/package.jdo
+13:40:01,710 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /es/deusto/package.jdo
+13:40:01,711 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /es/deusto/bspq21e1/package.jdo
+13:40:01,711 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /es/deusto/bspq21e1/server/package.jdo
+13:40:01,711 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /es/deusto/bspq21e1/server/server/package.jdo
+13:40:01,711 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService" en /es/deusto/bspq21e1/server/server/AirBVService.jdo
+13:40:01,711 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.bspq21e1.server.server.AirBVService"
+13:40:01,711 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.bspq21e1.server.server.AirBVService" no tener Meta-Data
+13:40:01,711 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.bspq21e1.server.server.AirBVService" no tiene MetaData o annotaciones.
+13:40:01,711 (main) DEBUG [DataNucleus.MetaData] - Populación del MetaData ...
+13:40:01,712 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" : Populando Meta-Data
+13:40:01,712 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" campo "bookingDate" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:40:01,712 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" campo "duration" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:40:01,712 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" campo "van" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:40:01,712 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" campo "vanRenter" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:40:01,714 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Review" : Populando Meta-Data
+13:40:01,714 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Review" campo "stars" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:40:01,714 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Review" campo "comment" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:40:01,714 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.User" : Populando Meta-Data
+13:40:01,714 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.User" campo "name" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:40:01,714 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.User" campo "email" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:40:01,715 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.User" campo "stars" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+13:40:01,717 (main) DEBUG [DataNucleus.MetaData] - Inicialisación del MetaData ...
+13:40:01,718 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Reservation" : Inicializando Meta-Data
+13:40:01,719 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.Review" : Inicializando Meta-Data
+13:40:01,720 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.bspq21e1.server.data.User" : Inicializando Meta-Data
+13:40:01,720 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata ya ha terminado
+13:40:01,722 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.bspq21e1.server.data.Reservation" empezando ...
+13:40:01,740 (main) INFO  [DataNucleus.Enhancer] - La clase "es.deusto.bspq21e1.server.data.Reservation" esta enhanced.
+13:40:01,740 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (Persistable) : es.deusto.bspq21e1.server.data.Reservation
+13:40:01,740 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.bspq21e1.server.data.Reservation" ha terminado
+13:40:01,740 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.bspq21e1.server.data.Review" empezando ...
+13:40:01,741 (main) INFO  [DataNucleus.Enhancer] - La clase "es.deusto.bspq21e1.server.data.Review" esta enhanced.
+13:40:01,741 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (Persistable) : es.deusto.bspq21e1.server.data.Review
+13:40:01,741 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.bspq21e1.server.data.Review" ha terminado
+13:40:01,741 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.bspq21e1.server.data.User" empezando ...
+13:40:01,742 (main) INFO  [DataNucleus.Enhancer] - La clase "es.deusto.bspq21e1.server.data.User" esta enhanced.
+13:40:01,742 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (Persistable) : es.deusto.bspq21e1.server.data.User
+13:40:01,742 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.bspq21e1.server.data.User" ha terminado
+13:40:01,743 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer ha terminado con exito para 3 clases. Tiempos : input=152 ms, enhance=22 ms, total=174 ms. Compruebe el LOG para los detalles
