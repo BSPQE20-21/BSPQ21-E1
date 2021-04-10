@@ -4,7 +4,6 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 
 import es.deusto.bspq21e1.client.controller.Controller;
-import es.deusto.bspq21e1.server.dto.UserDTO;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -14,7 +13,7 @@ public class CancelReservationWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
 	
-	private JFrame frame;
+	private JFrame frame = new JFrame();
 	
 	public CancelReservationWindow(Controller controller, UserDTO userDTO) {
 		frame.getContentPane().setLayout(null);

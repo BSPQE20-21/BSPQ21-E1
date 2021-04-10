@@ -13,7 +13,7 @@ public class InitialWindow extends JFrame {
     private static final long serialVersionUID = 1L;
     private Controller controller;
 
-    private JFrame frame;
+    private JFrame frame = new JFrame();
     private JPanel panel;
     private JButton btnRegister, btnLogin, btnExit;
 
@@ -35,7 +35,6 @@ public class InitialWindow extends JFrame {
 	 * Initialize the contents of the frame.
 	 */
     private void initialize() {
-        frame = new JFrame();
         frame.setBounds(100, 100, 600, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);

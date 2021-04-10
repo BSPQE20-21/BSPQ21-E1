@@ -6,8 +6,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import es.deusto.bspq21e1.client.controller.Controller;
-import es.deusto.bspq21e1.server.dto.UserDTO;
-import es.deusto.bspq21e1.server.dto.VanDTO;
 
 import javax.swing.JPanel;
 import javax.swing.JList;

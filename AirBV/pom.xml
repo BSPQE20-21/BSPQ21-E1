@@ -15,6 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<server.hostname>127.0.0.1</server.hostname>
 		<server.port>8080</server.port>
+		<server.name>Server</server.name>
 		<config.files.dir>${basedir}/src/main/resources</config.files.dir>
 	</properties>
 
@@ -121,6 +122,27 @@
 	</build>
 
 	<profiles>
+		<!-- run as 'mvn exec:java -Pserver' -->
+		<profile>
+			<id>server</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.2.1</version>
+						<configuration>
+							<mainClass>es.deusto.bspq21e1.server.server.AirBVServer</mainClass>
+							<arguments>
+								<argument>${server.hostname}</argument>
+								<argument>${server.port}</argument>
+							</arguments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
 		<!-- run as 'mvn exec:java -Pclient' -->
 		<profile>
 			<id>client</id>
@@ -131,10 +153,11 @@
 						<artifactId>exec-maven-plugin</artifactId>
 						<version>1.2.1</version>
 						<configuration>
-							<mainClass>es.deusto.bspq21e1.client.ExampleClient</mainClass>
+							<mainClass>es.deusto.bspq21e1.client.controller.Controller</mainClass>
 							<arguments>
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
+								<argument>${server.name}</argument>
 							</arguments>
 						</configuration>
 					</plugin>

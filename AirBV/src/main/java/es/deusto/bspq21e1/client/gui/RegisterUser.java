@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 
 import es.deusto.bspq21e1.client.controller.Controller;
-import es.deusto.bspq21e1.server.dto.UserDTO;
 
 import javax.swing.JButton;
 
@@ -18,7 +17,7 @@ public class RegisterUser extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
 	
-	private JFrame frame;
+	private JFrame frame = new JFrame();
 
 	private JTextField txtId;
 	private JTextField txtName;
@@ -33,7 +32,6 @@ public class RegisterUser extends JFrame{
 	}
 	
 	private void initialize() {
-		frame = new JFrame();
 		frame.setResizable(false);
 		frame.getContentPane().setLayout(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

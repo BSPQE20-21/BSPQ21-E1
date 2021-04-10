@@ -15,7 +15,7 @@ public class Controller {
     public Controller(String args[]) {
         sl = new ServiceLocator();
         sl.setService(args);
-        //new InitialWindow(this);
+        new InitialWindow(this);
     }
 
     // The methods will go here

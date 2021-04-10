@@ -11,7 +11,6 @@ import javax.swing.JSpinner;
 import javax.swing.JRadioButton;
 
 import es.deusto.bspq21e1.client.controller.Controller;
-import es.deusto.bspq21e1.server.dto.UserDTO;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -23,7 +22,7 @@ public class RegisterVanWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
 	
-	private JFrame frame;
+	private JFrame frame = new Jframe();
 	
 	private JLabel lblTitle;
 	
@@ -71,7 +70,6 @@ public class RegisterVanWindow extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 475, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
