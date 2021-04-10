@@ -19,6 +19,7 @@ public class Controller {
     }
 
     // The methods will go here
+    
     public ArrayList<VanDTO> searchVans(String location, String pickUpDate, String returnDate) {
     	try{
     		ArrayList<VanDTO> vans =  sl.getAirBVService().searchVans(location, pickUpDate, returnDate);
@@ -37,8 +38,15 @@ public class Controller {
     		System.out.println("$ Error registering user: " + e.getMessage());
 		}
     }
-
-
+    
+    public void registerVan(VanDTO vanDTO) {
+    	try {
+    		sl.getAirBVService().registerVan(vanDTO);
+    	}catch (Exception e) {
+    		System.err.println("# Error registering van: " + e.getMessage());
+    	}
+    }
+    
     public static void main(String[] args) {
         new Controller(args);
     }
