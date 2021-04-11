@@ -9,7 +9,7 @@ import es.deusto.bspq21e1.serialization.VanData;
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
 import es.deusto.bspq21e1.server.dto.Assembler;
-import es.deusto.bspq21e1.server.server.AirBVService;
+import es.deusto.bspq21e1.server.AirBVService;
 
 // This is the REMOTE FACADE
 public class AirBV extends UnicastRemoteObject implements IAirBV {
@@ -48,8 +48,14 @@ public class AirBV extends UnicastRemoteObject implements IAirBV {
 
 	@Override
 	public ArrayList<VanData> searchVans(String location, String pickUp, String returnDate) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<Van> vans = airbvService.searchVans(location, pickUp, returnDate);
+		ArrayList<VanData> vansData = new ArrayList<VanData>();
+		Assembler as = new Assembler();
+		for (Van van : vans) {
+			vansData.add(as.assembleVan(van));
+		}
+		return vansData;
 	}
 
 }
