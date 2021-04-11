@@ -56,22 +56,21 @@ public class AirBVService {
     	 WHEN ACCESSING THE HASHMAP.
     	 
     	 Look out for possible null pointers.
-    	 @author: Iñigo Marcos @ 11/04
+    	 @author: Iñigo Marcos
+    	 @date: 11/04
     	 */
     	if( reservation.getCode() != null ) {
     		reservationsHM.put(reservation.getCode(), reservation);
     	}
     }
 
-	public ArrayList<Van> searchVans(String location, String pickUp, String returnDate) {
-		ArrayList<Van> vans = DBManager.getInstance().getAllVans();
-		ArrayList<Van> vansInLocation = new ArrayList<Van>();
-		for (Van van : vans) {
-			if(van.getLocation().equals(location)) {
-				vansInLocation.add(van);
-			}
-		}
-		return vansInLocation;
+	public ArrayList<Van> searchVans(String location) {
+		ArrayList<Van> vanAL = DBManager.getInstance().getVansByLocation(location);
+		for( Van v : vanAL ) { vansHM.put(v.getLicensePlate(), v); }
+		
+		return vanAL;
+		
+		
 	}
     
 }

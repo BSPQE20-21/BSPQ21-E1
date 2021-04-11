@@ -143,7 +143,7 @@ public class DBManager {
 	 * @return an ArrayList with all of the user's reservations  
 	 */
 	@SuppressWarnings("unchecked")
-	public ArrayList<Reservation> getAllReservations( User vanRenter ) {
+	public ArrayList<Reservation> getReservationsByUser( User vanRenter ) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = null;
 		
@@ -172,7 +172,36 @@ public class DBManager {
 		
 		return listOfReservations;
 	}
+	
+	public ArrayList<Van> getVansByLocation( String location) { 
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = null;
+		
+		ArrayList<Van> listOfVans = new ArrayList<>();
+		try {
+			System.out.println("   * Retrieving all vans from location: " + location);
+			pm.getFetchPlan().setMaxFetchDepth(2);
+			tx = pm.currentTransaction();
+			tx.begin();
+			
+			Query<Van> query = pm.newQuery(Van.class);
+			query.setFilter("location== '" + location+ "'");
+			
+			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
+			listOfVans = (ArrayList<Vans>)query.execute();
 
+		} catch (Exception e) {
+			System.out.println("   $ Error retrieving reservations from van renter: " + e.getMessage() );
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}	
+			pm.close();
+		}
+		
+		return listOfVans;
+		
+	}
 	
 	
 	////////////////////////////
