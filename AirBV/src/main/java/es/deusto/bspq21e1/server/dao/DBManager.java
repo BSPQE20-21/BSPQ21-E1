@@ -1,7 +1,6 @@
 package es.deusto.bspq21e1.server.dao;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
@@ -40,8 +39,10 @@ public class DBManager {
 		return instance;
 	}
 
-	
-	
+
+	////////////////////////////
+	//		STORE OBJECT      //
+	////////////////////////////
 	/**
 	 * Stores a user in the DB (makes the object persistent).
 	 * @param user
@@ -73,7 +74,11 @@ public class DBManager {
 	public void store( Reservation reservation ) {
 		this.storeObject( reservation );
 	}
-
+	
+	/**
+	 * Necessary for all of the store functions to work.
+	 * @param object
+	 */
 	private void storeObject( Object object ) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
@@ -92,7 +97,46 @@ public class DBManager {
 			pm.close();
 		}
 	}
+	
+	//////////////////////////////
+	//		DELETE OBJECT      //
+	//////////////////////////////
+	/**
+	 * Deletes a reservation from the DB.
+	 * @param reservation
+	 */
+	public void delete( Reservation reservation ) {
+		this.deleteObject( reservation );
+	}
+	
+	/**
+	 * Necessary for all of the delete functions to work.
+	 * @param object
+	 */
+	private void deleteObject( Object object ) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		
+		try {
+			tx.begin();
+			System.out.println("   * Deleting an object: " + object);
+			pm.deletePersistent(object);
+			tx.commit();
+		} catch (Exception e) {
+			System.out.println("   $ Error deleting an object: " + e.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}	
+			pm.close();
+		}
+	}
 
+	
+	
+	////////////////////////////////
+	//		SPECIFIC QUERIES      //
+	////////////////////////////////
 	/**
 	 * Method that finds and returns all of the reservations given a user.
 	 * @param vanRenter to retrieve the reservations from
@@ -128,14 +172,22 @@ public class DBManager {
 		
 		return listOfReservations;
 	}
+
 	
+	
+	////////////////////////////
+	//		"GET IT ALL"      //
+	////////////////////////////
 	/**
 	 * Method for debugging.
 	 * @return arraylist of all users
 	 */
 	public ArrayList<User> getAllUsers() {
-		PersistenceManager pm = pmf.getPersistenceManager();		
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(2);
+		
 		Transaction tx = pm.currentTransaction();
+		
 
 		ArrayList<User> usersList = new ArrayList<>();
 
@@ -166,7 +218,9 @@ public class DBManager {
 	 * @return arraylist of all vans
 	 */
 	public ArrayList<Van> getAllVans() {
-		PersistenceManager pm = pmf.getPersistenceManager();		
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(2);
+
 		Transaction tx = pm.currentTransaction();
 
 		ArrayList<Van> vanList = new ArrayList<>();
