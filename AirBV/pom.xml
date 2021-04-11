@@ -16,8 +16,8 @@
 		<server.hostname>127.0.0.1</server.hostname>
 		<server.port>8080</server.port>
 		<server.name>Server</server.name>
+		<policy.file>${basedir}/security/java.policy</policy.file>
 		<config.files.dir>${basedir}/src/main/resources</config.files.dir>
-		<security.files.dir>${basedir}/src/main/security</security.files.dir>
 	</properties>
 
 	<!-- search for the latest version of dependencies in http://mvnrepository.com -->
@@ -167,6 +167,16 @@
 						<version>1.2.1</version>
 						<configuration>
 							<mainClass>es.deusto.bspq21e1.server.AirBVServer</mainClass>
+							<systemProperties>
+								<systemProperty>
+									<key>java.security.manager</key>
+									<value>java.rmi.RMISecurityManager</value>
+								</systemProperty>
+								<systemProperty>
+									<key>java.security.policy</key>
+									<value>${policy.file}</value>
+								</systemProperty>
+							</systemProperties>
 							<arguments>
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
