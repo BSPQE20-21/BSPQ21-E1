@@ -17,7 +17,7 @@
 		<server.port>8080</server.port>
 		<server.name>Server</server.name>
 		<config.files.dir>${basedir}/src/main/resources</config.files.dir>
-		<security.files.dir>${basedir}/src/main/security</security.files.dir>
+		<security.files.dir>${basedir}/security</security.files.dir>
 	</properties>
 
 	<!-- search for the latest version of dependencies in http://mvnrepository.com -->
