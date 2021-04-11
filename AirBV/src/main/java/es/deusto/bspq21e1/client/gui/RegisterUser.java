@@ -12,15 +12,17 @@ import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.serialization.UserData;
 
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import java.awt.BorderLayout;
 
 public class RegisterUser extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
 	
-	private JFrame frame = new JFrame();
+	private JFrame frmRegisterYourself = new JFrame();
 
-	private JTextField txtId;
+	private JTextField txtIdNumber;
 	private JTextField txtName;
 	private JTextField txtEmail;
 	
@@ -28,47 +30,58 @@ public class RegisterUser extends JFrame{
 	public RegisterUser(Controller controller) {
 		this.controller = controller;
 		initialize();
-		frame.setResizable(false);
-		frame.setVisible(true);
+		frmRegisterYourself.setResizable(false);
+		frmRegisterYourself.setVisible(true);
+
+	}
+	
+	public RegisterUser() {
+		this.controller = null;
+		initialize();
+		frmRegisterYourself.setTitle("Register yourself");
+		frmRegisterYourself.setResizable(false);
+		frmRegisterYourself.setVisible(true);
 
 	}
 	
 	private void initialize() {
-		frame.getContentPane().setLayout(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRegisterYourself.setBounds(100, 100, 300, 225);
+		frmRegisterYourself.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmRegisterYourself.getContentPane().setLayout(null);
 		
 		JLabel lblRegisterTitle = new JLabel("Register as a new user");
+		lblRegisterTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRegisterTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblRegisterTitle.setBounds(127, 11, 177, 28);
-		frame.getContentPane().add(lblRegisterTitle);
+		lblRegisterTitle.setBounds(0, 22, 294, 19);
+		frmRegisterYourself.getContentPane().add(lblRegisterTitle);
 		
 		//JLabels
 		JLabel lblId = new JLabel("Id number");
-		lblId.setBounds(102, 65, 95, 14);
-		frame.getContentPane().add(lblId);
+		lblId.setBounds(56, 63, 73, 19);
+		frmRegisterYourself.getContentPane().add(lblId);
 		
 		JLabel lblName = new JLabel("Name");
-		lblName.setBounds(102, 90, 46, 14);
-		frame.getContentPane().add(lblName);
+		lblName.setBounds(56, 90, 46, 14);
+		frmRegisterYourself.getContentPane().add(lblName);
 		
 		JLabel lblEmail = new JLabel("Email");
-		lblEmail.setBounds(102, 116, 46, 14);
-		frame.getContentPane().add(lblEmail);
+		lblEmail.setBounds(56, 116, 46, 14);
+		frmRegisterYourself.getContentPane().add(lblEmail);
 		
 		//txtFields
-		txtId = new JTextField();
-		txtId.setBounds(192, 62, 112, 20);
-		getContentPane().add(txtId);
-		txtId.setColumns(10);
+		txtIdNumber = new JTextField();
+		txtIdNumber.setBounds(164, 62, 86, 20);
+		frmRegisterYourself.getContentPane().add(txtIdNumber);
+		txtIdNumber.setColumns(10);
 		
 		txtName = new JTextField();
-		txtName.setBounds(192, 90, 112, 20);
-		getContentPane().add(txtName);
+		txtName.setBounds(164, 87, 86, 20);
+		frmRegisterYourself.getContentPane().add(txtName);
 		txtName.setColumns(10);
 		
 		txtEmail = new JTextField();
-		txtEmail.setBounds(192, 116, 112, 20);
-		getContentPane().add(txtEmail);
+		txtEmail.setBounds(164, 113, 86, 20);
+		frmRegisterYourself.getContentPane().add(txtEmail);
 		txtEmail.setColumns(10);
 		
 		//Register Button
@@ -76,12 +89,12 @@ public class RegisterUser extends JFrame{
 		btnRegister.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 				
-				if(txtId.getText() != "" && txtName.getText() != "" && txtEmail.getText() != "") {
-					controller.registerUsers(txtId.getText(), txtName.getText(), txtEmail.getText());
+				if(txtIdNumber.getText() != "" && txtName.getText() != "" && txtEmail.getText() != "") {
+					controller.registerUsers(txtIdNumber.getText(), txtName.getText(), txtEmail.getText());
 				}
-				frame.dispose();
+				frmRegisterYourself.dispose();
 				
-				UserData userData = new UserData(txtId.getText(), txtName.getText(), txtEmail.getText());
+				UserData userData = new UserData(txtIdNumber.getText(), txtName.getText(), txtEmail.getText());
 				
 				new RegisterVanWindow(controller, userData);
 				new SearchWindow(controller, userData);
@@ -89,7 +102,9 @@ public class RegisterUser extends JFrame{
 				
 			}
 		});
-		btnRegister.setBounds(161, 166, 89, 23);
-		frame.getContentPane().add(btnRegister);
+		btnRegister.setBounds(104, 144, 86, 28);
+		frmRegisterYourself.getContentPane().add(btnRegister);
+		
 	}
+	
 }

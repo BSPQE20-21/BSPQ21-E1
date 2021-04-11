@@ -25,7 +25,7 @@ public class RegisterVanWindow extends JFrame{
 	private Controller controller;
 	private UserData user;
 	
-	private JFrame frame = new JFrame();
+	private JFrame frmRegistrationOfVans = new JFrame();
 	
 	private JLabel lblTitle;
 	
@@ -70,136 +70,137 @@ public class RegisterVanWindow extends JFrame{
 		this.controller = controller;
 		this.user = user;
 		initialize();
-		frame.setVisible(true);
+		frmRegistrationOfVans.setTitle("Registration of vans");
+		frmRegistrationOfVans.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 450, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmRegistrationOfVans.setResizable(false);
+		frmRegistrationOfVans.setBounds(100, 100, 450, 600);
+		frmRegistrationOfVans.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmRegistrationOfVans.getContentPane().setLayout(null);
 		
-		lblTitle = new JLabel("Resgister your van");
+		lblTitle = new JLabel("Register your van");
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblTitle.setBounds(50, 30, 237, 19);
-		frame.getContentPane().add(lblTitle);
+		lblTitle.setBounds(121, 31, 196, 19);
+		frmRegistrationOfVans.getContentPane().add(lblTitle);
 		
 		//LicensePlate
 		lblLicensePlate = new JLabel("License Plate");
 		lblLicensePlate.setBounds(40, 81, 121, 19);
-		frame.getContentPane().add(lblLicensePlate);
+		frmRegistrationOfVans.getContentPane().add(lblLicensePlate);
 		
 		txtFieldLicensePlate = new JTextField();
 		txtFieldLicensePlate.setBounds(200, 81, 96, 19);
-		frame.getContentPane().add(txtFieldLicensePlate);
+		frmRegistrationOfVans.getContentPane().add(txtFieldLicensePlate);
 		txtFieldLicensePlate.setColumns(10);
 		
 		//Brand
 		lblBrand = new JLabel("Brand");
 		lblBrand.setBounds(40, 120, 78, 13);
-		frame.getContentPane().add(lblBrand);
+		frmRegistrationOfVans.getContentPane().add(lblBrand);
 		
 		txtFieldBrand = new JTextField();
 		txtFieldBrand.setBounds(200, 117, 96, 19);
-		frame.getContentPane().add(txtFieldBrand);
+		frmRegistrationOfVans.getContentPane().add(txtFieldBrand);
 		txtFieldBrand.setColumns(10);
 		
 		//Model
 		lblMoldel = new JLabel("Model");
 		lblMoldel.setBounds(40, 160, 45, 13);
-		frame.getContentPane().add(lblMoldel);
+		frmRegistrationOfVans.getContentPane().add(lblMoldel);
 		
 		txtFieldModel = new JTextField();
 		txtFieldModel.setBounds(200, 156, 96, 19);
-		frame.getContentPane().add(txtFieldModel);
+		frmRegistrationOfVans.getContentPane().add(txtFieldModel);
 		txtFieldModel.setColumns(10);
 		
 		//Location
 		lblLocation = new JLabel("Location");
 		lblLocation.setBounds(40, 200, 45, 13);
-		frame.getContentPane().add(lblLocation);
+		frmRegistrationOfVans.getContentPane().add(lblLocation);
 		
 		txtFieldLocation = new JTextField();
 		txtFieldLocation.setColumns(10);
 		txtFieldLocation.setBounds(200, 197, 96, 19);
-		frame.getContentPane().add(txtFieldLocation);
+		frmRegistrationOfVans.getContentPane().add(txtFieldLocation);
 		
 		//Capacity
 		lblCapacity = new JLabel("Capacity");
 		lblCapacity.setBounds(40, 250, 80, 13);
-		frame.getContentPane().add(lblCapacity);
+		frmRegistrationOfVans.getContentPane().add(lblCapacity);
 		
 		SpinnerNumberModel capacitySpinnerModel = new SpinnerNumberModel(1, 1, 10, 1);  
 		spinnerCapacity = new JSpinner(capacitySpinnerModel);
 		spinnerCapacity.setBounds(200, 247, 54, 20);
-		frame.getContentPane().add(spinnerCapacity);
+		frmRegistrationOfVans.getContentPane().add(spinnerCapacity);
 		
 		//Kitchen
 		lblKitchen = new JLabel("Kitchen");
 		lblKitchen.setBounds(40, 300, 54, 13);
-		frame.getContentPane().add(lblKitchen);
+		frmRegistrationOfVans.getContentPane().add(lblKitchen);
 		
 		kitchenButtonGroup = new ButtonGroup();
 		
 		rdbtnKitchenTrue = new JRadioButton("Yes");
 		rdbtnKitchenTrue.setBounds(163, 296, 63, 21);
 		rdbtnKitchenTrue.setSelected(true);
-		frame.getContentPane().add(rdbtnKitchenTrue);
+		frmRegistrationOfVans.getContentPane().add(rdbtnKitchenTrue);
 		kitchenButtonGroup.add(rdbtnKitchenTrue);
 		
 		rdbtnKitchenFalse = new JRadioButton("No");
 		rdbtnKitchenFalse.setBounds(250, 296, 63, 21);
-		frame.getContentPane().add(rdbtnKitchenFalse);
+		frmRegistrationOfVans.getContentPane().add(rdbtnKitchenFalse);
 		kitchenButtonGroup.add(rdbtnKitchenFalse);
 		
 		//Shower
 		lblShower = new JLabel("Shower");
 		lblShower.setBounds(40, 350, 54, 13);
-		frame.getContentPane().add(lblShower);
+		frmRegistrationOfVans.getContentPane().add(lblShower);
 		
 		showerButtonGroup = new ButtonGroup();
 		
 		rdbtnShowerTrue = new JRadioButton("Yes");
 		rdbtnShowerTrue.setBounds(163, 346, 63, 21);
 		rdbtnShowerTrue.setSelected(true);
-		frame.getContentPane().add(rdbtnShowerTrue);
+		frmRegistrationOfVans.getContentPane().add(rdbtnShowerTrue);
 		showerButtonGroup.add(rdbtnShowerTrue);
 		
 		rdbtnShowerFalse = new JRadioButton("No");
 		rdbtnShowerFalse.setBounds(250, 346, 63, 21);
-		frame.getContentPane().add(rdbtnShowerFalse);
+		frmRegistrationOfVans.getContentPane().add(rdbtnShowerFalse);
 		showerButtonGroup.add(rdbtnShowerFalse);
 		
 		//Off-road
 		lblOffRoad = new JLabel("Off-Road");
 		lblOffRoad.setBounds(40, 400, 80, 13);
-		frame.getContentPane().add(lblOffRoad);
+		frmRegistrationOfVans.getContentPane().add(lblOffRoad);
 		
 		offRoadButtonGroup = new ButtonGroup(); 
 		
 		rdbtnOffRoadTrue = new JRadioButton("Yes");
 		rdbtnOffRoadTrue.setSelected(true);
 		rdbtnOffRoadTrue.setBounds(163, 396, 63, 21);
-		frame.getContentPane().add(rdbtnOffRoadTrue);
+		frmRegistrationOfVans.getContentPane().add(rdbtnOffRoadTrue);
 		offRoadButtonGroup.add(rdbtnOffRoadTrue);
 		
 		rdbtnOffRoadFalse = new JRadioButton("No");
 		rdbtnOffRoadFalse.setBounds(250, 396, 63, 21);
-		frame.getContentPane().add(rdbtnOffRoadFalse);
+		frmRegistrationOfVans.getContentPane().add(rdbtnOffRoadFalse);
 		offRoadButtonGroup.add(rdbtnOffRoadFalse);
 		
 		//Price
 		lblPricePerDay = new JLabel("Price per day");
 		lblPricePerDay.setBounds(40, 450, 80, 13);
-		frame.getContentPane().add(lblPricePerDay);
+		frmRegistrationOfVans.getContentPane().add(lblPricePerDay);
 		
 		SpinnerNumberModel priceSpinnerModel = new SpinnerNumberModel(99.99, 0.0, 1500.0, 10.0);
 		spinnerPrice = new JSpinner(priceSpinnerModel);
 		spinnerPrice.setBounds(200, 447, 94, 20);
-		frame.getContentPane().add(spinnerPrice);
+		frmRegistrationOfVans.getContentPane().add(spinnerPrice);
 		
 		//BUTTON: Register Van
 		JButton btnRegisterVan = new JButton("Register van");
@@ -227,20 +228,20 @@ public class RegisterVanWindow extends JFrame{
 				
 			}
 		});
-		btnRegisterVan.setBounds(140, 516, 147, 23);
-		frame.getContentPane().add(btnRegisterVan);
+		btnRegisterVan.setBounds(146, 516, 147, 23);
+		frmRegistrationOfVans.getContentPane().add(btnRegisterVan);
 		
 		//BUTTON: Cancel
 		btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				frame.dispose();
+				frmRegistrationOfVans.dispose();
 				
 			}
 		});
 		btnCancel.setBounds(333, 516, 89, 23);
-		frame.getContentPane().add(btnCancel);
+		frmRegistrationOfVans.getContentPane().add(btnCancel);
 	
 		
 	}

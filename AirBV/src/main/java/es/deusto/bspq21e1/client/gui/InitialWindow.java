@@ -18,7 +18,7 @@ public class InitialWindow extends JFrame {
     private static final long serialVersionUID = 1L;
     private Controller controller;
 
-    private JFrame frame = new JFrame();
+    private JFrame frmAirbv = new JFrame();
     private JPanel panel;
     private JButton btnRegister, btnLogin, btnExit;
 
@@ -28,7 +28,8 @@ public class InitialWindow extends JFrame {
 	 */
     public InitialWindow(Controller controller) {
         this.controller = controller;
-        frame.setVisible(true);
+        frmAirbv.setTitle("AirB&V");
+        frmAirbv.setVisible(true);
         initialize();
     }
 
@@ -36,17 +37,17 @@ public class InitialWindow extends JFrame {
 	 * Initializes all the elements the window needs to show to the user and their functionality.
 	 */
     private void initialize() {
-        frame.setBounds(100, 100, 600, 300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+        frmAirbv.setBounds(100, 100, 255, 235);
+        frmAirbv.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmAirbv.getContentPane().setLayout(null);
 
         panel = new JPanel();
-        panel.setBounds(0, 0, 600, 300);
-        frame.getContentPane().add(panel);
+        panel.setBounds(20, 0, 202, 198);
+        frmAirbv.getContentPane().add(panel);
         panel.setLayout(null);
 
         btnRegister = new JButton("Register");
-        btnRegister.setBounds(225, 50, 150, 25);
+        btnRegister.setBounds(23, 36, 150, 25);
         btnRegister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -54,20 +55,24 @@ public class InitialWindow extends JFrame {
             }
         } );
         panel.add(btnRegister);
+        btnRegister.updateUI();
 
         btnLogin = new JButton("Login");
-        btnLogin.setBounds(225, 125, 150, 25);
+        btnLogin.setBounds(23, 85, 150, 25);
+        btnLogin.updateUI();
         panel.add(btnLogin);
+        btnLogin.setEnabled(false);
 
         btnExit = new JButton("Exit");
-        btnExit.setBounds(225, 200, 150, 25);
+        btnExit.setBounds(23, 141, 150, 25);
         btnExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
+            	frmAirbv.dispose();
             }
         } );
         panel.add(btnExit);
+        btnExit.updateUI();
 
     }
 
@@ -75,7 +80,7 @@ public class InitialWindow extends JFrame {
      * Closes this window and opens the RegisterUser window.
      */
     private void goToRegisterUser() {
-        this.dispose();
         new RegisterUser(controller);
+        frmAirbv.dispose();
     }
 }

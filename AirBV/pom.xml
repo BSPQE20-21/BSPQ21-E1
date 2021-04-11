@@ -143,12 +143,6 @@
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
 								<argument>${server.name}</argument>
-								<systemProperties>
-									<systemProperty>
-										<key>java.security.policy</key>
-										<value>policy</value>
-									</systemProperty>
-								</systemProperties>
 							</arguments>
 						</configuration>
 					</plugin>
