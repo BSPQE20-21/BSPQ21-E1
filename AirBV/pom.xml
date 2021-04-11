@@ -129,7 +129,15 @@
 		        <artifactId>maven-surefire-plugin</artifactId>
 		        <version>2.11</version>
 		        <configuration>
-		          <argLine>-Djava.security.policy=${security.files.dir}/java.policy</argLine>
+					<mainClass>com.example.Main</mainClass>
+					<arguments>
+						<systemProperties>
+							<systemProperty>
+								<key>java.security.policy</key>
+								<value>policy</value>
+							</systemProperty>
+						</systemProperties>
+					</arguments>
 		        </configuration>
         	</plugin>
 		</plugins>
