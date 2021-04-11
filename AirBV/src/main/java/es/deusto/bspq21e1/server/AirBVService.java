@@ -49,7 +49,7 @@ public class AirBVService {
     	Reservation reservation = new Reservation(bookingDate, duration, van, vanRenter);
     	DBManager.getInstance().store(reservation);
     	
-    	/* WARNING AHEAD!!
+    	/* WARNING!!
     	 CAREFULL WITH THE ATRIBUTE "CODE" OF THE RESERVATION CLASS,
     	 WE ARE NOT SURE WHEN EXACTLY THE AUTOINCREMENTAL CODE IS GENERATED
     	 (DEFINED IN THE REVIEW CLASS AS PK), WHICH COULD LEAD TO PROBLEMS
