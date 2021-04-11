@@ -8,6 +8,7 @@ import es.deusto.bspq21e1.client.gui.InitialWindow;
 import es.deusto.bspq21e1.client.remote.ServiceLocator;
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
+import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
 
 public class Controller {
@@ -59,9 +60,9 @@ public class Controller {
 		}
     }
     
-    public void registerReservation(Date bookingDate, int duration, Van van, User vanRenter) {
+    public void registerReservation(Date bookingDate, int duration, VanData vanData, UserData vanRenter) {
     	try {
-			sl.getAirBVService().registerReservation(bookingDate, duration, van, vanRenter);
+			sl.getAirBVService().registerReservation(bookingDate, duration, vanData, vanRenter);
 		} catch (Exception e) {
     		System.out.println("$ Error registering reservation: " + e.getMessage());
 		}

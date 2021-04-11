@@ -5,6 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Date;
 
+import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
@@ -42,8 +43,11 @@ public class AirBV extends UnicastRemoteObject implements IAirBV {
         return airbvService.cancelReservation(code);
     }
     
-    public void registerReservation(Date bookingDate, int duration, Van van, User vanRenter) {
-    	airbvService.registerReservation(bookingDate, duration, van, vanRenter);
+    public void registerReservation(Date bookingDate, int duration, VanData vanData, UserData vanRenter) {
+    	Assembler as = new Assembler();
+    	Van van = as.disassembleVan(vanData);
+    	User user = as.disassembleUser(vanRenter);
+    	airbvService.registerReservation(bookingDate, duration, van, user);
     }
 
 	@Override

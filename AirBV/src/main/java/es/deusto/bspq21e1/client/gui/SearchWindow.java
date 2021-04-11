@@ -12,14 +12,21 @@ import es.deusto.bspq21e1.serialization.VanData;
 import javax.swing.JPanel;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
+
+import org.apache.log4j.SimpleLayout;
+
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.rmi.Naming;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import javax.swing.JScrollPane;
+import java.awt.Color;
 
 
 public class SearchWindow extends JFrame{
@@ -29,6 +36,7 @@ public class SearchWindow extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
+	private UserData user;
 	
 	private JFrame frmSearchVans = new JFrame();;
 	private JPanel searchPanel;
@@ -44,6 +52,8 @@ public class SearchWindow extends JFrame{
 	private JSeparator separator;
 	private JList<String> jlVansList = new JList<String>();
 	private JScrollPane scrollVans;
+	private ArrayList<VanData> vans = new ArrayList<>();
+	private Date pickUpDate;
 	
 	private javax.swing.DefaultListModel<String> vansList = new javax.swing.DefaultListModel<String>();
 
@@ -52,6 +62,7 @@ public class SearchWindow extends JFrame{
 	 */
 	public SearchWindow(Controller controller, UserData user) {
 		this.controller = controller;
+		this.user = user;
 		frmSearchVans.setTitle("Search vans");
 		frmSearchVans.setResizable(false);
 		frmSearchVans.setVisible(true);
@@ -105,8 +116,7 @@ public class SearchWindow extends JFrame{
 		JButton btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<VanData> vans = controller.searchVans(txtLocation.getText(),
-						txtPickUp.getText(), txtReturn.getText());
+				vans = controller.searchVans(txtLocation.getText(), txtPickUp.getText(), txtReturn.getText());
 				if (vans != null) {
 					updateLists(vans);
 				}
@@ -121,6 +131,11 @@ public class SearchWindow extends JFrame{
 		lblSearchTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblSearchTitle.setBounds(10, 11, 320, 34);
 		searchPanel.add(lblSearchTitle);
+		
+		JLabel lblNDateExample = new JLabel("dd/MM/yyyy");
+		lblNDateExample.setForeground(Color.BLUE);
+		lblNDateExample.setBounds(311, 44, 93, 13);
+		searchPanel.add(lblNDateExample);
 		lblSearchTitle.updateUI();
 		
 		visualizePanel = new JPanel();
@@ -146,6 +161,30 @@ public class SearchWindow extends JFrame{
 		JButton btnBook = new JButton("Book");
 		btnBook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				String location = txtLocation.getText();
+				
+				String pickUp = txtPickUp.getText();
+				try {
+					pickUpDate = new SimpleDateFormat("dd/MM/yyyy").parse(pickUp);
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				try {
+					Date returnDate = new SimpleDateFormat("dd/MM/yyyy").parse(txtReturn.getText());
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				VanData van = vans.get(jlVansList.getSelectedIndex());
+				
+				controller.registerReservation(pickUpDate, 8, van, user);
+				
+				
+		
 				
 			}
 		});

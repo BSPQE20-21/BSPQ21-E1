@@ -1,5 +1,6 @@
 package es.deusto.bspq21e1.server.dto;
 
+import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
 import es.deusto.bspq21e1.server.data.Reservation;
@@ -14,9 +15,12 @@ public class Assembler {
 		return userData;
     }
 
-	/*public ReservationDTO assembleReservation(Reservation r) {
-
-    }*/
+	public ReservationData assembleReservation(Reservation r) {
+		VanData vanData = assembleVan(r.getVan());
+		UserData vanRenter = assembleUser(r.getVanRenter());
+		ReservationData reservationData = new ReservationData(r.getCode() ,r.getBookingDate(), r.getDuration(), vanData, vanRenter);
+		return reservationData;
+    }
 
     public VanData assembleVan(Van v) {
     	UserData userData = assembleUser(v.getOwner());
@@ -34,9 +38,12 @@ public class Assembler {
 
     }
 
-    /*public Reservation disassembleReservation(ReservationDTO r) {
-
-    }*/
+    public Reservation disassembleReservation(ReservationData r) {
+    	Van van = disassembleVan(r.getVan());
+    	User user = disassembleUser(r.getVanRenter());
+    	Reservation reservationData = new Reservation(r.getBookingDate(), r.getDuration(), van, user);
+    	return reservationData;
+    }
 
     public Van disassembleVan(VanData v) {
     	User user = disassembleUser(v.getOwner());
