@@ -1,6 +1,10 @@
 # BSPQ21-E1
 
-Generate jar: jar -cf AirBVexport.jar IAirBV.java
+Generate jar:
+
+```bash
+jar -cf AirBVServer.jar IAirBV.java
+```
 
 Install jar dependencies:
 
