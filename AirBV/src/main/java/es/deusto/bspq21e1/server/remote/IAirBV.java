@@ -4,8 +4,6 @@ import java.rmi.Remote;
 import java.util.ArrayList;
 import java.util.Date;
 
-import es.deusto.bspq21e1.server.data.User;
-import es.deusto.bspq21e1.server.data.Van;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
 

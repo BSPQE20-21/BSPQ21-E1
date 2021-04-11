@@ -3,6 +3,7 @@ package es.deusto.bspq21e1.server.dto;
 import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
+import es.deusto.bspq21e1.server.data.Reservation;
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
 

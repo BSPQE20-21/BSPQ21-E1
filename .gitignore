@@ -4,3 +4,4 @@ target/
 *.log
 *.log
 *.log
+AirBV/datanucleus.log

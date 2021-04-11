@@ -188,7 +188,7 @@ public class DBManager {
 			query.setFilter("location== '" + location+ "'");
 			
 			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
-			listOfVans = (ArrayList<Vans>)query.execute();
+			listOfVans = (ArrayList<Van>)query.execute();
 
 		} catch (Exception e) {
 			System.out.println("   $ Error retrieving reservations from van renter: " + e.getMessage() );
