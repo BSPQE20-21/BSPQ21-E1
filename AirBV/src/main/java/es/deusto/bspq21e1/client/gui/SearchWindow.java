@@ -54,6 +54,7 @@ public class SearchWindow extends JFrame{
 	private JScrollPane scrollVans;
 	private ArrayList<VanData> vans = new ArrayList<>();
 	private Date pickUpDate;
+	private Date returnDate;
 	
 	private javax.swing.DefaultListModel<String> vansList = new javax.swing.DefaultListModel<String>();
 
@@ -173,7 +174,7 @@ public class SearchWindow extends JFrame{
 				}
 				
 				try {
-					Date returnDate = new SimpleDateFormat("dd/MM/yyyy").parse(txtReturn.getText());
+					returnDate = new SimpleDateFormat("dd/MM/yyyy").parse(txtReturn.getText());
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -181,10 +182,12 @@ public class SearchWindow extends JFrame{
 				
 				VanData van = vans.get(jlVansList.getSelectedIndex());
 				
-				controller.registerReservation(pickUpDate, 8, van, user);
+				int milisecondsByDay = 86400000;
+				int days = (int) ((pickUpDate.getTime()-returnDate.getTime()) / milisecondsByDay);
 				
+				controller.registerReservation(pickUpDate, days, van, user);
+			
 				
-		
 				
 			}
 		});
