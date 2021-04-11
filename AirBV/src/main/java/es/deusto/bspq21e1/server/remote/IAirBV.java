@@ -15,5 +15,5 @@ public interface IAirBV extends Remote {
     public boolean cancelReservation(String code) throws RemoteException;
     public void registerReservation(Date bookingDate, int duration, VanData vanData, UserData vanRenter) throws RemoteException;
     public ArrayList<VanData> searchVans(String location) throws RemoteException;
-	public ArrayList<ReservationData> getUserReservations(UserData userData);
+	public ArrayList<ReservationData> getUserReservations(UserData userData) throws RemoteException;
 }
