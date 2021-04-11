@@ -5,12 +5,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import es.deusto.bspq21e1.serialization.VanData;
 import es.deusto.bspq21e1.server.dao.DBManager;
 import es.deusto.bspq21e1.server.data.Reservation;
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
-import es.deusto.bspq21e1.server.dto.Assembler;
+
 
 // This is the APPLICATION SERVICE
 public class AirBVService {
@@ -52,7 +51,6 @@ public class AirBVService {
 	public ArrayList<Van> searchVans(String location, String pickUp, String returnDate) {
 		ArrayList<Van> vans = DBManager.getInstance().getAllVans();
 		ArrayList<Van> vansInLocation = new ArrayList<Van>();
-		Assembler as = new Assembler();
 		for (Van van : vans) {
 			if(van.getLocation().equals(location)) {
 				vansInLocation.add(van);
