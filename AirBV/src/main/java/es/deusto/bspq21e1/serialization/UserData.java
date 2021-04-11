@@ -50,4 +50,11 @@ public class UserData {
 	public void setStars(List<Integer> stars) {
 		this.stars = stars;
 	}
+
+	//To String
+	@Override
+	public String toString() {
+		return "UserData [dni=" + dni + ", name=" + name + ", email=" + email + ", stars=" + stars + "]";
+	}
+	
 }

@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 
 import es.deusto.bspq21e1.client.controller.Controller;
+import es.deusto.bspq21e1.serialization.UserData;
 
 import javax.swing.JButton;
 
@@ -80,11 +81,11 @@ public class RegisterUser extends JFrame{
 				}
 				frame.dispose();
 				
-				UserDTO userDTO = new UserDTO(txtId.getText(), txtName.getText(), txtEmail.getText());
+				UserData userData = new UserData(txtId.getText(), txtName.getText(), txtEmail.getText());
 				
-				RegisterVanWindow registerVanWindow = new RegisterVanWindow(controller, userDTO);
-				SearchWindow searchWindow = new SearchWindow(controller, userDTO);
-				CancelReservationWindow cancelReservationWindow = new CancelReservationWindow(controller, userDTO);
+				RegisterVanWindow registerVanWindow = new RegisterVanWindow(controller, userData);
+				SearchWindow searchWindow = new SearchWindow(controller, userData);
+				CancelReservationWindow cancelReservationWindow = new CancelReservationWindow(controller, userData);
 				
 			}
 		});

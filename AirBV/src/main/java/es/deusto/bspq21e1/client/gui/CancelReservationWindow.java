@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 
 import es.deusto.bspq21e1.client.controller.Controller;
+import es.deusto.bspq21e1.serialization.UserData;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -15,7 +16,7 @@ public class CancelReservationWindow extends JFrame{
 	
 	private JFrame frame = new JFrame();
 	
-	public CancelReservationWindow(Controller controller, UserDTO userDTO) {
+	public CancelReservationWindow(Controller controller, UserData userData) {
 		frame.getContentPane().setLayout(null);
 		initialize();
 		frame.setVisible(true);

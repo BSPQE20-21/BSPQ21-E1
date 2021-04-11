@@ -13,6 +13,7 @@ public class AirBVService {
     
     // Parameters
     Map<String, User> users = new HashMap<String, User>();
+    Map<String, Van> vans = new HashMap<String, Van>();
     Map<String, Reservation> reservations = new HashMap<String, Reservation>();
 
     public AirBVService() {
@@ -21,7 +22,9 @@ public class AirBVService {
 
     public User registerUser(String dni, String name, String email) {
         users.put(dni, new User(dni, name, email));
-        //TODO falta añadir a BD
+        
+        DBManager.getInstance().store(users.get(dni));
+        
         return users.get(dni);
     }
     
@@ -32,7 +35,7 @@ public class AirBVService {
     public boolean cancelReservation(String code) {
         if(reservations.get(code) != null) {
             reservations.remove(code);
-            //TODO falta eliminar de BD
+            //TODO falta eliminar de BD ¿?
             return true;
         }
         return false;

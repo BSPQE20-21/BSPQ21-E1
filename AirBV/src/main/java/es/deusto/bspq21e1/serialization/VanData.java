@@ -15,8 +15,8 @@ public class VanData {
 
     private UserData owner;
 
-    public VanData(String licensePlate, String brand, String model, String location, boolean kitchen, boolean shower, boolean offRoad,
-    int capacity, double pricePerDay, UserData owner) {
+    public VanData(String licensePlate, String brand, String model, String location, int capacity, boolean kitchen, boolean shower, boolean offRoad,
+     double pricePerDay, UserData owner) {
     	
     	 this.licensePlate = licensePlate;
     	 this.brand = brand;
