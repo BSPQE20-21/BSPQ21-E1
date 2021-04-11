@@ -1,5 +1,10 @@
 package es.deusto.bspq21e1.serialization;
 
+/**
+ * Class for the representation of the Van object which is going to be sended to clients.
+ * @author SPQ Group 1
+ * @version 1.0
+ */
 public class VanData {
     
     private String licensePlate;
@@ -15,6 +20,19 @@ public class VanData {
 
     private UserData owner;
 
+	/**
+	 * Creates the object that has the data from Van.
+	 * @param licensePlate License plate of the van.
+	 * @param brand Brand of the van.
+	 * @param model Model of the van.
+	 * @param location Town in which the van is located.
+	 * @param capacity Maximum number of people allowed to rent the van.
+	 * @param kitchen If it has a kitchen.
+	 * @param shower If it has a shower.
+	 * @param offRoad If it has off road capabilities.
+	 * @param pricePerDay The price per day that cost to rent it.
+	 * @param owner User that owns the van (just the data version).
+	 */
     public VanData(String licensePlate, String brand, String model, String location, int capacity, boolean kitchen, boolean shower, boolean offRoad,
      double pricePerDay, UserData owner) {
     	
@@ -110,4 +128,5 @@ public class VanData {
 	public void setOwner(UserData owner) {
 		this.owner = owner;
 	}
+
 }
