@@ -47,6 +47,16 @@ public class Controller {
     	}
     }
     
+    public boolean cancelReservation(String code) {
+    	try {
+			sl.getAirBVService().cancelReservation(code);
+			return true;
+		} catch (Exception e) {
+    		System.out.println("$ Error cancelling reservation: " + e.getMessage());
+    		return false;
+		}
+    }
+    
     public static void main(String[] args) {
         new Controller(args);
     }

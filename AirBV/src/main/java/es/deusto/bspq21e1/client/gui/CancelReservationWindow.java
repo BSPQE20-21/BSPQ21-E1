@@ -5,6 +5,10 @@ import javax.swing.JList;
 
 import es.deusto.bspq21e1.client.controller.Controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 
@@ -15,7 +19,7 @@ public class CancelReservationWindow extends JFrame{
 	
 	private JFrame frame = new JFrame();
 	
-	public CancelReservationWindow(Controller controller, UserDTO userDTO) {
+	public CancelReservationWindow(Controller controller, UserDTO user) {
 		frame.getContentPane().setLayout(null);
 		initialize();
 		frame.setVisible(true);
@@ -24,15 +28,19 @@ public class CancelReservationWindow extends JFrame{
 	}
 	
 	private void initialize() {
-		JButton btnCancel = new JButton("Cancel");
-		btnCancel.setBounds(145, 300, 89, 23);
-		getContentPane().add(btnCancel);
-		
-
 		
 		JList<String> list = new JList<String>();
 		list.setBounds(50, 35, 275, 250);
 		getContentPane().add(list);
+		
+		JButton btnCancel = new JButton("Cancel");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.cancelReservation(list.getSelectedValue());
+			}
+		});
+		btnCancel.setBounds(145, 300, 89, 23);
+		getContentPane().add(btnCancel);
 	}
 	
 
