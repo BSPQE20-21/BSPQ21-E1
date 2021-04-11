@@ -117,7 +117,7 @@ public class SearchWindow extends JFrame{
 		JButton btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				vans = controller.searchVans(txtLocation.getText(), txtPickUp.getText(), txtReturn.getText());
+				vans = controller.searchVans(txtLocation.getText());
 				if (vans != null) {
 					updateLists(vans);
 				}
@@ -162,9 +162,7 @@ public class SearchWindow extends JFrame{
 		JButton btnBook = new JButton("Book");
 		btnBook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				String location = txtLocation.getText();
-				
+			
 				String pickUp = txtPickUp.getText();
 				try {
 					pickUpDate = new SimpleDateFormat("dd/MM/yyyy").parse(pickUp);
