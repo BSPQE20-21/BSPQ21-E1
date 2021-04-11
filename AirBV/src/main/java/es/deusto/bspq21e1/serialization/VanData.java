@@ -1,10 +1,6 @@
-package es.deusto.bspq21e1.server.dto;
+package es.deusto.bspq21e1.serialization;
 
-import java.io.Serializable;
-
-public class VanDTO implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
+public class VanData {
     
     private String licensePlate;
     private String brand;
@@ -16,11 +12,11 @@ public class VanDTO implements Serializable {
     private boolean offRoad;
     private int capacity;
     private double pricePerDay;
-    
-    private UserDTO owner;
 
-    public VanDTO(String licensePlate, String brand, String model, String location, boolean kitchen, boolean shower, boolean offRoad,
-    int capacity, double pricePerDay, UserDTO owner) {
+    private UserData owner;
+
+    public VanData(String licensePlate, String brand, String model, String location, boolean kitchen, boolean shower, boolean offRoad,
+    int capacity, double pricePerDay, UserData owner) {
     	
     	 this.licensePlate = licensePlate;
     	 this.brand = brand;
@@ -35,9 +31,7 @@ public class VanDTO implements Serializable {
     	
     }
 
-    // Getters y setters
-    
-	public String getBrand() {
+    public String getBrand() {
 		return brand;
 	}
 
@@ -109,12 +103,11 @@ public class VanDTO implements Serializable {
 		this.licensePlate = licensePlate;
 	}
 
-	public UserDTO getOwner() {
+	public UserData getOwner() {
 		return owner;
 	}
 
-	public void setOwner(UserDTO owner) {
+	public void setOwner(UserData owner) {
 		this.owner = owner;
 	}
-     
 }
