@@ -1,5 +1,7 @@
 package es.deusto.bspq21e1.server;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -47,7 +49,10 @@ public class AirBVService {
     }
     
     public void registerReservation(Date bookingDate, int duration, Van van, User vanRenter) {
-    	Reservation reservation = new Reservation(bookingDate, duration, van, vanRenter);
+    	DateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+		String dateString = date.format(bookingDate);
+		
+    	Reservation reservation = new Reservation(dateString, duration, van, vanRenter);
     	DBManager.getInstance().store(reservation);
     	
     	/* WARNING!!

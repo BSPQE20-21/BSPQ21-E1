@@ -136,11 +136,12 @@
 				<configuration>
 					<log4jConfiguration>${config.files.dir}/log4j.properties</log4jConfiguration>
 					<verbose>true</verbose>
+					<fork>false</fork>
 					<props>${config.files.dir}/datanucleus.properties</props>
 				</configuration>
 				<executions>
 					<execution>
-						<phase>compile</phase>
+						<phase>process-classes</phase>
 						<goals>
 							<goal>enhance</goal>
 						</goals>

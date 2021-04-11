@@ -1,5 +1,10 @@
 package es.deusto.bspq21e1.server.dto;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
@@ -17,7 +22,18 @@ public class Assembler {
 	public ReservationData assembleReservation(Reservation r) {
 		VanData vanData = assembleVan(r.getVan());
 		UserData vanRenter = assembleUser(r.getVanRenter());
-		ReservationData reservationData = new ReservationData(r.getCode() ,r.getBookingDate(), r.getDuration(), vanData, vanRenter);
+		
+		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaDate = null;
+        try {
+            fechaDate = formato.parse(r.getBookingDate());
+        } 
+        catch (ParseException ex) 
+        {
+            System.out.println(ex);
+        }
+		
+		ReservationData reservationData = new ReservationData(r.getCode() , fechaDate, r.getDuration(), vanData, vanRenter);
 		return reservationData;
     }
 
@@ -40,7 +56,11 @@ public class Assembler {
     public Reservation disassembleReservation(ReservationData r) {
     	Van van = disassembleVan(r.getVan());
     	User user = disassembleUser(r.getVanRenter());
-    	Reservation reservationData = new Reservation(r.getBookingDate(), r.getDuration(), van, user);
+    	
+    	DateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+		String dateString = date.format(r.getBookingDate());
+    	
+    	Reservation reservationData = new Reservation(dateString, r.getDuration(), van, user);
     	return reservationData;
     }
 

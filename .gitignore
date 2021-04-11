@@ -5,4 +5,5 @@ target/
 *.log
 *.log
 AirBV/datanucleus.log
-.vscode/settings.json
+*.log
+*.log
