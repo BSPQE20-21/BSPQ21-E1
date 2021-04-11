@@ -76,6 +76,6 @@ public class InitialWindow extends JFrame {
      */
     private void goToRegisterUser() {
         this.dispose();
-        RegisterUser ru = new RegisterUser(controller);
+        new RegisterUser(controller);
     }
 }

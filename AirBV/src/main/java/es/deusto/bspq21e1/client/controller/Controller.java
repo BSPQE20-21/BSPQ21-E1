@@ -2,7 +2,6 @@ package es.deusto.bspq21e1.client.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import es.deusto.bspq21e1.client.gui.InitialWindow;
 import es.deusto.bspq21e1.client.remote.ServiceLocator;

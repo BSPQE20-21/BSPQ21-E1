@@ -8,7 +8,6 @@ import es.deusto.bspq21e1.serialization.UserData;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 
 /**

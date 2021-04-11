@@ -25,5 +25,36 @@ public class Review {
 		this.comment = comment;
 	}
 
-    // Getters and setters
+	// Getters and setters
+	public int getCode() {
+		return code;
+	}
+
+	public void setCode(int code) {
+		this.code = code;
+	}
+
+	public int getStars() {
+		return stars;
+	}
+
+	public void setStars(int stars) {
+		this.stars = stars;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	//To String
+	@Override
+	public String toString() {
+		return "Review [code=" + code + ", stars=" + stars + ", comment=" + comment + "]";
+	}
+
+    
 }

@@ -28,12 +28,12 @@ public class RegisterUser extends JFrame{
 	public RegisterUser(Controller controller) {
 		this.controller = controller;
 		initialize();
+		frame.setResizable(false);
 		frame.setVisible(true);
 
 	}
 	
 	private void initialize() {
-		frame.setResizable(false);
 		frame.getContentPane().setLayout(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -83,9 +83,9 @@ public class RegisterUser extends JFrame{
 				
 				UserData userData = new UserData(txtId.getText(), txtName.getText(), txtEmail.getText());
 				
-				RegisterVanWindow registerVanWindow = new RegisterVanWindow(controller, userData);
-				SearchWindow searchWindow = new SearchWindow(controller, userData);
-				CancelReservationWindow cancelReservationWindow = new CancelReservationWindow(controller, userData);
+				new RegisterVanWindow(controller, userData);
+				new SearchWindow(controller, userData);
+				new CancelReservationWindow(controller, userData);
 				
 			}
 		});
