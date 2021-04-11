@@ -2,6 +2,11 @@ package es.deusto.bspq21e1.client.remote;
 
 import es.deusto.bspq21e1.server.remote.IAirBV;
 
+/**
+ * Pattern made class whose purpose is to return the service instances on demand.
+ * @author SPQ Group 1
+ * @version 1.0
+ */
 public class ServiceLocator {
 
     private IAirBV airBVService;

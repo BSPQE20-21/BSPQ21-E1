@@ -8,6 +8,11 @@ import java.awt.event.ActionEvent;
 
 import es.deusto.bspq21e1.client.controller.Controller;
 
+/**
+ * Window class for the initial point of the program, where users can register or log in.
+ * @author SPQ Group 1
+ * @version 1.0
+ */
 public class InitialWindow extends JFrame {
 
     private static final long serialVersionUID = 1L;
@@ -18,7 +23,8 @@ public class InitialWindow extends JFrame {
     private JButton btnRegister, btnLogin, btnExit;
 
     /**
-	 * Create the application.
+	 * Creates the initial window of the program.
+     * @param controller Controller used for handling all requests in the system.  
 	 */
     public InitialWindow(Controller controller) {
         this.controller = controller;
@@ -26,13 +32,8 @@ public class InitialWindow extends JFrame {
         initialize();
     }
 
-    public InitialWindow() {
-        frame.setVisible(true);
-        initialize();
-    }
-
     /**
-	 * Initialize the contents of the frame.
+	 * Initializes all the elements the window needs to show to the user and their functionality.
 	 */
     private void initialize() {
         frame.setBounds(100, 100, 600, 300);
@@ -70,6 +71,9 @@ public class InitialWindow extends JFrame {
 
     }
 
+    /**
+     * Closes this window and opens the RegisterUser window.
+     */
     private void goToRegisterUser() {
         this.dispose();
         RegisterUser ru = new RegisterUser(controller);
