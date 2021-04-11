@@ -124,6 +124,14 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.4.19.v20190610</version>
             </plugin>
+			<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-surefire-plugin</artifactId>
+		        <version>2.11</version>
+		        <configuration>
+		          <argLine>-Djava.security.policy=${security.files.dir}/java.policy</argLine>
+		        </configuration>
+        	</plugin>
 		</plugins>
 	</build>
 
@@ -146,14 +154,6 @@
 							</arguments>
 						</configuration>
 					</plugin>
-					<plugin>
-				        <groupId>org.apache.maven.plugins</groupId>
-				        <artifactId>maven-surefire-plugin</artifactId>
-				        <version>2.11</version>
-				        <configuration>
-				          <argLine>-Djava.security.policy=${security.files.dir}/java.policy</argLine>
-				        </configuration>
-		        	</plugin>
 				</plugins>
 			</build>
 		</profile>
