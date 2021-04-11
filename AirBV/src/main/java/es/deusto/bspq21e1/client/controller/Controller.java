@@ -9,6 +9,7 @@ import es.deusto.bspq21e1.client.remote.ServiceLocator;
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
 import es.deusto.bspq21e1.server.dto.VanDTO;
+import es.deusto.bspq21e1.serialization.VanData;
 
 public class Controller {
 
@@ -22,9 +23,9 @@ public class Controller {
 
     // The methods will go here
     
-    public ArrayList<VanDTO> searchVans(String location, String pickUpDate, String returnDate) {
+    public ArrayList<VanData> searchVans(String location, String pickUpDate, String returnDate) {
     	try{
-    		ArrayList<VanDTO> vans =  sl.getAirBVService().searchVans(location, pickUpDate, returnDate);
+    		ArrayList<VanData> vans =  sl.getAirBVService().searchVans(location, pickUpDate, returnDate);
     		System.out.println("Controller "+vans);
     		return vans;
     	} catch(Exception e){
@@ -41,9 +42,9 @@ public class Controller {
 		}
     }
     
-    public void registerVan(VanDTO vanDTO) {
+    public void registerVan(VanData vanData) {
     	try {
-    		sl.getAirBVService().registerVan(vanDTO);
+    		sl.getAirBVService().registerVan(vanData);
     	}catch (Exception e) {
     		System.err.println("# Error registering van: " + e.getMessage());
     	}

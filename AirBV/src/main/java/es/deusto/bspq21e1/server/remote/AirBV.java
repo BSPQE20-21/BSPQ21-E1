@@ -4,10 +4,9 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
 
-import es.deusto.bspq21e1.server.data.User;
+import es.deusto.bspq21e1.serialization.VanData;
 import es.deusto.bspq21e1.server.data.Van;
 import es.deusto.bspq21e1.server.dto.Assembler;
-import es.deusto.bspq21e1.server.dto.VanDTO;
 import es.deusto.bspq21e1.server.server.AirBVService;
 
 // This is the REMOTE FACADE
@@ -27,13 +26,13 @@ public class AirBV extends UnicastRemoteObject implements IAirBV {
     }
     
     /**
-     * Transforms VanDTO into Van and uses a method from the Application Service to store a Van
-     * @param vanDTO
+     * Transforms VanData into Van and uses a method from the Application Service to store a Van
+     * @param vanData
      */
-    public void registerVan(VanDTO vanDTO) {
+    public void registerVan(VanData vanData) {
     	Assembler as = new Assembler();
     	
-    	Van van = as.disassembleVan(vanDTO);
+    	Van van = as.disassembleVan(vanData);
     	airbvService.registerVan(van);
     }
 

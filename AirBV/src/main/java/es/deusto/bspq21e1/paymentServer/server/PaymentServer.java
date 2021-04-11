@@ -2,6 +2,9 @@ package es.deusto.bspq21e1.paymentServer.server;
 
 import java.rmi.Naming;
 
+import es.deusto.bspq21e1.paymentServer.remote.IPaymentSystem;
+import es.deusto.bspq21e1.paymentServer.remote.PaymentSystem;
+
 public class PaymentServer {
     
     public static void main(String[] args) {

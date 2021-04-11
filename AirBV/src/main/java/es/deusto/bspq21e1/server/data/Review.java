@@ -19,5 +19,11 @@ public class Review {
         this.comment = comment;
     }
 
+	public Review(int code, int stars, String comment) {
+		this.code = code;
+		this.stars = stars;
+		this.comment = comment;
+	}
+
     // Getters and setters
 }

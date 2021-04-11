@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import es.deusto.bspq21e1.client.controller.Controller;
+import es.deusto.bspq21e1.serialization.UserData;
+import es.deusto.bspq21e1.serialization.VanData;
 
 import javax.swing.JPanel;
 import javax.swing.JList;
@@ -48,7 +50,7 @@ public class SearchWindow extends JFrame{
 	/**
 	 * Create the application.
 	 */
-	public SearchWindow(Controller controller, UserDTO user) {
+	public SearchWindow(Controller controller, UserData user) {
 		this.controller = controller;
 		frmSearchVans.setTitle("Search vans");
 		frmSearchVans.setResizable(false);
@@ -103,7 +105,7 @@ public class SearchWindow extends JFrame{
 		JButton btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<VanDTO> vans = controller.searchVans(txtLocation.getText(),
+				ArrayList<VanData> vans = controller.searchVans(txtLocation.getText(),
 						txtPickUp.getText(), txtReturn.getText());
 				if (vans != null) {
 					updateLists(vans);
@@ -159,11 +161,11 @@ public class SearchWindow extends JFrame{
 	}
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
-	private void updateLists(ArrayList<VanDTO> vans) {
+	private void updateLists(ArrayList<VanData> vans) {
 		System.out.println("Dentro funcion -> " + vans);
 		vansList.clear();
 		for (int i = 0; i < vans.size(); i++) {
-			VanDTO v = (VanDTO) vans.get(i);
+			VanData v = (VanData) vans.get(i);
 			vansList.addElement("Van: " + v.getBrand() + " " + v.getModel() + " (" + v.getCapacity() + "people) Price: " + v.getPricePerDay());
 		}
 		jlVansList.setSelectedIndex(0);

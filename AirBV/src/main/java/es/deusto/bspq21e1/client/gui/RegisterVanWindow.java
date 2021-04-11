@@ -11,6 +11,8 @@ import javax.swing.JSpinner;
 import javax.swing.JRadioButton;
 
 import es.deusto.bspq21e1.client.controller.Controller;
+import es.deusto.bspq21e1.serialization.UserData;
+import es.deusto.bspq21e1.serialization.VanData;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -21,6 +23,7 @@ public class RegisterVanWindow extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
+	private UserData user;
 	
 	private JFrame frame = new JFrame();
 	
@@ -63,8 +66,9 @@ public class RegisterVanWindow extends JFrame{
 	/**
 	 * Create the application.
 	 */
-	public RegisterVanWindow(Controller controller, UserDTO user) {
+	public RegisterVanWindow(Controller controller, UserData user) {
 		this.controller = controller;
+		this.user = user;
 		initialize();
 		frame.setVisible(true);
 	}
@@ -215,8 +219,8 @@ public class RegisterVanWindow extends JFrame{
 				//CONTROLLER
 				if( licensePlate != "" && brand != "" && model != "" && location != "") {
 					
-					VanDTO vanDTO = new VanDTO(licensePlate, brand, model, location, capacity, kitchen, shower, offRoad, pricePerDay);
-					controller.registerVan(vanDTO);
+					VanData vanData = new VanData(licensePlate, brand, model, location, capacity, kitchen, shower, offRoad, pricePerDay, user);
+					controller.registerVan(vanData);
 					
 				}
 				
