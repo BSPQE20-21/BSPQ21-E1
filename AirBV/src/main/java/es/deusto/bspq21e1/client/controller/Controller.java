@@ -76,5 +76,6 @@ public class Controller {
 		} catch (Exception e) {
     		System.out.println("$ Error registering reservation: " + e.getMessage());
 		}
+		return null;
 	}
 }
