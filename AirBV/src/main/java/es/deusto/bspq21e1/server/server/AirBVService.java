@@ -1,5 +1,6 @@
 package es.deusto.bspq21e1.server.server;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,4 +38,9 @@ public class AirBVService {
         }
         return false;
     }
+    
+    public void registerReservation(Date bookingDate, int duration, Van van, User vanRenter) {
+    	DBManager.getInstance().store(new Reservation(bookingDate, duration, van, vanRenter));
+    }
+    
 }

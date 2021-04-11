@@ -2,6 +2,7 @@ package es.deusto.bspq21e1.server.remote;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Date;
 
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
@@ -38,6 +39,10 @@ public class AirBV extends UnicastRemoteObject implements IAirBV {
 
     public boolean cancelReservation(String code) {
         return airbvService.cancelReservation(code);
+    }
+    
+    public void registerReservation(Date bookingDate, int duration, Van van, User vanRenter) {
+    	airbvService.registerReservation(bookingDate, duration, van, vanRenter);
     }
 
 }

@@ -142,6 +142,11 @@ public class SearchWindow extends JFrame{
 		visualizePanel.add(scrollVans);
 		
 		JButton btnBook = new JButton("Book");
+		btnBook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnBook.setFont(new Font("Tahoma", Font.ITALIC, 11));
 		btnBook.setBounds(275, 138, 87, 20);
 		visualizePanel.add(btnBook);
