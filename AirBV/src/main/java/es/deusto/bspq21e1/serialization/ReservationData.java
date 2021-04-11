@@ -2,6 +2,11 @@ package es.deusto.bspq21e1.serialization;
 
 import java.util.Date;
 
+/**
+ * Class for the representation of the Reservation object which is going to be sended to clients.
+ * @author SPQ Group 1
+ * @version 1.0
+ */
 public class ReservationData {
     
     private String code;
@@ -11,6 +16,14 @@ public class ReservationData {
     private VanData van;
     private UserData vanRenter;
     
+	/**
+	 * Creates the object that has the data from Reservation.
+	 * @param code Code of the reservation.
+	 * @param bookingDate Date of the reservation.
+	 * @param duration Duration of the reservation in days.
+	 * @param van Rented van.
+	 * @param vanRenter Owner of the rented van.
+	 */
     public ReservationData(String code, Date bookingDate, int duration, VanData van, UserData vanRenter) {
 		super();
 		this.code = code;
@@ -19,7 +32,7 @@ public class ReservationData {
 		this.van = van;
 		this.vanRenter = vanRenter;
 	}
-	//GETTERS and SETTERS
+	
 	public String getCode() {
 		return code;
 	}
@@ -51,12 +64,10 @@ public class ReservationData {
 		this.vanRenter = vanRenter;
 	}
 	
-	//To String
 	@Override
 	public String toString() {
 		return "ReservationData [code=" + code + ", bookingDate=" + bookingDate + ", duration=" + duration + ", van="
 				+ van + ", vanRenter=" + vanRenter + "]";
 	}
 
-	
 }

@@ -24,7 +24,7 @@ public class CancelReservationWindow extends JFrame{
 	
 	/**
 	 * Creates the window for a specific user.
-	 * @param controller Controller used for nahdling all requests in the system.
+	 * @param controller Controller used for handling all requests in the system.
 	 * @param userData The user that has logged in.
 	 */
 	public CancelReservationWindow(Controller controller, UserData userData) {
@@ -36,7 +36,7 @@ public class CancelReservationWindow extends JFrame{
 	}
 	
 	/**
-	 * Initializes all the elements the window needs to show to the user.
+	 * Initializes all the elements the window needs to show to the user and their functionality.
 	 */
 	private void initialize() {
 		

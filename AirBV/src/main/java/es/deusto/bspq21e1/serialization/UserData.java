@@ -3,6 +3,11 @@ package es.deusto.bspq21e1.serialization;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for the representation of the User object which is going to be sended to clients.
+ * @author SPQ Group 1
+ * @version 1.0
+ */
 public class UserData {
     
     private String dni;
@@ -10,6 +15,12 @@ public class UserData {
     private String email;
     private List<Integer> stars;
 
+	/**
+	 * Creates the object that has the data from User.
+	 * @param dni DNI of the user.
+	 * @param name Name of the user.
+	 * @param email Email of the user.
+	 */
     public UserData(String dni, String name, String email) {
     	this.dni = dni;
         this.name = name;
@@ -17,9 +28,7 @@ public class UserData {
         this.stars = new ArrayList<Integer>();
     }
     
-    // Getters y setters
-
-	public String getDni() {
+    public String getDni() {
 		return dni;
 	}
 
@@ -51,7 +60,6 @@ public class UserData {
 		this.stars = stars;
 	}
 
-	//To String
 	@Override
 	public String toString() {
 		return "UserData [dni=" + dni + ", name=" + name + ", email=" + email + ", stars=" + stars + "]";
