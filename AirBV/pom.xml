@@ -83,6 +83,11 @@
 			<artifactId>log4j</artifactId>
 			<version>[1.2.17, )</version>
 		</dependency>
+		<dependency>
+            <groupId>AirBVServer</groupId>
+            <artifactId>AirBVServer</artifactId>
+            <version>1.0</version>
+        </dependency>
 	</dependencies>
 
 	<build>

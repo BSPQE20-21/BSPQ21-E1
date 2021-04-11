@@ -2,9 +2,11 @@ package es.deusto.bspq21e1.server.remote;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.Date;
 
 import es.deusto.bspq21e1.serialization.VanData;
+import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
 import es.deusto.bspq21e1.server.dto.Assembler;
 import es.deusto.bspq21e1.server.server.AirBVService;
@@ -43,5 +45,11 @@ public class AirBV extends UnicastRemoteObject implements IAirBV {
     public void registerReservation(Date bookingDate, int duration, Van van, User vanRenter) {
     	airbvService.registerReservation(bookingDate, duration, van, vanRenter);
     }
+
+	@Override
+	public ArrayList<VanData> searchVans(String location, String pickUp, String returnDate) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

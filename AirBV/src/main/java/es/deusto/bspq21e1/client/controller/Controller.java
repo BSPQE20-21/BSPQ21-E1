@@ -8,7 +8,6 @@ import es.deusto.bspq21e1.client.gui.InitialWindow;
 import es.deusto.bspq21e1.client.remote.ServiceLocator;
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
-import es.deusto.bspq21e1.server.dto.VanDTO;
 import es.deusto.bspq21e1.serialization.VanData;
 
 public class Controller {
