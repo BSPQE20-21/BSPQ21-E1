@@ -22,9 +22,9 @@ public class Controller {
 
     // The methods will go here
     
-    public ArrayList<VanData> searchVans(String location, String pickUpDate, String returnDate) {
+    public ArrayList<VanData> searchVans(String location) {
     	try{
-    		ArrayList<VanData> vans =  sl.getAirBVService().searchVans(location, pickUpDate, returnDate);
+    		ArrayList<VanData> vans =  sl.getAirBVService().searchVans(location);
     		System.out.println("Controller "+vans);
     		return vans;
     	} catch(Exception e){

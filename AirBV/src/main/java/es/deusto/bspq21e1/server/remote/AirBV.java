@@ -47,9 +47,9 @@ public class AirBV extends UnicastRemoteObject implements IAirBV {
     }
 
 	@Override
-	public ArrayList<VanData> searchVans(String location, String pickUp, String returnDate) {
+	public ArrayList<VanData> searchVans(String location) {
 		
-		ArrayList<Van> vans = airbvService.searchVans(location, pickUp, returnDate);
+		ArrayList<Van> vans = airbvService.searchVans(location);
 		ArrayList<VanData> vansData = new ArrayList<VanData>();
 		Assembler as = new Assembler();
 		for (Van van : vans) {

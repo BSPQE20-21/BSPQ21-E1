@@ -13,5 +13,5 @@ public interface IAirBV extends Remote {
     public void registerVan(VanData vanDTO);
     public boolean cancelReservation(String code);
     public void registerReservation(Date bookingDate, int duration, Van van, User vanRenter);
-    public ArrayList<VanData> searchVans(String location, String pickUp, String returnDate);
+    public ArrayList<VanData> searchVans(String location);
 }
