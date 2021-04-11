@@ -1,4 +1,4 @@
-package es.deusto.bspq21e1.server.server;
+package es.deusto.bspq21e1.server;
 
 import java.rmi.Naming;
 
