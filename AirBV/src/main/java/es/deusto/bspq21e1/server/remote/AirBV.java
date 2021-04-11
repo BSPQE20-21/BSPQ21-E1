@@ -5,8 +5,10 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Date;
 
+import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
+import es.deusto.bspq21e1.server.data.Reservation;
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
 import es.deusto.bspq21e1.server.dto.Assembler;
@@ -60,6 +62,18 @@ public class AirBV extends UnicastRemoteObject implements IAirBV {
 			vansData.add(as.assembleVan(van));
 		}
 		return vansData;
+	}
+
+	@Override
+	public ArrayList<ReservationData> getUserReservations(UserData userData) {
+		Assembler as = new Assembler();
+		User user = as.disassembleUser(userData);
+		ArrayList<Reservation> res = airbvService.getUserReservations(user);
+		ArrayList<ReservationData> resData = new ArrayList<ReservationData>();
+		for (Reservation reservation : res) {
+			resData.add(as.assembleReservation(reservation));
+		}
+		return resData;
 	}
 
 }

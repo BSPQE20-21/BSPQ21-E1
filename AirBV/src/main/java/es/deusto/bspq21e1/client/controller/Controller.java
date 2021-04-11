@@ -5,6 +5,7 @@ import java.util.Date;
 
 import es.deusto.bspq21e1.client.gui.InitialWindow;
 import es.deusto.bspq21e1.client.remote.ServiceLocator;
+import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
 
@@ -68,4 +69,12 @@ public class Controller {
     public static void main(String[] args) {
         new Controller(args);
     }
+
+	public ArrayList<ReservationData> getMyReservations(UserData user) {
+		try {
+			return sl.getAirBVService().getUserReservations(user);
+		} catch (Exception e) {
+    		System.out.println("$ Error registering reservation: " + e.getMessage());
+		}
+	}
 }

@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.server.dao.DBManager;
 import es.deusto.bspq21e1.server.data.Reservation;
 import es.deusto.bspq21e1.server.data.User;
@@ -71,6 +72,10 @@ public class AirBVService {
 		return vanAL;
 		
 		
+	}
+
+	public ArrayList<Reservation> getUserReservations(User user) {
+		return DBManager.getInstance().getReservationsByUser(user);
 	}
     
 }

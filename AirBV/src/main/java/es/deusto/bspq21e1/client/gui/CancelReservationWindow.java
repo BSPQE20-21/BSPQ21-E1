@@ -28,6 +28,7 @@ public class CancelReservationWindow extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
+	private UserData user;
 	
 	private JFrame frame = new JFrame();
 	private JScrollPane scrollReservations;
@@ -41,6 +42,8 @@ public class CancelReservationWindow extends JFrame{
 	 * @param userData The user that has logged in.
 	 */
 	public CancelReservationWindow(Controller controller, UserData userData) {
+		this.controller = controller;
+		this.user = userData;
 		setTitle("Cancel a reservation");
 		initialize();
 		frame.setVisible(true);
@@ -69,6 +72,8 @@ public class CancelReservationWindow extends JFrame{
 		scrollReservations.setViewportView(jlReservationsList);
 		frame.getContentPane().add(scrollReservations);
 		
+		
+		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -78,7 +83,8 @@ public class CancelReservationWindow extends JFrame{
 		btnCancel.setBounds(146, 239, 102, 24);
 		frame.getContentPane().add(btnCancel);
 		
-		
+		reservations = controller.getMyReservations(user);
+		updateLists(reservations);
 	}
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
