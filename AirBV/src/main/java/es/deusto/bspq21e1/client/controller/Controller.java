@@ -33,12 +33,15 @@ public class Controller {
     // The methods will go here
     
     public ArrayList<VanData> searchVans(String location) {
-    	WebTarget vansWebTarget = webTarget.path("/vans?location="+location);
+    	WebTarget vansWebTarget = webTarget.path("/getVans?location="+location);
 		
-		GenericType<ArrayList<VanData>> genericType = new GenericType<ArrayList<VanData>>() {};
-		ArrayList<VanData> vans = vansWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+		Invocation.Builder invocationBuilder =  vansWebTarget.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.get();
+		if(response.getStatus() == Status.OK.getStatusCode()) {
+			return (ArrayList<VanData>) response.readEntity(ArrayList.class);
+		}
 		
-		return vans;
+		return new ArrayList<VanData>();
     }
     
     public void registerUsers(String dni, String name, String email) {
@@ -96,10 +99,13 @@ public class Controller {
 	public ArrayList<ReservationData> getMyReservations(UserData user) {		
 		WebTarget reservationsWebTarget = webTarget.path("/getMyReservations?dni="+user.getDni());
 		
-		GenericType<ArrayList<ReservationData>> genericType = new GenericType<ArrayList<ReservationData>>() {};
-		ArrayList<ReservationData> reservations = reservationsWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+		Invocation.Builder invocationBuilder =  reservationsWebTarget.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.get();
+		if(response.getStatus() == Status.OK.getStatusCode()) {
+			return (ArrayList<ReservationData>) response.readEntity(ArrayList.class);
+		}
 		
-		return reservations;
+		return new ArrayList<ReservationData>();
 	}
 	
 	public static void main(String[] args) {
