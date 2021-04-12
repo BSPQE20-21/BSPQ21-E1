@@ -13,7 +13,7 @@ import es.deusto.bspq21e1.server.dto.Assembler;
 import es.deusto.bspq21e1.server.AirBVService;
 
 // This is the REMOTE FACADE
-public class AirBV implements IAirBV {
+public class AirBV {
     
     private AirBVService airbvService;
 
