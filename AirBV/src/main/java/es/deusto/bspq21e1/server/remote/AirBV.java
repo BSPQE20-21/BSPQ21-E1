@@ -1,7 +1,5 @@
 package es.deusto.bspq21e1.server.remote;
 
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,12 +13,11 @@ import es.deusto.bspq21e1.server.dto.Assembler;
 import es.deusto.bspq21e1.server.AirBVService;
 
 // This is the REMOTE FACADE
-public class AirBV extends UnicastRemoteObject implements IAirBV {
+public class AirBV implements IAirBV {
     
-    private static final long serialVersionUID = 1L;
     private AirBVService airbvService;
 
-    public AirBV(AirBVService airbvService) throws RemoteException{
+    public AirBV(AirBVService airbvService){
         super();
         this.airbvService = airbvService;
     }
