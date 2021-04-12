@@ -32,6 +32,21 @@ public class ReservationData {
 		this.van = van;
 		this.vanRenter = vanRenter;
 	}
+    
+    /**
+	 * Creates the object that has the data from Reservation.
+	 * @param bookingDate Date of the reservation.
+	 * @param duration Duration of the reservation in days.
+	 * @param van Rented van.
+	 * @param vanRenter Owner of the rented van.
+	 */
+    public ReservationData(Date bookingDate, int duration, VanData van, UserData vanRenter) {
+		super();
+		this.bookingDate = bookingDate;
+		this.duration = duration;
+		this.van = van;
+		this.vanRenter = vanRenter;
+	}
 	
 	public String getCode() {
 		return code;

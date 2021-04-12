@@ -200,7 +200,6 @@
 							<arguments>
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
-								<argument>${server.name}</argument>
 							</arguments>
 						</configuration>
 					</plugin>
