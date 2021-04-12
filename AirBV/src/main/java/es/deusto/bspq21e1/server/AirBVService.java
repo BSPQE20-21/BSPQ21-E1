@@ -1,20 +1,20 @@
 package es.deusto.bspq21e1.server;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.server.dao.DBManager;
 import es.deusto.bspq21e1.server.data.Reservation;
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
 
 
-// This is the APPLICATION SERVICE
+/**
+ * Application service class.
+ */
 public class AirBVService {
     
     // Parameters
@@ -76,8 +76,8 @@ public class AirBVService {
 		
 	}
 
-	public ArrayList<Reservation> getUserReservations(User user) {
-		return DBManager.getInstance().getReservationsByUser(user);
+	public ArrayList<Reservation> getUserReservations(String dni) {
+		return DBManager.getInstance().getReservationsByUser(usersHM.get(dni));
 	}
     
 }
