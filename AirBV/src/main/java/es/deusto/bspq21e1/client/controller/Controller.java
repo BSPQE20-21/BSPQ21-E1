@@ -8,6 +8,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
@@ -24,8 +25,7 @@ public class Controller {
 
     public Controller(String args[]) {
     	client = ClientBuilder.newClient();
-    	//TODO comprobar el path
-    	webTarget = client.target(String.format("http://%s:%s/airbv", args[0], args[1]));
+    	webTarget = client.target(String.format("http://%s:%s/AirBV", args[0], args[1]));
     	
         new InitialWindow(this);
     }
@@ -33,18 +33,15 @@ public class Controller {
     // The methods will go here
     
     public ArrayList<VanData> searchVans(String location) {
-    	try{
-    		ArrayList<VanData> vans =  sl.getAirBVService().searchVans(location);
-    		System.out.println("Controller "+vans);
-    		return vans;
-    	} catch(Exception e){
-    		System.out.println("$ Error searching vans: " + e.getMessage());
-    	}
-    	return null;
+    	WebTarget vansWebTarget = webTarget.path("/vans?location="+location);
+		
+		GenericType<ArrayList<VanData>> genericType = new GenericType<ArrayList<VanData>>() {};
+		ArrayList<VanData> vans = vansWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+		
+		return vans;
     }
     
     public void registerUsers(String dni, String name, String email) {
-    	//TODO añadir el path correcto
     	WebTarget registerUserWebTarget = webTarget.path("/registerUser"); 
 		Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
 		
@@ -58,31 +55,33 @@ public class Controller {
     }
     
     public void registerVan(VanData vanData) {
-    	//TODO añadir el path correcto
-    	WebTarget registerVanWebTarget = webTarget.path("/path"); 
+    	WebTarget registerVanWebTarget = webTarget.path("/registerVan"); 
 		Invocation.Builder invocationBuilder = registerVanWebTarget.request(MediaType.APPLICATION_JSON);
 		
 		Response response = invocationBuilder.post(Entity.entity(vanData, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			System.out.println("Error connecting with the server. Code: " + response.getStatus());
 		} else {
-			System.out.println("User correctly registered");
+			System.out.println("Van correctly registered");
 		}
     }
     
     public boolean cancelReservation(String code) {
-    	try {
-			sl.getAirBVService().cancelReservation(code);
+    	WebTarget cancelReservationWebTarget = webTarget.path("/cancelReservation"); 
+		Invocation.Builder invocationBuilder = cancelReservationWebTarget.request(MediaType.APPLICATION_JSON);
+		
+		Response response = invocationBuilder.post(Entity.entity(code, MediaType.APPLICATION_JSON));
+		if (response.getStatus() != Status.OK.getStatusCode()) {
+			System.out.println("Error connecting with the server. Code: " + response.getStatus());
+			return false;
+		} else {
+			System.out.println("Reservation correctly canceled");
 			return true;
-		} catch (Exception e) {
-    		System.out.println("$ Error cancelling reservation: " + e.getMessage());
-    		return false;
 		}
     }
     
     public void registerReservation(Date bookingDate, int duration, VanData vanData, UserData vanRenter) {
-    	//TODO añadir el path correcto
-    	WebTarget registerReservationWebTarget = webTarget.path("/path"); 
+    	WebTarget registerReservationWebTarget = webTarget.path("/registerReservation"); 
 		Invocation.Builder invocationBuilder = registerReservationWebTarget.request(MediaType.APPLICATION_JSON);
 		
     	ReservationData reservationData = new ReservationData(bookingDate, duration, vanData, vanRenter);
@@ -90,17 +89,17 @@ public class Controller {
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			System.out.println("Error connecting with the server. Code: " + response.getStatus());
 		} else {
-			System.out.println("User correctly registered");
+			System.out.println("Reservation correctly registered");
 		}
     }
 
-	public ArrayList<ReservationData> getMyReservations(UserData user) {
-		try {
-			return sl.getAirBVService().getUserReservations(user);
-		} catch (Exception e) {
-    		System.out.println("$ Error registering reservation: " + e.getMessage());
-		}
-		return null;
+	public ArrayList<ReservationData> getMyReservations(UserData user) {		
+		WebTarget reservationsWebTarget = webTarget.path("/getMyReservations?dni="+user.getDni());
+		
+		GenericType<ArrayList<ReservationData>> genericType = new GenericType<ArrayList<ReservationData>>() {};
+		ArrayList<ReservationData> reservations = reservationsWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+		
+		return reservations;
 	}
 	
 	public static void main(String[] args) {
