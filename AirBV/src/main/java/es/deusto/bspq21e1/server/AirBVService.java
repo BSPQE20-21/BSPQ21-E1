@@ -49,10 +49,7 @@ public class AirBVService {
     }
     
     public void registerReservation(Date bookingDate, int duration, Van van, User vanRenter) {
-    	DateFormat date = new SimpleDateFormat("dd/MM/yyyy");
-		String dateString = date.format(bookingDate);
-		
-    	Reservation reservation = new Reservation(dateString, duration, van, vanRenter);
+    	Reservation reservation = new Reservation(bookingDate, duration, van, vanRenter);
     	DBManager.getInstance().store(reservation);
     	
     	/* WARNING!!

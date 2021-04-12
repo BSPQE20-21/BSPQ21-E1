@@ -23,17 +23,7 @@ public class Assembler {
 		VanData vanData = assembleVan(r.getVan());
 		UserData vanRenter = assembleUser(r.getVanRenter());
 		
-		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        Date fechaDate = null;
-        try {
-            fechaDate = formato.parse(r.getBookingDate());
-        } 
-        catch (ParseException ex) 
-        {
-            System.out.println(ex);
-        }
-		
-		ReservationData reservationData = new ReservationData(r.getCode() , fechaDate, r.getDuration(), vanData, vanRenter);
+		ReservationData reservationData = new ReservationData(r.getCode() , r.getBookingDate(), r.getDuration(), vanData, vanRenter);
 		return reservationData;
     }
 
@@ -57,10 +47,7 @@ public class Assembler {
     	Van van = disassembleVan(r.getVan());
     	User user = disassembleUser(r.getVanRenter());
     	
-    	DateFormat date = new SimpleDateFormat("dd/MM/yyyy");
-		String dateString = date.format(r.getBookingDate());
-    	
-    	Reservation reservationData = new Reservation(dateString, r.getDuration(), van, user);
+    	Reservation reservationData = new Reservation(r.getBookingDate(), r.getDuration(), van, user);
     	return reservationData;
     }
 

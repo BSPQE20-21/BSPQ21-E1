@@ -13,13 +13,13 @@ public class Reservation {
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
     private String code;
-    private String bookingDate;
+    private Date bookingDate;
     private int duration;
     
     private Van van;
     private User vanRenter;
 
-    public Reservation(String bookingDate, int duration, Van van, User vanRenter) {
+    public Reservation(Date bookingDate, int duration, Van van, User vanRenter) {
     	this.bookingDate = bookingDate;
         this.duration = duration;
         this.van = van;
@@ -34,11 +34,11 @@ public class Reservation {
 		this.code = code;
 	}
 
-	public String getBookingDate() {
+	public Date getBookingDate() {
 		return bookingDate;
 	}
 
-	public void setBookingDate(String bookingDate) {
+	public void setBookingDate(Date bookingDate) {
 		this.bookingDate = bookingDate;
 	}
 
