@@ -25,12 +25,24 @@ public class Controller {
 
     public Controller(String args[]) {
     	client = ClientBuilder.newClient();
-    	webTarget = client.target(String.format("http://%s:%s/rest", args[0], args[1]));
+    	webTarget = client.target(String.format("http://%s:%s/", args[0], args[1]));
     	
         new InitialWindow(this);
     }
 
     // The methods will go here
+
+	// TESTS
+	public void sendDonation() {
+		WebTarget donationsWebTarget = webTarget.path("collector/donations");
+		Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
+		
+		Response response = invocationBuilder.post(Entity.entity("tengo hambre", MediaType.APPLICATION_JSON));
+		if (response.getStatus() != Status.OK.getStatusCode()) {
+			System.out.println(response.getStatus());
+		}
+	}
+	// TESTS
     
     public ArrayList<VanData> searchVans(String location) {
     	WebTarget vansWebTarget = webTarget.path("AirBV/getVans?location="+location);
@@ -115,6 +127,7 @@ public class Controller {
 			System.exit(0);
 		}
 		
-        new Controller(args);
+        Controller c = new Controller(args);
+		c.sendDonation();
     }
 }

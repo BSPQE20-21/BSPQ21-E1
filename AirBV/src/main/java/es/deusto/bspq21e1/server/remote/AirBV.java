@@ -136,4 +136,12 @@ public class AirBV {
 		return resData;
 	}
 
+	// TESTS
+	@POST
+	@Path("/donations")
+	public Response addDonation(String donation) {
+		return Response.ok().build();
+	}
+	// TESTS
+
 }

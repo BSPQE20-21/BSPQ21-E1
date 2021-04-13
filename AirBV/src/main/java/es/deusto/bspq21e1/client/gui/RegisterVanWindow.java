@@ -120,7 +120,7 @@ public class RegisterVanWindow extends JFrame{
 		
 		//Location
 		lblLocation = new JLabel("Location");
-		lblLocation.setBounds(40, 200, 45, 13);
+		lblLocation.setBounds(40, 200, 85, 13);
 		frmRegistrationOfVans.getContentPane().add(lblLocation);
 		
 		txtFieldLocation = new JTextField();
