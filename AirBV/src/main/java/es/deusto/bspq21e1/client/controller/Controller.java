@@ -25,7 +25,7 @@ public class Controller {
 
     public Controller(String args[]) {
     	client = ClientBuilder.newClient();
-    	webTarget = client.target(String.format("http://%s:%s/AirBV", args[0], args[1]));
+    	webTarget = client.target(String.format("http://%s:%s/rest", args[0], args[1]));
     	
         new InitialWindow(this);
     }
@@ -33,7 +33,7 @@ public class Controller {
     // The methods will go here
     
     public ArrayList<VanData> searchVans(String location) {
-    	WebTarget vansWebTarget = webTarget.path("/getVans?location="+location);
+    	WebTarget vansWebTarget = webTarget.path("AirBV/getVans?location="+location);
 		
 		Invocation.Builder invocationBuilder =  vansWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
@@ -45,7 +45,8 @@ public class Controller {
     }
     
     public void registerUsers(String dni, String name, String email) {
-    	WebTarget registerUserWebTarget = webTarget.path("/registerUser"); 
+    	WebTarget registerUserWebTarget = webTarget.path("AirBV/registerUser"); 
+    	System.out.println(registerUserWebTarget.getUri());
 		Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
 		
     	UserData userData = new UserData(dni, name, email);
@@ -58,7 +59,7 @@ public class Controller {
     }
     
     public void registerVan(VanData vanData) {
-    	WebTarget registerVanWebTarget = webTarget.path("/registerVan"); 
+    	WebTarget registerVanWebTarget = webTarget.path("AirBV/registerVan"); 
 		Invocation.Builder invocationBuilder = registerVanWebTarget.request(MediaType.APPLICATION_JSON);
 		
 		Response response = invocationBuilder.post(Entity.entity(vanData, MediaType.APPLICATION_JSON));
@@ -70,7 +71,7 @@ public class Controller {
     }
     
     public boolean cancelReservation(String code) {
-    	WebTarget cancelReservationWebTarget = webTarget.path("/cancelReservation"); 
+    	WebTarget cancelReservationWebTarget = webTarget.path("AirBV/cancelReservation"); 
 		Invocation.Builder invocationBuilder = cancelReservationWebTarget.request(MediaType.APPLICATION_JSON);
 		
 		Response response = invocationBuilder.post(Entity.entity(code, MediaType.APPLICATION_JSON));
@@ -84,7 +85,7 @@ public class Controller {
     }
     
     public void registerReservation(Date bookingDate, int duration, VanData vanData, UserData vanRenter) {
-    	WebTarget registerReservationWebTarget = webTarget.path("/registerReservation"); 
+    	WebTarget registerReservationWebTarget = webTarget.path("AirBV/registerReservation"); 
 		Invocation.Builder invocationBuilder = registerReservationWebTarget.request(MediaType.APPLICATION_JSON);
 		
     	ReservationData reservationData = new ReservationData(bookingDate, duration, vanData, vanRenter);
@@ -97,7 +98,7 @@ public class Controller {
     }
 
 	public ArrayList<ReservationData> getMyReservations(UserData user) {		
-		WebTarget reservationsWebTarget = webTarget.path("/getMyReservations?dni="+user.getDni());
+		WebTarget reservationsWebTarget = webTarget.path("AirBV/getMyReservations?dni="+user.getDni());
 		
 		Invocation.Builder invocationBuilder =  reservationsWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
