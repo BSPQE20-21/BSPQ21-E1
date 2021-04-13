@@ -9,7 +9,7 @@ import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 public class Van {
-    @PrimaryKey
+    // @PrimaryKey
     private String licensePlate;
     private String brand;
     private String model;
@@ -23,8 +23,8 @@ public class Van {
     private double pricePerDay;
 
     private User owner;
-    @Join
-    private List<Review> reviews;
+    // @Join
+    // private List<Review> reviews;
 
     public Van(String licensePlate, String brand, String model, String location, boolean kitchen, boolean shower, boolean offRoad,
     int capacity, double pricePerDay, User owner) {

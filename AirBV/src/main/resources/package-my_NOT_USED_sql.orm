@@ -28,9 +28,15 @@
         <field name="duration">
             <column jdbc-type="INTEGER"/>
         </field>
+        <field name="van">
+
+        </field>
+        <field name="vanRenter">
+            
+        </field>
     </class>
 
-    <class>
+    <class name="Van">
         <field name="licensePlate">
             <column length="20" jdbc-type="VARCHAR"/>
         </field>
@@ -58,35 +64,14 @@
         <field name="capacity">
             <column jdbc-type="INTEGER"/>
         </field>
-        <field name="kitchen">
-            <column jdbc-type="BIT"/>
+        <field name="pricePerDay">
+            <column jdbc-type="DOUBLE"/>
+        </field>
+        <field name="owner">
+
         </field>
     </class>
 
-        <class name="User" identity-type="application">
-			<primary-key name="login"/>
-			<!--<field name="login" primary-key="true">-->
-			<field name="login">
-                <column length="32" jdbc-type="VARCHAR"/>
-            </field>
-			<field name="password" persistence-modifier="persistent">
-                <column length="32" jdbc-type="VARCHAR"/>
-            </field>
-			<field name="messages" mapped-by="user">
-                <join/>
-            </field>
-        </class>
-
-        <class name="Message" identity-type="datastore">
-            <field name="text" persistence-modifier="persistent">
-                <column length="256" jdbc-type="VARCHAR"/>
-            </field>
-			<field name="timestamp" persistence-modifier="persistent">
-                <column jdbc-type="BIGINT"/>
-            </field>
-			<field name="user" persistence-modifier="persistent">
-            </field>
-        </class>
     </package>
 </orm>
 
