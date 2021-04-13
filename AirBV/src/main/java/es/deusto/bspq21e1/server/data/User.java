@@ -8,7 +8,7 @@ import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 public class User {
-    @PrimaryKey
+    // @PrimaryKey
     private String dni;
     private String name;
     private String email;
