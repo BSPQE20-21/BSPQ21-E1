@@ -165,6 +165,12 @@
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
 							</arguments>
+							<systemProperties>
+								<systemProperty>
+									<key>log4j.configuration</key>
+									<value>file:${config.files.dir}/log4j.properties</value>
+								</systemProperty>
+							</systemProperties>
 						</configuration>
 					</plugin>
 				</plugins>
