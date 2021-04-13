@@ -1,7 +1,68 @@
 <?xml version="1.0"?>
 <!DOCTYPE orm SYSTEM "file:/javax/jdo/orm.dtd">
 <orm>
-    <package name="es.deusto.server.jdo">
+    <package name="es.deusto.bspq21e1.server.data">
+
+    <class name="User">
+        <field name="dni">
+            <column length="10" jdbc-type="VARCHAR"/>
+        </field>
+        <field name="name">
+            <column length="100" jdbc-type="VARCHAR"/>
+        </field>
+        <field name="email">
+            <column length="100" jdbc-type="VARCHAR"/>
+        </field>
+        <field name="stars">
+            <collection element-type="INTEGER"/>
+        </field>
+    </class>
+
+    <class name="Reservation">
+        <field name="code">
+            <column length="20" jdbc-type="VARCHAR"/>
+        </field>
+        <field name="bookingDate">
+            <column jdbc-type="DATE"/>
+        </field>
+        <field name="duration">
+            <column jdbc-type="INTEGER"/>
+        </field>
+    </class>
+
+    <class>
+        <field name="licensePlate">
+            <column length="20" jdbc-type="VARCHAR"/>
+        </field>
+        <field name="brand">
+            <column length="50" jdbc-type="VARCHAR"/>
+        </field>
+        <field name="model">
+            <column length="50" jdbc-type="VARCHAR"/>
+        </field>
+        <field name="status">
+            <column length="50" jdbc-type="VARCHAR"/>
+        </field>
+        <field name="location">
+            <column length="50" jdbc-type="VARCHAR"/>
+        </field>
+        <field name="kitchen">
+            <column jdbc-type="BIT"/>
+        </field>
+        <field name="shower">
+            <column jdbc-type="BIT"/>
+        </field>
+        <field name="offRoad">
+            <column jdbc-type="BIT"/>
+        </field>
+        <field name="capacity">
+            <column jdbc-type="INTEGER"/>
+        </field>
+        <field name="kitchen">
+            <column jdbc-type="BIT"/>
+        </field>
+    </class>
+
         <class name="User" identity-type="application">
 			<primary-key name="login"/>
 			<!--<field name="login" primary-key="true">-->
