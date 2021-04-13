@@ -39,7 +39,7 @@ public class Van {
         this.capacity = capacity;
         this.pricePerDay = pricePerDay;
         this.owner = owner;
-        this.reviews = new ArrayList<Review>();
+        // this.reviews = new ArrayList<Review>();
     }
 
     // Getters and setters
@@ -132,12 +132,12 @@ public class Van {
 		this.owner = owner;
 	}
 
-	public List<Review> getReviews() {
-		return reviews;
-	}
+	// public List<Review> getReviews() {
+	// 	return reviews;
+	// }
 
-	public void setReviews(List<Review> reviews) {
-		this.reviews = reviews;
-	}
+	// public void setReviews(List<Review> reviews) {
+	// 	this.reviews = reviews;
+	// }
  
 }
