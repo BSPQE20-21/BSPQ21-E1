@@ -10,8 +10,8 @@ import javax.jdo.annotations.PrimaryKey;
 @PersistenceCapable
 public class Reservation {
 	// Primary key is generated as AUTOINCREMENT.
-	// @PrimaryKey
-	// @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     private String code;
     private Date bookingDate;
     private int duration;

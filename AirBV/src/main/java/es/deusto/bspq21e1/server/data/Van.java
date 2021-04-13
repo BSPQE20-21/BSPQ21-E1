@@ -9,7 +9,7 @@ import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 public class Van {
-    // @PrimaryKey
+    @PrimaryKey
     private String licensePlate;
     private String brand;
     private String model;
@@ -23,8 +23,8 @@ public class Van {
     private double pricePerDay;
 
     private User owner;
-    // @Join
-    // private List<Review> reviews;
+    @Join
+    private List<Review> reviews;
 
     public Van(String licensePlate, String brand, String model, String location, boolean kitchen, boolean shower, boolean offRoad,
     int capacity, double pricePerDay, User owner) {
@@ -39,7 +39,7 @@ public class Van {
         this.capacity = capacity;
         this.pricePerDay = pricePerDay;
         this.owner = owner;
-        // this.reviews = new ArrayList<Review>();
+        this.reviews = new ArrayList<Review>();
     }
 
     // Getters and setters
@@ -132,12 +132,12 @@ public class Van {
 		this.owner = owner;
 	}
 
-	// public List<Review> getReviews() {
-	// 	return reviews;
-	// }
+	public List<Review> getReviews() {
+		return reviews;
+	}
 
-	// public void setReviews(List<Review> reviews) {
-	// 	this.reviews = reviews;
-	// }
+	public void setReviews(List<Review> reviews) {
+	 	this.reviews = reviews;
+	}
  
 }
