@@ -56,6 +56,7 @@ public class DBManager {
 	 * @param van
 	 */
 	public void store( Van van ) {
+		van.setOwner(getUser(van.getOwner().getDni()));
 		this.storeObject( van );
 	}
 
@@ -137,6 +138,35 @@ public class DBManager {
 	////////////////////////////////
 	//		SPECIFIC QUERIES      //
 	////////////////////////////////
+	public User getUser( String dni) { 
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = null;
+		User user = null;
+		
+		try {
+			System.out.println("   * Retrieving user with dni: " + dni);
+			pm.getFetchPlan().setMaxFetchDepth(2);
+			tx = pm.currentTransaction();
+			tx.begin();
+			
+			Query<User> query = pm.newQuery(User.class);
+			query.setFilter("dni== '" + dni+ "'");
+			
+			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
+			user = (User)query.execute();
+
+		} catch (Exception e) {
+			System.out.println("   $ Error retrieving user: " + e.getMessage() );
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}	
+			pm.close();
+		}
+		
+		return user;
+		
+	}
 	/**
 	 * Method that finds and returns all of the reservations given a user.
 	 * @param vanRenter to retrieve the reservations from

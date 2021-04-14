@@ -26,6 +26,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.apache.log4j.Logger;
+
 
 
 /**
@@ -45,7 +47,8 @@ import javax.ws.rs.core.Response.Status;
 @Produces(MediaType.APPLICATION_JSON)
 public class AirBV {
 
-	private AirBVService airbvService;
+	private AirBVService airbvService = new AirBVService();
+	private Logger logger = Logger.getLogger(AirBV.class.getName());
 
 	/**
 	 * Variables needed for the post and get methods paths.
@@ -57,21 +60,16 @@ public class AirBV {
 	private static final String getMyReservations = "/getMyReservations";
 	private static final String getVans = "/getVans";
 	private static final String registerReservation = "/registerReservation";
-	private static final String cancelReservation = "/cancelReservation";
-	
-    public AirBV(AirBVService airbvService){
-        super();
-        this.airbvService = airbvService;
-    }    
+	private static final String cancelReservation = "/cancelReservation";  
 
-    
+    public AirBV() { }
     
     // Here will go the methods
     @POST
-    @Path("/registerUser")
-    public Response registerUser(UserData user) {
-        airbvService.registerUser( user.getDni(), user.getName(), user.getEmail() );
-        
+    @Path(registerUser)
+    public Response registerUser(UserData userData) {
+    	logger.warn("THIS METHOD SHOULD CHECK WITH METHOD");
+        airbvService.registerUser( userData.getDni(), userData.getName(), userData.getEmail() );
         return Response.ok().build();
     }
     

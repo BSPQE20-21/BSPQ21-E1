@@ -16,6 +16,10 @@ public class ReservationData {
     private VanData van;
     private UserData vanRenter;
     
+    public ReservationData() {
+    	
+    }
+    
 	/**
 	 * Creates the object that has the data from Reservation.
 	 * @param code Code of the reservation.

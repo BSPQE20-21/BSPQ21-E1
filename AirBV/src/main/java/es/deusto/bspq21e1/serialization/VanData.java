@@ -19,6 +19,10 @@ public class VanData {
     private double pricePerDay;
 
     private UserData owner;
+    
+    public VanData() {
+    	
+    }
 
 	/**
 	 * Creates the object that has the data from Van.

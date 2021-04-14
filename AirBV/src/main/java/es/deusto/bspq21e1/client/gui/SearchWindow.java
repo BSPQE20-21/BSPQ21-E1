@@ -118,7 +118,7 @@ public class SearchWindow extends JFrame{
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vans = controller.searchVans(txtLocation.getText());
-				if (vans != null) {
+				if (!vans.isEmpty()) {
 					updateLists(vans);
 				}
 			}
@@ -206,9 +206,11 @@ public class SearchWindow extends JFrame{
 		vansList.clear();
 		for (int i = 0; i < vans.size(); i++) {
 			VanData v = (VanData) vans.get(i);
+			System.out.println(v);
 			vansList.addElement("Van: " + v.getBrand() + " " + v.getModel() + " (" + v.getCapacity() + "people) Price: " + v.getPricePerDay());
 		}
 		jlVansList.setSelectedIndex(0);
+		jlVansList.updateUI();
 	}
 }
 

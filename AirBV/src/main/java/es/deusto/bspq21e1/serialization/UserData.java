@@ -14,6 +14,10 @@ public class UserData {
     private String name;
     private String email;
     private List<Integer> stars;
+    
+    public UserData() {
+    	
+    }
 
 	/**
 	 * Creates the object that has the data from User.

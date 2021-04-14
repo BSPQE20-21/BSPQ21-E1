@@ -28,13 +28,12 @@ public class AirBVService {
 
     public User registerUser(String dni, String name, String email) {
         usersHM.put(dni, new User(dni, name, email));
-        
         DBManager.getInstance().store(usersHM.get(dni));
-        
         return usersHM.get(dni);
     }
     
     public void registerVan(Van van) {
+    	van.setOwner(usersHM.get(van.getOwner().getDni()));
     	vansHM.put(van.getLicensePlate(), van);
     	DBManager.getInstance().store(van);
     }
