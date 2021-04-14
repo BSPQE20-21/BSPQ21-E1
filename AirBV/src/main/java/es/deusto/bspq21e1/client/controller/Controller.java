@@ -25,7 +25,7 @@ public class Controller {
     
     public Controller(String hostname, String port) {
     	client = ClientBuilder.newClient();
-    	webTarget = client.target(String.format("http://%s:%s/", hostname, port));
+    	webTarget = client.target(String.format("http://%s:%s/rest/AirBV", hostname, port));
     }
     
     public ArrayList<VanData> searchVans(String location) {
@@ -41,13 +41,14 @@ public class Controller {
     }
     
     public void registerUsers(String dni, String name, String email) {
-    	WebTarget registerUserWebTarget = webTarget.path("AirBV/registerUser"); 
+    	WebTarget registerUserWebTarget = webTarget.path("registerUser"); 
 		Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
 		
     	UserData userData = new UserData(dni, name, email);
 		Response response = invocationBuilder.post(Entity.entity(userData, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			System.out.println("Error connecting with the server. Code: " + response.getStatus());
+			System.out.println("Error: " + response.toString());
 		} else {
 			System.out.println("User correctly registered");
 		}

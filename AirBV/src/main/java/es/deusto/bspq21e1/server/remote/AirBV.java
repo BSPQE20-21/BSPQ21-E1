@@ -68,7 +68,7 @@ public class AirBV {
     
     // Here will go the methods
     @POST
-    @Path(registerUser)
+    @Path("/registerUser")
     public Response registerUser(UserData user) {
         airbvService.registerUser( user.getDni(), user.getName(), user.getEmail() );
         
