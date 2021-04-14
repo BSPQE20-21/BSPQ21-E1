@@ -221,7 +221,7 @@
 						<artifactId>exec-maven-plugin</artifactId>
 						<version>1.2.1</version>
 						<configuration>
-							<mainClass>es.deusto.bspq21e1.client.controller.Controller</mainClass>
+							<mainClass>es.deusto.bspq21e1.client.main.AirBVClient</mainClass>
 							<arguments>
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>

@@ -22,27 +22,11 @@ public class Controller {
 
     private Client client;
     private WebTarget webTarget;
-
-    public Controller(String args[]) {
+    
+    public Controller(String hostname, String port) {
     	client = ClientBuilder.newClient();
-    	webTarget = client.target(String.format("http://%s:%s/", args[0], args[1]));
-    	
-        new InitialWindow(this);
+    	webTarget = client.target(String.format("http://%s:%s/", hostname, port));
     }
-
-    // The methods will go here
-
-	// TESTS
-	public void sendDonation() {
-		WebTarget donationsWebTarget = webTarget.path("collector/donations");
-		Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
-		
-		Response response = invocationBuilder.post(Entity.entity("tengo hambre", MediaType.APPLICATION_JSON));
-		if (response.getStatus() != Status.OK.getStatusCode()) {
-			System.out.println(response.getStatus());
-		}
-	}
-	// TESTS
     
     public ArrayList<VanData> searchVans(String location) {
     	WebTarget vansWebTarget = webTarget.path("AirBV/getVans?location="+location);
@@ -58,7 +42,6 @@ public class Controller {
     
     public void registerUsers(String dni, String name, String email) {
     	WebTarget registerUserWebTarget = webTarget.path("AirBV/registerUser"); 
-    	System.out.println(registerUserWebTarget.getUri());
 		Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
 		
     	UserData userData = new UserData(dni, name, email);
@@ -127,7 +110,9 @@ public class Controller {
 			System.exit(0);
 		}
 		
-        Controller c = new Controller(args);
-		c.sendDonation();
+		String hostname = args[0];
+		String port = args[1];
+
+        Controller c = new Controller(args[0], args[1]);
     }
 }
