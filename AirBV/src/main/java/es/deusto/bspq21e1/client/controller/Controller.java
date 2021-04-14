@@ -110,9 +110,6 @@ public class Controller {
 			System.out.println("Use: java Client.Client [host] [port]");
 			System.exit(0);
 		}
-		
-		String hostname = args[0];
-		String port = args[1];
 
         Controller c = new Controller(args[0], args[1]);
     }

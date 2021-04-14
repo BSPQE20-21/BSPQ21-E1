@@ -22,8 +22,7 @@ public class AirBVClient {
         
 		es.deusto.bspq21e1.client.controller.Controller c = new Controller(args[0], args[1]); 
 		
-		InitialWindow i = new InitialWindow(c);
-		i.setVisible(true);
+		new InitialWindow(c);
 
 	}
 }
