@@ -22,6 +22,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
@@ -57,8 +58,8 @@ public class AirBV {
 	
 	private static final String registerUser = "/registerUser";
 	private static final String registerVan = "/registerVan";
-	private static final String getMyReservations = "/getMyReservations";
-	private static final String getVans = "/getVans";
+	private static final String getMyReservations = "/getMyReservations/{dni}";
+	private static final String getVans = "/getVans/{location}";
 	private static final String registerReservation = "/registerReservation";
 	private static final String cancelReservation = "/cancelReservation";  
 
@@ -112,19 +113,19 @@ public class AirBV {
 
     @GET
     @Path(getVans)
-	public ArrayList<VanData> searchVans( @QueryParam("location") String location) {	
+	public ArrayList<VanData> searchVans( @PathParam("location") String location) {	
 		ArrayList<VanData> vansData = new ArrayList<VanData>();
 		Assembler as = new Assembler();
 		for (Van van : airbvService.searchVans(location)) {
 			vansData.add(as.assembleVan(van));
 		}
-		
+		System.out.println(vansData.size());
 		return vansData;
 	}
 
 	@GET
 	@Path(getMyReservations)
-	public ArrayList<ReservationData> getUserReservations( @QueryParam("dni") String dni ) {
+	public ArrayList<ReservationData> getUserReservations( @PathParam("dni") String dni ) {
 		Assembler as = new Assembler();
 		ArrayList<ReservationData> resData = new ArrayList<ReservationData>();
 		for (Reservation reservation : airbvService.getUserReservations(dni)) {

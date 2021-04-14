@@ -28,7 +28,10 @@ public class Assembler {
     }
 
     public VanData assembleVan(Van v) {
-    	UserData userData = assembleUser(v.getOwner());
+		UserData userData = null;
+		if (v.getOwner() != null) {
+			userData = assembleUser(v.getOwner());
+		}
     	VanData vanData = new VanData(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.getCapacity(), v.hasKitchen(), v.hasShower(), v.isOffRoad(),  v.getPricePerDay(), userData);
     	return vanData;	
     }

@@ -204,9 +204,10 @@ public class SearchWindow extends JFrame{
 	private void updateLists(ArrayList<VanData> vans) {
 		System.out.println("Dentro funcion -> " + vans);
 		vansList.clear();
+		System.out.println("Vans size: " + vans.size());
 		for (int i = 0; i < vans.size(); i++) {
 			VanData v = (VanData) vans.get(i);
-			System.out.println(v);
+			System.out.println("Testing: " + v);
 			vansList.addElement("Van: " + v.getBrand() + " " + v.getModel() + " (" + v.getCapacity() + "people) Price: " + v.getPricePerDay());
 		}
 		jlVansList.setSelectedIndex(0);

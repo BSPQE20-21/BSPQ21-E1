@@ -1,6 +1,7 @@
 package es.deusto.bspq21e1.server.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
@@ -203,11 +204,11 @@ public class DBManager {
 		return listOfReservations;
 	}
 	
-	public ArrayList<Van> getVansByLocation( String location) { 
+	public List<Van> getVansByLocation( String location) { 
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = null;
 		
-		ArrayList<Van> listOfVans = new ArrayList<>();
+		List<Van> listOfVans = new ArrayList<Van>();
 		try {
 			System.out.println("   * Retrieving all vans from location: " + location);
 			pm.getFetchPlan().setMaxFetchDepth(2);
@@ -218,10 +219,11 @@ public class DBManager {
 			query.setFilter("location== '" + location+ "'");
 			
 			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
-			listOfVans = (ArrayList<Van>)query.execute();
+			listOfVans = (List<Van>)query.execute();
+			System.out.println("Length BDManager: " + listOfVans.size());
 
 		} catch (Exception e) {
-			System.out.println("   $ Error retrieving reservations from van renter: " + e.getMessage() );
+			System.out.println("   $ Error retrieving vans with location: " + e.getMessage() );
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();

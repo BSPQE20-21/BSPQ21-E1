@@ -67,7 +67,8 @@ public class AirBVService {
     }
 
 	public ArrayList<Van> searchVans(String location) {
-		ArrayList<Van> vanAL = DBManager.getInstance().getVansByLocation(location);
+		ArrayList<Van> vanAL = new ArrayList<Van>(DBManager.getInstance().getVansByLocation(location));
+		System.out.println("Length Service: " + vanAL.size());
 		for( Van v : vanAL ) { vansHM.put(v.getLicensePlate(), v); }
 		
 		return vanAL;
