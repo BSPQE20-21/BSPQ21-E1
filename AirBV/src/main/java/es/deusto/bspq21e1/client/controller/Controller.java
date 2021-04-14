@@ -33,17 +33,18 @@ public class Controller {
     
     public ArrayList<VanData> searchVans(String location) {
     	WebTarget vansWebTarget = webTarget.path("AirBV/getVans/" + location);
+    	
+    	GenericType<ArrayList<VanData>> genericType = new GenericType<ArrayList<VanData>>() {};
+		ArrayList<VanData> list = vansWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
 		
 		Invocation.Builder invocationBuilder =  vansWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
 		if(response.getStatus() == Status.OK.getStatusCode()) {
-			System.out.println("ENTERS");
-			return (ArrayList<VanData>) response.readEntity(ArrayList.class);
+			return list;
 		}else {
 			System.out.println("Error connecting with the server. Code: " + response.getStatus());
 			System.out.println("Error: " + response.toString());
 		}
-		System.out.println("NOT ENTERS");
 		return new ArrayList<VanData>();
     }
     
@@ -121,10 +122,13 @@ public class Controller {
 	public ArrayList<ReservationData> getMyReservations(UserData user) {		
 		WebTarget reservationsWebTarget = webTarget.path("AirBV/getMyReservations/" + user.getDni());
 		
+		GenericType<ArrayList<ReservationData>> genericType = new GenericType<ArrayList<ReservationData>>() {};
+		ArrayList<ReservationData> list = reservationsWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+		
 		Invocation.Builder invocationBuilder =  reservationsWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
 		if(response.getStatus() == Status.OK.getStatusCode()) {
-			return (ArrayList<ReservationData>) response.readEntity(ArrayList.class);
+			return list;
 		}
 		
 		return new ArrayList<ReservationData>();

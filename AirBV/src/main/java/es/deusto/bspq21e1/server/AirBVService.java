@@ -68,7 +68,6 @@ public class AirBVService {
 
 	public ArrayList<Van> searchVans(String location) {
 		ArrayList<Van> vanAL = new ArrayList<Van>(DBManager.getInstance().getVansByLocation(location));
-		System.out.println("Length Service: " + vanAL.size());
 		for( Van v : vanAL ) { vansHM.put(v.getLicensePlate(), v); }
 		
 		return vanAL;
@@ -77,7 +76,7 @@ public class AirBVService {
 	}
 
 	public ArrayList<Reservation> getUserReservations(String dni) {
-		return DBManager.getInstance().getReservationsByUser(usersHM.get(dni));
+		return new ArrayList<Reservation>(DBManager.getInstance().getReservationsByUser(usersHM.get(dni)));
 	}
     
 }

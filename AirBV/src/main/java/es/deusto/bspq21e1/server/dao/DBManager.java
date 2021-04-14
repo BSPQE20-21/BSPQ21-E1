@@ -174,11 +174,11 @@ public class DBManager {
 	 * @return an ArrayList with all of the user's reservations  
 	 */
 	@SuppressWarnings("unchecked")
-	public ArrayList<Reservation> getReservationsByUser( User vanRenter ) {
+	public List<Reservation> getReservationsByUser( User vanRenter ) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = null;
 		
-		ArrayList<Reservation> listOfReservations = new ArrayList<>();
+		List<Reservation> listOfReservations = new ArrayList<Reservation>();
 		try {
 			System.out.println("   * Retrieving all reservations from van renter " + vanRenter.getName());
 			pm.getFetchPlan().setMaxFetchDepth(2);
@@ -186,11 +186,10 @@ public class DBManager {
 			tx.begin();
 			
 			Query<Reservation> query = pm.newQuery(Reservation.class);
-			query.setFilter("vanRenter== '" + vanRenter + "'"); // TODO: comprobar que poner un objeto como filtro funcione...
-			query.setOrdering("bookingDate descending");
+			query.setFilter("vanRenter== " + vanRenter); 
 			
 			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
-			listOfReservations = (ArrayList<Reservation>)query.execute();
+			listOfReservations = (List<Reservation>)query.execute();
 
 		} catch (Exception e) {
 			System.out.println("   $ Error retrieving reservations from van renter: " + e.getMessage() );
@@ -220,7 +219,6 @@ public class DBManager {
 			
 			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
 			listOfVans = (List<Van>)query.execute();
-			System.out.println("Length BDManager: " + listOfVans.size());
 
 		} catch (Exception e) {
 			System.out.println("   $ Error retrieving vans with location: " + e.getMessage() );

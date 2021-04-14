@@ -119,7 +119,6 @@ public class AirBV {
 		for (Van van : airbvService.searchVans(location)) {
 			vansData.add(as.assembleVan(van));
 		}
-		System.out.println(vansData.size());
 		return vansData;
 	}
 
