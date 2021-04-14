@@ -24,22 +24,22 @@
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-core</artifactId>
-			<version>5.2.2</version>
+			<version>[5.1.6, 5.9)</version>
 		</dependency>
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-api-jdo</artifactId>
-			<version>5.2.3</version>
+			<version>[5.1.4, 5.9]</version>
 		</dependency>
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-rdbms</artifactId>
-			<version>5.2.2</version>
+			<version>[5.1.6, 5.9]</version>
 		</dependency>
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>javax.jdo</artifactId>
-			<version>3.2.0-m13</version>
+			<version>[3.2.0-m8, )</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -82,40 +82,42 @@
 			<artifactId>log4j</artifactId>
 			<version>[1.2.17, )</version>
 		</dependency>
-		<dependency>
+
+
+		<!-- <dependency>
 			<groupId>org.databene</groupId>
 			<artifactId>contiperf</artifactId>
 			<version>2.3.4</version>
 			<scope>test</scope>
 	   </dependency>
 	   <dependency>
-		<groupId>org.eclipse.jetty</groupId>
-		<artifactId>jetty-servlet</artifactId>
-		<version>9.4.17.v20190418</version>
-	</dependency>
-	<dependency>
-		<groupId>org.eclipse.jetty</groupId>
-		<artifactId>jetty-server</artifactId>
-		<version>9.4.17.v20190418</version>
-	</dependency>
-	<dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>javax.servlet-api</artifactId>
-		<version>3.1.0</version>
-		<scope>provided</scope>
-	</dependency>
-	<dependency>
-		<groupId>commons-beanutils</groupId>
-		<artifactId>commons-beanutils</artifactId>
-		<version>1.9.2</version>
-		<type>jar</type>
-	</dependency>
-	<dependency>
-		<groupId>org.eclipse.jetty</groupId>
-		<artifactId>jetty-webapp</artifactId>
-		<version>8.1.7.v20120910</version>
-		<scope>provided</scope>
-	</dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>9.4.17.v20190418</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>9.4.17.v20190418</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.2</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>8.1.7.v20120910</version>
+			<scope>provided</scope>
+		</dependency> -->
 	</dependencies>
 
 	<build>
@@ -185,8 +187,8 @@
 	</build>
 
 	<profiles>
-	<!-- run as 'mvn exec:java -Pclient' -->
-		<profile>
+	<!-- run as 'mvn exec:java -Pserver' -->
+		<!-- <profile>
 			<id>server</id>
 			<build>
 				<plugins>
@@ -210,7 +212,7 @@
 					</plugin>
 				</plugins>
 			</build>
-		</profile>
+		</profile> -->
 		<!-- run as 'mvn exec:java -Pclient' -->
 		<profile>
 			<id>client</id>
@@ -226,12 +228,12 @@
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
 							</arguments>
-							<systemProperties>
+							<!-- <systemProperties>
 								<systemProperty>
 									<key>log4j.configuration</key>
 									<value>file:${config.files.dir}/log4j.properties</value>
 								</systemProperty>
-							</systemProperties>
+							</systemProperties> -->
 						</configuration>
 					</plugin>
 				</plugins>
