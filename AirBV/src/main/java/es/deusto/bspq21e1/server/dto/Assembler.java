@@ -32,9 +32,11 @@ public class Assembler {
 
     public VanData assembleVan(Van v) {
     	ArrayList<ReviewData> reviews = new ArrayList<ReviewData>();
-    	for (Review r : v.getReviews()) {
-			reviews.add(assembleReview(r));
-		}
+    	if(v.getReviews() != null) {
+    		for (Review r : v.getReviews()) {
+    			reviews.add(assembleReview(r));
+    		}
+    	}
     	VanData vanData = new VanData(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.getCapacity(), v.hasKitchen(), v.hasShower(), v.isOffRoad(),  v.getPricePerDay(), reviews);
     	return vanData;	
     }
@@ -60,9 +62,11 @@ public class Assembler {
 
     public Van disassembleVan(VanData v) {
     	ArrayList<Review> reviews = new ArrayList<Review>();
-    	for (ReviewData r : v.getReviews()) {
-			reviews.add(disassembleReview(r));
-		}
+    	if(v.getReviews() != null) {
+    		for (ReviewData r : v.getReviews()) {
+    			reviews.add(disassembleReview(r));
+    		}
+    	}
     	Van van = new Van(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.hasKitchen(), v.hasShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay(), reviews);
     	return van;
     }

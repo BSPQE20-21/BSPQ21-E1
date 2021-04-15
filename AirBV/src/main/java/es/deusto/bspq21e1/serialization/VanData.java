@@ -146,5 +146,12 @@ public class VanData {
 	public void removeVan(ReviewData review) {
 		this.reviews.remove(this.reviews.indexOf(review));
 	}
+	
+	@Override
+	public String toString() {
+		return "Van [licensePlate=" + licensePlate + ", brand=" + brand + ", model=" + model
+				+ ", location=" + location + ", kitchen=" + kitchen + ", shower=" + shower + ", offRoad=" + offRoad
+				+ ", capacity=" + capacity + ", pricePerDay=" + pricePerDay + ", reviews=" + reviews + "]";
+	}
 
 }

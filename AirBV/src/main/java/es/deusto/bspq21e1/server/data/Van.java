@@ -129,5 +129,14 @@ public class Van {
 	public void setReviews(List<Review> reviews) {
 	 	this.reviews = reviews;
 	}
+
+	@Override
+	public String toString() {
+		return "Van [licensePlate=" + licensePlate + ", brand=" + brand + ", model=" + model + ", status=" + status
+				+ ", location=" + location + ", kitchen=" + kitchen + ", shower=" + shower + ", offRoad=" + offRoad
+				+ ", capacity=" + capacity + ", pricePerDay=" + pricePerDay + ", reviews=" + reviews + "]";
+	}
+	
+	
  
 }

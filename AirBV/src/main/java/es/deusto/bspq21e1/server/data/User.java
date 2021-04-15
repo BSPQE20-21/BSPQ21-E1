@@ -84,6 +84,9 @@ public class User {
 	}
 	
 	public void addVan(Van van) {
+		if(this.vans == null) {
+			this.vans = new ArrayList<Van>();
+		}
 		this.vans.add(van);
 	}
 	

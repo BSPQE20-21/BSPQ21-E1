@@ -202,13 +202,19 @@ public class SearchWindow extends JFrame{
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
 	private void updateLists(ArrayList<VanData> vans) {
-		System.out.println("Dentro funcion -> " + vans);
+		System.out.println("Dentro funcion -> ");
+		for (VanData van : vans) {
+			System.out.println(van.toString());
+		}
 		vansList.clear();
 		for (int i = 0; i < vans.size(); i++) {
 			VanData v = vans.get(i);
 			vansList.addElement("Van: " + v.getBrand() + " " + v.getModel() + " (" + v.getCapacity() + " people) Price: " + v.getPricePerDay());
 		}
 		jlVansList.setSelectedIndex(0);
+		jlVansList.updateUI();
+		scrollVans.updateUI();
+		visualizePanel.updateUI();
 	}
 }
 

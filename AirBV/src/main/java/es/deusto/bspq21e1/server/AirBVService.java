@@ -37,6 +37,7 @@ public class AirBVService {
     public void registerVan(Van van) {
     	vansHM.put(van.getLicensePlate(), van);
     	usersHM.get(user.getDni()).addVan(van);
+    	DBManager.getInstance().store(van);
     }
 
     public boolean cancelReservation(String code) {
