@@ -11,11 +11,14 @@ import javax.swing.JSpinner;
 import javax.swing.JRadioButton;
 
 import es.deusto.bspq21e1.client.controller.Controller;
+import es.deusto.bspq21e1.serialization.ReviewData;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 
@@ -220,7 +223,7 @@ public class RegisterVanWindow extends JFrame{
 				//CONTROLLER
 				if( licensePlate != "" && brand != "" && model != "" && location != "") {
 					
-					VanData vanData = new VanData(licensePlate, brand, model, location, capacity, kitchen, shower, offRoad, pricePerDay, user);
+					VanData vanData = new VanData(licensePlate, brand, model, location, capacity, kitchen, shower, offRoad, pricePerDay, new ArrayList<ReviewData>());
 					controller.registerVan(vanData);
 					
 				}

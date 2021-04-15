@@ -22,12 +22,11 @@ public class Van {
     private int capacity;
     private double pricePerDay;
 
-    private User owner;
     @Join
     private List<Review> reviews;
 
     public Van(String licensePlate, String brand, String model, String location, boolean kitchen, boolean shower, boolean offRoad,
-    int capacity, double pricePerDay, User owner) {
+    int capacity, double pricePerDay, List<Review> reviews) {
         this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
@@ -38,8 +37,7 @@ public class Van {
         this.offRoad = offRoad;
         this.capacity = capacity;
         this.pricePerDay = pricePerDay;
-        this.owner = owner;
-        this.reviews = new ArrayList<Review>();
+        this.reviews = reviews;
     }
 
     // Getters and setters
@@ -122,14 +120,6 @@ public class Van {
 
 	public void setPricePerDay(double pricePerDay) {
 		this.pricePerDay = pricePerDay;
-	}
-
-	public User getOwner() {
-		return owner;
-	}
-
-	public void setOwner(User owner) {
-		this.owner = owner;
 	}
 
 	public List<Review> getReviews() {

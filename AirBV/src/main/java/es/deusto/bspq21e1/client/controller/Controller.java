@@ -77,9 +77,9 @@ public class Controller {
 		van.setLocation(vanData.getLocation());
 		van.setModel(vanData.getModel());
 		van.setOffRoad(vanData.isOffRoad());
-		van.setOwner(vanData.getOwner());
 		van.setPricePerDay(vanData.getPricePerDay());
 		van.setShower(vanData.hasShower());
+		van.setReviews(vanData.getReviews());
 		Response response = invocationBuilder.post(Entity.entity(van, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			System.out.println("Error connecting with the server. Code: " + response.getStatus());

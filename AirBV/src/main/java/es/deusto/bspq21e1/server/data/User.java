@@ -3,8 +3,11 @@ package es.deusto.bspq21e1.server.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
+
+import es.deusto.bspq21e1.serialization.VanData;
 
 @PersistenceCapable
 public class User {
@@ -13,8 +16,11 @@ public class User {
     private String name;
     private String email;
     private List<Integer> stars;
+    
+    @Join
+    private List<Van> vans;
 
-    public User(String dni, String name, String email) {
+	public User(String dni, String name, String email) {
         this.dni = dni;
         this.name = name;
         this.email = email;
@@ -69,5 +75,20 @@ public class User {
 		this.stars = stars;
 	}
 
+	public List<Van> getVans() {
+		return vans;
+	}
+
+	public void setVans(List<Van> vans) {
+		this.vans = vans;
+	}
+	
+	public void addVan(Van van) {
+		this.vans.add(van);
+	}
+	
+	public void removeVan(VanData van) {
+		this.vans.remove(this.vans.indexOf(van));
+	}
     
 }

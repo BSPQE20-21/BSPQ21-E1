@@ -18,6 +18,7 @@ import es.deusto.bspq21e1.server.data.Van;
 public class AirBVService {
     
     // Parameters
+	private static User user = null;
     private static Map<String, User> usersHM = new HashMap<>();
     private static Map<String, Van> vansHM = new HashMap<>();
     private static Map<String, Reservation> reservationsHM = new HashMap<>();
@@ -29,13 +30,13 @@ public class AirBVService {
     public User registerUser(String dni, String name, String email) {
         usersHM.put(dni, new User(dni, name, email));
         DBManager.getInstance().store(usersHM.get(dni));
+        user = usersHM.get(dni);
         return usersHM.get(dni);
     }
     
     public void registerVan(Van van) {
-    	van.setOwner(usersHM.get(van.getOwner().getDni()));
     	vansHM.put(van.getLicensePlate(), van);
-    	DBManager.getInstance().store(van);
+    	usersHM.get(user.getDni()).addVan(van);
     }
 
     public boolean cancelReservation(String code) {

@@ -57,7 +57,6 @@ public class DBManager {
 	 * @param van
 	 */
 	public void store( Van van ) {
-		van.setOwner(getUser(van.getOwner().getDni()));
 		this.storeObject( van );
 	}
 
@@ -316,7 +315,7 @@ public class DBManager {
 		instance.store(u1);
 		
 		
-		Van v1 = new Van("123ABC", "Ferrari", "F5", "Bilbao", true, true, true, 1, 222.22, u1);
+		Van v1 = new Van("123ABC", "Ferrari", "F5", "Bilbao", true, true, true, 1, 222.22, new ArrayList<Review>());
 		instance.store(v1);
 		
 	}

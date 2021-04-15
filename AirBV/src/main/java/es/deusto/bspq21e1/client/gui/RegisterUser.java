@@ -5,11 +5,13 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JTextField;
 
 import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.serialization.UserData;
+import es.deusto.bspq21e1.serialization.VanData;
 
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -94,7 +96,7 @@ public class RegisterUser extends JFrame{
 				}
 				frmRegisterYourself.dispose();
 				
-				UserData userData = new UserData(txtIdNumber.getText(), txtName.getText(), txtEmail.getText());
+				UserData userData = new UserData(txtIdNumber.getText(), txtName.getText(), txtEmail.getText(), new ArrayList<VanData>());
 				
 				new RegisterVanWindow(controller, userData);
 				new SearchWindow(controller, userData);

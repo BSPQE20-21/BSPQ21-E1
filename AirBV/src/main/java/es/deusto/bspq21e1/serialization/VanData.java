@@ -1,5 +1,11 @@
 package es.deusto.bspq21e1.serialization;
 
+import java.util.List;
+
+import javax.jdo.annotations.Join;
+
+import es.deusto.bspq21e1.server.data.Review;
+
 /**
  * Class for the representation of the Van object which is going to be sended to clients.
  * @author SPQ Group 1
@@ -17,8 +23,8 @@ public class VanData {
     private boolean offRoad;
     private int capacity;
     private double pricePerDay;
-
-    private UserData owner;
+    
+    private List<ReviewData> reviews;
     
     public VanData() {
     	
@@ -38,7 +44,7 @@ public class VanData {
 	 * @param owner User that owns the van (just the data version).
 	 */
     public VanData(String licensePlate, String brand, String model, String location, int capacity, boolean kitchen, boolean shower, boolean offRoad,
-     double pricePerDay, UserData owner) {
+     double pricePerDay, List<ReviewData> reviews) {
     	
     	 this.licensePlate = licensePlate;
     	 this.brand = brand;
@@ -49,7 +55,7 @@ public class VanData {
          this.offRoad = offRoad;
          this.capacity = capacity;
          this.pricePerDay = pricePerDay;
-         this.owner = owner;
+         this.reviews = reviews;
     	
     }
 
@@ -125,12 +131,20 @@ public class VanData {
 		this.licensePlate = licensePlate;
 	}
 
-	public UserData getOwner() {
-		return owner;
+	public List<ReviewData> getReviews() {
+		return reviews;
 	}
 
-	public void setOwner(UserData owner) {
-		this.owner = owner;
+	public void setReviews(List<ReviewData> reviews) {
+		this.reviews = reviews;
+	}
+
+	public void addReview(ReviewData review) {
+		this.reviews.add(review);
+	}
+	
+	public void removeVan(ReviewData review) {
+		this.reviews.remove(this.reviews.indexOf(review));
 	}
 
 }
