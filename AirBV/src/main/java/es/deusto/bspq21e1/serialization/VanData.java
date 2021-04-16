@@ -24,6 +24,8 @@ public class VanData {
     private int capacity;
     private double pricePerDay;
     
+    private UserData user;
+    
     private List<ReviewData> reviews;
     
     public VanData() {
@@ -44,7 +46,7 @@ public class VanData {
 	 * @param owner User that owns the van (just the data version).
 	 */
     public VanData(String licensePlate, String brand, String model, String location, int capacity, boolean kitchen, boolean shower, boolean offRoad,
-     double pricePerDay, List<ReviewData> reviews) {
+     double pricePerDay, UserData user, List<ReviewData> reviews) {
     	
     	 this.licensePlate = licensePlate;
     	 this.brand = brand;
@@ -55,6 +57,7 @@ public class VanData {
          this.offRoad = offRoad;
          this.capacity = capacity;
          this.pricePerDay = pricePerDay;
+         this.user = user;
          this.reviews = reviews;
     	
     }
@@ -131,6 +134,14 @@ public class VanData {
 		this.licensePlate = licensePlate;
 	}
 
+	public UserData getUser() {
+		return user;
+	}
+
+	public void setUser(UserData user) {
+		this.user = user;
+	}
+
 	public List<ReviewData> getReviews() {
 		return reviews;
 	}
@@ -146,12 +157,12 @@ public class VanData {
 	public void removeVan(ReviewData review) {
 		this.reviews.remove(this.reviews.indexOf(review));
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Van [licensePlate=" + licensePlate + ", brand=" + brand + ", model=" + model
-				+ ", location=" + location + ", kitchen=" + kitchen + ", shower=" + shower + ", offRoad=" + offRoad
-				+ ", capacity=" + capacity + ", pricePerDay=" + pricePerDay + ", reviews=" + reviews + "]";
+		return "VanData [licensePlate=" + licensePlate + ", brand=" + brand + ", model=" + model + ", location="
+				+ location + ", kitchen=" + kitchen + ", shower=" + shower + ", offRoad=" + offRoad + ", capacity="
+				+ capacity + ", pricePerDay=" + pricePerDay + ", user=" + user + ", reviews=" + reviews + "]";
 	}
 
 }

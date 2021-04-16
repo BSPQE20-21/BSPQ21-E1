@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
 import es.deusto.bspq21e1.serialization.VanData;
@@ -17,8 +18,13 @@ public class User {
     private String email;
     private List<Integer> stars;
     
+    @Persistent(mappedBy="user", dependentElement="true")
     @Join
     private List<Van> vans;
+    
+    public User() {
+    	
+    }
 
 	public User(String dni, String name, String email) {
         this.dni = dni;

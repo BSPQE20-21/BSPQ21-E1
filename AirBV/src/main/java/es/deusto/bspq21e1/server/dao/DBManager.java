@@ -57,6 +57,8 @@ public class DBManager {
 	 * @param van
 	 */
 	public void store( Van van ) {
+		User user = this.getUser(van.getUser().getDni());
+		user.addVan(van);
 		this.storeObject( van );
 	}
 
@@ -141,20 +143,23 @@ public class DBManager {
 	public User getUser( String dni) { 
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = null;
-		User user = null;
 		
-		try {
+		try {			
 			System.out.println("   * Retrieving user with dni: " + dni);
-			pm.getFetchPlan().setMaxFetchDepth(2);
+			pm.getFetchPlan().setMaxFetchDepth(4);
 			tx = pm.currentTransaction();
 			tx.begin();
 			
 			Query<User> query = pm.newQuery(User.class);
 			query.setFilter("dni== '" + dni+ "'");
+			query.setUnique(true);
 			
 			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
-			user = (User)query.execute();
-
+			@SuppressWarnings("unchecked")
+			User user = (User)query.execute();
+			System.out.println("User retrieved from DB: " + user.getName());
+			
+			return user;
 		} catch (Exception e) {
 			System.out.println("   $ Error retrieving user: " + e.getMessage() );
 		} finally {
@@ -163,9 +168,8 @@ public class DBManager {
 			}	
 			pm.close();
 		}
-		
-		return user;
-		
+	
+		return null;
 	}
 	/**
 	 * Method that finds and returns all of the reservations given a user.
@@ -315,7 +319,7 @@ public class DBManager {
 		instance.store(u1);
 		
 		
-		Van v1 = new Van("123ABC", "Ferrari", "F5", "Bilbao", true, true, true, 1, 222.22, new ArrayList<Review>());
+		Van v1 = new Van("123ABC", "Ferrari", "F5", "Bilbao", true, true, true, 1, 222.22, u1, new ArrayList<Review>());
 		instance.store(v1);
 		
 	}

@@ -223,7 +223,7 @@ public class RegisterVanWindow extends JFrame{
 				//CONTROLLER
 				if( licensePlate != "" && brand != "" && model != "" && location != "") {
 					
-					VanData vanData = new VanData(licensePlate, brand, model, location, capacity, kitchen, shower, offRoad, pricePerDay, new ArrayList<ReviewData>());
+					VanData vanData = new VanData(licensePlate, brand, model, location, capacity, kitchen, shower, offRoad, pricePerDay, user, new ArrayList<ReviewData>());
 					controller.registerVan(vanData);
 					
 				}

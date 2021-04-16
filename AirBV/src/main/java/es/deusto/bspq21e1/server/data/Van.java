@@ -21,12 +21,14 @@ public class Van {
     private boolean offRoad;
     private int capacity;
     private double pricePerDay;
+    
+    private User user;
 
     @Join
     private List<Review> reviews;
 
     public Van(String licensePlate, String brand, String model, String location, boolean kitchen, boolean shower, boolean offRoad,
-    int capacity, double pricePerDay, List<Review> reviews) {
+    int capacity, double pricePerDay, User user, List<Review> reviews) {
         this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
@@ -37,6 +39,7 @@ public class Van {
         this.offRoad = offRoad;
         this.capacity = capacity;
         this.pricePerDay = pricePerDay;
+        this.user = user;
         this.reviews = reviews;
     }
 
@@ -122,6 +125,14 @@ public class Van {
 		this.pricePerDay = pricePerDay;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public List<Review> getReviews() {
 		return reviews;
 	}
@@ -134,9 +145,10 @@ public class Van {
 	public String toString() {
 		return "Van [licensePlate=" + licensePlate + ", brand=" + brand + ", model=" + model + ", status=" + status
 				+ ", location=" + location + ", kitchen=" + kitchen + ", shower=" + shower + ", offRoad=" + offRoad
-				+ ", capacity=" + capacity + ", pricePerDay=" + pricePerDay + ", reviews=" + reviews + "]";
+				+ ", capacity=" + capacity + ", pricePerDay=" + pricePerDay + ", user=" + user + ", reviews=" + reviews
+				+ "]";
 	}
-	
+
 	
  
 }
