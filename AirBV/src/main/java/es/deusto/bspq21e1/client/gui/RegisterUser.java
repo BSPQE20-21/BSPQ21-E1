@@ -32,7 +32,6 @@ public class RegisterUser extends JFrame{
 	public RegisterUser(Controller controller) {
 		this.controller = controller;
 		initialize();
-		frmRegisterYourself.setTitle("Register yourself");
 		frmRegisterYourself.setResizable(false);
 		frmRegisterYourself.setVisible(true);
 
