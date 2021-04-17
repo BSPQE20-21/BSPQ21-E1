@@ -55,6 +55,7 @@ public class SearchWindow extends JFrame{
 	private ArrayList<VanData> vans = new ArrayList<>();
 	private Date pickUpDate;
 	private Date returnDate;
+	JButton btnCharacteristics;
 	
 	private javax.swing.DefaultListModel<String> vansList = new javax.swing.DefaultListModel<String>();
 
@@ -190,8 +191,22 @@ public class SearchWindow extends JFrame{
 			}
 		});
 		btnBook.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		btnBook.setBounds(275, 138, 87, 20);
+		btnBook.setBounds(209, 138, 87, 20);
 		visualizePanel.add(btnBook);
+		
+		btnCharacteristics = new JButton("See Characteristics");
+		btnCharacteristics.setEnabled(false);
+		btnCharacteristics.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VanData van = vans.get(jlVansList.getSelectedIndex());
+				frmSearchVans.setVisible(false);
+				new CharacteristicsWindow(van, frmSearchVans);
+				
+			}
+		});
+		btnCharacteristics.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		btnCharacteristics.setBounds(319, 138, 125, 20);
+		visualizePanel.add(btnCharacteristics);
 		btnBook.updateUI();
 		
 		separator = new JSeparator();
@@ -202,6 +217,7 @@ public class SearchWindow extends JFrame{
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
 	private void updateLists(ArrayList<VanData> vans) {
+		btnCharacteristics.setEnabled(true);
 		System.out.println("Dentro funcion -> ");
 		for (VanData van : vans) {
 			System.out.println(van.toString());
