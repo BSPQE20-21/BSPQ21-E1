@@ -71,7 +71,7 @@ public class AirBV {
     @POST
     @Path(registerUser)
     public Response registerUser(UserData userData) {
-    	logger.warn("THIS METHOD SHOULD CHECK WITH METHOD");
+    	logger.debug("Register new User request from client received.");
         airbvService.registerUser( userData.getDni(), userData.getName(), userData.getEmail() );
         return Response.ok().build();
     }
@@ -79,7 +79,7 @@ public class AirBV {
     @DELETE
     @Path(deleteUser)
     public Response deleteUser(@PathParam("dni") String dni) {
-    	logger.warn("THIS METHOD SHOULD CHECK WITH METHOD");
+    	logger.debug("Delete a user request from client received.");
         airbvService.deleteUser( dni );
         return Response.status(Response.Status.OK).build();
     }
@@ -91,6 +91,7 @@ public class AirBV {
     @POST
     @Path(registerVan)
     public Response registerVan(VanData vanData) {
+    	logger.debug("Register new Van request from client received.");
     	Assembler as = new Assembler();
     	
     	Van van = as.disassembleVan(vanData);
@@ -102,6 +103,7 @@ public class AirBV {
     @POST
     @Path(cancelReservation)
     public Response cancelReservation(String code) {
+    	logger.debug("Cancel a Reservation request from client received.");
         airbvService.cancelReservation(code);
         return Response.ok().build();        
     }
@@ -109,7 +111,7 @@ public class AirBV {
     @POST
     @Path(registerReservation)
     public Response registerReservation(ReservationData rD) {
-        
+    	logger.debug("Register new Reservation request from client received.");
     	Assembler as = new Assembler();
     	
     	airbvService.registerReservation(as.disassembleReservation(rD).getBookingDate(), 
@@ -124,7 +126,8 @@ public class AirBV {
     @GET
     @Path(getVans)
 	public ArrayList<VanData> searchVans( @PathParam("location") String location) {	
-		ArrayList<VanData> vansData = new ArrayList<VanData>();
+    	logger.debug("Search with location: "+location+" request from client received.");
+    	ArrayList<VanData> vansData = new ArrayList<VanData>();
 		Assembler as = new Assembler();
 		for (Van van : airbvService.searchVans(location)) {
 			vansData.add(as.assembleVan(van));
@@ -135,6 +138,7 @@ public class AirBV {
 	@GET
 	@Path(getMyReservations)
 	public ArrayList<ReservationData> getUserReservations( @PathParam("dni") String dni ) {
+		logger.debug("Get user's reservations request from client received.");
 		Assembler as = new Assembler();
 		ArrayList<ReservationData> resData = new ArrayList<ReservationData>();
 		for (Reservation reservation : airbvService.getUserReservations(dni)) {
@@ -143,13 +147,5 @@ public class AirBV {
 		
 		return resData;
 	}
-
-	// TESTS
-	@POST
-	@Path("/donations")
-	public Response addDonation(String donation) {
-		return Response.ok().build();
-	}
-	// TESTS
 
 }
