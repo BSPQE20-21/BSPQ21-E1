@@ -17,6 +17,7 @@ import es.deusto.bspq21e1.server.AirBVService;
 
 import es.deusto.bspq21e1.serialization.*;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -57,6 +58,7 @@ public class AirBV {
 	 */
 	
 	private static final String registerUser = "/registerUser";
+	private static final String deleteUser = "/deleteUser/{dni}";
 	private static final String registerVan = "/registerVan";
 	private static final String getMyReservations = "/getMyReservations/{dni}";
 	private static final String getVans = "/getVans/{location}";
@@ -72,6 +74,14 @@ public class AirBV {
     	logger.warn("THIS METHOD SHOULD CHECK WITH METHOD");
         airbvService.registerUser( userData.getDni(), userData.getName(), userData.getEmail() );
         return Response.ok().build();
+    }
+    
+    @DELETE
+    @Path(deleteUser)
+    public Response deleteUser(@PathParam("dni") String dni) {
+    	logger.warn("THIS METHOD SHOULD CHECK WITH METHOD");
+        airbvService.deleteUser( dni );
+        return Response.status(Response.Status.OK).build();
     }
     
     /**

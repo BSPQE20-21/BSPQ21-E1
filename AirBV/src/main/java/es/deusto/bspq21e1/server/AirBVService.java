@@ -79,5 +79,12 @@ public class AirBVService {
 	public ArrayList<Reservation> getUserReservations(String dni) {
 		return new ArrayList<Reservation>(DBManager.getInstance().getReservationsByUser(usersHM.get(dni)));
 	}
+
+	public void deleteUser(String dni) {
+		if(usersHM.get(dni) != null) {
+            usersHM.remove(dni);
+        }
+		DBManager.getInstance().deleteUser(dni);
+	}
     
 }
