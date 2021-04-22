@@ -2,6 +2,8 @@ package es.deusto.bspq21e1.client.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -25,10 +27,12 @@ public class Controller {
     private Client client;
     private WebTarget webTarget;
     private static Logger logger = Logger.getLogger(Controller.class.getName());
+    private ResourceBundle resourceBundle;
     
     public Controller(String hostname, String port) {
     	client = ClientBuilder.newClient();
     	webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+    	resourceBundle = ResourceBundle.getBundle("SystemMessages", Locale.getDefault());
     }
     
     public ArrayList<VanData> searchVans(String location) {
@@ -133,6 +137,14 @@ public class Controller {
 		}
 		
 		return new ArrayList<ReservationData>();
+	}
+	
+	/**
+	 * Returns the ResourceBundle
+	 * @return ResourceBundle
+	 */
+	public ResourceBundle getResourcebundle() {
+		return resourceBundle;
 	}
 	
 	public static void main(String[] args) {

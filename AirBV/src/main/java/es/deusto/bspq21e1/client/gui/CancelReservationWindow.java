@@ -44,7 +44,7 @@ public class CancelReservationWindow extends JFrame{
 	public CancelReservationWindow(Controller controller, UserData userData) {
 		this.controller = controller;
 		this.user = userData;
-		setTitle("Cancel a reservation");
+		setTitle(controller.getResourcebundle().getString("cancel_reservation_window_tittle_msg"));
 		initialize();
 		frame.setVisible(true);
 		frame.setResizable(false);
@@ -58,7 +58,7 @@ public class CancelReservationWindow extends JFrame{
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblTitle = new JLabel("Cancel any of your reservations");
+		JLabel lblTitle = new JLabel(controller.getResourcebundle().getString("cancel_your_reservations_msg"));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblTitle.setBounds(50, 11, 298, 24);
 		frame.getContentPane().add(lblTitle);
@@ -74,7 +74,7 @@ public class CancelReservationWindow extends JFrame{
 		
 		
 		
-		JButton btnCancel = new JButton("Cancel");
+		JButton btnCancel = new JButton(controller.getResourcebundle().getString("cancel_button_msg"));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.cancelReservation(jlReservationsList.getSelectedValue());

@@ -65,7 +65,7 @@ public class SearchWindow extends JFrame{
 	public SearchWindow(Controller controller, UserData user) {
 		this.controller = controller;
 		this.user = user;
-		frmSearchVans.setTitle("Search vans");
+		frmSearchVans.setTitle(controller.getResourcebundle().getString("search_window_tittle_msg"));
 		frmSearchVans.setResizable(false);
 		frmSearchVans.setVisible(true);
 		initialize();
@@ -84,15 +84,15 @@ public class SearchWindow extends JFrame{
 		frmSearchVans.getContentPane().add(searchPanel);
 		searchPanel.setLayout(null);
 		
-		lblLocation = new JLabel("Location");
+		lblLocation = new JLabel(controller.getResourcebundle().getString("location_msg"));
 		lblLocation.setBounds(10, 61, 63, 14);
 		searchPanel.add(lblLocation);
 		
-		lblPickUp = new JLabel("Pick up date");
+		lblPickUp = new JLabel(controller.getResourcebundle().getString("pick_up_date_msg"));
 		lblPickUp.setBounds(213, 61, 79, 14);
 		searchPanel.add(lblPickUp);
 		
-		lblReturn = new JLabel("Return date");
+		lblReturn = new JLabel(controller.getResourcebundle().getString("return_date_msg"));
 		lblReturn.setBounds(433, 61, 80, 14);
 		searchPanel.add(lblReturn);
 		
@@ -100,7 +100,7 @@ public class SearchWindow extends JFrame{
 		txtLocation.setBounds(70, 58, 133, 20);
 		searchPanel.add(txtLocation);
 		txtLocation.updateUI();
-		txtLocation.setToolTipText("\"Bilbao\", \"Madrid\" ...");
+		txtLocation.setToolTipText(controller.getResourcebundle().getString("location_tool_tip_msg"));
 		txtLocation.setColumns(10);
 		
 		txtPickUp = new JTextField();
@@ -115,7 +115,7 @@ public class SearchWindow extends JFrame{
 		txtReturn.updateUI();
 		txtReturn.setColumns(10);
 		
-		JButton btnSearch = new JButton("Search");
+		JButton btnSearch = new JButton(controller.getResourcebundle().getString("search_button_msg"));
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vans = controller.searchVans(txtLocation.getText());
@@ -129,12 +129,12 @@ public class SearchWindow extends JFrame{
 		searchPanel.add(btnSearch);
 		btnSearch.updateUI();
 		
-		lblSearchTitle = new JLabel("Search for your perfect van");
+		lblSearchTitle = new JLabel(controller.getResourcebundle().getString("lbl_search_title_msg"));
 		lblSearchTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblSearchTitle.setBounds(10, 11, 320, 34);
 		searchPanel.add(lblSearchTitle);
 		
-		JLabel lblNDateExample = new JLabel("dd/MM/yyyy");
+		JLabel lblNDateExample = new JLabel(controller.getResourcebundle().getString("date_example_msg"));
 		lblNDateExample.setForeground(Color.BLUE);
 		lblNDateExample.setBounds(311, 44, 93, 13);
 		searchPanel.add(lblNDateExample);
@@ -145,7 +145,7 @@ public class SearchWindow extends JFrame{
 		frmSearchVans.getContentPane().add(visualizePanel);
 		visualizePanel.setLayout(null);
 		
-		lblResultsTitle = new JLabel("Results");
+		lblResultsTitle = new JLabel(controller.getResourcebundle().getString("lbl_results_title_msg"));
 		lblResultsTitle.setBounds(10, 11, 148, 29);
 		lblResultsTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
 		visualizePanel.add(lblResultsTitle);
@@ -160,7 +160,7 @@ public class SearchWindow extends JFrame{
 		scrollVans.setViewportView(jlVansList);
 		visualizePanel.add(scrollVans);
 		
-		JButton btnBook = new JButton("Book");
+		JButton btnBook = new JButton(controller.getResourcebundle().getString("book_button_msg"));
 		btnBook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -194,7 +194,7 @@ public class SearchWindow extends JFrame{
 		btnBook.setBounds(209, 138, 87, 20);
 		visualizePanel.add(btnBook);
 		
-		btnCharacteristics = new JButton("See Characteristics");
+		btnCharacteristics = new JButton(controller.getResourcebundle().getString("characteristics_button_msg"));
 		btnCharacteristics.setEnabled(false);
 		btnCharacteristics.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -218,7 +218,7 @@ public class SearchWindow extends JFrame{
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
 	private void updateLists(ArrayList<VanData> vans) {
 		btnCharacteristics.setEnabled(true);
-		System.out.println("Dentro funcion -> ");
+		System.out.println("Dentro funcion -> "); //TODO
 		for (VanData van : vans) {
 			System.out.println(van.toString());
 		}

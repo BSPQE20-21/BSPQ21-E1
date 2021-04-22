@@ -32,7 +32,7 @@ public class RegisterUser extends JFrame{
 	public RegisterUser(Controller controller) {
 		this.controller = controller;
 		initialize();
-		frmRegisterYourself.setTitle("Register yourself");
+		frmRegisterYourself.setTitle(controller.getResourcebundle().getString("register_yourself_msg"));
 		frmRegisterYourself.setResizable(false);
 		frmRegisterYourself.setVisible(true);
 
@@ -41,7 +41,7 @@ public class RegisterUser extends JFrame{
 	public RegisterUser() {
 		this.controller = null;
 		initialize();
-		frmRegisterYourself.setTitle("Register yourself");
+		frmRegisterYourself.setTitle(controller.getResourcebundle().getString("register_yourself_msg"));
 		frmRegisterYourself.setResizable(false);
 		frmRegisterYourself.setVisible(true);
 
@@ -52,22 +52,22 @@ public class RegisterUser extends JFrame{
 		frmRegisterYourself.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmRegisterYourself.getContentPane().setLayout(null);
 		
-		JLabel lblRegisterTitle = new JLabel("Register as a new user");
+		JLabel lblRegisterTitle = new JLabel(controller.getResourcebundle().getString("register_as_new_user_msg"));
 		lblRegisterTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRegisterTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblRegisterTitle.setBounds(0, 22, 294, 19);
 		frmRegisterYourself.getContentPane().add(lblRegisterTitle);
 		
 		//JLabels
-		JLabel lblId = new JLabel("Id number");
+		JLabel lblId = new JLabel(controller.getResourcebundle().getString("id_number_msg"));
 		lblId.setBounds(56, 63, 73, 19);
 		frmRegisterYourself.getContentPane().add(lblId);
 		
-		JLabel lblName = new JLabel("Name");
+		JLabel lblName = new JLabel(controller.getResourcebundle().getString("name_msg"));
 		lblName.setBounds(56, 90, 46, 14);
 		frmRegisterYourself.getContentPane().add(lblName);
 		
-		JLabel lblEmail = new JLabel("Email");
+		JLabel lblEmail = new JLabel(controller.getResourcebundle().getString("email_msg"));
 		lblEmail.setBounds(56, 116, 46, 14);
 		frmRegisterYourself.getContentPane().add(lblEmail);
 		
@@ -88,7 +88,7 @@ public class RegisterUser extends JFrame{
 		txtEmail.setColumns(10);
 		
 		//Register Button
-		JButton btnRegister = new JButton("Register");
+		JButton btnRegister = new JButton(controller.getResourcebundle().getString("register_msg"));
 		btnRegister.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 				

@@ -73,7 +73,7 @@ public class RegisterVanWindow extends JFrame{
 		this.controller = controller;
 		this.user = user;
 		initialize();
-		frmRegistrationOfVans.setTitle("Registration of vans");
+		frmRegistrationOfVans.setTitle(controller.getResourcebundle().getString("resgister_van_window_tittle_msg"));
 		frmRegistrationOfVans.setVisible(true);
 	}
 
@@ -86,13 +86,13 @@ public class RegisterVanWindow extends JFrame{
 		frmRegistrationOfVans.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmRegistrationOfVans.getContentPane().setLayout(null);
 		
-		lblTitle = new JLabel("Register your van");
+		lblTitle = new JLabel(controller.getResourcebundle().getString("register_your_van_msg"));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblTitle.setBounds(121, 31, 196, 19);
 		frmRegistrationOfVans.getContentPane().add(lblTitle);
 		
 		//LicensePlate
-		lblLicensePlate = new JLabel("License Plate");
+		lblLicensePlate = new JLabel(controller.getResourcebundle().getString("license_plate_msg"));
 		lblLicensePlate.setBounds(40, 81, 121, 19);
 		frmRegistrationOfVans.getContentPane().add(lblLicensePlate);
 		
@@ -102,7 +102,7 @@ public class RegisterVanWindow extends JFrame{
 		txtFieldLicensePlate.setColumns(10);
 		
 		//Brand
-		lblBrand = new JLabel("Brand");
+		lblBrand = new JLabel(controller.getResourcebundle().getString("brand_msg"));
 		lblBrand.setBounds(40, 120, 78, 13);
 		frmRegistrationOfVans.getContentPane().add(lblBrand);
 		
@@ -112,7 +112,7 @@ public class RegisterVanWindow extends JFrame{
 		txtFieldBrand.setColumns(10);
 		
 		//Model
-		lblMoldel = new JLabel("Model");
+		lblMoldel = new JLabel(controller.getResourcebundle().getString("model_msg"));
 		lblMoldel.setBounds(40, 160, 45, 13);
 		frmRegistrationOfVans.getContentPane().add(lblMoldel);
 		
@@ -122,7 +122,7 @@ public class RegisterVanWindow extends JFrame{
 		txtFieldModel.setColumns(10);
 		
 		//Location
-		lblLocation = new JLabel("Location");
+		lblLocation = new JLabel(controller.getResourcebundle().getString("location_msg"));
 		lblLocation.setBounds(40, 200, 85, 13);
 		frmRegistrationOfVans.getContentPane().add(lblLocation);
 		
@@ -132,7 +132,7 @@ public class RegisterVanWindow extends JFrame{
 		frmRegistrationOfVans.getContentPane().add(txtFieldLocation);
 		
 		//Capacity
-		lblCapacity = new JLabel("Capacity");
+		lblCapacity = new JLabel(controller.getResourcebundle().getString("capacity_msg"));
 		lblCapacity.setBounds(40, 250, 80, 13);
 		frmRegistrationOfVans.getContentPane().add(lblCapacity);
 		
@@ -142,61 +142,61 @@ public class RegisterVanWindow extends JFrame{
 		frmRegistrationOfVans.getContentPane().add(spinnerCapacity);
 		
 		//Kitchen
-		lblKitchen = new JLabel("Kitchen");
+		lblKitchen = new JLabel(controller.getResourcebundle().getString("kitchen_msg"));
 		lblKitchen.setBounds(40, 300, 54, 13);
 		frmRegistrationOfVans.getContentPane().add(lblKitchen);
 		
 		kitchenButtonGroup = new ButtonGroup();
 		
-		rdbtnKitchenTrue = new JRadioButton("Yes");
+		rdbtnKitchenTrue = new JRadioButton(controller.getResourcebundle().getString("yes_msg"));
 		rdbtnKitchenTrue.setBounds(163, 296, 63, 21);
 		rdbtnKitchenTrue.setSelected(true);
 		frmRegistrationOfVans.getContentPane().add(rdbtnKitchenTrue);
 		kitchenButtonGroup.add(rdbtnKitchenTrue);
 		
-		rdbtnKitchenFalse = new JRadioButton("No");
+		rdbtnKitchenFalse = new JRadioButton(controller.getResourcebundle().getString("no_msg"));
 		rdbtnKitchenFalse.setBounds(250, 296, 63, 21);
 		frmRegistrationOfVans.getContentPane().add(rdbtnKitchenFalse);
 		kitchenButtonGroup.add(rdbtnKitchenFalse);
 		
 		//Shower
-		lblShower = new JLabel("Shower");
+		lblShower = new JLabel(controller.getResourcebundle().getString("shower_msg"));
 		lblShower.setBounds(40, 350, 54, 13);
 		frmRegistrationOfVans.getContentPane().add(lblShower);
 		
 		showerButtonGroup = new ButtonGroup();
 		
-		rdbtnShowerTrue = new JRadioButton("Yes");
+		rdbtnShowerTrue = new JRadioButton(controller.getResourcebundle().getString("yes_msg"));
 		rdbtnShowerTrue.setBounds(163, 346, 63, 21);
 		rdbtnShowerTrue.setSelected(true);
 		frmRegistrationOfVans.getContentPane().add(rdbtnShowerTrue);
 		showerButtonGroup.add(rdbtnShowerTrue);
 		
-		rdbtnShowerFalse = new JRadioButton("No");
+		rdbtnShowerFalse = new JRadioButton(controller.getResourcebundle().getString("no_msg"));
 		rdbtnShowerFalse.setBounds(250, 346, 63, 21);
 		frmRegistrationOfVans.getContentPane().add(rdbtnShowerFalse);
 		showerButtonGroup.add(rdbtnShowerFalse);
 		
 		//Off-road
-		lblOffRoad = new JLabel("Off-Road");
+		lblOffRoad = new JLabel(controller.getResourcebundle().getString("off_road_msg"));
 		lblOffRoad.setBounds(40, 400, 80, 13);
 		frmRegistrationOfVans.getContentPane().add(lblOffRoad);
 		
 		offRoadButtonGroup = new ButtonGroup(); 
 		
-		rdbtnOffRoadTrue = new JRadioButton("Yes");
+		rdbtnOffRoadTrue = new JRadioButton(controller.getResourcebundle().getString("yes_msg"));
 		rdbtnOffRoadTrue.setSelected(true);
 		rdbtnOffRoadTrue.setBounds(163, 396, 63, 21);
 		frmRegistrationOfVans.getContentPane().add(rdbtnOffRoadTrue);
 		offRoadButtonGroup.add(rdbtnOffRoadTrue);
 		
-		rdbtnOffRoadFalse = new JRadioButton("No");
+		rdbtnOffRoadFalse = new JRadioButton(controller.getResourcebundle().getString("no_msg"));
 		rdbtnOffRoadFalse.setBounds(250, 396, 63, 21);
 		frmRegistrationOfVans.getContentPane().add(rdbtnOffRoadFalse);
 		offRoadButtonGroup.add(rdbtnOffRoadFalse);
 		
 		//Price
-		lblPricePerDay = new JLabel("Price per day");
+		lblPricePerDay = new JLabel(controller.getResourcebundle().getString("price_per_day_msg"));
 		lblPricePerDay.setBounds(40, 450, 80, 13);
 		frmRegistrationOfVans.getContentPane().add(lblPricePerDay);
 		
@@ -206,7 +206,7 @@ public class RegisterVanWindow extends JFrame{
 		frmRegistrationOfVans.getContentPane().add(spinnerPrice);
 		
 		//BUTTON: Register Van
-		JButton btnRegisterVan = new JButton("Register van");
+		JButton btnRegisterVan = new JButton(controller.getResourcebundle().getString("register_van_button_msg"));
 		btnRegisterVan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -235,7 +235,7 @@ public class RegisterVanWindow extends JFrame{
 		frmRegistrationOfVans.getContentPane().add(btnRegisterVan);
 		
 		//BUTTON: Cancel
-		btnCancel = new JButton("Cancel");
+		btnCancel = new JButton(controller.getResourcebundle().getString("cancel_button_msg"));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

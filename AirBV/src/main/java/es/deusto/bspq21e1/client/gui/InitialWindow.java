@@ -46,7 +46,7 @@ public class InitialWindow extends JFrame {
         frmAirbv.getContentPane().add(panel);
         panel.setLayout(null);
 
-        btnRegister = new JButton("Register");
+        btnRegister = new JButton(controller.getResourcebundle().getString("register_msg"));
         btnRegister.setBounds(23, 36, 150, 25);
         btnRegister.addActionListener(new ActionListener() {
             @Override
@@ -57,13 +57,13 @@ public class InitialWindow extends JFrame {
         panel.add(btnRegister);
         btnRegister.updateUI();
 
-        btnLogin = new JButton("Login");
+        btnLogin = new JButton(controller.getResourcebundle().getString("login_msg"));
         btnLogin.setBounds(23, 85, 150, 25);
         btnLogin.updateUI();
         panel.add(btnLogin);
         btnLogin.setEnabled(false);
 
-        btnExit = new JButton("Exit");
+        btnExit = new JButton(controller.getResourcebundle().getString("exit_msg"));
         btnExit.setBounds(23, 141, 150, 25);
         btnExit.addActionListener(new ActionListener() {
             @Override
