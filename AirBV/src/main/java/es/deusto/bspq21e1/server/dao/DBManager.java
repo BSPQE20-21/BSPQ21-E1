@@ -108,8 +108,13 @@ public class DBManager {
 	 * Deletes a reservation from the DB.
 	 * @param reservation
 	 */
-	public void delete( Reservation reservation ) {
+	public void deleteReservation( Reservation reservation ) {
 		this.deleteObject( reservation );
+	}
+	
+	public void deleteUser(String dni) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	/**

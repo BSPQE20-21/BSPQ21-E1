@@ -54,7 +54,7 @@ public class AirBVService {
     public boolean cancelReservation(String code) {
     	logger.debug("Canceling the reservation with code: " + code);
         if(reservationsHM.get(code) != null) {
-            DBManager.getInstance().delete(reservationsHM.get(code));
+            DBManager.getInstance().deleteReservation(reservationsHM.get(code));
             reservationsHM.remove(code);
             return true;
         }
