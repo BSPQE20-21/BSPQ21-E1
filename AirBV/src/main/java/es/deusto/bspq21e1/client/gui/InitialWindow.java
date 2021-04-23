@@ -80,7 +80,7 @@ public class InitialWindow extends JFrame {
      * Closes this window and opens the RegisterUser window.
      */
     private void goToRegisterUser() {
-        new RegisterUser(controller);
+        new RegisterUserWindow(controller);
         frmAirbv.dispose();
     }
 }

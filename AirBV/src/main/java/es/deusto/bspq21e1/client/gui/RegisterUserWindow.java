@@ -17,7 +17,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.BorderLayout;
 
-public class RegisterUser extends JFrame{
+public class RegisterUserWindow extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
@@ -29,7 +29,7 @@ public class RegisterUser extends JFrame{
 	private JTextField txtEmail;
 	
 	
-	public RegisterUser(Controller controller) {
+	public RegisterUserWindow(Controller controller) {
 		this.controller = controller;
 		initialize();
 		frmRegisterYourself.setTitle(controller.getResourcebundle().getString("register_yourself_msg"));
@@ -38,7 +38,7 @@ public class RegisterUser extends JFrame{
 
 	}
 	
-	public RegisterUser() {
+	public RegisterUserWindow() {
 		this.controller = null;
 		initialize();
 		frmRegisterYourself.setTitle(controller.getResourcebundle().getString("register_yourself_msg"));
@@ -64,11 +64,11 @@ public class RegisterUser extends JFrame{
 		frmRegisterYourself.getContentPane().add(lblId);
 		
 		JLabel lblName = new JLabel(controller.getResourcebundle().getString("name_msg"));
-		lblName.setBounds(56, 90, 46, 14);
+		lblName.setBounds(56, 90, 52, 14);
 		frmRegisterYourself.getContentPane().add(lblName);
 		
 		JLabel lblEmail = new JLabel(controller.getResourcebundle().getString("email_msg"));
-		lblEmail.setBounds(56, 116, 46, 14);
+		lblEmail.setBounds(56, 116, 52, 14);
 		frmRegisterYourself.getContentPane().add(lblEmail);
 		
 		//txtFields
