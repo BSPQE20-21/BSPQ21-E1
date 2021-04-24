@@ -21,7 +21,7 @@ import java.awt.Font;
 
 /**
  * Window class for the visualization of the logic behind cancellations of vans by a user.
- * @author SPQ Group 1
+ * @author BSPQ21-E1
  * @version 1.0
  */
 public class CancelReservationWindow extends JFrame{

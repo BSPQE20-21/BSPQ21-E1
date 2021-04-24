@@ -28,10 +28,6 @@ public class LogInWindow extends JFrame{
 	
 	private JButton btnMenu;
 	
-	private String tittle = "Enter your login details";
-	private String login = "Log In";
-	private String password = "Password";
-	private String menu = "menu";
 
 	/**
 	 * Create the application.
@@ -39,7 +35,7 @@ public class LogInWindow extends JFrame{
 	public LogInWindow(Controller controller) {
 		getContentPane().setLayout(null);
 		initialize();
-		frmLogIn.setTitle(login); //TODO
+		frmLogIn.setTitle(controller.getResourcebundle().getString("login_msg"));
 		frmLogIn.setVisible(true);
 	}
 
@@ -52,9 +48,9 @@ public class LogInWindow extends JFrame{
 		frmLogIn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLogIn.getContentPane().setLayout(null);
 		
-		lblTitle = new JLabel(tittle); //TODO
+		lblTitle = new JLabel(controller.getResourcebundle().getString("login_window_msg"));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblTitle.setBounds(121, 31, 196, 19);
+		lblTitle.setBounds(40, 31, 365, 19);
 		frmLogIn.getContentPane().add(lblTitle);
 		
 		//Email
@@ -68,7 +64,7 @@ public class LogInWindow extends JFrame{
 		txtFieldEmail.setColumns(10);
 		
 		//Password
-		lblPassword = new JLabel(password); //TODO
+		lblPassword = new JLabel(controller.getResourcebundle().getString("password_msg"));
 		lblPassword.setBounds(40, 120, 78, 13);
 		frmLogIn.getContentPane().add(lblPassword);
 		
@@ -79,7 +75,7 @@ public class LogInWindow extends JFrame{
 
 
 		//BUTTON: Log In
-		JButton btnRegisterVan = new JButton(login);
+		JButton btnRegisterVan = new JButton(controller.getResourcebundle().getString("login_msg"));
 		btnRegisterVan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -92,7 +88,7 @@ public class LogInWindow extends JFrame{
 		frmLogIn.getContentPane().add(btnRegisterVan);
 		
 		//BUTTON: Menu
-		btnMenu = new JButton(menu); //TODO
+		btnMenu = new JButton(controller.getResourcebundle().getString("menu_msg"));
 		btnMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

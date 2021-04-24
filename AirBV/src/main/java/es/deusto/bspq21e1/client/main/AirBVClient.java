@@ -10,7 +10,7 @@ import es.deusto.bspq21e1.client.gui.InitialWindow;
  */
 
 /** This class is the main class of our project, gets the arguments of the 
- * @author BSPQ-E4
+ * @author BSPQ21-E1
  *
  */
 public class AirBVClient {
