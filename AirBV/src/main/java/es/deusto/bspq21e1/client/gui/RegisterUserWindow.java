@@ -99,9 +99,11 @@ public class RegisterUserWindow extends JFrame{
 				
 				UserData userData = new UserData(txtIdNumber.getText(), txtName.getText(), txtEmail.getText(), new ArrayList<VanData>());
 				
-				new RegisterVanWindow(controller, userData);
-				new SearchWindow(controller, userData);
-				new CancelReservationWindow(controller, userData);
+				
+				new MainWindow(controller, userData);
+//				new RegisterVanWindow(controller, userData);
+//				new SearchWindow(controller, userData);
+//				new CancelReservationWindow(controller, userData);
 				
 			}
 		});

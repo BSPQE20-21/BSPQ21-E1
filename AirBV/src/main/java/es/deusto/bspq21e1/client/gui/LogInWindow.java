@@ -80,8 +80,8 @@ public class LogInWindow extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			
 				//CONTROLLER //TODO
-			
-				
+					// Do verification of credentials
+//				new MainWindow(controller, userData);
 			}
 		});
 		btnRegisterVan.setBounds(152, 170, 147, 23);
