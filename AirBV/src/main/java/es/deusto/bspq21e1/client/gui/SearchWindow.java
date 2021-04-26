@@ -200,7 +200,7 @@ public class SearchWindow extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				VanData van = vans.get(jlVansList.getSelectedIndex());
 				frmSearchVans.setVisible(false);
-				new CharacteristicsWindow(van, frmSearchVans);
+				new CharacteristicsWindow(controller, van, frmSearchVans);
 				
 			}
 		});

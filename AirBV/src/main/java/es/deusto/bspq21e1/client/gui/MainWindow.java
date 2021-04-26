@@ -26,34 +26,41 @@ public class MainWindow extends JFrame {
 		frmMain.setVisible(true);
 	}
 	
+	public MainWindow() {
+		initialize();
+		frmMain.setTitle("Main Window");
+		frmMain.setResizable(false);
+		frmMain.setVisible(true);
+	}
+	
 	private void initialize() { // Falta ajustar posiciones y tamaños, y hacer los metodos que lleven a las otras ventanas
-		frmMain.setBounds(100, 100, 500, 500);
+		frmMain.setBounds(300, 100, 400, 400);
 		frmMain.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmMain.getContentPane().setLayout(null);
 		
 		btnSearchVan = new JButton("Search vans");
-		btnSearchVan.setBounds(100, 100, 125, 25);
+		btnSearchVan.setBounds(110, 25, 175, 25);
 		frmMain.getContentPane().add(btnSearchVan);
 		
 		btnRegisterVan = new JButton("Register van");
-		btnRegisterVan.setBounds(300, 100, 125, 25);
+		btnRegisterVan.setBounds(110, 75, 175, 25);
 		frmMain.getContentPane().add(btnRegisterVan);
 		
 		btnCancelRes = new JButton("Cancel reservation");
-		btnCancelRes.setBounds(100, 250, 125, 25);
+		btnCancelRes.setBounds(110, 125, 175, 25);
 		frmMain.getContentPane().add(btnCancelRes);
 		
 		btnRemoveVan = new JButton("Remove van");
-		btnRemoveVan.setBounds(300, 250, 125, 25);
+		btnRemoveVan.setBounds(110, 175, 175, 25);
 		frmMain.getContentPane().add(btnRemoveVan);
 		
 		btnRemoveAccount = new JButton("Remove account");
-		btnRemoveAccount.setBounds(100, 400, 125, 25);
+		btnRemoveAccount.setBounds(110, 225, 175, 25);
 		frmMain.getContentPane().add(btnRemoveAccount);
 		
 		btnlogOut = new JButton("Log out");
 		btnlogOut.setBackground(java.awt.Color.RED);
-		btnlogOut.setBounds(300, 400, 125, 25);
+		btnlogOut.setBounds(110, 325, 175, 25);
 		frmMain.getContentPane().add(btnlogOut);
 	}
 	
