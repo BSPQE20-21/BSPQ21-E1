@@ -74,7 +74,15 @@ public class Assembler {
     	}
     	
     	Van van = new Van(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.hasKitchen(), v.hasShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay(), user, reviews);
+    	
+		System.out.println("$ DEBUGGING\n" +
+				"\tPrinting Van and User from Assembler in Server side:\n"+
+				"\tVan: " + van +
+				"\n\tUser: " + van.getUser().toString() +
+				"\n=======================\n");
+		
     	return van;
+    	
     }
 
     public Review disassembleReview(ReviewData r) {

@@ -223,9 +223,16 @@ public class RegisterVanWindow extends JFrame{
 				double pricePerDay = (Double) spinnerPrice.getValue();
 				
 				//CONTROLLER
-				if( licensePlate != "" && brand != "" && model != "" && location != "") {
+				if( licensePlate != "" && brand != "" && model != "" && location != ""
+						&& null != licensePlate && null != brand && null != model && null != location ) {
 					
 					VanData vanData = new VanData(licensePlate, brand, model, location, capacity, kitchen, shower, offRoad, pricePerDay, user, new ArrayList<ReviewData>());
+					// DEBUGGING:
+					System.out.println("$ DEBUGGING\n" +
+							"\tPrinting VanData and User from RegisterVanWindow in Client side:\n"+
+							"\tVan: " + vanData +
+							"\n\tUser: " + vanData.getUser() +
+							"\n=======================\n");
 					controller.registerVan(vanData);
 					frmMain.setVisible(true);
 					frmRegistrationOfVans.dispose();

@@ -38,16 +38,42 @@ public class AirBVService {
      */
     public User registerUser(String dni, String name, String email) {
     	logger.debug("Creating and storing a new User:" + name);
-    	usersHM.put(dni, new User(dni, name, email));
-        DBManager.getInstance().store(usersHM.get(dni));
-        return usersHM.get(dni);
+    	User u = new User(dni, name, email);
+    	usersHM.put(dni, u);
+        DBManager.getInstance().store(u);
+        return u;
     }
     
     public void registerVan(Van van) {
+		System.out.println("$ DEBUGGING\n" +
+				"\tPrinting Van and User from AirBVService in Server side:\n"+
+				"\tVan: " + van +
+				"\n\tUser: " + van.getUser().toString() +
+				"\n=======================\n");
+		
+		System.out.println("$ DEBUGGING\n" +
+				"\tPrinting User from HashMap in AirBVService in Server side:\n"+
+				"\n\tUser: " + usersHM.get(van.getUser().getDni()).toString() +
+				"\n=======================\n");
+		
+		System.out.println("$ DEBUGGING\n" +
+				"\tPrinting User database in Server side:\n"+
+				"\n\tUser: " + DBManager.getInstance().getUser(van.getUser().getDni()) +
+				"\n=======================\n");
+		
     	logger.debug("Creating and storing the new van:" + van.getLicensePlate());
+    	User u = DBManager.getInstance().getUser(van.getUser().getDni());
+    	
+    	// THIS IS WHAT DESPERATION LOOKS LIKE:
+		System.out.println("$ DEBUGGING\n" +
+				"\tPrinting yet the same User from database in Server side:\n"+
+				"\n\tUser: " + u + 
+				"\n=======================\n");
+
+    	van.setUser( u );
     	vansHM.put(van.getLicensePlate(), van);
-    	usersHM.get(van.getUser().getDni()).addVan(van);
-    	van.setUser(usersHM.get(van.getUser().getDni()));
+    	// usersHM.get(van.getUser().getDni()).addVan(van); 
+    	// van.setUser(usersHM.get(van.getUser().getDni()));
     	DBManager.getInstance().store(van);
     }
 

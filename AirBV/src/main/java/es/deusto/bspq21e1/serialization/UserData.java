@@ -12,7 +12,7 @@ import es.deusto.bspq21e1.server.data.Van;
  */
 public class UserData {
     
-    private String dni;
+	private String dni;
     private String name;
     private String email;
     private List<Integer> stars;

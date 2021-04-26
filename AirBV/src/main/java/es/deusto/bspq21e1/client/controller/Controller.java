@@ -70,6 +70,12 @@ public class Controller {
     }
     
     public void registerVan(VanData vanData) {
+		System.out.println("$ DEBUGGING:\n" +
+				"\tPrinting VanData and User from Controller in Client side:\n"+
+				"\tVan: " + vanData +
+				"\n\tUser: " + vanData.getUser() +
+				"\n=======================\n");
+		
     	WebTarget registerVanWebTarget = webTarget.path("AirBV/registerVan"); 
 		Invocation.Builder invocationBuilder = registerVanWebTarget.request(MediaType.APPLICATION_JSON);
 		
@@ -85,6 +91,13 @@ public class Controller {
 		van.setShower(vanData.hasShower());
 		van.setReviews(vanData.getReviews());
 		van.setUser(vanData.getUser());
+		
+		System.out.println("$ DEBUGGING\n" +
+				"\tPrinting New VanData and User from Controller in Client side:\n"+
+				"\tVan: " + van +
+				"\n\tUser: " + van.getUser() +
+				"\n=======================\n");
+		
 		Response response = invocationBuilder.post(Entity.entity(van, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			System.out.println("Error connecting with the server. Code: " + response.getStatus());
