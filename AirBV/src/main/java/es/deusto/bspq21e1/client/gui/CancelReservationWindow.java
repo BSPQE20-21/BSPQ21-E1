@@ -29,6 +29,7 @@ public class CancelReservationWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
 	private UserData user;
+	private JFrame frmMain;
 	
 	private JFrame frame = new JFrame();
 	private JScrollPane scrollReservations;
@@ -41,9 +42,10 @@ public class CancelReservationWindow extends JFrame{
 	 * @param controller Controller used for handling all requests in the system.
 	 * @param userData The user that has logged in.
 	 */
-	public CancelReservationWindow(Controller controller, UserData userData) {
+	public CancelReservationWindow(Controller controller, UserData userData, JFrame frmMain) {
 		this.controller = controller;
 		this.user = userData;
+		this.frmMain = frmMain;
 		setTitle(controller.getResourcebundle().getString("cancel_reservation_window_tittle_msg"));
 		initialize();
 		frame.setVisible(true);
@@ -78,6 +80,8 @@ public class CancelReservationWindow extends JFrame{
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.cancelReservation(jlReservationsList.getSelectedValue());
+				frmMain.setVisible(true);
+				frame.dispose();
 			}
 		});
 		btnCancel.setBounds(146, 239, 102, 24);

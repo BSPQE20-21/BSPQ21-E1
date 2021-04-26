@@ -37,8 +37,9 @@ public class SearchWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
 	private UserData user;
+	private JFrame mainWindow;
 	
-	private JFrame frmSearchVans = new JFrame();;
+	private JFrame frmSearchVans = new JFrame();
 	private JPanel searchPanel;
 	private JPanel visualizePanel;
 	private JLabel lblSearchTitle;
@@ -62,9 +63,10 @@ public class SearchWindow extends JFrame{
 	/**
 	 * Create the application.
 	 */
-	public SearchWindow(Controller controller, UserData user) {
+	public SearchWindow(Controller controller, UserData user, JFrame mainWindow) {
 		this.controller = controller;
 		this.user = user;
+		this.mainWindow = mainWindow;
 		frmSearchVans.setTitle(controller.getResourcebundle().getString("search_window_tittle_msg"));
 		frmSearchVans.setResizable(false);
 		frmSearchVans.setVisible(true);
@@ -186,7 +188,8 @@ public class SearchWindow extends JFrame{
 				
 				controller.registerReservation(pickUpDate, days, van, user);
 			
-				
+				mainWindow.setVisible(true);
+				frmSearchVans.dispose();
 				
 			}
 		});

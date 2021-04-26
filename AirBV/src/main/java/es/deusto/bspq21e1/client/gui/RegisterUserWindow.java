@@ -15,7 +15,6 @@ import es.deusto.bspq21e1.serialization.VanData;
 
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
-import java.awt.BorderLayout;
 
 public class RegisterUserWindow extends JFrame{
 	
@@ -101,9 +100,6 @@ public class RegisterUserWindow extends JFrame{
 				
 				
 				new MainWindow(controller, userData);
-//				new RegisterVanWindow(controller, userData);
-//				new SearchWindow(controller, userData);
-//				new CancelReservationWindow(controller, userData);
 				
 			}
 		});

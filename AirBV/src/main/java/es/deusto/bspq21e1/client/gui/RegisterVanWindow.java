@@ -27,6 +27,7 @@ public class RegisterVanWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
 	private UserData user;
+	private JFrame frmMain;
 	
 	private JFrame frmRegistrationOfVans = new JFrame();
 	
@@ -69,9 +70,10 @@ public class RegisterVanWindow extends JFrame{
 	/**
 	 * Create the application.
 	 */
-	public RegisterVanWindow(Controller controller, UserData user) {
+	public RegisterVanWindow(Controller controller, UserData user, JFrame frmMain) {
 		this.controller = controller;
 		this.user = user;
+		this.frmMain = frmMain;
 		initialize();
 		frmRegistrationOfVans.setTitle(controller.getResourcebundle().getString("resgister_van_window_tittle_msg"));
 		frmRegistrationOfVans.setVisible(true);
@@ -225,7 +227,8 @@ public class RegisterVanWindow extends JFrame{
 					
 					VanData vanData = new VanData(licensePlate, brand, model, location, capacity, kitchen, shower, offRoad, pricePerDay, user, new ArrayList<ReviewData>());
 					controller.registerVan(vanData);
-					
+					frmMain.setVisible(true);
+					frmRegistrationOfVans.dispose();
 				}
 				
 				
@@ -238,7 +241,7 @@ public class RegisterVanWindow extends JFrame{
 		btnCancel = new JButton(controller.getResourcebundle().getString("cancel_button_msg"));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				frmMain.setVisible(true);
 				frmRegistrationOfVans.dispose();
 				
 			}

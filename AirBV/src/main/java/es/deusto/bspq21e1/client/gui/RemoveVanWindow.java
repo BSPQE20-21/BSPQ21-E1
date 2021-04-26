@@ -16,6 +16,7 @@ public class RemoveVanWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
 	private UserData user;
+	private JFrame frmMain;
 	
 	private JFrame frmRemoveVan = new JFrame();
 	
@@ -24,9 +25,10 @@ public class RemoveVanWindow extends JFrame {
 	private JScrollPane scrollVans;
 	private ArrayList<VanData> vans = new ArrayList<VanData>();
 	
-	public RemoveVanWindow(Controller controller, UserData user) {
+	public RemoveVanWindow(Controller controller, UserData user, JFrame frmMain) {
 		this.controller = controller;
 		this.user = user;
+		this.frmMain = frmMain;
 		frmRemoveVan.setTitle("Remove Van");
 		frmRemoveVan.setResizable(false);
 		frmRemoveVan.setVisible(true);
