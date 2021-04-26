@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import es.deusto.bspq21e1.client.controller.Controller;
+import es.deusto.bspq21e1.serialization.UserData;
 
 public class LogInWindow extends JFrame{
 
@@ -78,10 +79,16 @@ public class LogInWindow extends JFrame{
 		JButton btnRegisterVan = new JButton(controller.getResourcebundle().getString("login_msg"));
 		btnRegisterVan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				//CONTROLLER //TODO
-					// Do verification of credentials
-//				new MainWindow(controller, userData);
+				UserData userData = controller.loginUser(txtFieldEmail.getText(), txtFieldPassword.getText());
+				if (userData != null)  {
+					frmLogIn.dispose();
+					new MainWindow(controller, userData);
+				} else {
+					txtFieldEmail.setText("Wrong credentials");
+					txtFieldPassword.setText("Wrong credentials");
+					txtFieldEmail.updateUI();
+					txtFieldPassword.updateUI();
+				}
 			}
 		});
 		btnRegisterVan.setBounds(152, 170, 147, 23);

@@ -51,7 +51,8 @@ public class InitialWindow extends JFrame {
         btnRegister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                goToRegisterUser();
+            	new RegisterUserWindow(controller);
+                frmAirbv.dispose();
             }
         } );
         panel.add(btnRegister);
@@ -59,9 +60,15 @@ public class InitialWindow extends JFrame {
 
         btnLogin = new JButton(controller.getResourcebundle().getString("login_msg"));
         btnLogin.setBounds(23, 85, 150, 25);
-        btnLogin.updateUI();
+        btnLogin.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new LogInWindow(controller);
+				frmAirbv.dispose();
+			}
+		});
         panel.add(btnLogin);
-        btnLogin.setEnabled(false);
+        btnLogin.updateUI();
 
         btnExit = new JButton(controller.getResourcebundle().getString("exit_msg"));
         btnExit.setBounds(23, 141, 150, 25);
@@ -75,12 +82,5 @@ public class InitialWindow extends JFrame {
         btnExit.updateUI();
 
     }
-
-    /**
-     * Closes this window and opens the RegisterUser window.
-     */
-    private void goToRegisterUser() {
-        new RegisterUserWindow(controller);
-        frmAirbv.dispose();
-    }
+    
 }

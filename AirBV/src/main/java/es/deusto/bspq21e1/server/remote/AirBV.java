@@ -58,12 +58,13 @@ public class AirBV {
 	 */
 	
 	private static final String registerUser = "/registerUser";
+	private static final String loginUser = "/loginUser";
 	private static final String deleteUser = "/deleteUser/{dni}";
 	private static final String registerVan = "/registerVan";
 	private static final String getMyReservations = "/getMyReservations/{dni}";
 	private static final String getVans = "/getVans/{location}";
 	private static final String registerReservation = "/registerReservation";
-	private static final String cancelReservation = "/cancelReservation";  
+	private static final String cancelReservation = "/cancelReservation";
 
     public AirBV() { }
     
@@ -134,6 +135,19 @@ public class AirBV {
 		}
 		return vansData;
 	}
+    
+    @GET
+    @Path(loginUser)
+    public UserData login(String email, String password) { // Quizá cambios en los params
+    	logger.debug("User's login with credentials request received from client.");
+    	User u = airbvService.login(email, password);
+    	UserData userData = null;
+    	if (u != null) {
+    		Assembler as = new Assembler();
+        	userData = as.assembleUser( u );
+    	}
+    	return userData;
+    }
 
 	@GET
 	@Path(getMyReservations)

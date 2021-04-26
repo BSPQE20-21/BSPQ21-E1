@@ -117,6 +117,12 @@ public class AirBVService {
 		
 		
 	}
+	
+	public User login(String email, String password) {
+		logger.debug("Verificating credentials and returning user: " + email);
+		User user = DBManager.getInstance().retrieveUser(email, password); // Implementar en BD
+		return user;
+	}
 
 	public ArrayList<Reservation> getUserReservations(String dni) {
 		logger.debug("Getting all reservations of user: " + dni);

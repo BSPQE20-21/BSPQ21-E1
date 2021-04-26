@@ -69,6 +69,23 @@ public class Controller {
 		}
     }
     
+    public UserData loginUser(String email, String password) {	// Falta saber como hacer para pasar los params bien
+    	WebTarget loginWebTarget = webTarget.path("AirBV/loginUser");
+    	
+    	GenericType<UserData> genericType = new GenericType<UserData>() {};
+    	UserData userData = loginWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+    	
+    	Invocation.Builder invocationBuilder = loginWebTarget.request(MediaType.APPLICATION_JSON);
+    	Response response = invocationBuilder.get();
+    	if (response.getStatus() == Status.OK.getStatusCode()) {
+    		return userData;
+    	} else {
+    		System.out.println("Error connecting with the server. Code: " + response.getStatus());
+			System.out.println("Error: " + response.toString());
+    	}
+    	return null;
+    }
+    
     public void registerVan(VanData vanData) {
 		System.out.println("$ DEBUGGING:\n" +
 				"\tPrinting VanData and User from Controller in Client side:\n"+
