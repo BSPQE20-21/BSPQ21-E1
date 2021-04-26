@@ -32,6 +32,7 @@ public class CancelReservationWindow extends JFrame{
 	private JFrame frmMain;
 	
 	private JFrame frame = new JFrame();
+	private JButton btnCancel, btnBack;
 	private JScrollPane scrollReservations;
 	private JList<String> jlReservationsList = new JList<String>();
 	private ArrayList<ReservationData> reservations = new ArrayList<>();
@@ -46,23 +47,23 @@ public class CancelReservationWindow extends JFrame{
 		this.controller = controller;
 		this.user = userData;
 		this.frmMain = frmMain;
-		setTitle(controller.getResourcebundle().getString("cancel_reservation_window_tittle_msg"));
 		initialize();
-		frame.setVisible(true);
+		frame.setTitle(controller.getResourcebundle().getString("cancel_reservation_window_tittle_msg"));
 		frame.setResizable(false);
-		frame.setSize(423, 316);
+		frame.setVisible(true);
 	}
 	
 	/**
 	 * Initializes all the elements the window needs to show to the user and their functionality.
 	 */
 	private void initialize() {
+		frame.setBounds(100, 100, 415, 315);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblTitle = new JLabel(controller.getResourcebundle().getString("cancel_your_reservations_msg"));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblTitle.setBounds(50, 11, 298, 24);
+		lblTitle.setBounds(60, 11, 298, 24);
 		frame.getContentPane().add(lblTitle);
 		
 		jlReservationsList.setBounds(10, 46, 414, 169);
@@ -74,9 +75,7 @@ public class CancelReservationWindow extends JFrame{
 		scrollReservations.setViewportView(jlReservationsList);
 		frame.getContentPane().add(scrollReservations);
 		
-		
-		
-		JButton btnCancel = new JButton(controller.getResourcebundle().getString("cancel_button_msg"));
+		btnCancel = new JButton(controller.getResourcebundle().getString("cancel_button_msg"));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.cancelReservation(jlReservationsList.getSelectedValue());
@@ -84,8 +83,20 @@ public class CancelReservationWindow extends JFrame{
 				frame.dispose();
 			}
 		});
-		btnCancel.setBounds(146, 239, 102, 24);
+		btnCancel.setBackground(java.awt.Color.RED);
+		btnCancel.setBounds(240, 240, 100, 25);
 		frame.getContentPane().add(btnCancel);
+		
+		btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frmMain.setVisible(true);
+				frame.dispose();
+			}
+		});
+		btnBack.setBounds(50, 240, 100, 25);
+		frame.getContentPane().add(btnBack);
 		
 		reservations = controller.getMyReservations(user);
 		updateLists(reservations);
