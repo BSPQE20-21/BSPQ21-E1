@@ -36,7 +36,7 @@ public class MainWindow extends JFrame {
 		frmMain.setVisible(true);
 	}
 	
-	private void initialize() { // Falta hacer los metodos que lleven a las otras ventanas
+	private void initialize() {
 		frmMain.setBounds(300, 100, 400, 400);
 		frmMain.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmMain.getContentPane().setLayout(null);
