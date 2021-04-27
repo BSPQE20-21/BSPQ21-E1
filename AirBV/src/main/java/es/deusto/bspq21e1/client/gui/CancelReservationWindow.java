@@ -104,7 +104,7 @@ public class CancelReservationWindow extends JFrame{
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
 	private void updateLists(ArrayList<ReservationData> reservations) {
-		System.out.println("Dentro funcion -> " + reservations);
+		System.out.println("Dentro funcion -> " + reservations); //TODO
 		reservationsList.clear();
 		for (int i = 0; i < reservations.size(); i++) {
 			ReservationData v = (ReservationData) reservations.get(i);

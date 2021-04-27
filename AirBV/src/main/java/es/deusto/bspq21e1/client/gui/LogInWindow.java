@@ -46,6 +46,7 @@ public class LogInWindow extends JFrame{
 	private void initialize() {
 		frmLogIn.setResizable(false);
 		frmLogIn.setBounds(100, 100, 450, 350);
+		frmLogIn.setLocationRelativeTo(null);
 		frmLogIn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLogIn.getContentPane().setLayout(null);
 		

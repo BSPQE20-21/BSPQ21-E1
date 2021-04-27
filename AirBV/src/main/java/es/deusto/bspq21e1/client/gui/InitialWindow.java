@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import es.deusto.bspq21e1.client.controller.Controller;
+import javax.swing.JLabel;
 
 /**
  * Window class for the initial point of the program, where users can register or log in.
@@ -19,6 +20,7 @@ public class InitialWindow extends JFrame {
     private Controller controller;
 
     private JFrame frmAirbv = new JFrame();
+    private JLabel lblHead;
     private JPanel panel;
     private JButton btnRegister, btnLogin, btnExit;
 
@@ -37,12 +39,18 @@ public class InitialWindow extends JFrame {
 	 * Initializes all the elements the window needs to show to the user and their functionality.
 	 */
     private void initialize() {
-        frmAirbv.setBounds(100, 100, 255, 235);
+        frmAirbv.setBounds(100, 100, 255, 300);
+        frmAirbv.setLocationRelativeTo(null);
         frmAirbv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAirbv.getContentPane().setLayout(null);
+		
+        lblHead = new JLabel("Welcome to AirB&V");
+        lblHead.setBounds(20, 25, 202, 14);
+        frmAirbv.getContentPane().add(lblHead);
+        btnExit.updateUI();
 
         panel = new JPanel();
-        panel.setBounds(20, 0, 202, 198);
+        panel.setBounds(20, 50, 202, 198);
         frmAirbv.getContentPane().add(panel);
         panel.setLayout(null);
 
@@ -79,8 +87,6 @@ public class InitialWindow extends JFrame {
             }
         } );
         panel.add(btnExit);
-        btnExit.updateUI();
 
     }
-    
 }

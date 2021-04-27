@@ -51,6 +51,7 @@ public class RegisterUserWindow extends JFrame{
 	
 	private void initialize() {
 		frmRegisterYourself.setBounds(100, 100, 450, 350);
+		frmRegisterYourself.setLocationRelativeTo(null);
 		frmRegisterYourself.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmRegisterYourself.getContentPane().setLayout(null);
 		
@@ -62,41 +63,41 @@ public class RegisterUserWindow extends JFrame{
 		
 		//JLabels
 		JLabel lblId = new JLabel(controller.getResourcebundle().getString("id_number_msg"));
-		lblId.setBounds(56, 63, 73, 19);
+		lblId.setBounds(56, 63, 130, 19);
 		frmRegisterYourself.getContentPane().add(lblId);
 		
 		JLabel lblName = new JLabel(controller.getResourcebundle().getString("name_msg"));
-		lblName.setBounds(56, 103, 52, 14);
+		lblName.setBounds(56, 103, 130, 14);
 		frmRegisterYourself.getContentPane().add(lblName);
 		
 		JLabel lblEmail = new JLabel(controller.getResourcebundle().getString("email_msg"));
-		lblEmail.setBounds(56, 141, 52, 14);
+		lblEmail.setBounds(56, 141, 130, 14);
 		frmRegisterYourself.getContentPane().add(lblEmail);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(56, 178, 52, 14);
+		lblPassword.setBounds(56, 178, 130, 14);
 		frmRegisterYourself.getContentPane().add(lblPassword);
 		
 		
 		//txtFields
 		txtIdNumber = new JTextField();
-		txtIdNumber.setBounds(164, 63, 126, 20);
+		txtIdNumber.setBounds(200, 63, 140, 20);
 		frmRegisterYourself.getContentPane().add(txtIdNumber);
 		txtIdNumber.setColumns(10);
 		
 		txtName = new JTextField();
-		txtName.setBounds(164, 101, 126, 20);
+		txtName.setBounds(200, 101, 140, 20);
 		frmRegisterYourself.getContentPane().add(txtName);
 		txtName.setColumns(10);
 		
 		txtEmail = new JTextField();
-		txtEmail.setBounds(164, 139, 126, 20);
+		txtEmail.setBounds(200, 139, 140, 20);
 		frmRegisterYourself.getContentPane().add(txtEmail);
 		txtEmail.setColumns(10);
 		
 		//passwordFields
 		passwordField = new JPasswordField();
-		passwordField.setBounds(164, 176, 126, 19);
+		passwordField.setBounds(200, 176, 140, 19);
 		frmRegisterYourself.getContentPane().add(passwordField);
 		
 		//Register Button
@@ -116,9 +117,12 @@ public class RegisterUserWindow extends JFrame{
 				
 			}
 		});
-		btnRegister.setBounds(104, 144, 86, 28);
+		btnRegister.setBounds(175, 270, 110, 28);
 		frmRegisterYourself.getContentPane().add(btnRegister);
 		
+		JButton btnBack = new JButton("Back");
+		btnBack.setBounds(25, 270, 89, 28);
+		frmRegisterYourself.getContentPane().add(btnBack);
+		
 	}
-	
 }

@@ -38,6 +38,7 @@ public class MainWindow extends JFrame {
 	
 	private void initialize() {
 		frmMain.setBounds(300, 100, 400, 400);
+		frmMain.setLocationRelativeTo(null);
 		frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMain.getContentPane().setLayout(null);
 		
