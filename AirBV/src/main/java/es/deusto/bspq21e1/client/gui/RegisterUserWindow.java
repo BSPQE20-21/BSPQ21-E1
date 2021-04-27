@@ -74,7 +74,7 @@ public class RegisterUserWindow extends JFrame{
 		lblEmail.setBounds(56, 141, 130, 14);
 		frmRegisterYourself.getContentPane().add(lblEmail);
 		
-		JLabel lblPassword = new JLabel("Password");
+		JLabel lblPassword = new JLabel("Password"); //TODO ResourceBundle
 		lblPassword.setBounds(56, 178, 130, 14);
 		frmRegisterYourself.getContentPane().add(lblPassword);
 		
@@ -117,7 +117,7 @@ public class RegisterUserWindow extends JFrame{
 				
 			}
 		});
-		btnRegister.setBounds(175, 270, 110, 28);
+		btnRegister.setBounds(175, 229, 110, 28);
 		frmRegisterYourself.getContentPane().add(btnRegister);
 		
 		JButton btnBack = new JButton("Back"); //TODO ResourceBundle
@@ -127,7 +127,7 @@ public class RegisterUserWindow extends JFrame{
 				goToInitialWindow();
 			}
 		});
-		btnBack.setBounds(25, 270, 89, 28);
+		btnBack.setBounds(25, 258, 89, 28);
 		frmRegisterYourself.getContentPane().add(btnBack);
 		
 	}

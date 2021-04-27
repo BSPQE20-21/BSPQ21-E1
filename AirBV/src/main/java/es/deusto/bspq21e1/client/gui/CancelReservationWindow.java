@@ -58,6 +58,7 @@ public class CancelReservationWindow extends JFrame{
 	 */
 	private void initialize() {
 		frame.setBounds(100, 100, 415, 315);
+		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		

@@ -77,43 +77,43 @@ public class SearchWindow extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmSearchVans.setBounds(100, 100, 668, 353);
+		frmSearchVans.setBounds(100, 100, 668, 400);
 		frmSearchVans.setLocationRelativeTo(null);
 		frmSearchVans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSearchVans.getContentPane().setLayout(null);
 		
 		searchPanel = new JPanel();
-		searchPanel.setBounds(0, 0, 662, 140);
+		searchPanel.setBounds(0, 0, 662, 165);
 		frmSearchVans.getContentPane().add(searchPanel);
 		searchPanel.setLayout(null);
 		
 		lblLocation = new JLabel(controller.getResourcebundle().getString("location_msg"));
-		lblLocation.setBounds(10, 61, 63, 14);
+		lblLocation.setBounds(20, 61, 100, 14);
 		searchPanel.add(lblLocation);
 		
 		lblPickUp = new JLabel(controller.getResourcebundle().getString("pick_up_date_msg"));
-		lblPickUp.setBounds(213, 61, 79, 14);
+		lblPickUp.setBounds(325, 55, 125, 14);
 		searchPanel.add(lblPickUp);
 		
 		lblReturn = new JLabel(controller.getResourcebundle().getString("return_date_msg"));
-		lblReturn.setBounds(433, 61, 80, 14);
+		lblReturn.setBounds(325, 85, 125, 14);
 		searchPanel.add(lblReturn);
 		
 		txtLocation = new JTextField();
-		txtLocation.setBounds(70, 58, 133, 20);
+		txtLocation.setBounds(131, 58, 140, 20);
 		searchPanel.add(txtLocation);
 		txtLocation.updateUI();
 		txtLocation.setToolTipText(controller.getResourcebundle().getString("location_tool_tip_msg"));
 		txtLocation.setColumns(10);
 		
 		txtPickUp = new JTextField();
-		txtPickUp.setBounds(289, 58, 133, 20);
+		txtPickUp.setBounds(460, 52, 133, 20);
 		searchPanel.add(txtPickUp);
 		txtPickUp.updateUI();
 		txtPickUp.setColumns(10);
 		
 		txtReturn = new JTextField();
-		txtReturn.setBounds(510, 58, 133, 20);
+		txtReturn.setBounds(460, 82, 133, 20);
 		searchPanel.add(txtReturn);
 		txtReturn.updateUI();
 		txtReturn.setColumns(10);
@@ -128,7 +128,7 @@ public class SearchWindow extends JFrame{
 			}
 		});
 		btnSearch.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		btnSearch.setBounds(275, 109, 87, 20);
+		btnSearch.setBounds(276, 134, 87, 20);
 		searchPanel.add(btnSearch);
 		btnSearch.updateUI();
 		
@@ -139,12 +139,12 @@ public class SearchWindow extends JFrame{
 		
 		JLabel lblNDateExample = new JLabel(controller.getResourcebundle().getString("date_example_msg"));
 		lblNDateExample.setForeground(Color.BLUE);
-		lblNDateExample.setBounds(311, 44, 93, 13);
+		lblNDateExample.setBounds(484, 32, 93, 13);
 		searchPanel.add(lblNDateExample);
 		lblSearchTitle.updateUI();
 		
 		visualizePanel = new JPanel();
-		visualizePanel.setBounds(0, 144, 662, 180);
+		visualizePanel.setBounds(0, 170, 662, 200);
 		frmSearchVans.getContentPane().add(visualizePanel);
 		visualizePanel.setLayout(null);
 		
@@ -194,8 +194,8 @@ public class SearchWindow extends JFrame{
 				
 			}
 		});
-		btnBook.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		btnBook.setBounds(209, 138, 87, 20);
+		btnBook.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+		btnBook.setBounds(209, 138, 100, 20);
 		visualizePanel.add(btnBook);
 		
 		btnCharacteristics = new JButton(controller.getResourcebundle().getString("characteristics_button_msg"));
@@ -209,7 +209,7 @@ public class SearchWindow extends JFrame{
 			}
 		});
 		btnCharacteristics.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		btnCharacteristics.setBounds(319, 138, 125, 20);
+		btnCharacteristics.setBounds(325, 138, 130, 20);
 		visualizePanel.add(btnCharacteristics);
 		
 		JButton btnNewButton = new JButton(controller.getResourcebundle().getString("back_button_msg"));
@@ -220,7 +220,7 @@ public class SearchWindow extends JFrame{
 				frmSearchVans.dispose();
 			}
 		});
-		btnNewButton.setBounds(554, 138, 89, 20);
+		btnNewButton.setBounds(10, 157, 89, 20);
 		visualizePanel.add(btnNewButton);
 		btnBook.updateUI();
 		
