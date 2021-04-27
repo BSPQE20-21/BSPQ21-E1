@@ -73,7 +73,7 @@ public class AirBV {
     @Path(registerUser)
     public Response registerUser(UserData userData) {
     	logger.debug("Register new User request from client received.");
-        airbvService.registerUser( userData.getDni(), userData.getName(), userData.getEmail() );
+        airbvService.registerUser( userData.getDni(), userData.getName(), userData.getEmail(), userData.getPassword() );
         return Response.ok().build();
     }
     

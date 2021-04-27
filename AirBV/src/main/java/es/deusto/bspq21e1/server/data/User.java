@@ -16,16 +16,18 @@ public class User {
     private String dni;
     private String name;
     private String email;
+    private String password;
     private List<Integer> stars;
     
     public User() {
     	
     }
 
-	public User(String dni, String name, String email) {
+	public User(String dni, String name, String email, String password) {
         this.dni = dni;
         this.name = name;
         this.email = email;
+        this.password = password;
         this.stars = new ArrayList<Integer>();
     }
 
@@ -68,6 +70,14 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public List<Integer> getStars() {
 		return stars;
@@ -76,5 +86,6 @@ public class User {
 	public void setStars(List<Integer> stars) {
 		this.stars = stars;
 	}
+
 
 }

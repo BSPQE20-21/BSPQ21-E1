@@ -14,7 +14,7 @@ import es.deusto.bspq21e1.server.data.Review;
 public class Assembler {
     
     public UserData assembleUser(User u) {
-		UserData userData = new UserData(u.getDni(), u.getName(), u.getName());
+		UserData userData = new UserData(u.getDni(), u.getName(), u.getName(), u.getPassword());
 		return userData;
     }
 
@@ -44,7 +44,7 @@ public class Assembler {
     }
 
     public User disassembleUser(UserData u) {
-    	User user = new User(u.getDni(), u.getName(), u.getEmail());
+    	User user = new User(u.getDni(), u.getName(), u.getEmail(), u.getPassword());
     	return user;
 
     }

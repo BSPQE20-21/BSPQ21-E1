@@ -2,6 +2,8 @@ package es.deusto.bspq21e1.client.gui;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,6 +28,7 @@ public class RegisterUserWindow extends JFrame{
 	private JTextField txtIdNumber;
 	private JTextField txtName;
 	private JTextField txtEmail;
+	private JPasswordField passwordField;
 	
 	
 	public RegisterUserWindow(Controller controller) {
@@ -47,14 +50,14 @@ public class RegisterUserWindow extends JFrame{
 	}
 	
 	private void initialize() {
-		frmRegisterYourself.setBounds(100, 100, 300, 225);
-		frmRegisterYourself.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRegisterYourself.setBounds(100, 100, 450, 350);
+		frmRegisterYourself.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmRegisterYourself.getContentPane().setLayout(null);
 		
 		JLabel lblRegisterTitle = new JLabel(controller.getResourcebundle().getString("register_as_new_user_msg"));
 		lblRegisterTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRegisterTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblRegisterTitle.setBounds(0, 22, 294, 19);
+		lblRegisterTitle.setBounds(56, 20, 294, 19);
 		frmRegisterYourself.getContentPane().add(lblRegisterTitle);
 		
 		//JLabels
@@ -63,28 +66,38 @@ public class RegisterUserWindow extends JFrame{
 		frmRegisterYourself.getContentPane().add(lblId);
 		
 		JLabel lblName = new JLabel(controller.getResourcebundle().getString("name_msg"));
-		lblName.setBounds(56, 90, 52, 14);
+		lblName.setBounds(56, 103, 52, 14);
 		frmRegisterYourself.getContentPane().add(lblName);
 		
 		JLabel lblEmail = new JLabel(controller.getResourcebundle().getString("email_msg"));
-		lblEmail.setBounds(56, 116, 52, 14);
+		lblEmail.setBounds(56, 141, 52, 14);
 		frmRegisterYourself.getContentPane().add(lblEmail);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setBounds(56, 178, 52, 14);
+		frmRegisterYourself.getContentPane().add(lblPassword);
+		
 		
 		//txtFields
 		txtIdNumber = new JTextField();
-		txtIdNumber.setBounds(164, 62, 86, 20);
+		txtIdNumber.setBounds(164, 63, 126, 20);
 		frmRegisterYourself.getContentPane().add(txtIdNumber);
 		txtIdNumber.setColumns(10);
 		
 		txtName = new JTextField();
-		txtName.setBounds(164, 87, 86, 20);
+		txtName.setBounds(164, 101, 126, 20);
 		frmRegisterYourself.getContentPane().add(txtName);
 		txtName.setColumns(10);
 		
 		txtEmail = new JTextField();
-		txtEmail.setBounds(164, 113, 86, 20);
+		txtEmail.setBounds(164, 139, 126, 20);
 		frmRegisterYourself.getContentPane().add(txtEmail);
 		txtEmail.setColumns(10);
+		
+		//passwordFields
+		passwordField = new JPasswordField();
+		passwordField.setBounds(164, 176, 126, 19);
+		frmRegisterYourself.getContentPane().add(passwordField);
 		
 		//Register Button
 		JButton btnRegister = new JButton(controller.getResourcebundle().getString("register_msg"));
@@ -92,11 +105,11 @@ public class RegisterUserWindow extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 				
 				if(txtIdNumber.getText() != "" && txtName.getText() != "" && txtEmail.getText() != "") {
-					controller.registerUsers(txtIdNumber.getText(), txtName.getText(), txtEmail.getText());
+					controller.registerUsers(txtIdNumber.getText(), txtName.getText(), txtEmail.getText(), new String( passwordField.getPassword() ) );
 				}
 				frmRegisterYourself.dispose();
 				
-				UserData userData = new UserData(txtIdNumber.getText(), txtName.getText(), txtEmail.getText());
+				UserData userData = new UserData(txtIdNumber.getText(), txtName.getText(), txtEmail.getText(), new String( passwordField.getPassword() ) );
 				
 				
 				new MainWindow(controller, userData);

@@ -52,7 +52,7 @@ public class Controller {
 		return new ArrayList<VanData>();
     }
     
-    public void registerUsers(String dni, String name, String email) {
+    public void registerUsers(String dni, String name, String email, String password) {
     	WebTarget registerUserWebTarget = webTarget.path("AirBV/registerUser"); 
 		Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
 		
@@ -60,6 +60,7 @@ public class Controller {
     	userData.setDni(dni);
     	userData.setName(name);
     	userData.setEmail(email);
+    	userData.setPassword(password);
 		Response response = invocationBuilder.post(Entity.entity(userData, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			System.out.println("Error connecting with the server. Code: " + response.getStatus());

@@ -36,9 +36,9 @@ public class AirBVService {
      * @param email - new user's email
      * @return returns the created new User
      */
-    public User registerUser(String dni, String name, String email) {
+    public User registerUser(String dni, String name, String email, String password) {
     	logger.debug("Creating and storing a new User:" + name);
-    	User u = new User(dni, name, email);
+    	User u = new User(dni, name, email, password);
     	usersHM.put(dni, u);
         DBManager.getInstance().store(u);
         return u;

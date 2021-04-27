@@ -336,7 +336,7 @@ public class DBManager {
 		/* IMPORTANT!!
 		 * PROYECT NEEDS TO BE COMPILED IN MAVEN IN ORDER FOR OBJECT PERSISTANCE TO WORK!! */
 		
-		User u1 = new User("22", "Iñigo", "imarcosenciso@opendeusto.es");		
+		User u1 = new User("22", "Iñigo", "imarcosenciso@opendeusto.es", "111");		
 		instance = getInstance();
 		instance.store(u1);
 		
