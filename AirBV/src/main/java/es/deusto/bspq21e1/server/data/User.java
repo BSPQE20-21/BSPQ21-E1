@@ -30,6 +30,7 @@ public class User {
         this.dni = dni;
         this.name = name;
         this.email = email;
+        this.vans = new ArrayList<Van>();
         this.stars = new ArrayList<Integer>();
     }
 
