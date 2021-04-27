@@ -33,7 +33,7 @@ public class RemoveAccountWindow extends JFrame {
 	
 	private void initialize() {
 		frmRemoveAccount.setBounds(400, 200, 340, 130);
-		frmRemoveAccount.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmRemoveAccount.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRemoveAccount.getContentPane().setLayout(null);
 		
 		btnNo = new JButton("No");

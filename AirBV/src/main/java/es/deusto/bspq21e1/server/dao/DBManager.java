@@ -9,6 +9,7 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 import javax.jdo.Query;
 
+import es.deusto.bspq21e1.serialization.VanData;
 import es.deusto.bspq21e1.server.data.Reservation;
 import es.deusto.bspq21e1.server.data.Review;
 import es.deusto.bspq21e1.server.data.User;
@@ -213,7 +214,6 @@ public class DBManager {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = null;
 		
-		List<Van> listOfVans = new ArrayList<Van>();
 		try {
 			System.out.println("   * Retrieving all vans from location: " + location);
 			pm.getFetchPlan().setMaxFetchDepth(2);
@@ -224,8 +224,27 @@ public class DBManager {
 			query.setFilter("location== '" + location+ "'");
 			
 			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
-			listOfVans = (List<Van>)query.execute();
-
+			List<Van> listOfVans = (List<Van>)query.execute();
+			
+			List<Van> vans = new ArrayList<Van>();
+			for (Van v : listOfVans) {
+				Van van = new Van();
+				van.setBrand(v.getBrand());
+				van.setCapacity(v.getCapacity());
+				van.setKitchen(v.hasKitchen());
+				van.setLicensePlate(v.getLicensePlate());
+				van.setLocation(v.getLocation());
+				van.setModel(v.getModel());
+				van.setOffRoad(v.isOffRoad());
+				van.setPricePerDay(v.getPricePerDay());
+				van.setReviews(v.getReviews());
+				van.setShower(v.hasShower());
+				van.setStatus(v.getStatus());
+				van.setUser(v.getUser());
+				vans.add(van);
+				System.out.println("DBMAnager: " + van);
+			}
+			return vans;
 		} catch (Exception e) {
 			System.out.println("   $ Error retrieving vans with location: " + e.getMessage() );
 		} finally {
@@ -235,7 +254,7 @@ public class DBManager {
 			pm.close();
 		}
 		
-		return listOfVans;
+		return null;
 		
 	}
 	

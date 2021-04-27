@@ -42,7 +42,7 @@ public class CharacteristicsWindow extends JFrame{
 	
 	private void initialize() {
 		frmCharacteristics.setBounds(100, 100, 300, 355);
-		frmCharacteristics.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmCharacteristics.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCharacteristics.getContentPane().setLayout(null);
 		
 		JLabel lblCharacteristicsTitle = new JLabel(controller.getResourcebundle().getString("characteristics_msg"));
@@ -59,7 +59,7 @@ public class CharacteristicsWindow extends JFrame{
 			}
 		});
 		btnBack.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		btnBack.setBounds(102, 292, 89, 23);
+		btnBack.setBounds(101, 277, 89, 23);
 		frmCharacteristics.getContentPane().add(btnBack);
 		
 		JLabel lblLicensePlate = new JLabel(controller.getResourcebundle().getString("license_plate_msg"));

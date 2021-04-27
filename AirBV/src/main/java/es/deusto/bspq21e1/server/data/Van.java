@@ -27,6 +27,10 @@ public class Van {
 
     @Join
     private List<Review> reviews;
+    
+    public Van() {
+    	
+    }
 
     public Van(String licensePlate, String brand, String model, String location, boolean kitchen, boolean shower, boolean offRoad,
     int capacity, double pricePerDay, String user, List<Review> reviews) {

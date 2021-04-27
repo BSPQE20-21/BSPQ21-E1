@@ -48,7 +48,7 @@ public class RegisterUserWindow extends JFrame{
 	
 	private void initialize() {
 		frmRegisterYourself.setBounds(100, 100, 300, 225);
-		frmRegisterYourself.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmRegisterYourself.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRegisterYourself.getContentPane().setLayout(null);
 		
 		JLabel lblRegisterTitle = new JLabel(controller.getResourcebundle().getString("register_as_new_user_msg"));

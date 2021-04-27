@@ -38,7 +38,7 @@ public class InitialWindow extends JFrame {
 	 */
     private void initialize() {
         frmAirbv.setBounds(100, 100, 255, 235);
-        frmAirbv.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frmAirbv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAirbv.getContentPane().setLayout(null);
 
         panel = new JPanel();

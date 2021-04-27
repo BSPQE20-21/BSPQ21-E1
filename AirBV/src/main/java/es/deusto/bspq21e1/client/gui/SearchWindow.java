@@ -78,7 +78,7 @@ public class SearchWindow extends JFrame{
 	 */
 	private void initialize() {
 		frmSearchVans.setBounds(100, 100, 668, 353);
-		frmSearchVans.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmSearchVans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSearchVans.getContentPane().setLayout(null);
 		
 		searchPanel = new JPanel();
@@ -143,7 +143,7 @@ public class SearchWindow extends JFrame{
 		lblSearchTitle.updateUI();
 		
 		visualizePanel = new JPanel();
-		visualizePanel.setBounds(0, 144, 662, 169);
+		visualizePanel.setBounds(0, 144, 662, 180);
 		frmSearchVans.getContentPane().add(visualizePanel);
 		visualizePanel.setLayout(null);
 		
@@ -210,6 +210,17 @@ public class SearchWindow extends JFrame{
 		btnCharacteristics.setFont(new Font("Tahoma", Font.ITALIC, 11));
 		btnCharacteristics.setBounds(319, 138, 125, 20);
 		visualizePanel.add(btnCharacteristics);
+		
+		JButton btnNewButton = new JButton(controller.getResourcebundle().getString("back_button_msg"));
+		btnNewButton.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new MainWindow(controller, user);
+				frmSearchVans.dispose();
+			}
+		});
+		btnNewButton.setBounds(554, 138, 89, 20);
+		visualizePanel.add(btnNewButton);
 		btnBook.updateUI();
 		
 		separator = new JSeparator();

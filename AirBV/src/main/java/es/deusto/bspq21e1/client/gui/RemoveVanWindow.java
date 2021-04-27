@@ -52,7 +52,7 @@ public class RemoveVanWindow extends JFrame {
 	
 	private void initialize() {
 		frmRemoveVan.setBounds(50, 50, 470, 500);
-		frmRemoveVan.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmRemoveVan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRemoveVan.getContentPane().setLayout(null);
 		
 		jlVansList = new JList<String>();

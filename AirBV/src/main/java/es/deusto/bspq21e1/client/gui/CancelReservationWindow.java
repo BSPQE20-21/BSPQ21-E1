@@ -58,7 +58,7 @@ public class CancelReservationWindow extends JFrame{
 	 */
 	private void initialize() {
 		frame.setBounds(100, 100, 415, 315);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblTitle = new JLabel(controller.getResourcebundle().getString("cancel_your_reservations_msg"));

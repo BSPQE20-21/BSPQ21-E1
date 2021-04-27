@@ -85,7 +85,7 @@ public class RegisterVanWindow extends JFrame{
 	private void initialize() {
 		frmRegistrationOfVans.setResizable(false);
 		frmRegistrationOfVans.setBounds(100, 100, 450, 600);
-		frmRegistrationOfVans.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmRegistrationOfVans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRegistrationOfVans.getContentPane().setLayout(null);
 		
 		lblTitle = new JLabel(controller.getResourcebundle().getString("register_your_van_msg"));

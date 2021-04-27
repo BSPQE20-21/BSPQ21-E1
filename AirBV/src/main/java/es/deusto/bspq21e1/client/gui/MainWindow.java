@@ -38,7 +38,7 @@ public class MainWindow extends JFrame {
 	
 	private void initialize() {
 		frmMain.setBounds(300, 100, 400, 400);
-		frmMain.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMain.getContentPane().setLayout(null);
 		
 		btnSearchVan = new JButton("Search vans");
