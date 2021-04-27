@@ -78,6 +78,7 @@ public class SearchWindow extends JFrame{
 	 */
 	private void initialize() {
 		frmSearchVans.setBounds(100, 100, 668, 353);
+		frmSearchVans.setLocationRelativeTo(null);
 		frmSearchVans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSearchVans.getContentPane().setLayout(null);
 		

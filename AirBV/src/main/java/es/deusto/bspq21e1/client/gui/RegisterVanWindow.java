@@ -85,6 +85,7 @@ public class RegisterVanWindow extends JFrame{
 	private void initialize() {
 		frmRegistrationOfVans.setResizable(false);
 		frmRegistrationOfVans.setBounds(100, 100, 450, 600);
+		frmRegistrationOfVans.setLocationRelativeTo(null);
 		frmRegistrationOfVans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRegistrationOfVans.getContentPane().setLayout(null);
 		

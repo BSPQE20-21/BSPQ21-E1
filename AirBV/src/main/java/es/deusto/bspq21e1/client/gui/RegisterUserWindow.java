@@ -120,9 +120,24 @@ public class RegisterUserWindow extends JFrame{
 		btnRegister.setBounds(175, 270, 110, 28);
 		frmRegisterYourself.getContentPane().add(btnRegister);
 		
-		JButton btnBack = new JButton("Back");
+		JButton btnBack = new JButton("Back"); //TODO ResourceBundle
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				goToInitialWindow();
+			}
+		});
 		btnBack.setBounds(25, 270, 89, 28);
 		frmRegisterYourself.getContentPane().add(btnBack);
 		
 	}
+	
+    /**
+     * Closes this window and opens the Initial window.
+     */
+    private void goToInitialWindow() {
+        new InitialWindow(controller);
+        frmRegisterYourself.dispose();
+    }
+	
 }

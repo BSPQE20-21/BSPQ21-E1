@@ -47,7 +47,6 @@ public class InitialWindow extends JFrame {
         lblHead = new JLabel("Welcome to AirB&V");
         lblHead.setBounds(20, 25, 202, 14);
         frmAirbv.getContentPane().add(lblHead);
-        btnExit.updateUI();
 
         panel = new JPanel();
         panel.setBounds(20, 50, 202, 198);
@@ -87,6 +86,7 @@ public class InitialWindow extends JFrame {
             }
         } );
         panel.add(btnExit);
+        btnExit.updateUI();
 
     }
 }

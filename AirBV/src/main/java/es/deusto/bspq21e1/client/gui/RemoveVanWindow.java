@@ -52,6 +52,7 @@ public class RemoveVanWindow extends JFrame {
 	
 	private void initialize() {
 		frmRemoveVan.setBounds(50, 50, 470, 500);
+		frmRemoveVan.setLocationRelativeTo(null);
 		frmRemoveVan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRemoveVan.getContentPane().setLayout(null);
 		

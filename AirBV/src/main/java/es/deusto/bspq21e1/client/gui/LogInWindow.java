@@ -27,14 +27,14 @@ public class LogInWindow extends JFrame{
 	private JLabel lblPassword;
 	private JTextField txtFieldPassword;
 	
-	private JButton btnMenu;
+	private JButton btnBack;
 	
 
 	/**
 	 * Create the application.
 	 */
 	public LogInWindow(Controller controller) {
-		getContentPane().setLayout(null);
+		this.controller = controller;
 		initialize();
 		frmLogIn.setTitle(controller.getResourcebundle().getString("login_msg"));
 		frmLogIn.setVisible(true);
@@ -95,17 +95,17 @@ public class LogInWindow extends JFrame{
 		btnRegisterVan.setBounds(152, 170, 147, 23);
 		frmLogIn.getContentPane().add(btnRegisterVan);
 		
-		//BUTTON: Menu
-		btnMenu = new JButton(controller.getResourcebundle().getString("menu_msg"));
-		btnMenu.addActionListener(new ActionListener() {
+		//BUTTON: Back
+		btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
+		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				goToInitialWindow();
 		
 			}
 		});
-		btnMenu.setBounds(29, 264, 89, 23);
-		frmLogIn.getContentPane().add(btnMenu);
+		btnBack.setBounds(29, 264, 89, 23);
+		frmLogIn.getContentPane().add(btnBack);
 	
 		
 	}
