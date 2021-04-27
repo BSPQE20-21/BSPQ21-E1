@@ -17,8 +17,6 @@ public class UserData {
     private String email;
     private List<Integer> stars;
     
-    private List<VanData> vans;
-    
     public UserData() {
     	
     }
@@ -29,12 +27,11 @@ public class UserData {
 	 * @param name Name of the user.
 	 * @param email Email of the user.
 	 */
-    public UserData(String dni, String name, String email, List<VanData> vans) {
+    public UserData(String dni, String name, String email) {
     	this.dni = dni;
         this.name = name;
         this.email = email;
         this.stars = new ArrayList<Integer>();
-        this.vans = vans;
     }
     
     public String getDni() {
@@ -67,25 +64,6 @@ public class UserData {
 
 	public void setStars(List<Integer> stars) {
 		this.stars = stars;
-	}
-	
-	public List<VanData> getVans() {
-		return vans;
-	}
-
-	public void setVans(List<VanData> vans) {
-		this.vans = vans;
-	}
-	
-	public void addVan(VanData van) {
-		if(this.vans == null) {
-			this.vans = new ArrayList<VanData>();
-		}
-		this.vans.add(van);
-	}
-	
-	public void removeVan(VanData van) {
-		this.vans.remove(this.vans.indexOf(van));
 	}
 
 	@Override

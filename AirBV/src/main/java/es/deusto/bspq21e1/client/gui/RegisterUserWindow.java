@@ -96,7 +96,7 @@ public class RegisterUserWindow extends JFrame{
 				}
 				frmRegisterYourself.dispose();
 				
-				UserData userData = new UserData(txtIdNumber.getText(), txtName.getText(), txtEmail.getText(), new ArrayList<VanData>());
+				UserData userData = new UserData(txtIdNumber.getText(), txtName.getText(), txtEmail.getText());
 				
 				
 				new MainWindow(controller, userData);

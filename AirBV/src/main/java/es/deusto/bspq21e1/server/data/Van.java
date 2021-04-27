@@ -23,14 +23,13 @@ public class Van {
     private int capacity;
     private double pricePerDay;
     
-    @Column(name="user_id")
-    private User user;
+    private String user;
 
     @Join
     private List<Review> reviews;
 
     public Van(String licensePlate, String brand, String model, String location, boolean kitchen, boolean shower, boolean offRoad,
-    int capacity, double pricePerDay, User user, List<Review> reviews) {
+    int capacity, double pricePerDay, String user, List<Review> reviews) {
         this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
@@ -127,11 +126,11 @@ public class Van {
 		this.pricePerDay = pricePerDay;
 	}
 
-	public User getUser() {
+	public String getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(String user) {
 		this.user = user;
 	}
 
@@ -147,7 +146,7 @@ public class Van {
 	public String toString() {
 		return "Van [licensePlate=" + licensePlate + ", brand=" + brand + ", model=" + model + ", status=" + status
 				+ ", location=" + location + ", kitchen=" + kitchen + ", shower=" + shower + ", offRoad=" + offRoad
-				+ ", capacity=" + capacity + ", pricePerDay=" + pricePerDay + ", user=" + user + ", reviews=" + reviews
+				+ ", capacity=" + capacity + ", pricePerDay=" + pricePerDay + ", user dni=" + user + ", reviews=" + reviews
 				+ "]";
 	}
 

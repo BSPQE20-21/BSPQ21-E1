@@ -18,10 +18,6 @@ public class User {
     private String email;
     private List<Integer> stars;
     
-    @Persistent(mappedBy="user", dependentElement="true")
-    @Join
-    private List<Van> vans;
-    
     public User() {
     	
     }
@@ -30,7 +26,6 @@ public class User {
         this.dni = dni;
         this.name = name;
         this.email = email;
-        this.vans = new ArrayList<Van>();
         this.stars = new ArrayList<Integer>();
     }
 
@@ -82,23 +77,4 @@ public class User {
 		this.stars = stars;
 	}
 
-	public List<Van> getVans() {
-		return vans;
-	}
-
-	public void setVans(List<Van> vans) {
-		this.vans = vans;
-	}
-	
-	public void addVan(Van van) {
-		if(this.vans == null) {
-			this.vans = new ArrayList<Van>();
-		}
-		this.vans.add(van);
-	}
-	
-	public void removeVan(VanData van) {
-		this.vans.remove(this.vans.indexOf(van));
-	}
-    
 }

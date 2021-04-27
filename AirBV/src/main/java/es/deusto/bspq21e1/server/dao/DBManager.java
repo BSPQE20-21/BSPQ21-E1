@@ -57,8 +57,6 @@ public class DBManager {
 	 * @param van
 	 */
 	public void store( Van van ) {
-		User user = this.getUser(van.getUser().getDni());
-		user.addVan(van);
 		this.storeObject( van );
 	}
 
@@ -324,7 +322,7 @@ public class DBManager {
 		instance.store(u1);
 		
 		
-		Van v1 = new Van("123ABC", "Ferrari", "F5", "Bilbao", true, true, true, 1, 222.22, u1, new ArrayList<Review>());
+		Van v1 = new Van("123ABC", "Ferrari", "F5", "Bilbao", true, true, true, 1, 222.22, u1.getDni(), new ArrayList<Review>());
 		instance.store(v1);
 		
 	}

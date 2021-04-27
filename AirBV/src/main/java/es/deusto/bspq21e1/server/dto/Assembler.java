@@ -14,7 +14,7 @@ import es.deusto.bspq21e1.server.data.Review;
 public class Assembler {
     
     public UserData assembleUser(User u) {
-		UserData userData = new UserData(u.getDni(), u.getName(), u.getName(), null);
+		UserData userData = new UserData(u.getDni(), u.getName(), u.getName());
 		return userData;
     }
 
@@ -28,17 +28,13 @@ public class Assembler {
 
     public VanData assembleVan(Van v) {
     	ArrayList<ReviewData> reviews = new ArrayList<ReviewData>();
-    	UserData user = new UserData();
     	if(v.getReviews() != null) {
     		for (Review r : v.getReviews()) {
     			reviews.add(assembleReview(r));
     		}
     	}
-    	if(v.getUser() != null) {
-    		user = assembleUser(v.getUser());
-    	}
     	
-    	VanData vanData = new VanData(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.getCapacity(), v.hasKitchen(), v.hasShower(), v.isOffRoad(),  v.getPricePerDay(), user, reviews);
+    	VanData vanData = new VanData(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.getCapacity(), v.hasKitchen(), v.hasShower(), v.isOffRoad(),  v.getPricePerDay(), v.getUser(), reviews);
     	return vanData;	
     }
     
@@ -63,17 +59,13 @@ public class Assembler {
 
     public Van disassembleVan(VanData v) {
     	ArrayList<Review> reviews = new ArrayList<Review>();
-    	User user = new User();
     	if(v.getReviews() != null) {
     		for (ReviewData r : v.getReviews()) {
     			reviews.add(disassembleReview(r));
     		}
     	}
-    	if(v.getUser() != null) {
-    		user = disassembleUser(v.getUser());
-    	}
     	
-    	Van van = new Van(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.hasKitchen(), v.hasShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay(), user, reviews);
+    	Van van = new Van(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.hasKitchen(), v.hasShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay(), v.getUser(), reviews);
     	
 		System.out.println("$ DEBUGGING\n" +
 				"\tPrinting Van and User from Assembler in Server side:\n"+

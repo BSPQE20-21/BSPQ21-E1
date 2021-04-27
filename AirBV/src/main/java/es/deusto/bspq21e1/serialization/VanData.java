@@ -24,7 +24,7 @@ public class VanData {
     private int capacity;
     private double pricePerDay;
     
-    private UserData user;
+    private String user;
     
     private List<ReviewData> reviews;
     
@@ -46,7 +46,7 @@ public class VanData {
 	 * @param owner User that owns the van (just the data version).
 	 */
     public VanData(String licensePlate, String brand, String model, String location, int capacity, boolean kitchen, boolean shower, boolean offRoad,
-     double pricePerDay, UserData user, List<ReviewData> reviews) {
+     double pricePerDay, String user, List<ReviewData> reviews) {
     	
     	 this.licensePlate = licensePlate;
     	 this.brand = brand;
@@ -134,11 +134,11 @@ public class VanData {
 		this.licensePlate = licensePlate;
 	}
 
-	public UserData getUser() {
+	public String getUser() {
 		return user;
 	}
 
-	public void setUser(UserData user) {
+	public void setUser(String user) {
 		this.user = user;
 	}
 
@@ -162,7 +162,7 @@ public class VanData {
 	public String toString() {
 		return "VanData [licensePlate=" + licensePlate + ", brand=" + brand + ", model=" + model + ", location="
 				+ location + ", kitchen=" + kitchen + ", shower=" + shower + ", offRoad=" + offRoad + ", capacity="
-				+ capacity + ", pricePerDay=" + pricePerDay + ", user=" + user + ", reviews=" + reviews + "]";
+				+ capacity + ", pricePerDay=" + pricePerDay + ", user dni=" + user + ", reviews=" + reviews + "]";
 	}
 
 }

@@ -138,7 +138,7 @@ public class AirBV {
     
     @GET
     @Path(loginUser)
-    public UserData login(String email, String password) { // Quizá cambios en los params
+    public UserData login(@PathParam("email") String email, @PathParam("password") String password) { 
     	logger.debug("User's login with credentials request received from client.");
     	User u = airbvService.login(email, password);
     	UserData userData = null;

@@ -226,7 +226,7 @@ public class RegisterVanWindow extends JFrame{
 				if( licensePlate != "" && brand != "" && model != "" && location != ""
 						&& null != licensePlate && null != brand && null != model && null != location ) {
 					
-					VanData vanData = new VanData(licensePlate, brand, model, location, capacity, kitchen, shower, offRoad, pricePerDay, user, new ArrayList<ReviewData>());
+					VanData vanData = new VanData(licensePlate, brand, model, location, capacity, kitchen, shower, offRoad, pricePerDay, user.getDni(), new ArrayList<ReviewData>());
 					// DEBUGGING:
 					System.out.println("$ DEBUGGING\n" +
 							"\tPrinting VanData and User from RegisterVanWindow in Client side:\n"+
