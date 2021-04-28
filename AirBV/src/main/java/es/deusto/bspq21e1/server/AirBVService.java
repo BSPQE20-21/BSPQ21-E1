@@ -99,7 +99,7 @@ public class AirBVService {
 	
 	public User login(String email, String password) {
 		logger.debug("Verificating credentials and returning user: " + email);
-//		User user = DBManager.getInstance().retrieveUser(email, password); // Implementar en BD
+		User user = DBManager.getInstance().validateLogin(email, password);
 		return null;
 	}
 
