@@ -112,8 +112,7 @@ public class DBManager {
 	}
 	
 	public void deleteUser(String dni) {
-		// TODO Auto-generated method stub
-		
+		this.deleteObject( this.getUser(dni) );
 	}
 	
 	/**
@@ -158,8 +157,6 @@ public class DBManager {
 			query.setFilter("dni== '" + dni+ "'");
 			query.setUnique(true);
 			
-			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
-			@SuppressWarnings("unchecked")
 			User user = (User)query.execute();
 			System.out.println("User retrieved from DB: " + user.getName());
 			
@@ -175,6 +172,8 @@ public class DBManager {
 	
 		return null;
 	}
+	
+	
 	/**
 	 * Method that finds and returns all of the reservations given a user.
 	 * @param vanRenter to retrieve the reservations from
@@ -210,13 +209,14 @@ public class DBManager {
 		return listOfReservations;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Van> getVansByLocation( String location) { 
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = null;
 		
 		try {
 			System.out.println("   * Retrieving all vans from location: " + location);
-			pm.getFetchPlan().setMaxFetchDepth(2);
+			pm.getFetchPlan().setMaxFetchDepth(4);
 			tx = pm.currentTransaction();
 			tx.begin();
 			
@@ -258,6 +258,47 @@ public class DBManager {
 		
 	}
 	
+	
+	/**
+	 * Method that searchs for a user given an email and password.
+	 * @param user's email and password
+	 * @return user if valid login, null otherwise
+	 */
+	public User validateLogin( String email, String password ) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = null;
+		
+		try {			
+			System.out.println("   * Attempting loging for user: " + email);
+			pm.getFetchPlan().setMaxFetchDepth(4);
+			tx = pm.currentTransaction();
+			tx.begin();
+			
+			Query<User> query = pm.newQuery(User.class);
+			query.setFilter("email == '" + email+ "' && password == '" + password + "'");
+			query.setUnique(true);
+			
+			User user = (User)query.execute(); // The UNIQUE query itself returns null if there are no results. 
+			
+			if( null == user ) {
+				System.out.println("   * Email or passord incorrect in login quer" );
+			} else {
+				System.out.println("   * User retrieved from DB: " + user.getName());
+			}
+			
+			return user;
+			
+		} catch (Exception e) {
+			System.out.println("   $ Error retrieving user: " + e.getMessage() );
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}	
+			pm.close();
+		}
+		
+		return null;
+	}
 	
 	////////////////////////////
 	//		"GET IT ALL"      //
@@ -329,20 +370,5 @@ public class DBManager {
 		}
 
 		return vanList;
-	}
-	
-	public static void main(String[] args) {
-		
-		/* IMPORTANT!!
-		 * PROYECT NEEDS TO BE COMPILED IN MAVEN IN ORDER FOR OBJECT PERSISTANCE TO WORK!! */
-		
-		User u1 = new User("22", "Iñigo", "imarcosenciso@opendeusto.es", "111");		
-		instance = getInstance();
-		instance.store(u1);
-		
-		
-		Van v1 = new Van("123ABC", "Ferrari", "F5", "Bilbao", true, true, true, 1, 222.22, u1.getDni(), new ArrayList<Review>());
-		instance.store(v1);
-		
 	}
 }
