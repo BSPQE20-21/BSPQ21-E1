@@ -58,7 +58,7 @@ public class AirBV {
 	 */
 	
 	private static final String registerUser = "/registerUser";
-	private static final String loginUser = "/loginUser";
+	private static final String loginUser = "/loginUser/{email}/{password}";
 	private static final String deleteUser = "/deleteUser/{dni}";
 	private static final String registerVan = "/registerVan";
 	private static final String deleteVan = "/deleteVan/{licensePlate}";
