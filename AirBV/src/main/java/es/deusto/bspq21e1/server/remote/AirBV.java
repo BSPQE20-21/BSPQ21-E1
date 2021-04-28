@@ -61,6 +61,7 @@ public class AirBV {
 	private static final String loginUser = "/loginUser";
 	private static final String deleteUser = "/deleteUser/{dni}";
 	private static final String registerVan = "/registerVan";
+	private static final String deleteVan = "/deleteVan/{licensePlate}";
 	private static final String getMyReservations = "/getMyReservations/{dni}";
 	private static final String getVans = "/getVans/{location}";
 	private static final String registerReservation = "/registerReservation";
@@ -84,7 +85,7 @@ public class AirBV {
         airbvService.deleteUser( dni );
         return Response.status(Response.Status.OK).build();
     }
-    
+
     /**
      * Transforms VanData into Van and uses a method from the Application Service to store a Van
      * @param vanData
@@ -99,6 +100,14 @@ public class AirBV {
     	airbvService.registerVan(van);
     	
     	return Response.ok().build();
+    }
+    
+    @DELETE
+    @Path(deleteVan)
+    public Response deleteVan(@PathParam("licensePlate") String licensePlate) {
+    	logger.debug("Delete van request from client received.");
+    	airbvService.deleteVan(licensePlate);
+    	return Response.status(Response.Status.OK).build();
     }
 
     @POST

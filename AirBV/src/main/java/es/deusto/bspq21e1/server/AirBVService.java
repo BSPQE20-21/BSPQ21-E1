@@ -34,6 +34,7 @@ public class AirBVService {
      * @param dni -  new user's dni
      * @param name - new users'name
      * @param email - new user's email
+     * @param password - new user's password
      * @return returns the created new User
      */
     public User registerUser(String dni, String name, String email, String password) {
@@ -113,6 +114,14 @@ public class AirBVService {
             usersHM.remove(dni);
         }
 		DBManager.getInstance().deleteUser(dni);
+	}
+	
+	public void deleteVan(String licensePlate) {
+		logger.debug("Deleting van with license plate: " + licensePlate);
+		if(vansHM.get(licensePlate) != null ) {
+			vansHM.remove(licensePlate);
+		}
+		//TODO DBManager.getInstance().deleteVan(licensePlate);
 	}
     
 }
