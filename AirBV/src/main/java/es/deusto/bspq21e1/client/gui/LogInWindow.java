@@ -11,7 +11,13 @@ import javax.swing.JTextField;
 
 import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.serialization.UserData;
+import javax.swing.JPasswordField;
 
+/**
+ * Window for the user to log in to the application
+ * @author BSPQ21-E1
+ *
+ */
 public class LogInWindow extends JFrame{
 
 	private static final long serialVersionUID = 1L;
@@ -25,7 +31,7 @@ public class LogInWindow extends JFrame{
 	private JTextField txtFieldEmail;
 	
 	private JLabel lblPassword;
-	private JTextField txtFieldPassword;
+	private JPasswordField passwordField;
 	
 	private JButton btnBack;
 	
@@ -70,26 +76,26 @@ public class LogInWindow extends JFrame{
 		lblPassword.setBounds(40, 120, 78, 13);
 		frmLogIn.getContentPane().add(lblPassword);
 		
-		txtFieldPassword = new JTextField(); //TODO
-		txtFieldPassword.setBounds(200, 117, 205, 19);
-		frmLogIn.getContentPane().add(txtFieldPassword);
-		txtFieldPassword.setColumns(10);
+		passwordField = new JPasswordField();
+		passwordField.setBounds(200, 117, 205, 19);
+		frmLogIn.getContentPane().add(passwordField);
 
 
 		//BUTTON: Log In
 		JButton btnRegisterVan = new JButton(controller.getResourcebundle().getString("login_msg"));
 		btnRegisterVan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UserData userData = controller.loginUser(txtFieldEmail.getText(), txtFieldPassword.getText());
+					
+				UserData userData = controller.loginUser( txtFieldEmail.getText(), new String(passwordField.getPassword()) );
 				if (userData != null)  {
 					frmLogIn.dispose();
 					new MainWindow(controller, userData);
 				} else {
 					txtFieldEmail.setText("Wrong credentials");
-					txtFieldPassword.setText("Wrong credentials");
 					txtFieldEmail.updateUI();
-					txtFieldPassword.updateUI();
+					passwordField.updateUI();
 				}
+					
 			}
 		});
 		btnRegisterVan.setBounds(152, 170, 147, 23);
@@ -107,7 +113,7 @@ public class LogInWindow extends JFrame{
 		btnBack.setBounds(29, 264, 89, 23);
 		frmLogIn.getContentPane().add(btnBack);
 	
-		
+	
 	}
 	
     /**
@@ -117,6 +123,4 @@ public class LogInWindow extends JFrame{
         new InitialWindow(controller);
         frmLogIn.dispose();
     }
-	
-
 }
