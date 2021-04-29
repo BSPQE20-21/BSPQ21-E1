@@ -1,6 +1,5 @@
 package es.deusto.bspq21e1.client.gui;
 
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -13,12 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 
-import org.apache.log4j.SimpleLayout;
-
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
-import java.rmi.Naming;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

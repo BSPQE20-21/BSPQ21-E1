@@ -88,7 +88,7 @@ public class CancelReservationWindow extends JFrame{
 		btnCancel.setBounds(240, 240, 100, 25);
 		frame.getContentPane().add(btnCancel);
 		
-		btnBack = new JButton("Back");
+		btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
 		btnBack.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

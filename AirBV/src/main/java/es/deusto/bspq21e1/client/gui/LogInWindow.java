@@ -91,7 +91,7 @@ public class LogInWindow extends JFrame{
 					frmLogIn.dispose();
 					new MainWindow(controller, userData);
 				} else {
-					txtFieldEmail.setText("Wrong credentials");
+					txtFieldEmail.setText(controller.getResourcebundle().getString("wrong_credentials_msg"));
 					txtFieldEmail.updateUI();
 					passwordField.updateUI();
 				}

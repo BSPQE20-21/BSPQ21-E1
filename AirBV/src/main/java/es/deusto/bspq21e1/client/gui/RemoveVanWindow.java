@@ -37,14 +37,7 @@ public class RemoveVanWindow extends JFrame {
 		this.controller = controller;
 		this.user = user;
 		this.frmMain = frmMain;
-		frmRemoveVan.setTitle("Remove Van");
-		frmRemoveVan.setResizable(false);
-		frmRemoveVan.setVisible(true);
-		initialize();
-	}
-	
-	public RemoveVanWindow() {
-		frmRemoveVan.setTitle("Remove Van");
+		frmRemoveVan.setTitle(controller.getResourcebundle().getString("remove_van_btn_msg"));
 		frmRemoveVan.setResizable(false);
 		frmRemoveVan.setVisible(true);
 		initialize();
@@ -65,7 +58,7 @@ public class RemoveVanWindow extends JFrame {
 		scrollVans.setViewportView(jlVansList);
 		frmRemoveVan.getContentPane().add(scrollVans);
 		
-		btnBack = new JButton("Back");
+		btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
 		btnBack.setBounds(25, 420, 100, 25);
 		btnBack.addActionListener(new ActionListener() {
 			@Override
@@ -77,7 +70,7 @@ public class RemoveVanWindow extends JFrame {
 		frmRemoveVan.getContentPane().add(btnBack);
 		btnBack.updateUI();
 		
-		btnRemove = new JButton("Remove");
+		btnRemove = new JButton(controller.getResourcebundle().getString("remove_msg"));
 		btnRemove.setBounds(330, 420, 100, 25);
 		btnRemove.setBackground(java.awt.Color.RED);
 		btnRemove.addActionListener(new ActionListener() {
@@ -94,7 +87,7 @@ public class RemoveVanWindow extends JFrame {
 		frmRemoveVan.getContentPane().add(btnRemove);
 		btnRemove.updateUI();
 		
-		lblText = new JLabel("Choose the van to remove from this list:");
+		lblText = new JLabel(controller.getResourcebundle().getString("choose_van_msg"));
 		lblText.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblText.setBounds(43, 10, 580, 50);
 		frmRemoveVan.getContentPane().add(lblText);

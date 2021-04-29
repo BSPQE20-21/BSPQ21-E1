@@ -44,7 +44,7 @@ public class InitialWindow extends JFrame {
         frmAirbv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAirbv.getContentPane().setLayout(null);
 		
-        lblHead = new JLabel("Welcome to AirB&V");
+        lblHead = new JLabel(controller.getResourcebundle().getString("initial_head_msg"));
         lblHead.setBounds(20, 25, 202, 14);
         frmAirbv.getContentPane().add(lblHead);
 

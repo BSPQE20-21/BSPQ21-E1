@@ -26,7 +26,7 @@ public class RemoveAccountWindow extends JFrame {
 		this.userData = userData;
 		this.frmMain = frmMain;
 		initialize();
-		frmRemoveAccount.setTitle("Remove account");
+		frmRemoveAccount.setTitle(controller.getResourcebundle().getString("remove_user_btn_msg"));
 		frmRemoveAccount.setResizable(false);
 		frmRemoveAccount.setVisible(true);
 	}
@@ -37,7 +37,7 @@ public class RemoveAccountWindow extends JFrame {
 		frmRemoveAccount.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRemoveAccount.getContentPane().setLayout(null);
 		
-		btnNo = new JButton("No");
+		btnNo = new JButton(controller.getResourcebundle().getString("no_msg"));
 		btnNo.setBounds(25, 50, 100, 25);
 		btnNo.addActionListener(new ActionListener() {
 			@Override
@@ -48,7 +48,7 @@ public class RemoveAccountWindow extends JFrame {
 		});
 		frmRemoveAccount.getContentPane().add(btnNo);
 		
-		btnYes = new JButton("Yes");
+		btnYes = new JButton(controller.getResourcebundle().getString("yes_msg"));
 		btnYes.setBackground(java.awt.Color.RED);
 		btnYes.setBounds(200, 50, 100, 25);
 		btnYes.addActionListener(new ActionListener() {
@@ -63,7 +63,7 @@ public class RemoveAccountWindow extends JFrame {
 		});
 		frmRemoveAccount.getContentPane().add(btnYes);
 		
-		lblText = new JLabel("Are you sure you want to delete your account?");
+		lblText = new JLabel(controller.getResourcebundle().getString("ensure_remove_msg"));
 		lblText.setBounds(25, 5, 350, 35);
 		frmRemoveAccount.getContentPane().add(lblText);
 		

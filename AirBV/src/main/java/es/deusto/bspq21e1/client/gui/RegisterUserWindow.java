@@ -74,7 +74,7 @@ public class RegisterUserWindow extends JFrame{
 		lblEmail.setBounds(56, 141, 130, 14);
 		frmRegisterYourself.getContentPane().add(lblEmail);
 		
-		JLabel lblPassword = new JLabel("Password"); //TODO ResourceBundle
+		JLabel lblPassword = new JLabel(controller.getResourcebundle().getString("password_msg"));
 		lblPassword.setBounds(56, 178, 130, 14);
 		frmRegisterYourself.getContentPane().add(lblPassword);
 		
@@ -120,7 +120,7 @@ public class RegisterUserWindow extends JFrame{
 		btnRegister.setBounds(175, 229, 110, 28);
 		frmRegisterYourself.getContentPane().add(btnRegister);
 		
-		JButton btnBack = new JButton("Back"); //TODO ResourceBundle
+		JButton btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

@@ -24,14 +24,7 @@ public class MainWindow extends JFrame {
 		this.controller = controller;
 		this.user = user;
 		initialize();
-		frmMain.setTitle("Main Window");
-		frmMain.setResizable(false);
-		frmMain.setVisible(true);
-	}
-	
-	public MainWindow() {
-		initialize();
-		frmMain.setTitle("Main Window");
+		frmMain.setTitle(controller.getResourcebundle().getString("main_title_msg"));
 		frmMain.setResizable(false);
 		frmMain.setVisible(true);
 	}
@@ -42,7 +35,7 @@ public class MainWindow extends JFrame {
 		frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMain.getContentPane().setLayout(null);
 		
-		btnSearchVan = new JButton("Search vans");
+		btnSearchVan = new JButton(controller.getResourcebundle().getString("search_btn_msg"));
 		btnSearchVan.setBounds(110, 25, 175, 25);
 		btnSearchVan.addActionListener(new ActionListener() {
 			@Override
@@ -53,7 +46,7 @@ public class MainWindow extends JFrame {
 		});
 		frmMain.getContentPane().add(btnSearchVan);
 		
-		btnRegisterVan = new JButton("Register van");
+		btnRegisterVan = new JButton(controller.getResourcebundle().getString("register_btn_msg"));
 		btnRegisterVan.setBounds(110, 75, 175, 25);
 		btnRegisterVan.addActionListener(new ActionListener() {
 			@Override
@@ -64,7 +57,7 @@ public class MainWindow extends JFrame {
 		});
 		frmMain.getContentPane().add(btnRegisterVan);
 		
-		btnCancelRes = new JButton("Cancel reservation");
+		btnCancelRes = new JButton(controller.getResourcebundle().getString("cancel_btn_msg"));
 		btnCancelRes.setBounds(110, 125, 175, 25);
 		btnCancelRes.addActionListener(new ActionListener() {
 			@Override
@@ -75,7 +68,7 @@ public class MainWindow extends JFrame {
 		});
 		frmMain.getContentPane().add(btnCancelRes);
 		
-		btnRemoveVan = new JButton("Remove van");
+		btnRemoveVan = new JButton(controller.getResourcebundle().getString("remove_van_btn_msg"));
 		btnRemoveVan.setBounds(110, 175, 175, 25);
 		btnRemoveVan.addActionListener(new ActionListener() {
 			@Override
@@ -86,7 +79,7 @@ public class MainWindow extends JFrame {
 		});
 		frmMain.getContentPane().add(btnRemoveVan);
 		
-		btnRemoveAccount = new JButton("Remove account");
+		btnRemoveAccount = new JButton(controller.getResourcebundle().getString("remove_user_btn_msg"));
 		btnRemoveAccount.setBounds(110, 225, 175, 25);
 		btnRemoveAccount.addActionListener(new ActionListener() {
 			@Override
@@ -97,7 +90,7 @@ public class MainWindow extends JFrame {
 		});
 		frmMain.getContentPane().add(btnRemoveAccount);
 		
-		btnlogOut = new JButton("Log out");
+		btnlogOut = new JButton(controller.getResourcebundle().getString("logout_btn_msg"));
 		btnlogOut.setBackground(java.awt.Color.RED);
 		btnlogOut.setBounds(110, 325, 175, 25);
 		btnlogOut.addActionListener(new ActionListener() {

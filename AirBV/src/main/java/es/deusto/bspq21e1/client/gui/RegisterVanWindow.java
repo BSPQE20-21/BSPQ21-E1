@@ -18,7 +18,6 @@ import es.deusto.bspq21e1.serialization.VanData;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
 import java.awt.event.ActionEvent;
 
 
