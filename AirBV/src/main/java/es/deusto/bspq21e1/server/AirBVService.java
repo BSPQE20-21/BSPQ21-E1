@@ -67,17 +67,6 @@ public class AirBVService {
     	logger.debug("Creating and storing new Reservation");
     	Reservation reservation = new Reservation(bookingDate, duration, van, vanRenter);
     	DBManager.getInstance().store(reservation);
-    	
-    	/* WARNING!!
-    	 CAREFULL WITH THE ATRIBUTE "CODE" OF THE RESERVATION CLASS,
-    	 WE ARE NOT SURE WHEN EXACTLY THE AUTOINCREMENTAL CODE IS GENERATED
-    	 (DEFINED IN THE REVIEW CLASS AS PK), WHICH COULD LEAD TO PROBLEMS
-    	 WHEN ACCESSING THE HASHMAP.
-    	 
-    	 Look out for possible null pointers.
-    	 @author: Iñigo Marcos
-    	 @date: 11/04
-    	 */
     	if( reservation.getCode() != null ) {
     		reservationsHM.put(reservation.getCode(), reservation);
     	}
@@ -92,8 +81,6 @@ public class AirBVService {
 		}
 		
 		return vanAL;
-		
-		
 	}
 	
 	public User login(String email, String password) {
@@ -120,7 +107,7 @@ public class AirBVService {
 		if(vansHM.get(licensePlate) != null ) {
 			vansHM.remove(licensePlate);
 		}
-		//TODO DBManager.getInstance().deleteVan(licensePlate);
+		DBManager.getInstance().deleteVan(licensePlate);
 	}
     
 }

@@ -17,7 +17,6 @@ import javax.ws.rs.core.Response.Status;
 
 import org.apache.log4j.Logger;
 
-import es.deusto.bspq21e1.client.gui.InitialWindow;
 import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
@@ -55,6 +54,17 @@ public class Controller {
     public void eraseUser(String dni) {
     	WebTarget eraseUserWebTarget = webTarget.path("AirBV/deleteUser/" + dni);
     	Invocation.Builder invocationBuilder = eraseUserWebTarget.request(MediaType.APPLICATION_JSON);
+    	
+    	Response response = invocationBuilder.delete();
+    	if (response.getStatus() != Status.OK.getStatusCode()) {
+    		logger.debug("Error connecting with the server. Code: " + response.getStatus());
+			logger.debug("Error: " + response.toString());
+		}
+    }
+    
+    public void eraseVan(String licensePlate) {
+    	WebTarget eraseVanWebTarget = webTarget.path("AirBV/deleteVan/" + licensePlate);
+    	Invocation.Builder invocationBuilder = eraseVanWebTarget.request(MediaType.APPLICATION_JSON);
     	
     	Response response = invocationBuilder.delete();
     	if (response.getStatus() != Status.OK.getStatusCode()) {

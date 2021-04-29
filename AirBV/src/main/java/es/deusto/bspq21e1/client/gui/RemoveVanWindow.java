@@ -77,9 +77,7 @@ public class RemoveVanWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				VanData van = vans.get(jlVansList.getSelectedIndex());
-				// HACER AQUÍ EL CÓDIGO PARA ELIMINAR LA VAN
-				
-				// HACER AQUÍ EL CÓDIGO PARA ELIMINAR LA VAN
+				controller.eraseVan( van.getLicensePlate() );
 				frmMain.setVisible(true);
 				frmRemoveVan.dispose();
 			}
