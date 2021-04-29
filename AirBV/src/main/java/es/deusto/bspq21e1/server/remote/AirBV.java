@@ -56,6 +56,7 @@ public class AirBV {
 	private static final String getVans = "/getVans/{location}";
 	private static final String registerReservation = "/registerReservation";
 	private static final String cancelReservation = "/cancelReservation/{code}";
+	private static final String getMyVans = "/getMyVans/{dni}";
 
     public AirBV() { }
     
@@ -160,4 +161,16 @@ public class AirBV {
 		return resData;
 	}
 
+	@GET
+	@Path(getMyVans)
+	public ArrayList<VanData> getUserVans( @PathParam("dni") String dni ) {
+		logger.debug("Get user's vans request from client received.");
+		Assembler as = new Assembler();
+		ArrayList<VanData> vanData = new ArrayList<VanData>();
+		for (Van van : airbvService.getUserVans(dni)) {
+			vanData.add(as.assembleVan(van));
+		}
+		System.out.println("LLEGA BIEN A AirBV: " + vanData.get(0).getLicensePlate());
+		return vanData;
+	}
 }

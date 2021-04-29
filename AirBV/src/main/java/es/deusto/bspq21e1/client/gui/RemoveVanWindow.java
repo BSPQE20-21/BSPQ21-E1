@@ -49,8 +49,16 @@ public class RemoveVanWindow extends JFrame {
 		frmRemoveVan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRemoveVan.getContentPane().setLayout(null);
 		
+		vans = controller.getMyVans( user.getDni() );
+		for (int i = 0; i < vans.size(); i++) {
+			System.out.println("CARAVANA LLEGA BIEN: " + vans.get(i).getLicensePlate());
+			VanData v = vans.get(i);
+			vansList.addElement( "Van: " + v.getLicensePlate() + "   Brand: " + v.getBrand() + "   Model: " + v.getModel());
+		}
+		
 		jlVansList = new JList<String>();
 		jlVansList.setModel(vansList);
+		jlVansList.setSelectedIndex(0);
 		jlVansList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		scrollVans = new JScrollPane();

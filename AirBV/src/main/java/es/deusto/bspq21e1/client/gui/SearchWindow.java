@@ -232,6 +232,7 @@ public class SearchWindow extends JFrame{
 			}
 			jlVansList.setSelectedIndex(0);
 		} else {
+			btnCharacteristics.setEnabled(false);
 			vansList.clear();
 		}
 		jlVansList.setModel(vansList);

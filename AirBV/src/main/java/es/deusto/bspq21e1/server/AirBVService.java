@@ -93,6 +93,13 @@ public class AirBVService {
 		logger.debug("Getting all reservations of user: " + dni);
 		return (ArrayList<Reservation>) DBManager.getInstance().getReservationsByUser(dni);
 	}
+	
+	public ArrayList<Van> getUserVans(String dni) {
+		logger.debug("Getting all vans of user: " + dni);
+		ArrayList<Van> l = (ArrayList<Van>) DBManager.getInstance().getVansByUser(dni);
+		System.out.println("LLEGA BIEN AL SERVICE: " + l.get(0).getLicensePlate());
+		return l;
+	}
 
 	public void deleteUser(String dni) {
 		logger.debug("Deleting user with dni: " + dni);

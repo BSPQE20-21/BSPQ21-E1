@@ -195,6 +195,24 @@ public class Controller {
 		return new ArrayList<ReservationData>();
 	}
 	
+	public ArrayList<VanData> getMyVans(String dni) {
+		WebTarget vansWebTarget = webTarget.path("AirBV/getMyVans/" + dni);
+		
+		GenericType<ArrayList<VanData>> genericType = new GenericType<ArrayList<VanData>>() {};
+		ArrayList<VanData> list = vansWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+		
+		Invocation.Builder invocationBuilder = vansWebTarget.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.get();
+		if (response.getStatus() == Status.OK.getStatusCode()) {
+			System.out.println("LLEGA BIEN AL CONTROLLER: " + list.get(0).getLicensePlate());
+			return list;
+		} else {
+			logger.debug("Error connecting with the server. Code: " + response.getStatus());
+			logger.debug("Error: " + response.toString());
+		}
+		return null;
+	}
+	
 	/**
 	 * Returns the ResourceBundle
 	 * @return ResourceBundle
