@@ -106,7 +106,7 @@ public class DBManager {
 	 * Deletes a reservation from the DB.
 	 * @param reservation
 	 */
-	public void deleteReservation( Reservation reservation ) {
+	public void deleteReservation( String reservation ) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		
@@ -115,7 +115,7 @@ public class DBManager {
 			
 			Query<Reservation> query = pm.newQuery(Reservation.class);
 			
-			query.setFilter("code == '" + reservation.getCode() + "'");
+			query.setFilter("code == '" + reservation + "'");
 			query.setUnique(true);
 			
 			Reservation res = (Reservation)query.execute();
@@ -228,23 +228,33 @@ public class DBManager {
 	 * @return an ArrayList with all of the user's reservations  
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Reservation> getReservationsByUser( User vanRenter ) {
+	public List<Reservation> getReservationsByUser( String vanRenter ) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = null;
 		
-		List<Reservation> listOfReservations = new ArrayList<Reservation>();
 		try {
-			System.out.println("   * Retrieving all reservations from van renter " + vanRenter.getName());
-			pm.getFetchPlan().setMaxFetchDepth(2);
+			System.out.println("   * Retrieving reservation for user: " + vanRenter);
+			pm.getFetchPlan().setMaxFetchDepth(4);
 			tx = pm.currentTransaction();
 			tx.begin();
 			
 			Query<Reservation> query = pm.newQuery(Reservation.class);
-			query.setFilter("vanRenter== " + vanRenter); 
+			query.setFilter("vanRenter== '" + vanRenter+ "'");
 			
 			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
-			listOfReservations = (List<Reservation>)query.execute();
-
+			List<Reservation> list = (List<Reservation>)query.execute();
+			
+			List<Reservation> ress = new ArrayList<Reservation>();
+			for (Reservation r : list) {
+				Reservation res = new Reservation();
+				res.setBookingDate(r.getBookingDate());
+				res.setCode(r.getCode());
+				res.setDuration(r.getDuration());
+				res.setVan(r.getVan());
+				res.setVanRenter(r.getVanRenter());
+				ress.add(res);
+			}
+			return ress;
 		} catch (Exception e) {
 			System.out.println("   $ Error retrieving reservations from van renter: " + e.getMessage() );
 		} finally {
@@ -254,7 +264,7 @@ public class DBManager {
 			pm.close();
 		}
 		
-		return listOfReservations;
+		return null;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -290,7 +300,6 @@ public class DBManager {
 				van.setStatus(v.getStatus());
 				van.setUser(v.getUser());
 				vans.add(van);
-				System.out.println("DBMAnager: " + van);
 			}
 			return vans;
 		} catch (Exception e) {

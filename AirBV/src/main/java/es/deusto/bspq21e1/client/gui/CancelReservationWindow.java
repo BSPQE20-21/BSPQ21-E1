@@ -79,7 +79,7 @@ public class CancelReservationWindow extends JFrame{
 		btnCancel = new JButton(controller.getResourcebundle().getString("cancel_button_msg"));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.cancelReservation(jlReservationsList.getSelectedValue());
+				controller.cancelReservation(reservations.get(jlReservationsList.getSelectedIndex()).getCode());
 				frmMain.setVisible(true);
 				frame.dispose();
 			}

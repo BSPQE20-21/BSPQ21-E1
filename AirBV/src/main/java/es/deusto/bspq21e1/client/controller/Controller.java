@@ -63,6 +63,18 @@ public class Controller {
 		}
     }
     
+    public void cancelReservation(String code) {
+    	WebTarget cancelReservationWebTarget = webTarget.path("AirBV/cancelReservation/" + code); 
+		Invocation.Builder invocationBuilder = cancelReservationWebTarget.request(MediaType.APPLICATION_JSON);
+		
+		Response response = invocationBuilder.delete();
+		if (response.getStatus() != Status.OK.getStatusCode()) {
+			System.out.println("Error connecting with the server. Code: " + response.getStatus());
+		} else {
+			System.out.println("Reservation correctly canceled");
+		}
+    }
+    
     public void registerUsers(String dni, String name, String email, String password) {
     	WebTarget registerUserWebTarget = webTarget.path("AirBV/registerUser"); 
 		Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
@@ -132,20 +144,6 @@ public class Controller {
 			System.out.println("Error connecting with the server. Code: " + response.getStatus());
 		} else {
 			System.out.println("Van correctly registered");
-		}
-    }
-    
-    public boolean cancelReservation(String code) {
-    	WebTarget cancelReservationWebTarget = webTarget.path("AirBV/cancelReservation"); 
-		Invocation.Builder invocationBuilder = cancelReservationWebTarget.request(MediaType.APPLICATION_JSON);
-		
-		Response response = invocationBuilder.post(Entity.entity(code, MediaType.APPLICATION_JSON));
-		if (response.getStatus() != Status.OK.getStatusCode()) {
-			System.out.println("Error connecting with the server. Code: " + response.getStatus());
-			return false;
-		} else {
-			System.out.println("Reservation correctly canceled");
-			return true;
 		}
     }
     

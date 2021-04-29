@@ -65,7 +65,7 @@ public class AirBV {
 	private static final String getMyReservations = "/getMyReservations/{dni}";
 	private static final String getVans = "/getVans/{location}";
 	private static final String registerReservation = "/registerReservation";
-	private static final String cancelReservation = "/cancelReservation";
+	private static final String cancelReservation = "/cancelReservation/{code}";
 
     public AirBV() { }
     
@@ -110,12 +110,12 @@ public class AirBV {
     	return Response.status(Response.Status.OK).build();
     }
 
-    @POST
+    @DELETE
     @Path(cancelReservation)
-    public Response cancelReservation(String code) {
+    public Response cancelReservation(@PathParam("code") String code) {
     	logger.debug("Cancel a Reservation request from client received.");
         airbvService.cancelReservation(code);
-        return Response.ok().build();        
+        return Response.status(Response.Status.OK).build();        
     }
     
     @POST

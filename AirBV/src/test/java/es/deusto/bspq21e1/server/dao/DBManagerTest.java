@@ -115,7 +115,7 @@ public class DBManagerTest {
 		
 		DBManager.getInstance().deleteUser(user1.getDni());
 		DBManager.getInstance().deleteUser(user2.getDni());
-		DBManager.getInstance().deleteReservation(res1);
+		DBManager.getInstance().deleteReservation(res1.getCode());
         if (pm != null) {
 			pm.close();
 		}

@@ -18,12 +18,16 @@ public class Reservation {
     private String vanRenter;
 
     public Reservation(Date bookingDate, int duration, String van, String vanRenter) {
-    	this.code = bookingDate.getTime()+"van";
+    	this.code = bookingDate.getTime()+van;
     	this.bookingDate = bookingDate;
         this.duration = duration;
         this.van = van;
         this.vanRenter = vanRenter;
     }
+
+	public Reservation() {
+		
+	}
 
 	public String getCode() {
 		return code;

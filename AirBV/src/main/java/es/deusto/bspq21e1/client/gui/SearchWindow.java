@@ -118,9 +118,7 @@ public class SearchWindow extends JFrame{
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vans = controller.searchVans(txtLocation.getText());
-				if (vans.size() != 0) {
-					updateLists(vans);
-				}
+				updateLists(vans);
 			}
 		});
 		btnSearch.setFont(new Font("Tahoma", Font.ITALIC, 11));
@@ -228,17 +226,17 @@ public class SearchWindow extends JFrame{
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
 	private void updateLists(ArrayList<VanData> vans) {
-		btnCharacteristics.setEnabled(true);
-		System.out.println("Dentro funcion -> "); //TODO
-		for (VanData van : vans) {
-			System.out.println(van.toString());
+		if(vans.size() > 0) {
+			btnCharacteristics.setEnabled(true);
+			vansList.clear();
+			for (int i = 0; i < vans.size(); i++) {
+				VanData v = vans.get(i);
+				vansList.addElement("Van: " + v.getBrand() + " " + v.getModel() + " (" + v.getCapacity() + " people) Price: " + v.getPricePerDay());
+			}
+			jlVansList.setSelectedIndex(0);
+		} else {
+			vansList.clear();
 		}
-		vansList.clear();
-		for (int i = 0; i < vans.size(); i++) {
-			VanData v = vans.get(i);
-			vansList.addElement("Van: " + v.getBrand() + " " + v.getModel() + " (" + v.getCapacity() + " people) Price: " + v.getPricePerDay());
-		}
-		jlVansList.setSelectedIndex(0);
 		jlVansList.updateUI();
 		scrollVans.updateUI();
 		visualizePanel.updateUI();

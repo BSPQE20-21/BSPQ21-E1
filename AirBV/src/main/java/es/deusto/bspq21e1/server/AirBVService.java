@@ -56,8 +56,7 @@ public class AirBVService {
     public boolean cancelReservation(String code) {
     	logger.debug("Canceling the reservation with code: " + code);
         if(reservationsHM.get(code) != null) {
-            DBManager.getInstance().deleteReservation(reservationsHM.get(code));
-            reservationsHM.remove(code);
+            DBManager.getInstance().deleteReservation(code);
             return true;
         }
         logger.error("Error canceling a reservation, the reservation can't be found on HashMap.");
@@ -105,7 +104,7 @@ public class AirBVService {
 
 	public ArrayList<Reservation> getUserReservations(String dni) {
 		logger.debug("Getting all reservations of user: " + dni);
-		return new ArrayList<Reservation>(DBManager.getInstance().getReservationsByUser(usersHM.get(dni)));
+		return (ArrayList<Reservation>) DBManager.getInstance().getReservationsByUser(dni);
 	}
 
 	public void deleteUser(String dni) {
