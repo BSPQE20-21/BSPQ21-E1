@@ -70,8 +70,8 @@ public class Controller {
 		}
     }
     
-    public UserData loginUser(String email, String password) {	// Falta saber como hacer para pasar los params bien
-    	WebTarget loginWebTarget = webTarget.path("AirBV/loginUser/"+email+"/"+password);
+    public UserData loginUser(String email, String password) {
+    	WebTarget loginWebTarget = webTarget.path("AirBV/loginUser/" + email + "/" + password);
     	
     	GenericType<UserData> genericType = new GenericType<UserData>() {};
     	UserData userData = loginWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
