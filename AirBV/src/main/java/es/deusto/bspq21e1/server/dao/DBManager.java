@@ -169,28 +169,28 @@ public class DBManager {
 		
 	}
 	
-	/**
-	 * Necessary for all of the delete functions to work.
-	 * @param object
-	 */
-	private void deleteObject( Object object ) {
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-		
-		try {
-			tx.begin();
-			System.out.println("   * Deleting an object: " + object);
-			pm.deletePersistent(object);
-			tx.commit();
-		} catch (Exception e) {
-			System.out.println("   $ Error deleting an object: " + e.getMessage());
-		} finally {
-			if (tx != null && tx.isActive()) {
-				tx.rollback();
-			}	
-			pm.close();
-		}
-	}
+//	/**
+//	 * Necessary for all of the delete functions to work.
+//	 * @param object
+//	 */
+//	private void deleteObject( Object object ) {
+//		PersistenceManager pm = pmf.getPersistenceManager();
+//		Transaction tx = pm.currentTransaction();
+//		
+//		try {
+//			tx.begin();
+//			System.out.println("   * Deleting an object: " + object);
+//			pm.deletePersistent(object);
+//			tx.commit();
+//		} catch (Exception e) {
+//			System.out.println("   $ Error deleting an object: " + e.getMessage());
+//		} finally {
+//			if (tx != null && tx.isActive()) {
+//				tx.rollback();
+//			}	
+//			pm.close();
+//		}
+//	}
 
 	
 	

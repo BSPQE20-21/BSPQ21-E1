@@ -83,5 +83,9 @@ public class User {
 		this.stars = stars;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		return dni.equals(((User) obj).getDni());
+	}
 
 }

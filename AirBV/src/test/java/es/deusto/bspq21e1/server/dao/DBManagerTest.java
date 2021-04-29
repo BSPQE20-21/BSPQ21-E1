@@ -91,13 +91,7 @@ public class DBManagerTest {
 	public void validateUserTest() {
 		logger.info("Testing validation of users");
 		
-		User user = DBManager.getInstance().validateLogin("user1@gmail.com", "123");
-		
-		assertEquals(user1.getClass(), user.getClass());
-		assertEquals(user1.getDni(), user.getDni());
-		assertEquals(user1.getEmail(), user.getEmail());
-		assertEquals(user1.getName(), user.getName());
-		assertEquals(user1.getPassword(), user.getPassword());
+		assertEquals(user1, DBManager.getInstance().validateLogin("user1@gmail.com", "123"));
 		
 		logger.info("Validation of users tested");
 	}
@@ -106,7 +100,7 @@ public class DBManagerTest {
 	public void searchVanTest() {
 		logger.info("Testing searching of vans");
 		
-//		assertEquals(van1, DBManager.getInstance().getVansByLocation("qwerty"));
+		assertEquals(van1, DBManager.getInstance().getVansByLocation("qwerty").get(0));
 		
 		logger.info("Searching of vans tested");
 	}

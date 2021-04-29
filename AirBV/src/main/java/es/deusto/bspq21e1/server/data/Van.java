@@ -143,6 +143,11 @@ public class Van {
 	public void setReviews(List<Review> reviews) {
 	 	this.reviews = reviews;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return this.licensePlate.equals(((Van)obj).getLicensePlate());
+	}
 
 	@Override
 	public String toString() {
