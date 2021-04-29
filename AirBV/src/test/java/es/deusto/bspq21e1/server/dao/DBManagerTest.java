@@ -10,6 +10,7 @@ import junit.framework.JUnit4TestAdapter;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.text.ParseException;
@@ -67,7 +68,7 @@ public class DBManagerTest {
         
         user1 = new User("1234567A", "userOne", "user1@gmail.com", "123");
         user2 = new User("7654321Z", "userTwo", "user2@gmail.com", "321");
-        van1 = new Van("1111ABC", "Volkswagen", "T25", "qwerty", true, false, false, 2, 100, "1234567A", new ArrayList<Review>() );
+        van1 = new Van("1111ABC", "Volkswagen", "T25", "qwerty", true, false, false, 2, 100, user1.getDni(), new ArrayList<Review>() );
         rev1 = new Review(5, "It is wonderful", van1.getLicensePlate());
         
         Date date = null;
@@ -107,6 +108,16 @@ public class DBManagerTest {
 	}
 	
 	@Test
+	public void getVansByUser() {
+		logger.info("Testing getting vans by user");
+		
+		assertEquals(1, DBManager.getInstance().getVansByUser("1234567A").size());
+		assertEquals(0, DBManager.getInstance().getVansByUser("7654321Z").size());
+		
+		logger.info("Getting vans by users tested");
+	}
+	
+	@Test
 	public void searchVanTest() {
 		logger.info("Testing searching of vans");
 		
@@ -120,18 +131,9 @@ public class DBManagerTest {
 		logger.info("Testing getting a user");
 		
 		assertEquals(user1, DBManager.getInstance().getUser("1234567A"));
+		assertNull(DBManager.getInstance().getUser("1236547A"));
 		
 		logger.info("Getting a user tested");
-	}
-	
-	@Test
-	public void deleteReservationTest() {
-		logger.info("Testing deleting of reservations");
-		
-		assertTrue(DBManager.getInstance().deleteReservation(res1.getCode()));
-		assertFalse(DBManager.getInstance().deleteReservation(res1.getCode()));
-		
-		logger.info("Deleting of reservations tested");
 	}
 	
 	/**
@@ -140,9 +142,16 @@ public class DBManagerTest {
 	@AfterClass
     public static void tearDown() throws Exception {
 		
-		DBManager.getInstance().deleteUser(user1.getDni());
-		DBManager.getInstance().deleteUser(user2.getDni());
-		DBManager.getInstance().deleteVan(van1.getLicensePlate());
+		assertTrue(DBManager.getInstance().deleteReservation(res1.getCode()));
+		assertFalse(DBManager.getInstance().deleteReservation(res1.getCode()));
+		
+		assertTrue(DBManager.getInstance().deleteUser(user1.getDni()));
+		assertTrue(DBManager.getInstance().deleteUser(user2.getDni()));
+		assertFalse(DBManager.getInstance().deleteUser("148419814"));
+		
+		assertTrue(DBManager.getInstance().deleteVan(van1.getLicensePlate()));
+		assertFalse(DBManager.getInstance().deleteVan("54154"));
+		
         if (pm != null) {
 			pm.close();
 		}

@@ -140,7 +140,7 @@ public class DBManager {
 		}
 	}
 	
-	public void deleteUser(String dni) {
+	public boolean deleteUser(String dni) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		
@@ -152,11 +152,16 @@ public class DBManager {
 			query.setUnique(true);
 			
 			User user = (User)query.execute();
+			
+			if(user == null) {
+				return false;
+			}
 
 			System.out.println("   * Deleting an object: " + user.getName());
 			
 			pm.deletePersistent(user);
 			tx.commit();
+			return true;
 		} catch (Exception e) {
 			System.out.println("   $ Error deleting an object: " + e.getMessage());
 		} finally {
@@ -165,11 +170,11 @@ public class DBManager {
 			}	
 			pm.close();
 		}
-		
+		return false;
 		
 	}
 	
-	public void deleteVan(String licensePlate) {
+	public boolean deleteVan(String licensePlate) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		
@@ -181,11 +186,16 @@ public class DBManager {
 			query.setUnique(true);
 			
 			Van van = (Van)query.execute();
+			
+			if(van == null) {
+				return false;
+			}
 
 			System.out.println("   * Deleting an object: " + van.getLicensePlate());
 			
 			pm.deletePersistent(van);
 			tx.commit();
+			return true;
 		} catch (Exception e) {
 			System.out.println("   $ Error deleting an object: " + e.getMessage());
 		} finally {
@@ -194,7 +204,7 @@ public class DBManager {
 			}	
 			pm.close();
 		}
-		
+		return false;
 		
 	}
 	
@@ -361,7 +371,7 @@ public class DBManager {
 			tx.begin();
 			
 			Query<Van> query = pm.newQuery(Van.class);
-			query.setFilter("User== '" + user+ "'");
+			query.setFilter("user== '" + user+ "'");
 			
 			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
 			List<Van> listOfVans = (List<Van>)query.execute();
@@ -385,7 +395,7 @@ public class DBManager {
 			}
 			return vans;
 		} catch (Exception e) {
-			System.out.println("   $ Error retrieving vans with location: " + e.getMessage() );
+			System.out.println("   $ Error retrieving vans by user: " + e.getMessage() );
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
