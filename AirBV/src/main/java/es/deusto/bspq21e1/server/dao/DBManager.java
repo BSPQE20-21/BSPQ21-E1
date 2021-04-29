@@ -107,7 +107,30 @@ public class DBManager {
 	 * @param reservation
 	 */
 	public void deleteReservation( Reservation reservation ) {
-		this.deleteObject( reservation );
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		
+		try {
+			tx.begin();
+			
+			Query<Reservation> query = pm.newQuery(Reservation.class);
+			query.setFilter("code== '" + reservation.getCode()+ "'");
+			query.setUnique(true);
+			
+			Reservation res = (Reservation)query.execute();
+
+			System.out.println("   * Deleting a reservation");
+			
+			pm.deletePersistent(res);
+			tx.commit();
+		} catch (Exception e) {
+			System.out.println("   $ Error deleting an object: " + e.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}	
+			pm.close();
+		}
 	}
 	
 	public void deleteUser(String dni) {

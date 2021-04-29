@@ -2,6 +2,7 @@ package es.deusto.bspq21e1.server.dao;
 
 import org.junit.*;
 
+import es.deusto.bspq21e1.server.data.Reservation;
 import es.deusto.bspq21e1.server.data.Review;
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
@@ -9,7 +10,10 @@ import junit.framework.JUnit4TestAdapter;
 
 import static org.junit.Assert.assertEquals;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
@@ -22,8 +26,6 @@ import org.databene.contiperf.junit.ContiPerfRule;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-//@PerfTest(invocations = 5)
-//@Required(max = 1200, average = 250)
 public class DBManagerTest {
 
 	static Logger logger = Logger.getLogger(DBManagerTest.class.getName());
@@ -43,10 +45,7 @@ public class DBManagerTest {
 	private static User user1;
 	private static User user2;
 	private static Van van1;
-	
-	// If you use the EmptyReportModule, the report is not generated
-	//@Rule public ContiPerfRule rule = new ContiPerfRule(new EmptyReportModule());
-	//@Rule public ContiPerfRule rule = new ContiPerfRule();
+	private static Reservation res1;
 	
 	public static junit.framework.Test suite() {
 		 return new JUnit4TestAdapter(DBManagerTest.class);
@@ -67,9 +66,19 @@ public class DBManagerTest {
         user2 = new User("7654321Z", "userTwo", "user2@gmail.com", "321");
         van1 = new Van("1111ABC", "Volkswagen", "T25", "qwerty", true, false, false, 2, 100, "1234567A", new ArrayList<Review>() );
         
+        Date date = null;
+        try {
+			date = new SimpleDateFormat("dd/MM/yyyy").parse("30/09/2021");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+        res1 = new Reservation(date, 3, van1.getLicensePlate(), user1.getDni());
+        
         DBManager.getInstance().store(user1);
 		DBManager.getInstance().store(user2);
 		DBManager.getInstance().store(van1);
+		DBManager.getInstance().store(res1);
 		
 		logger.info("Leaving setUp");
 	}
@@ -106,7 +115,7 @@ public class DBManagerTest {
 		
 		DBManager.getInstance().deleteUser(user1.getDni());
 		DBManager.getInstance().deleteUser(user2.getDni());
-		
+		DBManager.getInstance().deleteReservation(res1);
         if (pm != null) {
 			pm.close();
 		}

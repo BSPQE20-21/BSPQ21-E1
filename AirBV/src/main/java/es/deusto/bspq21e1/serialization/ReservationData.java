@@ -13,8 +13,8 @@ public class ReservationData {
     private Date bookingDate;
     private int duration;
     
-    private VanData van;
-    private UserData vanRenter;
+    private String van;
+    private String vanRenter;
     
     public ReservationData() {
     	
@@ -28,7 +28,7 @@ public class ReservationData {
 	 * @param van Rented van.
 	 * @param vanRenter Owner of the rented van.
 	 */
-    public ReservationData(String code, Date bookingDate, int duration, VanData van, UserData vanRenter) {
+    public ReservationData(String code, Date bookingDate, int duration, String van, String vanRenter) {
 		super();
 		this.code = code;
 		this.bookingDate = bookingDate;
@@ -44,7 +44,7 @@ public class ReservationData {
 	 * @param van Rented van.
 	 * @param vanRenter Owner of the rented van.
 	 */
-    public ReservationData(Date bookingDate, int duration, VanData van, UserData vanRenter) {
+    public ReservationData(Date bookingDate, int duration, String van, String vanRenter) {
 		super();
 		this.bookingDate = bookingDate;
 		this.duration = duration;
@@ -70,16 +70,16 @@ public class ReservationData {
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
-	public VanData getVan() {
+	public String getVan() {
 		return van;
 	}
-	public void setVan(VanData van) {
+	public void setVan(String van) {
 		this.van = van;
 	}
-	public UserData getVanRenter() {
+	public String getVanRenter() {
 		return vanRenter;
 	}
-	public void setVanRenter(UserData vanRenter) {
+	public void setVanRenter(String vanRenter) {
 		this.vanRenter = vanRenter;
 	}
 	

@@ -64,7 +64,7 @@ public class AirBVService {
         return false;
     }
     
-    public void registerReservation(Date bookingDate, int duration, Van van, User vanRenter) {
+    public void registerReservation(Date bookingDate, int duration, String van, String vanRenter) {
     	logger.debug("Creating and storing new Reservation");
     	Reservation reservation = new Reservation(bookingDate, duration, van, vanRenter);
     	DBManager.getInstance().store(reservation);

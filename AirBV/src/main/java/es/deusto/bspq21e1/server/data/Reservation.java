@@ -16,10 +16,10 @@ public class Reservation {
     private Date bookingDate;
     private int duration;
     
-    private Van van;
-    private User vanRenter;
+    private String van;
+    private String vanRenter;
 
-    public Reservation(Date bookingDate, int duration, Van van, User vanRenter) {
+    public Reservation(Date bookingDate, int duration, String van, String vanRenter) {
     	this.bookingDate = bookingDate;
         this.duration = duration;
         this.van = van;
@@ -50,19 +50,19 @@ public class Reservation {
 		this.duration = duration;
 	}
 
-	public Van getVan() {
+	public String getVan() {
 		return van;
 	}
 
-	public void setVan(Van van) {
+	public void setVan(String van) {
 		this.van = van;
 	}
 
-	public User getVanRenter() {
+	public String getVanRenter() {
 		return vanRenter;
 	}
 
-	public void setVanRenter(User vanRenter) {
+	public void setVanRenter(String vanRenter) {
 		this.vanRenter = vanRenter;
 	}
 }

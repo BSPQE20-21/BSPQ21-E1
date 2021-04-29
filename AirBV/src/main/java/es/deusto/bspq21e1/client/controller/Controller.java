@@ -156,8 +156,8 @@ public class Controller {
     	ReservationData reservationData = new ReservationData();
     	reservationData.setBookingDate(bookingDate);
     	reservationData.setDuration(duration);
-    	reservationData.setVan(vanData);
-    	reservationData.setVanRenter(vanRenter);
+    	reservationData.setVan(vanData.getLicensePlate());
+    	reservationData.setVanRenter(vanRenter.getDni());
 		Response response = invocationBuilder.post(Entity.entity(reservationData, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			System.out.println("Error connecting with the server. Code: " + response.getStatus());

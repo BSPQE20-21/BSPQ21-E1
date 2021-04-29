@@ -18,11 +18,8 @@ public class Assembler {
 		return userData;
     }
 
-	public ReservationData assembleReservation(Reservation r) {
-		VanData vanData = assembleVan(r.getVan());
-		UserData vanRenter = assembleUser(r.getVanRenter());
-		
-		ReservationData reservationData = new ReservationData(r.getCode() , r.getBookingDate(), r.getDuration(), vanData, vanRenter);
+	public ReservationData assembleReservation(Reservation r) {		
+		ReservationData reservationData = new ReservationData(r.getCode() , r.getBookingDate(), r.getDuration(), r.getVan(), r.getVanRenter());
 		return reservationData;
     }
 
@@ -49,11 +46,8 @@ public class Assembler {
 
     }
 
-    public Reservation disassembleReservation(ReservationData r) {
-    	Van van = disassembleVan(r.getVan());
-    	User user = disassembleUser(r.getVanRenter());
-    	
-    	Reservation reservationData = new Reservation(r.getBookingDate(), r.getDuration(), van, user);
+    public Reservation disassembleReservation(ReservationData r) {    	
+    	Reservation reservationData = new Reservation(r.getBookingDate(), r.getDuration(), r.getVan(), r.getVanRenter());
     	return reservationData;
     }
 
