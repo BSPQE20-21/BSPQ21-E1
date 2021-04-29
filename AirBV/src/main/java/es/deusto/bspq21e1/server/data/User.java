@@ -35,7 +35,7 @@ public class User {
      * Calculates the average of the ratings given to a user
      * @return average number of stars
      */
-    public int getStartsAverage(){
+    public int getStarsAverage(){
         int sum = 0;
         for(int i = 0; i < stars.size(); i++){
             sum+=stars.get(i);

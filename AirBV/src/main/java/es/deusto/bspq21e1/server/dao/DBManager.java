@@ -9,7 +9,6 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 import javax.jdo.Query;
 
-import es.deusto.bspq21e1.serialization.VanData;
 import es.deusto.bspq21e1.server.data.Reservation;
 import es.deusto.bspq21e1.server.data.Review;
 import es.deusto.bspq21e1.server.data.User;
@@ -112,7 +111,32 @@ public class DBManager {
 	}
 	
 	public void deleteUser(String dni) {
-		this.deleteObject( this.getUser(dni) );
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		
+		try {
+			tx.begin();
+			
+			Query<User> query = pm.newQuery(User.class);
+			query.setFilter("dni== '" + dni+ "'");
+			query.setUnique(true);
+			
+			User user = (User)query.execute();
+
+			System.out.println("   * Deleting an object: " + user.getName());
+			
+			pm.deletePersistent(user);
+			tx.commit();
+		} catch (Exception e) {
+			System.out.println("   $ Error deleting an object: " + e.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}	
+			pm.close();
+		}
+		
+		
 	}
 	
 	/**
@@ -286,7 +310,15 @@ public class DBManager {
 				System.out.println("   * User retrieved from DB: " + user.getName());
 			}
 			
-			return user;
+			User u = new User();
+			
+			u.setDni(user.getDni());
+			u.setEmail(user.getEmail());
+			u.setName(user.getName());
+			u.setPassword(user.getPassword());
+			u.setStars(user.getStars());
+			
+			return u;
 			
 		} catch (Exception e) {
 			System.out.println("   $ Error retrieving user: " + e.getMessage() );

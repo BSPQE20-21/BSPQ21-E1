@@ -7,6 +7,8 @@ import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
 import junit.framework.JUnit4TestAdapter;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 
 import javax.jdo.JDOHelper;
@@ -28,15 +30,19 @@ public class DBManagerTest {
 	/**
 	 * This variable represents the persistence manager factory instance
 	 */
-	private PersistenceManagerFactory pmf = null;
+	private static PersistenceManagerFactory pmf = null;
 	/**
 	* This variable represents the persistence manager instance
 	*/
-	private PersistenceManager pm = null;
+	private static PersistenceManager pm = null;
 	/**
 	* This variable represents the transaction instance
 	*/
-	private Transaction tx = null;
+	private static Transaction tx = null;
+	
+	private static User user1;
+	private static User user2;
+	private static Van van1;
 	
 	// If you use the EmptyReportModule, the report is not generated
 	//@Rule public ContiPerfRule rule = new ContiPerfRule(new EmptyReportModule());
@@ -49,34 +55,60 @@ public class DBManagerTest {
 	/**
 	 * It initializes the variables used by the other methods
 	 */
-	@Before
-	public void setUp() {
+	@BeforeClass
+	public static void setUp() {
 		logger.info("Entering setUp");
 		// Code executed before each test    
-		this.pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-		this.pm = this.pmf.getPersistenceManager();
-        this.tx = this.pm.currentTransaction();
+		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+		pm = pmf.getPersistenceManager();
+        tx = pm.currentTransaction();
         
-        User user1 = new User("1234567A", "userOne", "user1@gmail.com", "123");
-        User user2 = new User("7654321Z", "userTwo", "user2@gmail.com", "321");
-        Van van1 = new Van("1111ABC", "Volkswagen", "T25", "qwerty", true, false, false, 2, 100, "1234567A", new ArrayList<Review>() );
+        user1 = new User("1234567A", "userOne", "user1@gmail.com", "123");
+        user2 = new User("7654321Z", "userTwo", "user2@gmail.com", "321");
+        van1 = new Van("1111ABC", "Volkswagen", "T25", "qwerty", true, false, false, 2, 100, "1234567A", new ArrayList<Review>() );
+        
+        DBManager.getInstance().store(user1);
+		DBManager.getInstance().store(user2);
+		DBManager.getInstance().store(van1);
 		
 		logger.info("Leaving setUp");
 	}
 	
 	@Test
-	public void searchVanTest() {
+	public void validateUserTest() {
+		logger.info("Testing validation of users");
 		
+		User user = DBManager.getInstance().validateLogin("user1@gmail.com", "123");
+		
+		assertEquals(user1.getClass(), user.getClass());
+		assertEquals(user1.getDni(), user.getDni());
+		assertEquals(user1.getEmail(), user.getEmail());
+		assertEquals(user1.getName(), user.getName());
+		assertEquals(user1.getPassword(), user.getPassword());
+		
+		logger.info("Validation of users tested");
+	}
+	
+	@Test
+	public void searchVanTest() {
+		logger.info("Testing searching of vans");
+		
+//		assertEquals(van1, DBManager.getInstance().getVansByLocation("qwerty"));
+		
+		logger.info("Searching of vans tested");
 	}
 	
 	/**
 	 * Removes everything not needed after executing a test
 	*/
-	@After
-    public void tearDown() throws Exception {
+	@AfterClass
+    public static void tearDown() throws Exception {
 		
-        if (this.pm != null) {
-			this.pm.close();
+		DBManager.getInstance().deleteUser(user1.getDni());
+		DBManager.getInstance().deleteUser(user2.getDni());
+		
+        if (pm != null) {
+			pm.close();
 		}
 		
     }
