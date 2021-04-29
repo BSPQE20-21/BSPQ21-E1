@@ -181,7 +181,7 @@ public class SearchWindow extends JFrame{
 				VanData van = vans.get(jlVansList.getSelectedIndex());
 				
 				int milisecondsByDay = 86400000;
-				int days = (int) ((pickUpDate.getTime()-returnDate.getTime()) / milisecondsByDay);
+				int days = (int) ((returnDate.getTime()-pickUpDate.getTime()) / milisecondsByDay);
 				
 				controller.registerReservation(pickUpDate, days, van, user);
 			
