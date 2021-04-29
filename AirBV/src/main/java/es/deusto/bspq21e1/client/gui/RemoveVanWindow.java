@@ -13,13 +13,17 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
+import org.apache.log4j.Logger;
+
 import es.deusto.bspq21e1.client.controller.Controller;
+import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
 
 public class RemoveVanWindow extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger(CancelReservationWindow.class.getName());
 	private Controller controller;
 	private UserData user;
 	private JFrame frmMain;
@@ -49,12 +53,12 @@ public class RemoveVanWindow extends JFrame {
 		frmRemoveVan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRemoveVan.getContentPane().setLayout(null);
 		
-		vans = controller.getMyVans( user.getDni() );
-		for (int i = 0; i < vans.size(); i++) {
-			System.out.println("CARAVANA LLEGA BIEN: " + vans.get(i).getLicensePlate());
-			VanData v = vans.get(i);
-			vansList.addElement( "Van: " + v.getLicensePlate() + "   Brand: " + v.getBrand() + "   Model: " + v.getModel());
-		}
+//		vans = controller.getMyVans( user.getDni() );
+//		for (int i = 0; i < vans.size(); i++) {
+//			System.out.println("CARAVANA LLEGA BIEN: " + vans.get(i).getLicensePlate());
+//			VanData v = vans.get(i);
+//			vansList.addElement( "Van: " + v.getLicensePlate() + "   Brand: " + v.getBrand() + "   Model: " + v.getModel());
+//		}
 		
 		jlVansList = new JList<String>();
 		jlVansList.setModel(vansList);
@@ -86,8 +90,10 @@ public class RemoveVanWindow extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				VanData van = vans.get(jlVansList.getSelectedIndex());
 				controller.eraseVan( van.getLicensePlate() );
-				frmMain.setVisible(true);
-				frmRemoveVan.dispose();
+				vans = controller.getMyVans(user.getDni());
+				updateLists(vans);
+//				frmMain.setVisible(true);
+//				frmRemoveVan.dispose();
 			}
 		});
 		frmRemoveVan.getContentPane().add(btnRemove);
@@ -99,5 +105,17 @@ public class RemoveVanWindow extends JFrame {
 		frmRemoveVan.getContentPane().add(lblText);
 		lblText.updateUI();
 		
+		vans = controller.getMyVans(user.getDni());
+		updateLists(vans);
+	}
+	
+	private void updateLists(ArrayList<VanData> vans) {
+		logger.debug("Inside function -> " + vans);
+		vansList.clear();
+		for (int i = 0; i < vans.size(); i++) {
+			VanData v = (VanData) vans.get(i);
+			vansList.addElement(v.toString());
+		}
+		jlVansList.setSelectedIndex(0);
 	}
 }
