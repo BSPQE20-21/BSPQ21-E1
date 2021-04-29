@@ -340,7 +340,6 @@ public class DBManager {
 				van.setModel(v.getModel());
 				van.setOffRoad(v.isOffRoad());
 				van.setPricePerDay(v.getPricePerDay());
-				van.setReviews(v.getReviews());
 				van.setShower(v.hasShower());
 				van.setStatus(v.getStatus());
 				van.setUser(v.getUser());
@@ -387,7 +386,6 @@ public class DBManager {
 				van.setModel(v.getModel());
 				van.setOffRoad(v.isOffRoad());
 				van.setPricePerDay(v.getPricePerDay());
-				van.setReviews(v.getReviews());
 				van.setShower(v.hasShower());
 				van.setStatus(v.getStatus());
 				van.setUser(v.getUser());
@@ -429,7 +427,8 @@ public class DBManager {
 			User user = (User)query.execute(); // The UNIQUE query itself returns null if there are no results. 
 			
 			if( null == user ) {
-				System.out.println("   * Email or passord incorrect in login quer" );
+				System.out.println("   * Email or passord incorrect in login query" );
+				return null;
 			} else {
 				System.out.println("   * User retrieved from DB: " + user.getName());
 			}
@@ -452,7 +451,6 @@ public class DBManager {
 			}	
 			pm.close();
 		}
-		
 		return null;
 	}
 	

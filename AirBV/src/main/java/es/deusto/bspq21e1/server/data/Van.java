@@ -22,16 +22,13 @@ public class Van {
     private double pricePerDay;
     
     private String user;
-
-    @Join
-    private List<Review> reviews;
     
     public Van() {
     	
     }
 
     public Van(String licensePlate, String brand, String model, String location, boolean kitchen, boolean shower, boolean offRoad,
-    int capacity, double pricePerDay, String user, List<Review> reviews) {
+    int capacity, double pricePerDay, String user) {
         this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
@@ -43,7 +40,6 @@ public class Van {
         this.capacity = capacity;
         this.pricePerDay = pricePerDay;
         this.user = user;
-        this.reviews = reviews;
     }
 
     // Getters and setters
@@ -135,14 +131,6 @@ public class Van {
 	public void setUser(String user) {
 		this.user = user;
 	}
-
-	public List<Review> getReviews() {
-		return reviews;
-	}
-
-	public void setReviews(List<Review> reviews) {
-	 	this.reviews = reviews;
-	}
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -153,8 +141,7 @@ public class Van {
 	public String toString() {
 		return "Van [licensePlate=" + licensePlate + ", brand=" + brand + ", model=" + model + ", status=" + status
 				+ ", location=" + location + ", kitchen=" + kitchen + ", shower=" + shower + ", offRoad=" + offRoad
-				+ ", capacity=" + capacity + ", pricePerDay=" + pricePerDay + ", user dni=" + user + ", reviews=" + reviews
-				+ "]";
+				+ ", capacity=" + capacity + ", pricePerDay=" + pricePerDay + ", user dni=" + user + "]";
 	}
 
 	

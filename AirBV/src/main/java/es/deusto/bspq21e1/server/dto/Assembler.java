@@ -28,14 +28,7 @@ public class Assembler {
     }
 
     public VanData assembleVan(Van v) {
-    	ArrayList<ReviewData> reviews = new ArrayList<ReviewData>();
-    	if(v.getReviews() != null) {
-    		for (Review r : v.getReviews()) {
-    			reviews.add(assembleReview(r));
-    		}
-    	}
-    	
-    	VanData vanData = new VanData(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.getCapacity(), v.hasKitchen(), v.hasShower(), v.isOffRoad(),  v.getPricePerDay(), v.getUser(), reviews);
+    	VanData vanData = new VanData(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.getCapacity(), v.hasKitchen(), v.hasShower(), v.isOffRoad(),  v.getPricePerDay(), v.getUser());
     	return vanData;	
     }
     
@@ -56,14 +49,7 @@ public class Assembler {
     }
 
     public Van disassembleVan(VanData v) {
-    	ArrayList<Review> reviews = new ArrayList<Review>();
-    	if(v.getReviews() != null) {
-    		for (ReviewData r : v.getReviews()) {
-    			reviews.add(disassembleReview(r));
-    		}
-    	}
-    	
-    	Van van = new Van(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.hasKitchen(), v.hasShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay(), v.getUser(), reviews);
+    	Van van = new Van(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.hasKitchen(), v.hasShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay(), v.getUser());
     	
 		logger.debug("$ DEBUGGING\n" +
 				"\tPrinting Van and User from Assembler in Server side:\n"+

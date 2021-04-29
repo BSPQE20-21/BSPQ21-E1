@@ -68,7 +68,7 @@ public class DBManagerTest {
         
         user1 = new User("1234567A", "userOne", "user1@gmail.com", "123");
         user2 = new User("7654321Z", "userTwo", "user2@gmail.com", "321");
-        van1 = new Van("1111ABC", "Volkswagen", "T25", "qwerty", true, false, false, 2, 100, user1.getDni(), new ArrayList<Review>() );
+        van1 = new Van("1111ABC", "Volkswagen", "T25", "qwerty", true, false, false, 2, 100, user1.getDni());
         rev1 = new Review(5, "It is wonderful", van1.getLicensePlate());
         
         Date date = null;
@@ -93,6 +93,7 @@ public class DBManagerTest {
 		logger.info("Testing validation of users");
 		
 		assertEquals(user1, DBManager.getInstance().validateLogin("user1@gmail.com", "123"));
+		assertEquals(null, DBManager.getInstance().validateLogin("user2@gmail.com", "123"));
 		
 		logger.info("Validation of users tested");
 	}

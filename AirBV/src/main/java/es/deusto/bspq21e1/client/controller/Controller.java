@@ -141,7 +141,6 @@ public class Controller {
 		van.setOffRoad(vanData.isOffRoad());
 		van.setPricePerDay(vanData.getPricePerDay());
 		van.setShower(vanData.hasShower());
-		van.setReviews(vanData.getReviews());
 		van.setUser(vanData.getUser());
 		
 		logger.debug("$ DEBUGGING\n" +
