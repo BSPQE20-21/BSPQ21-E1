@@ -237,6 +237,7 @@ public class SearchWindow extends JFrame{
 		} else {
 			vansList.clear();
 		}
+		jlVansList.setModel(vansList);
 		jlVansList.updateUI();
 		scrollVans.updateUI();
 		visualizePanel.updateUI();
