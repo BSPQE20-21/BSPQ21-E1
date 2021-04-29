@@ -2,6 +2,8 @@ package es.deusto.bspq21e1.server.dto;
 
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+
 import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
@@ -13,6 +15,8 @@ import es.deusto.bspq21e1.server.data.Review;
 
 public class Assembler {
     
+	private static Logger logger = Logger.getLogger(Assembler.class.getName());
+	
     public UserData assembleUser(User u) {
 		UserData userData = new UserData(u.getDni(), u.getName(), u.getName(), u.getPassword());
 		return userData;
@@ -61,7 +65,7 @@ public class Assembler {
     	
     	Van van = new Van(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.hasKitchen(), v.hasShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay(), v.getUser(), reviews);
     	
-		System.out.println("$ DEBUGGING\n" +
+		logger.debug("$ DEBUGGING\n" +
 				"\tPrinting Van and User from Assembler in Server side:\n"+
 				"\tVan: " + van +
 				"\n\tUser: " + van.getUser().toString() +

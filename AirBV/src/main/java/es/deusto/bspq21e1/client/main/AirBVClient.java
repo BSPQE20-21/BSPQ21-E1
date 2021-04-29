@@ -1,5 +1,7 @@
 package es.deusto.bspq21e1.client.main;
 
+import org.apache.log4j.Logger;
+
 import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.client.gui.InitialWindow;
 
@@ -14,9 +16,12 @@ import es.deusto.bspq21e1.client.gui.InitialWindow;
  *
  */
 public class AirBVClient {
+	
+	private static Logger logger = Logger.getLogger(AirBVClient.class.getName());
+	
 	public static void main(String[] args) {
         if (args.length != 2) {
-			System.out.println("Use: java Client.Client [host] [port]");
+			logger.debug("Use: java Client.Client [host] [port]");
 			System.exit(0);
 		}
         

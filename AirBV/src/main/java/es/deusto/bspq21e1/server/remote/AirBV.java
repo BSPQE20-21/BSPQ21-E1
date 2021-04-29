@@ -1,10 +1,6 @@
 package es.deusto.bspq21e1.server.remote;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Hashtable;
 
 import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
@@ -15,22 +11,16 @@ import es.deusto.bspq21e1.server.data.Van;
 import es.deusto.bspq21e1.server.dto.Assembler;
 import es.deusto.bspq21e1.server.AirBVService;
 
-import es.deusto.bspq21e1.serialization.*;
-
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 
 import org.apache.log4j.Logger;
-
-
 
 /**
  * This is the remote façade pattern class.
@@ -41,11 +31,11 @@ import org.apache.log4j.Logger;
  * {@Path} in the class definition is used to define the HTTP path, as well
  * as all of the {@Path} seen bellow in the corresponding methods. 
  * 
- * @author Iñigo (adaptation from RMI to RESTful API).
+ * @author Group 3
  *
  */
 
-@Path("/AirBV")    //ABITRARILY DEFINED.
+@Path("/AirBV")
 @Produces(MediaType.APPLICATION_JSON)
 public class AirBV {
 
@@ -69,7 +59,6 @@ public class AirBV {
 
     public AirBV() { }
     
-    // Here will go the methods
     @POST
     @Path(registerUser)
     public Response registerUser(UserData userData) {

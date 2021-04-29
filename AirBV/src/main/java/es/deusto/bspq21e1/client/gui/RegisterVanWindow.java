@@ -7,6 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
+
+import org.apache.log4j.Logger;
+
 import javax.swing.JSpinner;
 import javax.swing.JRadioButton;
 
@@ -24,6 +27,7 @@ import java.awt.event.ActionEvent;
 public class RegisterVanWindow extends JFrame{
 
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger(RegisterVanWindow.class.getName());
 	private Controller controller;
 	private UserData user;
 	private JFrame frmMain;
@@ -228,7 +232,7 @@ public class RegisterVanWindow extends JFrame{
 					
 					VanData vanData = new VanData(licensePlate, brand, model, location, capacity, kitchen, shower, offRoad, pricePerDay, user.getDni(), new ArrayList<ReviewData>());
 					// DEBUGGING:
-					System.out.println("$ DEBUGGING\n" +
+					logger.debug("$ DEBUGGING\n" +
 							"\tPrinting VanData and User from RegisterVanWindow in Client side:\n"+
 							"\tVan: " + vanData +
 							"\n\tUser: " + vanData.getUser() +

@@ -87,7 +87,7 @@ public class AirBVService {
 		logger.debug("Searching vans with location: "+ location);
 		ArrayList<Van> vanAL = new ArrayList<Van>(DBManager.getInstance().getVansByLocation(location));
 		for( Van v : vanAL ) { 
-			System.out.println("Van in AIRBVSerice" + v);
+			logger.debug("Van in AIRBVService: " + v);
 			vansHM.put(v.getLicensePlate(), v); 
 		}
 		

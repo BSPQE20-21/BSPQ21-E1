@@ -3,12 +3,8 @@ package es.deusto.bspq21e1.server.data;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
-
-import es.deusto.bspq21e1.serialization.VanData;
 
 @PersistenceCapable
 public class User {

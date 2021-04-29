@@ -85,7 +85,6 @@ public class LogInWindow extends JFrame{
 		JButton btnRegisterVan = new JButton(controller.getResourcebundle().getString("login_msg"));
 		btnRegisterVan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					
 				UserData userData = controller.loginUser( txtFieldEmail.getText(), new String(passwordField.getPassword()) );
 				if (userData != null)  {
 					frmLogIn.dispose();
@@ -105,9 +104,7 @@ public class LogInWindow extends JFrame{
 		btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				goToInitialWindow();
-		
 			}
 		});
 		btnBack.setBounds(29, 264, 89, 23);

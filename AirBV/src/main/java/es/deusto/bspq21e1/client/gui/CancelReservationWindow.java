@@ -5,10 +5,11 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
+import org.apache.log4j.Logger;
+
 import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
-import es.deusto.bspq21e1.serialization.VanData;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +17,6 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
 import java.awt.Font;
 
 /**
@@ -27,6 +27,7 @@ import java.awt.Font;
 public class CancelReservationWindow extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger(CancelReservationWindow.class.getName());
 	private Controller controller;
 	private UserData user;
 	private JFrame frmMain;
@@ -105,7 +106,7 @@ public class CancelReservationWindow extends JFrame{
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
 	private void updateLists(ArrayList<ReservationData> reservations) {
-		System.out.println("Dentro funcion -> " + reservations); //TODO
+		logger.debug("Inside function -> " + reservations);
 		reservationsList.clear();
 		for (int i = 0; i < reservations.size(); i++) {
 			ReservationData v = (ReservationData) reservations.get(i);

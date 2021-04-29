@@ -27,9 +27,6 @@ import java.awt.Color;
 
 public class SearchWindow extends JFrame{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Controller controller;
 	private UserData user;
