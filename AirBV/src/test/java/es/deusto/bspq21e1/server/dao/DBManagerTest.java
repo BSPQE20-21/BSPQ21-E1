@@ -97,6 +97,16 @@ public class DBManagerTest {
 	}
 	
 	@Test
+	public void getReservationsByUser() {
+		logger.info("Testing getting reservations by user");
+		
+		assertEquals(1, DBManager.getInstance().getReservationsByUser("1234567A").size());
+		assertEquals(0, DBManager.getInstance().getReservationsByUser("7654321Z").size());
+		
+		logger.info("Getting reservations by users tested");
+	}
+	
+	@Test
 	public void searchVanTest() {
 		logger.info("Testing searching of vans");
 		

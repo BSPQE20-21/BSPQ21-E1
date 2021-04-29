@@ -350,6 +350,52 @@ public class DBManager {
 		
 	}
 	
+	public List<Van> getVansByUser( String user) { 
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = null;
+		
+		try {
+			System.out.println("   * Retrieving all user's (" + user + ") vans");
+			pm.getFetchPlan().setMaxFetchDepth(4);
+			tx = pm.currentTransaction();
+			tx.begin();
+			
+			Query<Van> query = pm.newQuery(Van.class);
+			query.setFilter("User== '" + user+ "'");
+			
+			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
+			List<Van> listOfVans = (List<Van>)query.execute();
+			
+			List<Van> vans = new ArrayList<Van>();
+			for (Van v : listOfVans) {
+				Van van = new Van();
+				van.setBrand(v.getBrand());
+				van.setCapacity(v.getCapacity());
+				van.setKitchen(v.hasKitchen());
+				van.setLicensePlate(v.getLicensePlate());
+				van.setLocation(v.getLocation());
+				van.setModel(v.getModel());
+				van.setOffRoad(v.isOffRoad());
+				van.setPricePerDay(v.getPricePerDay());
+				van.setReviews(v.getReviews());
+				van.setShower(v.hasShower());
+				van.setStatus(v.getStatus());
+				van.setUser(v.getUser());
+				vans.add(van);
+			}
+			return vans;
+		} catch (Exception e) {
+			System.out.println("   $ Error retrieving vans with location: " + e.getMessage() );
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}	
+			pm.close();
+		}
+		
+		return null;
+		
+	}
 	
 	/**
 	 * Method that searchs for a user given an email and password.
