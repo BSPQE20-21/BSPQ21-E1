@@ -9,9 +9,7 @@ import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 public class Reservation {
-	// Primary key is generated as AUTOINCREMENT.
 	@PrimaryKey
-	@Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     private String code;
     private Date bookingDate;
     private int duration;
@@ -20,6 +18,7 @@ public class Reservation {
     private String vanRenter;
 
     public Reservation(Date bookingDate, int duration, String van, String vanRenter) {
+    	this.code = bookingDate.getTime()+"van";
     	this.bookingDate = bookingDate;
         this.duration = duration;
         this.van = van;

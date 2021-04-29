@@ -114,7 +114,8 @@ public class DBManager {
 			tx.begin();
 			
 			Query<Reservation> query = pm.newQuery(Reservation.class);
-			query.setFilter("code== '" + reservation.getCode()+ "'");
+			
+			query.setFilter("code == '" + reservation.getCode() + "'");
 			query.setUnique(true);
 			
 			Reservation res = (Reservation)query.execute();
