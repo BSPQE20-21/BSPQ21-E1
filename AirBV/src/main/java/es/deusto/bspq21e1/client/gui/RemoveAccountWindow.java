@@ -54,9 +54,7 @@ public class RemoveAccountWindow extends JFrame {
 		btnYes.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// IMPLEMENTAR AQUÍ FUNCIONALIDAD DE ELIMINAR USUARIO
-				
-				// IMPLEMENTAR AQUÍ FUNCIONALIDAD DE ELIMINAR USUARIO
+				controller.eraseUser( userData.getDni() );
 				new InitialWindow(controller);
 				frmRemoveAccount.dispose();
 			}

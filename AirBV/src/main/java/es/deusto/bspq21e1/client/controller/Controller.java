@@ -52,6 +52,17 @@ public class Controller {
 		return new ArrayList<VanData>();
     }
     
+    public void eraseUser(String dni) {
+    	WebTarget eraseUserWebTarget = webTarget.path("AirBV/deleteUser/" + dni);
+    	Invocation.Builder invocationBuilder = eraseUserWebTarget.request(MediaType.APPLICATION_JSON);
+    	
+    	Response response = invocationBuilder.delete(); // Revise
+    	if (response.getStatus() != Status.OK.getStatusCode()) {
+    		System.out.println("Error connecting with the server. Code: " + response.getStatus());
+			System.out.println("Error: " + response.toString());
+		}
+    }
+    
     public void registerUsers(String dni, String name, String email, String password) {
     	WebTarget registerUserWebTarget = webTarget.path("AirBV/registerUser"); 
 		Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
