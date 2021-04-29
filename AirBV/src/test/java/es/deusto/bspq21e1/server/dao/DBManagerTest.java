@@ -9,6 +9,8 @@ import es.deusto.bspq21e1.server.data.Van;
 import junit.framework.JUnit4TestAdapter;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -46,6 +48,7 @@ public class DBManagerTest {
 	private static User user2;
 	private static Van van1;
 	private static Reservation res1;
+	private static Review rev1;
 	
 	public static junit.framework.Test suite() {
 		 return new JUnit4TestAdapter(DBManagerTest.class);
@@ -65,12 +68,12 @@ public class DBManagerTest {
         user1 = new User("1234567A", "userOne", "user1@gmail.com", "123");
         user2 = new User("7654321Z", "userTwo", "user2@gmail.com", "321");
         van1 = new Van("1111ABC", "Volkswagen", "T25", "qwerty", true, false, false, 2, 100, "1234567A", new ArrayList<Review>() );
+        rev1 = new Review(5, "It is wonderful", van1.getLicensePlate());
         
         Date date = null;
         try {
 			date = new SimpleDateFormat("dd/MM/yyyy").parse("30/09/2021");
 		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
         res1 = new Reservation(date, 3, van1.getLicensePlate(), user1.getDni());
@@ -79,6 +82,7 @@ public class DBManagerTest {
 		DBManager.getInstance().store(user2);
 		DBManager.getInstance().store(van1);
 		DBManager.getInstance().store(res1);
+		DBManager.getInstance().store(rev1);
 		
 		logger.info("Leaving setUp");
 	}
@@ -107,6 +111,16 @@ public class DBManagerTest {
 		logger.info("Searching of vans tested");
 	}
 	
+	@Test
+	public void deleteReservationTest() {
+		logger.info("Testing deleting of reservations");
+		
+		assertTrue(DBManager.getInstance().deleteReservation(res1.getCode()));
+		assertFalse(DBManager.getInstance().deleteReservation(res1.getCode()));
+		
+		logger.info("Deleting of reservations tested");
+	}
+	
 	/**
 	 * Removes everything not needed after executing a test
 	*/
@@ -115,7 +129,6 @@ public class DBManagerTest {
 		
 		DBManager.getInstance().deleteUser(user1.getDni());
 		DBManager.getInstance().deleteUser(user2.getDni());
-		DBManager.getInstance().deleteReservation(res1.getCode());
         if (pm != null) {
 			pm.close();
 		}

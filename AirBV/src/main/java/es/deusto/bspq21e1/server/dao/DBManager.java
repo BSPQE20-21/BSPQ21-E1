@@ -106,7 +106,7 @@ public class DBManager {
 	 * Deletes a reservation from the DB.
 	 * @param reservation
 	 */
-	public void deleteReservation( String reservation ) {
+	public boolean deleteReservation( String reservation ) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		
@@ -122,10 +122,16 @@ public class DBManager {
 
 			System.out.println("   * Deleting a reservation");
 			
+			if(res == null) {
+				return false;
+			}
+			
 			pm.deletePersistent(res);
 			tx.commit();
+			return true;
 		} catch (Exception e) {
 			System.out.println("   $ Error deleting an object: " + e.getMessage());
+			return false;
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -368,72 +374,72 @@ public class DBManager {
 	////////////////////////////
 	//		"GET IT ALL"      //
 	////////////////////////////
-	/**
-	 * Method for debugging.
-	 * @return arraylist of all users
-	 */
-	public ArrayList<User> getAllUsers() {
-		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(2);
-		
-		Transaction tx = pm.currentTransaction();
-		
-
-		ArrayList<User> usersList = new ArrayList<>();
-
-		try {
-			tx.begin();
-			System.out.println("   * Retrieving all Users");
-			//Extent<User> e = pm.getExtent(User.class, true);
-//			Iterator<User> iter = pm.getExtent(User.class, true ).iterator();
-//			while (iter.hasNext()) {
-//				usersList.add(iter.next());
+//	/**
+//	 * Method for debugging.
+//	 * @return arraylist of all users
+//	 */
+//	public ArrayList<User> getAllUsers() {
+//		PersistenceManager pm = pmf.getPersistenceManager();
+//		pm.getFetchPlan().setMaxFetchDepth(2);
+//		
+//		Transaction tx = pm.currentTransaction();
+//		
+//
+//		ArrayList<User> usersList = new ArrayList<>();
+//
+//		try {
+//			tx.begin();
+//			System.out.println("   * Retrieving all Users");
+//			//Extent<User> e = pm.getExtent(User.class, true);
+////			Iterator<User> iter = pm.getExtent(User.class, true ).iterator();
+////			while (iter.hasNext()) {
+////				usersList.add(iter.next());
+////			}
+//			pm.getExtent(User.class, true).iterator().forEachRemaining(usersList::add); // Apparently faster.
+//			tx.commit();
+//		} catch (Exception e) {
+//			System.out.println("   $ Error retrieving all Users: " + e.getMessage());
+//		} finally {
+//			if (tx.isActive()) {
+//				tx.rollback();
 //			}
-			pm.getExtent(User.class, true).iterator().forEachRemaining(usersList::add); // Apparently faster.
-			tx.commit();
-		} catch (Exception e) {
-			System.out.println("   $ Error retrieving all Users: " + e.getMessage());
-		} finally {
-			if (tx.isActive()) {
-				tx.rollback();
-			}
-			pm.close();
-		}
-
-		return usersList;
-	}
-
-	/**
-	 * Method for debugging.
-	 * @return arraylist of all vans
-	 */
-	public ArrayList<Van> getAllVans() {
-		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(2);
-
-		Transaction tx = pm.currentTransaction();
-
-		ArrayList<Van> vanList = new ArrayList<>();
-
-		try {
-			tx.begin();
-			System.out.println("   * Retrieving all Vans");
-			//Extent<User> e = pm.getExtent(Van.class, true);
-//			Iterator<User> iter = pm.getExtent(Van.class, true ).iterator();
-//			while (iter.hasNext()) {
-//				vanList.add(iter.next());
+//			pm.close();
+//		}
+//
+//		return usersList;
+//	}
+//
+//	/**
+//	 * Method for debugging.
+//	 * @return arraylist of all vans
+//	 */
+//	public ArrayList<Van> getAllVans() {
+//		PersistenceManager pm = pmf.getPersistenceManager();
+//		pm.getFetchPlan().setMaxFetchDepth(2);
+//
+//		Transaction tx = pm.currentTransaction();
+//
+//		ArrayList<Van> vanList = new ArrayList<>();
+//
+//		try {
+//			tx.begin();
+//			System.out.println("   * Retrieving all Vans");
+//			//Extent<User> e = pm.getExtent(Van.class, true);
+////			Iterator<User> iter = pm.getExtent(Van.class, true ).iterator();
+////			while (iter.hasNext()) {
+////				vanList.add(iter.next());
+////			}
+//			pm.getExtent(Van.class, true).iterator().forEachRemaining(vanList::add); // Apparently faster.
+//			tx.commit();
+//		} catch (Exception e) {
+//			System.out.println("   $ Error retrieving all Vans: " + e.getMessage());
+//		} finally {
+//			if (tx.isActive()) {
+//				tx.rollback();
 //			}
-			pm.getExtent(Van.class, true).iterator().forEachRemaining(vanList::add); // Apparently faster.
-			tx.commit();
-		} catch (Exception e) {
-			System.out.println("   $ Error retrieving all Vans: " + e.getMessage());
-		} finally {
-			if (tx.isActive()) {
-				tx.rollback();
-			}
-			pm.close();
-		}
-
-		return vanList;
-	}
+//			pm.close();
+//		}
+//
+//		return vanList;
+//	}
 }

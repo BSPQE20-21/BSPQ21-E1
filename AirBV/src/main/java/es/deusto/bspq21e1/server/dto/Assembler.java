@@ -36,7 +36,7 @@ public class Assembler {
     }
     
     public ReviewData assembleReview(Review r) {
-		ReviewData reviewData = new ReviewData(r.getCode(), r.getComment());
+		ReviewData reviewData = new ReviewData(r.getCode(), r.getComment(), r.getVan());
 		return reviewData;
     }
 
@@ -72,7 +72,7 @@ public class Assembler {
     }
 
     public Review disassembleReview(ReviewData r) {
-		Review review = new Review(r.getCode(), r.getComment());
+		Review review = new Review(r.getCode(), r.getComment(), r.getVan());
 		return review;
     }
 }

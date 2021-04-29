@@ -12,17 +12,20 @@ public class Review {
     private int code;
     private int stars;
     private String comment;
+    private String van;
 
-    public Review(int stars, String comment) {
+    public Review(int stars, String comment, String van) {
         this.code = (int)Math.random()*10000;
         this.stars = stars;
         this.comment = comment;
+        this.van = van;
     }
 
-	public Review(int code, int stars, String comment) {
+	public Review(int code, int stars, String comment, String van) {
 		this.code = code;
 		this.stars = stars;
 		this.comment = comment;
+		this.van = van;
 	}
 
 	// Getters and setters
@@ -50,10 +53,18 @@ public class Review {
 		this.comment = comment;
 	}
 
+	public String getVan() {
+		return van;
+	}
+
+	public void setVan(String van) {
+		this.van = van;
+	}
+
 	//To String
 	@Override
 	public String toString() {
-		return "Review [code=" + code + ", stars=" + stars + ", comment=" + comment + "]";
+		return "Review [code=" + code + ", stars=" + stars + ", comment=" + comment + ", van=" + van +"]";
 	}
 
     

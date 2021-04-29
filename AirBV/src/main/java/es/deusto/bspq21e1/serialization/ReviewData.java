@@ -10,16 +10,18 @@ public class ReviewData {
 	private int code;
     private int stars;
     private String comment;
+    private String van;
 
 	/**
 	 * Creates the object that has the data from Review.
 	 * @param stars Rating between zero and five stars.
 	 * @param comment Comment of the review.
 	 */
-    public ReviewData(int stars, String comment) {
+    public ReviewData(int stars, String comment, String van) {
         this.code = (int)Math.random()*10000;
         this.stars = stars;
         this.comment = comment;
+        this.van = van;
     }
 
     public int getCode() {
@@ -46,9 +48,17 @@ public class ReviewData {
 		this.comment = comment;
 	}
 
+	public String getVan() {
+		return van;
+	}
+
+	public void setVan(String van) {
+		this.van = van;
+	}
+
 	@Override
 	public String toString() {
-		return "ReviewData [code=" + code + ", stars=" + stars + ", comment=" + comment + "]";
+		return "ReviewData [code=" + code + ", stars=" + stars + ", comment=" + comment +", van=" + van + "]";
 	}
 
 }
