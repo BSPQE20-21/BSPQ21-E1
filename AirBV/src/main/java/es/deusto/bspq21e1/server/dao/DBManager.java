@@ -169,6 +169,35 @@ public class DBManager {
 		
 	}
 	
+	public void deleteVan(String licensePlate) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		
+		try {
+			tx.begin();
+			
+			Query<Van> query = pm.newQuery(Van.class);
+			query.setFilter("licensePlate== '" + licensePlate+ "'");
+			query.setUnique(true);
+			
+			Van van = (Van)query.execute();
+
+			System.out.println("   * Deleting an object: " + van.getLicensePlate());
+			
+			pm.deletePersistent(van);
+			tx.commit();
+		} catch (Exception e) {
+			System.out.println("   $ Error deleting an object: " + e.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}	
+			pm.close();
+		}
+		
+		
+	}
+	
 //	/**
 //	 * Necessary for all of the delete functions to work.
 //	 * @param object

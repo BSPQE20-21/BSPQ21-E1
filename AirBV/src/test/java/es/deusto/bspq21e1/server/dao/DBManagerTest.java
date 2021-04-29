@@ -106,6 +106,15 @@ public class DBManagerTest {
 	}
 	
 	@Test
+	public void getUserTest() {
+		logger.info("Testing getting a user");
+		
+		assertEquals(user1, DBManager.getInstance().getUser("1234567A"));
+		
+		logger.info("Getting a user tested");
+	}
+	
+	@Test
 	public void deleteReservationTest() {
 		logger.info("Testing deleting of reservations");
 		
@@ -123,6 +132,7 @@ public class DBManagerTest {
 		
 		DBManager.getInstance().deleteUser(user1.getDni());
 		DBManager.getInstance().deleteUser(user2.getDni());
+		DBManager.getInstance().deleteVan(van1.getLicensePlate());
         if (pm != null) {
 			pm.close();
 		}
