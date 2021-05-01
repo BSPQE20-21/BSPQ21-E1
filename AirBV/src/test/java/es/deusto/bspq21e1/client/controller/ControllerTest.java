@@ -52,7 +52,7 @@ public class ControllerTest {
     }
     
     public UserData loginUser(String email, String password) {
-    	
+    	return null;
     }
     
     public void registerVan(VanData vanData) {
@@ -64,11 +64,11 @@ public class ControllerTest {
     }
 
 	public ArrayList<ReservationData> getMyReservations(UserData user) {		
-		
+		return null;
 	}
 	
 	public ArrayList<VanData> getMyVans(String dni) {
-		
+		return null; // Pongo todo esto para que no pete
 	}
 
 }

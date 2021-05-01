@@ -97,7 +97,6 @@ public class AirBVService {
 	public ArrayList<Van> getUserVans(String dni) {
 		logger.debug("Getting all vans of user: " + dni);
 		ArrayList<Van> l = (ArrayList<Van>) DBManager.getInstance().getVansByUser(dni);
-		System.out.println("LLEGA BIEN AL SERVICE: " + l.get(0).getLicensePlate());
 		return l;
 	}
 

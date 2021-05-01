@@ -203,7 +203,6 @@ public class Controller {
 		Invocation.Builder invocationBuilder = vansWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
 		if (response.getStatus() == Status.OK.getStatusCode()) {
-			System.out.println("LLEGA BIEN AL CONTROLLER: " + list.get(0).getLicensePlate());
 			return list;
 		} else {
 			logger.debug("Error connecting with the server. Code: " + response.getStatus());

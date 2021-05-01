@@ -170,7 +170,6 @@ public class AirBV {
 		for (Van van : airbvService.getUserVans(dni)) {
 			vanData.add(as.assembleVan(van));
 		}
-		System.out.println("LLEGA BIEN A AirBV: " + vanData.get(0).getLicensePlate());
 		return vanData;
 	}
 }

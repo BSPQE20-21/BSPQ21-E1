@@ -90,10 +90,8 @@ public class RemoveVanWindow extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				VanData van = vans.get(jlVansList.getSelectedIndex());
 				controller.eraseVan( van.getLicensePlate() );
-				vans = controller.getMyVans(user.getDni());
-				updateLists(vans);
-//				frmMain.setVisible(true);
-//				frmRemoveVan.dispose();
+				frmMain.setVisible(true);
+				frmRemoveVan.dispose();
 			}
 		});
 		frmRemoveVan.getContentPane().add(btnRemove);
@@ -106,16 +104,20 @@ public class RemoveVanWindow extends JFrame {
 		lblText.updateUI();
 		
 		vans = controller.getMyVans(user.getDni());
-		updateLists(vans);
+		if (vans.size() != 0) {
+			updateList();
+		} else {
+			btnRemove.setEnabled(false);
+		}
 	}
 	
-	private void updateLists(ArrayList<VanData> vans) {
+	private void updateList() {
 		logger.debug("Inside function -> " + vans);
-		vansList.clear();
 		for (int i = 0; i < vans.size(); i++) {
-			VanData v = (VanData) vans.get(i);
+			VanData v = vans.get(i);
 			vansList.addElement(v.toString());
 		}
 		jlVansList.setSelectedIndex(0);
 	}
+	
 }
