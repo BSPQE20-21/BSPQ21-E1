@@ -51,6 +51,8 @@ public class DBManagerTest {
 	private static Reservation res1;
 	private static Review rev1;
 	
+	@Rule public ContiPerfRule rule = new ContiPerfRule();
+	
 	public static junit.framework.Test suite() {
 		 return new JUnit4TestAdapter(DBManagerTest.class);
 	}
@@ -112,6 +114,8 @@ public class DBManagerTest {
     }
 	
 	@Test
+	@PerfTest(invocations = 5)
+	@Required(max = 1200, average = 250)
 	public void validateUserTest() {
 		logger.info("Testing validation of users");
 		
@@ -122,6 +126,8 @@ public class DBManagerTest {
 	}
 	
 	@Test
+	@PerfTest(invocations = 5)
+	@Required(max = 1200, average = 250)
 	public void getReservationsByUser() {
 		logger.info("Testing getting reservations by user");
 		
@@ -132,6 +138,8 @@ public class DBManagerTest {
 	}
 	
 	@Test
+	@PerfTest(invocations = 5)
+	@Required(max = 1200, average = 250)
 	public void getVansByUser() {
 		logger.info("Testing getting vans by user");
 		
@@ -142,6 +150,8 @@ public class DBManagerTest {
 	}
 	
 	@Test
+	@PerfTest(invocations = 5)
+	@Required(max = 1200, average = 250)
 	public void searchVanTest() {
 		logger.info("Testing searching of vans");
 		
@@ -151,6 +161,8 @@ public class DBManagerTest {
 	}
 	
 	@Test
+	@PerfTest(invocations = 5)
+	@Required(max = 1200, average = 250)
 	public void getUserTest() {
 		logger.info("Testing getting a user");
 		
