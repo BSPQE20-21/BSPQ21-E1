@@ -76,6 +76,20 @@ public class ControllerTest {
     	assertFalse(controller.registerReservation(date, 3, new VanData(), u));
 	}
 	
+	@After
+	public void tearDown() {
+		assertTrue(controller.cancelReservation(date.getTime()+van.getLicensePlate()));
+    	assertFalse(controller.cancelReservation(date.getTime()+"ABC"));
+    	
+    	assertTrue(controller.eraseVan(van2.getLicensePlate()));
+    	assertFalse(controller.eraseVan("8754ACB"));
+    	
+    	assertTrue(controller.eraseUser("00000001A"));
+		assertTrue(controller.eraseUser("00000002A"));
+		assertEquals(0, controller.searchVans("Bilbao").size());
+
+	}
+	
 	@Test
 	public void loginUserTest() {
     	UserData us = controller.loginUser(userEmail2, userPass);
@@ -102,20 +116,6 @@ public class ControllerTest {
 		assertEquals(1, controller.getMyReservations(u).size());
 		assertEquals(0, controller.getMyReservations(new UserData()).size());
 		
-	}
-	
-	@After
-	public void tearDown() {
-		assertTrue(controller.cancelReservation(date.getTime()+van.getLicensePlate()));
-    	assertFalse(controller.cancelReservation(date.getTime()+"ABC"));
-    	
-    	assertTrue(controller.eraseVan(van2.getLicensePlate()));
-    	assertFalse(controller.eraseVan("8754ACB"));
-    	
-    	assertTrue(controller.eraseUser("00000001A"));
-		assertTrue(controller.eraseUser("00000002A"));
-		assertEquals(0, controller.searchVans("Bilbao").size());
-
 	}
 
 }

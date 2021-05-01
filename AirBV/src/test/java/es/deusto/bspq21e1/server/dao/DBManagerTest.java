@@ -88,6 +88,28 @@ public class DBManagerTest {
 		logger.info("Leaving setUp");
 	}
 	
+	/**
+	 * Removes everything not needed after executing a test
+	*/
+	@AfterClass
+    public static void tearDown() throws Exception {
+		
+		assertTrue(DBManager.getInstance().deleteReservation(res1.getCode()));
+		assertFalse(DBManager.getInstance().deleteReservation(res1.getCode()));
+		
+		assertTrue(DBManager.getInstance().deleteVan(van1.getLicensePlate()));
+		assertFalse(DBManager.getInstance().deleteVan("54154"));
+		
+		assertTrue(DBManager.getInstance().deleteUser(user1.getDni()));
+		assertTrue(DBManager.getInstance().deleteUser(user2.getDni()));
+		assertFalse(DBManager.getInstance().deleteUser("148419814"));
+		
+        if (pm != null) {
+			pm.close();
+		}
+		
+    }
+	
 	@Test
 	public void validateUserTest() {
 		logger.info("Testing validation of users");
@@ -137,25 +159,4 @@ public class DBManagerTest {
 		logger.info("Getting a user tested");
 	}
 	
-	/**
-	 * Removes everything not needed after executing a test
-	*/
-	@AfterClass
-    public static void tearDown() throws Exception {
-		
-		assertTrue(DBManager.getInstance().deleteReservation(res1.getCode()));
-		assertFalse(DBManager.getInstance().deleteReservation(res1.getCode()));
-		
-		assertTrue(DBManager.getInstance().deleteVan(van1.getLicensePlate()));
-		assertFalse(DBManager.getInstance().deleteVan("54154"));
-		
-		assertTrue(DBManager.getInstance().deleteUser(user1.getDni()));
-		assertTrue(DBManager.getInstance().deleteUser(user2.getDni()));
-		assertFalse(DBManager.getInstance().deleteUser("148419814"));
-		
-        if (pm != null) {
-			pm.close();
-		}
-		
-    }
 }
