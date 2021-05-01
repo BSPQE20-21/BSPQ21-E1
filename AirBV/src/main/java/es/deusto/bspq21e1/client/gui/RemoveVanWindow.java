@@ -16,7 +16,6 @@ import javax.swing.ListSelectionModel;
 import org.apache.log4j.Logger;
 
 import es.deusto.bspq21e1.client.controller.Controller;
-import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
 
@@ -52,13 +51,6 @@ public class RemoveVanWindow extends JFrame {
 		frmRemoveVan.setLocationRelativeTo(null);
 		frmRemoveVan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRemoveVan.getContentPane().setLayout(null);
-		
-//		vans = controller.getMyVans( user.getDni() );
-//		for (int i = 0; i < vans.size(); i++) {
-//			System.out.println("CARAVANA LLEGA BIEN: " + vans.get(i).getLicensePlate());
-//			VanData v = vans.get(i);
-//			vansList.addElement( "Van: " + v.getLicensePlate() + "   Brand: " + v.getBrand() + "   Model: " + v.getModel());
-//		}
 		
 		jlVansList = new JList<String>();
 		jlVansList.setModel(vansList);

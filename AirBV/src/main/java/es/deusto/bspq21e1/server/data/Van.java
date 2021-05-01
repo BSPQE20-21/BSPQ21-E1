@@ -1,8 +1,5 @@
 package es.deusto.bspq21e1.server.data;
 
-import java.util.List;
-
-import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
 

@@ -1,11 +1,5 @@
 package es.deusto.bspq21e1.serialization;
 
-import java.util.List;
-
-import javax.jdo.annotations.Join;
-
-import es.deusto.bspq21e1.server.data.Review;
-
 /**
  * Class for the representation of the Van object which is going to be sended to clients.
  * @author SPQ Group 1

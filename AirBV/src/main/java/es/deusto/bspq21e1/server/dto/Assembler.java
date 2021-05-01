@@ -1,7 +1,5 @@
 package es.deusto.bspq21e1.server.dto;
 
-import java.util.ArrayList;
-
 import org.apache.log4j.Logger;
 
 import es.deusto.bspq21e1.serialization.ReservationData;

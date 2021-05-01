@@ -7,6 +7,9 @@ import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
+
+import org.apache.log4j.Logger;
+
 import javax.jdo.Query;
 
 import es.deusto.bspq21e1.server.data.Reservation;
@@ -14,17 +17,16 @@ import es.deusto.bspq21e1.server.data.Review;
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
 
-
-
 /**
  * Singleton DBManager class.
- * @author 		Iñigo Marcos <imarcosenciso@opendeusto.es>
+ * @author 		Group E1
  * @version		1.0-SNAPSHOT
  */
 public class DBManager {
 
 	private static DBManager instance = null;
 	private PersistenceManagerFactory pmf;
+	private static Logger logger = Logger.getLogger(DBManager.class.getName());
 
 	private DBManager() {
 		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
@@ -86,11 +88,11 @@ public class DBManager {
 
 		try {
 			tx.begin();
-			System.out.println("   * Storing an object: " + object);
+			logger.debug("   * Storing an object: " + object);
 			pm.makePersistent(object);
 			tx.commit();
 		} catch (Exception e) {
-			System.out.println("   $ Error storing an object: " + e.getMessage());
+			logger.debug("   $ Error storing an object: " + e.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -120,7 +122,7 @@ public class DBManager {
 			
 			Reservation res = (Reservation)query.execute();
 
-			System.out.println("   * Deleting a reservation");
+			logger.debug("   * Deleting a reservation");
 			
 			if(res == null) {
 				return false;
@@ -130,7 +132,7 @@ public class DBManager {
 			tx.commit();
 			return true;
 		} catch (Exception e) {
-			System.out.println("   $ Error deleting an object: " + e.getMessage());
+			logger.debug("   $ Error deleting an object: " + e.getMessage());
 			return false;
 		} finally {
 			if (tx != null && tx.isActive()) {
@@ -157,13 +159,13 @@ public class DBManager {
 				return false;
 			}
 
-			System.out.println("   * Deleting an object: " + user.getName());
+			logger.debug("   * Deleting an object: " + user.getName());
 			
 			pm.deletePersistent(user);
 			tx.commit();
 			return true;
 		} catch (Exception e) {
-			System.out.println("   $ Error deleting an object: " + e.getMessage());
+			logger.debug("   $ Error deleting an object: " + e.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -191,13 +193,13 @@ public class DBManager {
 				return false;
 			}
 
-			System.out.println("   * Deleting an object: " + van.getLicensePlate());
+			logger.debug("   * Deleting an object: " + van.getLicensePlate());
 			
 			pm.deletePersistent(van);
 			tx.commit();
 			return true;
 		} catch (Exception e) {
-			System.out.println("   $ Error deleting an object: " + e.getMessage());
+			logger.debug("   $ Error deleting an object: " + e.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -218,11 +220,11 @@ public class DBManager {
 //		
 //		try {
 //			tx.begin();
-//			System.out.println("   * Deleting an object: " + object);
+//			logger.debug("   * Deleting an object: " + object);
 //			pm.deletePersistent(object);
 //			tx.commit();
 //		} catch (Exception e) {
-//			System.out.println("   $ Error deleting an object: " + e.getMessage());
+//			logger.debug("   $ Error deleting an object: " + e.getMessage());
 //		} finally {
 //			if (tx != null && tx.isActive()) {
 //				tx.rollback();
@@ -241,7 +243,7 @@ public class DBManager {
 		Transaction tx = null;
 		
 		try {			
-			System.out.println("   * Retrieving user with dni: " + dni);
+			logger.debug("   * Retrieving user with dni: " + dni);
 			pm.getFetchPlan().setMaxFetchDepth(4);
 			tx = pm.currentTransaction();
 			tx.begin();
@@ -251,11 +253,11 @@ public class DBManager {
 			query.setUnique(true);
 			
 			User user = (User)query.execute();
-			System.out.println("User retrieved from DB: " + user.getName());
+			logger.debug("User retrieved from DB: " + user.getName());
 			
 			return user;
 		} catch (Exception e) {
-			System.out.println("   $ Error retrieving user: " + e.getMessage() );
+			logger.debug("   $ Error retrieving user: " + e.getMessage() );
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -278,7 +280,7 @@ public class DBManager {
 		Transaction tx = null;
 		
 		try {
-			System.out.println("   * Retrieving reservation for user: " + vanRenter);
+			logger.debug("   * Retrieving reservation for user: " + vanRenter);
 			pm.getFetchPlan().setMaxFetchDepth(4);
 			tx = pm.currentTransaction();
 			tx.begin();
@@ -301,7 +303,7 @@ public class DBManager {
 			}
 			return ress;
 		} catch (Exception e) {
-			System.out.println("   $ Error retrieving reservations from van renter: " + e.getMessage() );
+			logger.debug("   $ Error retrieving reservations from van renter: " + e.getMessage() );
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -318,7 +320,7 @@ public class DBManager {
 		Transaction tx = null;
 		
 		try {
-			System.out.println("   * Retrieving all vans from location: " + location);
+			logger.debug("   * Retrieving all vans from location: " + location);
 			pm.getFetchPlan().setMaxFetchDepth(4);
 			tx = pm.currentTransaction();
 			tx.begin();
@@ -347,7 +349,7 @@ public class DBManager {
 			}
 			return vans;
 		} catch (Exception e) {
-			System.out.println("   $ Error retrieving vans with location: " + e.getMessage() );
+			logger.debug("   $ Error retrieving vans with location: " + e.getMessage() );
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -364,7 +366,7 @@ public class DBManager {
 		Transaction tx = null;
 		
 		try {
-			System.out.println("   * Retrieving all user's (" + user + ") vans");
+			logger.debug("   * Retrieving all user's (" + user + ") vans");
 			pm.getFetchPlan().setMaxFetchDepth(4);
 			tx = pm.currentTransaction();
 			tx.begin();
@@ -393,7 +395,7 @@ public class DBManager {
 			}
 			return vans;
 		} catch (Exception e) {
-			System.out.println("   $ Error retrieving vans by user: " + e.getMessage() );
+			logger.debug("   $ Error retrieving vans by user: " + e.getMessage() );
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -415,7 +417,7 @@ public class DBManager {
 		Transaction tx = null;
 		
 		try {			
-			System.out.println("   * Attempting loging for user: " + email);
+			logger.debug("   * Attempting loging for user: " + email);
 			pm.getFetchPlan().setMaxFetchDepth(4);
 			tx = pm.currentTransaction();
 			tx.begin();
@@ -427,10 +429,10 @@ public class DBManager {
 			User user = (User)query.execute(); // The UNIQUE query itself returns null if there are no results. 
 			
 			if( null == user ) {
-				System.out.println("   * Email or passord incorrect in login query" );
+				logger.debug("   * Email or passord incorrect in login query" );
 				return null;
 			} else {
-				System.out.println("   * User retrieved from DB: " + user.getName());
+				logger.debug("   * User retrieved from DB: " + user.getName());
 			}
 			
 			User u = new User();
@@ -444,7 +446,7 @@ public class DBManager {
 			return u;
 			
 		} catch (Exception e) {
-			System.out.println("   $ Error retrieving user: " + e.getMessage() );
+			logger.debug("   $ Error retrieving user: " + e.getMessage() );
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -472,7 +474,7 @@ public class DBManager {
 //
 //		try {
 //			tx.begin();
-//			System.out.println("   * Retrieving all Users");
+//			logger.debug("   * Retrieving all Users");
 //			//Extent<User> e = pm.getExtent(User.class, true);
 ////			Iterator<User> iter = pm.getExtent(User.class, true ).iterator();
 ////			while (iter.hasNext()) {
@@ -481,7 +483,7 @@ public class DBManager {
 //			pm.getExtent(User.class, true).iterator().forEachRemaining(usersList::add); // Apparently faster.
 //			tx.commit();
 //		} catch (Exception e) {
-//			System.out.println("   $ Error retrieving all Users: " + e.getMessage());
+//			logger.debug("   $ Error retrieving all Users: " + e.getMessage());
 //		} finally {
 //			if (tx.isActive()) {
 //				tx.rollback();
@@ -506,7 +508,7 @@ public class DBManager {
 //
 //		try {
 //			tx.begin();
-//			System.out.println("   * Retrieving all Vans");
+//			logger.debug("   * Retrieving all Vans");
 //			//Extent<User> e = pm.getExtent(Van.class, true);
 ////			Iterator<User> iter = pm.getExtent(Van.class, true ).iterator();
 ////			while (iter.hasNext()) {
@@ -515,7 +517,7 @@ public class DBManager {
 //			pm.getExtent(Van.class, true).iterator().forEachRemaining(vanList::add); // Apparently faster.
 //			tx.commit();
 //		} catch (Exception e) {
-//			System.out.println("   $ Error retrieving all Vans: " + e.getMessage());
+//			logger.debug("   $ Error retrieving all Vans: " + e.getMessage());
 //		} finally {
 //			if (tx.isActive()) {
 //				tx.rollback();

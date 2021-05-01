@@ -3,8 +3,6 @@ package es.deusto.bspq21e1.serialization;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.deusto.bspq21e1.server.data.Van;
-
 /**
  * Class for the representation of the User object which is going to be sended to clients.
  * @author SPQ Group 1

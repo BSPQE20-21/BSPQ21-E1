@@ -7,13 +7,11 @@ import javax.swing.JPasswordField;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.JTextField;
 
 import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.serialization.UserData;
-import es.deusto.bspq21e1.serialization.VanData;
 
 import javax.swing.JButton;
 import javax.swing.SwingConstants;

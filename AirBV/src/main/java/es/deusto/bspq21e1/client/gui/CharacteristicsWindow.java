@@ -5,11 +5,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import es.deusto.bspq21e1.client.controller.Controller;
-import es.deusto.bspq21e1.serialization.ReviewData;
-import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
 
 import javax.swing.JButton;
