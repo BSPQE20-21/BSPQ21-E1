@@ -33,12 +33,13 @@ public class User {
      */
     public int getStarsAverage(){
         int sum = 0;
-        for(int i = 0; i < stars.size(); i++){
-            sum+=stars.get(i);
+        int average = 0;
+        if(stars.size() > 0) {
+        	for(int i = 0; i < stars.size(); i++){
+                sum+=stars.get(i);
+            }
+            average = sum / stars.size();
         }
-
-        int average = sum / stars.size();
-
         return average; 
     }
     // Getters and setters
@@ -81,6 +82,10 @@ public class User {
 
 	public void setStars(List<Integer> stars) {
 		this.stars = stars;
+	}
+	
+	public void addStar(int star) {
+		this.stars.add(star);
 	}
 
 	@Override

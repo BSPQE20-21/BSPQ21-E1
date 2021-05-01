@@ -19,6 +19,7 @@ public class UserTest {
     String email;
     String password;
     List<Integer> stars;
+    List<Integer> starsEmpty;
 	
 	public static junit.framework.Test suite() {
 		 return new JUnit4TestAdapter(UserTest.class);
@@ -30,6 +31,9 @@ public class UserTest {
 		name = "Pepe";
 		email = "pepe@gmail.com";
 		password = "1234";
+		
+		starsEmpty = new ArrayList<Integer>();
+		
 		stars = new ArrayList<Integer>();
 		stars.add(2);
 		stars.add(4);
@@ -64,6 +68,10 @@ public class UserTest {
 		u.setEmail(email);
 		u.setName(name);
 		u.setPassword(password);
+		u.setStars(starsEmpty);
+		
+		assertEquals(0, u.getStarsAverage());
+		
 		u.setStars(stars);
 		
 		assertEquals(u.getClass(), User.class);
@@ -72,6 +80,13 @@ public class UserTest {
 		assertEquals(email, u.getEmail());
 		assertEquals(password, u.getPassword());
 		assertEquals(3, u.getStarsAverage());
+		
+		u.addStar(1);
+		u.addStar(1);
+		u.addStar(1);
+		
+		assertEquals(2, u.getStarsAverage());
+		
 	}
 
 }
