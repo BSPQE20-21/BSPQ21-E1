@@ -93,6 +93,7 @@ public class DBManagerTest {
 	*/
 	@AfterClass
     public static void tearDown() throws Exception {
+		logger.info("After tests code execution begins");
 		
 		assertTrue(DBManager.getInstance().deleteReservation(res1.getCode()));
 		assertFalse(DBManager.getInstance().deleteReservation(res1.getCode()));
@@ -107,7 +108,7 @@ public class DBManagerTest {
         if (pm != null) {
 			pm.close();
 		}
-		
+        logger.info("After tests code execution begins properly");
     }
 	
 	@Test

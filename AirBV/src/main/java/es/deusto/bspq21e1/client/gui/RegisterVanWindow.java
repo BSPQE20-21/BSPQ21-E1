@@ -258,6 +258,6 @@ public class RegisterVanWindow extends JFrame{
 		btnCancel.setBounds(10, 537, 89, 23);
 		frmRegistrationOfVans.getContentPane().add(btnCancel);
 	
-		
+		logger.info("RegisterVanWindow well initialized");
 	}
 }

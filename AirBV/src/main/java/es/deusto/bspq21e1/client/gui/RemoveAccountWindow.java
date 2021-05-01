@@ -7,12 +7,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import org.apache.log4j.Logger;
+
 import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.serialization.UserData;
 
 public class RemoveAccountWindow extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger(RemoveAccountWindow.class.getName());
 	private Controller controller;
 	private UserData userData;
 	private JFrame frmMain;
@@ -65,5 +68,6 @@ public class RemoveAccountWindow extends JFrame {
 		lblText.setBounds(25, 5, 350, 35);
 		frmRemoveAccount.getContentPane().add(lblText);
 		
+		logger.info("RemoveAccountWindow well initialized");
 	}
 }

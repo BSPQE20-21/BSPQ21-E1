@@ -28,6 +28,8 @@ public class AirBVClient {
 		Controller c = new Controller(args[0], args[1]); 
 		
 		new InitialWindow(c);
+		
+		logger.info("Client started without problems");
 	}
 }
 

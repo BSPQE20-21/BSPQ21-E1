@@ -6,12 +6,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import org.apache.log4j.Logger;
+
 import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.serialization.UserData;
 
 public class MainWindow extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger(MainWindow.class.getName());
 	private Controller controller;
 	private UserData user;
 	
@@ -101,6 +104,8 @@ public class MainWindow extends JFrame {
 			}
 		});
 		frmMain.getContentPane().add(btnlogOut);
+		
+		logger.info("MainWindow well initialized");
 	}
 	
 }

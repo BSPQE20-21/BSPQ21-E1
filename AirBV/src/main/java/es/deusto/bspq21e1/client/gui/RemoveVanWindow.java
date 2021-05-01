@@ -101,6 +101,8 @@ public class RemoveVanWindow extends JFrame {
 		} else {
 			btnRemove.setEnabled(false);
 		}
+		
+		logger.info("RemoveVanWindow well initialized");
 	}
 	
 	private void updateList() {

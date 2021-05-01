@@ -28,6 +28,7 @@ public class ReservationTest {
 	
 	@Before
 	public void setUp() {
+		logger.info("Before tests code execution begins");
 		try {
 			date = new SimpleDateFormat("dd/MM/yyyy").parse("30/09/2021");
 		} catch (ParseException e1) {
@@ -38,6 +39,7 @@ public class ReservationTest {
 		duration = 3;
 		dni = "2145ABC";
 		licensePlate = "12345678";
+		logger.info("Before tests code execution ends properly");
 	}
 
 	@SuppressWarnings("unused")
@@ -58,6 +60,7 @@ public class ReservationTest {
 		assertEquals(duration, r1.getDuration());
 		assertEquals(licensePlate, r1.getVan());
 		assertEquals(dni, r1.getVanRenter());
+		logger.info("Reservation constructor tested");
 	}
 	
 	@Test
@@ -76,6 +79,7 @@ public class ReservationTest {
 		assertEquals(duration, r.getDuration());
 		assertEquals(licensePlate, r.getVan());
 		assertEquals(dni, r.getVanRenter());
+		logger.info("Reservation getters/setters tested");
 	}
 
 }

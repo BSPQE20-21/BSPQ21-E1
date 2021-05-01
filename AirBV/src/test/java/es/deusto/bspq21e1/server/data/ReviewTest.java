@@ -25,11 +25,12 @@ public class ReviewTest {
 	
 	@Before
 	public void setUp() {
+		logger.info("Before tests code execution begins");
 		code = 99;
 		stars = 5;
 		comment = "It is amazing.";
 		van = "1245ABC";
-		
+		logger.info("Before tests code execution ends properly");
 	}
 
 	@SuppressWarnings("unused")
@@ -47,6 +48,7 @@ public class ReviewTest {
 		assertEquals(stars, r1.getStars());
 		assertEquals(comment, r1.getComment());
 		assertEquals(van, r1.getVan());
+		logger.info("Review constructor tested");
 	}
 	
 	@Test
@@ -62,6 +64,7 @@ public class ReviewTest {
 		assertEquals(0, r.getStars());
 		assertEquals("", r.getComment());
 		assertEquals("", r.getVan());
+		logger.info("Review getters/setters tested");
 	}
 
 }

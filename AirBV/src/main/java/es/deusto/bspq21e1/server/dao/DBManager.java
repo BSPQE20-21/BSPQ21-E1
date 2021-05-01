@@ -38,7 +38,7 @@ public class DBManager {
 	 */
 	public static DBManager getInstance() {
 		if ( null==instance ) instance = new DBManager();
-
+		logger.info("DBManager instance created or/and returned");
 		return instance;
 	}
 
@@ -51,6 +51,7 @@ public class DBManager {
 	 * @param user
 	 */
 	public boolean store( User user ) {
+		logger.info("User stored in DB");
 		return this.storeObject( user );
 	}
 
@@ -59,6 +60,7 @@ public class DBManager {
 	 * @param van
 	 */
 	public boolean store( Van van ) {
+		logger.info("Van stored in DB");
 		return this.storeObject( van );
 	}
 
@@ -67,6 +69,7 @@ public class DBManager {
 	 * @param review
 	 */
 	public boolean store( Review review ) {
+		logger.info("Review stored in DB");
 		return this.storeObject( review );
 	}
 
@@ -81,6 +84,7 @@ public class DBManager {
 		if(getVan(reservation.getVan()) == null) {
 			return false;
 		}
+		logger.info("Reservation stored in DB");
 		return this.storeObject( reservation );
 	}
 	

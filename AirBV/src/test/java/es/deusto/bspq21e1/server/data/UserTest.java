@@ -27,6 +27,7 @@ public class UserTest {
 	
 	@Before
 	public void setUp() {
+		logger.info("Before tests code execution begins");
 		dni = "12345678A";
 		name = "Pepe";
 		email = "pepe@gmail.com";
@@ -38,7 +39,7 @@ public class UserTest {
 		stars.add(2);
 		stars.add(4);
 		stars.add(3);
-		
+		logger.info("Before tests code execution ends properly");
 	}
 
 	@SuppressWarnings("unused")
@@ -58,6 +59,7 @@ public class UserTest {
 		assertEquals(name, u1.getName());
 		assertEquals(email, u1.getEmail());
 		assertEquals(password, u1.getPassword());
+		logger.info("User constructor tested");
 	}
 	
 	@Test
@@ -86,7 +88,7 @@ public class UserTest {
 		u.addStar(1);
 		
 		assertEquals(2, u.getStarsAverage());
-		
+		logger.info("User getters/setters tested");
 	}
 
 }

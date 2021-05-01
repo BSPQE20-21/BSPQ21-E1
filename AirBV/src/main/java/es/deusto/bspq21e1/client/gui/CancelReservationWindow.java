@@ -102,6 +102,8 @@ public class CancelReservationWindow extends JFrame{
 		
 		reservations = controller.getMyReservations(user);
 		updateLists(reservations);
+		
+		logger.info("CancelReservationWindow well initialized");
 	}
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW

@@ -12,9 +12,12 @@ import es.deusto.bspq21e1.serialization.VanData;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
+import org.apache.log4j.Logger;
+
 public class CharacteristicsWindow extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger(CharacteristicsWindow.class.getName());
 	private Controller controller;
 	private VanData van;
 	private JFrame searchFrame;
@@ -161,6 +164,7 @@ public class CharacteristicsWindow extends JFrame{
 		lblPriceA.setBounds(180, 252, 110, 14);
 		frmCharacteristics.getContentPane().add(lblPriceA);
 		
+		logger.info("CharacteristicsWindow well initialized");
 	}
 
 }

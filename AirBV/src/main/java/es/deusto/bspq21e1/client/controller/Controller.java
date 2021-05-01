@@ -43,6 +43,7 @@ public class Controller {
 		Invocation.Builder invocationBuilder =  vansWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
 		if(response.getStatus() == Status.OK.getStatusCode()) {
+			logger.info("Vans received to the controller.");
 			return list;
 		}else {
 			logger.error("Error connecting with the server. Code: " + response.getStatus());
@@ -61,6 +62,7 @@ public class Controller {
 			logger.error("Error: " + response.toString());
 			return false;
 		}
+    	logger.info("User erased (message from controller)");
     	return true;
     }
     
@@ -74,6 +76,7 @@ public class Controller {
 			logger.error("Error: " + response.toString());
 			return false;
 		}
+    	logger.info("Van erased (message from controller)");
     	return true;
     }
     
@@ -121,6 +124,7 @@ public class Controller {
     	Invocation.Builder invocationBuilder = loginWebTarget.request(MediaType.APPLICATION_JSON);
     	Response response = invocationBuilder.get();
     	if (response.getStatus() == Status.OK.getStatusCode()) {
+    		logger.info("User has logged in");
     		return userData;
     	} else {
     		logger.error("Error connecting with the server. Code: " + response.getStatus());
@@ -197,6 +201,7 @@ public class Controller {
 		Invocation.Builder invocationBuilder =  reservationsWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
 		if(response.getStatus() == Status.OK.getStatusCode()) {
+			logger.info("Reservations well retrieved");
 			return list;
 		} else {
 			logger.error("Error connecting with the server. Code: " + response.getStatus());
@@ -215,6 +220,7 @@ public class Controller {
 		Invocation.Builder invocationBuilder = vansWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
 		if (response.getStatus() == Status.OK.getStatusCode()) {
+			logger.info("Van well retrieved");
 			return list;
 		} else {
 			logger.error("Error connecting with the server. Code: " + response.getStatus());

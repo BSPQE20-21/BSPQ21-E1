@@ -39,6 +39,7 @@ public class AirBVServiceTest {
 
 	@Before
 	public void setUp() throws Exception {
+		logger.info("Before tests code execution begins");
 		service = new AirBVService();
 		
 		userDni = "00000001A";
@@ -71,10 +72,13 @@ public class AirBVServiceTest {
     	assertTrue(service.registerReservation(date, 3, van.getLicensePlate(), u.getDni()));
     	assertFalse(service.registerReservation(date, 3, van.getLicensePlate(), new User().getDni()));
     	assertFalse(service.registerReservation(date, 3, "0000CCC", u.getDni()));
+    	
+    	logger.info("Before tests code execution ends properly");
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		logger.info("After tests code execution begins");
 		assertTrue(service.cancelReservation(date.getTime()+van.getLicensePlate()));
     	assertFalse(service.cancelReservation(date.getTime()+"ABC"));
     	
@@ -84,12 +88,15 @@ public class AirBVServiceTest {
     	assertTrue(service.deleteUser("00000001A"));
 		assertTrue(service.deleteUser("00000002A"));
 		assertEquals(0, service.searchVans("Bilbao").size());
+		
+		logger.info("After tests code execution begins properly");
 	}
 
 	@Test
 	public void searchVansTest() {
 		assertEquals(2, service.searchVans("Bilbao").size());
 		assertEquals(0, service.searchVans("Madrid").size());
+		logger.info("Test of searchVans done");
 	}
 	
 	@Test
@@ -99,18 +106,21 @@ public class AirBVServiceTest {
 		
 		us = service.login(userEmail, "321");
 		assertNull(us);
+		logger.info("Test of login done");
 	}
 
 	@Test
 	public void getUserReservationsTest() {
 		assertEquals(1, service.getUserReservations(u.getDni()).size());
 		assertEquals(0, service.getUserReservations(new UserData().getDni()).size());
+		logger.info("Test of getUserReservations done");
 	}
 	
 	@Test
 	public void getUserVans() {
 		assertEquals(1, service.getUserVans(userDni).size());
 		assertEquals(0, service.getUserVans("9516203").size());
+		logger.info("Test of getUserVans done");
 	}
 
 }

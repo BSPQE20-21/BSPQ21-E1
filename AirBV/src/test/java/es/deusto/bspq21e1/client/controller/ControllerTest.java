@@ -42,6 +42,7 @@ public class ControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
+		logger.info("Before tests code execution begins");
 		controller = new Controller("127.0.0.1", "8080");
 		
 		userDni = "00000001A";
@@ -74,10 +75,13 @@ public class ControllerTest {
     	assertTrue(controller.registerReservation(date, 3, van, u));
     	assertFalse(controller.registerReservation(date, 3, van, new UserData()));
     	assertFalse(controller.registerReservation(date, 3, new VanData(), u));
+    	
+    	logger.info("Before tests code execution ends properly");
 	}
 	
 	@After
 	public void tearDown() {
+		logger.info("After tests code execution begins");
 		assertTrue(controller.cancelReservation(date.getTime()+van.getLicensePlate()));
     	assertFalse(controller.cancelReservation(date.getTime()+"ABC"));
     	
@@ -88,6 +92,7 @@ public class ControllerTest {
 		assertTrue(controller.eraseUser("00000002A"));
 		assertEquals(0, controller.searchVans("Bilbao").size());
 
+		logger.info("After tests code execution begins properly");
 	}
 	
 	@Test
@@ -97,25 +102,29 @@ public class ControllerTest {
 		
 		us = controller.loginUser(userEmail, "321");
 		assertNull(us);
+		
+		logger.info("Test of loginUser done");
     }
 	
 	@Test
 	public void getMyVansTest() {
 		assertEquals(1, controller.getMyVans(userDni).size());
 		assertEquals(0, controller.getMyVans("9516203").size());
+		logger.info("Test of getMyVans done");
 	}
 	
 	@Test
 	public void searchVansTest() {
 		assertEquals(2, controller.searchVans("Bilbao").size());
 		assertEquals(0, controller.searchVans("Madrid").size());
+		logger.info("Test of searchVans done");
 	}
 	
 	@Test
 	public void getMyReservations() {		
 		assertEquals(1, controller.getMyReservations(u).size());
 		assertEquals(0, controller.getMyReservations(new UserData()).size());
-		
+		logger.info("Test of getMyReservations done");
 	}
 
 }

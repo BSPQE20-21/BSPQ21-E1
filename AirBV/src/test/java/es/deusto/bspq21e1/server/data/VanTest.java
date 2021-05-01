@@ -34,6 +34,7 @@ public class VanTest {
 	
 	@Before
 	public void setUp() {
+		logger.info("Before tests code execution begins");
 		licensePlate = "1245ABC";
 	    brand = "Ford";
 	    model = "Focus";
@@ -45,7 +46,7 @@ public class VanTest {
 	    capacity = 5;
 	    pricePerDay = 50;
 	    user = "12345678A";
-		
+	    logger.info("Before tests code execution ends properly");
 	}
 
 	@SuppressWarnings("unused")
@@ -78,6 +79,7 @@ public class VanTest {
 		assertTrue(v1.hasShower());
 		assertTrue(v1.hasKitchen());
 		assertTrue(v1.isOffRoad());
+		logger.info("Reservation constructor tested");
 	}
 	
 	@Test

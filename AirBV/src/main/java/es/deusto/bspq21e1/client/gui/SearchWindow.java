@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 
+import org.apache.log4j.Logger;
+
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -28,6 +30,7 @@ import java.awt.Color;
 public class SearchWindow extends JFrame{
 
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger(SearchWindow.class.getName());
 	private Controller controller;
 	private UserData user;
 	private JFrame mainWindow;
@@ -219,6 +222,8 @@ public class SearchWindow extends JFrame{
 		separator.setBounds(0, 142, 662, 160);
 		frmSearchVans.getContentPane().add(separator);
 		separator.updateUI();
+		
+		logger.info("SearchWindow well initialized");
 	}
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW

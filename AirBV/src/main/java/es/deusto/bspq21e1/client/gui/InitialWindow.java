@@ -3,6 +3,9 @@ package es.deusto.bspq21e1.client.gui;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import org.apache.log4j.Logger;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -17,6 +20,7 @@ import javax.swing.JLabel;
 public class InitialWindow extends JFrame {
 
     private static final long serialVersionUID = 1L;
+    private static Logger logger = Logger.getLogger(InitialWindow.class.getName());
     private Controller controller;
 
     private JFrame frmAirbv = new JFrame();
@@ -41,7 +45,7 @@ public class InitialWindow extends JFrame {
     private void initialize() {
         frmAirbv.setBounds(100, 100, 255, 300);
         frmAirbv.setLocationRelativeTo(null);
-        frmAirbv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmAirbv.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmAirbv.getContentPane().setLayout(null);
 		
         lblHead = new JLabel(controller.getResourcebundle().getString("initial_head_msg"));
@@ -88,5 +92,6 @@ public class InitialWindow extends JFrame {
         panel.add(btnExit);
         btnExit.updateUI();
 
+        logger.info("InitialWindow well initialized");
     }
 }

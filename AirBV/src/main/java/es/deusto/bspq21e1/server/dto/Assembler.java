@@ -17,32 +17,38 @@ public class Assembler {
 	
     public UserData assembleUser(User u) {
 		UserData userData = new UserData(u.getDni(), u.getName(), u.getName(), u.getPassword());
+		logger.info("User assembled");
 		return userData;
     }
 
 	public ReservationData assembleReservation(Reservation r) {		
 		ReservationData reservationData = new ReservationData(r.getCode() , r.getBookingDate(), r.getDuration(), r.getVan(), r.getVanRenter());
+		logger.info("Reservation assembled");
 		return reservationData;
     }
 
     public VanData assembleVan(Van v) {
     	VanData vanData = new VanData(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.getCapacity(), v.hasKitchen(), v.hasShower(), v.isOffRoad(),  v.getPricePerDay(), v.getUser());
+    	logger.info("Van assembled");
     	return vanData;	
     }
     
     public ReviewData assembleReview(Review r) {
 		ReviewData reviewData = new ReviewData(r.getCode(), r.getComment(), r.getVan());
+		logger.info("Review assembled");
 		return reviewData;
     }
 
     public User disassembleUser(UserData u) {
     	User user = new User(u.getDni(), u.getName(), u.getEmail(), u.getPassword());
+    	logger.info("User disassembled");
     	return user;
 
     }
 
     public Reservation disassembleReservation(ReservationData r) {    	
     	Reservation reservationData = new Reservation(r.getBookingDate(), r.getDuration(), r.getVan(), r.getVanRenter());
+    	logger.info("Reservation disassembled");
     	return reservationData;
     }
 
@@ -54,13 +60,14 @@ public class Assembler {
 				"\tVan: " + van +
 				"\n\tUser: " + van.getUser().toString() +
 				"\n=======================\n");
-		
+		logger.info("Van disassembled");
     	return van;
     	
     }
 
     public Review disassembleReview(ReviewData r) {
 		Review review = new Review(r.getCode(), r.getComment(), r.getVan());
+		logger.info("Review disassembled");
 		return review;
     }
 }
