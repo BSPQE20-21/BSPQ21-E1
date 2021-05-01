@@ -63,7 +63,7 @@ public class AirBV {
     @POST
     @Path(registerUser)
     public Response registerUser(UserData userData) {
-    	logger.debug("Register new User request from client received.");
+    	logger.info("Register new User request from client received.");
         airbvService.registerUser( userData.getDni(), userData.getName(), userData.getEmail(), userData.getPassword() );
         return Response.ok().build();
     }
@@ -71,7 +71,7 @@ public class AirBV {
     @DELETE
     @Path(deleteUser)
     public Response deleteUser(@PathParam("dni") String dni) {
-    	logger.debug("Delete a user request from client received.");
+    	logger.info("Delete a user request from client received.");
         airbvService.deleteUser( dni );
         return Response.status(Response.Status.OK).build();
     }
@@ -83,7 +83,7 @@ public class AirBV {
     @POST
     @Path(registerVan)
     public Response registerVan(VanData vanData) {
-    	logger.debug("Register new Van request from client received.");
+    	logger.info("Register new Van request from client received.");
     	Assembler as = new Assembler();
     	
     	Van van = as.disassembleVan(vanData);
@@ -95,7 +95,7 @@ public class AirBV {
     @DELETE
     @Path(deleteVan)
     public Response deleteVan(@PathParam("licensePlate") String licensePlate) {
-    	logger.debug("Delete van request from client received.");
+    	logger.info("Delete van request from client received.");
     	airbvService.deleteVan(licensePlate);
     	return Response.status(Response.Status.OK).build();
     }
@@ -103,7 +103,7 @@ public class AirBV {
     @DELETE
     @Path(cancelReservation)
     public Response cancelReservation(@PathParam("code") String code) {
-    	logger.debug("Cancel a Reservation request from client received.");
+    	logger.info("Cancel a Reservation request from client received.");
         airbvService.cancelReservation(code);
         return Response.status(Response.Status.OK).build();        
     }
@@ -111,7 +111,7 @@ public class AirBV {
     @POST
     @Path(registerReservation)
     public Response registerReservation(ReservationData rD) {
-    	logger.debug("Register new Reservation request from client received.");
+    	logger.info("Register new Reservation request from client received.");
     	Assembler as = new Assembler();
     	
     	airbvService.registerReservation(as.disassembleReservation(rD).getBookingDate(), 
@@ -126,7 +126,7 @@ public class AirBV {
     @GET
     @Path(getVans)
 	public ArrayList<VanData> searchVans( @PathParam("location") String location) {	
-    	logger.debug("Search with location: "+location+" request from client received.");
+    	logger.info("Search with location: "+location+" request from client received.");
     	ArrayList<VanData> vansData = new ArrayList<VanData>();
 		Assembler as = new Assembler();
 		for (Van van : airbvService.searchVans(location)) {
@@ -138,7 +138,7 @@ public class AirBV {
     @GET
     @Path(loginUser)
     public UserData login(@PathParam("email") String email, @PathParam("password") String password) { 
-    	logger.debug("User's login with credentials request received from client.");
+    	logger.info("User's login with credentials request received from client.");
     	User u = airbvService.login(email, password);
     	UserData userData = null;
     	if (u != null) {
@@ -151,7 +151,7 @@ public class AirBV {
 	@GET
 	@Path(getMyReservations)
 	public ArrayList<ReservationData> getUserReservations( @PathParam("dni") String dni ) {
-		logger.debug("Get user's reservations request from client received.");
+		logger.info("Get user's reservations request from client received.");
 		Assembler as = new Assembler();
 		ArrayList<ReservationData> resData = new ArrayList<ReservationData>();
 		for (Reservation reservation : airbvService.getUserReservations(dni)) {
@@ -164,7 +164,7 @@ public class AirBV {
 	@GET
 	@Path(getMyVans)
 	public ArrayList<VanData> getUserVans( @PathParam("dni") String dni ) {
-		logger.debug("Get user's vans request from client received.");
+		logger.info("Get user's vans request from client received.");
 		Assembler as = new Assembler();
 		ArrayList<VanData> vanData = new ArrayList<VanData>();
 		for (Van van : airbvService.getUserVans(dni)) {

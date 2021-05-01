@@ -45,8 +45,8 @@ public class Controller {
 		if(response.getStatus() == Status.OK.getStatusCode()) {
 			return list;
 		}else {
-			logger.debug("Error connecting with the server. Code: " + response.getStatus());
-			logger.debug("Error: " + response.toString());
+			logger.error("Error connecting with the server. Code: " + response.getStatus());
+			logger.error("Error: " + response.toString());
 		}
 		return new ArrayList<VanData>();
     }
@@ -57,8 +57,8 @@ public class Controller {
     	
     	Response response = invocationBuilder.delete();
     	if (response.getStatus() != Status.OK.getStatusCode()) {
-    		logger.debug("Error connecting with the server. Code: " + response.getStatus());
-			logger.debug("Error: " + response.toString());
+    		logger.error("Error connecting with the server. Code: " + response.getStatus());
+			logger.error("Error: " + response.toString());
 		}
     }
     
@@ -68,8 +68,8 @@ public class Controller {
     	
     	Response response = invocationBuilder.delete();
     	if (response.getStatus() != Status.OK.getStatusCode()) {
-    		logger.debug("Error connecting with the server. Code: " + response.getStatus());
-			logger.debug("Error: " + response.toString());
+    		logger.error("Error connecting with the server. Code: " + response.getStatus());
+			logger.error("Error: " + response.toString());
 		}
     }
     
@@ -79,10 +79,10 @@ public class Controller {
 		
 		Response response = invocationBuilder.delete();
 		if (response.getStatus() != Status.OK.getStatusCode()) {
-			logger.debug("Error connecting with the server. Code: " + response.getStatus());
-			logger.debug("Error: " + response.toString());
+			logger.error("Error connecting with the server. Code: " + response.getStatus());
+			logger.error("Error: " + response.toString());
 		} else {
-			logger.debug("Reservation correctly cancelled");
+			logger.info("Reservation correctly cancelled");
 		}
     }
     
@@ -97,10 +97,10 @@ public class Controller {
     	userData.setPassword(password);
 		Response response = invocationBuilder.post(Entity.entity(userData, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
-			logger.debug("Error connecting with the server. Code: " + response.getStatus());
-			logger.debug("Error: " + response.toString());
+			logger.error("Error connecting with the server. Code: " + response.getStatus());
+			logger.error("Error: " + response.toString());
 		} else {
-			logger.debug("User correctly registered");
+			logger.info("User correctly registered");
 		}
     }
     
@@ -115,8 +115,8 @@ public class Controller {
     	if (response.getStatus() == Status.OK.getStatusCode()) {
     		return userData;
     	} else {
-    		logger.debug("Error connecting with the server. Code: " + response.getStatus());
-			logger.debug("Error: " + response.toString());
+    		logger.error("Error connecting with the server. Code: " + response.getStatus());
+			logger.error("Error: " + response.toString());
     	}
     	return null;
     }
@@ -151,10 +151,10 @@ public class Controller {
 		
 		Response response = invocationBuilder.post(Entity.entity(van, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
-			logger.debug("Error connecting with the server. Code: " + response.getStatus());
-			logger.debug("Error: " + response.toString());
+			logger.error("Error connecting with the server. Code: " + response.getStatus());
+			logger.error("Error: " + response.toString());
 		} else {
-			logger.debug("Van correctly registered");
+			logger.info("Van correctly registered");
 		}
     }
     
@@ -169,10 +169,10 @@ public class Controller {
     	reservationData.setVanRenter(vanRenter.getDni());
 		Response response = invocationBuilder.post(Entity.entity(reservationData, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
-			logger.debug("Error connecting with the server. Code: " + response.getStatus());
-			logger.debug("Error: " + response.toString());
+			logger.error("Error connecting with the server. Code: " + response.getStatus());
+			logger.error("Error: " + response.toString());
 		} else {
-			logger.debug("Reservation correctly registered");
+			logger.info("Reservation correctly registered");
 		}
     }
 
@@ -187,8 +187,8 @@ public class Controller {
 		if(response.getStatus() == Status.OK.getStatusCode()) {
 			return list;
 		} else {
-			logger.debug("Error connecting with the server. Code: " + response.getStatus());
-			logger.debug("Error: " + response.toString());
+			logger.error("Error connecting with the server. Code: " + response.getStatus());
+			logger.error("Error: " + response.toString());
 		}
 		
 		return new ArrayList<ReservationData>();
@@ -205,8 +205,8 @@ public class Controller {
 		if (response.getStatus() == Status.OK.getStatusCode()) {
 			return list;
 		} else {
-			logger.debug("Error connecting with the server. Code: " + response.getStatus());
-			logger.debug("Error: " + response.toString());
+			logger.error("Error connecting with the server. Code: " + response.getStatus());
+			logger.error("Error: " + response.toString());
 		}
 		return null;
 	}

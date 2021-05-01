@@ -88,11 +88,11 @@ public class DBManager {
 
 		try {
 			tx.begin();
-			logger.debug("   * Storing an object: " + object);
+			logger.info("   * Storing an object: " + object);
 			pm.makePersistent(object);
 			tx.commit();
 		} catch (Exception e) {
-			logger.debug("   $ Error storing an object: " + e.getMessage());
+			logger.error("   $ Error storing an object: " + e.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -122,7 +122,7 @@ public class DBManager {
 			
 			Reservation res = (Reservation)query.execute();
 
-			logger.debug("   * Deleting a reservation");
+			logger.info("   * Deleting a reservation");
 			
 			if(res == null) {
 				return false;
@@ -132,7 +132,7 @@ public class DBManager {
 			tx.commit();
 			return true;
 		} catch (Exception e) {
-			logger.debug("   $ Error deleting an object: " + e.getMessage());
+			logger.error("   $ Error deleting an object: " + e.getMessage());
 			return false;
 		} finally {
 			if (tx != null && tx.isActive()) {
@@ -159,13 +159,13 @@ public class DBManager {
 				return false;
 			}
 
-			logger.debug("   * Deleting an object: " + user.getName());
+			logger.info("   * Deleting an object: " + user.getName());
 			
 			pm.deletePersistent(user);
 			tx.commit();
 			return true;
 		} catch (Exception e) {
-			logger.debug("   $ Error deleting an object: " + e.getMessage());
+			logger.error("   $ Error deleting an object: " + e.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -193,13 +193,13 @@ public class DBManager {
 				return false;
 			}
 
-			logger.debug("   * Deleting an object: " + van.getLicensePlate());
+			logger.info("   * Deleting an object: " + van.getLicensePlate());
 			
 			pm.deletePersistent(van);
 			tx.commit();
 			return true;
 		} catch (Exception e) {
-			logger.debug("   $ Error deleting an object: " + e.getMessage());
+			logger.error("   $ Error deleting an object: " + e.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -220,11 +220,11 @@ public class DBManager {
 //		
 //		try {
 //			tx.begin();
-//			logger.debug("   * Deleting an object: " + object);
+//			logger.info("   * Deleting an object: " + object);
 //			pm.deletePersistent(object);
 //			tx.commit();
 //		} catch (Exception e) {
-//			logger.debug("   $ Error deleting an object: " + e.getMessage());
+//			logger.error("   $ Error deleting an object: " + e.getMessage());
 //		} finally {
 //			if (tx != null && tx.isActive()) {
 //				tx.rollback();
@@ -243,7 +243,7 @@ public class DBManager {
 		Transaction tx = null;
 		
 		try {			
-			logger.debug("   * Retrieving user with dni: " + dni);
+			logger.info("   * Retrieving user with dni: " + dni);
 			pm.getFetchPlan().setMaxFetchDepth(4);
 			tx = pm.currentTransaction();
 			tx.begin();
@@ -253,11 +253,11 @@ public class DBManager {
 			query.setUnique(true);
 			
 			User user = (User)query.execute();
-			logger.debug("User retrieved from DB: " + user.getName());
+			logger.info("User retrieved from DB: " + user.getName());
 			
 			return user;
 		} catch (Exception e) {
-			logger.debug("   $ Error retrieving user: " + e.getMessage() );
+			logger.error("   $ Error retrieving user: " + e.getMessage() );
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -280,7 +280,7 @@ public class DBManager {
 		Transaction tx = null;
 		
 		try {
-			logger.debug("   * Retrieving reservation for user: " + vanRenter);
+			logger.info("   * Retrieving reservation for user: " + vanRenter);
 			pm.getFetchPlan().setMaxFetchDepth(4);
 			tx = pm.currentTransaction();
 			tx.begin();
@@ -303,7 +303,7 @@ public class DBManager {
 			}
 			return ress;
 		} catch (Exception e) {
-			logger.debug("   $ Error retrieving reservations from van renter: " + e.getMessage() );
+			logger.error("   $ Error retrieving reservations from van renter: " + e.getMessage() );
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -320,7 +320,7 @@ public class DBManager {
 		Transaction tx = null;
 		
 		try {
-			logger.debug("   * Retrieving all vans from location: " + location);
+			logger.info("   * Retrieving all vans from location: " + location);
 			pm.getFetchPlan().setMaxFetchDepth(4);
 			tx = pm.currentTransaction();
 			tx.begin();
@@ -349,7 +349,7 @@ public class DBManager {
 			}
 			return vans;
 		} catch (Exception e) {
-			logger.debug("   $ Error retrieving vans with location: " + e.getMessage() );
+			logger.error("   $ Error retrieving vans with location: " + e.getMessage() );
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -366,7 +366,7 @@ public class DBManager {
 		Transaction tx = null;
 		
 		try {
-			logger.debug("   * Retrieving all user's (" + user + ") vans");
+			logger.info("   * Retrieving all user's (" + user + ") vans");
 			pm.getFetchPlan().setMaxFetchDepth(4);
 			tx = pm.currentTransaction();
 			tx.begin();
@@ -395,7 +395,7 @@ public class DBManager {
 			}
 			return vans;
 		} catch (Exception e) {
-			logger.debug("   $ Error retrieving vans by user: " + e.getMessage() );
+			logger.error("   $ Error retrieving vans by user: " + e.getMessage() );
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -417,7 +417,7 @@ public class DBManager {
 		Transaction tx = null;
 		
 		try {			
-			logger.debug("   * Attempting loging for user: " + email);
+			logger.info("   * Attempting loging for user: " + email);
 			pm.getFetchPlan().setMaxFetchDepth(4);
 			tx = pm.currentTransaction();
 			tx.begin();
@@ -429,10 +429,10 @@ public class DBManager {
 			User user = (User)query.execute(); // The UNIQUE query itself returns null if there are no results. 
 			
 			if( null == user ) {
-				logger.debug("   * Email or passord incorrect in login query" );
+				logger.error("   * Email or passord incorrect in login query" );
 				return null;
 			} else {
-				logger.debug("   * User retrieved from DB: " + user.getName());
+				logger.error("   * User retrieved from DB: " + user.getName());
 			}
 			
 			User u = new User();
@@ -446,7 +446,7 @@ public class DBManager {
 			return u;
 			
 		} catch (Exception e) {
-			logger.debug("   $ Error retrieving user: " + e.getMessage() );
+			logger.error("   $ Error retrieving user: " + e.getMessage() );
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -474,7 +474,7 @@ public class DBManager {
 //
 //		try {
 //			tx.begin();
-//			logger.debug("   * Retrieving all Users");
+//			logger.info("   * Retrieving all Users");
 //			//Extent<User> e = pm.getExtent(User.class, true);
 ////			Iterator<User> iter = pm.getExtent(User.class, true ).iterator();
 ////			while (iter.hasNext()) {
@@ -483,7 +483,7 @@ public class DBManager {
 //			pm.getExtent(User.class, true).iterator().forEachRemaining(usersList::add); // Apparently faster.
 //			tx.commit();
 //		} catch (Exception e) {
-//			logger.debug("   $ Error retrieving all Users: " + e.getMessage());
+//			logger.error("   $ Error retrieving all Users: " + e.getMessage());
 //		} finally {
 //			if (tx.isActive()) {
 //				tx.rollback();
@@ -508,7 +508,7 @@ public class DBManager {
 //
 //		try {
 //			tx.begin();
-//			logger.debug("   * Retrieving all Vans");
+//			logger.info("   * Retrieving all Vans");
 //			//Extent<User> e = pm.getExtent(Van.class, true);
 ////			Iterator<User> iter = pm.getExtent(Van.class, true ).iterator();
 ////			while (iter.hasNext()) {
@@ -517,7 +517,7 @@ public class DBManager {
 //			pm.getExtent(Van.class, true).iterator().forEachRemaining(vanList::add); // Apparently faster.
 //			tx.commit();
 //		} catch (Exception e) {
-//			logger.debug("   $ Error retrieving all Vans: " + e.getMessage());
+//			logger.error("   $ Error retrieving all Vans: " + e.getMessage());
 //		} finally {
 //			if (tx.isActive()) {
 //				tx.rollback();

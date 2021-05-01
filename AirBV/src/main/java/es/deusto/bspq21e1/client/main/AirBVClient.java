@@ -21,7 +21,7 @@ public class AirBVClient {
 	
 	public static void main(String[] args) {
         if (args.length != 2) {
-			logger.debug("Use: java Client.Client [host] [port]");
+			logger.info("Use: java Client.Client [host] [port]");
 			System.exit(0);
 		}
         
