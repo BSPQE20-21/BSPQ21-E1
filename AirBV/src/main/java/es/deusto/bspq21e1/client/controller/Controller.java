@@ -51,7 +51,7 @@ public class Controller {
 		return new ArrayList<VanData>();
     }
     
-    public void eraseUser(String dni) {
+    public boolean eraseUser(String dni) {
     	WebTarget eraseUserWebTarget = webTarget.path("AirBV/deleteUser/" + dni);
     	Invocation.Builder invocationBuilder = eraseUserWebTarget.request(MediaType.APPLICATION_JSON);
     	
@@ -59,10 +59,12 @@ public class Controller {
     	if (response.getStatus() != Status.OK.getStatusCode()) {
     		logger.error("Error connecting with the server. Code: " + response.getStatus());
 			logger.error("Error: " + response.toString());
+			return false;
 		}
+    	return true;
     }
     
-    public void eraseVan(String licensePlate) {
+    public boolean eraseVan(String licensePlate) {
     	WebTarget eraseVanWebTarget = webTarget.path("AirBV/deleteVan/" + licensePlate);
     	Invocation.Builder invocationBuilder = eraseVanWebTarget.request(MediaType.APPLICATION_JSON);
     	
@@ -70,10 +72,12 @@ public class Controller {
     	if (response.getStatus() != Status.OK.getStatusCode()) {
     		logger.error("Error connecting with the server. Code: " + response.getStatus());
 			logger.error("Error: " + response.toString());
+			return false;
 		}
+    	return true;
     }
     
-    public void cancelReservation(String code) {
+    public boolean cancelReservation(String code) {
     	WebTarget cancelReservationWebTarget = webTarget.path("AirBV/cancelReservation/" + code); 
 		Invocation.Builder invocationBuilder = cancelReservationWebTarget.request(MediaType.APPLICATION_JSON);
 		
@@ -81,12 +85,14 @@ public class Controller {
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			logger.error("Error connecting with the server. Code: " + response.getStatus());
 			logger.error("Error: " + response.toString());
+			return false;
 		} else {
 			logger.info("Reservation correctly cancelled");
+			return true;
 		}
     }
     
-    public void registerUsers(String dni, String name, String email, String password) {
+    public boolean registerUsers(String dni, String name, String email, String password) {
     	WebTarget registerUserWebTarget = webTarget.path("AirBV/registerUser"); 
 		Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
 		
@@ -99,8 +105,10 @@ public class Controller {
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			logger.error("Error connecting with the server. Code: " + response.getStatus());
 			logger.error("Error: " + response.toString());
+			return false;
 		} else {
 			logger.info("User correctly registered");
+			return true;
 		}
     }
     
@@ -121,7 +129,7 @@ public class Controller {
     	return null;
     }
     
-    public void registerVan(VanData vanData) {
+    public boolean registerVan(VanData vanData) {
     	logger.debug("$ DEBUGGING:\n" +
 				"\tPrinting VanData and User from Controller in Client side:\n"+
 				"\tVan: " + vanData +
@@ -153,12 +161,14 @@ public class Controller {
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			logger.error("Error connecting with the server. Code: " + response.getStatus());
 			logger.error("Error: " + response.toString());
+			return false;
 		} else {
 			logger.info("Van correctly registered");
+			return true;
 		}
     }
     
-    public void registerReservation(Date bookingDate, int duration, VanData vanData, UserData vanRenter) {
+    public boolean registerReservation(Date bookingDate, int duration, VanData vanData, UserData vanRenter) {
     	WebTarget registerReservationWebTarget = webTarget.path("AirBV/registerReservation"); 
 		Invocation.Builder invocationBuilder = registerReservationWebTarget.request(MediaType.APPLICATION_JSON);
 		
@@ -171,8 +181,10 @@ public class Controller {
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			logger.error("Error connecting with the server. Code: " + response.getStatus());
 			logger.error("Error: " + response.toString());
+			return false;
 		} else {
 			logger.info("Reservation correctly registered");
+			return true;
 		}
     }
 

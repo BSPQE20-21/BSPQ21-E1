@@ -79,11 +79,11 @@ public class DBManagerTest {
 		}
         res1 = new Reservation(date, 3, van1.getLicensePlate(), user1.getDni());
         
-        DBManager.getInstance().store(user1);
-		DBManager.getInstance().store(user2);
-		DBManager.getInstance().store(van1);
-		DBManager.getInstance().store(res1);
-		DBManager.getInstance().store(rev1);
+        assertTrue(DBManager.getInstance().store(user1));
+		assertTrue(DBManager.getInstance().store(user2));
+		assertTrue(DBManager.getInstance().store(van1));
+		assertTrue(DBManager.getInstance().store(res1));
+		assertTrue(DBManager.getInstance().store(rev1));
 		
 		logger.info("Leaving setUp");
 	}
@@ -146,12 +146,12 @@ public class DBManagerTest {
 		assertTrue(DBManager.getInstance().deleteReservation(res1.getCode()));
 		assertFalse(DBManager.getInstance().deleteReservation(res1.getCode()));
 		
+		assertTrue(DBManager.getInstance().deleteVan(van1.getLicensePlate()));
+		assertFalse(DBManager.getInstance().deleteVan("54154"));
+		
 		assertTrue(DBManager.getInstance().deleteUser(user1.getDni()));
 		assertTrue(DBManager.getInstance().deleteUser(user2.getDni()));
 		assertFalse(DBManager.getInstance().deleteUser("148419814"));
-		
-		assertTrue(DBManager.getInstance().deleteVan(van1.getLicensePlate()));
-		assertFalse(DBManager.getInstance().deleteVan("54154"));
 		
         if (pm != null) {
 			pm.close();

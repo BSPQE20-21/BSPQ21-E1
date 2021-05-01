@@ -64,8 +64,10 @@ public class AirBV {
     @Path(registerUser)
     public Response registerUser(UserData userData) {
     	logger.info("Register new User request from client received.");
-        airbvService.registerUser( userData.getDni(), userData.getName(), userData.getEmail(), userData.getPassword() );
-        return Response.ok().build();
+        if(airbvService.registerUser( userData.getDni(), userData.getName(), userData.getEmail(), userData.getPassword() )) {
+        	return Response.ok().build();
+        }
+        return Response.status(400).build();
     }
     
     @DELETE
@@ -87,25 +89,30 @@ public class AirBV {
     	Assembler as = new Assembler();
     	
     	Van van = as.disassembleVan(vanData);
-    	airbvService.registerVan(van);
-    	
-    	return Response.ok().build();
+    	if(airbvService.registerVan(van)) {
+    		return Response.ok().build();
+    	}
+    	return Response.status(400).build();
     }
     
     @DELETE
     @Path(deleteVan)
     public Response deleteVan(@PathParam("licensePlate") String licensePlate) {
     	logger.info("Delete van request from client received.");
-    	airbvService.deleteVan(licensePlate);
-    	return Response.status(Response.Status.OK).build();
+    	if(airbvService.deleteVan(licensePlate)) {
+    		return Response.status(Response.Status.OK).build();
+    	}
+    	return Response.status(400).build();
     }
 
     @DELETE
     @Path(cancelReservation)
     public Response cancelReservation(@PathParam("code") String code) {
     	logger.info("Cancel a Reservation request from client received.");
-        airbvService.cancelReservation(code);
-        return Response.status(Response.Status.OK).build();        
+        if(airbvService.cancelReservation(code)) {
+        	return Response.status(Response.Status.OK).build();
+        }
+        return Response.status(400).build();        
     }
     
     @POST
@@ -114,13 +121,15 @@ public class AirBV {
     	logger.info("Register new Reservation request from client received.");
     	Assembler as = new Assembler();
     	
-    	airbvService.registerReservation(as.disassembleReservation(rD).getBookingDate(), 
+    	if(airbvService.registerReservation(as.disassembleReservation(rD).getBookingDate(), 
     			as.disassembleReservation(rD).getDuration(),
     			as.disassembleReservation(rD).getVan(),
     			as.disassembleReservation(rD).getVanRenter()
-    			);
+    			)) {
+    		return Response.ok().build();
+    	}
+    	return Response.status(400).build();
     	
-    	return Response.ok().build();
     }
 
     @GET
@@ -137,7 +146,7 @@ public class AirBV {
     
     @GET
     @Path(loginUser)
-    public UserData login(@PathParam("email") String email, @PathParam("password") String password) { 
+    public Response login(@PathParam("email") String email, @PathParam("password") String password) { 
     	logger.info("User's login with credentials request received from client.");
     	User u = airbvService.login(email, password);
     	UserData userData = null;
@@ -145,7 +154,7 @@ public class AirBV {
     		Assembler as = new Assembler();
         	userData = as.assembleUser( u );
     	}
-    	return userData;
+    	return Response.ok(userData).build();
     }
 
 	@GET

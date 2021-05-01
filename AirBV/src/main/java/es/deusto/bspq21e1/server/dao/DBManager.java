@@ -50,39 +50,45 @@ public class DBManager {
 	 * Stores a user in the DB (makes the object persistent).
 	 * @param user
 	 */
-	public void store( User user ) {
-		this.storeObject( user );
+	public boolean store( User user ) {
+		return this.storeObject( user );
 	}
 
 	/**
 	 * Stores a van in the DB (makes the object persistent).
 	 * @param van
 	 */
-	public void store( Van van ) {
-		this.storeObject( van );
+	public boolean store( Van van ) {
+		return this.storeObject( van );
 	}
 
 	/**
 	 * Stores a review in the DB (makes the object persistent).
 	 * @param review
 	 */
-	public void store( Review review ) {
-		this.storeObject( review );
+	public boolean store( Review review ) {
+		return this.storeObject( review );
 	}
 
 	/**
 	 * Stores a reservation in the DB (makes the object persistent).
 	 * @param reservation
 	 */
-	public void store( Reservation reservation ) {
-		this.storeObject( reservation );
+	public boolean store( Reservation reservation ) {
+		if(getUser(reservation.getVanRenter()) == null) {
+			return false;
+		}
+		if(getVan(reservation.getVan()) == null) {
+			return false;
+		}
+		return this.storeObject( reservation );
 	}
 	
 	/**
 	 * Necessary for all of the store functions to work.
 	 * @param object
 	 */
-	private void storeObject( Object object ) {
+	private boolean storeObject( Object object ) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 
@@ -93,12 +99,14 @@ public class DBManager {
 			tx.commit();
 		} catch (Exception e) {
 			logger.error("   $ Error storing an object: " + e.getMessage());
+			return false;
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
 			}	
 			pm.close();
 		}
+		return true;
 	}
 	
 	//////////////////////////////
@@ -160,6 +168,12 @@ public class DBManager {
 			}
 
 			logger.info("   * Deleting an object: " + user.getName());
+			
+			ArrayList<Van> listOfVans = (ArrayList<Van>)getVansByUser(dni);
+			
+			for (Van van : listOfVans) {
+				deleteVan(van.getLicensePlate());
+			}
 			
 			pm.deletePersistent(user);
 			tx.commit();
@@ -256,6 +270,39 @@ public class DBManager {
 			logger.info("User retrieved from DB: " + user.getName());
 			
 			return user;
+		} catch (Exception e) {
+			logger.error("   $ Error retrieving user: " + e.getMessage() );
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}	
+			pm.close();
+		}
+	
+		return null;
+	}
+	
+	public Van getVan( String licensePlate) { 
+		if(licensePlate == null) {
+			return null;
+		}
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = null;
+		
+		try {			
+			logger.info("   * Retrieving van with license plate: " + licensePlate);
+			pm.getFetchPlan().setMaxFetchDepth(4);
+			tx = pm.currentTransaction();
+			tx.begin();
+			
+			Query<Van> query = pm.newQuery(Van.class);
+			query.setFilter("licensePlate== '" + licensePlate+ "'");
+			query.setUnique(true);
+			
+			Van van = (Van)query.execute();
+			logger.info("Van retrieved from DB: " + van.getLicensePlate());
+			
+			return van;
 		} catch (Exception e) {
 			logger.error("   $ Error retrieving user: " + e.getMessage() );
 		} finally {

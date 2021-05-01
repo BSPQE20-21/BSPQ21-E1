@@ -37,39 +37,34 @@ public class AirBVService {
      * @param password - new user's password
      * @return returns the created new User
      */
-    public User registerUser(String dni, String name, String email, String password) {
+    public boolean registerUser(String dni, String name, String email, String password) {
     	logger.info("Creating and storing a new User:" + name);
     	User u = new User(dni, name, email, password);
     	usersHM.put(dni, u);
-        DBManager.getInstance().store(u);
-        return u;
+        return DBManager.getInstance().store(u);
     }
     
-    public void registerVan(Van van) {		
+    public boolean registerVan(Van van) {		
     	logger.info("Creating and storing the new van:" + van.getLicensePlate());
     	
     	vansHM.put(van.getLicensePlate(), van);
 
-    	DBManager.getInstance().store(van);
+    	return DBManager.getInstance().store(van);
     }
 
     public boolean cancelReservation(String code) {
     	logger.info("Canceling the reservation with code: " + code);
-        if(reservationsHM.get(code) != null) {
-            DBManager.getInstance().deleteReservation(code);
-            return true;
-        }
-        logger.error("Error canceling a reservation, the reservation can't be found on HashMap.");
-        return false;
+        return DBManager.getInstance().deleteReservation(code);
     }
     
-    public void registerReservation(Date bookingDate, int duration, String van, String vanRenter) {
+    public boolean registerReservation(Date bookingDate, int duration, String van, String vanRenter) {
     	logger.info("Creating and storing new Reservation");
     	Reservation reservation = new Reservation(bookingDate, duration, van, vanRenter);
-    	DBManager.getInstance().store(reservation);
-    	if( reservation.getCode() != null ) {
+    	if( DBManager.getInstance().store(reservation) ) {
     		reservationsHM.put(reservation.getCode(), reservation);
+    		return true;
     	}
+    	return false;
     }
 
 	public ArrayList<Van> searchVans(String location) {
@@ -100,20 +95,20 @@ public class AirBVService {
 		return l;
 	}
 
-	public void deleteUser(String dni) {
+	public boolean deleteUser(String dni) {
 		logger.info("Deleting user with dni: " + dni);
-		if(usersHM.get(dni) != null) {
-            usersHM.remove(dni);
-        }
-		DBManager.getInstance().deleteUser(dni);
+		if(usersHM.get(dni) != null ) {
+			usersHM.remove(dni);
+		}
+		return DBManager.getInstance().deleteUser(dni);
 	}
 	
-	public void deleteVan(String licensePlate) {
+	public boolean deleteVan(String licensePlate) {
 		logger.info("Deleting van with license plate: " + licensePlate);
 		if(vansHM.get(licensePlate) != null ) {
 			vansHM.remove(licensePlate);
 		}
-		DBManager.getInstance().deleteVan(licensePlate);
+		return DBManager.getInstance().deleteVan(licensePlate);
 	}
     
 }
