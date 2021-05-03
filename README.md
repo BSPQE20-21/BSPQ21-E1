@@ -15,8 +15,6 @@ mvn datanucleus:schema-create
 In three separate cmd windows, run:
 
 ```bash
-mvn jetty:run 
-mvn exec:java -Pserver
+mvn jetty:run
 mvn exec:java -Pclient
-mvn datanucleus:schema-create
 ```
