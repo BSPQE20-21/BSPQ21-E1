@@ -1,8 +1,6 @@
-## Welcome to GitHub Pages
+## AirB&V project
 
-You can use the [editor on GitHub](https://github.com/BSPQE20-21/BSPQ21-E1/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Airb&V offers an application dedicated to the supply of caravans to individuals and holidaymakers (holiday rentals) through which hosts can advertise and contract the rental of their caravans with their guests.
 
 ### Markdown
 
