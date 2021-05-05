@@ -1,35 +1,50 @@
-## AirB&V project
+# ![alt text](https://github.com/BSPQE20-21/BSPQ21-E1/blob/main/src/images/AirBV.png "Logo") AirB&V project
 
+#### **Table of contents**<br>
+[About us](#about-us)<br>
+[About the project](#about-the-project)<br>
+[Pre-requisites](#pre-requisites)<br>
+[Building and running the project](#building-and-running-the-project)
+
+## About us
+BSPQ21-E1
+## About the project
 Airb&V offers an application dedicated to the supply of caravans to individuals and holidaymakers (holiday rentals) through which hosts can advertise and contract the rental of their caravans with their guests.
 
-### Markdown
+## Pre-requisites
+- Java JDK 12
+- MySQL
+- MySQL Workbench
+- Maven
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+-> Also the following libraries should be added to pom.xml file for the project to work: Jetty, JUnit, OpenCSV, MySQL, Datanucleus, Log4J, Jersey, Jacoco, ContiPerf, DOxygen.
 
-```markdown
-Syntax highlighted code block
+## Building and running the project
+These are the steps that must be followed in order to succesfully build and run the project:
 
-# Header 1
-## Header 2
-### Header 3
+*cmd's must be opened in the directory where pom.xml is located.*
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+1. Compile the project:
+```bash
+  mvn clean compile
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+2. Execute .sql script in MySQL WorkBench:
+Click on the thunder icon and refesh tables.
 
-### Jekyll Themes
+3. Create SQL schema:
+```bash
+  mvn datanucleus:schema-create
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/BSPQE20-21/BSPQ21-E1/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+4. Run Web Server:
+```bash
+  mvn jetty:run
+```
 
-### Support or Contact
+*open another cmd window to run client side*
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+5. Run Client App:
+```bash
+  mvn exec:java -Pclient
+```
