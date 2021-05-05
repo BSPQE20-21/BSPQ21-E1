@@ -140,28 +140,9 @@ public class Controller {
 				"\n\tUser: " + vanData.getUser() +
 				"\n=======================\n");
     	
-    	WebTarget registerVanWebTarget = webTarget.path("AirBV/registerVan"); 
+    	WebTarget registerVanWebTarget = webTarget.path("AirBV/registerVan/"+vanData.hasKitchen()+"/"+vanData.hasShower()); 
 		Invocation.Builder invocationBuilder = registerVanWebTarget.request(MediaType.APPLICATION_JSON);
-		
-		VanData van = new VanData();
-		van.setBrand(vanData.getBrand());
-		van.setCapacity(vanData.getCapacity());
-		van.setKitchen(vanData.hasKitchen());
-		van.setLicensePlate(vanData.getLicensePlate());
-		van.setLocation(vanData.getLocation());
-		van.setModel(vanData.getModel());
-		van.setOffRoad(vanData.isOffRoad());
-		van.setPricePerDay(vanData.getPricePerDay());
-		van.setShower(vanData.hasShower());
-		van.setUser(vanData.getUser());
-		
-		logger.debug("$ DEBUGGING\n" +
-				"\tPrinting New VanData and User from Controller in Client side:\n"+
-				"\tVan: " + van +
-				"\n\tUser: " + van.getUser() +
-				"\n=======================\n");
-		
-		Response response = invocationBuilder.post(Entity.entity(van, MediaType.APPLICATION_JSON));
+		Response response = invocationBuilder.post(Entity.entity(vanData, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			logger.error("Error connecting with the server. Code: " + response.getStatus());
 			logger.error("Error: " + response.toString());

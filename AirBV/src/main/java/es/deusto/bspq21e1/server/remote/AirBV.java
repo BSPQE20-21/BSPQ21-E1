@@ -50,7 +50,7 @@ public class AirBV {
 	private static final String registerUser = "/registerUser";
 	private static final String loginUser = "/loginUser/{email}/{password}";
 	private static final String deleteUser = "/deleteUser/{dni}";
-	private static final String registerVan = "/registerVan";
+	private static final String registerVan = "/registerVan/{kitchen}/{shower}";
 	private static final String deleteVan = "/deleteVan/{licensePlate}";
 	private static final String getMyReservations = "/getMyReservations/{dni}";
 	private static final String getVans = "/getVans/{location}";
@@ -84,8 +84,15 @@ public class AirBV {
      */
     @POST
     @Path(registerVan)
-    public Response registerVan(VanData vanData) {
+    public Response registerVan(VanData vanData, @PathParam("kitchen") boolean kitchen, @PathParam("shower") boolean shower) {
     	logger.info("Register new Van request from client received.");
+    	vanData.setKitchen(kitchen);
+    	vanData.setShower(shower);
+    	logger.debug("$ DEBUGGING\n" +
+				"\tPrinting VanData and User from AirBV in Server side:\n"+
+				"\tVan: " + vanData +
+				"\n\tUser: " + vanData.getUser() +
+				"\n=======================\n");
     	Assembler as = new Assembler();
     	
     	Van van = as.disassembleVan(vanData);

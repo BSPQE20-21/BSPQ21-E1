@@ -99,7 +99,7 @@ public class RegisterVanWindow extends JFrame{
 		lblLicensePlate.setBounds(40, 81, 125, 19);
 		frmRegistrationOfVans.getContentPane().add(lblLicensePlate);
 		
-		txtFieldLicensePlate = new JTextField();
+		txtFieldLicensePlate = new JTextField("");
 		txtFieldLicensePlate.setBounds(200, 81, 120, 19);
 		frmRegistrationOfVans.getContentPane().add(txtFieldLicensePlate);
 		txtFieldLicensePlate.setColumns(10);
@@ -109,7 +109,7 @@ public class RegisterVanWindow extends JFrame{
 		lblBrand.setBounds(40, 120, 125, 13);
 		frmRegistrationOfVans.getContentPane().add(lblBrand);
 		
-		txtFieldBrand = new JTextField();
+		txtFieldBrand = new JTextField("");
 		txtFieldBrand.setBounds(200, 117, 120, 19);
 		frmRegistrationOfVans.getContentPane().add(txtFieldBrand);
 		txtFieldBrand.setColumns(10);
@@ -119,7 +119,7 @@ public class RegisterVanWindow extends JFrame{
 		lblMoldel.setBounds(40, 160, 125, 13);
 		frmRegistrationOfVans.getContentPane().add(lblMoldel);
 		
-		txtFieldModel = new JTextField();
+		txtFieldModel = new JTextField("");
 		txtFieldModel.setBounds(200, 156, 120, 19);
 		frmRegistrationOfVans.getContentPane().add(txtFieldModel);
 		txtFieldModel.setColumns(10);
@@ -129,7 +129,7 @@ public class RegisterVanWindow extends JFrame{
 		lblLocation.setBounds(40, 200, 125, 13);
 		frmRegistrationOfVans.getContentPane().add(lblLocation);
 		
-		txtFieldLocation = new JTextField();
+		txtFieldLocation = new JTextField("");
 		txtFieldLocation.setColumns(10);
 		txtFieldLocation.setBounds(200, 197, 120, 19);
 		frmRegistrationOfVans.getContentPane().add(txtFieldLocation);
