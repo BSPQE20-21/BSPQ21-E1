@@ -1,4 +1,4 @@
-# ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo") AirB&V project
+# ![alt text](https://github.com/BSPQE20-21/BSPQ21-E1/blob/main/src/images/AirBV.png "Logo") AirB&V project
 
 #### **Table of contents**<br>
 [About us](#about-us)<br>
