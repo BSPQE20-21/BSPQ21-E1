@@ -14,7 +14,7 @@ Airb&V offers an application dedicated to the supply of caravans to individuals 
 You can see our website on: https://bspqe20-21.github.io/BSPQ21-E1/
 
 ## Pre-requisites
-- Java JDK 12
+- Java JDK (>=12)
 - MySQL
 - MySQL Workbench
 - Maven
