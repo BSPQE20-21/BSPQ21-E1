@@ -1,5 +1,6 @@
 package es.deusto.bspq21e1.client.gui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -7,6 +8,10 @@ import javax.swing.JPanel;
 import org.apache.log4j.Logger;
 
 import java.awt.event.ActionListener;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 
 import es.deusto.bspq21e1.client.controller.Controller;
@@ -27,6 +32,9 @@ public class InitialWindow extends JFrame {
     private JLabel lblHead;
     private JPanel panel;
     private JButton btnRegister, btnLogin, btnExit;
+    
+//    private ImagePanel imagePanel;
+//    private String pathToImage = "initialWindow.png";
 
     /**
 	 * Creates the initial window of the program.
@@ -43,22 +51,26 @@ public class InitialWindow extends JFrame {
 	 * Initializes all the elements the window needs to show to the user and their functionality.
 	 */
     private void initialize() {
-        frmAirbv.setBounds(100, 100, 255, 300);
+        frmAirbv.setBounds(100, 100, 255, 320);
         frmAirbv.setLocationRelativeTo(null);
         frmAirbv.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmAirbv.getContentPane().setLayout(null);
 		
+//		imagePanel.setImage(pathToImage);
+//		frmAirbv.setContentPane(imagePanel);
+		
         lblHead = new JLabel(controller.getResourcebundle().getString("initial_head_msg"));
-        lblHead.setBounds(20, 25, 202, 14);
+        lblHead.setFont(new Font("Tahoma", Font.BOLD, 18));
+        lblHead.setBounds(23, 25, 202, 25);
         frmAirbv.getContentPane().add(lblHead);
 
         panel = new JPanel();
-        panel.setBounds(20, 50, 202, 198);
+        panel.setBounds(20, 50, 202, 210);
         frmAirbv.getContentPane().add(panel);
         panel.setLayout(null);
 
         btnRegister = new JButton(controller.getResourcebundle().getString("register_msg"));
-        btnRegister.setBounds(23, 36, 150, 25);
+        btnRegister.setBounds(25, 36, 150, 25);
         btnRegister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -70,7 +82,7 @@ public class InitialWindow extends JFrame {
         btnRegister.updateUI();
 
         btnLogin = new JButton(controller.getResourcebundle().getString("login_msg"));
-        btnLogin.setBounds(23, 85, 150, 25);
+        btnLogin.setBounds(25, 85, 150, 25);
         btnLogin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -82,7 +94,8 @@ public class InitialWindow extends JFrame {
         btnLogin.updateUI();
 
         btnExit = new JButton(controller.getResourcebundle().getString("exit_msg"));
-        btnExit.setBounds(23, 141, 150, 25);
+        btnExit.setBounds(25, 180, 150, 25);
+        btnExit.setBackground(Color.RED);
         btnExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -94,4 +107,25 @@ public class InitialWindow extends JFrame {
 
         logger.info("InitialWindow well initialized");
     }
+    
+//    class ImagePanel extends JPanel {
+//    	
+//		private static final long serialVersionUID = 1L;
+//		private Image fondo = null;
+//		
+//		@Override
+//		protected void paintComponent(Graphics g) {
+//			super.paintComponent(g);
+//			g.drawImage(fondo, 0, 0, null);
+//		}
+//		
+//		public void setImage(String image) {
+//			fondo = new ImageIcon(getClass().getResource(image)).getImage();
+//		}
+//		
+//		@Override
+//		public String toString() {
+//			return this.getName();
+//		}
+//    }
 }
