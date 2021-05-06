@@ -48,3 +48,13 @@ Click on the thunder icon and refesh tables.
 ```bash
   mvn exec:java -Pclient
 ```
+
+## Generating reports
+1. Generate doxygen reports (It is needed to be compiled first):
+```bash
+  mvn doxygen:report
+```
+2. Validate:
+```bash
+  mvn validate
+```
