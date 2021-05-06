@@ -1,0 +1,169 @@
+\hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service}{}\doxysection{es.\+deusto.\+bspq21e1.\+server.\+Air\+BVService Class Reference}
+\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service}\index{es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_ac06254f00bd0ad413597c6c7ac0ecfe1}{Air\+BVService}} ()
+\item 
+boolean \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_ad93001d8f2b7286a0b98aab08e4fc5b6}{register\+User}} (String dni, String name, String email, String password)
+\item 
+boolean \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a39f67f38ab600ee522c76c8145fd5a8d}{register\+Van}} (\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}} van)
+\item 
+boolean \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_aa64eb51edd4744b93f3e20a07fc798b7}{cancel\+Reservation}} (String code)
+\item 
+boolean \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_abb17403914f2f3706e98b5a907acf4d8}{register\+Reservation}} (Date booking\+Date, int duration, String van, String van\+Renter)
+\item 
+Array\+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}} $>$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a5623752f39fb4645d52aa239b4a98f2a}{search\+Vans}} (String location)
+\item 
+\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_user}{User}} \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a46a79315446926c95ed70d2be64af07b}{login}} (String email, String password)
+\item 
+Array\+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_reservation}{Reservation}} $>$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a9ae66af4ea6b009b8094cb3521702574}{get\+User\+Reservations}} (String dni)
+\item 
+Array\+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}} $>$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a077e06ad86a038355e3634ec019d164d}{get\+User\+Vans}} (String dni)
+\item 
+boolean \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a82823f3cea9ac9979fcce02390a2e018}{delete\+User}} (String dni)
+\item 
+boolean \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a72493a74aeaeb093e35441000aea5bdb}{delete\+Van}} (String license\+Plate)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Application service class. 
+
+Definition at line 20 of file Air\+BVService.\+java.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_ac06254f00bd0ad413597c6c7ac0ecfe1}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_ac06254f00bd0ad413597c6c7ac0ecfe1}} 
+\index{es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}!AirBVService@{AirBVService}}
+\index{AirBVService@{AirBVService}!es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}}
+\doxysubsubsection{\texorpdfstring{AirBVService()}{AirBVService()}}
+{\footnotesize\ttfamily es.\+deusto.\+bspq21e1.\+server.\+Air\+BVService.\+Air\+BVService (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file Air\+BVService.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_aa64eb51edd4744b93f3e20a07fc798b7}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_aa64eb51edd4744b93f3e20a07fc798b7}} 
+\index{es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}!cancelReservation@{cancelReservation}}
+\index{cancelReservation@{cancelReservation}!es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}}
+\doxysubsubsection{\texorpdfstring{cancelReservation()}{cancelReservation()}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+bspq21e1.\+server.\+Air\+BVService.\+cancel\+Reservation (\begin{DoxyParamCaption}\item[{String}]{code }\end{DoxyParamCaption})}
+
+
+
+Definition at line 55 of file Air\+BVService.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a82823f3cea9ac9979fcce02390a2e018}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a82823f3cea9ac9979fcce02390a2e018}} 
+\index{es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}!deleteUser@{deleteUser}}
+\index{deleteUser@{deleteUser}!es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}}
+\doxysubsubsection{\texorpdfstring{deleteUser()}{deleteUser()}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+bspq21e1.\+server.\+Air\+BVService.\+delete\+User (\begin{DoxyParamCaption}\item[{String}]{dni }\end{DoxyParamCaption})}
+
+
+
+Definition at line 98 of file Air\+BVService.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a72493a74aeaeb093e35441000aea5bdb}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a72493a74aeaeb093e35441000aea5bdb}} 
+\index{es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}!deleteVan@{deleteVan}}
+\index{deleteVan@{deleteVan}!es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}}
+\doxysubsubsection{\texorpdfstring{deleteVan()}{deleteVan()}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+bspq21e1.\+server.\+Air\+BVService.\+delete\+Van (\begin{DoxyParamCaption}\item[{String}]{license\+Plate }\end{DoxyParamCaption})}
+
+
+
+Definition at line 106 of file Air\+BVService.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a9ae66af4ea6b009b8094cb3521702574}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a9ae66af4ea6b009b8094cb3521702574}} 
+\index{es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}!getUserReservations@{getUserReservations}}
+\index{getUserReservations@{getUserReservations}!es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}}
+\doxysubsubsection{\texorpdfstring{getUserReservations()}{getUserReservations()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_reservation}{Reservation}}$>$ es.\+deusto.\+bspq21e1.\+server.\+Air\+BVService.\+get\+User\+Reservations (\begin{DoxyParamCaption}\item[{String}]{dni }\end{DoxyParamCaption})}
+
+
+
+Definition at line 87 of file Air\+BVService.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a077e06ad86a038355e3634ec019d164d}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a077e06ad86a038355e3634ec019d164d}} 
+\index{es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}!getUserVans@{getUserVans}}
+\index{getUserVans@{getUserVans}!es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}}
+\doxysubsubsection{\texorpdfstring{getUserVans()}{getUserVans()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}}$>$ es.\+deusto.\+bspq21e1.\+server.\+Air\+BVService.\+get\+User\+Vans (\begin{DoxyParamCaption}\item[{String}]{dni }\end{DoxyParamCaption})}
+
+
+
+Definition at line 92 of file Air\+BVService.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a46a79315446926c95ed70d2be64af07b}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a46a79315446926c95ed70d2be64af07b}} 
+\index{es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}!login@{login}}
+\index{login@{login}!es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_user}{User}} es.\+deusto.\+bspq21e1.\+server.\+Air\+BVService.\+login (\begin{DoxyParamCaption}\item[{String}]{email,  }\item[{String}]{password }\end{DoxyParamCaption})}
+
+
+
+Definition at line 81 of file Air\+BVService.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_abb17403914f2f3706e98b5a907acf4d8}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_abb17403914f2f3706e98b5a907acf4d8}} 
+\index{es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}!registerReservation@{registerReservation}}
+\index{registerReservation@{registerReservation}!es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}}
+\doxysubsubsection{\texorpdfstring{registerReservation()}{registerReservation()}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+bspq21e1.\+server.\+Air\+BVService.\+register\+Reservation (\begin{DoxyParamCaption}\item[{Date}]{booking\+Date,  }\item[{int}]{duration,  }\item[{String}]{van,  }\item[{String}]{van\+Renter }\end{DoxyParamCaption})}
+
+
+
+Definition at line 60 of file Air\+BVService.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_ad93001d8f2b7286a0b98aab08e4fc5b6}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_ad93001d8f2b7286a0b98aab08e4fc5b6}} 
+\index{es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}!registerUser@{registerUser}}
+\index{registerUser@{registerUser}!es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}}
+\doxysubsubsection{\texorpdfstring{registerUser()}{registerUser()}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+bspq21e1.\+server.\+Air\+BVService.\+register\+User (\begin{DoxyParamCaption}\item[{String}]{dni,  }\item[{String}]{name,  }\item[{String}]{email,  }\item[{String}]{password }\end{DoxyParamCaption})}
+
+Registers a new user in Database and stores it in the map 
+\begin{DoxyParams}{Parameters}
+{\em dni} & -\/ new user\textquotesingle{}s dni \\
+\hline
+{\em name} & -\/ new users\textquotesingle{}name \\
+\hline
+{\em email} & -\/ new user\textquotesingle{}s email \\
+\hline
+{\em password} & -\/ new user\textquotesingle{}s password \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the created new User 
+\end{DoxyReturn}
+
+
+Definition at line 40 of file Air\+BVService.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a39f67f38ab600ee522c76c8145fd5a8d}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a39f67f38ab600ee522c76c8145fd5a8d}} 
+\index{es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}!registerVan@{registerVan}}
+\index{registerVan@{registerVan}!es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}}
+\doxysubsubsection{\texorpdfstring{registerVan()}{registerVan()}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+bspq21e1.\+server.\+Air\+BVService.\+register\+Van (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}}}]{van }\end{DoxyParamCaption})}
+
+
+
+Definition at line 47 of file Air\+BVService.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a5623752f39fb4645d52aa239b4a98f2a}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_a5623752f39fb4645d52aa239b4a98f2a}} 
+\index{es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}!searchVans@{searchVans}}
+\index{searchVans@{searchVans}!es.deusto.bspq21e1.server.AirBVService@{es.deusto.bspq21e1.server.AirBVService}}
+\doxysubsubsection{\texorpdfstring{searchVans()}{searchVans()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}}$>$ es.\+deusto.\+bspq21e1.\+server.\+Air\+BVService.\+search\+Vans (\begin{DoxyParamCaption}\item[{String}]{location }\end{DoxyParamCaption})}
+
+
+
+Definition at line 70 of file Air\+BVService.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/amaia/\+Documents/\+Git\+Hub/\+BSPQ21-\/\+E1/src/main/java/es/deusto/bspq21e1/server/\mbox{\hyperlink{_air_b_v_service_8java}{Air\+BVService.\+java}}\end{DoxyCompactItemize}

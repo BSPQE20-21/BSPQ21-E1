@@ -17,6 +17,7 @@
 		<server.port>8080</server.port>
 		<policy.file>${basedir}/security/java.policy</policy.file>
 		<config.files.dir>${basedir}/src/main/resources</config.files.dir>
+		<doxygen.config.file>${basedir}/src/main/resources/Doxyfile</doxygen.config.file>
 	</properties>
 
 	<!-- search for the latest version of dependencies in http://mvnrepository.com -->
@@ -194,6 +195,14 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.4.19.v20190610</version>
             </plugin>
+            <plugin>
+		        <groupId>com.soebes.maven.plugins</groupId>
+		        <artifactId>doxygen-maven-plugin</artifactId>
+		        <version>1.1.0</version>
+		        <configuration>
+		        	<configurationFile>${doxygen.config.file}</configurationFile>
+		        </configuration>
+		     </plugin>
             
             
             <plugin>
