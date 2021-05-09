@@ -117,7 +117,7 @@ public class SearchWindow extends JFrame{
 		JButton btnSearch = new JButton(controller.getResourcebundle().getString("search_button_msg"));
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				vans = controller.searchVans(txtLocation.getText());
+				vans = controller.searchVans(txtLocation.getText(), txtPickUp.getText(), txtReturn.getText());
 				updateLists(vans);
 			}
 		});
@@ -163,14 +163,14 @@ public class SearchWindow extends JFrame{
 			
 				String pickUp = txtPickUp.getText();
 				try {
-					pickUpDate = new SimpleDateFormat("dd/MM/yyyy").parse(pickUp);
+					pickUpDate = new SimpleDateFormat("dd-MM-yyyy").parse(pickUp);
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
 				try {
-					returnDate = new SimpleDateFormat("dd/MM/yyyy").parse(txtReturn.getText());
+					returnDate = new SimpleDateFormat("dd-MM-yyyy").parse(txtReturn.getText());
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -196,10 +196,11 @@ public class SearchWindow extends JFrame{
 		btnCharacteristics.setEnabled(false);
 		btnCharacteristics.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VanData van = vans.get(jlVansList.getSelectedIndex());
-				frmSearchVans.setVisible(false);
-				new CharacteristicsWindow(controller, van, frmSearchVans);
-				
+				if(jlVansList.getSelectedIndex() != -1) {
+					VanData van = vans.get(jlVansList.getSelectedIndex());
+					frmSearchVans.setVisible(false);
+					new CharacteristicsWindow(controller, van, frmSearchVans);
+				}
 			}
 		});
 		btnCharacteristics.setFont(new Font("Tahoma", Font.ITALIC, 11));

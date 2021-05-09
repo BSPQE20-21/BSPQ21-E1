@@ -366,7 +366,8 @@ public class DBManager {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Van> getVansByLocation( String location) { 
+	public List<Van> getVansByLocation( String location, String pickUpDate, String returnDate) { 
+		// TODO the filter must be done 
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = null;
 		

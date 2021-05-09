@@ -53,7 +53,7 @@ public class AirBV {
 	private static final String registerVan = "/registerVan/{kitchen}/{shower}";
 	private static final String deleteVan = "/deleteVan/{licensePlate}";
 	private static final String getMyReservations = "/getMyReservations/{dni}";
-	private static final String getVans = "/getVans/{location}";
+	private static final String getVans = "/getVans/{location}/{pickUpDate}/{returnDate}";
 	private static final String registerReservation = "/registerReservation";
 	private static final String cancelReservation = "/cancelReservation/{code}";
 	private static final String getMyVans = "/getMyVans/{dni}";
@@ -141,11 +141,11 @@ public class AirBV {
 
     @GET
     @Path(getVans)
-	public ArrayList<VanData> searchVans( @PathParam("location") String location) {	
-    	logger.info("Search with location: "+location+" request from client received.");
+	public ArrayList<VanData> searchVans( @PathParam("location") String location, @PathParam("pickUpDate") String pickUpDate, @PathParam("returnDate") String returnDate) {	
+    	logger.info("Search with location: "+location+" from " + pickUpDate + " to " + returnDate + " request from client received.");
     	ArrayList<VanData> vansData = new ArrayList<VanData>();
 		Assembler as = new Assembler();
-		for (Van van : airbvService.searchVans(location)) {
+		for (Van van : airbvService.searchVans(location, pickUpDate, returnDate)) {
 			vansData.add(as.assembleVan(van));
 		}
 		return vansData;

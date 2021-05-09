@@ -34,8 +34,8 @@ public class Controller {
     	resourceBundle = ResourceBundle.getBundle("SystemMessages", Locale.getDefault());
     }
     
-    public ArrayList<VanData> searchVans(String location) {
-    	WebTarget vansWebTarget = webTarget.path("AirBV/getVans/" + location);
+    public ArrayList<VanData> searchVans(String location, String pickUpDate, String returnDate) {
+    	WebTarget vansWebTarget = webTarget.path("AirBV/getVans/" + location + "/" + pickUpDate + "/" + returnDate);
     	
     	GenericType<ArrayList<VanData>> genericType = new GenericType<ArrayList<VanData>>() {};
 		ArrayList<VanData> list = vansWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);

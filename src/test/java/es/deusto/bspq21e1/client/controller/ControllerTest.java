@@ -90,7 +90,7 @@ public class ControllerTest {
     	
     	assertTrue(controller.eraseUser("00000001A"));
 		assertTrue(controller.eraseUser("00000002A"));
-		assertEquals(0, controller.searchVans("Bilbao").size());
+		assertEquals(0, controller.searchVans("Bilbao", "", "").size());
 
 		logger.info("After tests code execution begins properly");
 	}
@@ -115,8 +115,8 @@ public class ControllerTest {
 	
 	@Test
 	public void searchVansTest() {
-		assertEquals(2, controller.searchVans("Bilbao").size());
-		assertEquals(0, controller.searchVans("Madrid").size());
+		assertEquals(2, controller.searchVans("Bilbao", "", "").size());
+		assertEquals(0, controller.searchVans("Madrid", "", "").size());
 		logger.info("Test of searchVans done");
 	}
 	
