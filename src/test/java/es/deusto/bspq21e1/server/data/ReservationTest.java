@@ -30,7 +30,7 @@ public class ReservationTest {
 	public void setUp() {
 		logger.info("Before tests code execution begins");
 		try {
-			date = new SimpleDateFormat("dd/MM/yyyy").parse("30/09/2021");
+			date = new SimpleDateFormat("dd-MM-yyyy").parse("30-09-2021");
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}

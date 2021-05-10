@@ -57,7 +57,7 @@ public class ControllerTest {
 		van2 = new VanData("1235ABC", "Ford", "Focus", "Bilbao", 3, true, true, true, 50, userDni2);
 		
         try {
-			date = new SimpleDateFormat("dd/MM/yyyy").parse("30/09/2021");
+			date = new SimpleDateFormat("dd-MM-yyyy").parse("30-09-2021");
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
@@ -90,7 +90,7 @@ public class ControllerTest {
     	
     	assertTrue(controller.eraseUser("00000001A"));
 		assertTrue(controller.eraseUser("00000002A"));
-		assertEquals(0, controller.searchVans("Bilbao", "", "").size());
+		assertEquals(0, controller.searchVans("Bilbao", "10-10-2021", "20-10-2021").size());
 
 		logger.info("After tests code execution begins properly");
 	}
@@ -115,8 +115,8 @@ public class ControllerTest {
 	
 	@Test
 	public void searchVansTest() {
-		assertEquals(2, controller.searchVans("Bilbao", "", "").size());
-		assertEquals(0, controller.searchVans("Madrid", "", "").size());
+		assertEquals(2, controller.searchVans("Bilbao", "10-10-2021", "20-10-2021").size());
+		assertEquals(0, controller.searchVans("Madrid", "10-10-2021", "20-10-2021").size());
 		logger.info("Test of searchVans done");
 	}
 	

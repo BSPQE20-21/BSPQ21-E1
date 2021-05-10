@@ -55,13 +55,13 @@ public class AirBVServiceTest {
 		van2 = new Van("1235ABC", "Ford", "Focus", "Bilbao",  true, true, true, 3, 50, userDni2);
 		
         try {
-			date1 = new SimpleDateFormat("dd/MM/yyyy").parse("10/10/2021");
+			date1 = new SimpleDateFormat("dd-MM-yyyy").parse("10-10-2021");
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
         
         try {
-			date1 = new SimpleDateFormat("dd/MM/yyyy").parse("20/10/2021");
+			date1 = new SimpleDateFormat("dd-MM-yyyy").parse("20-10-2021");
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}

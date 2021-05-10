@@ -371,13 +371,14 @@ public class DBManager {
 		
 		//TODO
 		
-		return null; 
+		//TEMPORAL
+		return getVansByLocation( location ); 
 		
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<Van> getVansByLocation( String location ) { 
-		// TODO the filter must be done 
+ 
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = null;
 		
