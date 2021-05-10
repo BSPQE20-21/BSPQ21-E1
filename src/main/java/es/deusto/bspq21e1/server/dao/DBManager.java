@@ -1,6 +1,7 @@
 package es.deusto.bspq21e1.server.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.jdo.JDOHelper;
@@ -366,7 +367,16 @@ public class DBManager {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Van> getVansByLocation( String location, String pickUpDate, String returnDate) { 
+	public List<Van> getVansByDates( String location, Date pickUpDate, Date returnDate ) {
+		
+		//TODO
+		
+		return null; 
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Van> getVansByLocation( String location ) { 
 		// TODO the filter must be done 
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = null;

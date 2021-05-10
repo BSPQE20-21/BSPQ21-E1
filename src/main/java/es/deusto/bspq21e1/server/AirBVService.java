@@ -1,6 +1,8 @@
 package es.deusto.bspq21e1.server;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -67,9 +69,37 @@ public class AirBVService {
     	return false;
     }
 
-	public ArrayList<Van> searchVans(String location, String pickUpDate, String returnDate) {
-		logger.info("Searching vans with location: "+ location+" from " + pickUpDate + " to " + returnDate);
-		ArrayList<Van> vanAL = new ArrayList<Van>(DBManager.getInstance().getVansByLocation(location, pickUpDate, returnDate));
+	public ArrayList<Van> searchVans(String location, String pickUpDateString, String returnDateString) {
+		logger.info("Searching vans with location: "+ location+" from " + pickUpDateString + " to " + returnDateString);
+		
+		Date pickUpDate = null;
+		try {
+			pickUpDate = new SimpleDateFormat("dd-MM-yyyy").parse(pickUpDateString);
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		Date returnDate = null;
+		try {
+			returnDate = new SimpleDateFormat("dd-MM-yyyy").parse(returnDateString);
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		ArrayList<Van> vanAL = new ArrayList<Van>(DBManager.getInstance().getVansByDates(location, pickUpDate, returnDate));
+		for( Van v : vanAL ) { 
+			logger.debug("Van in AIRBVService: " + v);
+			vansHM.put(v.getLicensePlate(), v); 
+		}
+		
+		return vanAL;
+	}
+	
+	public ArrayList<Van> searchVansByLocation(String location) {
+		logger.info("Searching vans with location: "+ location);
+		ArrayList<Van> vanAL = new ArrayList<Van>(DBManager.getInstance().getVansByLocation(location));
 		for( Van v : vanAL ) { 
 			logger.debug("Van in AIRBVService: " + v);
 			vansHM.put(v.getLicensePlate(), v); 

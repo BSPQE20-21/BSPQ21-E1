@@ -35,7 +35,8 @@ public class AirBVServiceTest {
 	User u;
 	Van van;
 	Van van2;
-	Date date = null;
+	Date date1 = null;
+	Date date2 = null;
 
 	@Before
 	public void setUp() throws Exception {
@@ -54,7 +55,13 @@ public class AirBVServiceTest {
 		van2 = new Van("1235ABC", "Ford", "Focus", "Bilbao",  true, true, true, 3, 50, userDni2);
 		
         try {
-			date = new SimpleDateFormat("dd/MM/yyyy").parse("30/09/2021");
+			date1 = new SimpleDateFormat("dd/MM/yyyy").parse("10/10/2021");
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+        
+        try {
+			date1 = new SimpleDateFormat("dd/MM/yyyy").parse("20/10/2021");
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
@@ -69,9 +76,9 @@ public class AirBVServiceTest {
     	assertFalse(service.registerVan(van));
     	van.setUser("userDni");
     	
-    	assertTrue(service.registerReservation(date, 3, van.getLicensePlate(), u.getDni()));
-    	assertFalse(service.registerReservation(date, 3, van.getLicensePlate(), new User().getDni()));
-    	assertFalse(service.registerReservation(date, 3, "0000CCC", u.getDni()));
+    	assertTrue(service.registerReservation(date1, 3, van.getLicensePlate(), u.getDni()));
+    	assertFalse(service.registerReservation(date1, 3, van.getLicensePlate(), new User().getDni()));
+    	assertFalse(service.registerReservation(date1, 3, "0000CCC", u.getDni()));
     	
     	logger.info("Before tests code execution ends properly");
 	}
@@ -79,23 +86,23 @@ public class AirBVServiceTest {
 	@After
 	public void tearDown() throws Exception {
 		logger.info("After tests code execution begins");
-		assertTrue(service.cancelReservation(date.getTime()+van.getLicensePlate()));
-    	assertFalse(service.cancelReservation(date.getTime()+"ABC"));
+		assertTrue(service.cancelReservation(date1.getTime()+van.getLicensePlate()));
+    	assertFalse(service.cancelReservation(date1.getTime()+"ABC"));
     	
     	assertTrue(service.deleteVan(van2.getLicensePlate()));
     	assertFalse(service.deleteVan("8754ACB"));
     	
     	assertTrue(service.deleteUser("00000001A"));
 		assertTrue(service.deleteUser("00000002A"));
-		assertEquals(0, service.searchVans("Bilbao").size());
+		assertEquals(0, service.searchVans("Bilbao", "10-10-2021", "20-10-2021").size());
 		
 		logger.info("After tests code execution begins properly");
 	}
 
 	@Test
 	public void searchVansTest() {
-		assertEquals(2, service.searchVans("Bilbao").size());
-		assertEquals(0, service.searchVans("Madrid").size());
+		assertEquals(2, service.searchVans("Bilbao", "10-10-2021", "20-10-2021").size());
+		assertEquals(0, service.searchVans("Madrid", "10-10-2021", "20-10-2021").size());
 		logger.info("Test of searchVans done");
 	}
 	
