@@ -110,8 +110,9 @@ section {
 	padding-left: 0px;
 	padding-right: 0px;
 }
+
 .main-banner .banner-content {
-	background-image: url(../images/main-banner.jpg);
+	background-image: url(../images/simple-post.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 }

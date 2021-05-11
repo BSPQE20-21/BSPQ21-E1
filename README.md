@@ -9,7 +9,7 @@
 ## About us
 BSPQ21-E1
 ## About the project
-Airb&V offers an application dedicated to the supply of caravans to individuals and holidaymakers (holiday rentals) through which hosts can advertise and contract the rental of their caravans with their guests.
+AirB&V offers an application dedicated to the supply of caravans to individuals and holidaymakers (holiday rentals) through which hosts can advertise and contract the rental of their caravans with their guests.
 
 You can see our website on: https://bspqe20-21.github.io/BSPQ21-E1/
 
