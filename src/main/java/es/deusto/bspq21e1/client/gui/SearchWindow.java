@@ -11,6 +11,7 @@ import es.deusto.bspq21e1.serialization.VanData;
 import javax.swing.JPanel;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 
 import org.apache.log4j.Logger;
 
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
+import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import java.awt.Color;
 
@@ -47,12 +49,13 @@ public class SearchWindow extends JFrame{
 	private JTextField txtPickUp;
 	private JTextField txtReturn;
 	private JSeparator separator;
-	private JList<String> jlVansList = new JList<String>();
+	private JTable jlVansList = new JTable();
 	private JScrollPane scrollVans;
 	private ArrayList<VanData> vans = new ArrayList<>();
 	private Date pickUpDate;
 	private Date returnDate;
 	JButton btnCharacteristics;
+	private DefaultTableModel tableModel;
 	
 	private javax.swing.DefaultListModel<String> vansList = new javax.swing.DefaultListModel<String>();
 
@@ -114,11 +117,14 @@ public class SearchWindow extends JFrame{
 		txtReturn.updateUI();
 		txtReturn.setColumns(10);
 		
+		//SEARCH BUTTON
 		JButton btnSearch = new JButton(controller.getResourcebundle().getString("search_button_msg"));
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				vans = controller.searchVans(txtLocation.getText(), txtPickUp.getText(), txtReturn.getText());
-				updateLists(vans);
+				if(txtPickUp.getText() != null && txtReturn.getText() != null && txtLocation.getText() != null) {
+					vans = controller.searchVans(txtLocation.getText(), txtPickUp.getText(), txtReturn.getText());
+					updateLists(vans);
+				}
 			}
 		});
 		btnSearch.setFont(new Font("Tahoma", Font.ITALIC, 11));
@@ -148,8 +154,18 @@ public class SearchWindow extends JFrame{
 		visualizePanel.add(lblResultsTitle);
 		lblResultsTitle.updateUI();
 		
+		//TABLE MODEL
+		tableModel = new DefaultTableModel();
+		tableModel.setColumnIdentifiers(new String[] {controller.getResourcebundle().getString("brand_msg"), 
+													controller.getResourcebundle().getString("model_msg"),
+													controller.getResourcebundle().getString("location_msg"),
+													controller.getResourcebundle().getString("capacity_msg"),
+													controller.getResourcebundle().getString("price_per_day_msg"),
+													});
+		
+		//JTABLE
 		jlVansList.setBounds(574, 118, -558, -83);
-		jlVansList.setModel(vansList);
+		jlVansList.setModel(tableModel);
 		jlVansList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		scrollVans = new JScrollPane();
@@ -157,6 +173,7 @@ public class SearchWindow extends JFrame{
 		scrollVans.setViewportView(jlVansList);
 		visualizePanel.add(scrollVans);
 		
+		//BOOK BUTTON
 		JButton btnBook = new JButton(controller.getResourcebundle().getString("book_button_msg"));
 		btnBook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -176,13 +193,14 @@ public class SearchWindow extends JFrame{
 					e1.printStackTrace();
 				}
 				
-				VanData van = vans.get(jlVansList.getSelectedIndex());
+				VanData van = vans.get(jlVansList.getSelectedRow());
 				
 				int milisecondsByDay = 86400000;
 				int days = (int) ((returnDate.getTime()-pickUpDate.getTime()) / milisecondsByDay);
 				
-				controller.registerReservation(pickUpDate, days, van, user);
-			
+				if(txtPickUp.getText() != null && txtReturn.getText() != null && txtLocation.getText() != null) {
+					controller.registerReservation(pickUpDate, days, van, user);
+				}
 				mainWindow.setVisible(true);
 				frmSearchVans.dispose();
 				
@@ -192,12 +210,13 @@ public class SearchWindow extends JFrame{
 		btnBook.setBounds(209, 138, 100, 20);
 		visualizePanel.add(btnBook);
 		
+		//CHARACTERISTICS BUTTON
 		btnCharacteristics = new JButton(controller.getResourcebundle().getString("characteristics_button_msg"));
 		btnCharacteristics.setEnabled(false);
 		btnCharacteristics.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(jlVansList.getSelectedIndex() != -1) {
-					VanData van = vans.get(jlVansList.getSelectedIndex());
+				if(jlVansList.getSelectedRow() != -1) {
+					VanData van = vans.get(jlVansList.getSelectedRow());
 					frmSearchVans.setVisible(false);
 					new CharacteristicsWindow(controller, van, frmSearchVans);
 				}
@@ -207,6 +226,7 @@ public class SearchWindow extends JFrame{
 		btnCharacteristics.setBounds(325, 138, 130, 20);
 		visualizePanel.add(btnCharacteristics);
 		
+		//BACK BUTTON
 		JButton btnNewButton = new JButton(controller.getResourcebundle().getString("back_button_msg"));
 		btnNewButton.setFont(new Font("Tahoma", Font.ITALIC, 11));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -231,17 +251,18 @@ public class SearchWindow extends JFrame{
 	private void updateLists(ArrayList<VanData> vans) {
 		if(vans.size() > 0) {
 			btnCharacteristics.setEnabled(true);
-			vansList.clear();
+			tableModel.setRowCount(0); //CLEAR THE TABLE
 			for (int i = 0; i < vans.size(); i++) {
 				VanData v = vans.get(i);
-				vansList.addElement("Van: " + v.getBrand() + " " + v.getModel() + " (" + v.getCapacity() + " people) Price: " + v.getPricePerDay());
+				String[] row = {v.getBrand(), v.getModel(), v.getLocation(), String.valueOf(v.getCapacity()), String.valueOf(v.getPricePerDay())};
+				tableModel.addRow(row);
 			}
-			jlVansList.setSelectedIndex(0);
+			jlVansList.setRowSelectionInterval(0, 0);
 		} else {
 			btnCharacteristics.setEnabled(false);
-			vansList.clear();
+			tableModel.setRowCount(0); //CLEAR THE TABLE
 		}
-		jlVansList.setModel(vansList);
+		jlVansList.setModel(tableModel);
 		jlVansList.updateUI();
 		scrollVans.updateUI();
 		visualizePanel.updateUI();
