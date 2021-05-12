@@ -3,7 +3,9 @@ package es.deusto.bspq21e1.client.gui;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 
 import org.apache.log4j.Logger;
 
@@ -13,6 +15,7 @@ import es.deusto.bspq21e1.serialization.UserData;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -35,9 +38,11 @@ public class CancelReservationWindow extends JFrame{
 	private JFrame frame = new JFrame();
 	private JButton btnCancel, btnBack;
 	private JScrollPane scrollReservations;
-	private JList<String> jlReservationsList = new JList<String>();
+	private JList<String> jlReservationsList1 = new JList<String>();
+	private JTable jlReservationsList = new JTable();
 	private ArrayList<ReservationData> reservations = new ArrayList<>();
 	private javax.swing.DefaultListModel<String> reservationsList = new javax.swing.DefaultListModel<String>();
+	private DefaultTableModel tableModel;
 	
 	/**
 	 * Creates the window for a specific user.
@@ -58,7 +63,7 @@ public class CancelReservationWindow extends JFrame{
 	 * Initializes all the elements the window needs to show to the user and their functionality.
 	 */
 	private void initialize() {
-		frame.setBounds(100, 100, 415, 315);
+		frame.setBounds(100, 100, 715, 315);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -68,27 +73,39 @@ public class CancelReservationWindow extends JFrame{
 		lblTitle.setBounds(60, 11, 298, 24);
 		frame.getContentPane().add(lblTitle);
 		
-		jlReservationsList.setBounds(10, 46, 414, 169);
-		jlReservationsList.setModel(reservationsList);
+		//TABLE MODEL
+				tableModel = new DefaultTableModel();
+				tableModel.setColumnIdentifiers(new String[] {controller.getResourcebundle().getString("code_msg"), 
+															controller.getResourcebundle().getString("pick_up_date_msg"),
+															controller.getResourcebundle().getString("duration_msg"),
+															controller.getResourcebundle().getString("van_msg"),
+															controller.getResourcebundle().getString("owner_id_msg"),
+															});
+		
+		//JTABLE
+		jlReservationsList.setBounds(10, 46, 691, 169);
+		jlReservationsList.setModel(tableModel);
 		jlReservationsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		scrollReservations = new JScrollPane();
-		scrollReservations.setBounds(10, 40, 374, 188);
+		scrollReservations.setBounds(10, 40, 691, 188);
 		scrollReservations.setViewportView(jlReservationsList);
 		frame.getContentPane().add(scrollReservations);
 		
+		//CANCEL BUTTON
 		btnCancel = new JButton(controller.getResourcebundle().getString("cancel_button_msg"));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.cancelReservation(reservations.get(jlReservationsList.getSelectedIndex()).getCode());
+				controller.cancelReservation(reservations.get(jlReservationsList.getSelectedRow()).getCode());
 				frmMain.setVisible(true);
 				frame.dispose();
 			}
 		});
 		btnCancel.setBackground(java.awt.Color.RED);
-		btnCancel.setBounds(240, 240, 100, 25);
+		btnCancel.setBounds(397, 240, 100, 25);
 		frame.getContentPane().add(btnCancel);
 		
+		//BACK BUTTON
 		btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
 		btnBack.addActionListener(new ActionListener() {
 			@Override
@@ -100,6 +117,7 @@ public class CancelReservationWindow extends JFrame{
 		btnBack.setBounds(50, 240, 100, 25);
 		frame.getContentPane().add(btnBack);
 		
+		//CONTROLLER
 		reservations = controller.getMyReservations(user);
 		updateLists(reservations);
 		
@@ -112,9 +130,12 @@ public class CancelReservationWindow extends JFrame{
 		reservationsList.clear();
 		for (int i = 0; i < reservations.size(); i++) {
 			ReservationData v = (ReservationData) reservations.get(i);
-			reservationsList.addElement(v.toString());
+			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+			String strDate= formatter.format(v.getBookingDate());
+			String[] row = {v.getCode(), strDate, String.valueOf(v.getDuration()), v.getVan(), v.getVanRenter()};
+			tableModel.addRow(row);
 		}
-		jlReservationsList.setSelectedIndex(0);
+		jlReservationsList.setRowSelectionInterval(0, 0);
 	}
 	
 
