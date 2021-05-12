@@ -27,6 +27,7 @@ public class Controller {
     private WebTarget webTarget;
     private static Logger logger = Logger.getLogger(Controller.class.getName());
     private ResourceBundle resourceBundle;
+    private Locale currentLocale;
     
     public Controller(String hostname, String port) {
     	client = ClientBuilder.newClient();
@@ -216,6 +217,21 @@ public class Controller {
 	 */
 	public ResourceBundle getResourcebundle() {
 		return resourceBundle;
+	}
+	
+	/**
+	 * Sets the currentLocale
+	 * @param locale
+	 */
+	public void setLocale(String locale){
+		if(locale.equals("es")){
+			currentLocale = new Locale("es");
+		}else if(locale.equals("eu")){
+			currentLocale = new Locale("eu");
+		}else if(locale.equals("en")){
+			currentLocale = new Locale("en");
+		}
+		//TODO
 	}
 	
 }
