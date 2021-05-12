@@ -11,7 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 
 import org.apache.log4j.Logger;
 
@@ -31,10 +33,11 @@ public class RemoveVanWindow extends JFrame {
 	
 	private JLabel lblText;
 	private JButton btnRemove, btnBack;
-	private JList<String> jlVansList;
+	private JTable jlVansList = new JTable();
 	private JScrollPane scrollVans;
 	private ArrayList<VanData> vans = new ArrayList<VanData>();
 	private DefaultListModel<String> vansList = new DefaultListModel<String>();
+	private DefaultTableModel tableModel;
 	
 	public RemoveVanWindow(Controller controller, UserData user, JFrame frmMain) {
 		this.controller = controller;
@@ -47,21 +50,30 @@ public class RemoveVanWindow extends JFrame {
 	}
 	
 	private void initialize() {
-		frmRemoveVan.setBounds(50, 50, 470, 500);
+		frmRemoveVan.setBounds(50, 50, 715, 500);
 		frmRemoveVan.setLocationRelativeTo(null);
 		frmRemoveVan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRemoveVan.getContentPane().setLayout(null);
 		
-		jlVansList = new JList<String>();
-		jlVansList.setModel(vansList);
-		jlVansList.setSelectedIndex(0);
+		//TABLE MODEL
+		tableModel = new DefaultTableModel();
+		tableModel.setColumnIdentifiers(new String[] {controller.getResourcebundle().getString("license_plate_msg"), 
+													controller.getResourcebundle().getString("brand_msg"),
+													controller.getResourcebundle().getString("model_msg"),
+													controller.getResourcebundle().getString("location_msg"),
+													controller.getResourcebundle().getString("capacity_msg"),
+													controller.getResourcebundle().getString("price_per_day_msg")
+													});
+
+		jlVansList.setModel(tableModel);
 		jlVansList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		scrollVans = new JScrollPane();
-		scrollVans.setBounds(25, 80, 405, 320);
+		scrollVans.setBounds(25, 80, 650, 320);
 		scrollVans.setViewportView(jlVansList);
 		frmRemoveVan.getContentPane().add(scrollVans);
 		
+		//BACK BUTTON
 		btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
 		btnBack.setBounds(25, 420, 100, 25);
 		btnBack.addActionListener(new ActionListener() {
@@ -74,13 +86,14 @@ public class RemoveVanWindow extends JFrame {
 		frmRemoveVan.getContentPane().add(btnBack);
 		btnBack.updateUI();
 		
+		//REMOVE BUTTON
 		btnRemove = new JButton(controller.getResourcebundle().getString("remove_msg"));
-		btnRemove.setBounds(330, 420, 100, 25);
+		btnRemove.setBounds(523, 420, 100, 25);
 		btnRemove.setBackground(java.awt.Color.RED);
 		btnRemove.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VanData van = vans.get(jlVansList.getSelectedIndex());
+				VanData van = vans.get(jlVansList.getSelectedRow());
 				controller.eraseVan( van.getLicensePlate() );
 				frmMain.setVisible(true);
 				frmRemoveVan.dispose();
@@ -107,11 +120,19 @@ public class RemoveVanWindow extends JFrame {
 	
 	private void updateList() {
 		logger.debug("Inside function -> " + vans);
-		for (int i = 0; i < vans.size(); i++) {
-			VanData v = vans.get(i);
-			vansList.addElement(v.toString());
+		if(vans.size()>0) {
+			for (int i = 0; i < vans.size(); i++) {
+				VanData v = vans.get(i);
+				String[] row = {v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), String.valueOf(v.getCapacity()), String.valueOf(v.getPricePerDay())};
+				tableModel.addRow(row);
+			}
+			jlVansList.setModel(tableModel);
+			jlVansList.setRowSelectionInterval(0, 0);
+		}else {
+			btnRemove.setEnabled(false);
 		}
-		jlVansList.setSelectedIndex(0);
+		jlVansList.updateUI();
+		scrollVans.updateUI();
 	}
 	
 }

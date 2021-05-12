@@ -63,7 +63,7 @@ public class CancelReservationWindow extends JFrame{
 	 * Initializes all the elements the window needs to show to the user and their functionality.
 	 */
 	private void initialize() {
-		frame.setBounds(100, 100, 715, 315);
+		frame.setBounds(100, 100, 720, 315);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -79,7 +79,7 @@ public class CancelReservationWindow extends JFrame{
 															controller.getResourcebundle().getString("pick_up_date_msg"),
 															controller.getResourcebundle().getString("duration_msg"),
 															controller.getResourcebundle().getString("van_msg"),
-															controller.getResourcebundle().getString("owner_id_msg"),
+															controller.getResourcebundle().getString("owner_id_msg")
 															});
 		
 		//JTABLE
@@ -127,15 +127,23 @@ public class CancelReservationWindow extends JFrame{
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
 	private void updateLists(ArrayList<ReservationData> reservations) {
 		logger.debug("Inside function -> " + reservations);
-		reservationsList.clear();
-		for (int i = 0; i < reservations.size(); i++) {
-			ReservationData v = (ReservationData) reservations.get(i);
-			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-			String strDate= formatter.format(v.getBookingDate());
-			String[] row = {v.getCode(), strDate, String.valueOf(v.getDuration()), v.getVan(), v.getVanRenter()};
-			tableModel.addRow(row);
+		tableModel.setRowCount(0); //CLEAR THE TABLE
+		if(reservations.size()>0) {
+			for (int i = 0; i < reservations.size(); i++) {
+				ReservationData v = (ReservationData) reservations.get(i);
+				SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+				String strDate= formatter.format(v.getBookingDate());
+				String[] row = {v.getCode(), strDate, String.valueOf(v.getDuration()), v.getVan(), v.getVanRenter()};
+				tableModel.addRow(row);
+			}
+			jlReservationsList.setModel(tableModel);
+			jlReservationsList.setRowSelectionInterval(0, 0);
+		}else {
+			btnCancel.setEnabled(false);
+			tableModel.setRowCount(0); //CLEAR THE TABLE
 		}
-		jlReservationsList.setRowSelectionInterval(0, 0);
+		jlReservationsList.updateUI();
+		scrollReservations.updateUI();
 	}
 	
 

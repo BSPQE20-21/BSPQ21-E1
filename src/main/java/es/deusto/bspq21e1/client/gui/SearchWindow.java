@@ -10,6 +10,7 @@ import es.deusto.bspq21e1.serialization.VanData;
 
 import javax.swing.JPanel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -55,6 +56,7 @@ public class SearchWindow extends JFrame{
 	private Date pickUpDate;
 	private Date returnDate;
 	JButton btnCharacteristics;
+	JButton btnBook;
 	private DefaultTableModel tableModel;
 	
 	private javax.swing.DefaultListModel<String> vansList = new javax.swing.DefaultListModel<String>();
@@ -124,6 +126,8 @@ public class SearchWindow extends JFrame{
 				if(txtPickUp.getText() != null && txtReturn.getText() != null && txtLocation.getText() != null) {
 					vans = controller.searchVans(txtLocation.getText(), txtPickUp.getText(), txtReturn.getText());
 					updateLists(vans);
+				}else {
+					JOptionPane.showMessageDialog(frmSearchVans, controller.getResourcebundle().getString("search_window_error_empty_txt_fields_msg"));
 				}
 			}
 		});
@@ -160,7 +164,7 @@ public class SearchWindow extends JFrame{
 													controller.getResourcebundle().getString("model_msg"),
 													controller.getResourcebundle().getString("location_msg"),
 													controller.getResourcebundle().getString("capacity_msg"),
-													controller.getResourcebundle().getString("price_per_day_msg"),
+													controller.getResourcebundle().getString("price_per_day_msg")
 													});
 		
 		//JTABLE
@@ -174,7 +178,8 @@ public class SearchWindow extends JFrame{
 		visualizePanel.add(scrollVans);
 		
 		//BOOK BUTTON
-		JButton btnBook = new JButton(controller.getResourcebundle().getString("book_button_msg"));
+		btnBook = new JButton(controller.getResourcebundle().getString("book_button_msg"));
+		btnBook.setEnabled(false);
 		btnBook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -258,8 +263,10 @@ public class SearchWindow extends JFrame{
 				tableModel.addRow(row);
 			}
 			jlVansList.setRowSelectionInterval(0, 0);
+			btnBook.setEnabled(true);
 		} else {
 			btnCharacteristics.setEnabled(false);
+			btnBook.setEnabled(false);
 			tableModel.setRowCount(0); //CLEAR THE TABLE
 		}
 		jlVansList.setModel(tableModel);
