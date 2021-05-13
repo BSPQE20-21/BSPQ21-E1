@@ -1,0 +1,814 @@
+\begin{theindex}
+
+  \item {addStar}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{59}
+  \item {AirBV}
+    \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{13}
+  \item {AirBVService}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{17}
+  \item {assembleReservation}
+    \subitem {es.deusto.bspq21e1.server.dto.Assembler}, \hyperpage{22}
+  \item {assembleReview}
+    \subitem {es.deusto.bspq21e1.server.dto.Assembler}, \hyperpage{22}
+  \item {assembleUser}
+    \subitem {es.deusto.bspq21e1.server.dto.Assembler}, \hyperpage{22}
+  \item {assembleVan}
+    \subitem {es.deusto.bspq21e1.server.dto.Assembler}, \hyperpage{22}
+
+  \indexspace
+
+  \item {cancelReservation}
+    \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{26}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{17}
+    \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{14}
+  \item {CancelReservationWindow}
+    \subitem {es.deusto.bspq21e1.client.gui.CancelReservationWindow}, 
+		\hyperpage{24}
+  \item {CharacteristicsWindow}
+    \subitem {es.deusto.bspq21e1.client.gui.CharacteristicsWindow}, 
+		\hyperpage{25}
+  \item {client.main}, \hyperpage{9}
+  \item {constructorTest}
+    \subitem {es.deusto.bspq21e1.server.data.ReservationTest}, 
+		\hyperpage{50}
+    \subitem {es.deusto.bspq21e1.server.data.ReviewTest}, 
+		\hyperpage{57}
+    \subitem {es.deusto.bspq21e1.server.data.UserTest}, \hyperpage{65}
+    \subitem {es.deusto.bspq21e1.server.data.VanTest}, \hyperpage{77}
+  \item {Controller}
+    \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{26}
+
+  \indexspace
+
+  \item {deleteReservation}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManager}, \hyperpage{31}
+  \item {deleteUser}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{17}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManager}, \hyperpage{31}
+    \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{14}
+  \item {deleteVan}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{18}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManager}, \hyperpage{31}
+    \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{14}
+  \item {disassembleReservation}
+    \subitem {es.deusto.bspq21e1.server.dto.Assembler}, \hyperpage{23}
+  \item {disassembleReview}
+    \subitem {es.deusto.bspq21e1.server.dto.Assembler}, \hyperpage{23}
+  \item {disassembleUser}
+    \subitem {es.deusto.bspq21e1.server.dto.Assembler}, \hyperpage{23}
+  \item {disassembleVan}
+    \subitem {es.deusto.bspq21e1.server.dto.Assembler}, \hyperpage{23}
+
+  \indexspace
+
+  \item {equals}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{59}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{67}
+  \item {eraseUser}
+    \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{26}
+  \item {eraseVan}
+    \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{27}
+  \item {es.deusto.bspq21e1.client.controller}, \hyperpage{9}
+  \item {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{26}
+    \subitem {cancelReservation}, \hyperpage{26}
+    \subitem {Controller}, \hyperpage{26}
+    \subitem {eraseUser}, \hyperpage{26}
+    \subitem {eraseVan}, \hyperpage{27}
+    \subitem {getMyReservations}, \hyperpage{27}
+    \subitem {getMyVans}, \hyperpage{27}
+    \subitem {getResourcebundle}, \hyperpage{27}
+    \subitem {loginUser}, \hyperpage{27}
+    \subitem {registerReservation}, \hyperpage{28}
+    \subitem {registerUsers}, \hyperpage{28}
+    \subitem {registerVan}, \hyperpage{28}
+    \subitem {searchVans}, \hyperpage{28}
+    \subitem {setLocale}, \hyperpage{28}
+  \item {es.deusto.bspq21e1.client.controller.ControllerTest}, 
+		\hyperpage{29}
+    \subitem {getMyReservations}, \hyperpage{29}
+    \subitem {getMyVansTest}, \hyperpage{29}
+    \subitem {loginUserTest}, \hyperpage{29}
+    \subitem {searchVansTest}, \hyperpage{30}
+    \subitem {setUp}, \hyperpage{30}
+    \subitem {tearDown}, \hyperpage{30}
+  \item {es.deusto.bspq21e1.client.gui}, \hyperpage{9}
+  \item {es.deusto.bspq21e1.client.gui.CancelReservationWindow}, 
+		\hyperpage{24}
+    \subitem {CancelReservationWindow}, \hyperpage{24}
+  \item {es.deusto.bspq21e1.client.gui.CharacteristicsWindow}, 
+		\hyperpage{25}
+    \subitem {CharacteristicsWindow}, \hyperpage{25}
+  \item {es.deusto.bspq21e1.client.gui.InitialWindow}, \hyperpage{37}
+    \subitem {InitialWindow}, \hyperpage{38}
+  \item {es.deusto.bspq21e1.client.gui.LogInWindow}, \hyperpage{38}
+    \subitem {LogInWindow}, \hyperpage{39}
+  \item {es.deusto.bspq21e1.client.gui.MainWindow}, \hyperpage{39}
+    \subitem {MainWindow}, \hyperpage{40}
+  \item {es.deusto.bspq21e1.client.gui.RegisterUserWindow}, 
+		\hyperpage{40}
+    \subitem {RegisterUserWindow}, \hyperpage{41}
+  \item {es.deusto.bspq21e1.client.gui.RegisterVanWindow}, 
+		\hyperpage{41}
+    \subitem {RegisterVanWindow}, \hyperpage{41}
+  \item {es.deusto.bspq21e1.client.gui.RemoveAccountWindow}, 
+		\hyperpage{42}
+    \subitem {RemoveAccountWindow}, \hyperpage{42}
+  \item {es.deusto.bspq21e1.client.gui.RemoveVanWindow}, \hyperpage{43}
+    \subitem {RemoveVanWindow}, \hyperpage{43}
+  \item {es.deusto.bspq21e1.client.gui.SearchWindow}, \hyperpage{58}
+    \subitem {SearchWindow}, \hyperpage{58}
+  \item {es.deusto.bspq21e1.client.main}, \hyperpage{10}
+  \item {es.deusto.bspq21e1.client.main.AirBVClient}, \hyperpage{16}
+    \subitem {main}, \hyperpage{16}
+  \item {es.deusto.bspq21e1.serialization}, \hyperpage{10}
+  \item {es.deusto.bspq21e1.serialization.ReservationData}, 
+		\hyperpage{46}
+    \subitem {getBookingDate}, \hyperpage{48}
+    \subitem {getCode}, \hyperpage{48}
+    \subitem {getDuration}, \hyperpage{48}
+    \subitem {getVan}, \hyperpage{48}
+    \subitem {getVanRenter}, \hyperpage{48}
+    \subitem {ReservationData}, \hyperpage{47}
+    \subitem {setBookingDate}, \hyperpage{48}
+    \subitem {setCode}, \hyperpage{49}
+    \subitem {setDuration}, \hyperpage{49}
+    \subitem {setVan}, \hyperpage{49}
+    \subitem {setVanRenter}, \hyperpage{49}
+    \subitem {toString}, \hyperpage{49}
+  \item {es.deusto.bspq21e1.serialization.ReviewData}, \hyperpage{54}
+    \subitem {getCode}, \hyperpage{55}
+    \subitem {getComment}, \hyperpage{55}
+    \subitem {getStars}, \hyperpage{55}
+    \subitem {getVan}, \hyperpage{55}
+    \subitem {ReviewData}, \hyperpage{54}
+    \subitem {setCode}, \hyperpage{55}
+    \subitem {setComment}, \hyperpage{55}
+    \subitem {setStars}, \hyperpage{56}
+    \subitem {setVan}, \hyperpage{56}
+    \subitem {toString}, \hyperpage{56}
+  \item {es.deusto.bspq21e1.serialization.UserData}, \hyperpage{62}
+    \subitem {getDni}, \hyperpage{63}
+    \subitem {getEmail}, \hyperpage{63}
+    \subitem {getName}, \hyperpage{63}
+    \subitem {getPassword}, \hyperpage{63}
+    \subitem {getStars}, \hyperpage{63}
+    \subitem {setDni}, \hyperpage{64}
+    \subitem {setEmail}, \hyperpage{64}
+    \subitem {setName}, \hyperpage{64}
+    \subitem {setPassword}, \hyperpage{64}
+    \subitem {setStars}, \hyperpage{64}
+    \subitem {toString}, \hyperpage{64}
+    \subitem {UserData}, \hyperpage{62}
+  \item {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{72}
+    \subitem {getBrand}, \hyperpage{73}
+    \subitem {getCapacity}, \hyperpage{73}
+    \subitem {getLicensePlate}, \hyperpage{74}
+    \subitem {getLocation}, \hyperpage{74}
+    \subitem {getModel}, \hyperpage{74}
+    \subitem {getPricePerDay}, \hyperpage{74}
+    \subitem {getUser}, \hyperpage{74}
+    \subitem {hasKitchen}, \hyperpage{74}
+    \subitem {hasShower}, \hyperpage{75}
+    \subitem {isOffRoad}, \hyperpage{75}
+    \subitem {setBrand}, \hyperpage{75}
+    \subitem {setCapacity}, \hyperpage{75}
+    \subitem {setKitchen}, \hyperpage{75}
+    \subitem {setLicensePlate}, \hyperpage{75}
+    \subitem {setLocation}, \hyperpage{76}
+    \subitem {setModel}, \hyperpage{76}
+    \subitem {setOffRoad}, \hyperpage{76}
+    \subitem {setPricePerDay}, \hyperpage{76}
+    \subitem {setShower}, \hyperpage{76}
+    \subitem {setUser}, \hyperpage{76}
+    \subitem {toString}, \hyperpage{77}
+    \subitem {VanData}, \hyperpage{72, 73}
+  \item {es.deusto.bspq21e1.server}, \hyperpage{10}
+  \item {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{17}
+    \subitem {AirBVService}, \hyperpage{17}
+    \subitem {cancelReservation}, \hyperpage{17}
+    \subitem {deleteUser}, \hyperpage{17}
+    \subitem {deleteVan}, \hyperpage{18}
+    \subitem {getUserReservations}, \hyperpage{18}
+    \subitem {getUserVans}, \hyperpage{18}
+    \subitem {login}, \hyperpage{18}
+    \subitem {registerReservation}, \hyperpage{18}
+    \subitem {registerUser}, \hyperpage{19}
+    \subitem {registerVan}, \hyperpage{19}
+    \subitem {searchVans}, \hyperpage{19}
+    \subitem {searchVansByLocation}, \hyperpage{20}
+  \item {es.deusto.bspq21e1.server.AirBVServiceTest}, \hyperpage{20}
+    \subitem {getUserReservationsTest}, \hyperpage{20}
+    \subitem {getUserVans}, \hyperpage{20}
+    \subitem {loginTest}, \hyperpage{21}
+    \subitem {searchVansTest}, \hyperpage{21}
+    \subitem {setUp}, \hyperpage{21}
+    \subitem {tearDown}, \hyperpage{21}
+  \item {es.deusto.bspq21e1.server.dao}, \hyperpage{10}
+  \item {es.deusto.bspq21e1.server.dao.DBManager}, \hyperpage{30}
+    \subitem {deleteReservation}, \hyperpage{31}
+    \subitem {deleteUser}, \hyperpage{31}
+    \subitem {deleteVan}, \hyperpage{31}
+    \subitem {getInstance}, \hyperpage{32}
+    \subitem {getReservationsByUser}, \hyperpage{32}
+    \subitem {getUser}, \hyperpage{32}
+    \subitem {getVan}, \hyperpage{32}
+    \subitem {getVansByDates}, \hyperpage{33}
+    \subitem {getVansByLocation}, \hyperpage{33}
+    \subitem {getVansByUser}, \hyperpage{33}
+    \subitem {store}, \hyperpage{33, 34}
+    \subitem {validateLogin}, \hyperpage{34}
+  \item {es.deusto.bspq21e1.server.dao.DBManagerTest}, \hyperpage{35}
+    \subitem {getReservationsByUser}, \hyperpage{36}
+    \subitem {getUserTest}, \hyperpage{36}
+    \subitem {getVansByUser}, \hyperpage{36}
+    \subitem {rule}, \hyperpage{37}
+    \subitem {searchVanTest}, \hyperpage{36}
+    \subitem {setUp}, \hyperpage{36}
+    \subitem {suite}, \hyperpage{36}
+    \subitem {tearDown}, \hyperpage{37}
+    \subitem {validateUserTest}, \hyperpage{37}
+  \item {es.deusto.bspq21e1.server.data}, \hyperpage{10}
+  \item {es.deusto.bspq21e1.server.data.Reservation}, \hyperpage{43}
+    \subitem {getBookingDate}, \hyperpage{44}
+    \subitem {getCode}, \hyperpage{44}
+    \subitem {getDuration}, \hyperpage{44}
+    \subitem {getVan}, \hyperpage{45}
+    \subitem {getVanRenter}, \hyperpage{45}
+    \subitem {Reservation}, \hyperpage{44}
+    \subitem {setBookingDate}, \hyperpage{45}
+    \subitem {setCode}, \hyperpage{45}
+    \subitem {setDuration}, \hyperpage{45}
+    \subitem {setVan}, \hyperpage{45}
+    \subitem {setVanRenter}, \hyperpage{46}
+  \item {es.deusto.bspq21e1.server.data.ReservationTest}, 
+		\hyperpage{50}
+    \subitem {constructorTest}, \hyperpage{50}
+    \subitem {setterGettersTest}, \hyperpage{50}
+    \subitem {setUp}, \hyperpage{50}
+    \subitem {suite}, \hyperpage{51}
+  \item {es.deusto.bspq21e1.server.data.Review}, \hyperpage{51}
+    \subitem {getCode}, \hyperpage{52}
+    \subitem {getComment}, \hyperpage{52}
+    \subitem {getStars}, \hyperpage{52}
+    \subitem {getVan}, \hyperpage{52}
+    \subitem {Review}, \hyperpage{51, 52}
+    \subitem {setCode}, \hyperpage{53}
+    \subitem {setComment}, \hyperpage{53}
+    \subitem {setStars}, \hyperpage{53}
+    \subitem {setVan}, \hyperpage{53}
+    \subitem {toString}, \hyperpage{53}
+  \item {es.deusto.bspq21e1.server.data.ReviewTest}, \hyperpage{56}
+    \subitem {constructorTest}, \hyperpage{57}
+    \subitem {setterGettersTest}, \hyperpage{57}
+    \subitem {setUp}, \hyperpage{57}
+    \subitem {suite}, \hyperpage{57}
+  \item {es.deusto.bspq21e1.server.data.User}, \hyperpage{58}
+    \subitem {addStar}, \hyperpage{59}
+    \subitem {equals}, \hyperpage{59}
+    \subitem {getDni}, \hyperpage{59}
+    \subitem {getEmail}, \hyperpage{60}
+    \subitem {getName}, \hyperpage{60}
+    \subitem {getPassword}, \hyperpage{60}
+    \subitem {getStars}, \hyperpage{60}
+    \subitem {getStarsAverage}, \hyperpage{60}
+    \subitem {setDni}, \hyperpage{60}
+    \subitem {setEmail}, \hyperpage{61}
+    \subitem {setName}, \hyperpage{61}
+    \subitem {setPassword}, \hyperpage{61}
+    \subitem {setStars}, \hyperpage{61}
+    \subitem {User}, \hyperpage{59}
+  \item {es.deusto.bspq21e1.server.data.UserTest}, \hyperpage{65}
+    \subitem {constructorTest}, \hyperpage{65}
+    \subitem {setterGettersTest}, \hyperpage{65}
+    \subitem {setUp}, \hyperpage{65}
+    \subitem {suite}, \hyperpage{66}
+  \item {es.deusto.bspq21e1.server.data.Van}, \hyperpage{66}
+    \subitem {equals}, \hyperpage{67}
+    \subitem {getBrand}, \hyperpage{67}
+    \subitem {getCapacity}, \hyperpage{68}
+    \subitem {getLicensePlate}, \hyperpage{68}
+    \subitem {getLocation}, \hyperpage{68}
+    \subitem {getModel}, \hyperpage{68}
+    \subitem {getPricePerDay}, \hyperpage{68}
+    \subitem {getStatus}, \hyperpage{68}
+    \subitem {getUser}, \hyperpage{69}
+    \subitem {hasKitchen}, \hyperpage{69}
+    \subitem {hasShower}, \hyperpage{69}
+    \subitem {isOffRoad}, \hyperpage{69}
+    \subitem {setBrand}, \hyperpage{69}
+    \subitem {setCapacity}, \hyperpage{69}
+    \subitem {setKitchen}, \hyperpage{70}
+    \subitem {setLicensePlate}, \hyperpage{70}
+    \subitem {setLocation}, \hyperpage{70}
+    \subitem {setModel}, \hyperpage{70}
+    \subitem {setOffRoad}, \hyperpage{70}
+    \subitem {setPricePerDay}, \hyperpage{70}
+    \subitem {setShower}, \hyperpage{71}
+    \subitem {setStatus}, \hyperpage{71}
+    \subitem {setUser}, \hyperpage{71}
+    \subitem {toString}, \hyperpage{71}
+    \subitem {Van}, \hyperpage{67}
+  \item {es.deusto.bspq21e1.server.data.VanTest}, \hyperpage{77}
+    \subitem {constructorTest}, \hyperpage{77}
+    \subitem {setterGettersTest}, \hyperpage{77}
+    \subitem {setUp}, \hyperpage{78}
+    \subitem {suite}, \hyperpage{78}
+  \item {es.deusto.bspq21e1.server.dto}, \hyperpage{11}
+  \item {es.deusto.bspq21e1.server.dto.Assembler}, \hyperpage{22}
+    \subitem {assembleReservation}, \hyperpage{22}
+    \subitem {assembleReview}, \hyperpage{22}
+    \subitem {assembleUser}, \hyperpage{22}
+    \subitem {assembleVan}, \hyperpage{22}
+    \subitem {disassembleReservation}, \hyperpage{23}
+    \subitem {disassembleReview}, \hyperpage{23}
+    \subitem {disassembleUser}, \hyperpage{23}
+    \subitem {disassembleVan}, \hyperpage{23}
+  \item {es.deusto.bspq21e1.server.remote}, \hyperpage{11}
+  \item {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{13}
+    \subitem {AirBV}, \hyperpage{13}
+    \subitem {cancelReservation}, \hyperpage{14}
+    \subitem {deleteUser}, \hyperpage{14}
+    \subitem {deleteVan}, \hyperpage{14}
+    \subitem {getUserReservations}, \hyperpage{14}
+    \subitem {getUserVans}, \hyperpage{14}
+    \subitem {login}, \hyperpage{15}
+    \subitem {registerReservation}, \hyperpage{15}
+    \subitem {registerUser}, \hyperpage{15}
+    \subitem {registerVan}, \hyperpage{15}
+    \subitem {searchVans}, \hyperpage{16}
+
+  \indexspace
+
+  \item {getBookingDate}
+    \subitem {es.deusto.bspq21e1.serialization.ReservationData}, 
+		\hyperpage{48}
+    \subitem {es.deusto.bspq21e1.server.data.Reservation}, 
+		\hyperpage{44}
+  \item {getBrand}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{73}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{67}
+  \item {getCapacity}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{73}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{68}
+  \item {getCode}
+    \subitem {es.deusto.bspq21e1.serialization.ReservationData}, 
+		\hyperpage{48}
+    \subitem {es.deusto.bspq21e1.serialization.ReviewData}, 
+		\hyperpage{55}
+    \subitem {es.deusto.bspq21e1.server.data.Reservation}, 
+		\hyperpage{44}
+    \subitem {es.deusto.bspq21e1.server.data.Review}, \hyperpage{52}
+  \item {getComment}
+    \subitem {es.deusto.bspq21e1.serialization.ReviewData}, 
+		\hyperpage{55}
+    \subitem {es.deusto.bspq21e1.server.data.Review}, \hyperpage{52}
+  \item {getDni}
+    \subitem {es.deusto.bspq21e1.serialization.UserData}, 
+		\hyperpage{63}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{59}
+  \item {getDuration}
+    \subitem {es.deusto.bspq21e1.serialization.ReservationData}, 
+		\hyperpage{48}
+    \subitem {es.deusto.bspq21e1.server.data.Reservation}, 
+		\hyperpage{44}
+  \item {getEmail}
+    \subitem {es.deusto.bspq21e1.serialization.UserData}, 
+		\hyperpage{63}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{60}
+  \item {getInstance}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManager}, \hyperpage{32}
+  \item {getLicensePlate}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{74}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{68}
+  \item {getLocation}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{74}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{68}
+  \item {getModel}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{74}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{68}
+  \item {getMyReservations}
+    \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{27}
+    \subitem {es.deusto.bspq21e1.client.controller.ControllerTest}, 
+		\hyperpage{29}
+  \item {getMyVans}
+    \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{27}
+  \item {getMyVansTest}
+    \subitem {es.deusto.bspq21e1.client.controller.ControllerTest}, 
+		\hyperpage{29}
+  \item {getName}
+    \subitem {es.deusto.bspq21e1.serialization.UserData}, 
+		\hyperpage{63}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{60}
+  \item {getPassword}
+    \subitem {es.deusto.bspq21e1.serialization.UserData}, 
+		\hyperpage{63}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{60}
+  \item {getPricePerDay}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{74}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{68}
+  \item {getReservationsByUser}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManager}, \hyperpage{32}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManagerTest}, 
+		\hyperpage{36}
+  \item {getResourcebundle}
+    \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{27}
+  \item {getStars}
+    \subitem {es.deusto.bspq21e1.serialization.ReviewData}, 
+		\hyperpage{55}
+    \subitem {es.deusto.bspq21e1.serialization.UserData}, 
+		\hyperpage{63}
+    \subitem {es.deusto.bspq21e1.server.data.Review}, \hyperpage{52}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{60}
+  \item {getStarsAverage}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{60}
+  \item {getStatus}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{68}
+  \item {getUser}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{74}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManager}, \hyperpage{32}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{69}
+  \item {getUserReservations}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{18}
+    \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{14}
+  \item {getUserReservationsTest}
+    \subitem {es.deusto.bspq21e1.server.AirBVServiceTest}, 
+		\hyperpage{20}
+  \item {getUserTest}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManagerTest}, 
+		\hyperpage{36}
+  \item {getUserVans}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{18}
+    \subitem {es.deusto.bspq21e1.server.AirBVServiceTest}, 
+		\hyperpage{20}
+    \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{14}
+  \item {getVan}
+    \subitem {es.deusto.bspq21e1.serialization.ReservationData}, 
+		\hyperpage{48}
+    \subitem {es.deusto.bspq21e1.serialization.ReviewData}, 
+		\hyperpage{55}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManager}, \hyperpage{32}
+    \subitem {es.deusto.bspq21e1.server.data.Reservation}, 
+		\hyperpage{45}
+    \subitem {es.deusto.bspq21e1.server.data.Review}, \hyperpage{52}
+  \item {getVanRenter}
+    \subitem {es.deusto.bspq21e1.serialization.ReservationData}, 
+		\hyperpage{48}
+    \subitem {es.deusto.bspq21e1.server.data.Reservation}, 
+		\hyperpage{45}
+  \item {getVansByDates}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManager}, \hyperpage{33}
+  \item {getVansByLocation}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManager}, \hyperpage{33}
+  \item {getVansByUser}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManager}, \hyperpage{33}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManagerTest}, 
+		\hyperpage{36}
+
+  \indexspace
+
+  \item {hasKitchen}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{74}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{69}
+  \item {hasShower}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{75}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{69}
+
+  \indexspace
+
+  \item {InitialWindow}
+    \subitem {es.deusto.bspq21e1.client.gui.InitialWindow}, 
+		\hyperpage{38}
+  \item {isOffRoad}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{75}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{69}
+
+  \indexspace
+
+  \item {login}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{18}
+    \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{15}
+  \item {loginTest}
+    \subitem {es.deusto.bspq21e1.server.AirBVServiceTest}, 
+		\hyperpage{21}
+  \item {loginUser}
+    \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{27}
+  \item {loginUserTest}
+    \subitem {es.deusto.bspq21e1.client.controller.ControllerTest}, 
+		\hyperpage{29}
+  \item {LogInWindow}
+    \subitem {es.deusto.bspq21e1.client.gui.LogInWindow}, 
+		\hyperpage{39}
+
+  \indexspace
+
+  \item {main}
+    \subitem {es.deusto.bspq21e1.client.main.AirBVClient}, 
+		\hyperpage{16}
+  \item {MainWindow}
+    \subitem {es.deusto.bspq21e1.client.gui.MainWindow}, \hyperpage{40}
+
+  \indexspace
+
+  \item {registerReservation}
+    \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{28}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{18}
+    \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{15}
+  \item {registerUser}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{19}
+    \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{15}
+  \item {registerUsers}
+    \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{28}
+  \item {RegisterUserWindow}
+    \subitem {es.deusto.bspq21e1.client.gui.RegisterUserWindow}, 
+		\hyperpage{41}
+  \item {registerVan}
+    \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{28}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{19}
+    \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{15}
+  \item {RegisterVanWindow}
+    \subitem {es.deusto.bspq21e1.client.gui.RegisterVanWindow}, 
+		\hyperpage{41}
+  \item {RemoveAccountWindow}
+    \subitem {es.deusto.bspq21e1.client.gui.RemoveAccountWindow}, 
+		\hyperpage{42}
+  \item {RemoveVanWindow}
+    \subitem {es.deusto.bspq21e1.client.gui.RemoveVanWindow}, 
+		\hyperpage{43}
+  \item {Reservation}
+    \subitem {es.deusto.bspq21e1.server.data.Reservation}, 
+		\hyperpage{44}
+  \item {ReservationData}
+    \subitem {es.deusto.bspq21e1.serialization.ReservationData}, 
+		\hyperpage{47}
+  \item {Review}
+    \subitem {es.deusto.bspq21e1.server.data.Review}, 
+		\hyperpage{51, 52}
+  \item {ReviewData}
+    \subitem {es.deusto.bspq21e1.serialization.ReviewData}, 
+		\hyperpage{54}
+  \item {rule}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManagerTest}, 
+		\hyperpage{37}
+
+  \indexspace
+
+  \item {searchVans}
+    \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{28}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{19}
+    \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{16}
+  \item {searchVansByLocation}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{20}
+  \item {searchVansTest}
+    \subitem {es.deusto.bspq21e1.client.controller.ControllerTest}, 
+		\hyperpage{30}
+    \subitem {es.deusto.bspq21e1.server.AirBVServiceTest}, 
+		\hyperpage{21}
+  \item {searchVanTest}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManagerTest}, 
+		\hyperpage{36}
+  \item {SearchWindow}
+    \subitem {es.deusto.bspq21e1.client.gui.SearchWindow}, 
+		\hyperpage{58}
+  \item {setBookingDate}
+    \subitem {es.deusto.bspq21e1.serialization.ReservationData}, 
+		\hyperpage{48}
+    \subitem {es.deusto.bspq21e1.server.data.Reservation}, 
+		\hyperpage{45}
+  \item {setBrand}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{75}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{69}
+  \item {setCapacity}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{75}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{69}
+  \item {setCode}
+    \subitem {es.deusto.bspq21e1.serialization.ReservationData}, 
+		\hyperpage{49}
+    \subitem {es.deusto.bspq21e1.serialization.ReviewData}, 
+		\hyperpage{55}
+    \subitem {es.deusto.bspq21e1.server.data.Reservation}, 
+		\hyperpage{45}
+    \subitem {es.deusto.bspq21e1.server.data.Review}, \hyperpage{53}
+  \item {setComment}
+    \subitem {es.deusto.bspq21e1.serialization.ReviewData}, 
+		\hyperpage{55}
+    \subitem {es.deusto.bspq21e1.server.data.Review}, \hyperpage{53}
+  \item {setDni}
+    \subitem {es.deusto.bspq21e1.serialization.UserData}, 
+		\hyperpage{64}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{60}
+  \item {setDuration}
+    \subitem {es.deusto.bspq21e1.serialization.ReservationData}, 
+		\hyperpage{49}
+    \subitem {es.deusto.bspq21e1.server.data.Reservation}, 
+		\hyperpage{45}
+  \item {setEmail}
+    \subitem {es.deusto.bspq21e1.serialization.UserData}, 
+		\hyperpage{64}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{61}
+  \item {setKitchen}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{75}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{70}
+  \item {setLicensePlate}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{75}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{70}
+  \item {setLocale}
+    \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
+		\hyperpage{28}
+  \item {setLocation}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{76}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{70}
+  \item {setModel}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{76}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{70}
+  \item {setName}
+    \subitem {es.deusto.bspq21e1.serialization.UserData}, 
+		\hyperpage{64}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{61}
+  \item {setOffRoad}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{76}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{70}
+  \item {setPassword}
+    \subitem {es.deusto.bspq21e1.serialization.UserData}, 
+		\hyperpage{64}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{61}
+  \item {setPricePerDay}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{76}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{70}
+  \item {setShower}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{76}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{71}
+  \item {setStars}
+    \subitem {es.deusto.bspq21e1.serialization.ReviewData}, 
+		\hyperpage{56}
+    \subitem {es.deusto.bspq21e1.serialization.UserData}, 
+		\hyperpage{64}
+    \subitem {es.deusto.bspq21e1.server.data.Review}, \hyperpage{53}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{61}
+  \item {setStatus}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{71}
+  \item {setterGettersTest}
+    \subitem {es.deusto.bspq21e1.server.data.ReservationTest}, 
+		\hyperpage{50}
+    \subitem {es.deusto.bspq21e1.server.data.ReviewTest}, 
+		\hyperpage{57}
+    \subitem {es.deusto.bspq21e1.server.data.UserTest}, \hyperpage{65}
+    \subitem {es.deusto.bspq21e1.server.data.VanTest}, \hyperpage{77}
+  \item {setUp}
+    \subitem {es.deusto.bspq21e1.client.controller.ControllerTest}, 
+		\hyperpage{30}
+    \subitem {es.deusto.bspq21e1.server.AirBVServiceTest}, 
+		\hyperpage{21}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManagerTest}, 
+		\hyperpage{36}
+    \subitem {es.deusto.bspq21e1.server.data.ReservationTest}, 
+		\hyperpage{50}
+    \subitem {es.deusto.bspq21e1.server.data.ReviewTest}, 
+		\hyperpage{57}
+    \subitem {es.deusto.bspq21e1.server.data.UserTest}, \hyperpage{65}
+    \subitem {es.deusto.bspq21e1.server.data.VanTest}, \hyperpage{78}
+  \item {setUser}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{76}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{71}
+  \item {setVan}
+    \subitem {es.deusto.bspq21e1.serialization.ReservationData}, 
+		\hyperpage{49}
+    \subitem {es.deusto.bspq21e1.serialization.ReviewData}, 
+		\hyperpage{56}
+    \subitem {es.deusto.bspq21e1.server.data.Reservation}, 
+		\hyperpage{45}
+    \subitem {es.deusto.bspq21e1.server.data.Review}, \hyperpage{53}
+  \item {setVanRenter}
+    \subitem {es.deusto.bspq21e1.serialization.ReservationData}, 
+		\hyperpage{49}
+    \subitem {es.deusto.bspq21e1.server.data.Reservation}, 
+		\hyperpage{46}
+  \item {src/main/java/es/deusto/bspq21e1/client/controller/Controller.java}, 
+		\hyperpage{79}
+  \item {src/main/java/es/deusto/bspq21e1/client/gui/CancelReservationWindow.java}, 
+		\hyperpage{79}
+  \item {src/main/java/es/deusto/bspq21e1/client/gui/CharacteristicsWindow.java}, 
+		\hyperpage{79}
+  \item {src/main/java/es/deusto/bspq21e1/client/gui/InitialWindow.java}, 
+		\hyperpage{80}
+  \item {src/main/java/es/deusto/bspq21e1/client/gui/LogInWindow.java}, 
+		\hyperpage{80}
+  \item {src/main/java/es/deusto/bspq21e1/client/gui/MainWindow.java}, 
+		\hyperpage{80}
+  \item {src/main/java/es/deusto/bspq21e1/client/gui/RegisterUserWindow.java}, 
+		\hyperpage{80}
+  \item {src/main/java/es/deusto/bspq21e1/client/gui/RegisterVanWindow.java}, 
+		\hyperpage{81}
+  \item {src/main/java/es/deusto/bspq21e1/client/gui/RemoveAccountWindow.java}, 
+		\hyperpage{81}
+  \item {src/main/java/es/deusto/bspq21e1/client/gui/RemoveVanWindow.java}, 
+		\hyperpage{81}
+  \item {src/main/java/es/deusto/bspq21e1/client/gui/SearchWindow.java}, 
+		\hyperpage{81}
+  \item {src/main/java/es/deusto/bspq21e1/client/main/AirBVClient.java}, 
+		\hyperpage{82}
+  \item {src/main/java/es/deusto/bspq21e1/serialization/ReservationData.java}, 
+		\hyperpage{82}
+  \item {src/main/java/es/deusto/bspq21e1/serialization/ReviewData.java}, 
+		\hyperpage{82}
+  \item {src/main/java/es/deusto/bspq21e1/serialization/UserData.java}, 
+		\hyperpage{83}
+  \item {src/main/java/es/deusto/bspq21e1/serialization/VanData.java}, 
+		\hyperpage{83}
+  \item {src/main/java/es/deusto/bspq21e1/server/AirBVService.java}, 
+		\hyperpage{83}
+  \item {src/main/java/es/deusto/bspq21e1/server/dao/DBManager.java}, 
+		\hyperpage{83}
+  \item {src/main/java/es/deusto/bspq21e1/server/data/Reservation.java}, 
+		\hyperpage{84}
+  \item {src/main/java/es/deusto/bspq21e1/server/data/Review.java}, 
+		\hyperpage{84}
+  \item {src/main/java/es/deusto/bspq21e1/server/data/User.java}, 
+		\hyperpage{84}
+  \item {src/main/java/es/deusto/bspq21e1/server/data/Van.java}, 
+		\hyperpage{84}
+  \item {src/main/java/es/deusto/bspq21e1/server/dto/Assembler.java}, 
+		\hyperpage{85}
+  \item {src/main/java/es/deusto/bspq21e1/server/remote/AirBV.java}, 
+		\hyperpage{85}
+  \item {src/test/java/es/deusto/bspq21e1/client/controller/ControllerTest.java}, 
+		\hyperpage{85}
+  \item {src/test/java/es/deusto/bspq21e1/server/AirBVServiceTest.java}, 
+		\hyperpage{85}
+  \item {src/test/java/es/deusto/bspq21e1/server/dao/DBManagerTest.java}, 
+		\hyperpage{86}
+  \item {src/test/java/es/deusto/bspq21e1/server/data/ReservationTest.java}, 
+		\hyperpage{86}
+  \item {src/test/java/es/deusto/bspq21e1/server/data/ReviewTest.java}, 
+		\hyperpage{86}
+  \item {src/test/java/es/deusto/bspq21e1/server/data/UserTest.java}, 
+		\hyperpage{86}
+  \item {src/test/java/es/deusto/bspq21e1/server/data/VanTest.java}, 
+		\hyperpage{87}
+  \item {store}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManager}, 
+		\hyperpage{33, 34}
+  \item {suite}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManagerTest}, 
+		\hyperpage{36}
+    \subitem {es.deusto.bspq21e1.server.data.ReservationTest}, 
+		\hyperpage{51}
+    \subitem {es.deusto.bspq21e1.server.data.ReviewTest}, 
+		\hyperpage{57}
+    \subitem {es.deusto.bspq21e1.server.data.UserTest}, \hyperpage{66}
+    \subitem {es.deusto.bspq21e1.server.data.VanTest}, \hyperpage{78}
+
+  \indexspace
+
+  \item {tearDown}
+    \subitem {es.deusto.bspq21e1.client.controller.ControllerTest}, 
+		\hyperpage{30}
+    \subitem {es.deusto.bspq21e1.server.AirBVServiceTest}, 
+		\hyperpage{21}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManagerTest}, 
+		\hyperpage{37}
+  \item {toString}
+    \subitem {es.deusto.bspq21e1.serialization.ReservationData}, 
+		\hyperpage{49}
+    \subitem {es.deusto.bspq21e1.serialization.ReviewData}, 
+		\hyperpage{56}
+    \subitem {es.deusto.bspq21e1.serialization.UserData}, 
+		\hyperpage{64}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, \hyperpage{77}
+    \subitem {es.deusto.bspq21e1.server.data.Review}, \hyperpage{53}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{71}
+
+  \indexspace
+
+  \item {User}
+    \subitem {es.deusto.bspq21e1.server.data.User}, \hyperpage{59}
+  \item {UserData}
+    \subitem {es.deusto.bspq21e1.serialization.UserData}, 
+		\hyperpage{62}
+
+  \indexspace
+
+  \item {validateLogin}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManager}, \hyperpage{34}
+  \item {validateUserTest}
+    \subitem {es.deusto.bspq21e1.server.dao.DBManagerTest}, 
+		\hyperpage{37}
+  \item {Van}
+    \subitem {es.deusto.bspq21e1.server.data.Van}, \hyperpage{67}
+  \item {VanData}
+    \subitem {es.deusto.bspq21e1.serialization.VanData}, 
+		\hyperpage{72, 73}
+
+\end{theindex}
