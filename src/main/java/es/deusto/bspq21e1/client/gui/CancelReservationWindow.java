@@ -15,11 +15,15 @@ import es.deusto.bspq21e1.serialization.UserData;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
 
@@ -44,6 +48,7 @@ public class CancelReservationWindow extends JFrame{
 	private ArrayList<ReservationData> reservations = new ArrayList<>();
 	private javax.swing.DefaultListModel<String> reservationsList = new javax.swing.DefaultListModel<String>();
 	private DefaultTableModel tableModel;
+	private JLabel lblTitle;
 	
 	/**
 	 * Creates the window for a specific user.
@@ -66,13 +71,13 @@ public class CancelReservationWindow extends JFrame{
 	private void initialize() {
 		frmCancelReservation.setBounds(100, 100, 720, 315);
 		frmCancelReservation.setLocationRelativeTo(null);
-		frmCancelReservation.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCancelReservation.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmCancelReservation.getContentPane().setLayout(null);
 		frmCancelReservation.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
-		JLabel lblTitle = new JLabel(controller.getResourcebundle().getString("cancel_your_reservations_msg"));
+		lblTitle = new JLabel(controller.getResourcebundle().getString("cancel_your_reservations_msg"));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblTitle.setBounds(60, 11, 298, 24);
+		lblTitle.setBounds(240, 10, 300, 25);
 		frmCancelReservation.getContentPane().add(lblTitle);
 		
 		//TABLE MODEL
@@ -105,19 +110,6 @@ public class CancelReservationWindow extends JFrame{
 		scrollReservations.setViewportView(jtReservationsTable);
 		frmCancelReservation.getContentPane().add(scrollReservations);
 		
-		//CANCEL BUTTON
-		btnCancel = new JButton(controller.getResourcebundle().getString("cancel_button_msg"));
-		btnCancel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.cancelReservation(reservations.get(jtReservationsTable.getSelectedRow()).getCode());
-				frmMain.setVisible(true);
-				frmCancelReservation.dispose();
-			}
-		});
-		btnCancel.setBackground(java.awt.Color.RED);
-		btnCancel.setBounds(397, 240, 100, 25);
-		frmCancelReservation.getContentPane().add(btnCancel);
-		
 		//BACK BUTTON
 		btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
 		btnBack.addActionListener(new ActionListener() {
@@ -127,8 +119,42 @@ public class CancelReservationWindow extends JFrame{
 				frmCancelReservation.dispose();
 			}
 		});
+		btnBack.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+        		btnBack.setBounds(45, 240, 110, 26);
+        		btnBack.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnBack.setBounds(50, 240, 100, 25);
+		    	btnBack.updateUI();
+		    }
+		});
 		btnBack.setBounds(50, 240, 100, 25);
 		frmCancelReservation.getContentPane().add(btnBack);
+		
+		//CANCEL BUTTON
+		btnCancel = new JButton(controller.getResourcebundle().getString("cancel_button_msg"));
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.cancelReservation(reservations.get(jtReservationsTable.getSelectedRow()).getCode());
+				frmMain.setVisible(true);
+				frmCancelReservation.dispose();
+			}
+		});
+		btnCancel.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+        		btnCancel.setBounds(555, 240, 110, 26);
+        		btnCancel.setBackground(Color.RED);
+        		btnCancel.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnCancel.setBounds(560, 240, 100, 25);
+		    	btnCancel.setBackground(btnBack.getBackground());
+		    	btnCancel.updateUI();
+		    }
+		});
+		btnCancel.setBounds(560, 240, 100, 25);
+		frmCancelReservation.getContentPane().add(btnCancel);
 		
 		//CONTROLLER
 		reservations = controller.getMyReservations(user);
