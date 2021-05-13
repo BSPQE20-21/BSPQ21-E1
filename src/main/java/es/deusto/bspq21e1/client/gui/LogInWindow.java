@@ -1,8 +1,11 @@
 package es.deusto.bspq21e1.client.gui;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,15 +31,11 @@ public class LogInWindow extends JFrame{
 	
 	private JFrame frmLogIn = new JFrame();
 	
-	private JLabel lblTitle;
-	
-	private JLabel lblEmail;
+	private JLabel lblTitle, lblEmail, lblPassword;
 	private JTextField txtFieldEmail;
-	
-	private JLabel lblPassword;
 	private JPasswordField passwordField;
 	
-	private JButton btnBack;
+	private JButton btnBack, btnLogin;
 	
 
 	/**
@@ -54,14 +53,14 @@ public class LogInWindow extends JFrame{
 	 */
 	private void initialize() {
 		frmLogIn.setResizable(false);
-		frmLogIn.setBounds(100, 100, 450, 350);
+		frmLogIn.setBounds(100, 100, 450, 250);
 		frmLogIn.setLocationRelativeTo(null);
 		frmLogIn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLogIn.getContentPane().setLayout(null);
 		
 		lblTitle = new JLabel(controller.getResourcebundle().getString("login_window_msg"));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblTitle.setBounds(40, 31, 365, 19);
+		lblTitle.setBounds(42, 31, 365, 19);
 		frmLogIn.getContentPane().add(lblTitle);
 		
 		//Email
@@ -85,8 +84,8 @@ public class LogInWindow extends JFrame{
 
 
 		//BUTTON: Log In
-		JButton btnRegisterVan = new JButton(controller.getResourcebundle().getString("login_msg"));
-		btnRegisterVan.addActionListener(new ActionListener() {
+		btnLogin = new JButton(controller.getResourcebundle().getString("login_msg"));
+		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UserData userData = controller.loginUser( txtFieldEmail.getText(), new String(passwordField.getPassword()) );
 				if (userData != null)  {
@@ -96,12 +95,21 @@ public class LogInWindow extends JFrame{
 					txtFieldEmail.setText(controller.getResourcebundle().getString("wrong_credentials_msg"));
 					txtFieldEmail.updateUI();
 					passwordField.updateUI();
-				}
-					
+				}	
 			}
 		});
-		btnRegisterVan.setBounds(152, 170, 147, 23);
-		frmLogIn.getContentPane().add(btnRegisterVan);
+		btnLogin.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+        		btnLogin.setBounds(238, 170, 175, 29);
+        		btnLogin.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnLogin.setBounds(250, 170, 150, 25);
+		    	btnLogin.updateUI();
+		    }
+		});
+		btnLogin.setBounds(225, 170, 150, 25);
+		frmLogIn.getContentPane().add(btnLogin);
 		
 		//BUTTON: Back
 		btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
@@ -110,7 +118,19 @@ public class LogInWindow extends JFrame{
 				goToInitialWindow();
 			}
 		});
-		btnBack.setBounds(29, 264, 89, 23);
+		btnBack.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+        		btnBack.setBounds(201, 170, 175, 29);
+        		btnBack.setBackground(Color.RED);
+        		btnBack.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnBack.setBounds(201, 170, 150, 25);
+		    	btnBack.setBackground(btnLogin.getBackground());
+		    	btnBack.updateUI();
+		    }
+		});
+		btnBack.setBounds(40, 170, 150, 25);
 		frmLogIn.getContentPane().add(btnBack);
 	
 		logger.info("LogInWindow well initialized");
