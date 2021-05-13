@@ -1,5 +1,6 @@
 package es.deusto.bspq21e1.client.gui;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
 
@@ -20,6 +21,8 @@ import es.deusto.bspq21e1.serialization.VanData;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 
 public class RegisterVanWindow extends JFrame{
@@ -66,7 +69,7 @@ public class RegisterVanWindow extends JFrame{
 	
 	private JLabel lblPricePerDay;
 	private JSpinner spinnerPrice;
-	private JButton btnCancel;
+	private JButton btnCancel, btnRegisterVan;
 	
 	/**
 	 * Create the application.
@@ -85,7 +88,7 @@ public class RegisterVanWindow extends JFrame{
 	 */
 	private void initialize() {
 		frmRegistrationOfVans.setResizable(false);
-		frmRegistrationOfVans.setBounds(100, 100, 430, 600);
+		frmRegistrationOfVans.setBounds(100, 100, 380, 575);
 		frmRegistrationOfVans.setLocationRelativeTo(null);
 		frmRegistrationOfVans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRegistrationOfVans.getContentPane().setLayout(null);
@@ -93,7 +96,7 @@ public class RegisterVanWindow extends JFrame{
 		
 		lblTitle = new JLabel(controller.getResourcebundle().getString("register_your_van_msg"));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblTitle.setBounds(121, 31, 196, 19);
+		lblTitle.setBounds(100, 30, 200, 20);
 		frmRegistrationOfVans.getContentPane().add(lblTitle);
 		
 		//LicensePlate
@@ -210,8 +213,32 @@ public class RegisterVanWindow extends JFrame{
 		spinnerPrice.setBounds(200, 447, 94, 20);
 		frmRegistrationOfVans.getContentPane().add(spinnerPrice);
 		
+		//BUTTON: Cancel
+		btnCancel = new JButton(controller.getResourcebundle().getString("cancel_button_msg"));
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmMain.setVisible(true);
+				frmRegistrationOfVans.dispose();
+				
+			}
+		});
+		btnCancel.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+        		btnCancel.setBounds(35, 495, 110, 26);
+        		btnCancel.setBackground(Color.RED);
+        		btnCancel.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnCancel.setBounds(40, 495, 100, 25);
+		    	btnCancel.setBackground(btnRegisterVan.getBackground());
+		    	btnCancel.updateUI();
+		    }
+		});
+		btnCancel.setBounds(40, 495, 100, 25);
+		frmRegistrationOfVans.getContentPane().add(btnCancel);
+		
 		//BUTTON: Register Van
-		JButton btnRegisterVan = new JButton(controller.getResourcebundle().getString("register_van_button_msg"));
+		btnRegisterVan = new JButton(controller.getResourcebundle().getString("register_van_button_msg"));
 		btnRegisterVan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -240,25 +267,20 @@ public class RegisterVanWindow extends JFrame{
 					frmMain.setVisible(true);
 					frmRegistrationOfVans.dispose();
 				}
-				
-				
 			}
 		});
-		btnRegisterVan.setBounds(162, 516, 155, 23);
+		btnRegisterVan.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+        		btnRegisterVan.setBounds(165, 495, 165, 26);
+        		btnRegisterVan.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnRegisterVan.setBounds(170, 495, 155, 25);
+		    	btnRegisterVan.updateUI();
+		    }
+		});
+		btnRegisterVan.setBounds(170, 495, 155, 25);
 		frmRegistrationOfVans.getContentPane().add(btnRegisterVan);
-		
-		//BUTTON: Cancel
-		btnCancel = new JButton(controller.getResourcebundle().getString("cancel_button_msg"));
-		btnCancel.setBackground(java.awt.Color.RED);
-		btnCancel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frmMain.setVisible(true);
-				frmRegistrationOfVans.dispose();
-				
-			}
-		});
-		btnCancel.setBounds(10, 537, 89, 23);
-		frmRegistrationOfVans.getContentPane().add(btnCancel);
 	
 		logger.info("RegisterVanWindow well initialized");
 	}
