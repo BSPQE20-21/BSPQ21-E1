@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.serialization.VanData;
@@ -42,16 +44,15 @@ public class CharacteristicsWindow extends JFrame{
 	}
 	
 	private void initialize() {
-		frmCharacteristics.setBounds(100, 100, 335, 355);
+		frmCharacteristics.setBounds(100, 100, 290, 355);
 		frmCharacteristics.setLocationRelativeTo(null);
 		frmCharacteristics.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCharacteristics.getContentPane().setLayout(null);
 		frmCharacteristics.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
 		JLabel lblCharacteristicsTitle = new JLabel(controller.getResourcebundle().getString("characteristics_msg"));
-		lblCharacteristicsTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCharacteristicsTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblCharacteristicsTitle.setBounds(0, 22, 294, 19);
+		lblCharacteristicsTitle.setBounds(80, 15, 300, 20);
 		frmCharacteristics.getContentPane().add(lblCharacteristicsTitle);
 		
 		JButton btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
@@ -61,8 +62,17 @@ public class CharacteristicsWindow extends JFrame{
 				frmCharacteristics.dispose();
 			}
 		});
-		btnBack.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		btnBack.setBounds(101, 285, 89, 23);
+		btnBack.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+        		btnBack.setBounds(80, 280, 110, 26);
+        		btnBack.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnBack.setBounds(85, 280, 100, 25);
+		    	btnBack.updateUI();
+		    }
+		});
+		btnBack.setBounds(85, 280, 100, 25);
 		frmCharacteristics.getContentPane().add(btnBack);
 		
 		JLabel lblLicensePlate = new JLabel(controller.getResourcebundle().getString("license_plate_msg"));
