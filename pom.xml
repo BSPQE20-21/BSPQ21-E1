@@ -249,6 +249,10 @@
 									<directory>${basedir}/target/doxygen/html</directory>
 									<filtering>true</filtering>
 									</resource>
+									<resource>
+									<directory>${basedir}/target/site</directory>
+									<filtering>true</filtering>
+									</resource>
 								</resources>              
 						</configuration>            
 					</execution>

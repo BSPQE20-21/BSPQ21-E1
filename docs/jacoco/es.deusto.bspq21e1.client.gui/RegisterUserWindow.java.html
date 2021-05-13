@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RegisterUserWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AirBVJDOREST</a> &gt; <a href="index.source.html" class="el_package">es.deusto.bspq21e1.client.gui</a> &gt; <span class="el_source">RegisterUserWindow.java</span></div><h1>RegisterUserWindow.java</h1><pre class="source lang-java linenums">package es.deusto.bspq21e1.client.gui;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JTextField;
+
+import es.deusto.bspq21e1.client.controller.Controller;
+import es.deusto.bspq21e1.serialization.UserData;
+
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+
+import org.apache.log4j.Logger;
+
+public class RegisterUserWindow extends JFrame{
+	
+	private static final long serialVersionUID = 1L;
+<span class="nc" id="L24">	private static Logger logger = Logger.getLogger(RegisterUserWindow.class.getName());</span>
+	private Controller controller;
+	
+<span class="nc" id="L27">	private JFrame frmRegisterYourself = new JFrame();</span>
+
+	private JTextField txtIdNumber;
+	private JTextField txtName;
+	private JTextField txtEmail;
+	private JPasswordField passwordField;
+	
+	
+<span class="nc" id="L35">	public RegisterUserWindow(Controller controller) {</span>
+<span class="nc" id="L36">		this.controller = controller;</span>
+<span class="nc" id="L37">		initialize();</span>
+<span class="nc" id="L38">		frmRegisterYourself.setTitle(controller.getResourcebundle().getString(&quot;register_yourself_msg&quot;));</span>
+<span class="nc" id="L39">		frmRegisterYourself.setResizable(false);</span>
+<span class="nc" id="L40">		frmRegisterYourself.setVisible(true);</span>
+
+<span class="nc" id="L42">	}</span>
+	
+<span class="nc" id="L44">	public RegisterUserWindow() {</span>
+<span class="nc" id="L45">		this.controller = null;</span>
+<span class="nc" id="L46">		initialize();</span>
+<span class="nc" id="L47">		frmRegisterYourself.setTitle(controller.getResourcebundle().getString(&quot;register_yourself_msg&quot;));</span>
+<span class="nc" id="L48">		frmRegisterYourself.setResizable(false);</span>
+<span class="nc" id="L49">		frmRegisterYourself.setVisible(true);</span>
+
+<span class="nc" id="L51">	}</span>
+	
+	private void initialize() {
+<span class="nc" id="L54">		frmRegisterYourself.setBounds(100, 100, 450, 350);</span>
+<span class="nc" id="L55">		frmRegisterYourself.setLocationRelativeTo(null);</span>
+<span class="nc" id="L56">		frmRegisterYourself.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L57">		frmRegisterYourself.getContentPane().setLayout(null);</span>
+		
+<span class="nc" id="L59">		JLabel lblRegisterTitle = new JLabel(controller.getResourcebundle().getString(&quot;register_as_new_user_msg&quot;));</span>
+<span class="nc" id="L60">		lblRegisterTitle.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L61">		lblRegisterTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
+<span class="nc" id="L62">		lblRegisterTitle.setBounds(56, 20, 294, 19);</span>
+<span class="nc" id="L63">		frmRegisterYourself.getContentPane().add(lblRegisterTitle);</span>
+		
+		//JLabels
+<span class="nc" id="L66">		JLabel lblId = new JLabel(controller.getResourcebundle().getString(&quot;id_number_msg&quot;));</span>
+<span class="nc" id="L67">		lblId.setBounds(56, 63, 130, 19);</span>
+<span class="nc" id="L68">		frmRegisterYourself.getContentPane().add(lblId);</span>
+		
+<span class="nc" id="L70">		JLabel lblName = new JLabel(controller.getResourcebundle().getString(&quot;name_msg&quot;));</span>
+<span class="nc" id="L71">		lblName.setBounds(56, 103, 130, 14);</span>
+<span class="nc" id="L72">		frmRegisterYourself.getContentPane().add(lblName);</span>
+		
+<span class="nc" id="L74">		JLabel lblEmail = new JLabel(controller.getResourcebundle().getString(&quot;email_msg&quot;));</span>
+<span class="nc" id="L75">		lblEmail.setBounds(56, 141, 130, 14);</span>
+<span class="nc" id="L76">		frmRegisterYourself.getContentPane().add(lblEmail);</span>
+		
+<span class="nc" id="L78">		JLabel lblPassword = new JLabel(controller.getResourcebundle().getString(&quot;password_msg&quot;));</span>
+<span class="nc" id="L79">		lblPassword.setBounds(56, 178, 130, 14);</span>
+<span class="nc" id="L80">		frmRegisterYourself.getContentPane().add(lblPassword);</span>
+		
+		
+		//txtFields
+<span class="nc" id="L84">		txtIdNumber = new JTextField();</span>
+<span class="nc" id="L85">		txtIdNumber.setBounds(200, 63, 140, 20);</span>
+<span class="nc" id="L86">		frmRegisterYourself.getContentPane().add(txtIdNumber);</span>
+<span class="nc" id="L87">		txtIdNumber.setColumns(10);</span>
+		
+<span class="nc" id="L89">		txtName = new JTextField();</span>
+<span class="nc" id="L90">		txtName.setBounds(200, 101, 140, 20);</span>
+<span class="nc" id="L91">		frmRegisterYourself.getContentPane().add(txtName);</span>
+<span class="nc" id="L92">		txtName.setColumns(10);</span>
+		
+<span class="nc" id="L94">		txtEmail = new JTextField();</span>
+<span class="nc" id="L95">		txtEmail.setBounds(200, 139, 140, 20);</span>
+<span class="nc" id="L96">		frmRegisterYourself.getContentPane().add(txtEmail);</span>
+<span class="nc" id="L97">		txtEmail.setColumns(10);</span>
+		
+		//passwordFields
+<span class="nc" id="L100">		passwordField = new JPasswordField();</span>
+<span class="nc" id="L101">		passwordField.setBounds(200, 176, 140, 19);</span>
+<span class="nc" id="L102">		frmRegisterYourself.getContentPane().add(passwordField);</span>
+		
+		//Register Button
+<span class="nc" id="L105">		JButton btnRegister = new JButton(controller.getResourcebundle().getString(&quot;register_msg&quot;));</span>
+<span class="nc" id="L106">		btnRegister.addActionListener(new ActionListener() {</span>
+				public void actionPerformed(ActionEvent e) {
+				
+<span class="nc bnc" id="L109" title="All 6 branches missed.">				if(txtIdNumber.getText() != &quot;&quot; &amp;&amp; txtName.getText() != &quot;&quot; &amp;&amp; txtEmail.getText() != &quot;&quot;) {</span>
+<span class="nc" id="L110">					controller.registerUsers(txtIdNumber.getText(), txtName.getText(), txtEmail.getText(), new String( passwordField.getPassword() ) );</span>
+				}
+<span class="nc" id="L112">				frmRegisterYourself.dispose();</span>
+				
+<span class="nc" id="L114">				UserData userData = new UserData(txtIdNumber.getText(), txtName.getText(), txtEmail.getText(), new String( passwordField.getPassword() ) );</span>
+				
+				
+<span class="nc" id="L117">				new MainWindow(controller, userData);</span>
+				
+<span class="nc" id="L119">			}</span>
+		});
+<span class="nc" id="L121">		btnRegister.setBounds(175, 229, 110, 28);</span>
+<span class="nc" id="L122">		frmRegisterYourself.getContentPane().add(btnRegister);</span>
+		
+<span class="nc" id="L124">		JButton btnBack = new JButton(controller.getResourcebundle().getString(&quot;back_button_msg&quot;));</span>
+<span class="nc" id="L125">		btnBack.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+				
+<span class="nc" id="L128">				goToInitialWindow();</span>
+<span class="nc" id="L129">			}</span>
+		});
+<span class="nc" id="L131">		btnBack.setBounds(25, 258, 89, 28);</span>
+<span class="nc" id="L132">		frmRegisterYourself.getContentPane().add(btnBack);</span>
+		
+<span class="nc" id="L134">		logger.info(&quot;RegisterUserWindow well initialized&quot;);</span>
+<span class="nc" id="L135">	}</span>
+	
+    /**
+     * Closes this window and opens the Initial window.
+     */
+    private void goToInitialWindow() {
+<span class="nc" id="L141">        new InitialWindow(controller);</span>
+<span class="nc" id="L142">        frmRegisterYourself.dispose();</span>
+<span class="nc" id="L143">    }</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
