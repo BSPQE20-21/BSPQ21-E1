@@ -53,49 +53,49 @@
 \contentsline {subsubsection}{\numberline {6.3.3.7}registerReservation()}{19}{subsubsection.6.3.3.7}%
 \contentsline {subsubsection}{\numberline {6.3.3.8}registerUser()}{19}{subsubsection.6.3.3.8}%
 \contentsline {subsubsection}{\numberline {6.3.3.9}registerVan()}{19}{subsubsection.6.3.3.9}%
-\contentsline {subsubsection}{\numberline {6.3.3.10}searchVans()}{20}{subsubsection.6.3.3.10}%
+\contentsline {subsubsection}{\numberline {6.3.3.10}searchVans()}{19}{subsubsection.6.3.3.10}%
 \contentsline {subsubsection}{\numberline {6.3.3.11}searchVansByLocation()}{20}{subsubsection.6.3.3.11}%
 \contentsline {section}{\numberline {6.4}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Air\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}BVService\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test Class Reference}{20}{section.6.4}%
 \contentsline {subsection}{\numberline {6.4.1}Detailed Description}{20}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}Member Function Documentation}{20}{subsection.6.4.2}%
 \contentsline {subsubsection}{\numberline {6.4.2.1}getUserReservationsTest()}{20}{subsubsection.6.4.2.1}%
-\contentsline {subsubsection}{\numberline {6.4.2.2}getUserVans()}{21}{subsubsection.6.4.2.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.2}getUserVans()}{20}{subsubsection.6.4.2.2}%
 \contentsline {subsubsection}{\numberline {6.4.2.3}loginTest()}{21}{subsubsection.6.4.2.3}%
 \contentsline {subsubsection}{\numberline {6.4.2.4}searchVansTest()}{21}{subsubsection.6.4.2.4}%
 \contentsline {subsubsection}{\numberline {6.4.2.5}setUp()}{21}{subsubsection.6.4.2.5}%
 \contentsline {subsubsection}{\numberline {6.4.2.6}tearDown()}{21}{subsubsection.6.4.2.6}%
-\contentsline {section}{\numberline {6.5}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}dto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembler Class Reference}{22}{section.6.5}%
+\contentsline {section}{\numberline {6.5}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}dto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembler Class Reference}{21}{section.6.5}%
 \contentsline {subsection}{\numberline {6.5.1}Detailed Description}{22}{subsection.6.5.1}%
 \contentsline {subsection}{\numberline {6.5.2}Member Function Documentation}{22}{subsection.6.5.2}%
 \contentsline {subsubsection}{\numberline {6.5.2.1}assembleReservation()}{22}{subsubsection.6.5.2.1}%
 \contentsline {subsubsection}{\numberline {6.5.2.2}assembleReview()}{22}{subsubsection.6.5.2.2}%
 \contentsline {subsubsection}{\numberline {6.5.2.3}assembleUser()}{22}{subsubsection.6.5.2.3}%
-\contentsline {subsubsection}{\numberline {6.5.2.4}assembleVan()}{23}{subsubsection.6.5.2.4}%
+\contentsline {subsubsection}{\numberline {6.5.2.4}assembleVan()}{22}{subsubsection.6.5.2.4}%
 \contentsline {subsubsection}{\numberline {6.5.2.5}disassembleReservation()}{23}{subsubsection.6.5.2.5}%
 \contentsline {subsubsection}{\numberline {6.5.2.6}disassembleReview()}{23}{subsubsection.6.5.2.6}%
 \contentsline {subsubsection}{\numberline {6.5.2.7}disassembleUser()}{23}{subsubsection.6.5.2.7}%
 \contentsline {subsubsection}{\numberline {6.5.2.8}disassembleVan()}{23}{subsubsection.6.5.2.8}%
-\contentsline {section}{\numberline {6.6}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cancel\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reservation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{24}{section.6.6}%
+\contentsline {section}{\numberline {6.6}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cancel\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reservation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{23}{section.6.6}%
 \contentsline {subsection}{\numberline {6.6.1}Detailed Description}{24}{subsection.6.6.1}%
 \contentsline {subsection}{\numberline {6.6.2}Constructor \& Destructor Documentation}{24}{subsection.6.6.2}%
 \contentsline {subsubsection}{\numberline {6.6.2.1}CancelReservationWindow()}{24}{subsubsection.6.6.2.1}%
-\contentsline {section}{\numberline {6.7}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Characteristics\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{25}{section.6.7}%
+\contentsline {section}{\numberline {6.7}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Characteristics\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{24}{section.6.7}%
 \contentsline {subsection}{\numberline {6.7.1}Detailed Description}{25}{subsection.6.7.1}%
 \contentsline {subsection}{\numberline {6.7.2}Constructor \& Destructor Documentation}{25}{subsection.6.7.2}%
 \contentsline {subsubsection}{\numberline {6.7.2.1}CharacteristicsWindow()}{25}{subsubsection.6.7.2.1}%
-\contentsline {section}{\numberline {6.8}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}controller.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller Class Reference}{26}{section.6.8}%
+\contentsline {section}{\numberline {6.8}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}controller.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller Class Reference}{25}{section.6.8}%
 \contentsline {subsection}{\numberline {6.8.1}Detailed Description}{26}{subsection.6.8.1}%
 \contentsline {subsection}{\numberline {6.8.2}Constructor \& Destructor Documentation}{26}{subsection.6.8.2}%
 \contentsline {subsubsection}{\numberline {6.8.2.1}Controller()}{26}{subsubsection.6.8.2.1}%
 \contentsline {subsection}{\numberline {6.8.3}Member Function Documentation}{26}{subsection.6.8.3}%
 \contentsline {subsubsection}{\numberline {6.8.3.1}cancelReservation()}{26}{subsubsection.6.8.3.1}%
-\contentsline {subsubsection}{\numberline {6.8.3.2}eraseUser()}{27}{subsubsection.6.8.3.2}%
-\contentsline {subsubsection}{\numberline {6.8.3.3}eraseVan()}{27}{subsubsection.6.8.3.3}%
+\contentsline {subsubsection}{\numberline {6.8.3.2}eraseUser()}{26}{subsubsection.6.8.3.2}%
+\contentsline {subsubsection}{\numberline {6.8.3.3}eraseVan()}{26}{subsubsection.6.8.3.3}%
 \contentsline {subsubsection}{\numberline {6.8.3.4}getMyReservations()}{27}{subsubsection.6.8.3.4}%
 \contentsline {subsubsection}{\numberline {6.8.3.5}getMyVans()}{27}{subsubsection.6.8.3.5}%
 \contentsline {subsubsection}{\numberline {6.8.3.6}getResourcebundle()}{27}{subsubsection.6.8.3.6}%
-\contentsline {subsubsection}{\numberline {6.8.3.7}loginUser()}{28}{subsubsection.6.8.3.7}%
-\contentsline {subsubsection}{\numberline {6.8.3.8}registerReservation()}{28}{subsubsection.6.8.3.8}%
+\contentsline {subsubsection}{\numberline {6.8.3.7}loginUser()}{27}{subsubsection.6.8.3.7}%
+\contentsline {subsubsection}{\numberline {6.8.3.8}registerReservation()}{27}{subsubsection.6.8.3.8}%
 \contentsline {subsubsection}{\numberline {6.8.3.9}registerUsers()}{28}{subsubsection.6.8.3.9}%
 \contentsline {subsubsection}{\numberline {6.8.3.10}registerVan()}{28}{subsubsection.6.8.3.10}%
 \contentsline {subsubsection}{\numberline {6.8.3.11}searchVans()}{28}{subsubsection.6.8.3.11}%
@@ -105,7 +105,7 @@
 \contentsline {subsection}{\numberline {6.9.2}Member Function Documentation}{29}{subsection.6.9.2}%
 \contentsline {subsubsection}{\numberline {6.9.2.1}getMyReservations()}{29}{subsubsection.6.9.2.1}%
 \contentsline {subsubsection}{\numberline {6.9.2.2}getMyVansTest()}{29}{subsubsection.6.9.2.2}%
-\contentsline {subsubsection}{\numberline {6.9.2.3}loginUserTest()}{30}{subsubsection.6.9.2.3}%
+\contentsline {subsubsection}{\numberline {6.9.2.3}loginUserTest()}{29}{subsubsection.6.9.2.3}%
 \contentsline {subsubsection}{\numberline {6.9.2.4}searchVansTest()}{30}{subsubsection.6.9.2.4}%
 \contentsline {subsubsection}{\numberline {6.9.2.5}setUp()}{30}{subsubsection.6.9.2.5}%
 \contentsline {subsubsection}{\numberline {6.9.2.6}tearDown()}{30}{subsubsection.6.9.2.6}%
@@ -114,117 +114,117 @@
 \contentsline {subsection}{\numberline {6.10.2}Member Function Documentation}{31}{subsection.6.10.2}%
 \contentsline {subsubsection}{\numberline {6.10.2.1}deleteReservation()}{31}{subsubsection.6.10.2.1}%
 \contentsline {subsubsection}{\numberline {6.10.2.2}deleteUser()}{31}{subsubsection.6.10.2.2}%
-\contentsline {subsubsection}{\numberline {6.10.2.3}deleteVan()}{32}{subsubsection.6.10.2.3}%
+\contentsline {subsubsection}{\numberline {6.10.2.3}deleteVan()}{31}{subsubsection.6.10.2.3}%
 \contentsline {subsubsection}{\numberline {6.10.2.4}getInstance()}{32}{subsubsection.6.10.2.4}%
 \contentsline {subsubsection}{\numberline {6.10.2.5}getReservationsByUser()}{32}{subsubsection.6.10.2.5}%
 \contentsline {subsubsection}{\numberline {6.10.2.6}getUser()}{32}{subsubsection.6.10.2.6}%
-\contentsline {subsubsection}{\numberline {6.10.2.7}getVan()}{33}{subsubsection.6.10.2.7}%
+\contentsline {subsubsection}{\numberline {6.10.2.7}getVan()}{32}{subsubsection.6.10.2.7}%
 \contentsline {subsubsection}{\numberline {6.10.2.8}getVansByDates()}{33}{subsubsection.6.10.2.8}%
 \contentsline {subsubsection}{\numberline {6.10.2.9}getVansByLocation()}{33}{subsubsection.6.10.2.9}%
 \contentsline {subsubsection}{\numberline {6.10.2.10}getVansByUser()}{33}{subsubsection.6.10.2.10}%
 \contentsline {subsubsection}{\numberline {6.10.2.11}store()\hspace {0.1cm}{\footnotesize \ttfamily [1/4]}}{33}{subsubsection.6.10.2.11}%
-\contentsline {subsubsection}{\numberline {6.10.2.12}store()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{34}{subsubsection.6.10.2.12}%
+\contentsline {subsubsection}{\numberline {6.10.2.12}store()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{33}{subsubsection.6.10.2.12}%
 \contentsline {subsubsection}{\numberline {6.10.2.13}store()\hspace {0.1cm}{\footnotesize \ttfamily [3/4]}}{34}{subsubsection.6.10.2.13}%
 \contentsline {subsubsection}{\numberline {6.10.2.14}store()\hspace {0.1cm}{\footnotesize \ttfamily [4/4]}}{34}{subsubsection.6.10.2.14}%
-\contentsline {subsubsection}{\numberline {6.10.2.15}validateLogin()}{35}{subsubsection.6.10.2.15}%
+\contentsline {subsubsection}{\numberline {6.10.2.15}validateLogin()}{34}{subsubsection.6.10.2.15}%
 \contentsline {section}{\numberline {6.11}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}dao.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}DBManager\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test Class Reference}{35}{section.6.11}%
 \contentsline {subsection}{\numberline {6.11.1}Detailed Description}{35}{subsection.6.11.1}%
-\contentsline {subsection}{\numberline {6.11.2}Member Function Documentation}{36}{subsection.6.11.2}%
-\contentsline {subsubsection}{\numberline {6.11.2.1}getReservationsByUser()}{36}{subsubsection.6.11.2.1}%
+\contentsline {subsection}{\numberline {6.11.2}Member Function Documentation}{35}{subsection.6.11.2}%
+\contentsline {subsubsection}{\numberline {6.11.2.1}getReservationsByUser()}{35}{subsubsection.6.11.2.1}%
 \contentsline {subsubsection}{\numberline {6.11.2.2}getUserTest()}{36}{subsubsection.6.11.2.2}%
 \contentsline {subsubsection}{\numberline {6.11.2.3}getVansByUser()}{36}{subsubsection.6.11.2.3}%
 \contentsline {subsubsection}{\numberline {6.11.2.4}searchVanTest()}{36}{subsubsection.6.11.2.4}%
 \contentsline {subsubsection}{\numberline {6.11.2.5}setUp()}{36}{subsubsection.6.11.2.5}%
-\contentsline {subsubsection}{\numberline {6.11.2.6}suite()}{37}{subsubsection.6.11.2.6}%
-\contentsline {subsubsection}{\numberline {6.11.2.7}tearDown()}{37}{subsubsection.6.11.2.7}%
+\contentsline {subsubsection}{\numberline {6.11.2.6}suite()}{36}{subsubsection.6.11.2.6}%
+\contentsline {subsubsection}{\numberline {6.11.2.7}tearDown()}{36}{subsubsection.6.11.2.7}%
 \contentsline {subsubsection}{\numberline {6.11.2.8}validateUserTest()}{37}{subsubsection.6.11.2.8}%
 \contentsline {subsection}{\numberline {6.11.3}Member Data Documentation}{37}{subsection.6.11.3}%
 \contentsline {subsubsection}{\numberline {6.11.3.1}rule}{37}{subsubsection.6.11.3.1}%
 \contentsline {section}{\numberline {6.12}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Initial\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{37}{section.6.12}%
-\contentsline {subsection}{\numberline {6.12.1}Detailed Description}{38}{subsection.6.12.1}%
+\contentsline {subsection}{\numberline {6.12.1}Detailed Description}{37}{subsection.6.12.1}%
 \contentsline {subsection}{\numberline {6.12.2}Constructor \& Destructor Documentation}{38}{subsection.6.12.2}%
 \contentsline {subsubsection}{\numberline {6.12.2.1}InitialWindow()}{38}{subsubsection.6.12.2.1}%
-\contentsline {section}{\numberline {6.13}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Log\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}In\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{38}{section.6.13}%
+\contentsline {section}{\numberline {6.13}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Log\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}In\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{39}{section.6.13}%
 \contentsline {subsection}{\numberline {6.13.1}Detailed Description}{39}{subsection.6.13.1}%
 \contentsline {subsection}{\numberline {6.13.2}Constructor \& Destructor Documentation}{39}{subsection.6.13.2}%
 \contentsline {subsubsection}{\numberline {6.13.2.1}LogInWindow()}{39}{subsubsection.6.13.2.1}%
-\contentsline {section}{\numberline {6.14}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{39}{section.6.14}%
+\contentsline {section}{\numberline {6.14}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{40}{section.6.14}%
 \contentsline {subsection}{\numberline {6.14.1}Detailed Description}{40}{subsection.6.14.1}%
 \contentsline {subsection}{\numberline {6.14.2}Constructor \& Destructor Documentation}{40}{subsection.6.14.2}%
 \contentsline {subsubsection}{\numberline {6.14.2.1}MainWindow()}{40}{subsubsection.6.14.2.1}%
 \contentsline {section}{\numberline {6.15}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Register\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{40}{section.6.15}%
-\contentsline {subsection}{\numberline {6.15.1}Detailed Description}{40}{subsection.6.15.1}%
+\contentsline {subsection}{\numberline {6.15.1}Detailed Description}{41}{subsection.6.15.1}%
 \contentsline {subsection}{\numberline {6.15.2}Constructor \& Destructor Documentation}{41}{subsection.6.15.2}%
 \contentsline {subsubsection}{\numberline {6.15.2.1}RegisterUserWindow()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{41}{subsubsection.6.15.2.1}%
 \contentsline {subsubsection}{\numberline {6.15.2.2}RegisterUserWindow()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{41}{subsubsection.6.15.2.2}%
 \contentsline {section}{\numberline {6.16}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Register\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Van\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{41}{section.6.16}%
-\contentsline {subsection}{\numberline {6.16.1}Detailed Description}{41}{subsection.6.16.1}%
-\contentsline {subsection}{\numberline {6.16.2}Constructor \& Destructor Documentation}{41}{subsection.6.16.2}%
+\contentsline {subsection}{\numberline {6.16.1}Detailed Description}{42}{subsection.6.16.1}%
+\contentsline {subsection}{\numberline {6.16.2}Constructor \& Destructor Documentation}{42}{subsection.6.16.2}%
 \contentsline {subsubsection}{\numberline {6.16.2.1}RegisterVanWindow()}{42}{subsubsection.6.16.2.1}%
 \contentsline {section}{\numberline {6.17}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Remove\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Account\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{42}{section.6.17}%
 \contentsline {subsection}{\numberline {6.17.1}Detailed Description}{42}{subsection.6.17.1}%
 \contentsline {subsection}{\numberline {6.17.2}Constructor \& Destructor Documentation}{42}{subsection.6.17.2}%
-\contentsline {subsubsection}{\numberline {6.17.2.1}RemoveAccountWindow()}{42}{subsubsection.6.17.2.1}%
+\contentsline {subsubsection}{\numberline {6.17.2.1}RemoveAccountWindow()}{43}{subsubsection.6.17.2.1}%
 \contentsline {section}{\numberline {6.18}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Remove\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Van\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{43}{section.6.18}%
 \contentsline {subsection}{\numberline {6.18.1}Detailed Description}{43}{subsection.6.18.1}%
 \contentsline {subsection}{\numberline {6.18.2}Constructor \& Destructor Documentation}{43}{subsection.6.18.2}%
 \contentsline {subsubsection}{\numberline {6.18.2.1}RemoveVanWindow()}{43}{subsubsection.6.18.2.1}%
-\contentsline {section}{\numberline {6.19}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reservation Class Reference}{43}{section.6.19}%
+\contentsline {section}{\numberline {6.19}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reservation Class Reference}{44}{section.6.19}%
 \contentsline {subsection}{\numberline {6.19.1}Detailed Description}{44}{subsection.6.19.1}%
 \contentsline {subsection}{\numberline {6.19.2}Constructor \& Destructor Documentation}{44}{subsection.6.19.2}%
 \contentsline {subsubsection}{\numberline {6.19.2.1}Reservation()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{44}{subsubsection.6.19.2.1}%
 \contentsline {subsubsection}{\numberline {6.19.2.2}Reservation()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{44}{subsubsection.6.19.2.2}%
 \contentsline {subsection}{\numberline {6.19.3}Member Function Documentation}{44}{subsection.6.19.3}%
-\contentsline {subsubsection}{\numberline {6.19.3.1}getBookingDate()}{44}{subsubsection.6.19.3.1}%
-\contentsline {subsubsection}{\numberline {6.19.3.2}getCode()}{44}{subsubsection.6.19.3.2}%
+\contentsline {subsubsection}{\numberline {6.19.3.1}getBookingDate()}{45}{subsubsection.6.19.3.1}%
+\contentsline {subsubsection}{\numberline {6.19.3.2}getCode()}{45}{subsubsection.6.19.3.2}%
 \contentsline {subsubsection}{\numberline {6.19.3.3}getDuration()}{45}{subsubsection.6.19.3.3}%
 \contentsline {subsubsection}{\numberline {6.19.3.4}getVan()}{45}{subsubsection.6.19.3.4}%
 \contentsline {subsubsection}{\numberline {6.19.3.5}getVanRenter()}{45}{subsubsection.6.19.3.5}%
 \contentsline {subsubsection}{\numberline {6.19.3.6}setBookingDate()}{45}{subsubsection.6.19.3.6}%
-\contentsline {subsubsection}{\numberline {6.19.3.7}setCode()}{45}{subsubsection.6.19.3.7}%
-\contentsline {subsubsection}{\numberline {6.19.3.8}setDuration()}{45}{subsubsection.6.19.3.8}%
+\contentsline {subsubsection}{\numberline {6.19.3.7}setCode()}{46}{subsubsection.6.19.3.7}%
+\contentsline {subsubsection}{\numberline {6.19.3.8}setDuration()}{46}{subsubsection.6.19.3.8}%
 \contentsline {subsubsection}{\numberline {6.19.3.9}setVan()}{46}{subsubsection.6.19.3.9}%
 \contentsline {subsubsection}{\numberline {6.19.3.10}setVanRenter()}{46}{subsubsection.6.19.3.10}%
 \contentsline {section}{\numberline {6.20}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}serialization.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reservation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data Class Reference}{46}{section.6.20}%
-\contentsline {subsection}{\numberline {6.20.1}Detailed Description}{46}{subsection.6.20.1}%
+\contentsline {subsection}{\numberline {6.20.1}Detailed Description}{47}{subsection.6.20.1}%
 \contentsline {subsection}{\numberline {6.20.2}Constructor \& Destructor Documentation}{47}{subsection.6.20.2}%
 \contentsline {subsubsection}{\numberline {6.20.2.1}ReservationData()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{47}{subsubsection.6.20.2.1}%
 \contentsline {subsubsection}{\numberline {6.20.2.2}ReservationData()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{47}{subsubsection.6.20.2.2}%
-\contentsline {subsubsection}{\numberline {6.20.2.3}ReservationData()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{47}{subsubsection.6.20.2.3}%
+\contentsline {subsubsection}{\numberline {6.20.2.3}ReservationData()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{48}{subsubsection.6.20.2.3}%
 \contentsline {subsection}{\numberline {6.20.3}Member Function Documentation}{48}{subsection.6.20.3}%
 \contentsline {subsubsection}{\numberline {6.20.3.1}getBookingDate()}{48}{subsubsection.6.20.3.1}%
 \contentsline {subsubsection}{\numberline {6.20.3.2}getCode()}{48}{subsubsection.6.20.3.2}%
 \contentsline {subsubsection}{\numberline {6.20.3.3}getDuration()}{48}{subsubsection.6.20.3.3}%
-\contentsline {subsubsection}{\numberline {6.20.3.4}getVan()}{48}{subsubsection.6.20.3.4}%
-\contentsline {subsubsection}{\numberline {6.20.3.5}getVanRenter()}{48}{subsubsection.6.20.3.5}%
+\contentsline {subsubsection}{\numberline {6.20.3.4}getVan()}{49}{subsubsection.6.20.3.4}%
+\contentsline {subsubsection}{\numberline {6.20.3.5}getVanRenter()}{49}{subsubsection.6.20.3.5}%
 \contentsline {subsubsection}{\numberline {6.20.3.6}setBookingDate()}{49}{subsubsection.6.20.3.6}%
 \contentsline {subsubsection}{\numberline {6.20.3.7}setCode()}{49}{subsubsection.6.20.3.7}%
 \contentsline {subsubsection}{\numberline {6.20.3.8}setDuration()}{49}{subsubsection.6.20.3.8}%
 \contentsline {subsubsection}{\numberline {6.20.3.9}setVan()}{49}{subsubsection.6.20.3.9}%
-\contentsline {subsubsection}{\numberline {6.20.3.10}setVanRenter()}{49}{subsubsection.6.20.3.10}%
+\contentsline {subsubsection}{\numberline {6.20.3.10}setVanRenter()}{50}{subsubsection.6.20.3.10}%
 \contentsline {subsubsection}{\numberline {6.20.3.11}toString()}{50}{subsubsection.6.20.3.11}%
 \contentsline {section}{\numberline {6.21}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reservation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test Class Reference}{50}{section.6.21}%
 \contentsline {subsection}{\numberline {6.21.1}Detailed Description}{50}{subsection.6.21.1}%
 \contentsline {subsection}{\numberline {6.21.2}Member Function Documentation}{50}{subsection.6.21.2}%
 \contentsline {subsubsection}{\numberline {6.21.2.1}constructorTest()}{50}{subsubsection.6.21.2.1}%
-\contentsline {subsubsection}{\numberline {6.21.2.2}setterGettersTest()}{50}{subsubsection.6.21.2.2}%
+\contentsline {subsubsection}{\numberline {6.21.2.2}setterGettersTest()}{51}{subsubsection.6.21.2.2}%
 \contentsline {subsubsection}{\numberline {6.21.2.3}setUp()}{51}{subsubsection.6.21.2.3}%
 \contentsline {subsubsection}{\numberline {6.21.2.4}suite()}{51}{subsubsection.6.21.2.4}%
 \contentsline {section}{\numberline {6.22}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Review Class Reference}{51}{section.6.22}%
 \contentsline {subsection}{\numberline {6.22.1}Detailed Description}{51}{subsection.6.22.1}%
-\contentsline {subsection}{\numberline {6.22.2}Constructor \& Destructor Documentation}{51}{subsection.6.22.2}%
+\contentsline {subsection}{\numberline {6.22.2}Constructor \& Destructor Documentation}{52}{subsection.6.22.2}%
 \contentsline {subsubsection}{\numberline {6.22.2.1}Review()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{52}{subsubsection.6.22.2.1}%
 \contentsline {subsubsection}{\numberline {6.22.2.2}Review()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{52}{subsubsection.6.22.2.2}%
 \contentsline {subsection}{\numberline {6.22.3}Member Function Documentation}{52}{subsection.6.22.3}%
 \contentsline {subsubsection}{\numberline {6.22.3.1}getCode()}{52}{subsubsection.6.22.3.1}%
 \contentsline {subsubsection}{\numberline {6.22.3.2}getComment()}{52}{subsubsection.6.22.3.2}%
-\contentsline {subsubsection}{\numberline {6.22.3.3}getStars()}{52}{subsubsection.6.22.3.3}%
+\contentsline {subsubsection}{\numberline {6.22.3.3}getStars()}{53}{subsubsection.6.22.3.3}%
 \contentsline {subsubsection}{\numberline {6.22.3.4}getVan()}{53}{subsubsection.6.22.3.4}%
 \contentsline {subsubsection}{\numberline {6.22.3.5}setCode()}{53}{subsubsection.6.22.3.5}%
 \contentsline {subsubsection}{\numberline {6.22.3.6}setComment()}{53}{subsubsection.6.22.3.6}%
 \contentsline {subsubsection}{\numberline {6.22.3.7}setStars()}{53}{subsubsection.6.22.3.7}%
 \contentsline {subsubsection}{\numberline {6.22.3.8}setVan()}{53}{subsubsection.6.22.3.8}%
-\contentsline {subsubsection}{\numberline {6.22.3.9}toString()}{53}{subsubsection.6.22.3.9}%
+\contentsline {subsubsection}{\numberline {6.22.3.9}toString()}{54}{subsubsection.6.22.3.9}%
 \contentsline {section}{\numberline {6.23}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}serialization.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Review\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data Class Reference}{54}{section.6.23}%
 \contentsline {subsection}{\numberline {6.23.1}Detailed Description}{54}{subsection.6.23.1}%
 \contentsline {subsection}{\numberline {6.23.2}Constructor \& Destructor Documentation}{54}{subsection.6.23.2}%
@@ -234,126 +234,126 @@
 \contentsline {subsubsection}{\numberline {6.23.3.2}getComment()}{55}{subsubsection.6.23.3.2}%
 \contentsline {subsubsection}{\numberline {6.23.3.3}getStars()}{55}{subsubsection.6.23.3.3}%
 \contentsline {subsubsection}{\numberline {6.23.3.4}getVan()}{55}{subsubsection.6.23.3.4}%
-\contentsline {subsubsection}{\numberline {6.23.3.5}setCode()}{55}{subsubsection.6.23.3.5}%
+\contentsline {subsubsection}{\numberline {6.23.3.5}setCode()}{56}{subsubsection.6.23.3.5}%
 \contentsline {subsubsection}{\numberline {6.23.3.6}setComment()}{56}{subsubsection.6.23.3.6}%
 \contentsline {subsubsection}{\numberline {6.23.3.7}setStars()}{56}{subsubsection.6.23.3.7}%
 \contentsline {subsubsection}{\numberline {6.23.3.8}setVan()}{56}{subsubsection.6.23.3.8}%
 \contentsline {subsubsection}{\numberline {6.23.3.9}toString()}{56}{subsubsection.6.23.3.9}%
-\contentsline {section}{\numberline {6.24}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Review\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test Class Reference}{56}{section.6.24}%
+\contentsline {section}{\numberline {6.24}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Review\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test Class Reference}{57}{section.6.24}%
 \contentsline {subsection}{\numberline {6.24.1}Detailed Description}{57}{subsection.6.24.1}%
 \contentsline {subsection}{\numberline {6.24.2}Member Function Documentation}{57}{subsection.6.24.2}%
 \contentsline {subsubsection}{\numberline {6.24.2.1}constructorTest()}{57}{subsubsection.6.24.2.1}%
 \contentsline {subsubsection}{\numberline {6.24.2.2}setterGettersTest()}{57}{subsubsection.6.24.2.2}%
 \contentsline {subsubsection}{\numberline {6.24.2.3}setUp()}{57}{subsubsection.6.24.2.3}%
-\contentsline {subsubsection}{\numberline {6.24.2.4}suite()}{57}{subsubsection.6.24.2.4}%
+\contentsline {subsubsection}{\numberline {6.24.2.4}suite()}{58}{subsubsection.6.24.2.4}%
 \contentsline {section}{\numberline {6.25}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}client.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}gui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Search\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{58}{section.6.25}%
 \contentsline {subsection}{\numberline {6.25.1}Detailed Description}{58}{subsection.6.25.1}%
 \contentsline {subsection}{\numberline {6.25.2}Constructor \& Destructor Documentation}{58}{subsection.6.25.2}%
 \contentsline {subsubsection}{\numberline {6.25.2.1}SearchWindow()}{58}{subsubsection.6.25.2.1}%
-\contentsline {section}{\numberline {6.26}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User Class Reference}{58}{section.6.26}%
+\contentsline {section}{\numberline {6.26}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User Class Reference}{59}{section.6.26}%
 \contentsline {subsection}{\numberline {6.26.1}Detailed Description}{59}{subsection.6.26.1}%
 \contentsline {subsection}{\numberline {6.26.2}Constructor \& Destructor Documentation}{59}{subsection.6.26.2}%
 \contentsline {subsubsection}{\numberline {6.26.2.1}User()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{59}{subsubsection.6.26.2.1}%
 \contentsline {subsubsection}{\numberline {6.26.2.2}User()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{59}{subsubsection.6.26.2.2}%
-\contentsline {subsection}{\numberline {6.26.3}Member Function Documentation}{59}{subsection.6.26.3}%
-\contentsline {subsubsection}{\numberline {6.26.3.1}addStar()}{59}{subsubsection.6.26.3.1}%
-\contentsline {subsubsection}{\numberline {6.26.3.2}equals()}{59}{subsubsection.6.26.3.2}%
+\contentsline {subsection}{\numberline {6.26.3}Member Function Documentation}{60}{subsection.6.26.3}%
+\contentsline {subsubsection}{\numberline {6.26.3.1}addStar()}{60}{subsubsection.6.26.3.1}%
+\contentsline {subsubsection}{\numberline {6.26.3.2}equals()}{60}{subsubsection.6.26.3.2}%
 \contentsline {subsubsection}{\numberline {6.26.3.3}getDni()}{60}{subsubsection.6.26.3.3}%
 \contentsline {subsubsection}{\numberline {6.26.3.4}getEmail()}{60}{subsubsection.6.26.3.4}%
 \contentsline {subsubsection}{\numberline {6.26.3.5}getName()}{60}{subsubsection.6.26.3.5}%
-\contentsline {subsubsection}{\numberline {6.26.3.6}getPassword()}{60}{subsubsection.6.26.3.6}%
-\contentsline {subsubsection}{\numberline {6.26.3.7}getStars()}{60}{subsubsection.6.26.3.7}%
-\contentsline {subsubsection}{\numberline {6.26.3.8}getStarsAverage()}{60}{subsubsection.6.26.3.8}%
+\contentsline {subsubsection}{\numberline {6.26.3.6}getPassword()}{61}{subsubsection.6.26.3.6}%
+\contentsline {subsubsection}{\numberline {6.26.3.7}getStars()}{61}{subsubsection.6.26.3.7}%
+\contentsline {subsubsection}{\numberline {6.26.3.8}getStarsAverage()}{61}{subsubsection.6.26.3.8}%
 \contentsline {subsubsection}{\numberline {6.26.3.9}setDni()}{61}{subsubsection.6.26.3.9}%
 \contentsline {subsubsection}{\numberline {6.26.3.10}setEmail()}{61}{subsubsection.6.26.3.10}%
-\contentsline {subsubsection}{\numberline {6.26.3.11}setName()}{61}{subsubsection.6.26.3.11}%
-\contentsline {subsubsection}{\numberline {6.26.3.12}setPassword()}{61}{subsubsection.6.26.3.12}%
-\contentsline {subsubsection}{\numberline {6.26.3.13}setStars()}{61}{subsubsection.6.26.3.13}%
+\contentsline {subsubsection}{\numberline {6.26.3.11}setName()}{62}{subsubsection.6.26.3.11}%
+\contentsline {subsubsection}{\numberline {6.26.3.12}setPassword()}{62}{subsubsection.6.26.3.12}%
+\contentsline {subsubsection}{\numberline {6.26.3.13}setStars()}{62}{subsubsection.6.26.3.13}%
 \contentsline {section}{\numberline {6.27}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}serialization.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data Class Reference}{62}{section.6.27}%
-\contentsline {subsection}{\numberline {6.27.1}Detailed Description}{62}{subsection.6.27.1}%
-\contentsline {subsection}{\numberline {6.27.2}Constructor \& Destructor Documentation}{62}{subsection.6.27.2}%
-\contentsline {subsubsection}{\numberline {6.27.2.1}UserData()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{62}{subsubsection.6.27.2.1}%
-\contentsline {subsubsection}{\numberline {6.27.2.2}UserData()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{62}{subsubsection.6.27.2.2}%
+\contentsline {subsection}{\numberline {6.27.1}Detailed Description}{63}{subsection.6.27.1}%
+\contentsline {subsection}{\numberline {6.27.2}Constructor \& Destructor Documentation}{63}{subsection.6.27.2}%
+\contentsline {subsubsection}{\numberline {6.27.2.1}UserData()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{63}{subsubsection.6.27.2.1}%
+\contentsline {subsubsection}{\numberline {6.27.2.2}UserData()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{63}{subsubsection.6.27.2.2}%
 \contentsline {subsection}{\numberline {6.27.3}Member Function Documentation}{63}{subsection.6.27.3}%
-\contentsline {subsubsection}{\numberline {6.27.3.1}getDni()}{63}{subsubsection.6.27.3.1}%
-\contentsline {subsubsection}{\numberline {6.27.3.2}getEmail()}{63}{subsubsection.6.27.3.2}%
-\contentsline {subsubsection}{\numberline {6.27.3.3}getName()}{63}{subsubsection.6.27.3.3}%
-\contentsline {subsubsection}{\numberline {6.27.3.4}getPassword()}{63}{subsubsection.6.27.3.4}%
+\contentsline {subsubsection}{\numberline {6.27.3.1}getDni()}{64}{subsubsection.6.27.3.1}%
+\contentsline {subsubsection}{\numberline {6.27.3.2}getEmail()}{64}{subsubsection.6.27.3.2}%
+\contentsline {subsubsection}{\numberline {6.27.3.3}getName()}{64}{subsubsection.6.27.3.3}%
+\contentsline {subsubsection}{\numberline {6.27.3.4}getPassword()}{64}{subsubsection.6.27.3.4}%
 \contentsline {subsubsection}{\numberline {6.27.3.5}getStars()}{64}{subsubsection.6.27.3.5}%
 \contentsline {subsubsection}{\numberline {6.27.3.6}setDni()}{64}{subsubsection.6.27.3.6}%
-\contentsline {subsubsection}{\numberline {6.27.3.7}setEmail()}{64}{subsubsection.6.27.3.7}%
-\contentsline {subsubsection}{\numberline {6.27.3.8}setName()}{64}{subsubsection.6.27.3.8}%
-\contentsline {subsubsection}{\numberline {6.27.3.9}setPassword()}{64}{subsubsection.6.27.3.9}%
-\contentsline {subsubsection}{\numberline {6.27.3.10}setStars()}{64}{subsubsection.6.27.3.10}%
+\contentsline {subsubsection}{\numberline {6.27.3.7}setEmail()}{65}{subsubsection.6.27.3.7}%
+\contentsline {subsubsection}{\numberline {6.27.3.8}setName()}{65}{subsubsection.6.27.3.8}%
+\contentsline {subsubsection}{\numberline {6.27.3.9}setPassword()}{65}{subsubsection.6.27.3.9}%
+\contentsline {subsubsection}{\numberline {6.27.3.10}setStars()}{65}{subsubsection.6.27.3.10}%
 \contentsline {subsubsection}{\numberline {6.27.3.11}toString()}{65}{subsubsection.6.27.3.11}%
-\contentsline {section}{\numberline {6.28}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test Class Reference}{65}{section.6.28}%
-\contentsline {subsection}{\numberline {6.28.1}Detailed Description}{65}{subsection.6.28.1}%
-\contentsline {subsection}{\numberline {6.28.2}Member Function Documentation}{65}{subsection.6.28.2}%
-\contentsline {subsubsection}{\numberline {6.28.2.1}constructorTest()}{65}{subsubsection.6.28.2.1}%
-\contentsline {subsubsection}{\numberline {6.28.2.2}setterGettersTest()}{65}{subsubsection.6.28.2.2}%
+\contentsline {section}{\numberline {6.28}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test Class Reference}{66}{section.6.28}%
+\contentsline {subsection}{\numberline {6.28.1}Detailed Description}{66}{subsection.6.28.1}%
+\contentsline {subsection}{\numberline {6.28.2}Member Function Documentation}{66}{subsection.6.28.2}%
+\contentsline {subsubsection}{\numberline {6.28.2.1}constructorTest()}{66}{subsubsection.6.28.2.1}%
+\contentsline {subsubsection}{\numberline {6.28.2.2}setterGettersTest()}{66}{subsubsection.6.28.2.2}%
 \contentsline {subsubsection}{\numberline {6.28.2.3}setUp()}{66}{subsubsection.6.28.2.3}%
-\contentsline {subsubsection}{\numberline {6.28.2.4}suite()}{66}{subsubsection.6.28.2.4}%
-\contentsline {section}{\numberline {6.29}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Van Class Reference}{66}{section.6.29}%
+\contentsline {subsubsection}{\numberline {6.28.2.4}suite()}{67}{subsubsection.6.28.2.4}%
+\contentsline {section}{\numberline {6.29}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Van Class Reference}{67}{section.6.29}%
 \contentsline {subsection}{\numberline {6.29.1}Detailed Description}{67}{subsection.6.29.1}%
 \contentsline {subsection}{\numberline {6.29.2}Constructor \& Destructor Documentation}{67}{subsection.6.29.2}%
-\contentsline {subsubsection}{\numberline {6.29.2.1}Van()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{67}{subsubsection.6.29.2.1}%
-\contentsline {subsubsection}{\numberline {6.29.2.2}Van()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{67}{subsubsection.6.29.2.2}%
-\contentsline {subsection}{\numberline {6.29.3}Member Function Documentation}{67}{subsection.6.29.3}%
-\contentsline {subsubsection}{\numberline {6.29.3.1}equals()}{67}{subsubsection.6.29.3.1}%
+\contentsline {subsubsection}{\numberline {6.29.2.1}Van()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{68}{subsubsection.6.29.2.1}%
+\contentsline {subsubsection}{\numberline {6.29.2.2}Van()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{68}{subsubsection.6.29.2.2}%
+\contentsline {subsection}{\numberline {6.29.3}Member Function Documentation}{68}{subsection.6.29.3}%
+\contentsline {subsubsection}{\numberline {6.29.3.1}equals()}{68}{subsubsection.6.29.3.1}%
 \contentsline {subsubsection}{\numberline {6.29.3.2}getBrand()}{68}{subsubsection.6.29.3.2}%
 \contentsline {subsubsection}{\numberline {6.29.3.3}getCapacity()}{68}{subsubsection.6.29.3.3}%
-\contentsline {subsubsection}{\numberline {6.29.3.4}getLicensePlate()}{68}{subsubsection.6.29.3.4}%
-\contentsline {subsubsection}{\numberline {6.29.3.5}getLocation()}{68}{subsubsection.6.29.3.5}%
-\contentsline {subsubsection}{\numberline {6.29.3.6}getModel()}{68}{subsubsection.6.29.3.6}%
-\contentsline {subsubsection}{\numberline {6.29.3.7}getPricePerDay()}{68}{subsubsection.6.29.3.7}%
+\contentsline {subsubsection}{\numberline {6.29.3.4}getLicensePlate()}{69}{subsubsection.6.29.3.4}%
+\contentsline {subsubsection}{\numberline {6.29.3.5}getLocation()}{69}{subsubsection.6.29.3.5}%
+\contentsline {subsubsection}{\numberline {6.29.3.6}getModel()}{69}{subsubsection.6.29.3.6}%
+\contentsline {subsubsection}{\numberline {6.29.3.7}getPricePerDay()}{69}{subsubsection.6.29.3.7}%
 \contentsline {subsubsection}{\numberline {6.29.3.8}getStatus()}{69}{subsubsection.6.29.3.8}%
 \contentsline {subsubsection}{\numberline {6.29.3.9}getUser()}{69}{subsubsection.6.29.3.9}%
-\contentsline {subsubsection}{\numberline {6.29.3.10}hasKitchen()}{69}{subsubsection.6.29.3.10}%
-\contentsline {subsubsection}{\numberline {6.29.3.11}hasShower()}{69}{subsubsection.6.29.3.11}%
-\contentsline {subsubsection}{\numberline {6.29.3.12}isOffRoad()}{69}{subsubsection.6.29.3.12}%
-\contentsline {subsubsection}{\numberline {6.29.3.13}setBrand()}{69}{subsubsection.6.29.3.13}%
+\contentsline {subsubsection}{\numberline {6.29.3.10}hasKitchen()}{70}{subsubsection.6.29.3.10}%
+\contentsline {subsubsection}{\numberline {6.29.3.11}hasShower()}{70}{subsubsection.6.29.3.11}%
+\contentsline {subsubsection}{\numberline {6.29.3.12}isOffRoad()}{70}{subsubsection.6.29.3.12}%
+\contentsline {subsubsection}{\numberline {6.29.3.13}setBrand()}{70}{subsubsection.6.29.3.13}%
 \contentsline {subsubsection}{\numberline {6.29.3.14}setCapacity()}{70}{subsubsection.6.29.3.14}%
 \contentsline {subsubsection}{\numberline {6.29.3.15}setKitchen()}{70}{subsubsection.6.29.3.15}%
-\contentsline {subsubsection}{\numberline {6.29.3.16}setLicensePlate()}{70}{subsubsection.6.29.3.16}%
-\contentsline {subsubsection}{\numberline {6.29.3.17}setLocation()}{70}{subsubsection.6.29.3.17}%
-\contentsline {subsubsection}{\numberline {6.29.3.18}setModel()}{70}{subsubsection.6.29.3.18}%
-\contentsline {subsubsection}{\numberline {6.29.3.19}setOffRoad()}{70}{subsubsection.6.29.3.19}%
+\contentsline {subsubsection}{\numberline {6.29.3.16}setLicensePlate()}{71}{subsubsection.6.29.3.16}%
+\contentsline {subsubsection}{\numberline {6.29.3.17}setLocation()}{71}{subsubsection.6.29.3.17}%
+\contentsline {subsubsection}{\numberline {6.29.3.18}setModel()}{71}{subsubsection.6.29.3.18}%
+\contentsline {subsubsection}{\numberline {6.29.3.19}setOffRoad()}{71}{subsubsection.6.29.3.19}%
 \contentsline {subsubsection}{\numberline {6.29.3.20}setPricePerDay()}{71}{subsubsection.6.29.3.20}%
 \contentsline {subsubsection}{\numberline {6.29.3.21}setShower()}{71}{subsubsection.6.29.3.21}%
-\contentsline {subsubsection}{\numberline {6.29.3.22}setStatus()}{71}{subsubsection.6.29.3.22}%
-\contentsline {subsubsection}{\numberline {6.29.3.23}setUser()}{71}{subsubsection.6.29.3.23}%
-\contentsline {subsubsection}{\numberline {6.29.3.24}toString()}{71}{subsubsection.6.29.3.24}%
+\contentsline {subsubsection}{\numberline {6.29.3.22}setStatus()}{72}{subsubsection.6.29.3.22}%
+\contentsline {subsubsection}{\numberline {6.29.3.23}setUser()}{72}{subsubsection.6.29.3.23}%
+\contentsline {subsubsection}{\numberline {6.29.3.24}toString()}{72}{subsubsection.6.29.3.24}%
 \contentsline {section}{\numberline {6.30}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}serialization.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Van\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data Class Reference}{72}{section.6.30}%
-\contentsline {subsection}{\numberline {6.30.1}Detailed Description}{72}{subsection.6.30.1}%
-\contentsline {subsection}{\numberline {6.30.2}Constructor \& Destructor Documentation}{72}{subsection.6.30.2}%
+\contentsline {subsection}{\numberline {6.30.1}Detailed Description}{73}{subsection.6.30.1}%
+\contentsline {subsection}{\numberline {6.30.2}Constructor \& Destructor Documentation}{73}{subsection.6.30.2}%
 \contentsline {subsubsection}{\numberline {6.30.2.1}VanData()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{73}{subsubsection.6.30.2.1}%
 \contentsline {subsubsection}{\numberline {6.30.2.2}VanData()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{73}{subsubsection.6.30.2.2}%
-\contentsline {subsection}{\numberline {6.30.3}Member Function Documentation}{73}{subsection.6.30.3}%
-\contentsline {subsubsection}{\numberline {6.30.3.1}getBrand()}{73}{subsubsection.6.30.3.1}%
+\contentsline {subsection}{\numberline {6.30.3}Member Function Documentation}{74}{subsection.6.30.3}%
+\contentsline {subsubsection}{\numberline {6.30.3.1}getBrand()}{74}{subsubsection.6.30.3.1}%
 \contentsline {subsubsection}{\numberline {6.30.3.2}getCapacity()}{74}{subsubsection.6.30.3.2}%
 \contentsline {subsubsection}{\numberline {6.30.3.3}getLicensePlate()}{74}{subsubsection.6.30.3.3}%
 \contentsline {subsubsection}{\numberline {6.30.3.4}getLocation()}{74}{subsubsection.6.30.3.4}%
 \contentsline {subsubsection}{\numberline {6.30.3.5}getModel()}{74}{subsubsection.6.30.3.5}%
-\contentsline {subsubsection}{\numberline {6.30.3.6}getPricePerDay()}{74}{subsubsection.6.30.3.6}%
-\contentsline {subsubsection}{\numberline {6.30.3.7}getUser()}{74}{subsubsection.6.30.3.7}%
+\contentsline {subsubsection}{\numberline {6.30.3.6}getPricePerDay()}{75}{subsubsection.6.30.3.6}%
+\contentsline {subsubsection}{\numberline {6.30.3.7}getUser()}{75}{subsubsection.6.30.3.7}%
 \contentsline {subsubsection}{\numberline {6.30.3.8}hasKitchen()}{75}{subsubsection.6.30.3.8}%
 \contentsline {subsubsection}{\numberline {6.30.3.9}hasShower()}{75}{subsubsection.6.30.3.9}%
 \contentsline {subsubsection}{\numberline {6.30.3.10}isOffRoad()}{75}{subsubsection.6.30.3.10}%
 \contentsline {subsubsection}{\numberline {6.30.3.11}setBrand()}{75}{subsubsection.6.30.3.11}%
-\contentsline {subsubsection}{\numberline {6.30.3.12}setCapacity()}{75}{subsubsection.6.30.3.12}%
-\contentsline {subsubsection}{\numberline {6.30.3.13}setKitchen()}{75}{subsubsection.6.30.3.13}%
+\contentsline {subsubsection}{\numberline {6.30.3.12}setCapacity()}{76}{subsubsection.6.30.3.12}%
+\contentsline {subsubsection}{\numberline {6.30.3.13}setKitchen()}{76}{subsubsection.6.30.3.13}%
 \contentsline {subsubsection}{\numberline {6.30.3.14}setLicensePlate()}{76}{subsubsection.6.30.3.14}%
 \contentsline {subsubsection}{\numberline {6.30.3.15}setLocation()}{76}{subsubsection.6.30.3.15}%
 \contentsline {subsubsection}{\numberline {6.30.3.16}setModel()}{76}{subsubsection.6.30.3.16}%
 \contentsline {subsubsection}{\numberline {6.30.3.17}setOffRoad()}{76}{subsubsection.6.30.3.17}%
-\contentsline {subsubsection}{\numberline {6.30.3.18}setPricePerDay()}{76}{subsubsection.6.30.3.18}%
-\contentsline {subsubsection}{\numberline {6.30.3.19}setShower()}{76}{subsubsection.6.30.3.19}%
+\contentsline {subsubsection}{\numberline {6.30.3.18}setPricePerDay()}{77}{subsubsection.6.30.3.18}%
+\contentsline {subsubsection}{\numberline {6.30.3.19}setShower()}{77}{subsubsection.6.30.3.19}%
 \contentsline {subsubsection}{\numberline {6.30.3.20}setUser()}{77}{subsubsection.6.30.3.20}%
 \contentsline {subsubsection}{\numberline {6.30.3.21}toString()}{77}{subsubsection.6.30.3.21}%
 \contentsline {section}{\numberline {6.31}es.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}deusto.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bspq21e1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Van\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test Class Reference}{77}{section.6.31}%
-\contentsline {subsection}{\numberline {6.31.1}Detailed Description}{77}{subsection.6.31.1}%
-\contentsline {subsection}{\numberline {6.31.2}Member Function Documentation}{77}{subsection.6.31.2}%
-\contentsline {subsubsection}{\numberline {6.31.2.1}constructorTest()}{77}{subsubsection.6.31.2.1}%
+\contentsline {subsection}{\numberline {6.31.1}Detailed Description}{78}{subsection.6.31.1}%
+\contentsline {subsection}{\numberline {6.31.2}Member Function Documentation}{78}{subsection.6.31.2}%
+\contentsline {subsubsection}{\numberline {6.31.2.1}constructorTest()}{78}{subsubsection.6.31.2.1}%
 \contentsline {subsubsection}{\numberline {6.31.2.2}setterGettersTest()}{78}{subsubsection.6.31.2.2}%
 \contentsline {subsubsection}{\numberline {6.31.2.3}setUp()}{78}{subsubsection.6.31.2.3}%
 \contentsline {subsubsection}{\numberline {6.31.2.4}suite()}{78}{subsubsection.6.31.2.4}%
