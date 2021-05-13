@@ -36,7 +36,7 @@ public class CancelReservationWindow extends JFrame{
 	private UserData user;
 	private JFrame frmMain;
 	
-	private JFrame frmCancelRervation = new JFrame();
+	private JFrame frmCancelReservation = new JFrame();
 	private JButton btnCancel, btnBack;
 	private JScrollPane scrollReservations;
 	private JList<String> jlReservationsList1 = new JList<String>();
@@ -55,25 +55,25 @@ public class CancelReservationWindow extends JFrame{
 		this.user = userData;
 		this.frmMain = frmMain;
 		initialize();
-		frmCancelRervation.setTitle(controller.getResourcebundle().getString("cancel_reservation_window_tittle_msg"));
-		frmCancelRervation.setResizable(false);
-		frmCancelRervation.setVisible(true);
+		frmCancelReservation.setTitle(controller.getResourcebundle().getString("cancel_reservation_window_tittle_msg"));
+		frmCancelReservation.setResizable(false);
+		frmCancelReservation.setVisible(true);
 	}
 	
 	/**
 	 * Initializes all the elements the window needs to show to the user and their functionality.
 	 */
 	private void initialize() {
-		frmCancelRervation.setBounds(100, 100, 720, 315);
-		frmCancelRervation.setLocationRelativeTo(null);
-		frmCancelRervation.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmCancelRervation.getContentPane().setLayout(null);
-		frmCancelRervation.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
+		frmCancelReservation.setBounds(100, 100, 720, 315);
+		frmCancelReservation.setLocationRelativeTo(null);
+		frmCancelReservation.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCancelReservation.getContentPane().setLayout(null);
+		frmCancelReservation.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
 		JLabel lblTitle = new JLabel(controller.getResourcebundle().getString("cancel_your_reservations_msg"));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblTitle.setBounds(60, 11, 298, 24);
-		frmCancelRervation.getContentPane().add(lblTitle);
+		frmCancelReservation.getContentPane().add(lblTitle);
 		
 		//TABLE MODEL
 				tableModel = new DefaultTableModel() {
@@ -103,7 +103,7 @@ public class CancelReservationWindow extends JFrame{
 		scrollReservations = new JScrollPane();
 		scrollReservations.setBounds(10, 40, 691, 188);
 		scrollReservations.setViewportView(jtReservationsTable);
-		frmCancelRervation.getContentPane().add(scrollReservations);
+		frmCancelReservation.getContentPane().add(scrollReservations);
 		
 		//CANCEL BUTTON
 		btnCancel = new JButton(controller.getResourcebundle().getString("cancel_button_msg"));
@@ -111,12 +111,12 @@ public class CancelReservationWindow extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				controller.cancelReservation(reservations.get(jtReservationsTable.getSelectedRow()).getCode());
 				frmMain.setVisible(true);
-				frmCancelRervation.dispose();
+				frmCancelReservation.dispose();
 			}
 		});
 		btnCancel.setBackground(java.awt.Color.RED);
 		btnCancel.setBounds(397, 240, 100, 25);
-		frmCancelRervation.getContentPane().add(btnCancel);
+		frmCancelReservation.getContentPane().add(btnCancel);
 		
 		//BACK BUTTON
 		btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
@@ -124,11 +124,11 @@ public class CancelReservationWindow extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frmMain.setVisible(true);
-				frmCancelRervation.dispose();
+				frmCancelReservation.dispose();
 			}
 		});
 		btnBack.setBounds(50, 240, 100, 25);
-		frmCancelRervation.getContentPane().add(btnBack);
+		frmCancelReservation.getContentPane().add(btnBack);
 		
 		//CONTROLLER
 		reservations = controller.getMyReservations(user);

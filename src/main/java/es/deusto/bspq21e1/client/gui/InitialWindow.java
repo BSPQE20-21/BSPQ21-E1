@@ -36,6 +36,9 @@ public class InitialWindow extends JFrame {
     private JPanel panel;
     private JButton btnRegister, btnLogin, btnExit;
     private JLabel lblLogoImg;
+    private JLabel lblSpanishImg;
+    private JLabel lblEnglishImg;
+    private JLabel lblBasqueImg;
 
     /**
 	 * Creates the initial window of the program.
@@ -52,7 +55,7 @@ public class InitialWindow extends JFrame {
 	 * Initializes all the elements the window needs to show to the user and their functionality.
 	 */
     private void initialize() {
-        frmAirbv.setBounds(100, 100, 290, 350);
+        frmAirbv.setBounds(100, 100, 355, 380);
         frmAirbv.setLocationRelativeTo(null);
         frmAirbv.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmAirbv.getContentPane().setLayout(null);
@@ -60,11 +63,12 @@ public class InitialWindow extends JFrame {
 		
         lblHead = new JLabel(controller.getResourcebundle().getString("initial_head_msg"));
         lblHead.setFont(new Font("Tahoma", Font.BOLD, 18));
-        lblHead.setBounds(23, 25, 202, 25);
+        lblHead.setBounds(20, 72, 202, 25);
         frmAirbv.getContentPane().add(lblHead);
+        lblHead.updateUI();
 
         panel = new JPanel();
-        panel.setBounds(33, 79, 202, 210);
+        panel.setBounds(68, 107, 202, 210);
         frmAirbv.getContentPane().add(panel);
         panel.setLayout(null);
 
@@ -132,21 +136,47 @@ public class InitialWindow extends JFrame {
 		    	btnExit.updateUI();
 		    }
 		});
-        panel.add(btnExit);
-        
-        /*lblLogoImg = new JLabel("New label");
-        lblLogoImg.setBounds(278, 113, 54, 48);
-        Image logoImg = new ImageIcon("src" + File.separator +
-        								"main" + File.separator +
-        								"resources" + File.separator +
-        								"images" + File.separator + "AirBV.png").getImage();
-        ImageIcon logoImgScaled = new ImageIcon(logoImg.getScaledInstance(30, 30, Image.SCALE_SMOOTH));
-        lblLogoImg.setIcon(logoImgScaled);
-        
-        frmAirbv.getContentPane().add(lblLogoImg);*/
-        
+        panel.add(btnExit);   
         btnExit.updateUI();
 
+        //IMG CARAVAN
+        lblLogoImg = new JLabel("");
+        lblLogoImg.setBounds(256, 65, 64, 38);
+        Image logoImg = new ImageIcon("src/main/resources/images/caravan.png").getImage();
+        ImageIcon logoImgScaled = new ImageIcon(logoImg.getScaledInstance(63, 37, Image.SCALE_SMOOTH));
+        lblLogoImg.setIcon(logoImgScaled);
+        
+        frmAirbv.getContentPane().add(lblLogoImg);
+        lblLogoImg.updateUI();
+        
+        //IMG SPANISH
+        lblSpanishImg = new JLabel("");
+        lblSpanishImg.setBounds(10, 10, 45, 25);
+        Image spanishImg = new ImageIcon("src/main/resources/images/spanish_flag.png").getImage();
+        ImageIcon spanishImgScaled = new ImageIcon(spanishImg.getScaledInstance(25, 16, Image.SCALE_SMOOTH));
+        lblSpanishImg.setIcon(spanishImgScaled);
+        frmAirbv.getContentPane().add(lblSpanishImg);
+        lblSpanishImg.updateUI();
+        
+        //IMG ENGLISH
+        lblEnglishImg = new JLabel("");
+        lblEnglishImg.setBounds(117, 10, 45, 25);
+        Image englishImg = new ImageIcon("src/main/resources/images/english_flag.png").getImage();
+        ImageIcon englishImgScaled = new ImageIcon(englishImg.getScaledInstance(25, 16, Image.SCALE_SMOOTH));
+        lblEnglishImg.setIcon(englishImgScaled);
+        frmAirbv.getContentPane().add(lblEnglishImg);
+        lblEnglishImg.updateUI();    
+        
+        //IMG BASQUE
+        lblBasqueImg = new JLabel("");
+        lblBasqueImg.setBounds(238, 10, 45, 25);
+        Image basqueImg = new ImageIcon("src/main/resources/images/basque_flag.png").getImage();
+        ImageIcon basqueImgScaled = new ImageIcon(basqueImg.getScaledInstance(25, 16, Image.SCALE_SMOOTH));
+        lblBasqueImg.setIcon(basqueImgScaled);
+        frmAirbv.getContentPane().add(lblBasqueImg);
+        lblBasqueImg.updateUI();
+        
+       
         logger.info("InitialWindow well initialized");
     }
 }
