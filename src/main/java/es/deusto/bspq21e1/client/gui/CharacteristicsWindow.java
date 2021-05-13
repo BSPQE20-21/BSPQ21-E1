@@ -3,6 +3,7 @@ package es.deusto.bspq21e1.client.gui;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -45,6 +46,7 @@ public class CharacteristicsWindow extends JFrame{
 		frmCharacteristics.setLocationRelativeTo(null);
 		frmCharacteristics.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCharacteristics.getContentPane().setLayout(null);
+		frmCharacteristics.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
 		JLabel lblCharacteristicsTitle = new JLabel(controller.getResourcebundle().getString("characteristics_msg"));
 		lblCharacteristicsTitle.setHorizontalAlignment(SwingConstants.CENTER);

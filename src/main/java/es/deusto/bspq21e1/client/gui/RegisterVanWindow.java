@@ -1,6 +1,7 @@
 package es.deusto.bspq21e1.client.gui;
 
 import java.awt.Font;
+import java.awt.Toolkit;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
@@ -88,6 +89,7 @@ public class RegisterVanWindow extends JFrame{
 		frmRegistrationOfVans.setLocationRelativeTo(null);
 		frmRegistrationOfVans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRegistrationOfVans.getContentPane().setLayout(null);
+		frmRegistrationOfVans.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
 		lblTitle = new JLabel(controller.getResourcebundle().getString("register_your_van_msg"));
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 15));

@@ -18,6 +18,7 @@ import org.apache.log4j.Logger;
 
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -82,6 +83,7 @@ public class SearchWindow extends JFrame{
 		frmSearchVans.setLocationRelativeTo(null);
 		frmSearchVans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSearchVans.getContentPane().setLayout(null);
+		frmSearchVans.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
 		searchPanel = new JPanel();
 		searchPanel.setBounds(0, 0, 662, 165);

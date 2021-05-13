@@ -1,6 +1,7 @@
 package es.deusto.bspq21e1.client.gui;
 
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -54,6 +55,7 @@ public class RemoveVanWindow extends JFrame {
 		frmRemoveVan.setLocationRelativeTo(null);
 		frmRemoveVan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRemoveVan.getContentPane().setLayout(null);
+		frmRemoveVan.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
 		//TABLE MODEL
 		tableModel = new DefaultTableModel() {

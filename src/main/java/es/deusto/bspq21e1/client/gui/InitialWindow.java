@@ -1,5 +1,6 @@
 package es.deusto.bspq21e1.client.gui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -8,8 +9,11 @@ import org.apache.log4j.Logger;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 
 import es.deusto.bspq21e1.client.controller.Controller;
@@ -31,6 +35,7 @@ public class InitialWindow extends JFrame {
     private JLabel lblHead;
     private JPanel panel;
     private JButton btnRegister, btnLogin, btnExit;
+    private JLabel lblLogoImg;
 
     /**
 	 * Creates the initial window of the program.
@@ -47,10 +52,11 @@ public class InitialWindow extends JFrame {
 	 * Initializes all the elements the window needs to show to the user and their functionality.
 	 */
     private void initialize() {
-        frmAirbv.setBounds(100, 100, 255, 320);
+        frmAirbv.setBounds(100, 100, 290, 350);
         frmAirbv.setLocationRelativeTo(null);
         frmAirbv.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmAirbv.getContentPane().setLayout(null);
+		frmAirbv.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
         lblHead = new JLabel(controller.getResourcebundle().getString("initial_head_msg"));
         lblHead.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -58,7 +64,7 @@ public class InitialWindow extends JFrame {
         frmAirbv.getContentPane().add(lblHead);
 
         panel = new JPanel();
-        panel.setBounds(20, 50, 202, 210);
+        panel.setBounds(33, 79, 202, 210);
         frmAirbv.getContentPane().add(panel);
         panel.setLayout(null);
 
@@ -127,9 +133,20 @@ public class InitialWindow extends JFrame {
 		    }
 		});
         panel.add(btnExit);
+        
+        /*lblLogoImg = new JLabel("New label");
+        lblLogoImg.setBounds(278, 113, 54, 48);
+        Image logoImg = new ImageIcon("src" + File.separator +
+        								"main" + File.separator +
+        								"resources" + File.separator +
+        								"images" + File.separator + "AirBV.png").getImage();
+        ImageIcon logoImgScaled = new ImageIcon(logoImg.getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+        lblLogoImg.setIcon(logoImgScaled);
+        
+        frmAirbv.getContentPane().add(lblLogoImg);*/
+        
         btnExit.updateUI();
 
         logger.info("InitialWindow well initialized");
     }
-    
 }

@@ -6,6 +6,7 @@ import javax.swing.JPasswordField;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -55,6 +56,7 @@ public class RegisterUserWindow extends JFrame{
 		frmRegisterYourself.setLocationRelativeTo(null);
 		frmRegisterYourself.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmRegisterYourself.getContentPane().setLayout(null);
+		frmRegisterYourself.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
 		JLabel lblRegisterTitle = new JLabel(controller.getResourcebundle().getString("register_as_new_user_msg"));
 		lblRegisterTitle.setFont(new Font("Tahoma", Font.BOLD, 15));

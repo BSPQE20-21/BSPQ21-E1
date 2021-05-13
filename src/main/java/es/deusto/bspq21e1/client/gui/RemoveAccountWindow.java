@@ -1,5 +1,6 @@
 package es.deusto.bspq21e1.client.gui;
 
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -39,6 +40,7 @@ public class RemoveAccountWindow extends JFrame {
 		frmRemoveAccount.setLocationRelativeTo(null);
 		frmRemoveAccount.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRemoveAccount.getContentPane().setLayout(null);
+		frmRemoveAccount.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
 		btnNo = new JButton(controller.getResourcebundle().getString("no_msg"));
 		btnNo.setBounds(25, 50, 100, 25);

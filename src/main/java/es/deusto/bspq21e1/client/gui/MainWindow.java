@@ -2,6 +2,7 @@ package es.deusto.bspq21e1.client.gui;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -42,6 +43,7 @@ public class MainWindow extends JFrame {
 		frmMain.setLocationRelativeTo(null);
 		frmMain.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmMain.getContentPane().setLayout(null);
+		frmMain.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
 		lblTitle = new JLabel(controller.getResourcebundle().getString("main_title_msg"));
 		lblTitle.setBounds(40, 20, 300, 30);
