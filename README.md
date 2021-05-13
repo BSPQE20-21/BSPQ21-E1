@@ -44,7 +44,7 @@ Click on the thunder icon and refesh tables.
   mvn jetty:run
 ```
 
-*open another cmd window to run client side*
+*Open another cmd window to run client side*
 
 5. Run Client App:
 ```bash
