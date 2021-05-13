@@ -72,7 +72,7 @@ public class InitialWindow extends JFrame {
         lblHead.updateUI();
 
         panel = new JPanel();
-        panel.setBounds(68, 107, 202, 180);
+        panel.setBounds(68, 107, 202, 192);
         frmAirbv.getContentPane().add(panel);
         panel.setLayout(null);
 
@@ -145,7 +145,7 @@ public class InitialWindow extends JFrame {
 
         //IMG CARAVAN
         lblLogoImg = new JLabel("");
-        lblLogoImg.setBounds(256, 65, 64, 38);
+        lblLogoImg.setBounds(248, 65, 64, 38);
         Image logoImg = new ImageIcon("src/main/resources/images/caravan.png").getImage();
         ImageIcon logoImgScaled = new ImageIcon(logoImg.getScaledInstance(63, 37, Image.SCALE_SMOOTH));
         lblLogoImg.setIcon(logoImgScaled);
@@ -159,6 +159,14 @@ public class InitialWindow extends JFrame {
         Image spanishImg = new ImageIcon("src/main/resources/images/spanish_flag.png").getImage();
         ImageIcon spanishImgScaled = new ImageIcon(spanishImg.getScaledInstance(25, 16, Image.SCALE_SMOOTH));
         lblSpanishImg.setIcon(spanishImgScaled);
+        lblSpanishImg.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controller.setLocale("es");	
+				frmAirbv.dispose();
+				new InitialWindow(controller);
+			}
+		});
         frmAirbv.getContentPane().add(lblSpanishImg);
         lblSpanishImg.updateUI();
         
@@ -168,6 +176,14 @@ public class InitialWindow extends JFrame {
         Image englishImg = new ImageIcon("src/main/resources/images/english_flag.png").getImage();
         ImageIcon englishImgScaled = new ImageIcon(englishImg.getScaledInstance(25, 16, Image.SCALE_SMOOTH));
         lblEnglishImg.setIcon(englishImgScaled);
+        lblEnglishImg.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controller.setLocale("en");
+				frmAirbv.dispose();
+				new InitialWindow(controller);
+			}
+		});
         frmAirbv.getContentPane().add(lblEnglishImg);
         lblEnglishImg.updateUI();    
         
@@ -177,16 +193,26 @@ public class InitialWindow extends JFrame {
         Image basqueImg = new ImageIcon("src/main/resources/images/basque_flag.png").getImage();
         ImageIcon basqueImgScaled = new ImageIcon(basqueImg.getScaledInstance(25, 16, Image.SCALE_SMOOTH));
         lblBasqueImg.setIcon(basqueImgScaled);
+        lblBasqueImg.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controller.setLocale("eu");	
+				frmAirbv.dispose();
+				new InitialWindow(controller);
+			}
+		});
         frmAirbv.getContentPane().add(lblBasqueImg);
         lblBasqueImg.updateUI();
         
         //SPANISH BUTTON
-        lblSpanishButton = new JLabel("<html><u>Español");
+        lblSpanishButton = new JLabel("<html><u>" + controller.getResourcebundle().getString("spanish_msg"));
         lblSpanishButton.setBounds(55, 15, 55, 13);
         lblSpanishButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//controller.setLocale("es");	
+				controller.setLocale("es");	
+				frmAirbv.dispose();
+				new InitialWindow(controller);
 			}
 		});
         lblSpanishButton.setForeground(Color.BLUE);
@@ -194,26 +220,30 @@ public class InitialWindow extends JFrame {
         lblSpanishButton.updateUI();
         
         //ENGLISH BUTTON
-        lblEnglishButton = new JLabel("<html><u>English");
+        lblEnglishButton = new JLabel("<html><u>" + controller.getResourcebundle().getString("english_msg"));
         lblEnglishButton.setForeground(Color.BLUE);
         lblEnglishButton.setBounds(160, 15, 55, 13);
         lblEnglishButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//controller.setLocale("en");	
+				controller.setLocale("en");
+				frmAirbv.dispose();
+				new InitialWindow(controller);
 			}
 		});
         frmAirbv.getContentPane().add(lblEnglishButton);
         lblEnglishButton.updateUI();
         
         //BASQUE BUTTON
-        lblBasqueButton = new JLabel("<html><u>Euskera");
+        lblBasqueButton = new JLabel("<html><u>" + controller.getResourcebundle().getString("basque_msg"));
         lblBasqueButton.setForeground(Color.BLUE);
         lblBasqueButton.setBounds(260, 15, 60, 13);
         lblBasqueButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//controller.setLocale("eu");	
+				controller.setLocale("eu");	
+				frmAirbv.dispose();
+				new InitialWindow(controller);
 			}
 		});
         frmAirbv.getContentPane().add(lblBasqueButton);

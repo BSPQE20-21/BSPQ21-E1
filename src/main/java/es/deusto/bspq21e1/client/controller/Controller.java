@@ -231,7 +231,7 @@ public class Controller {
 		}else if(locale.equals("en")){
 			currentLocale = new Locale("en");
 		}
-		//TODO
+		resourceBundle = ResourceBundle.getBundle("SystemMessages", currentLocale);
 	}
 	
 }
