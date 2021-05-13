@@ -34,8 +34,6 @@ jobs:
       uses: jakejarvis/wait-action@master
       with:
         time: '10s'
-    - name: Launch the client
-      run: mvn exec:java -Pclient
     - name: Test with Maven
       run: mvn test -DargLine="-Dcontiperf.active=false"
     - name: Install doxygen
