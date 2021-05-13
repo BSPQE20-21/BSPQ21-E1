@@ -43,7 +43,7 @@ jobs:
     - name: Generate documentation
       run: mvn doxygen:report
     - name: Go to latex
-      run: cd target
+      run: cd target\doxygen\latex
     - name: Create PDFs
       run: make
     - name: Go to root
