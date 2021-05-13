@@ -42,6 +42,9 @@ jobs:
       run: sudo apt-get install -y graphviz
     - name: Generate documentation
       run: mvn doxygen:report
+      run: cd target/doxygen/latex
+      run: make
+      run: cd ../../..
     - name: Publish on Github Pages
       uses: crazy-max/ghaction-github-pages@v2.3.0
       with:
