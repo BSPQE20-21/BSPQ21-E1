@@ -39,7 +39,7 @@ public class CancelReservationWindow extends JFrame{
 	private JButton btnCancel, btnBack;
 	private JScrollPane scrollReservations;
 	private JList<String> jlReservationsList1 = new JList<String>();
-	private JTable jlReservationsList = new JTable();
+	private JTable jtReservationsTable = new JTable();
 	private ArrayList<ReservationData> reservations = new ArrayList<>();
 	private javax.swing.DefaultListModel<String> reservationsList = new javax.swing.DefaultListModel<String>();
 	private DefaultTableModel tableModel;
@@ -74,29 +74,40 @@ public class CancelReservationWindow extends JFrame{
 		frame.getContentPane().add(lblTitle);
 		
 		//TABLE MODEL
-				tableModel = new DefaultTableModel();
+				tableModel = new DefaultTableModel() {
+					@Override
+				    public boolean isCellEditable(int row, int column) {
+				       //all cells false
+				       return false;
+				    }
+				};
 				tableModel.setColumnIdentifiers(new String[] {controller.getResourcebundle().getString("code_msg"), 
 															controller.getResourcebundle().getString("pick_up_date_msg"),
 															controller.getResourcebundle().getString("duration_msg"),
 															controller.getResourcebundle().getString("van_msg"),
 															controller.getResourcebundle().getString("owner_id_msg")
 															});
+				
+				
 		
 		//JTABLE
-		jlReservationsList.setBounds(10, 46, 691, 169);
-		jlReservationsList.setModel(tableModel);
-		jlReservationsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		jtReservationsTable.setBounds(10, 46, 691, 169);
+		jtReservationsTable.setModel(tableModel);
+		jtReservationsTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		jtReservationsTable.getTableHeader().setResizingAllowed(false);
+		jtReservationsTable.getTableHeader().setReorderingAllowed(false); // not allow re-ordering of columns
+		
 		
 		scrollReservations = new JScrollPane();
 		scrollReservations.setBounds(10, 40, 691, 188);
-		scrollReservations.setViewportView(jlReservationsList);
+		scrollReservations.setViewportView(jtReservationsTable);
 		frame.getContentPane().add(scrollReservations);
 		
 		//CANCEL BUTTON
 		btnCancel = new JButton(controller.getResourcebundle().getString("cancel_button_msg"));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.cancelReservation(reservations.get(jlReservationsList.getSelectedRow()).getCode());
+				controller.cancelReservation(reservations.get(jtReservationsTable.getSelectedRow()).getCode());
 				frmMain.setVisible(true);
 				frame.dispose();
 			}
@@ -136,13 +147,13 @@ public class CancelReservationWindow extends JFrame{
 				String[] row = {v.getCode(), strDate, String.valueOf(v.getDuration()), v.getVan(), v.getVanRenter()};
 				tableModel.addRow(row);
 			}
-			jlReservationsList.setModel(tableModel);
-			jlReservationsList.setRowSelectionInterval(0, 0);
+			jtReservationsTable.setModel(tableModel);
+			jtReservationsTable.setRowSelectionInterval(0, 0);
 		}else {
 			btnCancel.setEnabled(false);
 			tableModel.setRowCount(0); //CLEAR THE TABLE
 		}
-		jlReservationsList.updateUI();
+		jtReservationsTable.updateUI();
 		scrollReservations.updateUI();
 	}
 	

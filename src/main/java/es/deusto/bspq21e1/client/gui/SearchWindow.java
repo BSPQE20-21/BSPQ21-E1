@@ -50,7 +50,7 @@ public class SearchWindow extends JFrame{
 	private JTextField txtPickUp;
 	private JTextField txtReturn;
 	private JSeparator separator;
-	private JTable jlVansList = new JTable();
+	private JTable jtVansTable = new JTable();
 	private JScrollPane scrollVans;
 	private ArrayList<VanData> vans = new ArrayList<>();
 	private Date pickUpDate;
@@ -159,7 +159,13 @@ public class SearchWindow extends JFrame{
 		lblResultsTitle.updateUI();
 		
 		//TABLE MODEL
-		tableModel = new DefaultTableModel();
+		tableModel = new DefaultTableModel() {
+			@Override
+		    public boolean isCellEditable(int row, int column) {
+		       //all cells false
+		       return false;
+		    }
+		};
 		tableModel.setColumnIdentifiers(new String[] {controller.getResourcebundle().getString("brand_msg"), 
 													controller.getResourcebundle().getString("model_msg"),
 													controller.getResourcebundle().getString("location_msg"),
@@ -168,13 +174,15 @@ public class SearchWindow extends JFrame{
 													});
 		
 		//JTABLE
-		jlVansList.setBounds(574, 118, -558, -83);
-		jlVansList.setModel(tableModel);
-		jlVansList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		jtVansTable.setBounds(574, 118, -558, -83);
+		jtVansTable.setModel(tableModel);
+		jtVansTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		jtVansTable.getTableHeader().setResizingAllowed(false);	  //not allow resizing of columns
+		jtVansTable.getTableHeader().setReorderingAllowed(false); // not allow re-ordering of columns
 		
 		scrollVans = new JScrollPane();
 		scrollVans.setBounds(10, 40, 633, 84);
-		scrollVans.setViewportView(jlVansList);
+		scrollVans.setViewportView(jtVansTable);
 		visualizePanel.add(scrollVans);
 		
 		//BOOK BUTTON
@@ -198,7 +206,7 @@ public class SearchWindow extends JFrame{
 					e1.printStackTrace();
 				}
 				
-				VanData van = vans.get(jlVansList.getSelectedRow());
+				VanData van = vans.get(jtVansTable.getSelectedRow());
 				
 				int milisecondsByDay = 86400000;
 				int days = (int) ((returnDate.getTime()-pickUpDate.getTime()) / milisecondsByDay);
@@ -220,8 +228,8 @@ public class SearchWindow extends JFrame{
 		btnCharacteristics.setEnabled(false);
 		btnCharacteristics.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(jlVansList.getSelectedRow() != -1) {
-					VanData van = vans.get(jlVansList.getSelectedRow());
+				if(jtVansTable.getSelectedRow() != -1) {
+					VanData van = vans.get(jtVansTable.getSelectedRow());
 					frmSearchVans.setVisible(false);
 					new CharacteristicsWindow(controller, van, frmSearchVans);
 				}
@@ -262,15 +270,15 @@ public class SearchWindow extends JFrame{
 				String[] row = {v.getBrand(), v.getModel(), v.getLocation(), String.valueOf(v.getCapacity()), String.valueOf(v.getPricePerDay())};
 				tableModel.addRow(row);
 			}
-			jlVansList.setRowSelectionInterval(0, 0);
+			jtVansTable.setRowSelectionInterval(0, 0);
 			btnBook.setEnabled(true);
 		} else {
 			btnCharacteristics.setEnabled(false);
 			btnBook.setEnabled(false);
 			tableModel.setRowCount(0); //CLEAR THE TABLE
 		}
-		jlVansList.setModel(tableModel);
-		jlVansList.updateUI();
+		jtVansTable.setModel(tableModel);
+		jtVansTable.updateUI();
 		scrollVans.updateUI();
 		visualizePanel.updateUI();
 	}

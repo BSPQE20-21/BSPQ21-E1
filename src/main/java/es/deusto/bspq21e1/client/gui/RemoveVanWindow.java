@@ -33,7 +33,7 @@ public class RemoveVanWindow extends JFrame {
 	
 	private JLabel lblText;
 	private JButton btnRemove, btnBack;
-	private JTable jlVansList = new JTable();
+	private JTable jtVansTable = new JTable();
 	private JScrollPane scrollVans;
 	private ArrayList<VanData> vans = new ArrayList<VanData>();
 	private DefaultListModel<String> vansList = new DefaultListModel<String>();
@@ -56,7 +56,13 @@ public class RemoveVanWindow extends JFrame {
 		frmRemoveVan.getContentPane().setLayout(null);
 		
 		//TABLE MODEL
-		tableModel = new DefaultTableModel();
+		tableModel = new DefaultTableModel() {
+			@Override
+		    public boolean isCellEditable(int row, int column) {
+		       //all cells false
+		       return false;
+		    }
+		};
 		tableModel.setColumnIdentifiers(new String[] {controller.getResourcebundle().getString("license_plate_msg"), 
 													controller.getResourcebundle().getString("brand_msg"),
 													controller.getResourcebundle().getString("model_msg"),
@@ -64,13 +70,15 @@ public class RemoveVanWindow extends JFrame {
 													controller.getResourcebundle().getString("capacity_msg"),
 													controller.getResourcebundle().getString("price_per_day_msg")
 													});
-
-		jlVansList.setModel(tableModel);
-		jlVansList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		//JTABLE
+		jtVansTable.setModel(tableModel);
+		jtVansTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		jtVansTable.getTableHeader().setResizingAllowed(false);
+		jtVansTable.getTableHeader().setReorderingAllowed(false); // not allow re-ordering of columns
 		
 		scrollVans = new JScrollPane();
 		scrollVans.setBounds(25, 80, 650, 320);
-		scrollVans.setViewportView(jlVansList);
+		scrollVans.setViewportView(jtVansTable);
 		frmRemoveVan.getContentPane().add(scrollVans);
 		
 		//BACK BUTTON
@@ -93,7 +101,7 @@ public class RemoveVanWindow extends JFrame {
 		btnRemove.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VanData van = vans.get(jlVansList.getSelectedRow());
+				VanData van = vans.get(jtVansTable.getSelectedRow());
 				controller.eraseVan( van.getLicensePlate() );
 				frmMain.setVisible(true);
 				frmRemoveVan.dispose();
@@ -126,12 +134,12 @@ public class RemoveVanWindow extends JFrame {
 				String[] row = {v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), String.valueOf(v.getCapacity()), String.valueOf(v.getPricePerDay())};
 				tableModel.addRow(row);
 			}
-			jlVansList.setModel(tableModel);
-			jlVansList.setRowSelectionInterval(0, 0);
+			jtVansTable.setModel(tableModel);
+			jtVansTable.setRowSelectionInterval(0, 0);
 		}else {
 			btnRemove.setEnabled(false);
 		}
-		jlVansList.updateUI();
+		jtVansTable.updateUI();
 		scrollVans.updateUI();
 	}
 	
