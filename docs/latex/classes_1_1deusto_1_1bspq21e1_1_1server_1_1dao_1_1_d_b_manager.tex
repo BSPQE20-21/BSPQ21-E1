@@ -1,0 +1,254 @@
+\hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager}{}\doxysection{es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager Class Reference}
+\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager}\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a805de44d2ef371e19c27c8e2f12f7106}{store}} (\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_user}{User}} user)
+\item 
+boolean \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a70a4d0ad6a31e896d3763c6d0f313173}{store}} (\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}} van)
+\item 
+boolean \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_adcf7679fe1cbf3224fa784928d1f1d6f}{store}} (\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_review}{Review}} review)
+\item 
+boolean \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a170d8ecf23d748e2a9af520bc7df017d}{store}} (\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_reservation}{Reservation}} reservation)
+\item 
+boolean \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_af6c56fe567c42e051e6f9408f96fc28b}{delete\+Reservation}} (String reservation)
+\item 
+boolean \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a9c5ef19cfc64ff3bb9c99dcb100ef8e4}{delete\+User}} (String dni)
+\item 
+boolean \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a8d62bf3617f005d1e1a8ba4e76e58b01}{delete\+Van}} (String license\+Plate)
+\item 
+\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_user}{User}} \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_aae73631e27e43e61b59bc9385f0e7551}{get\+User}} (String dni)
+\item 
+\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}} \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a30578c6e52b947a2a004c5cf338961ee}{get\+Van}} (String license\+Plate)
+\item 
+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_reservation}{Reservation}} $>$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a3320432a6640c43bfd2248173aa022f6}{get\+Reservations\+By\+User}} (String van\+Renter)
+\item 
+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}} $>$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_abd8f369e862c772078d4e6e4d1936f1a}{get\+Vans\+By\+Dates}} (String location, Date pick\+Up\+Date, Date return\+Date)
+\item 
+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}} $>$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a0ca6553cb7103c1504d1a6f3949f80c0}{get\+Vans\+By\+Location}} (String location)
+\item 
+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}} $>$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a1d5856fc8098a18c539b3a9ae434e192}{get\+Vans\+By\+User}} (String user)
+\item 
+\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_user}{User}} \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a47b0f2e573215a7b4cd17ad013e447ff}{validate\+Login}} (String email, String password)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager}{DBManager}} \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a179a1c7558d48588e233ce7d2c74710c}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager}{DBManager}} class. \begin{DoxyAuthor}{Author}
+Group E1 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0-\/SNAPSHOT 
+\end{DoxyVersion}
+
+
+Definition at line 26 of file DBManager.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_af6c56fe567c42e051e6f9408f96fc28b}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_af6c56fe567c42e051e6f9408f96fc28b}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!deleteReservation@{deleteReservation}}
+\index{deleteReservation@{deleteReservation}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{deleteReservation()}{deleteReservation()}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+delete\+Reservation (\begin{DoxyParamCaption}\item[{String}]{reservation }\end{DoxyParamCaption})}
+
+Deletes a reservation from the DB. 
+\begin{DoxyParams}{Parameters}
+{\em reservation} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 124 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a9c5ef19cfc64ff3bb9c99dcb100ef8e4}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a9c5ef19cfc64ff3bb9c99dcb100ef8e4}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!deleteUser@{deleteUser}}
+\index{deleteUser@{deleteUser}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{deleteUser()}{deleteUser()}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+delete\+User (\begin{DoxyParamCaption}\item[{String}]{dni }\end{DoxyParamCaption})}
+
+
+
+Definition at line 158 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a8d62bf3617f005d1e1a8ba4e76e58b01}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a8d62bf3617f005d1e1a8ba4e76e58b01}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!deleteVan@{deleteVan}}
+\index{deleteVan@{deleteVan}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{deleteVan()}{deleteVan()}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+delete\+Van (\begin{DoxyParamCaption}\item[{String}]{license\+Plate }\end{DoxyParamCaption})}
+
+
+
+Definition at line 198 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a179a1c7558d48588e233ce7d2c74710c}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a179a1c7558d48588e233ce7d2c74710c}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager}{DBManager}} es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Method that creates a \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager}{DBManager}} instance if needed and returns it. \begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager}{DBManager}} instance 
+\end{DoxyReturn}
+
+
+Definition at line 40 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a3320432a6640c43bfd2248173aa022f6}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a3320432a6640c43bfd2248173aa022f6}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getReservationsByUser@{getReservationsByUser}}
+\index{getReservationsByUser@{getReservationsByUser}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{getReservationsByUser()}{getReservationsByUser()}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_reservation}{Reservation}}$>$ es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+get\+Reservations\+By\+User (\begin{DoxyParamCaption}\item[{String}]{van\+Renter }\end{DoxyParamCaption})}
+
+Method that finds and returns all of the reservations given a user. 
+\begin{DoxyParams}{Parameters}
+{\em van\+Renter} & to retrieve the reservations from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Array\+List with all of the user\textquotesingle{}s reservations ~\newline
+ 
+\end{DoxyReturn}
+
+
+Definition at line 330 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_aae73631e27e43e61b59bc9385f0e7551}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_aae73631e27e43e61b59bc9385f0e7551}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getUser@{getUser}}
+\index{getUser@{getUser}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{getUser()}{getUser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_user}{User}} es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+get\+User (\begin{DoxyParamCaption}\item[{String}]{dni }\end{DoxyParamCaption})}
+
+
+
+Definition at line 260 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a30578c6e52b947a2a004c5cf338961ee}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a30578c6e52b947a2a004c5cf338961ee}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getVan@{getVan}}
+\index{getVan@{getVan}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{getVan()}{getVan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}} es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+get\+Van (\begin{DoxyParamCaption}\item[{String}]{license\+Plate }\end{DoxyParamCaption})}
+
+
+
+Definition at line 290 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_abd8f369e862c772078d4e6e4d1936f1a}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_abd8f369e862c772078d4e6e4d1936f1a}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getVansByDates@{getVansByDates}}
+\index{getVansByDates@{getVansByDates}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{getVansByDates()}{getVansByDates()}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}}$>$ es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+get\+Vans\+By\+Dates (\begin{DoxyParamCaption}\item[{String}]{location,  }\item[{Date}]{pick\+Up\+Date,  }\item[{Date}]{return\+Date }\end{DoxyParamCaption})}
+
+
+
+Definition at line 370 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a0ca6553cb7103c1504d1a6f3949f80c0}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a0ca6553cb7103c1504d1a6f3949f80c0}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getVansByLocation@{getVansByLocation}}
+\index{getVansByLocation@{getVansByLocation}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{getVansByLocation()}{getVansByLocation()}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}}$>$ es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+get\+Vans\+By\+Location (\begin{DoxyParamCaption}\item[{String}]{location }\end{DoxyParamCaption})}
+
+
+
+Definition at line 380 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a1d5856fc8098a18c539b3a9ae434e192}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a1d5856fc8098a18c539b3a9ae434e192}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getVansByUser@{getVansByUser}}
+\index{getVansByUser@{getVansByUser}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{getVansByUser()}{getVansByUser()}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}}$>$ es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+get\+Vans\+By\+User (\begin{DoxyParamCaption}\item[{String}]{user }\end{DoxyParamCaption})}
+
+
+
+Definition at line 427 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a170d8ecf23d748e2a9af520bc7df017d}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a170d8ecf23d748e2a9af520bc7df017d}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!store@{store}}
+\index{store@{store}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{store()}{store()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+store (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_reservation}{Reservation}}}]{reservation }\end{DoxyParamCaption})}
+
+Stores a reservation in the DB (makes the object persistent). 
+\begin{DoxyParams}{Parameters}
+{\em reservation} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_adcf7679fe1cbf3224fa784928d1f1d6f}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_adcf7679fe1cbf3224fa784928d1f1d6f}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!store@{store}}
+\index{store@{store}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{store()}{store()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+store (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_review}{Review}}}]{review }\end{DoxyParamCaption})}
+
+Stores a review in the DB (makes the object persistent). 
+\begin{DoxyParams}{Parameters}
+{\em review} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 72 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a805de44d2ef371e19c27c8e2f12f7106}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a805de44d2ef371e19c27c8e2f12f7106}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!store@{store}}
+\index{store@{store}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{store()}{store()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+store (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_user}{User}}}]{user }\end{DoxyParamCaption})}
+
+Stores a user in the DB (makes the object persistent). 
+\begin{DoxyParams}{Parameters}
+{\em user} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a70a4d0ad6a31e896d3763c6d0f313173}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a70a4d0ad6a31e896d3763c6d0f313173}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!store@{store}}
+\index{store@{store}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{store()}{store()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+store (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}}}]{van }\end{DoxyParamCaption})}
+
+Stores a van in the DB (makes the object persistent). 
+\begin{DoxyParams}{Parameters}
+{\em van} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 63 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a47b0f2e573215a7b4cd17ad013e447ff}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a47b0f2e573215a7b4cd17ad013e447ff}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!validateLogin@{validateLogin}}
+\index{validateLogin@{validateLogin}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{validateLogin()}{validateLogin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_user}{User}} es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+validate\+Login (\begin{DoxyParamCaption}\item[{String}]{email,  }\item[{String}]{password }\end{DoxyParamCaption})}
+
+Method that searchs for a user given an email and password. 
+\begin{DoxyParams}{Parameters}
+{\em user\textquotesingle{}s} & email and password \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+user if valid login, null otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 478 of file DBManager.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/es/deusto/bspq21e1/server/dao/\mbox{\hyperlink{_d_b_manager_8java}{DBManager.\+java}}\end{DoxyCompactItemize}
