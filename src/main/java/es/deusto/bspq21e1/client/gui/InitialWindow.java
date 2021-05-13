@@ -164,6 +164,7 @@ public class InitialWindow extends JFrame {
 				controller.setLocale("es");	
 				frmAirbv.dispose();
 				new InitialWindow(controller);
+				logger.info("The language has been changed to Spanish");
 			}
 		});
         frmAirbv.getContentPane().add(lblSpanishImg);
@@ -181,6 +182,7 @@ public class InitialWindow extends JFrame {
 				controller.setLocale("en");
 				frmAirbv.dispose();
 				new InitialWindow(controller);
+				logger.info("The language has been changed to English");
 			}
 		});
         frmAirbv.getContentPane().add(lblEnglishImg);
@@ -198,6 +200,7 @@ public class InitialWindow extends JFrame {
 				controller.setLocale("eu");	
 				frmAirbv.dispose();
 				new InitialWindow(controller);
+				logger.info("The language has been changed to Basque");
 			}
 		});
         frmAirbv.getContentPane().add(lblBasqueImg);
@@ -212,6 +215,7 @@ public class InitialWindow extends JFrame {
 				controller.setLocale("es");	
 				frmAirbv.dispose();
 				new InitialWindow(controller);
+				logger.info("The language has been changed to Spanish");
 			}
 		});
         lblSpanishButton.setForeground(Color.BLUE);
@@ -228,6 +232,7 @@ public class InitialWindow extends JFrame {
 				controller.setLocale("en");
 				frmAirbv.dispose();
 				new InitialWindow(controller);
+				logger.info("The language has been changed to English");
 			}
 		});
         frmAirbv.getContentPane().add(lblEnglishButton);
@@ -243,14 +248,12 @@ public class InitialWindow extends JFrame {
 				controller.setLocale("eu");	
 				frmAirbv.dispose();
 				new InitialWindow(controller);
+				logger.info("The language has been changed to Basque");
 			}
 		});
         frmAirbv.getContentPane().add(lblBasqueButton);
         lblBasqueButton.updateUI();
         
-       
-        
-       
         logger.info("InitialWindow well initialized");
     }
 }
