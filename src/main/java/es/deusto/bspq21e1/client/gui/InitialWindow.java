@@ -6,12 +6,15 @@ import javax.swing.JFrame;
 import org.apache.log4j.Logger;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 
 import es.deusto.bspq21e1.client.controller.Controller;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  * Window class for the initial point of the program, where users can register or log in.
@@ -26,10 +29,8 @@ public class InitialWindow extends JFrame {
 
     private JFrame frmAirbv = new JFrame();
     private JLabel lblHead;
-    private ImagePanel panel;
+    private JPanel panel;
     private JButton btnRegister, btnLogin, btnExit;
-    
-    private String imagePath = "${basedir}/src/main/resources/images/initialWindow.png";
 
     /**
 	 * Creates the initial window of the program.
@@ -56,8 +57,7 @@ public class InitialWindow extends JFrame {
         lblHead.setBounds(23, 25, 202, 25);
         frmAirbv.getContentPane().add(lblHead);
 
-        panel = new ImagePanel();
-        panel.setImage(imagePath);
+        panel = new JPanel();
         panel.setBounds(20, 50, 202, 210);
         frmAirbv.getContentPane().add(panel);
         panel.setLayout(null);
@@ -71,6 +71,16 @@ public class InitialWindow extends JFrame {
                 frmAirbv.dispose();
             }
         } );
+        btnRegister.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+        		btnRegister.setBounds(13, 36, 175, 29);
+        		btnRegister.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnRegister.setBounds(25, 36, 150, 25);
+		    	btnRegister.updateUI();
+		    }
+		});
         panel.add(btnRegister);
         btnRegister.updateUI();
 
@@ -83,18 +93,39 @@ public class InitialWindow extends JFrame {
 				frmAirbv.dispose();
 			}
 		});
+        btnLogin.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+		    	btnLogin.setBounds(13, 85, 175, 29);
+		    	btnLogin.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnLogin.setBounds(25, 85, 150, 25);
+		    	btnLogin.updateUI();
+		    }
+		});
         panel.add(btnLogin);
         btnLogin.updateUI();
 
         btnExit = new JButton(controller.getResourcebundle().getString("exit_msg"));
         btnExit.setBounds(25, 180, 150, 25);
-        btnExit.setBackground(Color.RED);
         btnExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             	frmAirbv.dispose();
             }
         } );
+        btnExit.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+		    	btnExit.setBounds(13, 180, 175, 29);
+		    	btnExit.setBackground(Color.RED);
+		    	btnExit.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnExit.setBounds(25, 180, 150, 25);
+		    	btnExit.setBackground(btnLogin.getBackground());
+		    	btnExit.updateUI();
+		    }
+		});
         panel.add(btnExit);
         btnExit.updateUI();
 
