@@ -246,7 +246,7 @@
 							<outputDirectory>${basedir}/docs</outputDirectory>
 								<resources>          
 									<resource>
-									<directory>${basedir}/target/doxygen/html</directory>
+									<directory>${basedir}/target/doxygen</directory>
 									<filtering>true</filtering>
 									</resource>
 									<resource>

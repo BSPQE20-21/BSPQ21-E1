@@ -24,12 +24,30 @@
 */
 var NAVTREE =
 [
-  [ "AirBV", "index.html", ]
+  [ "AirBV", "index.html", [
+    [ "Packages", "namespaces.html", [
+      [ "Packages", "namespaces.html", "namespaces_dup" ]
+    ] ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ]
+    ] ]
+  ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"index.html"
+"_air_b_v_8java.html",
+"classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_user.html#a2e7d1032d66655ac367d9a5e0539eaf4"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
