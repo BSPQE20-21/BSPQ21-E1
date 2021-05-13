@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MainWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AirBVJDOREST</a> &gt; <a href="index.source.html" class="el_package">es.deusto.bspq21e1.client.gui</a> &gt; <span class="el_source">MainWindow.java</span></div><h1>MainWindow.java</h1><pre class="source lang-java linenums">package es.deusto.bspq21e1.client.gui;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+import org.apache.log4j.Logger;
+
+import es.deusto.bspq21e1.client.controller.Controller;
+import es.deusto.bspq21e1.serialization.UserData;
+
+public class MainWindow extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
+<span class="nc" id="L17">	private static Logger logger = Logger.getLogger(MainWindow.class.getName());</span>
+	private Controller controller;
+	private UserData user;
+	
+<span class="nc" id="L21">	private JFrame frmMain = new JFrame();</span>
+	
+	private JButton btnRegisterVan, btnSearchVan, btnCancelRes, btnRemoveVan,
+	btnRemoveAccount, btnlogOut;
+	
+<span class="nc" id="L26">	public MainWindow(Controller controller, UserData user) {</span>
+<span class="nc" id="L27">		this.controller = controller;</span>
+<span class="nc" id="L28">		this.user = user;</span>
+<span class="nc" id="L29">		initialize();</span>
+<span class="nc" id="L30">		frmMain.setTitle(controller.getResourcebundle().getString(&quot;main_title_msg&quot;));</span>
+<span class="nc" id="L31">		frmMain.setResizable(false);</span>
+<span class="nc" id="L32">		frmMain.setVisible(true);</span>
+<span class="nc" id="L33">	}</span>
+	
+	private void initialize() {
+<span class="nc" id="L36">		frmMain.setBounds(300, 100, 400, 400);</span>
+<span class="nc" id="L37">		frmMain.setLocationRelativeTo(null);</span>
+<span class="nc" id="L38">		frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L39">		frmMain.getContentPane().setLayout(null);</span>
+		
+<span class="nc" id="L41">		btnSearchVan = new JButton(controller.getResourcebundle().getString(&quot;search_btn_msg&quot;));</span>
+<span class="nc" id="L42">		btnSearchVan.setBounds(110, 25, 175, 25);</span>
+<span class="nc" id="L43">		btnSearchVan.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L46">				frmMain.setVisible(false);</span>
+<span class="nc" id="L47">				new SearchWindow(controller, user, frmMain);</span>
+<span class="nc" id="L48">			}</span>
+		});
+<span class="nc" id="L50">		frmMain.getContentPane().add(btnSearchVan);</span>
+		
+<span class="nc" id="L52">		btnRegisterVan = new JButton(controller.getResourcebundle().getString(&quot;register_btn_msg&quot;));</span>
+<span class="nc" id="L53">		btnRegisterVan.setBounds(110, 75, 175, 25);</span>
+<span class="nc" id="L54">		btnRegisterVan.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L57">				frmMain.setVisible(false);</span>
+<span class="nc" id="L58">				new RegisterVanWindow(controller, user, frmMain);</span>
+<span class="nc" id="L59">			}</span>
+		});
+<span class="nc" id="L61">		frmMain.getContentPane().add(btnRegisterVan);</span>
+		
+<span class="nc" id="L63">		btnCancelRes = new JButton(controller.getResourcebundle().getString(&quot;cancel_btn_msg&quot;));</span>
+<span class="nc" id="L64">		btnCancelRes.setBounds(110, 125, 175, 25);</span>
+<span class="nc" id="L65">		btnCancelRes.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L68">				frmMain.setVisible(false);</span>
+<span class="nc" id="L69">				new CancelReservationWindow(controller, user, frmMain);</span>
+<span class="nc" id="L70">			}</span>
+		});
+<span class="nc" id="L72">		frmMain.getContentPane().add(btnCancelRes);</span>
+		
+<span class="nc" id="L74">		btnRemoveVan = new JButton(controller.getResourcebundle().getString(&quot;remove_van_btn_msg&quot;));</span>
+<span class="nc" id="L75">		btnRemoveVan.setBounds(110, 175, 175, 25);</span>
+<span class="nc" id="L76">		btnRemoveVan.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L79">				frmMain.setVisible(false);</span>
+<span class="nc" id="L80">				new RemoveVanWindow(controller, user, frmMain);</span>
+<span class="nc" id="L81">			}</span>
+		});
+<span class="nc" id="L83">		frmMain.getContentPane().add(btnRemoveVan);</span>
+		
+<span class="nc" id="L85">		btnRemoveAccount = new JButton(controller.getResourcebundle().getString(&quot;remove_user_btn_msg&quot;));</span>
+<span class="nc" id="L86">		btnRemoveAccount.setBounds(110, 225, 175, 25);</span>
+<span class="nc" id="L87">		btnRemoveAccount.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L90">				frmMain.setVisible(false);;</span>
+<span class="nc" id="L91">				new RemoveAccountWindow(controller, user, frmMain);</span>
+<span class="nc" id="L92">			}</span>
+		});
+<span class="nc" id="L94">		frmMain.getContentPane().add(btnRemoveAccount);</span>
+		
+<span class="nc" id="L96">		btnlogOut = new JButton(controller.getResourcebundle().getString(&quot;logout_btn_msg&quot;));</span>
+<span class="nc" id="L97">		btnlogOut.setBackground(java.awt.Color.RED);</span>
+<span class="nc" id="L98">		btnlogOut.setBounds(110, 325, 175, 25);</span>
+<span class="nc" id="L99">		btnlogOut.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L102">				new InitialWindow(controller);</span>
+<span class="nc" id="L103">				frmMain.dispose();</span>
+<span class="nc" id="L104">			}</span>
+		});
+<span class="nc" id="L106">		frmMain.getContentPane().add(btnlogOut);</span>
+		
+<span class="nc" id="L108">		logger.info(&quot;MainWindow well initialized&quot;);</span>
+<span class="nc" id="L109">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

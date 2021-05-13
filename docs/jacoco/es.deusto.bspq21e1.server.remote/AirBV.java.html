@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AirBV.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AirBVJDOREST</a> &gt; <a href="index.source.html" class="el_package">es.deusto.bspq21e1.server.remote</a> &gt; <span class="el_source">AirBV.java</span></div><h1>AirBV.java</h1><pre class="source lang-java linenums">package es.deusto.bspq21e1.server.remote;
+
+import java.util.ArrayList;
+
+import es.deusto.bspq21e1.serialization.ReservationData;
+import es.deusto.bspq21e1.serialization.UserData;
+import es.deusto.bspq21e1.serialization.VanData;
+import es.deusto.bspq21e1.server.data.Reservation;
+import es.deusto.bspq21e1.server.data.User;
+import es.deusto.bspq21e1.server.data.Van;
+import es.deusto.bspq21e1.server.dto.Assembler;
+import es.deusto.bspq21e1.server.AirBVService;
+
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import org.apache.log4j.Logger;
+
+/**
+ * This is the remote façade pattern class.
+ * This class will be in contact with the client side of the application.
+ * Managing all of the GET and POST requests, and making use of the
+ * ApplicationService pattern.
+ * 
+ * {@Path} in the class definition is used to define the HTTP path, as well
+ * as all of the {@Path} seen bellow in the corresponding methods. 
+ * 
+ * @author Group 3
+ *
+ */
+
+@Path(&quot;/AirBV&quot;)
+@Produces(MediaType.APPLICATION_JSON)
+public class AirBV {
+
+<span class="nc" id="L42">	private AirBVService airbvService = new AirBVService();</span>
+<span class="nc" id="L43">	private Logger logger = Logger.getLogger(AirBV.class.getName());</span>
+
+	/**
+	 * Variables needed for the post and get methods paths.
+	 * Should correspond to those of the client side methods.
+	 */
+	
+	private static final String registerUser = &quot;/registerUser&quot;;
+	private static final String loginUser = &quot;/loginUser/{email}/{password}&quot;;
+	private static final String deleteUser = &quot;/deleteUser/{dni}&quot;;
+	private static final String registerVan = &quot;/registerVan/{kitchen}/{shower}&quot;;
+	private static final String deleteVan = &quot;/deleteVan/{licensePlate}&quot;;
+	private static final String getMyReservations = &quot;/getMyReservations/{dni}&quot;;
+	private static final String getVans = &quot;/getVans/{location}/{pickUpDate}/{returnDate}&quot;;
+	private static final String registerReservation = &quot;/registerReservation&quot;;
+	private static final String cancelReservation = &quot;/cancelReservation/{code}&quot;;
+	private static final String getMyVans = &quot;/getMyVans/{dni}&quot;;
+
+<span class="nc" id="L61">    public AirBV() { }</span>
+    
+    @POST
+    @Path(registerUser)
+    public Response registerUser(UserData userData) {
+<span class="nc" id="L66">    	logger.info(&quot;Register new User request from client received.&quot;);</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        if(airbvService.registerUser( userData.getDni(), userData.getName(), userData.getEmail(), userData.getPassword() )) {</span>
+<span class="nc" id="L68">        	return Response.ok().build();</span>
+        }
+<span class="nc" id="L70">        return Response.status(400).build();</span>
+    }
+    
+    @DELETE
+    @Path(deleteUser)
+    public Response deleteUser(@PathParam(&quot;dni&quot;) String dni) {
+<span class="nc" id="L76">    	logger.info(&quot;Delete a user request from client received.&quot;);</span>
+<span class="nc" id="L77">        airbvService.deleteUser( dni );</span>
+<span class="nc" id="L78">        return Response.status(Response.Status.OK).build();</span>
+    }
+
+    /**
+     * Transforms VanData into Van and uses a method from the Application Service to store a Van
+     * @param vanData
+     */
+    @POST
+    @Path(registerVan)
+    public Response registerVan(VanData vanData, @PathParam(&quot;kitchen&quot;) boolean kitchen, @PathParam(&quot;shower&quot;) boolean shower) {
+<span class="nc" id="L88">    	logger.info(&quot;Register new Van request from client received.&quot;);</span>
+<span class="nc" id="L89">    	vanData.setKitchen(kitchen);</span>
+<span class="nc" id="L90">    	vanData.setShower(shower);</span>
+<span class="nc" id="L91">    	logger.debug(&quot;$ DEBUGGING\n&quot; +</span>
+				&quot;\tPrinting VanData and User from AirBV in Server side:\n&quot;+
+				&quot;\tVan: &quot; + vanData +
+<span class="nc" id="L94">				&quot;\n\tUser: &quot; + vanData.getUser() +</span>
+				&quot;\n=======================\n&quot;);
+<span class="nc" id="L96">    	Assembler as = new Assembler();</span>
+    	
+<span class="nc" id="L98">    	Van van = as.disassembleVan(vanData);</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">    	if(airbvService.registerVan(van)) {</span>
+<span class="nc" id="L100">    		return Response.ok().build();</span>
+    	}
+<span class="nc" id="L102">    	return Response.status(400).build();</span>
+    }
+    
+    @DELETE
+    @Path(deleteVan)
+    public Response deleteVan(@PathParam(&quot;licensePlate&quot;) String licensePlate) {
+<span class="nc" id="L108">    	logger.info(&quot;Delete van request from client received.&quot;);</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">    	if(airbvService.deleteVan(licensePlate)) {</span>
+<span class="nc" id="L110">    		return Response.status(Response.Status.OK).build();</span>
+    	}
+<span class="nc" id="L112">    	return Response.status(400).build();</span>
+    }
+
+    @DELETE
+    @Path(cancelReservation)
+    public Response cancelReservation(@PathParam(&quot;code&quot;) String code) {
+<span class="nc" id="L118">    	logger.info(&quot;Cancel a Reservation request from client received.&quot;);</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">        if(airbvService.cancelReservation(code)) {</span>
+<span class="nc" id="L120">        	return Response.status(Response.Status.OK).build();</span>
+        }
+<span class="nc" id="L122">        return Response.status(400).build();        </span>
+    }
+    
+    @POST
+    @Path(registerReservation)
+    public Response registerReservation(ReservationData rD) {
+<span class="nc" id="L128">    	logger.info(&quot;Register new Reservation request from client received.&quot;);</span>
+<span class="nc" id="L129">    	Assembler as = new Assembler();</span>
+    	
+<span class="nc bnc" id="L131" title="All 2 branches missed.">    	if(airbvService.registerReservation(as.disassembleReservation(rD).getBookingDate(), </span>
+<span class="nc" id="L132">    			as.disassembleReservation(rD).getDuration(),</span>
+<span class="nc" id="L133">    			as.disassembleReservation(rD).getVan(),</span>
+<span class="nc" id="L134">    			as.disassembleReservation(rD).getVanRenter()</span>
+    			)) {
+<span class="nc" id="L136">    		return Response.ok().build();</span>
+    	}
+<span class="nc" id="L138">    	return Response.status(400).build();</span>
+    	
+    }
+
+    @GET
+    @Path(getVans)
+	public ArrayList&lt;VanData&gt; searchVans( @PathParam(&quot;location&quot;) String location, @PathParam(&quot;pickUpDate&quot;) String pickUpDate, @PathParam(&quot;returnDate&quot;) String returnDate) {	
+<span class="nc" id="L145">    	logger.info(&quot;Search with location: &quot;+location+&quot; from &quot; + pickUpDate + &quot; to &quot; + returnDate + &quot; request from client received.&quot;);</span>
+<span class="nc" id="L146">    	ArrayList&lt;VanData&gt; vansData = new ArrayList&lt;VanData&gt;();</span>
+<span class="nc" id="L147">		Assembler as = new Assembler();</span>
+<span class="nc bnc" id="L148" title="All 2 branches missed.">		for (Van van : airbvService.searchVans(location, pickUpDate, returnDate)) {</span>
+<span class="nc" id="L149">			vansData.add(as.assembleVan(van));</span>
+<span class="nc" id="L150">		}</span>
+<span class="nc" id="L151">		return vansData;</span>
+	}
+    
+    @GET
+    @Path(loginUser)
+    public Response login(@PathParam(&quot;email&quot;) String email, @PathParam(&quot;password&quot;) String password) { 
+<span class="nc" id="L157">    	logger.info(&quot;User's login with credentials request received from client.&quot;);</span>
+<span class="nc" id="L158">    	User u = airbvService.login(email, password);</span>
+<span class="nc" id="L159">    	UserData userData = null;</span>
+<span class="nc bnc" id="L160" title="All 2 branches missed.">    	if (u != null) {</span>
+<span class="nc" id="L161">    		Assembler as = new Assembler();</span>
+<span class="nc" id="L162">        	userData = as.assembleUser( u );</span>
+    	}
+<span class="nc" id="L164">    	return Response.ok(userData).build();</span>
+    }
+
+	@GET
+	@Path(getMyReservations)
+	public ArrayList&lt;ReservationData&gt; getUserReservations( @PathParam(&quot;dni&quot;) String dni ) {
+<span class="nc" id="L170">		logger.info(&quot;Get user's reservations request from client received.&quot;);</span>
+<span class="nc" id="L171">		Assembler as = new Assembler();</span>
+<span class="nc" id="L172">		ArrayList&lt;ReservationData&gt; resData = new ArrayList&lt;ReservationData&gt;();</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">		for (Reservation reservation : airbvService.getUserReservations(dni)) {</span>
+<span class="nc" id="L174">			resData.add(as.assembleReservation(reservation));</span>
+<span class="nc" id="L175">		}</span>
+		
+<span class="nc" id="L177">		return resData;</span>
+	}
+
+	@GET
+	@Path(getMyVans)
+	public ArrayList&lt;VanData&gt; getUserVans( @PathParam(&quot;dni&quot;) String dni ) {
+<span class="nc" id="L183">		logger.info(&quot;Get user's vans request from client received.&quot;);</span>
+<span class="nc" id="L184">		Assembler as = new Assembler();</span>
+<span class="nc" id="L185">		ArrayList&lt;VanData&gt; vanData = new ArrayList&lt;VanData&gt;();</span>
+<span class="nc bnc" id="L186" title="All 2 branches missed.">		for (Van van : airbvService.getUserVans(dni)) {</span>
+<span class="nc" id="L187">			vanData.add(as.assembleVan(van));</span>
+<span class="nc" id="L188">		}</span>
+<span class="nc" id="L189">		return vanData;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

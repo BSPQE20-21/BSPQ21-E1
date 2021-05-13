@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Review.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AirBVJDOREST</a> &gt; <a href="index.source.html" class="el_package">es.deusto.bspq21e1.server.data</a> &gt; <span class="el_source">Review.java</span></div><h1>Review.java</h1><pre class="source lang-java linenums">package es.deusto.bspq21e1.server.data;
+
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+@PersistenceCapable
+public class Review {
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+    private int code;
+    private int stars;
+    private String comment;
+    private String van;
+
+<span class="fc" id="L17">    public Review(int stars, String comment, String van) {</span>
+<span class="fc" id="L18">        this.code = (int)Math.random()*10000;</span>
+<span class="fc" id="L19">        this.stars = stars;</span>
+<span class="fc" id="L20">        this.comment = comment;</span>
+<span class="fc" id="L21">        this.van = van;</span>
+<span class="fc" id="L22">    }</span>
+
+<span class="fc" id="L24">	public Review(int code, int stars, String comment, String van) {</span>
+<span class="fc" id="L25">		this.code = code;</span>
+<span class="fc" id="L26">		this.stars = stars;</span>
+<span class="fc" id="L27">		this.comment = comment;</span>
+<span class="fc" id="L28">		this.van = van;</span>
+<span class="fc" id="L29">	}</span>
+
+	// Getters and setters
+	public int getCode() {
+<span class="fc" id="L33">		return code;</span>
+	}
+
+	public void setCode(int code) {
+<span class="fc" id="L37">		this.code = code;</span>
+<span class="fc" id="L38">	}</span>
+
+	public int getStars() {
+<span class="fc" id="L41">		return stars;</span>
+	}
+
+	public void setStars(int stars) {
+<span class="fc" id="L45">		this.stars = stars;</span>
+<span class="fc" id="L46">	}</span>
+
+	public String getComment() {
+<span class="fc" id="L49">		return comment;</span>
+	}
+
+	public void setComment(String comment) {
+<span class="fc" id="L53">		this.comment = comment;</span>
+<span class="fc" id="L54">	}</span>
+
+	public String getVan() {
+<span class="fc" id="L57">		return van;</span>
+	}
+
+	public void setVan(String van) {
+<span class="fc" id="L61">		this.van = van;</span>
+<span class="fc" id="L62">	}</span>
+
+	//To String
+	@Override
+	public String toString() {
+<span class="fc" id="L67">		return &quot;Review [code=&quot; + code + &quot;, stars=&quot; + stars + &quot;, comment=&quot; + comment + &quot;, van=&quot; + van +&quot;]&quot;;</span>
+	}
+
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

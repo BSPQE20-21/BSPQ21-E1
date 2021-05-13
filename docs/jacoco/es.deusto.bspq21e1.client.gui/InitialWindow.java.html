@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InitialWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AirBVJDOREST</a> &gt; <a href="index.source.html" class="el_package">es.deusto.bspq21e1.client.gui</a> &gt; <span class="el_source">InitialWindow.java</span></div><h1>InitialWindow.java</h1><pre class="source lang-java linenums">package es.deusto.bspq21e1.client.gui;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import org.apache.log4j.Logger;
+
+import java.awt.event.ActionListener;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+
+import es.deusto.bspq21e1.client.controller.Controller;
+import javax.swing.JLabel;
+
+/**
+ * Window class for the initial point of the program, where users can register or log in.
+ * @author SPQ Group 1
+ * @version 1.0
+ */
+public class InitialWindow extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+<span class="nc" id="L28">    private static Logger logger = Logger.getLogger(InitialWindow.class.getName());</span>
+    private Controller controller;
+
+<span class="nc" id="L31">    private JFrame frmAirbv = new JFrame();</span>
+    private JLabel lblHead;
+    private JPanel panel;
+    private JButton btnRegister, btnLogin, btnExit;
+    
+//    private ImagePanel imagePanel;
+//    private String pathToImage = &quot;initialWindow.png&quot;;
+
+    /**
+	 * Creates the initial window of the program.
+     * @param controller Controller used for handling all requests in the system.  
+	 */
+<span class="nc" id="L43">    public InitialWindow(Controller controller) {</span>
+<span class="nc" id="L44">        this.controller = controller;</span>
+<span class="nc" id="L45">        frmAirbv.setTitle(&quot;AirB&amp;V&quot;);</span>
+<span class="nc" id="L46">        frmAirbv.setVisible(true);</span>
+<span class="nc" id="L47">        initialize();</span>
+<span class="nc" id="L48">    }</span>
+
+    /**
+	 * Initializes all the elements the window needs to show to the user and their functionality.
+	 */
+    private void initialize() {
+<span class="nc" id="L54">        frmAirbv.setBounds(100, 100, 255, 320);</span>
+<span class="nc" id="L55">        frmAirbv.setLocationRelativeTo(null);</span>
+<span class="nc" id="L56">        frmAirbv.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L57">		frmAirbv.getContentPane().setLayout(null);</span>
+		
+//		imagePanel.setImage(pathToImage);
+//		frmAirbv.setContentPane(imagePanel);
+		
+<span class="nc" id="L62">        lblHead = new JLabel(controller.getResourcebundle().getString(&quot;initial_head_msg&quot;));</span>
+<span class="nc" id="L63">        lblHead.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 18));</span>
+<span class="nc" id="L64">        lblHead.setBounds(23, 25, 202, 25);</span>
+<span class="nc" id="L65">        frmAirbv.getContentPane().add(lblHead);</span>
+
+<span class="nc" id="L67">        panel = new JPanel();</span>
+<span class="nc" id="L68">        panel.setBounds(20, 50, 202, 210);</span>
+<span class="nc" id="L69">        frmAirbv.getContentPane().add(panel);</span>
+<span class="nc" id="L70">        panel.setLayout(null);</span>
+
+<span class="nc" id="L72">        btnRegister = new JButton(controller.getResourcebundle().getString(&quot;register_msg&quot;));</span>
+<span class="nc" id="L73">        btnRegister.setBounds(25, 36, 150, 25);</span>
+<span class="nc" id="L74">        btnRegister.addActionListener(new ActionListener() {</span>
+            @Override
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L77">            	new RegisterUserWindow(controller);</span>
+<span class="nc" id="L78">                frmAirbv.dispose();</span>
+<span class="nc" id="L79">            }</span>
+        } );
+<span class="nc" id="L81">        panel.add(btnRegister);</span>
+<span class="nc" id="L82">        btnRegister.updateUI();</span>
+
+<span class="nc" id="L84">        btnLogin = new JButton(controller.getResourcebundle().getString(&quot;login_msg&quot;));</span>
+<span class="nc" id="L85">        btnLogin.setBounds(25, 85, 150, 25);</span>
+<span class="nc" id="L86">        btnLogin.addActionListener(new ActionListener() {</span>
+			@Override
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L89">				new LogInWindow(controller);</span>
+<span class="nc" id="L90">				frmAirbv.dispose();</span>
+<span class="nc" id="L91">			}</span>
+		});
+<span class="nc" id="L93">        panel.add(btnLogin);</span>
+<span class="nc" id="L94">        btnLogin.updateUI();</span>
+
+<span class="nc" id="L96">        btnExit = new JButton(controller.getResourcebundle().getString(&quot;exit_msg&quot;));</span>
+<span class="nc" id="L97">        btnExit.setBounds(25, 180, 150, 25);</span>
+<span class="nc" id="L98">        btnExit.setBackground(Color.RED);</span>
+<span class="nc" id="L99">        btnExit.addActionListener(new ActionListener() {</span>
+            @Override
+            public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L102">            	frmAirbv.dispose();</span>
+<span class="nc" id="L103">            }</span>
+        } );
+<span class="nc" id="L105">        panel.add(btnExit);</span>
+<span class="nc" id="L106">        btnExit.updateUI();</span>
+
+<span class="nc" id="L108">        logger.info(&quot;InitialWindow well initialized&quot;);</span>
+<span class="nc" id="L109">    }</span>
+    
+//    class ImagePanel extends JPanel {
+//    	
+//		private static final long serialVersionUID = 1L;
+//		private Image fondo = null;
+//		
+//		@Override
+//		protected void paintComponent(Graphics g) {
+//			super.paintComponent(g);
+//			g.drawImage(fondo, 0, 0, null);
+//		}
+//		
+//		public void setImage(String image) {
+//			fondo = new ImageIcon(getClass().getResource(image)).getImage();
+//		}
+//		
+//		@Override
+//		public String toString() {
+//			return this.getName();
+//		}
+//    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
