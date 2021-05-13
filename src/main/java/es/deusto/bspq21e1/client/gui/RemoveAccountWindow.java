@@ -1,8 +1,11 @@
 package es.deusto.bspq21e1.client.gui;
 
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -38,7 +41,7 @@ public class RemoveAccountWindow extends JFrame {
 	private void initialize() {
 		frmRemoveAccount.setBounds(400, 200, 340, 130);
 		frmRemoveAccount.setLocationRelativeTo(null);
-		frmRemoveAccount.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRemoveAccount.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmRemoveAccount.getContentPane().setLayout(null);
 		frmRemoveAccount.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
@@ -51,10 +54,19 @@ public class RemoveAccountWindow extends JFrame {
 				frmRemoveAccount.dispose();
 			}
 		});
+		btnNo.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+        		btnNo.setBounds(20, 50, 110, 26);
+        		btnNo.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnNo.setBounds(25, 50, 100, 25);
+		    	btnNo.updateUI();
+		    }
+		});
 		frmRemoveAccount.getContentPane().add(btnNo);
 		
 		btnYes = new JButton(controller.getResourcebundle().getString("yes_msg"));
-		btnYes.setBackground(java.awt.Color.RED);
 		btnYes.setBounds(200, 50, 100, 25);
 		btnYes.addActionListener(new ActionListener() {
 			@Override
@@ -63,6 +75,18 @@ public class RemoveAccountWindow extends JFrame {
 				new InitialWindow(controller);
 				frmRemoveAccount.dispose();
 			}
+		});
+		btnYes.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+        		btnYes.setBounds(195, 50, 110, 26);
+        		btnYes.setBackground(Color.RED);
+        		btnYes.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnYes.setBounds(200, 50, 100, 25);
+		    	btnYes.setBackground(btnNo.getBackground());
+		    	btnYes.updateUI();
+		    }
 		});
 		frmRemoveAccount.getContentPane().add(btnYes);
 		
