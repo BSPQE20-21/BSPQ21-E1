@@ -43,11 +43,11 @@ jobs:
     - name: Generate documentation
       run: mvn doxygen:report
     - name: Go to latex
-      run: cd /target/doxygen/latex
+      run: cd target
     - name: Create PDFs
       run: make
     - name: Go to root
-      run: cd ${basedir}
+      run: cd ${ROOT}
     - name: Publish on Github Pages
       uses: crazy-max/ghaction-github-pages@v2.3.0
       with:
