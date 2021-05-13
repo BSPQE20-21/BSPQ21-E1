@@ -139,7 +139,7 @@ public class RegisterUserWindow extends JFrame{
 				
 				
 				new MainWindow(controller, userData);
-				
+				logger.debug("User registered");
 			}
 		});
 		btnRegister.addMouseListener(new MouseAdapter() {

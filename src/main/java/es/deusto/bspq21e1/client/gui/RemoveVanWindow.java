@@ -75,6 +75,8 @@ public class RemoveVanWindow extends JFrame {
 													controller.getResourcebundle().getString("capacity_msg"),
 													controller.getResourcebundle().getString("price_per_day_msg")
 													});
+		logger.debug("Table model well generated");
+		
 		//JTABLE
 		jtVansTable.setModel(tableModel);
 		jtVansTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -119,6 +121,7 @@ public class RemoveVanWindow extends JFrame {
 				controller.eraseVan( van.getLicensePlate() );
 				frmMain.setVisible(true);
 				frmRemoveVan.dispose();
+				logger.debug("Van is removed");
 			}
 		});
 		btnRemove.addMouseListener(new MouseAdapter() {
@@ -153,7 +156,7 @@ public class RemoveVanWindow extends JFrame {
 	}
 	
 	private void updateList() {
-		logger.debug("Inside function -> " + vans);
+		logger.debug("Inside function updateList -> " + vans);
 		if(vans.size()>0) {
 			for (int i = 0; i < vans.size(); i++) {
 				VanData v = vans.get(i);

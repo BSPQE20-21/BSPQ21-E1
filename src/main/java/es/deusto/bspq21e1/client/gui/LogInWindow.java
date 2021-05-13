@@ -114,10 +114,12 @@ public class LogInWindow extends JFrame{
 				if (userData != null)  {
 					frmLogIn.dispose();
 					new MainWindow(controller, userData);
+					logger.debug("Login correct");
 				} else {
 					txtFieldEmail.setText(controller.getResourcebundle().getString("wrong_credentials_msg"));
 					txtFieldEmail.updateUI();
 					passwordField.updateUI();
+					logger.debug("Login wrong");
 				}	
 			}
 		});

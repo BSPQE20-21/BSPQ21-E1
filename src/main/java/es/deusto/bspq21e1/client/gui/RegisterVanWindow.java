@@ -266,6 +266,7 @@ public class RegisterVanWindow extends JFrame{
 					controller.registerVan(vanData);
 					frmMain.setVisible(true);
 					frmRegistrationOfVans.dispose();
+					logger.debug("Van correctly registered");
 				}
 			}
 		});

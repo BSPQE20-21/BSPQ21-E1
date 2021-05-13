@@ -81,19 +81,20 @@ public class CancelReservationWindow extends JFrame{
 		frmCancelReservation.getContentPane().add(lblTitle);
 		
 		//TABLE MODEL
-				tableModel = new DefaultTableModel() {
-					@Override
-				    public boolean isCellEditable(int row, int column) {
-				       //all cells false
-				       return false;
-				    }
-				};
-				tableModel.setColumnIdentifiers(new String[] {controller.getResourcebundle().getString("code_msg"), 
-															controller.getResourcebundle().getString("pick_up_date_msg"),
-															controller.getResourcebundle().getString("duration_msg"),
-															controller.getResourcebundle().getString("van_msg"),
-															controller.getResourcebundle().getString("owner_id_msg")
-															});
+		tableModel = new DefaultTableModel() {
+			@Override
+		    public boolean isCellEditable(int row, int column) {
+		       //all cells false
+		       return false;
+		    }
+		};
+		tableModel.setColumnIdentifiers(new String[] {controller.getResourcebundle().getString("code_msg"), 
+													controller.getResourcebundle().getString("pick_up_date_msg"),
+													controller.getResourcebundle().getString("duration_msg"),
+													controller.getResourcebundle().getString("van_msg"),
+													controller.getResourcebundle().getString("owner_id_msg")
+													});
+		logger.info("Table model well generated");
 				
 				
 		
@@ -165,7 +166,7 @@ public class CancelReservationWindow extends JFrame{
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
 	private void updateLists(ArrayList<ReservationData> reservations) {
-		logger.debug("Inside function -> " + reservations);
+		logger.debug("Inside function updateLists -> " + reservations);
 		tableModel.setRowCount(0); //CLEAR THE TABLE
 		if(reservations.size()>0) {
 			for (int i = 0; i < reservations.size(); i++) {

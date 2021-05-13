@@ -128,8 +128,10 @@ public class SearchWindow extends JFrame{
 				if(txtPickUp.getText() != null && txtReturn.getText() != null && txtLocation.getText() != null) {
 					vans = controller.searchVans(txtLocation.getText(), txtPickUp.getText(), txtReturn.getText());
 					updateLists(vans);
+					logger.debug("List of vans updated");
 				}else {
 					JOptionPane.showMessageDialog(frmSearchVans, controller.getResourcebundle().getString("search_window_error_empty_txt_fields_msg"));
+					logger.error("Wrong data entered into parameters");
 				}
 			}
 		});
@@ -174,6 +176,7 @@ public class SearchWindow extends JFrame{
 													controller.getResourcebundle().getString("capacity_msg"),
 													controller.getResourcebundle().getString("price_per_day_msg")
 													});
+		logger.debug("Table model well generated");
 		
 		//JTABLE
 		jtVansTable.setBounds(574, 118, -558, -83);
@@ -197,15 +200,15 @@ public class SearchWindow extends JFrame{
 				try {
 					pickUpDate = new SimpleDateFormat("dd-MM-yyyy").parse(pickUp);
 				} catch (ParseException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
+					logger.error("Error parsing pickup date");
 				}
 				
 				try {
 					returnDate = new SimpleDateFormat("dd-MM-yyyy").parse(txtReturn.getText());
 				} catch (ParseException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
+					logger.error("Error parsing return date");
 				}
 				
 				VanData van = vans.get(jtVansTable.getSelectedRow());
@@ -215,6 +218,7 @@ public class SearchWindow extends JFrame{
 				
 				if(txtPickUp.getText() != null && txtReturn.getText() != null && txtLocation.getText() != null) {
 					controller.registerReservation(pickUpDate, days, van, user);
+					logger.debug("Reservation well generated");
 				}
 				mainWindow.setVisible(true);
 				frmSearchVans.dispose();
@@ -264,6 +268,7 @@ public class SearchWindow extends JFrame{
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
 	private void updateLists(ArrayList<VanData> vans) {
+		logger.debug("Inside method updateLists -> " + vans);
 		if(vans.size() > 0) {
 			btnCharacteristics.setEnabled(true);
 			tableModel.setRowCount(0); //CLEAR THE TABLE
