@@ -42,8 +42,12 @@ jobs:
       run: sudo apt-get install -y graphviz
     - name: Generate documentation
       run: mvn doxygen:report
+    - name: Go to target
+      run: cd target
+    - name: Go to doxygen
+      run: cd doxygen
     - name: Go to latex
-      run: cd target\doxygen\latex
+      run: cd latex
     - name: Create PDFs
       run: make
     - name: Go to root
