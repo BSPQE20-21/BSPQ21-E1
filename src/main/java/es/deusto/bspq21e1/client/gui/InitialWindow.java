@@ -9,7 +9,6 @@ import org.apache.log4j.Logger;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -130,12 +129,12 @@ public class InitialWindow extends JFrame {
         } );
         btnExit.addMouseListener(new MouseAdapter() {
         	public void mouseEntered(MouseEvent e) {
-		    	btnExit.setBounds(13, 180, 175, 29);
+		    	btnExit.setBounds(13, 143, 175, 29);
 		    	btnExit.setBackground(Color.RED);
 		    	btnExit.updateUI();
 		    }
 		    public void mouseExited(MouseEvent e) {
-		    	btnExit.setBounds(25, 180, 150, 25);
+		    	btnExit.setBounds(25, 143, 150, 25);
 		    	btnExit.setBackground(btnLogin.getBackground());
 		    	btnExit.updateUI();
 		    }
