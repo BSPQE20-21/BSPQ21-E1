@@ -1,9 +1,12 @@
 package es.deusto.bspq21e1.client.gui;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
@@ -53,7 +56,7 @@ public class RemoveVanWindow extends JFrame {
 	private void initialize() {
 		frmRemoveVan.setBounds(50, 50, 715, 500);
 		frmRemoveVan.setLocationRelativeTo(null);
-		frmRemoveVan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRemoveVan.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmRemoveVan.getContentPane().setLayout(null);
 		frmRemoveVan.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
@@ -93,13 +96,22 @@ public class RemoveVanWindow extends JFrame {
 				frmRemoveVan.dispose();
 			}
 		});
+		btnBack.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+        		btnBack.setBounds(20, 420, 110, 26);
+        		btnBack.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnBack.setBounds(25, 420, 100, 25);
+		    	btnBack.updateUI();
+		    }
+		});
 		frmRemoveVan.getContentPane().add(btnBack);
 		btnBack.updateUI();
 		
 		//REMOVE BUTTON
 		btnRemove = new JButton(controller.getResourcebundle().getString("remove_msg"));
-		btnRemove.setBounds(523, 420, 100, 25);
-		btnRemove.setBackground(java.awt.Color.RED);
+		btnRemove.setBounds(575, 420, 100, 25);
 		btnRemove.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -109,12 +121,24 @@ public class RemoveVanWindow extends JFrame {
 				frmRemoveVan.dispose();
 			}
 		});
+		btnRemove.addMouseListener(new MouseAdapter() {
+        	public void mouseEntered(MouseEvent e) {
+        		btnRemove.setBounds(570, 420, 110, 26);
+        		btnRemove.setBackground(Color.RED);
+        		btnRemove.updateUI();
+		    }
+		    public void mouseExited(MouseEvent e) {
+		    	btnRemove.setBounds(575, 420, 100, 25);
+		    	btnRemove.setBackground(btnBack.getBackground());
+		    	btnRemove.updateUI();
+		    }
+		});
 		frmRemoveVan.getContentPane().add(btnRemove);
 		btnRemove.updateUI();
 		
 		lblText = new JLabel(controller.getResourcebundle().getString("choose_van_msg"));
 		lblText.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblText.setBounds(43, 10, 580, 50);
+		lblText.setBounds(135, 10, 580, 50);
 		frmRemoveVan.getContentPane().add(lblText);
 		lblText.updateUI();
 		
