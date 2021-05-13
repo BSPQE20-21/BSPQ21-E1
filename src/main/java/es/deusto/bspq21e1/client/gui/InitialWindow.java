@@ -1,17 +1,13 @@
 package es.deusto.bspq21e1.client.gui;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import org.apache.log4j.Logger;
 
 import java.awt.event.ActionListener;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 
 import es.deusto.bspq21e1.client.controller.Controller;
@@ -30,11 +26,10 @@ public class InitialWindow extends JFrame {
 
     private JFrame frmAirbv = new JFrame();
     private JLabel lblHead;
-    private JPanel panel;
+    private ImagePanel panel;
     private JButton btnRegister, btnLogin, btnExit;
     
-//    private ImagePanel imagePanel;
-//    private String pathToImage = "initialWindow.png";
+    private String imagePath = "${basedir}/src/main/resources/images/initialWindow.png";
 
     /**
 	 * Creates the initial window of the program.
@@ -56,15 +51,13 @@ public class InitialWindow extends JFrame {
         frmAirbv.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmAirbv.getContentPane().setLayout(null);
 		
-//		imagePanel.setImage(pathToImage);
-//		frmAirbv.setContentPane(imagePanel);
-		
         lblHead = new JLabel(controller.getResourcebundle().getString("initial_head_msg"));
         lblHead.setFont(new Font("Tahoma", Font.BOLD, 18));
         lblHead.setBounds(23, 25, 202, 25);
         frmAirbv.getContentPane().add(lblHead);
 
-        panel = new JPanel();
+        panel = new ImagePanel();
+        panel.setImage(imagePath);
         panel.setBounds(20, 50, 202, 210);
         frmAirbv.getContentPane().add(panel);
         panel.setLayout(null);
@@ -108,24 +101,4 @@ public class InitialWindow extends JFrame {
         logger.info("InitialWindow well initialized");
     }
     
-//    class ImagePanel extends JPanel {
-//    	
-//		private static final long serialVersionUID = 1L;
-//		private Image fondo = null;
-//		
-//		@Override
-//		protected void paintComponent(Graphics g) {
-//			super.paintComponent(g);
-//			g.drawImage(fondo, 0, 0, null);
-//		}
-//		
-//		public void setImage(String image) {
-//			fondo = new ImageIcon(getClass().getResource(image)).getImage();
-//		}
-//		
-//		@Override
-//		public String toString() {
-//			return this.getName();
-//		}
-//    }
 }
