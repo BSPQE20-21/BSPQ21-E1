@@ -55,7 +55,7 @@ public class LogInWindow extends JFrame{
 		frmLogIn.setResizable(false);
 		frmLogIn.setBounds(100, 100, 450, 250);
 		frmLogIn.setLocationRelativeTo(null);
-		frmLogIn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLogIn.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmLogIn.getContentPane().setLayout(null);
 		
 		lblTitle = new JLabel(controller.getResourcebundle().getString("login_window_msg"));
@@ -81,35 +81,6 @@ public class LogInWindow extends JFrame{
 		passwordField = new JPasswordField();
 		passwordField.setBounds(200, 117, 205, 19);
 		frmLogIn.getContentPane().add(passwordField);
-
-
-		//BUTTON: Log In
-		btnLogin = new JButton(controller.getResourcebundle().getString("login_msg"));
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				UserData userData = controller.loginUser( txtFieldEmail.getText(), new String(passwordField.getPassword()) );
-				if (userData != null)  {
-					frmLogIn.dispose();
-					new MainWindow(controller, userData);
-				} else {
-					txtFieldEmail.setText(controller.getResourcebundle().getString("wrong_credentials_msg"));
-					txtFieldEmail.updateUI();
-					passwordField.updateUI();
-				}	
-			}
-		});
-		btnLogin.addMouseListener(new MouseAdapter() {
-        	public void mouseEntered(MouseEvent e) {
-        		btnLogin.setBounds(238, 170, 175, 29);
-        		btnLogin.updateUI();
-		    }
-		    public void mouseExited(MouseEvent e) {
-		    	btnLogin.setBounds(250, 170, 150, 25);
-		    	btnLogin.updateUI();
-		    }
-		});
-		btnLogin.setBounds(225, 170, 150, 25);
-		frmLogIn.getContentPane().add(btnLogin);
 		
 		//BUTTON: Back
 		btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
@@ -120,18 +91,46 @@ public class LogInWindow extends JFrame{
 		});
 		btnBack.addMouseListener(new MouseAdapter() {
         	public void mouseEntered(MouseEvent e) {
-        		btnBack.setBounds(201, 170, 175, 29);
+        		btnBack.setBounds(28, 170, 175, 29);
         		btnBack.setBackground(Color.RED);
         		btnBack.updateUI();
 		    }
 		    public void mouseExited(MouseEvent e) {
-		    	btnBack.setBounds(201, 170, 150, 25);
+		    	btnBack.setBounds(40, 170, 150, 25);
 		    	btnBack.setBackground(btnLogin.getBackground());
 		    	btnBack.updateUI();
 		    }
 		});
 		btnBack.setBounds(40, 170, 150, 25);
 		frmLogIn.getContentPane().add(btnBack);
+		
+		//BUTTON: Log In
+				btnLogin = new JButton(controller.getResourcebundle().getString("login_msg"));
+				btnLogin.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						UserData userData = controller.loginUser( txtFieldEmail.getText(), new String(passwordField.getPassword()) );
+						if (userData != null)  {
+							frmLogIn.dispose();
+							new MainWindow(controller, userData);
+						} else {
+							txtFieldEmail.setText(controller.getResourcebundle().getString("wrong_credentials_msg"));
+							txtFieldEmail.updateUI();
+							passwordField.updateUI();
+						}	
+					}
+				});
+				btnLogin.addMouseListener(new MouseAdapter() {
+		        	public void mouseEntered(MouseEvent e) {
+		        		btnLogin.setBounds(243, 170, 175, 29);
+		        		btnLogin.updateUI();
+				    }
+				    public void mouseExited(MouseEvent e) {
+				    	btnLogin.setBounds(255, 170, 150, 25);
+				    	btnLogin.updateUI();
+				    }
+				});
+				btnLogin.setBounds(255, 170, 150, 25);
+				frmLogIn.getContentPane().add(btnLogin);
 	
 		logger.info("LogInWindow well initialized");
 	}
