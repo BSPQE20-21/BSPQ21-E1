@@ -56,7 +56,12 @@ Click on the thunder icon and refesh tables.
 ```bash
   mvn doxygen:report
 ```
-2. Validate:
+2. Create the PDF (if anything is asked, just press enter):
+```bash
+  cd target/doxygen/latex
+  make
+```
+3. Validate:
 ```bash
   mvn validate
 ```
