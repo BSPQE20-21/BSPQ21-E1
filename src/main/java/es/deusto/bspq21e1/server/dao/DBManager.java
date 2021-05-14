@@ -1,7 +1,11 @@
 package es.deusto.bspq21e1.server.dao;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 
 import javax.jdo.JDOHelper;
@@ -10,6 +14,7 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
 import org.apache.log4j.Logger;
+import org.datanucleus.store.types.converters.CalendarComponentsConverter;
 
 import javax.jdo.Query;
 
@@ -366,15 +371,108 @@ public class DBManager {
 		return null;
 	}
 	
+	
+	/**
+	 * Methods used in getVansByDatess
+	 * @param initialDate
+	 * @param duration
+	 * @return initialDate + duration in Date format.
+	 */
+	private Date calculateReturnDate( Date initialDate, int duration ) {
+		Calendar c = Calendar.getInstance();
+		c.setTime( initialDate );
+		c.add(Calendar.DAY_OF_MONTH, duration);
+		return c.getTime();
+	}
+	
+	// TODO
+	private boolean isVanAvailable(Date resPickUp, Date resReturn,
+										Date queryPickUp, Date queryReturn ) {
+		return false;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Van> getVansByDates( String location, Date pickUpDate, Date returnDate ) {
 		
-		//TODO
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = null;
 		
-		//TEMPORAL
-		return getVansByLocation( location ); 
+		try {
+			logger.info("   * Retrieving vans from " + location + "; with dates: [" + pickUpDate + " —— " + returnDate + "]");
+			pm.getFetchPlan().setMaxFetchDepth(4);
+			tx = pm.currentTransaction();
+			tx.begin();
+			
+			/* We first get all the vans from a location,
+			 * then we filter by date. 
+			 */
+			HashSet<Reservation> reservationsHS = new HashSet<>();
+			List<Van> availableVans = new ArrayList<>();
+			
+			for( Van v : this.getVansByLocation(location) ) {
+				List<Reservation> l = this.getReservationsByVan( v.getLicensePlate() );
+				if ( l != null ) {
+					reservationsHS.addAll(l);
+				}
+			
+				for(Reservation r : reservationsHS) {
+					// there should be no problem when comparing 
+					// dates from SimpleDateFormat and Calendar 
+					if ( isVanAvailable(r.getBookingDate(), 
+							calculateReturnDate(r.getBookingDate(), r.getDuration()),
+							pickUpDate,
+							returnDate) ) {
+						availableVans.add(v);
+					}
+				}
+			}
+			
+		} catch (Exception e) {
+			logger.error("   $ Error retrieving vans " + e.getMessage() );
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}	
+			pm.close();
+		}
+
+		return null;
+	}
+	
+
+	
+	@SuppressWarnings("unchecked")
+	public List<Reservation> getReservationsByVan( String vanLicensePlate ) { 
+ 
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = null;
+		
+		try {
+			logger.info("   * Retrieving all reservations from van: " + vanLicensePlate);
+			pm.getFetchPlan().setMaxFetchDepth(1);
+			tx = pm.currentTransaction();
+			tx.begin();
+			
+			Query<Reservation> query = pm.newQuery(Reservation.class);
+			query.setFilter("van== '" + vanLicensePlate+ "'");
+			
+			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
+			List<Reservation> listOfReservations = (List<Reservation>)query.execute();
+			
+			return listOfReservations;
+		} catch (Exception e) {
+			logger.error("   $ Error retrieving vans with location: " + e.getMessage() );
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}	
+			pm.close();
+		}
+		
+		return null;
 		
 	}
+	
 	
 	@SuppressWarnings("unchecked")
 	public List<Van> getVansByLocation( String location ) { 
