@@ -61,7 +61,7 @@ public class AirBVServiceTest {
 		}
         
         try {
-			date1 = new SimpleDateFormat("dd-MM-yyyy").parse("20-10-2021");
+			date2 = new SimpleDateFormat("dd-MM-yyyy").parse("20-10-2021");
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
@@ -101,7 +101,7 @@ public class AirBVServiceTest {
 
 	@Test
 	public void searchVansTest() {
-		assertEquals(2, service.searchVans("Bilbao", "10-10-2021", "20-10-2021").size());
+		assertEquals(1, service.searchVans("Bilbao", "10-10-2021", "20-10-2021").size());
 		assertEquals(0, service.searchVans("Madrid", "10-10-2021", "20-10-2021").size());
 		logger.info("Test of searchVans done");
 	}

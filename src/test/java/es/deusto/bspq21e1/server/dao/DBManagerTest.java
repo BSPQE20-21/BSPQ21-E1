@@ -49,6 +49,9 @@ public class DBManagerTest {
 	private static User user2;
 	private static Van van1;
 	private static Reservation res1;
+	private static Reservation res2;
+	static Date date = null;
+    static Date date2 = null;
 	private static Review rev1;
 	
 	@Rule public ContiPerfRule rule = new ContiPerfRule();
@@ -73,18 +76,20 @@ public class DBManagerTest {
         van1 = new Van("1111ABC", "Volkswagen", "T25", "qwerty", true, false, false, 2, 100, user1.getDni());
         rev1 = new Review(5, "It is wonderful", van1.getLicensePlate());
         
-        Date date = null;
         try {
 			date = new SimpleDateFormat("dd-MM-yyyy").parse("30-09-2021");
+			date2 = new SimpleDateFormat("dd-MM-yyyy").parse("08-12-2025");
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
         res1 = new Reservation(date, 3, van1.getLicensePlate(), user1.getDni());
+        res2 = new Reservation(date2, 10, van1.getLicensePlate(), user1.getDni());
         
         assertTrue(DBManager.getInstance().store(user1));
 		assertTrue(DBManager.getInstance().store(user2));
 		assertTrue(DBManager.getInstance().store(van1));
 		assertTrue(DBManager.getInstance().store(res1));
+		assertTrue(DBManager.getInstance().store(res2));
 		assertTrue(DBManager.getInstance().store(rev1));
 		
 		logger.info("Leaving setUp");
@@ -152,12 +157,30 @@ public class DBManagerTest {
 	@Test
 	@PerfTest(invocations = 5)
 	@Required(max = 1200, average = 250)
-	public void searchVanTest() {
+	public void getVansByLocationTest() {
 		logger.info("Testing searching of vans");
 		
-		assertEquals(van1, DBManager.getInstance().getVansByLocation("qwerty").get(0));
+		assertEquals(2, DBManager.getInstance().getVansByLocation("qwerty").size());
 		
 		logger.info("Searching of vans tested");
+	}
+	
+	@Test
+	@PerfTest(invocations = 5)
+	@Required(max = 1200, average = 250)
+	public void getVansByDatesTest() {
+		logger.info("Testing searching of vans by dates");
+		
+		Date date3 = null;
+		try {
+			date3 = new SimpleDateFormat("dd-MM-yyyy").parse("10-10-2021");
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		
+		assertEquals(1, DBManager.getInstance().getVansByDates("qwerty", date, date3).size());
+		
+		logger.info("Searching of vans by dates tested");
 	}
 	
 	@Test

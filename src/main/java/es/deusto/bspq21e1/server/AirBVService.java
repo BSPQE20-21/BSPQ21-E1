@@ -76,7 +76,6 @@ public class AirBVService {
 		try {
 			pickUpDate = new SimpleDateFormat("dd-MM-yyyy").parse(pickUpDateString);
 		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
@@ -84,7 +83,6 @@ public class AirBVService {
 		try {
 			returnDate = new SimpleDateFormat("dd-MM-yyyy").parse(returnDateString);
 		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
