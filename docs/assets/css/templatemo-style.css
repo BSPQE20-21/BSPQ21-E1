@@ -14,6 +14,13 @@ body {
 	font-family: 'Roboto Slab', sans-serif;
 }
 
+#logoImagen {
+    position: fixed;
+    top: 2%;
+    left: 75%;
+    width: 6%;
+}
+
 /* Basic */
 
 input, select, textarea {
