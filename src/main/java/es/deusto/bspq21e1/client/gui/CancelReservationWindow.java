@@ -185,6 +185,45 @@ public class CancelReservationWindow extends JFrame{
 		jtReservationsTable.updateUI();
 		scrollReservations.updateUI();
 	}
-	
 
+	public JFrame getFrmCancelReservation() {
+		return frmCancelReservation;
+	}
+
+	public JButton getBtnCancel() {
+		return btnCancel;
+	}
+
+	public JButton getBtnBack() {
+		return btnBack;
+	}
+
+	public JScrollPane getScrollReservations() {
+		return scrollReservations;
+	}
+
+	public JList<String> getJlReservationsList1() {
+		return jlReservationsList1;
+	}
+
+	public JTable getJtReservationsTable() {
+		return jtReservationsTable;
+	}
+
+	public ArrayList<ReservationData> getReservations() {
+		return reservations;
+	}
+
+	public javax.swing.DefaultListModel<String> getReservationsList() {
+		return reservationsList;
+	}
+
+	public DefaultTableModel getTableModel() {
+		return tableModel;
+	}
+
+	public JLabel getLblTitle() {
+		return lblTitle;
+	}
+	
 }
