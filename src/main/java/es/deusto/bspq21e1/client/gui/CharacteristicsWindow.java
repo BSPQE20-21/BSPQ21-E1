@@ -13,7 +13,6 @@ import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.serialization.VanData;
 
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
 
 import org.apache.log4j.Logger;
 
@@ -26,6 +25,11 @@ public class CharacteristicsWindow extends JFrame{
 	private JFrame searchFrame;
 	
 	private JFrame frmCharacteristics = new JFrame();
+	
+	private JLabel lblCharacteristicsTitle, lblLicensePlate, lblLicensePlateA, lblBrand, lblBrandA, lblModel, lblModelA, 
+	lblLocation, lblLocationA, lblCapacity, lblCapacityA, lblKitchen, lblKitchenA, lblShower, lblShowerA, lblOffRoad,
+	lblOffRoadA, lblPrice, lblPriceA;
+	private JButton btnBack;
 	
 	
 	public CharacteristicsWindow(Controller controller, VanData van, JFrame searchFrame) {
@@ -50,12 +54,12 @@ public class CharacteristicsWindow extends JFrame{
 		frmCharacteristics.getContentPane().setLayout(null);
 		frmCharacteristics.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
-		JLabel lblCharacteristicsTitle = new JLabel(controller.getResourcebundle().getString("characteristics_msg"));
+		lblCharacteristicsTitle = new JLabel(controller.getResourcebundle().getString("characteristics_msg"));
 		lblCharacteristicsTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblCharacteristicsTitle.setBounds(80, 15, 300, 20);
 		frmCharacteristics.getContentPane().add(lblCharacteristicsTitle);
 		
-		JButton btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
+		btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				searchFrame.setVisible(true);
@@ -75,48 +79,48 @@ public class CharacteristicsWindow extends JFrame{
 		btnBack.setBounds(85, 280, 100, 25);
 		frmCharacteristics.getContentPane().add(btnBack);
 		
-		JLabel lblLicensePlate = new JLabel(controller.getResourcebundle().getString("license_plate_msg"));
+		lblLicensePlate = new JLabel(controller.getResourcebundle().getString("license_plate_msg"));
 		lblLicensePlate.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblLicensePlate.setBounds(50, 52, 100, 14);
 		frmCharacteristics.getContentPane().add(lblLicensePlate);
 		
-		JLabel lblLicensePlateA = new JLabel(van.getLicensePlate());
+		lblLicensePlateA = new JLabel(van.getLicensePlate());
 		lblLicensePlateA.setBounds(180, 52, 100, 14);
 		frmCharacteristics.getContentPane().add(lblLicensePlateA);
 		
-		JLabel lblBrand = new JLabel(controller.getResourcebundle().getString("brand_msg"));
+		lblBrand = new JLabel(controller.getResourcebundle().getString("brand_msg"));
 		lblBrand.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblBrand.setBounds(50, 77, 100, 14);
 		frmCharacteristics.getContentPane().add(lblBrand);
 		
-		JLabel lblBrandA = new JLabel(van.getBrand());
+		lblBrandA = new JLabel(van.getBrand());
 		lblBrandA.setBounds(180, 77, 100, 14);
 		frmCharacteristics.getContentPane().add(lblBrandA);
 		
-		JLabel lblModel = new JLabel(controller.getResourcebundle().getString("model_msg"));
+		lblModel = new JLabel(controller.getResourcebundle().getString("model_msg"));
 		lblModel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblModel.setBounds(50, 102, 100, 14);
 		frmCharacteristics.getContentPane().add(lblModel);
 		
-		JLabel lblModelA = new JLabel(van.getModel());
+		lblModelA = new JLabel(van.getModel());
 		lblModelA.setBounds(180, 102, 100, 14);
 		frmCharacteristics.getContentPane().add(lblModelA);
 		
-		JLabel lblLocation = new JLabel(controller.getResourcebundle().getString("location_msg"));
+		lblLocation = new JLabel(controller.getResourcebundle().getString("location_msg"));
 		lblLocation.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblLocation.setBounds(50, 127, 100, 14);
 		frmCharacteristics.getContentPane().add(lblLocation);
 		
-		JLabel lblLocationA = new JLabel(van.getLocation());
+		lblLocationA = new JLabel(van.getLocation());
 		lblLocationA.setBounds(180, 127, 100, 14);
 		frmCharacteristics.getContentPane().add(lblLocationA);
 		
-		JLabel lblCapacity = new JLabel(controller.getResourcebundle().getString("capacity_msg"));
+		lblCapacity = new JLabel(controller.getResourcebundle().getString("capacity_msg"));
 		lblCapacity.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblCapacity.setBounds(50, 152, 100, 14);
 		frmCharacteristics.getContentPane().add(lblCapacity);
 		
-		JLabel lblCapacityA = new JLabel("");
+		lblCapacityA = new JLabel("");
 		if(van.getCapacity()>1) {
 			lblCapacityA.setText(van.getCapacity() + " " + controller.getResourcebundle().getString("people_msg"));
 		} else {
@@ -125,12 +129,12 @@ public class CharacteristicsWindow extends JFrame{
 		lblCapacityA.setBounds(180, 152, 89, 14);
 		frmCharacteristics.getContentPane().add(lblCapacityA);
 		
-		JLabel lblKitchen = new JLabel(controller.getResourcebundle().getString("kitchen_question__mark_msg"));
+		lblKitchen = new JLabel(controller.getResourcebundle().getString("kitchen_question__mark_msg"));
 		lblKitchen.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblKitchen.setBounds(50, 177, 100, 14);
 		frmCharacteristics.getContentPane().add(lblKitchen);
 		
-		JLabel lblKitchenA = new JLabel("");
+		lblKitchenA = new JLabel("");
 		if(van.hasKitchen()) {
 			lblKitchenA.setText(controller.getResourcebundle().getString("yes_msg"));
 		} else {
@@ -139,12 +143,12 @@ public class CharacteristicsWindow extends JFrame{
 		lblKitchenA.setBounds(180, 177, 89, 14);
 		frmCharacteristics.getContentPane().add(lblKitchenA);
 		
-		JLabel lblShower = new JLabel(controller.getResourcebundle().getString("shower_question_mark_msg"));
+		lblShower = new JLabel(controller.getResourcebundle().getString("shower_question_mark_msg"));
 		lblShower.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblShower.setBounds(50, 202, 100, 14);
 		frmCharacteristics.getContentPane().add(lblShower);
 		
-		JLabel lblShowerA = new JLabel("");
+		lblShowerA = new JLabel("");
 		if(van.hasShower()) {
 			lblShowerA.setText(controller.getResourcebundle().getString("yes_msg"));
 		} else {
@@ -153,12 +157,12 @@ public class CharacteristicsWindow extends JFrame{
 		lblShowerA.setBounds(180, 202, 89, 14);
 		frmCharacteristics.getContentPane().add(lblShowerA);
 		
-		JLabel lblOffRoad = new JLabel(controller.getResourcebundle().getString("off_road_question_mark_msg"));
+		lblOffRoad = new JLabel(controller.getResourcebundle().getString("off_road_question_mark_msg"));
 		lblOffRoad.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblOffRoad.setBounds(50, 227, 100, 14);
 		frmCharacteristics.getContentPane().add(lblOffRoad);
 		
-		JLabel lblOffRoadA = new JLabel("");
+		lblOffRoadA = new JLabel("");
 		if(van.isOffRoad()) {
 			lblOffRoadA.setText(controller.getResourcebundle().getString("yes_msg"));
 		} else {
@@ -167,16 +171,100 @@ public class CharacteristicsWindow extends JFrame{
 		lblOffRoadA.setBounds(180, 227, 89, 14);
 		frmCharacteristics.getContentPane().add(lblOffRoadA);
 		
-		JLabel lblPrice = new JLabel(controller.getResourcebundle().getString("price_per_day_msg"));
+		lblPrice = new JLabel(controller.getResourcebundle().getString("price_per_day_msg"));
 		lblPrice.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblPrice.setBounds(50, 252, 100, 14);
 		frmCharacteristics.getContentPane().add(lblPrice);
 		
-		JLabel lblPriceA = new JLabel(van.getPricePerDay() + " " + controller.getResourcebundle().getString("money_symbol"));
+		lblPriceA = new JLabel(van.getPricePerDay() + " " + controller.getResourcebundle().getString("money_symbol"));
 		lblPriceA.setBounds(180, 252, 110, 14);
 		frmCharacteristics.getContentPane().add(lblPriceA);
 		
 		logger.info("CharacteristicsWindow well initialized");
+	}
+
+	public JFrame getFrmCharacteristics() {
+		return frmCharacteristics;
+	}
+
+	public JLabel getLblCharacteristicsTitle() {
+		return lblCharacteristicsTitle;
+	}
+
+	public JLabel getLblLicensePlate() {
+		return lblLicensePlate;
+	}
+
+	public JLabel getLblLicensePlateA() {
+		return lblLicensePlateA;
+	}
+
+	public JLabel getLblBrand() {
+		return lblBrand;
+	}
+
+	public JLabel getLblBrandA() {
+		return lblBrandA;
+	}
+
+	public JLabel getLblModel() {
+		return lblModel;
+	}
+
+	public JLabel getLblModelA() {
+		return lblModelA;
+	}
+
+	public JLabel getLblLocation() {
+		return lblLocation;
+	}
+
+	public JLabel getLblLocationA() {
+		return lblLocationA;
+	}
+
+	public JLabel getLblCapacity() {
+		return lblCapacity;
+	}
+
+	public JLabel getLblCapacityA() {
+		return lblCapacityA;
+	}
+
+	public JLabel getLblKitchen() {
+		return lblKitchen;
+	}
+
+	public JLabel getLblKitchenA() {
+		return lblKitchenA;
+	}
+
+	public JLabel getLblShower() {
+		return lblShower;
+	}
+
+	public JLabel getLblShowerA() {
+		return lblShowerA;
+	}
+
+	public JLabel getLblOffRoad() {
+		return lblOffRoad;
+	}
+
+	public JLabel getLblOffRoadA() {
+		return lblOffRoadA;
+	}
+
+	public JLabel getLblPrice() {
+		return lblPrice;
+	}
+
+	public JLabel getLblPriceA() {
+		return lblPriceA;
+	}
+
+	public JButton getBtnBack() {
+		return btnBack;
 	}
 
 }
