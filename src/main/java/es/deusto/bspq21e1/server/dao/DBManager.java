@@ -458,7 +458,7 @@ public class DBManager {
 			pm.close();
 		}
 
-		return null;
+		return new ArrayList<Van>();
 	}
 	
 

@@ -115,7 +115,7 @@ public class ControllerTest {
 	
 	@Test
 	public void searchVansTest() {
-		assertEquals(2, controller.searchVans("Bilbao", "10-10-2021", "20-10-2021").size());
+		assertEquals(1, controller.searchVans("Bilbao", "30-09-2021", "20-10-2021").size());
 		assertEquals(0, controller.searchVans("Madrid", "10-10-2021", "20-10-2021").size());
 		logger.info("Test of searchVans done");
 	}
