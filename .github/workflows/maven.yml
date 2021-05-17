@@ -22,8 +22,6 @@ jobs:
     - uses: shogo82148/actions-setup-mysql@v1
       with:
         mysql-version: '8.0'
-    - name: Set X11 variable
-      run: export DISPLAY=:0.0
     - name: create database in mysql-server
       run: mysql -uroot -h127.0.0.1 < src/sql/create-airbvdb.sql  
     - name: compile the code
