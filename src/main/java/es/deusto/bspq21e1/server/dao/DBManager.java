@@ -1,7 +1,6 @@
 package es.deusto.bspq21e1.server.dao;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,7 +13,8 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
 import org.apache.log4j.Logger;
-import org.datanucleus.store.types.converters.CalendarComponentsConverter;
+
+import com.mysql.cj.QueryResult;
 
 import javax.jdo.Query;
 
@@ -388,7 +388,8 @@ public class DBManager {
 	// TODO
 	private boolean isVanAvailable(Date resPickUp, Date resReturn,
 										Date queryPickUp, Date queryReturn ) {
-		return false;
+		return ( queryPickUp.before(resPickUp) && queryReturn.before(resReturn) ||
+				queryPickUp.after(resPickUp) );
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -406,26 +407,47 @@ public class DBManager {
 			/* We first get all the vans from a location,
 			 * then we filter by date. 
 			 */
-			HashSet<Reservation> reservationsHS = new HashSet<>();
+			
 			List<Van> availableVans = new ArrayList<>();
 			
 			for( Van v : this.getVansByLocation(location) ) {
-				List<Reservation> l = this.getReservationsByVan( v.getLicensePlate() );
-				if ( l != null ) {
-					reservationsHS.addAll(l);
-				}
-			
-				for(Reservation r : reservationsHS) {
-					// there should be no problem when comparing 
-					// dates from SimpleDateFormat and Calendar 
-					if ( isVanAvailable(r.getBookingDate(), 
-							calculateReturnDate(r.getBookingDate(), r.getDuration()),
-							pickUpDate,
-							returnDate) ) {
-						availableVans.add(v);
+				List<Reservation> vanReservations = this.getReservationsByVan( v.getLicensePlate() );
+				boolean validReservation = true;
+				
+				/*
+				 * Self explanatory code is a myth sometimes...
+				 * The logic behind this is that if there are any 
+				 * already booked/reserved dates that concur with
+				 * the query dates, the query dates would not be
+				 * valid (van not available for those dates).
+				 * I.e:
+				 * 		Query date: [17/05 - 22/05]
+				 * 		Booked dates 1: [12/05 - 14/05; 15/05 - 18/05] --> second date would make the van not available
+				 * 		Booked dates 2: [12/05 - 14/05; 23/05 - 24/05] --> no intersection of dates, therefore van is available
+				 * 
+				 * Long story short, if the function isVanAvailable
+				 * returns ANY false, then the van is not available.
+				 */
+				
+				if ( null != vanReservations ) {
+					
+					for( Reservation r : vanReservations ) {
+						if ( !isVanAvailable(r.getBookingDate(),
+								calculateReturnDate(r.getBookingDate(), r.getDuration()),
+								pickUpDate,
+								returnDate) ) {
+							validReservation = false;
+							break;
+						}
+					}
+					
+					if ( validReservation ) {
+						availableVans.add( v );
 					}
 				}
 			}
+			
+			return availableVans;
 			
 		} catch (Exception e) {
 			logger.error("   $ Error retrieving vans " + e.getMessage() );
