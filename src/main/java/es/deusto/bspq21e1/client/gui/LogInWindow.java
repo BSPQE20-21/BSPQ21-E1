@@ -35,7 +35,6 @@ public class LogInWindow extends JFrame{
 	private JLabel lblTitle, lblEmail, lblPassword;
 	private JTextField txtFieldEmail;
 	private JPasswordField passwordField;
-	
 	private JButton btnBack, btnLogin;
 	
 
@@ -146,4 +145,37 @@ public class LogInWindow extends JFrame{
         new InitialWindow(controller);
         frmLogIn.dispose();
     }
+
+	public JFrame getFrmLogIn() {
+		return frmLogIn;
+	}
+
+	public JLabel getLblTitle() {
+		return lblTitle;
+	}
+
+	public JLabel getLblEmail() {
+		return lblEmail;
+	}
+
+	public JLabel getLblPassword() {
+		return lblPassword;
+	}
+
+	public JTextField getTxtFieldEmail() {
+		return txtFieldEmail;
+	}
+
+	public JPasswordField getPasswordField() {
+		return passwordField;
+	}
+
+	public JButton getBtnBack() {
+		return btnBack;
+	}
+
+	public JButton getBtnLogin() {
+		return btnLogin;
+	}
+    
 }
