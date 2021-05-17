@@ -193,6 +193,7 @@ public class DBManagerTest {
 		}
 		
 		assertEquals(1, DBManager.getInstance().getVansByDates("qwerty", date3, date4).size());
+		assertEquals(0, DBManager.getInstance().getVansByDates("qwerty", date, date3).size());
 		
 		logger.info("Searching of vans by dates tested");
 	}
