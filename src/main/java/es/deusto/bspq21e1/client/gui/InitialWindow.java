@@ -34,13 +34,8 @@ public class InitialWindow extends JFrame {
     private JLabel lblHead;
     private JPanel panel;
     private JButton btnRegister, btnLogin, btnExit;
-    private JLabel lblLogoImg;
-    private JLabel lblSpanishImg;
-    private JLabel lblEnglishImg;
-    private JLabel lblBasqueImg;
-    private JLabel lblSpanishButton;
-    private JLabel lblEnglishButton;
-    private JLabel lblBasqueButton;
+    private JLabel lblLogoImg, lblSpanishImg, lblEnglishImg, lblBasqueImg, lblSpanishButton,
+    lblEnglishButton, lblBasqueButton;
 
     /**
 	 * Creates the initial window of the program.
@@ -256,4 +251,57 @@ public class InitialWindow extends JFrame {
         
         logger.info("InitialWindow well initialized");
     }
+
+	public JLabel getLblHead() {
+		return lblHead;
+	}
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public JButton getBtnRegister() {
+		return btnRegister;
+	}
+
+	public JButton getBtnLogin() {
+		return btnLogin;
+	}
+
+	public JButton getBtnExit() {
+		return btnExit;
+	}
+
+	public JLabel getLblLogoImg() {
+		return lblLogoImg;
+	}
+
+	public JLabel getLblSpanishImg() {
+		return lblSpanishImg;
+	}
+
+	public JLabel getLblEnglishImg() {
+		return lblEnglishImg;
+	}
+
+	public JLabel getLblBasqueImg() {
+		return lblBasqueImg;
+	}
+
+	public JLabel getLblSpanishButton() {
+		return lblSpanishButton;
+	}
+
+	public JLabel getLblEnglishButton() {
+		return lblEnglishButton;
+	}
+
+	public JLabel getLblBasqueButton() {
+		return lblBasqueButton;
+	}
+
+	public JFrame getFrmAirbv() {
+		return frmAirbv;
+	}
+    
 }
