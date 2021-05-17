@@ -136,10 +136,22 @@ public class DBManagerTest {
 	public void getReservationsByUser() {
 		logger.info("Testing getting reservations by user");
 		
-		assertEquals(1, DBManager.getInstance().getReservationsByUser("1234567A").size());
+		assertEquals(2, DBManager.getInstance().getReservationsByUser("1234567A").size());
 		assertEquals(0, DBManager.getInstance().getReservationsByUser("7654321Z").size());
 		
 		logger.info("Getting reservations by users tested");
+	}
+	
+	@Test
+	@PerfTest(invocations = 5)
+	@Required(max = 1200, average = 250)
+	public void getReservationsByVan() {
+		logger.info("Testing getting reservations by van");
+		
+		assertEquals(2, DBManager.getInstance().getReservationsByVan("1111ABC").size());
+		assertEquals(0, DBManager.getInstance().getReservationsByVan("1111ABD").size());
+		
+		logger.info("Getting reservations by van tested");
 	}
 	
 	@Test
@@ -160,7 +172,7 @@ public class DBManagerTest {
 	public void getVansByLocationTest() {
 		logger.info("Testing searching of vans");
 		
-		assertEquals(2, DBManager.getInstance().getVansByLocation("qwerty").size());
+		assertEquals(1, DBManager.getInstance().getVansByLocation("qwerty").size());
 		
 		logger.info("Searching of vans tested");
 	}
@@ -172,13 +184,15 @@ public class DBManagerTest {
 		logger.info("Testing searching of vans by dates");
 		
 		Date date3 = null;
+		Date date4 = null;
 		try {
-			date3 = new SimpleDateFormat("dd-MM-yyyy").parse("10-10-2021");
+			date3 = new SimpleDateFormat("dd-MM-yyyy").parse("11-10-2021");
+			date4 = new SimpleDateFormat("dd-MM-yyyy").parse("15-10-2021");
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
 		
-		assertEquals(1, DBManager.getInstance().getVansByDates("qwerty", date, date3).size());
+		assertEquals(1, DBManager.getInstance().getVansByDates("qwerty", date3, date4).size());
 		
 		logger.info("Searching of vans by dates tested");
 	}
