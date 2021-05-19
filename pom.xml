@@ -15,6 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<server.hostname>127.0.0.1</server.hostname>
 		<server.port>8080</server.port>
+		<demo.data>${basedir}/src/main/resources/demoData.csv</demo.data>
 		<policy.file>${basedir}/security/java.policy</policy.file>
 		<config.files.dir>${basedir}/src/main/resources</config.files.dir>
 		<doxygen.config.file>${basedir}/src/main/resources/Doxyfile</doxygen.config.file>
@@ -277,6 +278,7 @@
 							<arguments>
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
+								<argument>${demo.data}</argument>
 							</arguments>
 							<systemProperties>
 								<systemProperty>

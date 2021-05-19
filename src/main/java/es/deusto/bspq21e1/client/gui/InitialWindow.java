@@ -250,6 +250,10 @@ public class InitialWindow extends JFrame {
         lblBasqueButton.updateUI();
         
         logger.info("InitialWindow well initialized");
+        
+        controller.initializeDemoData();
+        
+        logger.info("Initialization of demo data");
     }
 
 	public JLabel getLblHead() {

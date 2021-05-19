@@ -1,5 +1,10 @@
 package es.deusto.bspq21e1.client.controller;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
@@ -29,10 +34,13 @@ public class Controller {
     private ResourceBundle resourceBundle;
     private Locale currentLocale;
     
-    public Controller(String hostname, String port) {
+    private String demoDataPath;
+    
+    public Controller(String hostname, String port, String demoDataPath) {
     	client = ClientBuilder.newClient();
     	webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
     	resourceBundle = ResourceBundle.getBundle("SystemMessages", Locale.getDefault());
+    	this.demoDataPath = demoDataPath;
     }
     
     public ArrayList<VanData> searchVans(String location, String pickUpDate, String returnDate) {
@@ -209,6 +217,98 @@ public class Controller {
 			logger.error("Error: " + response.toString());
 		}
 		return null;
+	}
+	
+	public boolean registerUsersList(ArrayList<UserData> users) {
+		WebTarget usersWebTarget = webTarget.path("AirBV/registerUsersList/");
+		
+		Invocation.Builder invocationBuilder = usersWebTarget.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.post(Entity.entity(users, MediaType.APPLICATION_JSON));
+		if (response.getStatus() != Status.OK.getStatusCode()) {
+			logger.error("Error connecting with the server. Code: " + response.getStatus());
+			logger.error("Error: " + response.toString());
+			return false;
+		} else {
+			logger.info("Mock users correctly registered");
+			return true;
+		}
+	}
+	
+	public boolean registerVansList(ArrayList<VanData> vans) {
+		WebTarget vansWebTarget = webTarget.path("AirBV/registerVansList/");
+		
+		Invocation.Builder invocationBuilder = vansWebTarget.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.post(Entity.entity(vans, MediaType.APPLICATION_JSON));
+		if (response.getStatus() != Status.OK.getStatusCode()) {
+			logger.error("Error connecting with the server. Code: " + response.getStatus());
+			logger.error("Error: " + response.toString());
+			return false;
+		} else {
+			logger.info("Mock vans correctly registered");
+			return true;
+		}
+	}
+	
+	public boolean registerReservationsList(ArrayList<ReservationData> reservations) {
+		WebTarget reservationsWebTarget = webTarget.path("AirBV/registerReservationsList/");
+		
+		Invocation.Builder invocationBuilder = reservationsWebTarget.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.post(Entity.entity(reservations, MediaType.APPLICATION_JSON));
+		if (response.getStatus() != Status.OK.getStatusCode()) {
+			logger.error("Error connecting with the server. Code: " + response.getStatus());
+			logger.error("Error: " + response.toString());
+			return false;
+		} else {
+			logger.info("Mock reservations correctly registered");
+			return true;
+		}
+	}
+	
+	/**
+	 * Reads the csv with the demo data and creates the different lists for dividing users, vans and reservations.
+	 * Then, it calls three different methods for storing those objects in the system DB.
+	 */
+	public void initializeDemoData() {
+		ArrayList<UserData> users = new ArrayList<UserData>();
+		ArrayList<VanData> vans = new ArrayList<VanData>();
+		ArrayList<ReservationData> reservations = new ArrayList<ReservationData>();
+		BufferedReader br = null;
+		try {
+			br = new BufferedReader(new FileReader(demoDataPath));
+			String line = br.readLine();
+			while (line != null) {
+				String[] fields = line.split(",");
+				if (fields.length == 4) { // User
+					users.add( new UserData(fields[0], fields[1], fields[2], fields[3]) );
+				} else if (fields.length == 5) { // Reservation
+					Date d = null;
+					try {
+						d = new SimpleDateFormat("dd-MM-yyyy").parse(fields[0]);
+					} catch (ParseException e) {
+						e.printStackTrace();
+						logger.error("Error parsing pickup date");
+					}
+					reservations.add( new ReservationData(d, Integer.parseInt(fields[1]), fields[2], fields[3]) );
+				} else { // Van
+					vans.add( new VanData(fields[0], fields[1], fields[2], fields[3], Integer.parseInt(fields[4]), Boolean.parseBoolean(fields[5]),
+							Boolean.parseBoolean(fields[6]), Boolean.parseBoolean(fields[7]), Double.parseDouble(fields[8]), fields[9]) );
+				}
+				line = br.readLine();
+			}
+			registerUsersList(users);
+			registerVansList(vans);
+			registerReservationsList(reservations);
+		} catch (Exception e) {
+			logger.error("It wasn't possible to read the demo data");
+		} finally {
+			if (br != null) {
+				try {
+					br.close();
+				} catch (IOException e) {
+					logger.error("It wasn't possible to close the buffered reader");
+				}
+			}
+		}
 	}
 	
 	/**
