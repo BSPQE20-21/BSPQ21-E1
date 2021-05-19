@@ -1,58 +1,86 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 AirBVJDOREST,es.deusto.bspq21e1.server,AirBVService,52,276,3,7,11,50,3,15,1,12
-AirBVJDOREST,es.deusto.bspq21e1.serialization,UserData,47,38,0,0,8,17,2,11,2,11
+AirBVJDOREST,es.deusto.bspq21e1.serialization,UserData,27,58,0,0,1,24,1,12,1,12
 AirBVJDOREST,es.deusto.bspq21e1.serialization,VanData,8,155,0,0,4,41,2,21,2,21
 AirBVJDOREST,es.deusto.bspq21e1.serialization,ReviewData,73,0,0,0,19,0,10,0,10,0
 AirBVJDOREST,es.deusto.bspq21e1.serialization,ReservationData,65,38,0,0,14,17,3,11,3,11
 AirBVJDOREST,es.deusto.bspq21e1.client.controller,Controller.new GenericType() {...},0,6,0,0,0,1,0,1,0,1
-AirBVJDOREST,es.deusto.bspq21e1.client.controller,Controller,184,602,12,14,26,98,11,16,2,12
+AirBVJDOREST,es.deusto.bspq21e1.client.controller,Controller,187,605,12,14,26,99,10,17,1,13
 AirBVJDOREST,es.deusto.bspq21e1.client.controller,Controller.new GenericType() {...},0,6,0,0,0,1,0,1,0,1
 AirBVJDOREST,es.deusto.bspq21e1.client.controller,Controller.new GenericType() {...},0,6,0,0,0,1,0,1,0,1
 AirBVJDOREST,es.deusto.bspq21e1.client.controller,Controller.new GenericType() {...},0,6,0,0,0,1,0,1,0,1
 AirBVJDOREST,es.deusto.bspq21e1.server.remote,AirBV,313,0,18,0,64,0,20,0,11,0
-AirBVJDOREST,es.deusto.bspq21e1.server.dao,DBManager,104,979,18,46,23,227,18,32,0,18
+AirBVJDOREST,es.deusto.bspq21e1.server.dao,DBManager,130,1146,21,61,30,266,22,40,1,20
 AirBVJDOREST,es.deusto.bspq21e1.client.main,AirBVClient,36,0,2,0,9,0,4,0,3,0
-AirBVJDOREST,es.deusto.bspq21e1.server.data,Van,410,925,89,113,0,50,80,118,10,72
+AirBVJDOREST,es.deusto.bspq21e1.server.data,Van,417,918,89,113,1,49,81,117,11,71
 AirBVJDOREST,es.deusto.bspq21e1.server.data,Review,366,406,70,41,0,25,61,53,13,41
-AirBVJDOREST,es.deusto.bspq21e1.server.data,Reservation,291,523,59,65,0,24,56,68,10,46
+AirBVJDOREST,es.deusto.bspq21e1.server.data,Reservation,291,537,59,65,0,28,56,69,10,47
 AirBVJDOREST,es.deusto.bspq21e1.server.data,User,287,563,56,68,0,34,54,73,10,49
 AirBVJDOREST,es.deusto.bspq21e1.server.dto,Assembler,184,0,0,0,28,0,10,0,10,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterVanWindow.new MouseAdapter() {...},45,0,0,0,9,0,3,0,3,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterVanWindow.new ActionListener() {...},138,0,16,0,19,0,10,0,2,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterVanWindow.new MouseAdapter() {...},32,0,0,0,7,0,3,0,3,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow,0,320,0,0,0,50,0,3,0,3
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,SearchWindow,105,659,4,0,18,112,3,3,1,3
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow,0,602,0,0,0,105,0,16,0,16
 AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterVanWindow.new ActionListener() {...},16,0,0,0,4,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow,250,0,0,0,41,0,3,0,3,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,SearchWindow,734,0,4,0,125,0,6,0,4,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow,226,0,0,0,40,0,3,0,3,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterVanWindow.new ActionListener() {...},135,0,16,0,18,0,10,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,SearchWindow.new ActionListener() {...},59,0,6,0,6,0,5,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterVanWindow,727,0,0,0,111,0,3,0,3,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,CancelReservationWindow.new ActionListener() {...},31,0,0,0,5,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,CancelReservationWindow.new ActionListener() {...},16,0,0,0,4,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterUserWindow.new ActionListener() {...},84,0,6,0,7,0,5,0,2,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new MouseAdapter() {...},26,6,0,0,6,1,2,1,2,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,SearchWindow.new ActionListener() {...},59,6,6,0,7,1,4,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new ActionListener() {...},12,6,0,0,3,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterUserWindow.new MouseAdapter() {...},32,0,0,0,7,0,3,0,3,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new MouseAdapter() {...},39,6,0,0,8,1,2,1,2,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,CancelReservationWindow.new MouseAdapter() {...},0,45,0,0,0,9,0,3,0,3
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,CancelReservationWindow.new ActionListener() {...},25,6,0,0,4,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterVanWindow,747,0,0,0,113,0,3,0,3,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,CancelReservationWindow.new DefaultTableModel() {...},0,8,0,0,0,2,0,2,0,2
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,CancelReservationWindow.new MouseAdapter() {...},26,6,0,0,6,1,2,1,2,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,CancelReservationWindow.new ActionListener() {...},10,6,0,0,3,1,1,1,1,1
 AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterUserWindow.new ActionListener() {...},10,0,0,0,3,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,CharacteristicsWindow,677,0,12,0,105,0,9,0,3,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterUserWindow.new ActionListener() {...},87,0,6,0,8,0,5,0,2,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterUserWindow.new MouseAdapter() {...},45,0,0,0,9,0,3,0,3,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,CharacteristicsWindow,50,771,6,6,6,120,6,24,0,24
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new MouseAdapter() {...},20,6,0,0,5,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveVanWindow.new DefaultTableModel() {...},8,0,0,0,2,0,2,0,2,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new MouseAdapter() {...},20,6,0,0,5,1,1,1,1,1
 AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveVanWindow.new ActionListener() {...},16,0,0,0,4,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveVanWindow.new ActionListener() {...},33,0,0,0,6,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,SearchWindow.new ActionListener() {...},21,0,0,0,4,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,LogInWindow.new ActionListener() {...},56,0,2,0,9,0,3,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,SearchWindow.new ActionListener() {...},39,0,2,0,6,0,3,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,LogInWindow.new ActionListener() {...},10,0,0,0,3,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,SearchWindow.new ActionListener() {...},106,0,6,0,18,0,5,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,LogInWindow,248,0,0,0,43,0,4,0,4,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new ActionListener() {...},25,0,0,0,4,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterUserWindow,354,0,0,0,65,0,5,0,5,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new ActionListener() {...},25,0,0,0,4,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new ActionListener() {...},25,0,0,0,4,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new ActionListener() {...},25,0,0,0,4,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,CancelReservationWindow,377,0,4,0,65,0,6,0,4,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new ActionListener() {...},18,0,0,0,4,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,CharacteristicsWindow.new ActionListener() {...},16,0,0,0,4,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new ActionListener() {...},25,0,0,0,4,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new MouseAdapter() {...},32,0,0,0,7,0,3,0,3,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new ActionListener() {...},18,0,0,0,4,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new MouseAdapter() {...},32,0,0,0,7,0,3,0,3,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new MouseAdapter() {...},45,0,0,0,9,0,3,0,3,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveAccountWindow,153,0,0,0,29,0,3,0,3,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveVanWindow,387,0,6,0,65,0,7,0,4,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new ActionListener() {...},18,0,0,0,4,0,2,0,2,0
-AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveAccountWindow.new ActionListener() {...},27,0,0,0,5,0,2,0,2,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new MouseAdapter() {...},20,6,0,0,5,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,LogInWindow.new ActionListener() {...},56,6,2,0,10,1,2,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveVanWindow.new MouseAdapter() {...},45,0,0,0,9,0,3,0,3,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,SearchWindow.new ActionListener() {...},15,6,0,0,3,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,LogInWindow.new MouseAdapter() {...},26,6,0,0,6,1,2,1,2,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,SearchWindow.new ActionListener() {...},33,6,2,0,5,1,2,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,LogInWindow.new ActionListener() {...},4,6,0,0,2,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveVanWindow.new MouseAdapter() {...},32,0,0,0,7,0,3,0,3,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,SearchWindow.new ActionListener() {...},109,6,6,0,20,1,4,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,LogInWindow.new MouseAdapter() {...},39,6,0,0,8,1,2,1,2,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveVanWindow.new ActionListener() {...},36,0,0,0,7,0,2,0,2,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,SearchWindow.new DefaultTableModel() {...},2,6,0,0,1,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,LogInWindow,13,283,0,0,4,50,2,10,2,10
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new ActionListener() {...},19,6,0,0,3,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,CharacteristicsWindow.new MouseAdapter() {...},26,6,0,0,6,1,2,1,2,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new MouseAdapter() {...},26,6,0,0,6,1,2,1,2,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RegisterUserWindow,379,0,0,0,67,0,5,0,5,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new ActionListener() {...},19,6,0,0,3,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new MouseAdapter() {...},26,6,0,0,6,1,2,1,2,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new ActionListener() {...},19,6,0,0,3,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,CancelReservationWindow,72,369,3,1,10,70,4,12,2,12
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new MouseAdapter() {...},26,6,0,0,6,1,2,1,2,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new ActionListener() {...},19,6,0,0,3,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new MouseAdapter() {...},26,6,0,0,6,1,2,1,2,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,CharacteristicsWindow.new ActionListener() {...},10,6,0,0,3,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,MainWindow.new ActionListener() {...},19,6,0,0,3,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new MouseAdapter() {...},26,6,0,0,6,1,2,1,2,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new ActionListener() {...},12,6,0,0,3,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new MouseAdapter() {...},26,6,0,0,6,1,2,1,2,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new ActionListener() {...},5,6,0,0,2,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new MouseAdapter() {...},39,6,0,0,8,1,2,1,2,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new MouseAdapter() {...},20,6,0,0,5,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new MouseAdapter() {...},20,6,0,0,5,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new MouseAdapter() {...},20,6,0,0,5,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveAccountWindow,169,0,0,0,31,0,3,0,3,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveVanWindow,417,0,6,0,70,0,7,0,4,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,InitialWindow.new ActionListener() {...},12,6,0,0,3,1,1,1,1,1
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveAccountWindow.new MouseAdapter() {...},32,0,0,0,7,0,3,0,3,0
 AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveAccountWindow.new ActionListener() {...},16,0,0,0,4,0,2,0,2,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveAccountWindow.new MouseAdapter() {...},45,0,0,0,9,0,3,0,3,0
+AirBVJDOREST,es.deusto.bspq21e1.client.gui,RemoveAccountWindow.new ActionListener() {...},27,0,0,0,5,0,2,0,2,0

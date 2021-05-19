@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LogInWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AirBVJDOREST</a> &gt; <a href="index.source.html" class="el_package">es.deusto.bspq21e1.client.gui</a> &gt; <span class="el_source">LogInWindow.java</span></div><h1>LogInWindow.java</h1><pre class="source lang-java linenums">package es.deusto.bspq21e1.client.gui;
 
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,105 +27,156 @@ import javax.swing.JPasswordField;
 public class LogInWindow extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-<span class="nc" id="L26">	private static Logger logger = Logger.getLogger(LogInWindow.class.getName());</span>
+<span class="fc" id="L30">	private static Logger logger = Logger.getLogger(LogInWindow.class.getName());</span>
 	private Controller controller;
 	
-<span class="nc" id="L29">	private JFrame frmLogIn = new JFrame();</span>
+<span class="fc" id="L33">	private JFrame frmLogIn = new JFrame();</span>
 	
-	private JLabel lblTitle;
-	
-	private JLabel lblEmail;
+	private JLabel lblTitle, lblEmail, lblPassword;
 	private JTextField txtFieldEmail;
-	
-	private JLabel lblPassword;
 	private JPasswordField passwordField;
-	
-	private JButton btnBack;
+	private JButton btnBack, btnLogin;
 	
 
 	/**
 	 * Create the application.
 	 */
-<span class="nc" id="L45">	public LogInWindow(Controller controller) {</span>
-<span class="nc" id="L46">		this.controller = controller;</span>
-<span class="nc" id="L47">		initialize();</span>
-<span class="nc" id="L48">		frmLogIn.setTitle(controller.getResourcebundle().getString(&quot;login_msg&quot;));</span>
-<span class="nc" id="L49">		frmLogIn.setVisible(true);</span>
-<span class="nc" id="L50">	}</span>
+<span class="fc" id="L44">	public LogInWindow(Controller controller) {</span>
+<span class="fc" id="L45">		this.controller = controller;</span>
+<span class="fc" id="L46">		initialize();</span>
+<span class="fc" id="L47">		frmLogIn.setTitle(controller.getResourcebundle().getString(&quot;login_msg&quot;));</span>
+<span class="fc" id="L48">		frmLogIn.setVisible(true);</span>
+<span class="fc" id="L49">	}</span>
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-<span class="nc" id="L56">		frmLogIn.setResizable(false);</span>
-<span class="nc" id="L57">		frmLogIn.setBounds(100, 100, 450, 350);</span>
-<span class="nc" id="L58">		frmLogIn.setLocationRelativeTo(null);</span>
-<span class="nc" id="L59">		frmLogIn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
-<span class="nc" id="L60">		frmLogIn.getContentPane().setLayout(null);</span>
+<span class="fc" id="L55">		frmLogIn.setResizable(false);</span>
+<span class="fc" id="L56">		frmLogIn.setBounds(100, 100, 450, 250);</span>
+<span class="fc" id="L57">		frmLogIn.setLocationRelativeTo(null);</span>
+<span class="fc" id="L58">		frmLogIn.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="fc" id="L59">		frmLogIn.getContentPane().setLayout(null);</span>
+<span class="fc" id="L60">		frmLogIn.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
 		
-<span class="nc" id="L62">		lblTitle = new JLabel(controller.getResourcebundle().getString(&quot;login_window_msg&quot;));</span>
-<span class="nc" id="L63">		lblTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
-<span class="nc" id="L64">		lblTitle.setBounds(40, 31, 365, 19);</span>
-<span class="nc" id="L65">		frmLogIn.getContentPane().add(lblTitle);</span>
+<span class="fc" id="L62">		lblTitle = new JLabel(controller.getResourcebundle().getString(&quot;login_window_msg&quot;));</span>
+<span class="fc" id="L63">		lblTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
+<span class="fc" id="L64">		lblTitle.setBounds(42, 31, 365, 19);</span>
+<span class="fc" id="L65">		frmLogIn.getContentPane().add(lblTitle);</span>
 		
 		//Email
-<span class="nc" id="L68">		lblEmail = new JLabel(controller.getResourcebundle().getString(&quot;email_msg&quot;));</span>
-<span class="nc" id="L69">		lblEmail.setBounds(40, 81, 121, 19);</span>
-<span class="nc" id="L70">		frmLogIn.getContentPane().add(lblEmail);</span>
+<span class="fc" id="L68">		lblEmail = new JLabel(controller.getResourcebundle().getString(&quot;email_msg&quot;));</span>
+<span class="fc" id="L69">		lblEmail.setBounds(40, 81, 121, 19);</span>
+<span class="fc" id="L70">		frmLogIn.getContentPane().add(lblEmail);</span>
 		
-<span class="nc" id="L72">		txtFieldEmail = new JTextField();</span>
-<span class="nc" id="L73">		txtFieldEmail.setBounds(200, 81, 205, 19);</span>
-<span class="nc" id="L74">		frmLogIn.getContentPane().add(txtFieldEmail);</span>
-<span class="nc" id="L75">		txtFieldEmail.setColumns(10);</span>
+<span class="fc" id="L72">		txtFieldEmail = new JTextField();</span>
+<span class="fc" id="L73">		txtFieldEmail.setBounds(200, 79, 205, 24);</span>
+<span class="fc" id="L74">		frmLogIn.getContentPane().add(txtFieldEmail);</span>
+<span class="fc" id="L75">		txtFieldEmail.setColumns(10);</span>
 		
 		//Password
-<span class="nc" id="L78">		lblPassword = new JLabel(controller.getResourcebundle().getString(&quot;password_msg&quot;));</span>
-<span class="nc" id="L79">		lblPassword.setBounds(40, 120, 78, 13);</span>
-<span class="nc" id="L80">		frmLogIn.getContentPane().add(lblPassword);</span>
+<span class="fc" id="L78">		lblPassword = new JLabel(controller.getResourcebundle().getString(&quot;password_msg&quot;));</span>
+<span class="fc" id="L79">		lblPassword.setBounds(40, 120, 78, 13);</span>
+<span class="fc" id="L80">		frmLogIn.getContentPane().add(lblPassword);</span>
 		
-<span class="nc" id="L82">		passwordField = new JPasswordField();</span>
-<span class="nc" id="L83">		passwordField.setBounds(200, 117, 205, 19);</span>
-<span class="nc" id="L84">		frmLogIn.getContentPane().add(passwordField);</span>
-
-
-		//BUTTON: Log In
-<span class="nc" id="L88">		JButton btnRegisterVan = new JButton(controller.getResourcebundle().getString(&quot;login_msg&quot;));</span>
-<span class="nc" id="L89">		btnRegisterVan.addActionListener(new ActionListener() {</span>
-			public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L91">				UserData userData = controller.loginUser( txtFieldEmail.getText(), new String(passwordField.getPassword()) );</span>
-<span class="nc bnc" id="L92" title="All 2 branches missed.">				if (userData != null)  {</span>
-<span class="nc" id="L93">					frmLogIn.dispose();</span>
-<span class="nc" id="L94">					new MainWindow(controller, userData);</span>
-				} else {
-<span class="nc" id="L96">					txtFieldEmail.setText(controller.getResourcebundle().getString(&quot;wrong_credentials_msg&quot;));</span>
-<span class="nc" id="L97">					txtFieldEmail.updateUI();</span>
-<span class="nc" id="L98">					passwordField.updateUI();</span>
-				}
-					
-<span class="nc" id="L101">			}</span>
-		});
-<span class="nc" id="L103">		btnRegisterVan.setBounds(152, 170, 147, 23);</span>
-<span class="nc" id="L104">		frmLogIn.getContentPane().add(btnRegisterVan);</span>
+<span class="fc" id="L82">		passwordField = new JPasswordField();</span>
+<span class="fc" id="L83">		passwordField.setBounds(202, 115, 205, 24);</span>
+<span class="fc" id="L84">		frmLogIn.getContentPane().add(passwordField);</span>
 		
 		//BUTTON: Back
-<span class="nc" id="L107">		btnBack = new JButton(controller.getResourcebundle().getString(&quot;back_button_msg&quot;));</span>
-<span class="nc" id="L108">		btnBack.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L87">		btnBack = new JButton(controller.getResourcebundle().getString(&quot;back_button_msg&quot;));</span>
+<span class="fc" id="L88">		btnBack.addActionListener(new ActionListener() {</span>
 			public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L110">				goToInitialWindow();</span>
-<span class="nc" id="L111">			}</span>
+<span class="nc" id="L90">				goToInitialWindow();</span>
+<span class="nc" id="L91">			}</span>
 		});
-<span class="nc" id="L113">		btnBack.setBounds(29, 264, 89, 23);</span>
-<span class="nc" id="L114">		frmLogIn.getContentPane().add(btnBack);</span>
+<span class="fc" id="L93">		btnBack.addMouseListener(new MouseAdapter() {</span>
+        	public void mouseEntered(MouseEvent e) {
+<span class="nc" id="L95">        		btnBack.setBounds(28, 170, 175, 29);</span>
+<span class="nc" id="L96">        		btnBack.setBackground(Color.RED);</span>
+<span class="nc" id="L97">        		btnBack.updateUI();</span>
+<span class="nc" id="L98">		    }</span>
+		    public void mouseExited(MouseEvent e) {
+<span class="nc" id="L100">		    	btnBack.setBounds(40, 170, 150, 25);</span>
+<span class="nc" id="L101">		    	btnBack.setBackground(btnLogin.getBackground());</span>
+<span class="nc" id="L102">		    	btnBack.updateUI();</span>
+<span class="nc" id="L103">		    }</span>
+		});
+<span class="fc" id="L105">		btnBack.setBounds(40, 170, 150, 25);</span>
+<span class="fc" id="L106">		frmLogIn.getContentPane().add(btnBack);</span>
+		
+		//BUTTON: Log In
+<span class="fc" id="L109">		btnLogin = new JButton(controller.getResourcebundle().getString(&quot;login_msg&quot;));</span>
+<span class="fc" id="L110">		btnLogin.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L112">				UserData userData = controller.loginUser( txtFieldEmail.getText(), new String(passwordField.getPassword()) );</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">				if (userData != null)  {</span>
+<span class="nc" id="L114">					frmLogIn.dispose();</span>
+<span class="nc" id="L115">					new MainWindow(controller, userData);</span>
+<span class="nc" id="L116">					logger.debug(&quot;Login correct&quot;);</span>
+				} else {
+<span class="nc" id="L118">					txtFieldEmail.setText(controller.getResourcebundle().getString(&quot;wrong_credentials_msg&quot;));</span>
+<span class="nc" id="L119">					txtFieldEmail.updateUI();</span>
+<span class="nc" id="L120">					passwordField.updateUI();</span>
+<span class="nc" id="L121">					logger.debug(&quot;Login wrong&quot;);</span>
+				}	
+<span class="nc" id="L123">			}</span>
+		});
+<span class="fc" id="L125">		btnLogin.addMouseListener(new MouseAdapter() {</span>
+        	public void mouseEntered(MouseEvent e) {
+<span class="nc" id="L127">        		btnLogin.setBounds(243, 170, 175, 29);</span>
+<span class="nc" id="L128">        		btnLogin.updateUI();</span>
+<span class="nc" id="L129">		    }</span>
+		    public void mouseExited(MouseEvent e) {
+<span class="nc" id="L131">		    	btnLogin.setBounds(255, 170, 150, 25);</span>
+<span class="nc" id="L132">		    	btnLogin.updateUI();</span>
+<span class="nc" id="L133">		    }</span>
+		});
+<span class="fc" id="L135">		btnLogin.setBounds(255, 170, 150, 25);</span>
+<span class="fc" id="L136">		frmLogIn.getContentPane().add(btnLogin);</span>
 	
-<span class="nc" id="L116">		logger.info(&quot;LogInWindow well initialized&quot;);</span>
-<span class="nc" id="L117">	}</span>
+<span class="fc" id="L138">		logger.info(&quot;LogInWindow well initialized&quot;);</span>
+<span class="fc" id="L139">	}</span>
 	
     /**
      * Closes this window and opens the Initial window.
      */
     private void goToInitialWindow() {
-<span class="nc" id="L123">        new InitialWindow(controller);</span>
-<span class="nc" id="L124">        frmLogIn.dispose();</span>
-<span class="nc" id="L125">    }</span>
+<span class="nc" id="L145">        new InitialWindow(controller);</span>
+<span class="nc" id="L146">        frmLogIn.dispose();</span>
+<span class="nc" id="L147">    }</span>
+
+	public JFrame getFrmLogIn() {
+<span class="fc" id="L150">		return frmLogIn;</span>
+	}
+
+	public JLabel getLblTitle() {
+<span class="nc" id="L154">		return lblTitle;</span>
+	}
+
+	public JLabel getLblEmail() {
+<span class="fc" id="L158">		return lblEmail;</span>
+	}
+
+	public JLabel getLblPassword() {
+<span class="fc" id="L162">		return lblPassword;</span>
+	}
+
+	public JTextField getTxtFieldEmail() {
+<span class="fc" id="L166">		return txtFieldEmail;</span>
+	}
+
+	public JPasswordField getPasswordField() {
+<span class="fc" id="L170">		return passwordField;</span>
+	}
+
+	public JButton getBtnBack() {
+<span class="fc" id="L174">		return btnBack;</span>
+	}
+
+	public JButton getBtnLogin() {
+<span class="fc" id="L178">		return btnLogin;</span>
+	}
+    
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

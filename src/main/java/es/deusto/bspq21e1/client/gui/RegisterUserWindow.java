@@ -26,6 +26,7 @@ public class RegisterUserWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(RegisterUserWindow.class.getName());
 	private Controller controller;
+	private boolean visible;
 	
 	private JFrame frmRegisterYourself = new JFrame();
 
@@ -33,21 +34,23 @@ public class RegisterUserWindow extends JFrame{
 	private JPasswordField passwordField;
 	private JButton btnBack, btnRegister;
 	
-	public RegisterUserWindow(Controller controller) {
+	public RegisterUserWindow(Controller controller, boolean visible) {
 		this.controller = controller;
+		this.visible = visible;
 		initialize();
 		frmRegisterYourself.setTitle(controller.getResourcebundle().getString("register_yourself_msg"));
 		frmRegisterYourself.setResizable(false);
-		frmRegisterYourself.setVisible(true);
+		frmRegisterYourself.setVisible(visible);
 
 	}
 	
-	public RegisterUserWindow() {
+	public RegisterUserWindow(boolean visible) {
 		this.controller = null;
+		this.visible = visible;
 		initialize();
 		frmRegisterYourself.setTitle(controller.getResourcebundle().getString("register_yourself_msg"));
 		frmRegisterYourself.setResizable(false);
-		frmRegisterYourself.setVisible(true);
+		frmRegisterYourself.setVisible(visible);
 
 	}
 	
@@ -138,7 +141,7 @@ public class RegisterUserWindow extends JFrame{
 				UserData userData = new UserData(txtIdNumber.getText(), txtName.getText(), txtEmail.getText(), new String( passwordField.getPassword() ) );
 				
 				
-				new MainWindow(controller, userData);
+				new MainWindow(controller, userData, visible);
 				logger.debug("User registered");
 			}
 		});
@@ -162,7 +165,7 @@ public class RegisterUserWindow extends JFrame{
      * Closes this window and opens the Initial window.
      */
     private void goToInitialWindow() {
-        new InitialWindow(controller);
+        new InitialWindow(controller, visible);
         frmRegisterYourself.dispose();
     }
 	

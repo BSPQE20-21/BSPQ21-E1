@@ -29,6 +29,7 @@ public class InitialWindow extends JFrame {
     private static final long serialVersionUID = 1L;
     private static Logger logger = Logger.getLogger(InitialWindow.class.getName());
     private Controller controller;
+    private boolean visible;
 
     private JFrame frmAirbv = new JFrame();
     private JLabel lblHead;
@@ -41,10 +42,11 @@ public class InitialWindow extends JFrame {
 	 * Creates the initial window of the program.
      * @param controller Controller used for handling all requests in the system.  
 	 */
-    public InitialWindow(Controller controller) {
+    public InitialWindow(Controller controller, boolean visible) {
         this.controller = controller;
         frmAirbv.setTitle("AirB&V");
-        frmAirbv.setVisible(true);
+        this.visible = visible;
+        frmAirbv.setVisible(visible);
         initialize();
     }
 
@@ -75,7 +77,7 @@ public class InitialWindow extends JFrame {
         btnRegister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	new RegisterUserWindow(controller);
+            	new RegisterUserWindow(controller, visible);
                 frmAirbv.dispose();
             }
         } );
@@ -97,7 +99,7 @@ public class InitialWindow extends JFrame {
         btnLogin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new LogInWindow(controller);
+				new LogInWindow(controller, visible);
 				frmAirbv.dispose();
 			}
 		});
@@ -158,7 +160,7 @@ public class InitialWindow extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				controller.setLocale("es");	
 				frmAirbv.dispose();
-				new InitialWindow(controller);
+				new InitialWindow(controller, visible);
 				logger.info("The language has been changed to Spanish");
 			}
 		});
@@ -176,7 +178,7 @@ public class InitialWindow extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				controller.setLocale("en");
 				frmAirbv.dispose();
-				new InitialWindow(controller);
+				new InitialWindow(controller, visible);
 				logger.info("The language has been changed to English");
 			}
 		});
@@ -194,7 +196,7 @@ public class InitialWindow extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				controller.setLocale("eu");	
 				frmAirbv.dispose();
-				new InitialWindow(controller);
+				new InitialWindow(controller, visible);
 				logger.info("The language has been changed to Basque");
 			}
 		});
@@ -209,7 +211,7 @@ public class InitialWindow extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				controller.setLocale("es");	
 				frmAirbv.dispose();
-				new InitialWindow(controller);
+				new InitialWindow(controller, visible);
 				logger.info("The language has been changed to Spanish");
 			}
 		});
@@ -226,7 +228,7 @@ public class InitialWindow extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				controller.setLocale("en");
 				frmAirbv.dispose();
-				new InitialWindow(controller);
+				new InitialWindow(controller, visible);
 				logger.info("The language has been changed to English");
 			}
 		});
@@ -242,7 +244,7 @@ public class InitialWindow extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				controller.setLocale("eu");	
 				frmAirbv.dispose();
-				new InitialWindow(controller);
+				new InitialWindow(controller, visible);
 				logger.info("The language has been changed to Basque");
 			}
 		});

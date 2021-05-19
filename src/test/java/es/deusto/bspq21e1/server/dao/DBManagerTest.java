@@ -112,6 +112,7 @@ public class DBManagerTest {
 		logger.info("After tests code execution begins");
 		
 		assertTrue(DBManager.getInstance().deleteReservation(res1.getCode()));
+		assertTrue(DBManager.getInstance().deleteReservation(res2.getCode()));
 		assertFalse(DBManager.getInstance().deleteReservation(res1.getCode()));
 		
 		assertTrue(DBManager.getInstance().deleteVan(van1.getLicensePlate()));

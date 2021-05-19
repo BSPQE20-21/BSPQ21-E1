@@ -37,22 +37,22 @@ public class CharacteristicsWindowTest {
 	public void setUp() {
 		logger.info("Before tests code execution begins");
 		
-		controller = new Controller("127.0.0.1", "8080");
+		controller = new Controller("127.0.0.1", "8080", "");
 		van = new VanData("997755KMA", "Ford", "Focus", "Bilbao", 4, true, true, false, 50, "11223344D");
 		UserData u = new UserData("11335566A", "Juan", "juan@gmail.com", "1234");
-		frmSearch = new SearchWindow(controller, u, new MainWindow(controller, u));
+		frmSearch = new SearchWindow(controller, u, new MainWindow(controller, u, false), false);
 		
 		logger.info("Before tests code execution ends properly");
 	}
 	
 	@Test
 	public void constructorTest() {
-		CharacteristicsWindow w = new CharacteristicsWindow(controller, van, frmSearch);
+		CharacteristicsWindow w = new CharacteristicsWindow(controller, van, frmSearch, false);
 		
 		assertEquals(w.getClass(), CharacteristicsWindow.class);
 		assertTrue(w.getFrmCharacteristics().getTitle().length() > 0);
 		assertFalse(w.getFrmCharacteristics().isResizable());
-		assertTrue(w.getFrmCharacteristics().isVisible());
+		assertFalse(w.getFrmCharacteristics().isVisible());
 		
 		logger.info("CharacteristicsWindow's constructor tested");
 		

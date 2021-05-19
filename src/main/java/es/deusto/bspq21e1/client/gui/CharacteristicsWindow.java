@@ -21,6 +21,7 @@ public class CharacteristicsWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(CharacteristicsWindow.class.getName());
 	private Controller controller;
+	private boolean visible;
 	private VanData van;
 	private JFrame searchFrame;
 	
@@ -32,18 +33,19 @@ public class CharacteristicsWindow extends JFrame{
 	private JButton btnBack;
 	
 	
-	public CharacteristicsWindow(Controller controller, VanData van, JFrame searchFrame) {
+	public CharacteristicsWindow(Controller controller, VanData van, JFrame searchFrame, boolean visible) {
 		this.controller = controller;
 		if(van == null || van.getBrand() == null) {
 			frmCharacteristics.dispose();
-			searchFrame.setVisible(true);
+			searchFrame.setVisible(visible);
 		}
 		this.van = van;
 		this.searchFrame = searchFrame;
 		initialize();
 		frmCharacteristics.setTitle(controller.getResourcebundle().getString("characterictics_window_tittle_msg"));
 		frmCharacteristics.setResizable(false);
-		frmCharacteristics.setVisible(true);
+		frmCharacteristics.setVisible(visible);
+		this.visible = visible;
 
 	}
 	
@@ -62,7 +64,7 @@ public class CharacteristicsWindow extends JFrame{
 		btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				searchFrame.setVisible(true);
+				searchFrame.setVisible(visible);
 				frmCharacteristics.dispose();
 			}
 		});

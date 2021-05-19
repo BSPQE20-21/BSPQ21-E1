@@ -30,6 +30,7 @@ public class RemoveVanWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(CancelReservationWindow.class.getName());
 	private Controller controller;
+	private boolean visible;
 	private UserData user;
 	private JFrame frmMain;
 	
@@ -43,13 +44,14 @@ public class RemoveVanWindow extends JFrame {
 	private DefaultListModel<String> vansList = new DefaultListModel<String>();
 	private DefaultTableModel tableModel;
 	
-	public RemoveVanWindow(Controller controller, UserData user, JFrame frmMain) {
+	public RemoveVanWindow(Controller controller, UserData user, JFrame frmMain, boolean visible) {
 		this.controller = controller;
+		this.visible = visible;
 		this.user = user;
 		this.frmMain = frmMain;
 		frmRemoveVan.setTitle(controller.getResourcebundle().getString("remove_van_btn_msg"));
 		frmRemoveVan.setResizable(false);
-		frmRemoveVan.setVisible(true);
+		frmRemoveVan.setVisible(visible);
 		initialize();
 	}
 	
@@ -94,7 +96,7 @@ public class RemoveVanWindow extends JFrame {
 		btnBack.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				frmMain.setVisible(true);
+				frmMain.setVisible(visible);
 				frmRemoveVan.dispose();
 			}
 		});
@@ -119,7 +121,7 @@ public class RemoveVanWindow extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				VanData van = vans.get(jtVansTable.getSelectedRow());
 				controller.eraseVan( van.getLicensePlate() );
-				frmMain.setVisible(true);
+				frmMain.setVisible(visible);
 				frmRemoveVan.dispose();
 				logger.debug("Van is removed");
 			}

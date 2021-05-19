@@ -27,7 +27,7 @@ public class AirBVClient {
         
 		Controller c = new Controller(args[0], args[1], args[2]); 
 		
-		new InitialWindow(c);
+		new InitialWindow(c, true);
 		
 		logger.info("Client started without problems");
 	}

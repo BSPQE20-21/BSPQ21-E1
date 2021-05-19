@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RemoveAccountWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AirBVJDOREST</a> &gt; <a href="index.source.html" class="el_package">es.deusto.bspq21e1.client.gui</a> &gt; <span class="el_source">RemoveAccountWindow.java</span></div><h1>RemoveAccountWindow.java</h1><pre class="source lang-java linenums">package es.deusto.bspq21e1.client.gui;
 
+import java.awt.Color;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,60 +19,82 @@ import es.deusto.bspq21e1.serialization.UserData;
 public class RemoveAccountWindow extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-<span class="nc" id="L18">	private static Logger logger = Logger.getLogger(RemoveAccountWindow.class.getName());</span>
+<span class="nc" id="L22">	private static Logger logger = Logger.getLogger(RemoveAccountWindow.class.getName());</span>
 	private Controller controller;
 	private UserData userData;
 	private JFrame frmMain;
 	
-<span class="nc" id="L23">	private JFrame frmRemoveAccount = new JFrame();</span>
+<span class="nc" id="L27">	private JFrame frmRemoveAccount = new JFrame();</span>
 	private JButton btnYes, btnNo;
 	private JLabel lblText;
 	
-<span class="nc" id="L27">	public RemoveAccountWindow(Controller controller, UserData userData, JFrame frmMain) {</span>
-<span class="nc" id="L28">		this.controller = controller;</span>
-<span class="nc" id="L29">		this.userData = userData;</span>
-<span class="nc" id="L30">		this.frmMain = frmMain;</span>
-<span class="nc" id="L31">		initialize();</span>
-<span class="nc" id="L32">		frmRemoveAccount.setTitle(controller.getResourcebundle().getString(&quot;remove_user_btn_msg&quot;));</span>
-<span class="nc" id="L33">		frmRemoveAccount.setResizable(false);</span>
-<span class="nc" id="L34">		frmRemoveAccount.setVisible(true);</span>
-<span class="nc" id="L35">	}</span>
+<span class="nc" id="L31">	public RemoveAccountWindow(Controller controller, UserData userData, JFrame frmMain) {</span>
+<span class="nc" id="L32">		this.controller = controller;</span>
+<span class="nc" id="L33">		this.userData = userData;</span>
+<span class="nc" id="L34">		this.frmMain = frmMain;</span>
+<span class="nc" id="L35">		initialize();</span>
+<span class="nc" id="L36">		frmRemoveAccount.setTitle(controller.getResourcebundle().getString(&quot;remove_user_btn_msg&quot;));</span>
+<span class="nc" id="L37">		frmRemoveAccount.setResizable(false);</span>
+<span class="nc" id="L38">		frmRemoveAccount.setVisible(true);</span>
+<span class="nc" id="L39">	}</span>
 	
 	private void initialize() {
-<span class="nc" id="L38">		frmRemoveAccount.setBounds(400, 200, 340, 130);</span>
-<span class="nc" id="L39">		frmRemoveAccount.setLocationRelativeTo(null);</span>
-<span class="nc" id="L40">		frmRemoveAccount.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
-<span class="nc" id="L41">		frmRemoveAccount.getContentPane().setLayout(null);</span>
+<span class="nc" id="L42">		frmRemoveAccount.setBounds(400, 200, 340, 130);</span>
+<span class="nc" id="L43">		frmRemoveAccount.setLocationRelativeTo(null);</span>
+<span class="nc" id="L44">		frmRemoveAccount.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L45">		frmRemoveAccount.getContentPane().setLayout(null);</span>
+<span class="nc" id="L46">		frmRemoveAccount.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
 		
-<span class="nc" id="L43">		btnNo = new JButton(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
-<span class="nc" id="L44">		btnNo.setBounds(25, 50, 100, 25);</span>
-<span class="nc" id="L45">		btnNo.addActionListener(new ActionListener() {</span>
+<span class="nc" id="L48">		btnNo = new JButton(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
+<span class="nc" id="L49">		btnNo.setBounds(25, 50, 100, 25);</span>
+<span class="nc" id="L50">		btnNo.addActionListener(new ActionListener() {</span>
 			@Override
 			public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L48">				frmMain.setVisible(true);</span>
-<span class="nc" id="L49">				frmRemoveAccount.dispose();</span>
-<span class="nc" id="L50">			}</span>
+<span class="nc" id="L53">				frmMain.setVisible(true);</span>
+<span class="nc" id="L54">				frmRemoveAccount.dispose();</span>
+<span class="nc" id="L55">			}</span>
 		});
-<span class="nc" id="L52">		frmRemoveAccount.getContentPane().add(btnNo);</span>
+<span class="nc" id="L57">		btnNo.addMouseListener(new MouseAdapter() {</span>
+        	public void mouseEntered(MouseEvent e) {
+<span class="nc" id="L59">        		btnNo.setBounds(20, 50, 110, 26);</span>
+<span class="nc" id="L60">        		btnNo.updateUI();</span>
+<span class="nc" id="L61">		    }</span>
+		    public void mouseExited(MouseEvent e) {
+<span class="nc" id="L63">		    	btnNo.setBounds(25, 50, 100, 25);</span>
+<span class="nc" id="L64">		    	btnNo.updateUI();</span>
+<span class="nc" id="L65">		    }</span>
+		});
+<span class="nc" id="L67">		frmRemoveAccount.getContentPane().add(btnNo);</span>
 		
-<span class="nc" id="L54">		btnYes = new JButton(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
-<span class="nc" id="L55">		btnYes.setBackground(java.awt.Color.RED);</span>
-<span class="nc" id="L56">		btnYes.setBounds(200, 50, 100, 25);</span>
-<span class="nc" id="L57">		btnYes.addActionListener(new ActionListener() {</span>
+<span class="nc" id="L69">		btnYes = new JButton(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
+<span class="nc" id="L70">		btnYes.setBounds(200, 50, 100, 25);</span>
+<span class="nc" id="L71">		btnYes.addActionListener(new ActionListener() {</span>
 			@Override
 			public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L60">				controller.eraseUser( userData.getDni() );</span>
-<span class="nc" id="L61">				new InitialWindow(controller);</span>
-<span class="nc" id="L62">				frmRemoveAccount.dispose();</span>
-<span class="nc" id="L63">			}</span>
+<span class="nc" id="L74">				controller.eraseUser( userData.getDni() );</span>
+<span class="nc" id="L75">				new InitialWindow(controller);</span>
+<span class="nc" id="L76">				frmRemoveAccount.dispose();</span>
+<span class="nc" id="L77">			}</span>
 		});
-<span class="nc" id="L65">		frmRemoveAccount.getContentPane().add(btnYes);</span>
+<span class="nc" id="L79">		btnYes.addMouseListener(new MouseAdapter() {</span>
+        	public void mouseEntered(MouseEvent e) {
+<span class="nc" id="L81">        		btnYes.setBounds(195, 50, 110, 26);</span>
+<span class="nc" id="L82">        		btnYes.setBackground(Color.RED);</span>
+<span class="nc" id="L83">        		btnYes.updateUI();</span>
+<span class="nc" id="L84">		    }</span>
+		    public void mouseExited(MouseEvent e) {
+<span class="nc" id="L86">		    	btnYes.setBounds(200, 50, 100, 25);</span>
+<span class="nc" id="L87">		    	btnYes.setBackground(btnNo.getBackground());</span>
+<span class="nc" id="L88">		    	btnYes.updateUI();</span>
+<span class="nc" id="L89">		    }</span>
+		});
+<span class="nc" id="L91">		frmRemoveAccount.getContentPane().add(btnYes);</span>
 		
-<span class="nc" id="L67">		lblText = new JLabel(controller.getResourcebundle().getString(&quot;ensure_remove_msg&quot;));</span>
-<span class="nc" id="L68">		lblText.setBounds(25, 5, 350, 35);</span>
-<span class="nc" id="L69">		frmRemoveAccount.getContentPane().add(lblText);</span>
+<span class="nc" id="L93">		lblText = new JLabel(controller.getResourcebundle().getString(&quot;ensure_remove_msg&quot;));</span>
+<span class="nc" id="L94">		lblText.setBounds(25, 5, 350, 35);</span>
+<span class="nc" id="L95">		frmRemoveAccount.getContentPane().add(lblText);</span>
 		
-<span class="nc" id="L71">		logger.info(&quot;RemoveAccountWindow well initialized&quot;);</span>
-<span class="nc" id="L72">	}</span>
+<span class="nc" id="L97">		logger.info(&quot;RemoveAccountWindow well initialized&quot;);</span>
+<span class="nc" id="L98">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -36,6 +36,7 @@ public class SearchWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(SearchWindow.class.getName());
 	private Controller controller;
+	private boolean visible;
 	private UserData user;
 	private JFrame mainWindow;
 	
@@ -65,13 +66,14 @@ public class SearchWindow extends JFrame{
 	/**
 	 * Create the application.
 	 */
-	public SearchWindow(Controller controller, UserData user, JFrame mainWindow) {
+	public SearchWindow(Controller controller, UserData user, JFrame mainWindow, boolean visible) {
 		this.controller = controller;
+		this.visible = visible;
 		this.user = user;
 		this.mainWindow = mainWindow;
 		frmSearchVans.setTitle(controller.getResourcebundle().getString("search_window_tittle_msg"));
 		frmSearchVans.setResizable(false);
-		frmSearchVans.setVisible(true);
+		frmSearchVans.setVisible(visible);
 		initialize();
 	}
 
@@ -220,7 +222,7 @@ public class SearchWindow extends JFrame{
 					controller.registerReservation(pickUpDate, days, van, user);
 					logger.debug("Reservation well generated");
 				}
-				mainWindow.setVisible(true);
+				mainWindow.setVisible(visible);
 				frmSearchVans.dispose();
 				
 			}
@@ -237,7 +239,7 @@ public class SearchWindow extends JFrame{
 				if(jtVansTable.getSelectedRow() != -1) {
 					VanData van = vans.get(jtVansTable.getSelectedRow());
 					frmSearchVans.setVisible(false);
-					new CharacteristicsWindow(controller, van, frmSearchVans);
+					new CharacteristicsWindow(controller, van, frmSearchVans, visible);
 				}
 			}
 		});
@@ -250,7 +252,7 @@ public class SearchWindow extends JFrame{
 		btnNewButton.setFont(new Font("Tahoma", Font.ITALIC, 11));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new MainWindow(controller, user);
+				new MainWindow(controller, user, visible);
 				frmSearchVans.dispose();
 			}
 		});

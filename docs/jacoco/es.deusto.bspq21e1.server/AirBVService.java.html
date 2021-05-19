@@ -76,69 +76,67 @@ public class AirBVService {
 		try {
 <span class="fc" id="L77">			pickUpDate = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(pickUpDateString);</span>
 <span class="nc" id="L78">		} catch (ParseException e1) {</span>
-			// TODO Auto-generated catch block
-<span class="nc" id="L80">			e1.printStackTrace();</span>
-<span class="fc" id="L81">		}</span>
+<span class="nc" id="L79">			e1.printStackTrace();</span>
+<span class="fc" id="L80">		}</span>
 		
-<span class="fc" id="L83">		Date returnDate = null;</span>
+<span class="fc" id="L82">		Date returnDate = null;</span>
 		try {
-<span class="fc" id="L85">			returnDate = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(returnDateString);</span>
-<span class="nc" id="L86">		} catch (ParseException e1) {</span>
-			// TODO Auto-generated catch block
-<span class="nc" id="L88">			e1.printStackTrace();</span>
-<span class="fc" id="L89">		}</span>
+<span class="fc" id="L84">			returnDate = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(returnDateString);</span>
+<span class="nc" id="L85">		} catch (ParseException e1) {</span>
+<span class="nc" id="L86">			e1.printStackTrace();</span>
+<span class="fc" id="L87">		}</span>
 		
-<span class="fc" id="L91">		ArrayList&lt;Van&gt; vanAL = new ArrayList&lt;Van&gt;(DBManager.getInstance().getVansByDates(location, pickUpDate, returnDate));</span>
-<span class="fc bfc" id="L92" title="All 2 branches covered.">		for( Van v : vanAL ) { </span>
-<span class="fc" id="L93">			logger.debug(&quot;Van in AIRBVService: &quot; + v);</span>
-<span class="fc" id="L94">			vansHM.put(v.getLicensePlate(), v); </span>
-<span class="fc" id="L95">		}</span>
+<span class="fc" id="L89">		ArrayList&lt;Van&gt; vanAL = new ArrayList&lt;Van&gt;(DBManager.getInstance().getVansByDates(location, pickUpDate, returnDate));</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">		for( Van v : vanAL ) { </span>
+<span class="fc" id="L91">			logger.debug(&quot;Van in AIRBVService: &quot; + v);</span>
+<span class="fc" id="L92">			vansHM.put(v.getLicensePlate(), v); </span>
+<span class="fc" id="L93">		}</span>
 		
-<span class="fc" id="L97">		return vanAL;</span>
+<span class="fc" id="L95">		return vanAL;</span>
 	}
 	
 	public ArrayList&lt;Van&gt; searchVansByLocation(String location) {
-<span class="nc" id="L101">		logger.info(&quot;Searching vans with location: &quot;+ location);</span>
-<span class="nc" id="L102">		ArrayList&lt;Van&gt; vanAL = new ArrayList&lt;Van&gt;(DBManager.getInstance().getVansByLocation(location));</span>
-<span class="nc bnc" id="L103" title="All 2 branches missed.">		for( Van v : vanAL ) { </span>
-<span class="nc" id="L104">			logger.debug(&quot;Van in AIRBVService: &quot; + v);</span>
-<span class="nc" id="L105">			vansHM.put(v.getLicensePlate(), v); </span>
-<span class="nc" id="L106">		}</span>
+<span class="nc" id="L99">		logger.info(&quot;Searching vans with location: &quot;+ location);</span>
+<span class="nc" id="L100">		ArrayList&lt;Van&gt; vanAL = new ArrayList&lt;Van&gt;(DBManager.getInstance().getVansByLocation(location));</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">		for( Van v : vanAL ) { </span>
+<span class="nc" id="L102">			logger.debug(&quot;Van in AIRBVService: &quot; + v);</span>
+<span class="nc" id="L103">			vansHM.put(v.getLicensePlate(), v); </span>
+<span class="nc" id="L104">		}</span>
 		
-<span class="nc" id="L108">		return vanAL;</span>
+<span class="nc" id="L106">		return vanAL;</span>
 	}
 	
 	public User login(String email, String password) {
-<span class="fc" id="L112">		logger.info(&quot;Verificating credentials and returning user: &quot; + email);</span>
-<span class="fc" id="L113">		User user = DBManager.getInstance().validateLogin(email, password);</span>
-<span class="fc" id="L114">		return user;</span>
+<span class="fc" id="L110">		logger.info(&quot;Verificating credentials and returning user: &quot; + email);</span>
+<span class="fc" id="L111">		User user = DBManager.getInstance().validateLogin(email, password);</span>
+<span class="fc" id="L112">		return user;</span>
 	}
 
 	public ArrayList&lt;Reservation&gt; getUserReservations(String dni) {
-<span class="fc" id="L118">		logger.info(&quot;Getting all reservations of user: &quot; + dni);</span>
-<span class="fc" id="L119">		return (ArrayList&lt;Reservation&gt;) DBManager.getInstance().getReservationsByUser(dni);</span>
+<span class="fc" id="L116">		logger.info(&quot;Getting all reservations of user: &quot; + dni);</span>
+<span class="fc" id="L117">		return (ArrayList&lt;Reservation&gt;) DBManager.getInstance().getReservationsByUser(dni);</span>
 	}
 	
 	public ArrayList&lt;Van&gt; getUserVans(String dni) {
-<span class="fc" id="L123">		logger.info(&quot;Getting all vans of user: &quot; + dni);</span>
-<span class="fc" id="L124">		ArrayList&lt;Van&gt; l = (ArrayList&lt;Van&gt;) DBManager.getInstance().getVansByUser(dni);</span>
-<span class="fc" id="L125">		return l;</span>
+<span class="fc" id="L121">		logger.info(&quot;Getting all vans of user: &quot; + dni);</span>
+<span class="fc" id="L122">		ArrayList&lt;Van&gt; l = (ArrayList&lt;Van&gt;) DBManager.getInstance().getVansByUser(dni);</span>
+<span class="fc" id="L123">		return l;</span>
 	}
 
 	public boolean deleteUser(String dni) {
-<span class="fc" id="L129">		logger.info(&quot;Deleting user with dni: &quot; + dni);</span>
-<span class="pc bpc" id="L130" title="1 of 2 branches missed.">		if(usersHM.get(dni) != null ) {</span>
-<span class="fc" id="L131">			usersHM.remove(dni);</span>
+<span class="fc" id="L127">		logger.info(&quot;Deleting user with dni: &quot; + dni);</span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">		if(usersHM.get(dni) != null ) {</span>
+<span class="fc" id="L129">			usersHM.remove(dni);</span>
 		}
-<span class="fc" id="L133">		return DBManager.getInstance().deleteUser(dni);</span>
+<span class="fc" id="L131">		return DBManager.getInstance().deleteUser(dni);</span>
 	}
 	
 	public boolean deleteVan(String licensePlate) {
-<span class="fc" id="L137">		logger.info(&quot;Deleting van with license plate: &quot; + licensePlate);</span>
-<span class="fc bfc" id="L138" title="All 2 branches covered.">		if(vansHM.get(licensePlate) != null ) {</span>
-<span class="fc" id="L139">			vansHM.remove(licensePlate);</span>
+<span class="fc" id="L135">		logger.info(&quot;Deleting van with license plate: &quot; + licensePlate);</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">		if(vansHM.get(licensePlate) != null ) {</span>
+<span class="fc" id="L137">			vansHM.remove(licensePlate);</span>
 		}
-<span class="fc" id="L141">		return DBManager.getInstance().deleteVan(licensePlate);</span>
+<span class="fc" id="L139">		return DBManager.getInstance().deleteVan(licensePlate);</span>
 	}
     
 }

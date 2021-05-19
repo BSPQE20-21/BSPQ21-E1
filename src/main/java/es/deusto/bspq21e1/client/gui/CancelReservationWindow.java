@@ -39,6 +39,7 @@ public class CancelReservationWindow extends JFrame{
 	private Controller controller;
 	private UserData user;
 	private JFrame frmMain;
+	private boolean visible;
 	
 	private JFrame frmCancelReservation = new JFrame();
 	private JButton btnCancel, btnBack;
@@ -55,14 +56,15 @@ public class CancelReservationWindow extends JFrame{
 	 * @param controller Controller used for handling all requests in the system.
 	 * @param userData The user that has logged in.
 	 */
-	public CancelReservationWindow(Controller controller, UserData userData, JFrame frmMain) {
+	public CancelReservationWindow(Controller controller, UserData userData, JFrame frmMain, boolean visible) {
 		this.controller = controller;
 		this.user = userData;
 		this.frmMain = frmMain;
 		initialize();
 		frmCancelReservation.setTitle(controller.getResourcebundle().getString("cancel_reservation_window_tittle_msg"));
 		frmCancelReservation.setResizable(false);
-		frmCancelReservation.setVisible(true);
+		this.visible = visible;
+		frmCancelReservation.setVisible(visible);
 	}
 	
 	/**
@@ -116,7 +118,7 @@ public class CancelReservationWindow extends JFrame{
 		btnBack.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				frmMain.setVisible(true);
+				frmMain.setVisible(visible);
 				frmCancelReservation.dispose();
 			}
 		});
@@ -138,7 +140,7 @@ public class CancelReservationWindow extends JFrame{
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.cancelReservation(reservations.get(jtReservationsTable.getSelectedRow()).getCode());
-				frmMain.setVisible(true);
+				frmMain.setVisible(visible);
 				frmCancelReservation.dispose();
 			}
 		});

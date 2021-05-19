@@ -22,6 +22,7 @@ public class MainWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(MainWindow.class.getName());
 	private Controller controller;
+	private boolean visible;
 	private UserData user;
 	
 	private JFrame frmMain = new JFrame();
@@ -30,12 +31,13 @@ public class MainWindow extends JFrame {
 	btnRemoveAccount, btnlogOut;
 	private JLabel lblTitle;
 	
-	public MainWindow(Controller controller, UserData user) {
+	public MainWindow(Controller controller, UserData user, boolean visible) {
 		this.controller = controller;
+		this.visible = visible;
 		this.user = user;
 		initialize();
 		frmMain.setResizable(false);
-		frmMain.setVisible(true);
+		frmMain.setVisible(visible);
 	}
 	
 	private void initialize() {
@@ -56,7 +58,7 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frmMain.setVisible(false);
-				new SearchWindow(controller, user, frmMain);
+				new SearchWindow(controller, user, frmMain, visible);
 			}
 		});
 		btnSearchVan.addMouseListener(new MouseAdapter() {
@@ -77,7 +79,7 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frmMain.setVisible(false);
-				new RegisterVanWindow(controller, user, frmMain);
+				new RegisterVanWindow(controller, user, frmMain, visible);
 			}
 		});
 		btnRegisterVan.addMouseListener(new MouseAdapter() {
@@ -98,7 +100,7 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frmMain.setVisible(false);
-				new CancelReservationWindow(controller, user, frmMain);
+				new CancelReservationWindow(controller, user, frmMain, visible);
 			}
 		});
 		btnCancelRes.addMouseListener(new MouseAdapter() {
@@ -119,7 +121,7 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frmMain.setVisible(false);
-				new RemoveVanWindow(controller, user, frmMain);
+				new RemoveVanWindow(controller, user, frmMain, visible);
 			}
 		});
 		btnRemoveVan.addMouseListener(new MouseAdapter() {
@@ -140,7 +142,7 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frmMain.setVisible(false);
-				new RemoveAccountWindow(controller, user, frmMain);
+				new RemoveAccountWindow(controller, user, frmMain, visible);
 			}
 		});
 		btnRemoveAccount.addMouseListener(new MouseAdapter() {
@@ -160,7 +162,7 @@ public class MainWindow extends JFrame {
 		btnlogOut.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new InitialWindow(controller);
+				new InitialWindow(controller, visible);
 				frmMain.dispose();
 			}
 		});

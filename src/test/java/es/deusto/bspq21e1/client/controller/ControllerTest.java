@@ -43,7 +43,7 @@ public class ControllerTest {
 	@Before
 	public void setUp() throws Exception {
 		logger.info("Before tests code execution begins");
-		controller = new Controller("127.0.0.1", "8080");
+		controller = new Controller("127.0.0.1", "8080", "/src/main/resources/demoData.csv");
 		
 		userDni = "00000001A";
 		userDni2 = "00000002A";
@@ -88,8 +88,8 @@ public class ControllerTest {
     	assertTrue(controller.eraseVan(van2.getLicensePlate()));
     	assertFalse(controller.eraseVan("8754ACB"));
     	
-    	assertTrue(controller.eraseUser("00000001A"));
-		assertTrue(controller.eraseUser("00000002A"));
+    	assertTrue(controller.eraseUser(userDni));
+		assertTrue(controller.eraseUser(userDni2));
 		assertEquals(0, controller.searchVans("Bilbao", "10-10-2021", "20-10-2021").size());
 
 		logger.info("After tests code execution begins properly");

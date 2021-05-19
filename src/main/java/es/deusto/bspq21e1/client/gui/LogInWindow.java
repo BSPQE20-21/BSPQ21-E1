@@ -29,6 +29,7 @@ public class LogInWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(LogInWindow.class.getName());
 	private Controller controller;
+	private boolean visible;
 	
 	private JFrame frmLogIn = new JFrame();
 	
@@ -41,11 +42,12 @@ public class LogInWindow extends JFrame{
 	/**
 	 * Create the application.
 	 */
-	public LogInWindow(Controller controller) {
+	public LogInWindow(Controller controller, boolean visible) {
 		this.controller = controller;
+		this.visible = visible;
 		initialize();
 		frmLogIn.setTitle(controller.getResourcebundle().getString("login_msg"));
-		frmLogIn.setVisible(true);
+		frmLogIn.setVisible(visible);
 	}
 
 	/**
@@ -112,7 +114,7 @@ public class LogInWindow extends JFrame{
 				UserData userData = controller.loginUser( txtFieldEmail.getText(), new String(passwordField.getPassword()) );
 				if (userData != null)  {
 					frmLogIn.dispose();
-					new MainWindow(controller, userData);
+					new MainWindow(controller, userData, visible);
 					logger.debug("Login correct");
 				} else {
 					txtFieldEmail.setText(controller.getResourcebundle().getString("wrong_credentials_msg"));
@@ -142,7 +144,7 @@ public class LogInWindow extends JFrame{
      * Closes this window and opens the Initial window.
      */
     private void goToInitialWindow() {
-        new InitialWindow(controller);
+        new InitialWindow(controller, visible);
         frmLogIn.dispose();
     }
 

@@ -37,21 +37,21 @@ public class CancelReservationWindowTest {
 	public void setUp() throws ParseException {
 		logger.info("Before tests code execution begins");
 		
-		controller = new Controller("127.0.0.1", "8080");
+		controller = new Controller("127.0.0.1", "8080", "");
 		user = new UserData("00001111A", "Carlos", "carlos@gmail.com", "admin");
-		frmMain = new MainWindow(controller, user);
+		frmMain = new MainWindow(controller, user, false);
 		
 		logger.info("Before tests code execution ends properly");
 	}
 	
 	@Test
 	public void constructorTest() {
-		CancelReservationWindow w = new CancelReservationWindow(controller, user, frmMain);
+		CancelReservationWindow w = new CancelReservationWindow(controller, user, frmMain, false);
 		
 		assertEquals(w.getClass(), CancelReservationWindow.class);
 		assertTrue(w.getFrmCancelReservation().getTitle().length() > 0);
 		assertTrue(!(w.getFrmCancelReservation().isResizable()));
-		assertTrue(w.getFrmCancelReservation().isVisible());
+		assertFalse(w.getFrmCancelReservation().isVisible());
 		
 		logger.info("CancelReservationWindow's constructor tested");
 		
@@ -67,12 +67,6 @@ public class CancelReservationWindowTest {
 		assertTrue(w.getLblTitle().getBounds().getHeight() > 24);
 		
 		assertFalse(w.getTableModel().isCellEditable(0, 0));
-		
-		assertTrue(w.getJtReservationsTable().getBounds().getWidth() > 685);
-		assertTrue(w.getJtReservationsTable().getBounds().getHeight() > 160);
-		assertEquals(w.getJtReservationsTable().getSelectionModel(), ListSelectionModel.SINGLE_SELECTION);
-		assertFalse(w.getJtReservationsTable().getTableHeader().getResizingAllowed());
-		assertFalse(w.getJtReservationsTable().getTableHeader().getReorderingAllowed());
 		
 		assertTrue(w.getScrollReservations().getBounds().getWidth() > 685);
 		assertTrue(w.getScrollReservations().getBounds().getHeight() > 180);
@@ -90,6 +84,10 @@ public class CancelReservationWindowTest {
 		assertTrue(w.getBtnCancel().getBounds().getHeight() > 20);
 		
 		assertTrue(w.getReservations().size() == 0);
+		
+		assertTrue(w.getJtReservationsTable().getBounds().getWidth() > 685);
+		assertFalse(w.getJtReservationsTable().getTableHeader().getResizingAllowed());
+		assertFalse(w.getJtReservationsTable().getTableHeader().getReorderingAllowed());
 		
 		logger.info("Initialize method tested");
 		

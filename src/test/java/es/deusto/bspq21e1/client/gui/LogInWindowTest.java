@@ -32,18 +32,18 @@ public class LogInWindowTest {
 	public void setUp() {
 		logger.info("Before tests code execution begins");
 		
-		controller = new Controller("127.0.0.1", "8080");
+		controller = new Controller("127.0.0.1", "8080", "");
 		
 		logger.info("Before tests code execution ends properly");
 	}
 	
 	@Test
 	public void constructorTest() {
-		w = new LogInWindow(controller);
+		w = new LogInWindow(controller, false);
 		
 		assertEquals(w.getClass(), LogInWindow.class);
 		assertTrue(w.getFrmLogIn().getTitle().length() > 0);
-		assertTrue(w.getFrmLogIn().isVisible());
+		assertFalse(w.getFrmLogIn().isVisible());
 		
 		logger.info("CharacteristicsWindow's constructor tested");
 		

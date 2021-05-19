@@ -216,7 +216,7 @@ public class Controller {
 	 * @return ResourceBundle
 	 */
 	public ResourceBundle getResourcebundle() {
-<span class="nc" id="L219">		return resourceBundle;</span>
+<span class="fc" id="L219">		return resourceBundle;</span>
 	}
 	
 	/**
@@ -231,7 +231,7 @@ public class Controller {
 <span class="nc bnc" id="L231" title="All 2 branches missed.">		}else if(locale.equals(&quot;en&quot;)){</span>
 <span class="nc" id="L232">			currentLocale = new Locale(&quot;en&quot;);</span>
 		}
-		//TODO
+<span class="nc" id="L234">		resourceBundle = ResourceBundle.getBundle(&quot;SystemMessages&quot;, currentLocale);</span>
 <span class="nc" id="L235">	}</span>
 	
 }

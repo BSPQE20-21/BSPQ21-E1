@@ -1,6 +1,7 @@
 package es.deusto.bspq21e1.client.gui;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -31,17 +32,17 @@ public class InitialWindowTest {
 	public void setUp() {
 		logger.info("Before tests code execution begins");
 		
-		controller = new Controller("127.0.0.1", "8080");
+		controller = new Controller("127.0.0.1", "8080", "");
 		
 		logger.info("Before tests code execution ends properly");
 	}
 	
 	@Test
 	public void constructorTest() {
-		InitialWindow w = new InitialWindow(controller);
+		InitialWindow w = new InitialWindow(controller, false);
 		
 		assertTrue(w.getFrmAirbv().getTitle().length() > 0);
-		assertTrue(w.getFrmAirbv().isVisible());
+		assertFalse(w.getFrmAirbv().isVisible());
 		
 		logger.info("InitialWindow's constructor tested");
 		

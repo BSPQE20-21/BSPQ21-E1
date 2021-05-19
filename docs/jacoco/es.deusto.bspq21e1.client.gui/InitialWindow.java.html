@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InitialWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AirBVJDOREST</a> &gt; <a href="index.source.html" class="el_package">es.deusto.bspq21e1.client.gui</a> &gt; <span class="el_source">InitialWindow.java</span></div><h1>InitialWindow.java</h1><pre class="source lang-java linenums">package es.deusto.bspq21e1.client.gui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -10,6 +11,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 
 import es.deusto.bspq21e1.client.controller.Controller;
@@ -24,113 +27,282 @@ import javax.swing.JPanel;
 public class InitialWindow extends JFrame {
 
     private static final long serialVersionUID = 1L;
-<span class="nc" id="L27">    private static Logger logger = Logger.getLogger(InitialWindow.class.getName());</span>
+<span class="fc" id="L30">    private static Logger logger = Logger.getLogger(InitialWindow.class.getName());</span>
     private Controller controller;
 
-<span class="nc" id="L30">    private JFrame frmAirbv = new JFrame();</span>
+<span class="fc" id="L33">    private JFrame frmAirbv = new JFrame();</span>
     private JLabel lblHead;
     private JPanel panel;
     private JButton btnRegister, btnLogin, btnExit;
+    private JLabel lblLogoImg, lblSpanishImg, lblEnglishImg, lblBasqueImg, lblSpanishButton,
+    lblEnglishButton, lblBasqueButton;
 
     /**
 	 * Creates the initial window of the program.
      * @param controller Controller used for handling all requests in the system.  
 	 */
-<span class="nc" id="L39">    public InitialWindow(Controller controller) {</span>
-<span class="nc" id="L40">        this.controller = controller;</span>
-<span class="nc" id="L41">        frmAirbv.setTitle(&quot;AirB&amp;V&quot;);</span>
-<span class="nc" id="L42">        frmAirbv.setVisible(true);</span>
-<span class="nc" id="L43">        initialize();</span>
-<span class="nc" id="L44">    }</span>
+<span class="fc" id="L44">    public InitialWindow(Controller controller) {</span>
+<span class="fc" id="L45">        this.controller = controller;</span>
+<span class="fc" id="L46">        frmAirbv.setTitle(&quot;AirB&amp;V&quot;);</span>
+<span class="fc" id="L47">        frmAirbv.setVisible(true);</span>
+<span class="fc" id="L48">        initialize();</span>
+<span class="fc" id="L49">    }</span>
 
     /**
 	 * Initializes all the elements the window needs to show to the user and their functionality.
 	 */
     private void initialize() {
-<span class="nc" id="L50">        frmAirbv.setBounds(100, 100, 255, 320);</span>
-<span class="nc" id="L51">        frmAirbv.setLocationRelativeTo(null);</span>
-<span class="nc" id="L52">        frmAirbv.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
-<span class="nc" id="L53">		frmAirbv.getContentPane().setLayout(null);</span>
+<span class="fc" id="L55">        frmAirbv.setBounds(100, 100, 355, 350);</span>
+<span class="fc" id="L56">        frmAirbv.setResizable(false);</span>
+<span class="fc" id="L57">        frmAirbv.setLocationRelativeTo(null);</span>
+<span class="fc" id="L58">        frmAirbv.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="fc" id="L59">		frmAirbv.getContentPane().setLayout(null);</span>
+<span class="fc" id="L60">		frmAirbv.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
 		
-<span class="nc" id="L55">        lblHead = new JLabel(controller.getResourcebundle().getString(&quot;initial_head_msg&quot;));</span>
-<span class="nc" id="L56">        lblHead.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 18));</span>
-<span class="nc" id="L57">        lblHead.setBounds(23, 25, 202, 25);</span>
-<span class="nc" id="L58">        frmAirbv.getContentPane().add(lblHead);</span>
+<span class="fc" id="L62">        lblHead = new JLabel(controller.getResourcebundle().getString(&quot;initial_head_msg&quot;));</span>
+<span class="fc" id="L63">        lblHead.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 18));</span>
+<span class="fc" id="L64">        lblHead.setBounds(20, 72, 202, 25);</span>
+<span class="fc" id="L65">        frmAirbv.getContentPane().add(lblHead);</span>
+<span class="fc" id="L66">        lblHead.updateUI();</span>
 
-<span class="nc" id="L60">        panel = new JPanel();</span>
-<span class="nc" id="L61">        panel.setBounds(20, 50, 202, 210);</span>
-<span class="nc" id="L62">        frmAirbv.getContentPane().add(panel);</span>
-<span class="nc" id="L63">        panel.setLayout(null);</span>
+<span class="fc" id="L68">        panel = new JPanel();</span>
+<span class="fc" id="L69">        panel.setBounds(68, 107, 202, 192);</span>
+<span class="fc" id="L70">        frmAirbv.getContentPane().add(panel);</span>
+<span class="fc" id="L71">        panel.setLayout(null);</span>
 
-<span class="nc" id="L65">        btnRegister = new JButton(controller.getResourcebundle().getString(&quot;register_msg&quot;));</span>
-<span class="nc" id="L66">        btnRegister.setBounds(25, 36, 150, 25);</span>
-<span class="nc" id="L67">        btnRegister.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L73">        btnRegister = new JButton(controller.getResourcebundle().getString(&quot;register_msg&quot;));</span>
+<span class="fc" id="L74">        btnRegister.setBounds(25, 36, 150, 25);</span>
+<span class="fc" id="L75">        btnRegister.addActionListener(new ActionListener() {</span>
             @Override
             public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L70">            	new RegisterUserWindow(controller);</span>
-<span class="nc" id="L71">                frmAirbv.dispose();</span>
-<span class="nc" id="L72">            }</span>
+<span class="nc" id="L78">            	new RegisterUserWindow(controller);</span>
+<span class="nc" id="L79">                frmAirbv.dispose();</span>
+<span class="nc" id="L80">            }</span>
         } );
-<span class="nc" id="L74">        btnRegister.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L82">        btnRegister.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
-<span class="nc" id="L76">        		btnRegister.setBounds(13, 36, 175, 29);</span>
-<span class="nc" id="L77">        		btnRegister.updateUI();</span>
-<span class="nc" id="L78">		    }</span>
+<span class="nc" id="L84">        		btnRegister.setBounds(13, 36, 175, 29);</span>
+<span class="nc" id="L85">        		btnRegister.updateUI();</span>
+<span class="nc" id="L86">		    }</span>
 		    public void mouseExited(MouseEvent e) {
-<span class="nc" id="L80">		    	btnRegister.setBounds(25, 36, 150, 25);</span>
-<span class="nc" id="L81">		    	btnRegister.updateUI();</span>
-<span class="nc" id="L82">		    }</span>
+<span class="nc" id="L88">		    	btnRegister.setBounds(25, 36, 150, 25);</span>
+<span class="nc" id="L89">		    	btnRegister.updateUI();</span>
+<span class="nc" id="L90">		    }</span>
 		});
-<span class="nc" id="L84">        panel.add(btnRegister);</span>
-<span class="nc" id="L85">        btnRegister.updateUI();</span>
+<span class="fc" id="L92">        panel.add(btnRegister);</span>
+<span class="fc" id="L93">        btnRegister.updateUI();</span>
 
-<span class="nc" id="L87">        btnLogin = new JButton(controller.getResourcebundle().getString(&quot;login_msg&quot;));</span>
-<span class="nc" id="L88">        btnLogin.setBounds(25, 85, 150, 25);</span>
-<span class="nc" id="L89">        btnLogin.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L95">        btnLogin = new JButton(controller.getResourcebundle().getString(&quot;login_msg&quot;));</span>
+<span class="fc" id="L96">        btnLogin.setBounds(25, 85, 150, 25);</span>
+<span class="fc" id="L97">        btnLogin.addActionListener(new ActionListener() {</span>
 			@Override
 			public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L92">				new LogInWindow(controller);</span>
-<span class="nc" id="L93">				frmAirbv.dispose();</span>
-<span class="nc" id="L94">			}</span>
+<span class="nc" id="L100">				new LogInWindow(controller);</span>
+<span class="nc" id="L101">				frmAirbv.dispose();</span>
+<span class="nc" id="L102">			}</span>
 		});
-<span class="nc" id="L96">        btnLogin.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L104">        btnLogin.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
-<span class="nc" id="L98">		    	btnLogin.setBounds(13, 85, 175, 29);</span>
-<span class="nc" id="L99">		    	btnLogin.updateUI();</span>
-<span class="nc" id="L100">		    }</span>
+<span class="nc" id="L106">		    	btnLogin.setBounds(13, 85, 175, 29);</span>
+<span class="nc" id="L107">		    	btnLogin.updateUI();</span>
+<span class="nc" id="L108">		    }</span>
 		    public void mouseExited(MouseEvent e) {
-<span class="nc" id="L102">		    	btnLogin.setBounds(25, 85, 150, 25);</span>
-<span class="nc" id="L103">		    	btnLogin.updateUI();</span>
-<span class="nc" id="L104">		    }</span>
+<span class="nc" id="L110">		    	btnLogin.setBounds(25, 85, 150, 25);</span>
+<span class="nc" id="L111">		    	btnLogin.updateUI();</span>
+<span class="nc" id="L112">		    }</span>
 		});
-<span class="nc" id="L106">        panel.add(btnLogin);</span>
-<span class="nc" id="L107">        btnLogin.updateUI();</span>
+<span class="fc" id="L114">        panel.add(btnLogin);</span>
+<span class="fc" id="L115">        btnLogin.updateUI();</span>
 
-<span class="nc" id="L109">        btnExit = new JButton(controller.getResourcebundle().getString(&quot;exit_msg&quot;));</span>
-<span class="nc" id="L110">        btnExit.setBounds(25, 180, 150, 25);</span>
-<span class="nc" id="L111">        btnExit.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L117">        btnExit = new JButton(controller.getResourcebundle().getString(&quot;exit_msg&quot;));</span>
+<span class="fc" id="L118">        btnExit.setBounds(25, 143, 150, 25);</span>
+<span class="fc" id="L119">        btnExit.addActionListener(new ActionListener() {</span>
             @Override
             public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L114">            	frmAirbv.dispose();</span>
-<span class="nc" id="L115">            }</span>
+<span class="nc" id="L122">            	frmAirbv.dispose();</span>
+<span class="nc" id="L123">            }</span>
         } );
-<span class="nc" id="L117">        btnExit.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L125">        btnExit.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
-<span class="nc" id="L119">		    	btnExit.setBounds(13, 180, 175, 29);</span>
-<span class="nc" id="L120">		    	btnExit.setBackground(Color.RED);</span>
-<span class="nc" id="L121">		    	btnExit.updateUI();</span>
-<span class="nc" id="L122">		    }</span>
+<span class="nc" id="L127">		    	btnExit.setBounds(13, 143, 175, 29);</span>
+<span class="nc" id="L128">		    	btnExit.setBackground(Color.RED);</span>
+<span class="nc" id="L129">		    	btnExit.updateUI();</span>
+<span class="nc" id="L130">		    }</span>
 		    public void mouseExited(MouseEvent e) {
-<span class="nc" id="L124">		    	btnExit.setBounds(25, 180, 150, 25);</span>
-<span class="nc" id="L125">		    	btnExit.setBackground(btnLogin.getBackground());</span>
-<span class="nc" id="L126">		    	btnExit.updateUI();</span>
-<span class="nc" id="L127">		    }</span>
+<span class="nc" id="L132">		    	btnExit.setBounds(25, 143, 150, 25);</span>
+<span class="nc" id="L133">		    	btnExit.setBackground(btnLogin.getBackground());</span>
+<span class="nc" id="L134">		    	btnExit.updateUI();</span>
+<span class="nc" id="L135">		    }</span>
 		});
-<span class="nc" id="L129">        panel.add(btnExit);</span>
-<span class="nc" id="L130">        btnExit.updateUI();</span>
+<span class="fc" id="L137">        panel.add(btnExit);   </span>
+<span class="fc" id="L138">        btnExit.updateUI();</span>
 
-<span class="nc" id="L132">        logger.info(&quot;InitialWindow well initialized&quot;);</span>
-<span class="nc" id="L133">    }</span>
+        //IMG CARAVAN
+<span class="fc" id="L141">        lblLogoImg = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L142">        lblLogoImg.setBounds(248, 65, 64, 38);</span>
+<span class="fc" id="L143">        Image logoImg = new ImageIcon(&quot;src/main/resources/images/caravan.png&quot;).getImage();</span>
+<span class="fc" id="L144">        ImageIcon logoImgScaled = new ImageIcon(logoImg.getScaledInstance(63, 37, Image.SCALE_SMOOTH));</span>
+<span class="fc" id="L145">        lblLogoImg.setIcon(logoImgScaled);</span>
+        
+<span class="fc" id="L147">        frmAirbv.getContentPane().add(lblLogoImg);</span>
+<span class="fc" id="L148">        lblLogoImg.updateUI();</span>
+        
+        //IMG SPANISH
+<span class="fc" id="L151">        lblSpanishImg = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L152">        lblSpanishImg.setBounds(25, 10, 45, 25);</span>
+<span class="fc" id="L153">        Image spanishImg = new ImageIcon(&quot;src/main/resources/images/spanish_flag.png&quot;).getImage();</span>
+<span class="fc" id="L154">        ImageIcon spanishImgScaled = new ImageIcon(spanishImg.getScaledInstance(25, 16, Image.SCALE_SMOOTH));</span>
+<span class="fc" id="L155">        lblSpanishImg.setIcon(spanishImgScaled);</span>
+<span class="fc" id="L156">        lblSpanishImg.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L159">				controller.setLocale(&quot;es&quot;);	</span>
+<span class="nc" id="L160">				frmAirbv.dispose();</span>
+<span class="nc" id="L161">				new InitialWindow(controller);</span>
+<span class="nc" id="L162">				logger.info(&quot;The language has been changed to Spanish&quot;);</span>
+<span class="nc" id="L163">			}</span>
+		});
+<span class="fc" id="L165">        frmAirbv.getContentPane().add(lblSpanishImg);</span>
+<span class="fc" id="L166">        lblSpanishImg.updateUI();</span>
+        
+        //IMG ENGLISH
+<span class="fc" id="L169">        lblEnglishImg = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L170">        lblEnglishImg.setBounds(129, 10, 45, 25);</span>
+<span class="fc" id="L171">        Image englishImg = new ImageIcon(&quot;src/main/resources/images/english_flag.png&quot;).getImage();</span>
+<span class="fc" id="L172">        ImageIcon englishImgScaled = new ImageIcon(englishImg.getScaledInstance(25, 16, Image.SCALE_SMOOTH));</span>
+<span class="fc" id="L173">        lblEnglishImg.setIcon(englishImgScaled);</span>
+<span class="fc" id="L174">        lblEnglishImg.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L177">				controller.setLocale(&quot;en&quot;);</span>
+<span class="nc" id="L178">				frmAirbv.dispose();</span>
+<span class="nc" id="L179">				new InitialWindow(controller);</span>
+<span class="nc" id="L180">				logger.info(&quot;The language has been changed to English&quot;);</span>
+<span class="nc" id="L181">			}</span>
+		});
+<span class="fc" id="L183">        frmAirbv.getContentPane().add(lblEnglishImg);</span>
+<span class="fc" id="L184">        lblEnglishImg.updateUI();    </span>
+        
+        //IMG BASQUE
+<span class="fc" id="L187">        lblBasqueImg = new JLabel(&quot;&quot;);</span>
+<span class="fc" id="L188">        lblBasqueImg.setBounds(228, 10, 45, 25);</span>
+<span class="fc" id="L189">        Image basqueImg = new ImageIcon(&quot;src/main/resources/images/basque_flag.png&quot;).getImage();</span>
+<span class="fc" id="L190">        ImageIcon basqueImgScaled = new ImageIcon(basqueImg.getScaledInstance(25, 16, Image.SCALE_SMOOTH));</span>
+<span class="fc" id="L191">        lblBasqueImg.setIcon(basqueImgScaled);</span>
+<span class="fc" id="L192">        lblBasqueImg.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L195">				controller.setLocale(&quot;eu&quot;);	</span>
+<span class="nc" id="L196">				frmAirbv.dispose();</span>
+<span class="nc" id="L197">				new InitialWindow(controller);</span>
+<span class="nc" id="L198">				logger.info(&quot;The language has been changed to Basque&quot;);</span>
+<span class="nc" id="L199">			}</span>
+		});
+<span class="fc" id="L201">        frmAirbv.getContentPane().add(lblBasqueImg);</span>
+<span class="fc" id="L202">        lblBasqueImg.updateUI();</span>
+        
+        //SPANISH BUTTON
+<span class="fc" id="L205">        lblSpanishButton = new JLabel(&quot;&lt;html&gt;&lt;u&gt;&quot; + controller.getResourcebundle().getString(&quot;spanish_msg&quot;));</span>
+<span class="fc" id="L206">        lblSpanishButton.setBounds(55, 15, 55, 13);</span>
+<span class="fc" id="L207">        lblSpanishButton.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L210">				controller.setLocale(&quot;es&quot;);	</span>
+<span class="nc" id="L211">				frmAirbv.dispose();</span>
+<span class="nc" id="L212">				new InitialWindow(controller);</span>
+<span class="nc" id="L213">				logger.info(&quot;The language has been changed to Spanish&quot;);</span>
+<span class="nc" id="L214">			}</span>
+		});
+<span class="fc" id="L216">        lblSpanishButton.setForeground(Color.BLUE);</span>
+<span class="fc" id="L217">        frmAirbv.getContentPane().add(lblSpanishButton);</span>
+<span class="fc" id="L218">        lblSpanishButton.updateUI();</span>
+        
+        //ENGLISH BUTTON
+<span class="fc" id="L221">        lblEnglishButton = new JLabel(&quot;&lt;html&gt;&lt;u&gt;&quot; + controller.getResourcebundle().getString(&quot;english_msg&quot;));</span>
+<span class="fc" id="L222">        lblEnglishButton.setForeground(Color.BLUE);</span>
+<span class="fc" id="L223">        lblEnglishButton.setBounds(160, 15, 55, 13);</span>
+<span class="fc" id="L224">        lblEnglishButton.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L227">				controller.setLocale(&quot;en&quot;);</span>
+<span class="nc" id="L228">				frmAirbv.dispose();</span>
+<span class="nc" id="L229">				new InitialWindow(controller);</span>
+<span class="nc" id="L230">				logger.info(&quot;The language has been changed to English&quot;);</span>
+<span class="nc" id="L231">			}</span>
+		});
+<span class="fc" id="L233">        frmAirbv.getContentPane().add(lblEnglishButton);</span>
+<span class="fc" id="L234">        lblEnglishButton.updateUI();</span>
+        
+        //BASQUE BUTTON
+<span class="fc" id="L237">        lblBasqueButton = new JLabel(&quot;&lt;html&gt;&lt;u&gt;&quot; + controller.getResourcebundle().getString(&quot;basque_msg&quot;));</span>
+<span class="fc" id="L238">        lblBasqueButton.setForeground(Color.BLUE);</span>
+<span class="fc" id="L239">        lblBasqueButton.setBounds(260, 15, 60, 13);</span>
+<span class="fc" id="L240">        lblBasqueButton.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L243">				controller.setLocale(&quot;eu&quot;);	</span>
+<span class="nc" id="L244">				frmAirbv.dispose();</span>
+<span class="nc" id="L245">				new InitialWindow(controller);</span>
+<span class="nc" id="L246">				logger.info(&quot;The language has been changed to Basque&quot;);</span>
+<span class="nc" id="L247">			}</span>
+		});
+<span class="fc" id="L249">        frmAirbv.getContentPane().add(lblBasqueButton);</span>
+<span class="fc" id="L250">        lblBasqueButton.updateUI();</span>
+        
+<span class="fc" id="L252">        logger.info(&quot;InitialWindow well initialized&quot;);</span>
+<span class="fc" id="L253">    }</span>
+
+	public JLabel getLblHead() {
+<span class="fc" id="L256">		return lblHead;</span>
+	}
+
+	public JPanel getPanel() {
+<span class="fc" id="L260">		return panel;</span>
+	}
+
+	public JButton getBtnRegister() {
+<span class="fc" id="L264">		return btnRegister;</span>
+	}
+
+	public JButton getBtnLogin() {
+<span class="fc" id="L268">		return btnLogin;</span>
+	}
+
+	public JButton getBtnExit() {
+<span class="fc" id="L272">		return btnExit;</span>
+	}
+
+	public JLabel getLblLogoImg() {
+<span class="fc" id="L276">		return lblLogoImg;</span>
+	}
+
+	public JLabel getLblSpanishImg() {
+<span class="fc" id="L280">		return lblSpanishImg;</span>
+	}
+
+	public JLabel getLblEnglishImg() {
+<span class="fc" id="L284">		return lblEnglishImg;</span>
+	}
+
+	public JLabel getLblBasqueImg() {
+<span class="fc" id="L288">		return lblBasqueImg;</span>
+	}
+
+	public JLabel getLblSpanishButton() {
+<span class="fc" id="L292">		return lblSpanishButton;</span>
+	}
+
+	public JLabel getLblEnglishButton() {
+<span class="fc" id="L296">		return lblEnglishButton;</span>
+	}
+
+	public JLabel getLblBasqueButton() {
+<span class="fc" id="L300">		return lblBasqueButton;</span>
+	}
+
+	public JFrame getFrmAirbv() {
+<span class="fc" id="L304">		return frmAirbv;</span>
+	}
     
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -21,6 +21,7 @@ public class RemoveAccountWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(RemoveAccountWindow.class.getName());
 	private Controller controller;
+	private boolean visible;
 	private UserData userData;
 	private JFrame frmMain;
 	
@@ -28,14 +29,15 @@ public class RemoveAccountWindow extends JFrame {
 	private JButton btnYes, btnNo;
 	private JLabel lblText;
 	
-	public RemoveAccountWindow(Controller controller, UserData userData, JFrame frmMain) {
+	public RemoveAccountWindow(Controller controller, UserData userData, JFrame frmMain, boolean visible) {
 		this.controller = controller;
 		this.userData = userData;
+		this.visible = visible;
 		this.frmMain = frmMain;
 		initialize();
 		frmRemoveAccount.setTitle(controller.getResourcebundle().getString("remove_user_btn_msg"));
 		frmRemoveAccount.setResizable(false);
-		frmRemoveAccount.setVisible(true);
+		frmRemoveAccount.setVisible(visible);
 	}
 	
 	private void initialize() {
@@ -50,7 +52,7 @@ public class RemoveAccountWindow extends JFrame {
 		btnNo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				frmMain.setVisible(true);
+				frmMain.setVisible(visible);
 				frmRemoveAccount.dispose();
 			}
 		});
@@ -72,7 +74,7 @@ public class RemoveAccountWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				controller.eraseUser( userData.getDni() );
-				new InitialWindow(controller);
+				new InitialWindow(controller, visible);
 				frmRemoveAccount.dispose();
 			}
 		});
