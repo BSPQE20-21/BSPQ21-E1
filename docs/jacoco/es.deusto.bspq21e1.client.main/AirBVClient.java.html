@@ -20,14 +20,14 @@ import es.deusto.bspq21e1.client.gui.InitialWindow;
 <span class="nc" id="L20">	private static Logger logger = Logger.getLogger(AirBVClient.class.getName());</span>
 	
 	public static void main(String[] args) {
-<span class="nc bnc" id="L23" title="All 2 branches missed.">        if (args.length != 2) {</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        if (args.length != 3) {</span>
 <span class="nc" id="L24">			logger.info(&quot;Use: java Client.Client [host] [port]&quot;);</span>
 <span class="nc" id="L25">			System.exit(0);</span>
 		}
         
-<span class="nc" id="L28">		Controller c = new Controller(args[0], args[1]); </span>
+<span class="nc" id="L28">		Controller c = new Controller(args[0], args[1], args[2]); </span>
 		
-<span class="nc" id="L30">		new InitialWindow(c);</span>
+<span class="nc" id="L30">		new InitialWindow(c, true);</span>
 		
 <span class="nc" id="L32">		logger.info(&quot;Client started without problems&quot;);</span>
 <span class="nc" id="L33">	}</span>

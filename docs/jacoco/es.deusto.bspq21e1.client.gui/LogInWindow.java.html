@@ -29,8 +29,9 @@ public class LogInWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 <span class="fc" id="L30">	private static Logger logger = Logger.getLogger(LogInWindow.class.getName());</span>
 	private Controller controller;
+	private boolean visible;
 	
-<span class="fc" id="L33">	private JFrame frmLogIn = new JFrame();</span>
+<span class="fc" id="L34">	private JFrame frmLogIn = new JFrame();</span>
 	
 	private JLabel lblTitle, lblEmail, lblPassword;
 	private JTextField txtFieldEmail;
@@ -41,141 +42,142 @@ public class LogInWindow extends JFrame{
 	/**
 	 * Create the application.
 	 */
-<span class="fc" id="L44">	public LogInWindow(Controller controller) {</span>
-<span class="fc" id="L45">		this.controller = controller;</span>
-<span class="fc" id="L46">		initialize();</span>
-<span class="fc" id="L47">		frmLogIn.setTitle(controller.getResourcebundle().getString(&quot;login_msg&quot;));</span>
-<span class="fc" id="L48">		frmLogIn.setVisible(true);</span>
-<span class="fc" id="L49">	}</span>
+<span class="fc" id="L45">	public LogInWindow(Controller controller, boolean visible) {</span>
+<span class="fc" id="L46">		this.controller = controller;</span>
+<span class="fc" id="L47">		this.visible = visible;</span>
+<span class="fc" id="L48">		initialize();</span>
+<span class="fc" id="L49">		frmLogIn.setTitle(controller.getResourcebundle().getString(&quot;login_msg&quot;));</span>
+<span class="fc" id="L50">		frmLogIn.setVisible(visible);</span>
+<span class="fc" id="L51">	}</span>
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-<span class="fc" id="L55">		frmLogIn.setResizable(false);</span>
-<span class="fc" id="L56">		frmLogIn.setBounds(100, 100, 450, 250);</span>
-<span class="fc" id="L57">		frmLogIn.setLocationRelativeTo(null);</span>
-<span class="fc" id="L58">		frmLogIn.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
-<span class="fc" id="L59">		frmLogIn.getContentPane().setLayout(null);</span>
-<span class="fc" id="L60">		frmLogIn.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
+<span class="fc" id="L57">		frmLogIn.setResizable(false);</span>
+<span class="fc" id="L58">		frmLogIn.setBounds(100, 100, 450, 250);</span>
+<span class="fc" id="L59">		frmLogIn.setLocationRelativeTo(null);</span>
+<span class="fc" id="L60">		frmLogIn.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="fc" id="L61">		frmLogIn.getContentPane().setLayout(null);</span>
+<span class="fc" id="L62">		frmLogIn.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
 		
-<span class="fc" id="L62">		lblTitle = new JLabel(controller.getResourcebundle().getString(&quot;login_window_msg&quot;));</span>
-<span class="fc" id="L63">		lblTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
-<span class="fc" id="L64">		lblTitle.setBounds(42, 31, 365, 19);</span>
-<span class="fc" id="L65">		frmLogIn.getContentPane().add(lblTitle);</span>
+<span class="fc" id="L64">		lblTitle = new JLabel(controller.getResourcebundle().getString(&quot;login_window_msg&quot;));</span>
+<span class="fc" id="L65">		lblTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
+<span class="fc" id="L66">		lblTitle.setBounds(42, 31, 365, 19);</span>
+<span class="fc" id="L67">		frmLogIn.getContentPane().add(lblTitle);</span>
 		
 		//Email
-<span class="fc" id="L68">		lblEmail = new JLabel(controller.getResourcebundle().getString(&quot;email_msg&quot;));</span>
-<span class="fc" id="L69">		lblEmail.setBounds(40, 81, 121, 19);</span>
-<span class="fc" id="L70">		frmLogIn.getContentPane().add(lblEmail);</span>
+<span class="fc" id="L70">		lblEmail = new JLabel(controller.getResourcebundle().getString(&quot;email_msg&quot;));</span>
+<span class="fc" id="L71">		lblEmail.setBounds(40, 81, 121, 19);</span>
+<span class="fc" id="L72">		frmLogIn.getContentPane().add(lblEmail);</span>
 		
-<span class="fc" id="L72">		txtFieldEmail = new JTextField();</span>
-<span class="fc" id="L73">		txtFieldEmail.setBounds(200, 79, 205, 24);</span>
-<span class="fc" id="L74">		frmLogIn.getContentPane().add(txtFieldEmail);</span>
-<span class="fc" id="L75">		txtFieldEmail.setColumns(10);</span>
+<span class="fc" id="L74">		txtFieldEmail = new JTextField();</span>
+<span class="fc" id="L75">		txtFieldEmail.setBounds(200, 79, 205, 24);</span>
+<span class="fc" id="L76">		frmLogIn.getContentPane().add(txtFieldEmail);</span>
+<span class="fc" id="L77">		txtFieldEmail.setColumns(10);</span>
 		
 		//Password
-<span class="fc" id="L78">		lblPassword = new JLabel(controller.getResourcebundle().getString(&quot;password_msg&quot;));</span>
-<span class="fc" id="L79">		lblPassword.setBounds(40, 120, 78, 13);</span>
-<span class="fc" id="L80">		frmLogIn.getContentPane().add(lblPassword);</span>
+<span class="fc" id="L80">		lblPassword = new JLabel(controller.getResourcebundle().getString(&quot;password_msg&quot;));</span>
+<span class="fc" id="L81">		lblPassword.setBounds(40, 120, 78, 13);</span>
+<span class="fc" id="L82">		frmLogIn.getContentPane().add(lblPassword);</span>
 		
-<span class="fc" id="L82">		passwordField = new JPasswordField();</span>
-<span class="fc" id="L83">		passwordField.setBounds(202, 115, 205, 24);</span>
-<span class="fc" id="L84">		frmLogIn.getContentPane().add(passwordField);</span>
+<span class="fc" id="L84">		passwordField = new JPasswordField();</span>
+<span class="fc" id="L85">		passwordField.setBounds(202, 115, 205, 24);</span>
+<span class="fc" id="L86">		frmLogIn.getContentPane().add(passwordField);</span>
 		
 		//BUTTON: Back
-<span class="fc" id="L87">		btnBack = new JButton(controller.getResourcebundle().getString(&quot;back_button_msg&quot;));</span>
-<span class="fc" id="L88">		btnBack.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L89">		btnBack = new JButton(controller.getResourcebundle().getString(&quot;back_button_msg&quot;));</span>
+<span class="fc" id="L90">		btnBack.addActionListener(new ActionListener() {</span>
 			public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L90">				goToInitialWindow();</span>
-<span class="nc" id="L91">			}</span>
+<span class="nc" id="L92">				goToInitialWindow();</span>
+<span class="nc" id="L93">			}</span>
 		});
-<span class="fc" id="L93">		btnBack.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L95">		btnBack.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
-<span class="nc" id="L95">        		btnBack.setBounds(28, 170, 175, 29);</span>
-<span class="nc" id="L96">        		btnBack.setBackground(Color.RED);</span>
-<span class="nc" id="L97">        		btnBack.updateUI();</span>
-<span class="nc" id="L98">		    }</span>
+<span class="nc" id="L97">        		btnBack.setBounds(28, 170, 175, 29);</span>
+<span class="nc" id="L98">        		btnBack.setBackground(Color.RED);</span>
+<span class="nc" id="L99">        		btnBack.updateUI();</span>
+<span class="nc" id="L100">		    }</span>
 		    public void mouseExited(MouseEvent e) {
-<span class="nc" id="L100">		    	btnBack.setBounds(40, 170, 150, 25);</span>
-<span class="nc" id="L101">		    	btnBack.setBackground(btnLogin.getBackground());</span>
-<span class="nc" id="L102">		    	btnBack.updateUI();</span>
-<span class="nc" id="L103">		    }</span>
+<span class="nc" id="L102">		    	btnBack.setBounds(40, 170, 150, 25);</span>
+<span class="nc" id="L103">		    	btnBack.setBackground(btnLogin.getBackground());</span>
+<span class="nc" id="L104">		    	btnBack.updateUI();</span>
+<span class="nc" id="L105">		    }</span>
 		});
-<span class="fc" id="L105">		btnBack.setBounds(40, 170, 150, 25);</span>
-<span class="fc" id="L106">		frmLogIn.getContentPane().add(btnBack);</span>
+<span class="fc" id="L107">		btnBack.setBounds(40, 170, 150, 25);</span>
+<span class="fc" id="L108">		frmLogIn.getContentPane().add(btnBack);</span>
 		
 		//BUTTON: Log In
-<span class="fc" id="L109">		btnLogin = new JButton(controller.getResourcebundle().getString(&quot;login_msg&quot;));</span>
-<span class="fc" id="L110">		btnLogin.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L111">		btnLogin = new JButton(controller.getResourcebundle().getString(&quot;login_msg&quot;));</span>
+<span class="fc" id="L112">		btnLogin.addActionListener(new ActionListener() {</span>
 			public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L112">				UserData userData = controller.loginUser( txtFieldEmail.getText(), new String(passwordField.getPassword()) );</span>
-<span class="nc bnc" id="L113" title="All 2 branches missed.">				if (userData != null)  {</span>
-<span class="nc" id="L114">					frmLogIn.dispose();</span>
-<span class="nc" id="L115">					new MainWindow(controller, userData);</span>
-<span class="nc" id="L116">					logger.debug(&quot;Login correct&quot;);</span>
-				} else {
-<span class="nc" id="L118">					txtFieldEmail.setText(controller.getResourcebundle().getString(&quot;wrong_credentials_msg&quot;));</span>
-<span class="nc" id="L119">					txtFieldEmail.updateUI();</span>
-<span class="nc" id="L120">					passwordField.updateUI();</span>
-<span class="nc" id="L121">					logger.debug(&quot;Login wrong&quot;);</span>
+<span class="nc" id="L114">				UserData userData = controller.loginUser( txtFieldEmail.getText(), new String(passwordField.getPassword()) );</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">				if (userData != null)  {</span>
+<span class="nc" id="L116">					frmLogIn.dispose();</span>
+<span class="nc" id="L117">					new MainWindow(controller, userData, visible);</span>
+<span class="nc" id="L118">					logger.debug(&quot;Login correct&quot;);</span>
+<span class="nc" id="L119">				} else {</span>
+<span class="nc" id="L120">					txtFieldEmail.setText(controller.getResourcebundle().getString(&quot;wrong_credentials_msg&quot;));</span>
+<span class="nc" id="L121">					txtFieldEmail.updateUI();</span>
+<span class="nc" id="L122">					passwordField.updateUI();</span>
+<span class="nc" id="L123">					logger.debug(&quot;Login wrong&quot;);</span>
 				}	
-<span class="nc" id="L123">			}</span>
+<span class="nc" id="L125">			}</span>
 		});
-<span class="fc" id="L125">		btnLogin.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L127">		btnLogin.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
-<span class="nc" id="L127">        		btnLogin.setBounds(243, 170, 175, 29);</span>
-<span class="nc" id="L128">        		btnLogin.updateUI();</span>
-<span class="nc" id="L129">		    }</span>
+<span class="nc" id="L129">        		btnLogin.setBounds(243, 170, 175, 29);</span>
+<span class="nc" id="L130">        		btnLogin.updateUI();</span>
+<span class="nc" id="L131">		    }</span>
 		    public void mouseExited(MouseEvent e) {
-<span class="nc" id="L131">		    	btnLogin.setBounds(255, 170, 150, 25);</span>
-<span class="nc" id="L132">		    	btnLogin.updateUI();</span>
-<span class="nc" id="L133">		    }</span>
+<span class="nc" id="L133">		    	btnLogin.setBounds(255, 170, 150, 25);</span>
+<span class="nc" id="L134">		    	btnLogin.updateUI();</span>
+<span class="nc" id="L135">		    }</span>
 		});
-<span class="fc" id="L135">		btnLogin.setBounds(255, 170, 150, 25);</span>
-<span class="fc" id="L136">		frmLogIn.getContentPane().add(btnLogin);</span>
+<span class="fc" id="L137">		btnLogin.setBounds(255, 170, 150, 25);</span>
+<span class="fc" id="L138">		frmLogIn.getContentPane().add(btnLogin);</span>
 	
-<span class="fc" id="L138">		logger.info(&quot;LogInWindow well initialized&quot;);</span>
-<span class="fc" id="L139">	}</span>
+<span class="fc" id="L140">		logger.info(&quot;LogInWindow well initialized&quot;);</span>
+<span class="fc" id="L141">	}</span>
 	
     /**
      * Closes this window and opens the Initial window.
      */
     private void goToInitialWindow() {
-<span class="nc" id="L145">        new InitialWindow(controller);</span>
-<span class="nc" id="L146">        frmLogIn.dispose();</span>
-<span class="nc" id="L147">    }</span>
+<span class="nc" id="L147">        new InitialWindow(controller, visible);</span>
+<span class="nc" id="L148">        frmLogIn.dispose();</span>
+<span class="nc" id="L149">    }</span>
 
 	public JFrame getFrmLogIn() {
-<span class="fc" id="L150">		return frmLogIn;</span>
+<span class="fc" id="L152">		return frmLogIn;</span>
 	}
 
 	public JLabel getLblTitle() {
-<span class="nc" id="L154">		return lblTitle;</span>
+<span class="nc" id="L156">		return lblTitle;</span>
 	}
 
 	public JLabel getLblEmail() {
-<span class="fc" id="L158">		return lblEmail;</span>
+<span class="fc" id="L160">		return lblEmail;</span>
 	}
 
 	public JLabel getLblPassword() {
-<span class="fc" id="L162">		return lblPassword;</span>
+<span class="fc" id="L164">		return lblPassword;</span>
 	}
 
 	public JTextField getTxtFieldEmail() {
-<span class="fc" id="L166">		return txtFieldEmail;</span>
+<span class="fc" id="L168">		return txtFieldEmail;</span>
 	}
 
 	public JPasswordField getPasswordField() {
-<span class="fc" id="L170">		return passwordField;</span>
+<span class="fc" id="L172">		return passwordField;</span>
 	}
 
 	public JButton getBtnBack() {
-<span class="fc" id="L174">		return btnBack;</span>
+<span class="fc" id="L176">		return btnBack;</span>
 	}
 
 	public JButton getBtnLogin() {
-<span class="fc" id="L178">		return btnLogin;</span>
+<span class="fc" id="L180">		return btnLogin;</span>
 	}
     
 }

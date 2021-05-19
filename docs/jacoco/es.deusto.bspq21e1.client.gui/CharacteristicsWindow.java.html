@@ -21,10 +21,11 @@ public class CharacteristicsWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 <span class="fc" id="L22">	private static Logger logger = Logger.getLogger(CharacteristicsWindow.class.getName());</span>
 	private Controller controller;
+	private boolean visible;
 	private VanData van;
 	private JFrame searchFrame;
 	
-<span class="fc" id="L27">	private JFrame frmCharacteristics = new JFrame();</span>
+<span class="fc" id="L28">	private JFrame frmCharacteristics = new JFrame();</span>
 	
 	private JLabel lblCharacteristicsTitle, lblLicensePlate, lblLicensePlateA, lblBrand, lblBrandA, lblModel, lblModelA, 
 	lblLocation, lblLocationA, lblCapacity, lblCapacityA, lblKitchen, lblKitchenA, lblShower, lblShowerA, lblOffRoad,
@@ -32,239 +33,240 @@ public class CharacteristicsWindow extends JFrame{
 	private JButton btnBack;
 	
 	
-<span class="fc" id="L35">	public CharacteristicsWindow(Controller controller, VanData van, JFrame searchFrame) {</span>
-<span class="fc" id="L36">		this.controller = controller;</span>
-<span class="pc bpc" id="L37" title="2 of 4 branches missed.">		if(van == null || van.getBrand() == null) {</span>
-<span class="nc" id="L38">			frmCharacteristics.dispose();</span>
-<span class="nc" id="L39">			searchFrame.setVisible(true);</span>
+<span class="fc" id="L36">	public CharacteristicsWindow(Controller controller, VanData van, JFrame searchFrame, boolean visible) {</span>
+<span class="fc" id="L37">		this.controller = controller;</span>
+<span class="pc bpc" id="L38" title="2 of 4 branches missed.">		if(van == null || van.getBrand() == null) {</span>
+<span class="nc" id="L39">			frmCharacteristics.dispose();</span>
+<span class="nc" id="L40">			searchFrame.setVisible(visible);</span>
 		}
-<span class="fc" id="L41">		this.van = van;</span>
-<span class="fc" id="L42">		this.searchFrame = searchFrame;</span>
-<span class="fc" id="L43">		initialize();</span>
-<span class="fc" id="L44">		frmCharacteristics.setTitle(controller.getResourcebundle().getString(&quot;characterictics_window_tittle_msg&quot;));</span>
-<span class="fc" id="L45">		frmCharacteristics.setResizable(false);</span>
-<span class="fc" id="L46">		frmCharacteristics.setVisible(true);</span>
+<span class="fc" id="L42">		this.van = van;</span>
+<span class="fc" id="L43">		this.searchFrame = searchFrame;</span>
+<span class="fc" id="L44">		initialize();</span>
+<span class="fc" id="L45">		frmCharacteristics.setTitle(controller.getResourcebundle().getString(&quot;characterictics_window_tittle_msg&quot;));</span>
+<span class="fc" id="L46">		frmCharacteristics.setResizable(false);</span>
+<span class="fc" id="L47">		frmCharacteristics.setVisible(visible);</span>
+<span class="fc" id="L48">		this.visible = visible;</span>
 
-<span class="fc" id="L48">	}</span>
+<span class="fc" id="L50">	}</span>
 	
 	private void initialize() {
-<span class="fc" id="L51">		frmCharacteristics.setBounds(100, 100, 290, 355);</span>
-<span class="fc" id="L52">		frmCharacteristics.setLocationRelativeTo(null);</span>
-<span class="fc" id="L53">		frmCharacteristics.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
-<span class="fc" id="L54">		frmCharacteristics.getContentPane().setLayout(null);</span>
-<span class="fc" id="L55">		frmCharacteristics.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
+<span class="fc" id="L53">		frmCharacteristics.setBounds(100, 100, 290, 355);</span>
+<span class="fc" id="L54">		frmCharacteristics.setLocationRelativeTo(null);</span>
+<span class="fc" id="L55">		frmCharacteristics.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L56">		frmCharacteristics.getContentPane().setLayout(null);</span>
+<span class="fc" id="L57">		frmCharacteristics.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
 		
-<span class="fc" id="L57">		lblCharacteristicsTitle = new JLabel(controller.getResourcebundle().getString(&quot;characteristics_msg&quot;));</span>
-<span class="fc" id="L58">		lblCharacteristicsTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
-<span class="fc" id="L59">		lblCharacteristicsTitle.setBounds(80, 15, 300, 20);</span>
-<span class="fc" id="L60">		frmCharacteristics.getContentPane().add(lblCharacteristicsTitle);</span>
+<span class="fc" id="L59">		lblCharacteristicsTitle = new JLabel(controller.getResourcebundle().getString(&quot;characteristics_msg&quot;));</span>
+<span class="fc" id="L60">		lblCharacteristicsTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
+<span class="fc" id="L61">		lblCharacteristicsTitle.setBounds(80, 15, 300, 20);</span>
+<span class="fc" id="L62">		frmCharacteristics.getContentPane().add(lblCharacteristicsTitle);</span>
 		
-<span class="fc" id="L62">		btnBack = new JButton(controller.getResourcebundle().getString(&quot;back_button_msg&quot;));</span>
-<span class="fc" id="L63">		btnBack.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L64">		btnBack = new JButton(controller.getResourcebundle().getString(&quot;back_button_msg&quot;));</span>
+<span class="fc" id="L65">		btnBack.addActionListener(new ActionListener() {</span>
 			public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L65">				searchFrame.setVisible(true);</span>
-<span class="nc" id="L66">				frmCharacteristics.dispose();</span>
-<span class="nc" id="L67">			}</span>
+<span class="nc" id="L67">				searchFrame.setVisible(visible);</span>
+<span class="nc" id="L68">				frmCharacteristics.dispose();</span>
+<span class="nc" id="L69">			}</span>
 		});
-<span class="fc" id="L69">		btnBack.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L71">		btnBack.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
-<span class="nc" id="L71">        		btnBack.setBounds(80, 280, 110, 26);</span>
-<span class="nc" id="L72">        		btnBack.updateUI();</span>
-<span class="nc" id="L73">		    }</span>
+<span class="nc" id="L73">        		btnBack.setBounds(80, 280, 110, 26);</span>
+<span class="nc" id="L74">        		btnBack.updateUI();</span>
+<span class="nc" id="L75">		    }</span>
 		    public void mouseExited(MouseEvent e) {
-<span class="nc" id="L75">		    	btnBack.setBounds(85, 280, 100, 25);</span>
-<span class="nc" id="L76">		    	btnBack.updateUI();</span>
-<span class="nc" id="L77">		    }</span>
+<span class="nc" id="L77">		    	btnBack.setBounds(85, 280, 100, 25);</span>
+<span class="nc" id="L78">		    	btnBack.updateUI();</span>
+<span class="nc" id="L79">		    }</span>
 		});
-<span class="fc" id="L79">		btnBack.setBounds(85, 280, 100, 25);</span>
-<span class="fc" id="L80">		frmCharacteristics.getContentPane().add(btnBack);</span>
+<span class="fc" id="L81">		btnBack.setBounds(85, 280, 100, 25);</span>
+<span class="fc" id="L82">		frmCharacteristics.getContentPane().add(btnBack);</span>
 		
-<span class="fc" id="L82">		lblLicensePlate = new JLabel(controller.getResourcebundle().getString(&quot;license_plate_msg&quot;));</span>
-<span class="fc" id="L83">		lblLicensePlate.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
-<span class="fc" id="L84">		lblLicensePlate.setBounds(50, 52, 100, 14);</span>
-<span class="fc" id="L85">		frmCharacteristics.getContentPane().add(lblLicensePlate);</span>
+<span class="fc" id="L84">		lblLicensePlate = new JLabel(controller.getResourcebundle().getString(&quot;license_plate_msg&quot;));</span>
+<span class="fc" id="L85">		lblLicensePlate.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L86">		lblLicensePlate.setBounds(50, 52, 100, 14);</span>
+<span class="fc" id="L87">		frmCharacteristics.getContentPane().add(lblLicensePlate);</span>
 		
-<span class="fc" id="L87">		lblLicensePlateA = new JLabel(van.getLicensePlate());</span>
-<span class="fc" id="L88">		lblLicensePlateA.setBounds(180, 52, 100, 14);</span>
-<span class="fc" id="L89">		frmCharacteristics.getContentPane().add(lblLicensePlateA);</span>
+<span class="fc" id="L89">		lblLicensePlateA = new JLabel(van.getLicensePlate());</span>
+<span class="fc" id="L90">		lblLicensePlateA.setBounds(180, 52, 100, 14);</span>
+<span class="fc" id="L91">		frmCharacteristics.getContentPane().add(lblLicensePlateA);</span>
 		
-<span class="fc" id="L91">		lblBrand = new JLabel(controller.getResourcebundle().getString(&quot;brand_msg&quot;));</span>
-<span class="fc" id="L92">		lblBrand.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
-<span class="fc" id="L93">		lblBrand.setBounds(50, 77, 100, 14);</span>
-<span class="fc" id="L94">		frmCharacteristics.getContentPane().add(lblBrand);</span>
+<span class="fc" id="L93">		lblBrand = new JLabel(controller.getResourcebundle().getString(&quot;brand_msg&quot;));</span>
+<span class="fc" id="L94">		lblBrand.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L95">		lblBrand.setBounds(50, 77, 100, 14);</span>
+<span class="fc" id="L96">		frmCharacteristics.getContentPane().add(lblBrand);</span>
 		
-<span class="fc" id="L96">		lblBrandA = new JLabel(van.getBrand());</span>
-<span class="fc" id="L97">		lblBrandA.setBounds(180, 77, 100, 14);</span>
-<span class="fc" id="L98">		frmCharacteristics.getContentPane().add(lblBrandA);</span>
+<span class="fc" id="L98">		lblBrandA = new JLabel(van.getBrand());</span>
+<span class="fc" id="L99">		lblBrandA.setBounds(180, 77, 100, 14);</span>
+<span class="fc" id="L100">		frmCharacteristics.getContentPane().add(lblBrandA);</span>
 		
-<span class="fc" id="L100">		lblModel = new JLabel(controller.getResourcebundle().getString(&quot;model_msg&quot;));</span>
-<span class="fc" id="L101">		lblModel.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
-<span class="fc" id="L102">		lblModel.setBounds(50, 102, 100, 14);</span>
-<span class="fc" id="L103">		frmCharacteristics.getContentPane().add(lblModel);</span>
+<span class="fc" id="L102">		lblModel = new JLabel(controller.getResourcebundle().getString(&quot;model_msg&quot;));</span>
+<span class="fc" id="L103">		lblModel.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L104">		lblModel.setBounds(50, 102, 100, 14);</span>
+<span class="fc" id="L105">		frmCharacteristics.getContentPane().add(lblModel);</span>
 		
-<span class="fc" id="L105">		lblModelA = new JLabel(van.getModel());</span>
-<span class="fc" id="L106">		lblModelA.setBounds(180, 102, 100, 14);</span>
-<span class="fc" id="L107">		frmCharacteristics.getContentPane().add(lblModelA);</span>
+<span class="fc" id="L107">		lblModelA = new JLabel(van.getModel());</span>
+<span class="fc" id="L108">		lblModelA.setBounds(180, 102, 100, 14);</span>
+<span class="fc" id="L109">		frmCharacteristics.getContentPane().add(lblModelA);</span>
 		
-<span class="fc" id="L109">		lblLocation = new JLabel(controller.getResourcebundle().getString(&quot;location_msg&quot;));</span>
-<span class="fc" id="L110">		lblLocation.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
-<span class="fc" id="L111">		lblLocation.setBounds(50, 127, 100, 14);</span>
-<span class="fc" id="L112">		frmCharacteristics.getContentPane().add(lblLocation);</span>
+<span class="fc" id="L111">		lblLocation = new JLabel(controller.getResourcebundle().getString(&quot;location_msg&quot;));</span>
+<span class="fc" id="L112">		lblLocation.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L113">		lblLocation.setBounds(50, 127, 100, 14);</span>
+<span class="fc" id="L114">		frmCharacteristics.getContentPane().add(lblLocation);</span>
 		
-<span class="fc" id="L114">		lblLocationA = new JLabel(van.getLocation());</span>
-<span class="fc" id="L115">		lblLocationA.setBounds(180, 127, 100, 14);</span>
-<span class="fc" id="L116">		frmCharacteristics.getContentPane().add(lblLocationA);</span>
+<span class="fc" id="L116">		lblLocationA = new JLabel(van.getLocation());</span>
+<span class="fc" id="L117">		lblLocationA.setBounds(180, 127, 100, 14);</span>
+<span class="fc" id="L118">		frmCharacteristics.getContentPane().add(lblLocationA);</span>
 		
-<span class="fc" id="L118">		lblCapacity = new JLabel(controller.getResourcebundle().getString(&quot;capacity_msg&quot;));</span>
-<span class="fc" id="L119">		lblCapacity.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
-<span class="fc" id="L120">		lblCapacity.setBounds(50, 152, 100, 14);</span>
-<span class="fc" id="L121">		frmCharacteristics.getContentPane().add(lblCapacity);</span>
+<span class="fc" id="L120">		lblCapacity = new JLabel(controller.getResourcebundle().getString(&quot;capacity_msg&quot;));</span>
+<span class="fc" id="L121">		lblCapacity.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L122">		lblCapacity.setBounds(50, 152, 100, 14);</span>
+<span class="fc" id="L123">		frmCharacteristics.getContentPane().add(lblCapacity);</span>
 		
-<span class="fc" id="L123">		lblCapacityA = new JLabel(&quot;&quot;);</span>
-<span class="pc bpc" id="L124" title="1 of 2 branches missed.">		if(van.getCapacity()&gt;1) {</span>
-<span class="fc" id="L125">			lblCapacityA.setText(van.getCapacity() + &quot; &quot; + controller.getResourcebundle().getString(&quot;people_msg&quot;));</span>
-		} else {
-<span class="nc" id="L127">			lblCapacityA.setText(van.getCapacity() + &quot; &quot; + controller.getResourcebundle().getString(&quot;person_msg&quot;));</span>
+<span class="fc" id="L125">		lblCapacityA = new JLabel(&quot;&quot;);</span>
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">		if(van.getCapacity()&gt;1) {</span>
+<span class="fc" id="L127">			lblCapacityA.setText(van.getCapacity() + &quot; &quot; + controller.getResourcebundle().getString(&quot;people_msg&quot;));</span>
+<span class="fc" id="L128">		} else {</span>
+<span class="nc" id="L129">			lblCapacityA.setText(van.getCapacity() + &quot; &quot; + controller.getResourcebundle().getString(&quot;person_msg&quot;));</span>
 		}
-<span class="fc" id="L129">		lblCapacityA.setBounds(180, 152, 89, 14);</span>
-<span class="fc" id="L130">		frmCharacteristics.getContentPane().add(lblCapacityA);</span>
+<span class="fc" id="L131">		lblCapacityA.setBounds(180, 152, 89, 14);</span>
+<span class="fc" id="L132">		frmCharacteristics.getContentPane().add(lblCapacityA);</span>
 		
-<span class="fc" id="L132">		lblKitchen = new JLabel(controller.getResourcebundle().getString(&quot;kitchen_question__mark_msg&quot;));</span>
-<span class="fc" id="L133">		lblKitchen.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
-<span class="fc" id="L134">		lblKitchen.setBounds(50, 177, 100, 14);</span>
-<span class="fc" id="L135">		frmCharacteristics.getContentPane().add(lblKitchen);</span>
+<span class="fc" id="L134">		lblKitchen = new JLabel(controller.getResourcebundle().getString(&quot;kitchen_question__mark_msg&quot;));</span>
+<span class="fc" id="L135">		lblKitchen.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L136">		lblKitchen.setBounds(50, 177, 100, 14);</span>
+<span class="fc" id="L137">		frmCharacteristics.getContentPane().add(lblKitchen);</span>
 		
-<span class="fc" id="L137">		lblKitchenA = new JLabel(&quot;&quot;);</span>
-<span class="pc bpc" id="L138" title="1 of 2 branches missed.">		if(van.hasKitchen()) {</span>
-<span class="fc" id="L139">			lblKitchenA.setText(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
-		} else {
-<span class="nc" id="L141">			lblKitchenA.setText(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
+<span class="fc" id="L139">		lblKitchenA = new JLabel(&quot;&quot;);</span>
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">		if(van.hasKitchen()) {</span>
+<span class="fc" id="L141">			lblKitchenA.setText(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
+<span class="fc" id="L142">		} else {</span>
+<span class="nc" id="L143">			lblKitchenA.setText(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
 		}
-<span class="fc" id="L143">		lblKitchenA.setBounds(180, 177, 89, 14);</span>
-<span class="fc" id="L144">		frmCharacteristics.getContentPane().add(lblKitchenA);</span>
+<span class="fc" id="L145">		lblKitchenA.setBounds(180, 177, 89, 14);</span>
+<span class="fc" id="L146">		frmCharacteristics.getContentPane().add(lblKitchenA);</span>
 		
-<span class="fc" id="L146">		lblShower = new JLabel(controller.getResourcebundle().getString(&quot;shower_question_mark_msg&quot;));</span>
-<span class="fc" id="L147">		lblShower.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
-<span class="fc" id="L148">		lblShower.setBounds(50, 202, 100, 14);</span>
-<span class="fc" id="L149">		frmCharacteristics.getContentPane().add(lblShower);</span>
+<span class="fc" id="L148">		lblShower = new JLabel(controller.getResourcebundle().getString(&quot;shower_question_mark_msg&quot;));</span>
+<span class="fc" id="L149">		lblShower.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L150">		lblShower.setBounds(50, 202, 100, 14);</span>
+<span class="fc" id="L151">		frmCharacteristics.getContentPane().add(lblShower);</span>
 		
-<span class="fc" id="L151">		lblShowerA = new JLabel(&quot;&quot;);</span>
-<span class="pc bpc" id="L152" title="1 of 2 branches missed.">		if(van.hasShower()) {</span>
-<span class="fc" id="L153">			lblShowerA.setText(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
-		} else {
-<span class="nc" id="L155">			lblShowerA.setText(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
+<span class="fc" id="L153">		lblShowerA = new JLabel(&quot;&quot;);</span>
+<span class="pc bpc" id="L154" title="1 of 2 branches missed.">		if(van.hasShower()) {</span>
+<span class="fc" id="L155">			lblShowerA.setText(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
+<span class="fc" id="L156">		} else {</span>
+<span class="nc" id="L157">			lblShowerA.setText(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
 		}
-<span class="fc" id="L157">		lblShowerA.setBounds(180, 202, 89, 14);</span>
-<span class="fc" id="L158">		frmCharacteristics.getContentPane().add(lblShowerA);</span>
+<span class="fc" id="L159">		lblShowerA.setBounds(180, 202, 89, 14);</span>
+<span class="fc" id="L160">		frmCharacteristics.getContentPane().add(lblShowerA);</span>
 		
-<span class="fc" id="L160">		lblOffRoad = new JLabel(controller.getResourcebundle().getString(&quot;off_road_question_mark_msg&quot;));</span>
-<span class="fc" id="L161">		lblOffRoad.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
-<span class="fc" id="L162">		lblOffRoad.setBounds(50, 227, 100, 14);</span>
-<span class="fc" id="L163">		frmCharacteristics.getContentPane().add(lblOffRoad);</span>
+<span class="fc" id="L162">		lblOffRoad = new JLabel(controller.getResourcebundle().getString(&quot;off_road_question_mark_msg&quot;));</span>
+<span class="fc" id="L163">		lblOffRoad.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L164">		lblOffRoad.setBounds(50, 227, 100, 14);</span>
+<span class="fc" id="L165">		frmCharacteristics.getContentPane().add(lblOffRoad);</span>
 		
-<span class="fc" id="L165">		lblOffRoadA = new JLabel(&quot;&quot;);</span>
-<span class="pc bpc" id="L166" title="1 of 2 branches missed.">		if(van.isOffRoad()) {</span>
-<span class="nc" id="L167">			lblOffRoadA.setText(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
-		} else {
-<span class="fc" id="L169">			lblOffRoadA.setText(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
+<span class="fc" id="L167">		lblOffRoadA = new JLabel(&quot;&quot;);</span>
+<span class="pc bpc" id="L168" title="1 of 2 branches missed.">		if(van.isOffRoad()) {</span>
+<span class="nc" id="L169">			lblOffRoadA.setText(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
+<span class="nc" id="L170">		} else {</span>
+<span class="fc" id="L171">			lblOffRoadA.setText(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
 		}
-<span class="fc" id="L171">		lblOffRoadA.setBounds(180, 227, 89, 14);</span>
-<span class="fc" id="L172">		frmCharacteristics.getContentPane().add(lblOffRoadA);</span>
+<span class="fc" id="L173">		lblOffRoadA.setBounds(180, 227, 89, 14);</span>
+<span class="fc" id="L174">		frmCharacteristics.getContentPane().add(lblOffRoadA);</span>
 		
-<span class="fc" id="L174">		lblPrice = new JLabel(controller.getResourcebundle().getString(&quot;price_per_day_msg&quot;));</span>
-<span class="fc" id="L175">		lblPrice.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
-<span class="fc" id="L176">		lblPrice.setBounds(50, 252, 100, 14);</span>
-<span class="fc" id="L177">		frmCharacteristics.getContentPane().add(lblPrice);</span>
+<span class="fc" id="L176">		lblPrice = new JLabel(controller.getResourcebundle().getString(&quot;price_per_day_msg&quot;));</span>
+<span class="fc" id="L177">		lblPrice.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 11));</span>
+<span class="fc" id="L178">		lblPrice.setBounds(50, 252, 100, 14);</span>
+<span class="fc" id="L179">		frmCharacteristics.getContentPane().add(lblPrice);</span>
 		
-<span class="fc" id="L179">		lblPriceA = new JLabel(van.getPricePerDay() + &quot; &quot; + controller.getResourcebundle().getString(&quot;money_symbol&quot;));</span>
-<span class="fc" id="L180">		lblPriceA.setBounds(180, 252, 110, 14);</span>
-<span class="fc" id="L181">		frmCharacteristics.getContentPane().add(lblPriceA);</span>
+<span class="fc" id="L181">		lblPriceA = new JLabel(van.getPricePerDay() + &quot; &quot; + controller.getResourcebundle().getString(&quot;money_symbol&quot;));</span>
+<span class="fc" id="L182">		lblPriceA.setBounds(180, 252, 110, 14);</span>
+<span class="fc" id="L183">		frmCharacteristics.getContentPane().add(lblPriceA);</span>
 		
-<span class="fc" id="L183">		logger.info(&quot;CharacteristicsWindow well initialized&quot;);</span>
-<span class="fc" id="L184">	}</span>
+<span class="fc" id="L185">		logger.info(&quot;CharacteristicsWindow well initialized&quot;);</span>
+<span class="fc" id="L186">	}</span>
 
 	public JFrame getFrmCharacteristics() {
-<span class="fc" id="L187">		return frmCharacteristics;</span>
+<span class="fc" id="L189">		return frmCharacteristics;</span>
 	}
 
 	public JLabel getLblCharacteristicsTitle() {
-<span class="fc" id="L191">		return lblCharacteristicsTitle;</span>
+<span class="fc" id="L193">		return lblCharacteristicsTitle;</span>
 	}
 
 	public JLabel getLblLicensePlate() {
-<span class="fc" id="L195">		return lblLicensePlate;</span>
+<span class="fc" id="L197">		return lblLicensePlate;</span>
 	}
 
 	public JLabel getLblLicensePlateA() {
-<span class="fc" id="L199">		return lblLicensePlateA;</span>
+<span class="fc" id="L201">		return lblLicensePlateA;</span>
 	}
 
 	public JLabel getLblBrand() {
-<span class="fc" id="L203">		return lblBrand;</span>
+<span class="fc" id="L205">		return lblBrand;</span>
 	}
 
 	public JLabel getLblBrandA() {
-<span class="fc" id="L207">		return lblBrandA;</span>
+<span class="fc" id="L209">		return lblBrandA;</span>
 	}
 
 	public JLabel getLblModel() {
-<span class="fc" id="L211">		return lblModel;</span>
+<span class="fc" id="L213">		return lblModel;</span>
 	}
 
 	public JLabel getLblModelA() {
-<span class="fc" id="L215">		return lblModelA;</span>
+<span class="fc" id="L217">		return lblModelA;</span>
 	}
 
 	public JLabel getLblLocation() {
-<span class="fc" id="L219">		return lblLocation;</span>
+<span class="fc" id="L221">		return lblLocation;</span>
 	}
 
 	public JLabel getLblLocationA() {
-<span class="fc" id="L223">		return lblLocationA;</span>
+<span class="fc" id="L225">		return lblLocationA;</span>
 	}
 
 	public JLabel getLblCapacity() {
-<span class="fc" id="L227">		return lblCapacity;</span>
+<span class="fc" id="L229">		return lblCapacity;</span>
 	}
 
 	public JLabel getLblCapacityA() {
-<span class="fc" id="L231">		return lblCapacityA;</span>
+<span class="fc" id="L233">		return lblCapacityA;</span>
 	}
 
 	public JLabel getLblKitchen() {
-<span class="fc" id="L235">		return lblKitchen;</span>
+<span class="fc" id="L237">		return lblKitchen;</span>
 	}
 
 	public JLabel getLblKitchenA() {
-<span class="fc" id="L239">		return lblKitchenA;</span>
+<span class="fc" id="L241">		return lblKitchenA;</span>
 	}
 
 	public JLabel getLblShower() {
-<span class="fc" id="L243">		return lblShower;</span>
+<span class="fc" id="L245">		return lblShower;</span>
 	}
 
 	public JLabel getLblShowerA() {
-<span class="fc" id="L247">		return lblShowerA;</span>
+<span class="fc" id="L249">		return lblShowerA;</span>
 	}
 
 	public JLabel getLblOffRoad() {
-<span class="fc" id="L251">		return lblOffRoad;</span>
+<span class="fc" id="L253">		return lblOffRoad;</span>
 	}
 
 	public JLabel getLblOffRoadA() {
-<span class="fc" id="L255">		return lblOffRoadA;</span>
+<span class="fc" id="L257">		return lblOffRoadA;</span>
 	}
 
 	public JLabel getLblPrice() {
-<span class="fc" id="L259">		return lblPrice;</span>
+<span class="fc" id="L261">		return lblPrice;</span>
 	}
 
 	public JLabel getLblPriceA() {
-<span class="fc" id="L263">		return lblPriceA;</span>
+<span class="fc" id="L265">		return lblPriceA;</span>
 	}
 
 	public JButton getBtnBack() {
-<span class="fc" id="L267">		return btnBack;</span>
+<span class="fc" id="L269">		return btnBack;</span>
 	}
 
 }

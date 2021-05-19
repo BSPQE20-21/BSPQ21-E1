@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Controller.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AirBVJDOREST</a> &gt; <a href="index.source.html" class="el_package">es.deusto.bspq21e1.client.controller</a> &gt; <span class="el_source">Controller.java</span></div><h1>Controller.java</h1><pre class="source lang-java linenums">package es.deusto.bspq21e1.client.controller;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
@@ -25,198 +30,293 @@ public class Controller {
 
     private Client client;
     private WebTarget webTarget;
-<span class="fc" id="L28">    private static Logger logger = Logger.getLogger(Controller.class.getName());</span>
+<span class="fc" id="L33">    private static Logger logger = Logger.getLogger(Controller.class.getName());</span>
     private ResourceBundle resourceBundle;
     private Locale currentLocale;
     
-<span class="fc" id="L32">    public Controller(String hostname, String port) {</span>
-<span class="fc" id="L33">    	client = ClientBuilder.newClient();</span>
-<span class="fc" id="L34">    	webTarget = client.target(String.format(&quot;http://%s:%s/rest&quot;, hostname, port));</span>
-<span class="fc" id="L35">    	resourceBundle = ResourceBundle.getBundle(&quot;SystemMessages&quot;, Locale.getDefault());</span>
-<span class="fc" id="L36">    }</span>
+    private String demoDataPath;
+    
+<span class="fc" id="L39">    public Controller(String hostname, String port, String demoDataPath) {</span>
+<span class="fc" id="L40">    	client = ClientBuilder.newClient();</span>
+<span class="fc" id="L41">    	webTarget = client.target(String.format(&quot;http://%s:%s/rest&quot;, hostname, port));</span>
+<span class="fc" id="L42">    	resourceBundle = ResourceBundle.getBundle(&quot;SystemMessages&quot;, Locale.getDefault());</span>
+<span class="fc" id="L43">    	this.demoDataPath = demoDataPath;</span>
+<span class="fc" id="L44">    }</span>
     
     public ArrayList&lt;VanData&gt; searchVans(String location, String pickUpDate, String returnDate) {
-<span class="fc" id="L39">    	WebTarget vansWebTarget = webTarget.path(&quot;AirBV/getVans/&quot; + location + &quot;/&quot; + pickUpDate + &quot;/&quot; + returnDate);</span>
+<span class="fc" id="L47">    	WebTarget vansWebTarget = webTarget.path(&quot;AirBV/getVans/&quot; + location + &quot;/&quot; + pickUpDate + &quot;/&quot; + returnDate);</span>
     	
-<span class="fc" id="L41">    	GenericType&lt;ArrayList&lt;VanData&gt;&gt; genericType = new GenericType&lt;ArrayList&lt;VanData&gt;&gt;() {};</span>
-<span class="fc" id="L42">		ArrayList&lt;VanData&gt; list = vansWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);</span>
+<span class="fc" id="L49">    	GenericType&lt;ArrayList&lt;VanData&gt;&gt; genericType = new GenericType&lt;ArrayList&lt;VanData&gt;&gt;() {};</span>
+<span class="fc" id="L50">		ArrayList&lt;VanData&gt; list = vansWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);</span>
 		
-<span class="fc" id="L44">		Invocation.Builder invocationBuilder =  vansWebTarget.request(MediaType.APPLICATION_JSON);</span>
-<span class="fc" id="L45">		Response response = invocationBuilder.get();</span>
-<span class="pc bpc" id="L46" title="1 of 2 branches missed.">		if(response.getStatus() == Status.OK.getStatusCode()) {</span>
-<span class="fc" id="L47">			logger.info(&quot;Vans received to the controller.&quot;);</span>
-<span class="fc" id="L48">			return list;</span>
+<span class="fc" id="L52">		Invocation.Builder invocationBuilder =  vansWebTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="fc" id="L53">		Response response = invocationBuilder.get();</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">		if(response.getStatus() == Status.OK.getStatusCode()) {</span>
+<span class="fc" id="L55">			logger.info(&quot;Vans received to the controller.&quot;);</span>
+<span class="fc" id="L56">			return list;</span>
 		}else {
-<span class="nc" id="L50">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
-<span class="nc" id="L51">			logger.error(&quot;Error: &quot; + response.toString());</span>
+<span class="nc" id="L58">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
+<span class="nc" id="L59">			logger.error(&quot;Error: &quot; + response.toString());</span>
 		}
-<span class="nc" id="L53">		return new ArrayList&lt;VanData&gt;();</span>
+<span class="nc" id="L61">		return new ArrayList&lt;VanData&gt;();</span>
     }
     
     public boolean eraseUser(String dni) {
-<span class="fc" id="L57">    	WebTarget eraseUserWebTarget = webTarget.path(&quot;AirBV/deleteUser/&quot; + dni);</span>
-<span class="fc" id="L58">    	Invocation.Builder invocationBuilder = eraseUserWebTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="fc" id="L65">    	WebTarget eraseUserWebTarget = webTarget.path(&quot;AirBV/deleteUser/&quot; + dni);</span>
+<span class="fc" id="L66">    	Invocation.Builder invocationBuilder = eraseUserWebTarget.request(MediaType.APPLICATION_JSON);</span>
     	
-<span class="fc" id="L60">    	Response response = invocationBuilder.delete();</span>
-<span class="pc bpc" id="L61" title="1 of 2 branches missed.">    	if (response.getStatus() != Status.OK.getStatusCode()) {</span>
-<span class="nc" id="L62">    		logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
-<span class="nc" id="L63">			logger.error(&quot;Error: &quot; + response.toString());</span>
-<span class="nc" id="L64">			return false;</span>
+<span class="fc" id="L68">    	Response response = invocationBuilder.delete();</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">    	if (response.getStatus() != Status.OK.getStatusCode()) {</span>
+<span class="nc" id="L70">    		logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
+<span class="nc" id="L71">			logger.error(&quot;Error: &quot; + response.toString());</span>
+<span class="nc" id="L72">			return false;</span>
 		}
-<span class="fc" id="L66">    	logger.info(&quot;User erased (message from controller)&quot;);</span>
-<span class="fc" id="L67">    	return true;</span>
+<span class="fc" id="L74">    	logger.info(&quot;User erased (message from controller)&quot;);</span>
+<span class="fc" id="L75">    	return true;</span>
     }
     
     public boolean eraseVan(String licensePlate) {
-<span class="fc" id="L71">    	WebTarget eraseVanWebTarget = webTarget.path(&quot;AirBV/deleteVan/&quot; + licensePlate);</span>
-<span class="fc" id="L72">    	Invocation.Builder invocationBuilder = eraseVanWebTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="fc" id="L79">    	WebTarget eraseVanWebTarget = webTarget.path(&quot;AirBV/deleteVan/&quot; + licensePlate);</span>
+<span class="fc" id="L80">    	Invocation.Builder invocationBuilder = eraseVanWebTarget.request(MediaType.APPLICATION_JSON);</span>
     	
-<span class="fc" id="L74">    	Response response = invocationBuilder.delete();</span>
-<span class="fc bfc" id="L75" title="All 2 branches covered.">    	if (response.getStatus() != Status.OK.getStatusCode()) {</span>
-<span class="fc" id="L76">    		logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
-<span class="fc" id="L77">			logger.error(&quot;Error: &quot; + response.toString());</span>
-<span class="fc" id="L78">			return false;</span>
+<span class="fc" id="L82">    	Response response = invocationBuilder.delete();</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">    	if (response.getStatus() != Status.OK.getStatusCode()) {</span>
+<span class="fc" id="L84">    		logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
+<span class="fc" id="L85">			logger.error(&quot;Error: &quot; + response.toString());</span>
+<span class="fc" id="L86">			return false;</span>
 		}
-<span class="fc" id="L80">    	logger.info(&quot;Van erased (message from controller)&quot;);</span>
-<span class="fc" id="L81">    	return true;</span>
+<span class="fc" id="L88">    	logger.info(&quot;Van erased (message from controller)&quot;);</span>
+<span class="fc" id="L89">    	return true;</span>
     }
     
     public boolean cancelReservation(String code) {
-<span class="fc" id="L85">    	WebTarget cancelReservationWebTarget = webTarget.path(&quot;AirBV/cancelReservation/&quot; + code); </span>
-<span class="fc" id="L86">		Invocation.Builder invocationBuilder = cancelReservationWebTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="fc" id="L93">    	WebTarget cancelReservationWebTarget = webTarget.path(&quot;AirBV/cancelReservation/&quot; + code); </span>
+<span class="fc" id="L94">		Invocation.Builder invocationBuilder = cancelReservationWebTarget.request(MediaType.APPLICATION_JSON);</span>
 		
-<span class="fc" id="L88">		Response response = invocationBuilder.delete();</span>
-<span class="fc bfc" id="L89" title="All 2 branches covered.">		if (response.getStatus() != Status.OK.getStatusCode()) {</span>
-<span class="fc" id="L90">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
-<span class="fc" id="L91">			logger.error(&quot;Error: &quot; + response.toString());</span>
-<span class="fc" id="L92">			return false;</span>
+<span class="fc" id="L96">		Response response = invocationBuilder.delete();</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">		if (response.getStatus() != Status.OK.getStatusCode()) {</span>
+<span class="fc" id="L98">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
+<span class="fc" id="L99">			logger.error(&quot;Error: &quot; + response.toString());</span>
+<span class="fc" id="L100">			return false;</span>
 		} else {
-<span class="fc" id="L94">			logger.info(&quot;Reservation correctly cancelled&quot;);</span>
-<span class="fc" id="L95">			return true;</span>
+<span class="fc" id="L102">			logger.info(&quot;Reservation correctly cancelled&quot;);</span>
+<span class="fc" id="L103">			return true;</span>
 		}
     }
     
     public boolean registerUsers(String dni, String name, String email, String password) {
-<span class="fc" id="L100">    	WebTarget registerUserWebTarget = webTarget.path(&quot;AirBV/registerUser&quot;); </span>
-<span class="fc" id="L101">		Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="fc" id="L108">    	WebTarget registerUserWebTarget = webTarget.path(&quot;AirBV/registerUser&quot;); </span>
+<span class="fc" id="L109">		Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);</span>
 		
-<span class="fc" id="L103">    	UserData userData = new UserData();</span>
-<span class="fc" id="L104">    	userData.setDni(dni);</span>
-<span class="fc" id="L105">    	userData.setName(name);</span>
-<span class="fc" id="L106">    	userData.setEmail(email);</span>
-<span class="fc" id="L107">    	userData.setPassword(password);</span>
-<span class="fc" id="L108">		Response response = invocationBuilder.post(Entity.entity(userData, MediaType.APPLICATION_JSON));</span>
-<span class="pc bpc" id="L109" title="1 of 2 branches missed.">		if (response.getStatus() != Status.OK.getStatusCode()) {</span>
-<span class="nc" id="L110">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
-<span class="nc" id="L111">			logger.error(&quot;Error: &quot; + response.toString());</span>
-<span class="nc" id="L112">			return false;</span>
+<span class="fc" id="L111">    	UserData userData = new UserData();</span>
+<span class="fc" id="L112">    	userData.setDni(dni);</span>
+<span class="fc" id="L113">    	userData.setName(name);</span>
+<span class="fc" id="L114">    	userData.setEmail(email);</span>
+<span class="fc" id="L115">    	userData.setPassword(password);</span>
+<span class="fc" id="L116">		Response response = invocationBuilder.post(Entity.entity(userData, MediaType.APPLICATION_JSON));</span>
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">		if (response.getStatus() != Status.OK.getStatusCode()) {</span>
+<span class="nc" id="L118">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
+<span class="nc" id="L119">			logger.error(&quot;Error: &quot; + response.toString());</span>
+<span class="nc" id="L120">			return false;</span>
 		} else {
-<span class="fc" id="L114">			logger.info(&quot;User correctly registered&quot;);</span>
-<span class="fc" id="L115">			return true;</span>
+<span class="fc" id="L122">			logger.info(&quot;User correctly registered&quot;);</span>
+<span class="fc" id="L123">			return true;</span>
 		}
     }
     
     public UserData loginUser(String email, String password) {
-<span class="fc" id="L120">    	WebTarget loginWebTarget = webTarget.path(&quot;AirBV/loginUser/&quot; + email + &quot;/&quot; + password);</span>
+<span class="fc" id="L128">    	WebTarget loginWebTarget = webTarget.path(&quot;AirBV/loginUser/&quot; + email + &quot;/&quot; + password);</span>
     	
-<span class="fc" id="L122">    	GenericType&lt;UserData&gt; genericType = new GenericType&lt;UserData&gt;() {};</span>
-<span class="fc" id="L123">    	UserData userData = loginWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);</span>
+<span class="fc" id="L130">    	GenericType&lt;UserData&gt; genericType = new GenericType&lt;UserData&gt;() {};</span>
+<span class="fc" id="L131">    	UserData userData = loginWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);</span>
     	
-<span class="fc" id="L125">    	Invocation.Builder invocationBuilder = loginWebTarget.request(MediaType.APPLICATION_JSON);</span>
-<span class="fc" id="L126">    	Response response = invocationBuilder.get();</span>
-<span class="pc bpc" id="L127" title="1 of 2 branches missed.">    	if (response.getStatus() == Status.OK.getStatusCode()) {</span>
-<span class="fc" id="L128">    		logger.info(&quot;User has logged in&quot;);</span>
-<span class="fc" id="L129">    		return userData;</span>
+<span class="fc" id="L133">    	Invocation.Builder invocationBuilder = loginWebTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="fc" id="L134">    	Response response = invocationBuilder.get();</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">    	if (response.getStatus() == Status.OK.getStatusCode()) {</span>
+<span class="fc" id="L136">    		logger.info(&quot;User has logged in&quot;);</span>
+<span class="fc" id="L137">    		return userData;</span>
     	} else {
-<span class="nc" id="L131">    		logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
-<span class="nc" id="L132">			logger.error(&quot;Error: &quot; + response.toString());</span>
+<span class="nc" id="L139">    		logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
+<span class="nc" id="L140">			logger.error(&quot;Error: &quot; + response.toString());</span>
     	}
-<span class="nc" id="L134">    	return null;</span>
+<span class="nc" id="L142">    	return null;</span>
     }
     
     public boolean registerVan(VanData vanData) {
-<span class="fc" id="L138">    	logger.debug(&quot;$ DEBUGGING:\n&quot; +</span>
+<span class="fc" id="L146">    	logger.debug(&quot;$ DEBUGGING:\n&quot; +</span>
 				&quot;\tPrinting VanData and User from Controller in Client side:\n&quot;+
-				&quot;\tVan: &quot; + vanData +
-<span class="fc" id="L141">				&quot;\n\tUser: &quot; + vanData.getUser() +</span>
-				&quot;\n=======================\n&quot;);
+<span class="fc" id="L148">				&quot;\tVan: &quot; + vanData +</span>
+<span class="fc" id="L149">				&quot;\n\tUser: &quot; + vanData.getUser() +</span>
+<span class="fc" id="L150">				&quot;\n=======================\n&quot;);</span>
     	
-<span class="fc" id="L144">    	WebTarget registerVanWebTarget = webTarget.path(&quot;AirBV/registerVan/&quot;+vanData.hasKitchen()+&quot;/&quot;+vanData.hasShower()); </span>
-<span class="fc" id="L145">		Invocation.Builder invocationBuilder = registerVanWebTarget.request(MediaType.APPLICATION_JSON);</span>
-<span class="fc" id="L146">		Response response = invocationBuilder.post(Entity.entity(vanData, MediaType.APPLICATION_JSON));</span>
-<span class="fc bfc" id="L147" title="All 2 branches covered.">		if (response.getStatus() != Status.OK.getStatusCode()) {</span>
-<span class="fc" id="L148">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
-<span class="fc" id="L149">			logger.error(&quot;Error: &quot; + response.toString());</span>
-<span class="fc" id="L150">			return false;</span>
+<span class="fc" id="L152">    	WebTarget registerVanWebTarget = webTarget.path(&quot;AirBV/registerVan/&quot;+vanData.hasKitchen()+&quot;/&quot;+vanData.hasShower()); </span>
+<span class="fc" id="L153">		Invocation.Builder invocationBuilder = registerVanWebTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="fc" id="L154">		Response response = invocationBuilder.post(Entity.entity(vanData, MediaType.APPLICATION_JSON));</span>
+<span class="fc bfc" id="L155" title="All 2 branches covered.">		if (response.getStatus() != Status.OK.getStatusCode()) {</span>
+<span class="fc" id="L156">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
+<span class="fc" id="L157">			logger.error(&quot;Error: &quot; + response.toString());</span>
+<span class="fc" id="L158">			return false;</span>
 		} else {
-<span class="fc" id="L152">			logger.info(&quot;Van correctly registered&quot;);</span>
-<span class="fc" id="L153">			return true;</span>
+<span class="fc" id="L160">			logger.info(&quot;Van correctly registered&quot;);</span>
+<span class="fc" id="L161">			return true;</span>
 		}
     }
     
     public boolean registerReservation(Date bookingDate, int duration, VanData vanData, UserData vanRenter) {
-<span class="fc" id="L158">    	WebTarget registerReservationWebTarget = webTarget.path(&quot;AirBV/registerReservation&quot;); </span>
-<span class="fc" id="L159">		Invocation.Builder invocationBuilder = registerReservationWebTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="fc" id="L166">    	WebTarget registerReservationWebTarget = webTarget.path(&quot;AirBV/registerReservation&quot;); </span>
+<span class="fc" id="L167">		Invocation.Builder invocationBuilder = registerReservationWebTarget.request(MediaType.APPLICATION_JSON);</span>
 		
-<span class="fc" id="L161">    	ReservationData reservationData = new ReservationData();</span>
-<span class="fc" id="L162">    	reservationData.setBookingDate(bookingDate);</span>
-<span class="fc" id="L163">    	reservationData.setDuration(duration);</span>
-<span class="fc" id="L164">    	reservationData.setVan(vanData.getLicensePlate());</span>
-<span class="fc" id="L165">    	reservationData.setVanRenter(vanRenter.getDni());</span>
-<span class="fc" id="L166">		Response response = invocationBuilder.post(Entity.entity(reservationData, MediaType.APPLICATION_JSON));</span>
-<span class="fc bfc" id="L167" title="All 2 branches covered.">		if (response.getStatus() != Status.OK.getStatusCode()) {</span>
-<span class="fc" id="L168">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
-<span class="fc" id="L169">			logger.error(&quot;Error: &quot; + response.toString());</span>
-<span class="fc" id="L170">			return false;</span>
+<span class="fc" id="L169">    	ReservationData reservationData = new ReservationData();</span>
+<span class="fc" id="L170">    	reservationData.setBookingDate(bookingDate);</span>
+<span class="fc" id="L171">    	reservationData.setDuration(duration);</span>
+<span class="fc" id="L172">    	reservationData.setVan(vanData.getLicensePlate());</span>
+<span class="fc" id="L173">    	reservationData.setVanRenter(vanRenter.getDni());</span>
+<span class="fc" id="L174">		Response response = invocationBuilder.post(Entity.entity(reservationData, MediaType.APPLICATION_JSON));</span>
+<span class="fc bfc" id="L175" title="All 2 branches covered.">		if (response.getStatus() != Status.OK.getStatusCode()) {</span>
+<span class="fc" id="L176">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
+<span class="fc" id="L177">			logger.error(&quot;Error: &quot; + response.toString());</span>
+<span class="fc" id="L178">			return false;</span>
 		} else {
-<span class="fc" id="L172">			logger.info(&quot;Reservation correctly registered&quot;);</span>
-<span class="fc" id="L173">			return true;</span>
+<span class="fc" id="L180">			logger.info(&quot;Reservation correctly registered&quot;);</span>
+<span class="fc" id="L181">			return true;</span>
 		}
     }
 
 	public ArrayList&lt;ReservationData&gt; getMyReservations(UserData user) {		
-<span class="fc" id="L178">		WebTarget reservationsWebTarget = webTarget.path(&quot;AirBV/getMyReservations/&quot; + user.getDni());</span>
+<span class="fc" id="L186">		WebTarget reservationsWebTarget = webTarget.path(&quot;AirBV/getMyReservations/&quot; + user.getDni());</span>
 		
-<span class="fc" id="L180">		GenericType&lt;ArrayList&lt;ReservationData&gt;&gt; genericType = new GenericType&lt;ArrayList&lt;ReservationData&gt;&gt;() {};</span>
-<span class="fc" id="L181">		ArrayList&lt;ReservationData&gt; list = reservationsWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);</span>
+<span class="fc" id="L188">		GenericType&lt;ArrayList&lt;ReservationData&gt;&gt; genericType = new GenericType&lt;ArrayList&lt;ReservationData&gt;&gt;() {};</span>
+<span class="fc" id="L189">		ArrayList&lt;ReservationData&gt; list = reservationsWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);</span>
 		
-<span class="fc" id="L183">		Invocation.Builder invocationBuilder =  reservationsWebTarget.request(MediaType.APPLICATION_JSON);</span>
-<span class="fc" id="L184">		Response response = invocationBuilder.get();</span>
-<span class="pc bpc" id="L185" title="1 of 2 branches missed.">		if(response.getStatus() == Status.OK.getStatusCode()) {</span>
-<span class="fc" id="L186">			logger.info(&quot;Reservations well retrieved&quot;);</span>
-<span class="fc" id="L187">			return list;</span>
+<span class="fc" id="L191">		Invocation.Builder invocationBuilder =  reservationsWebTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="fc" id="L192">		Response response = invocationBuilder.get();</span>
+<span class="pc bpc" id="L193" title="1 of 2 branches missed.">		if(response.getStatus() == Status.OK.getStatusCode()) {</span>
+<span class="fc" id="L194">			logger.info(&quot;Reservations well retrieved&quot;);</span>
+<span class="fc" id="L195">			return list;</span>
 		} else {
-<span class="nc" id="L189">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
-<span class="nc" id="L190">			logger.error(&quot;Error: &quot; + response.toString());</span>
+<span class="nc" id="L197">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
+<span class="nc" id="L198">			logger.error(&quot;Error: &quot; + response.toString());</span>
 		}
 		
-<span class="nc" id="L193">		return new ArrayList&lt;ReservationData&gt;();</span>
+<span class="nc" id="L201">		return new ArrayList&lt;ReservationData&gt;();</span>
 	}
 	
 	public ArrayList&lt;VanData&gt; getMyVans(String dni) {
-<span class="fc" id="L197">		WebTarget vansWebTarget = webTarget.path(&quot;AirBV/getMyVans/&quot; + dni);</span>
+<span class="fc" id="L205">		WebTarget vansWebTarget = webTarget.path(&quot;AirBV/getMyVans/&quot; + dni);</span>
 		
-<span class="fc" id="L199">		GenericType&lt;ArrayList&lt;VanData&gt;&gt; genericType = new GenericType&lt;ArrayList&lt;VanData&gt;&gt;() {};</span>
-<span class="fc" id="L200">		ArrayList&lt;VanData&gt; list = vansWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);</span>
+<span class="fc" id="L207">		GenericType&lt;ArrayList&lt;VanData&gt;&gt; genericType = new GenericType&lt;ArrayList&lt;VanData&gt;&gt;() {};</span>
+<span class="fc" id="L208">		ArrayList&lt;VanData&gt; list = vansWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);</span>
 		
-<span class="fc" id="L202">		Invocation.Builder invocationBuilder = vansWebTarget.request(MediaType.APPLICATION_JSON);</span>
-<span class="fc" id="L203">		Response response = invocationBuilder.get();</span>
-<span class="pc bpc" id="L204" title="1 of 2 branches missed.">		if (response.getStatus() == Status.OK.getStatusCode()) {</span>
-<span class="fc" id="L205">			logger.info(&quot;Van well retrieved&quot;);</span>
-<span class="fc" id="L206">			return list;</span>
+<span class="fc" id="L210">		Invocation.Builder invocationBuilder = vansWebTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="fc" id="L211">		Response response = invocationBuilder.get();</span>
+<span class="pc bpc" id="L212" title="1 of 2 branches missed.">		if (response.getStatus() == Status.OK.getStatusCode()) {</span>
+<span class="fc" id="L213">			logger.info(&quot;Van well retrieved&quot;);</span>
+<span class="fc" id="L214">			return list;</span>
 		} else {
-<span class="nc" id="L208">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
-<span class="nc" id="L209">			logger.error(&quot;Error: &quot; + response.toString());</span>
+<span class="nc" id="L216">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
+<span class="nc" id="L217">			logger.error(&quot;Error: &quot; + response.toString());</span>
 		}
-<span class="nc" id="L211">		return null;</span>
+<span class="nc" id="L219">		return null;</span>
 	}
+	
+	public boolean registerUsersList(ArrayList&lt;UserData&gt; users) {
+<span class="nc" id="L223">		WebTarget usersWebTarget = webTarget.path(&quot;AirBV/registerUsersList/&quot;);</span>
+		
+<span class="nc" id="L225">		Invocation.Builder invocationBuilder = usersWebTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="nc" id="L226">		Response response = invocationBuilder.post(Entity.entity(users, MediaType.APPLICATION_JSON));</span>
+<span class="nc bnc" id="L227" title="All 2 branches missed.">		if (response.getStatus() != Status.OK.getStatusCode()) {</span>
+<span class="nc" id="L228">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
+<span class="nc" id="L229">			logger.error(&quot;Error: &quot; + response.toString());</span>
+<span class="nc" id="L230">			return false;</span>
+		} else {
+<span class="nc" id="L232">			logger.info(&quot;Mock users correctly registered&quot;);</span>
+<span class="nc" id="L233">			return true;</span>
+		}
+	}
+	
+	public boolean registerVansList(ArrayList&lt;VanData&gt; vans) {
+<span class="nc" id="L238">		WebTarget vansWebTarget = webTarget.path(&quot;AirBV/registerVansList/&quot;);</span>
+		
+<span class="nc" id="L240">		Invocation.Builder invocationBuilder = vansWebTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="nc" id="L241">		Response response = invocationBuilder.post(Entity.entity(vans, MediaType.APPLICATION_JSON));</span>
+<span class="nc bnc" id="L242" title="All 2 branches missed.">		if (response.getStatus() != Status.OK.getStatusCode()) {</span>
+<span class="nc" id="L243">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
+<span class="nc" id="L244">			logger.error(&quot;Error: &quot; + response.toString());</span>
+<span class="nc" id="L245">			return false;</span>
+		} else {
+<span class="nc" id="L247">			logger.info(&quot;Mock vans correctly registered&quot;);</span>
+<span class="nc" id="L248">			return true;</span>
+		}
+	}
+	
+	public boolean registerReservationsList(ArrayList&lt;ReservationData&gt; reservations) {
+<span class="nc" id="L253">		WebTarget reservationsWebTarget = webTarget.path(&quot;AirBV/registerReservationsList/&quot;);</span>
+		
+<span class="nc" id="L255">		Invocation.Builder invocationBuilder = reservationsWebTarget.request(MediaType.APPLICATION_JSON);</span>
+<span class="nc" id="L256">		Response response = invocationBuilder.post(Entity.entity(reservations, MediaType.APPLICATION_JSON));</span>
+<span class="nc bnc" id="L257" title="All 2 branches missed.">		if (response.getStatus() != Status.OK.getStatusCode()) {</span>
+<span class="nc" id="L258">			logger.error(&quot;Error connecting with the server. Code: &quot; + response.getStatus());</span>
+<span class="nc" id="L259">			logger.error(&quot;Error: &quot; + response.toString());</span>
+<span class="nc" id="L260">			return false;</span>
+		} else {
+<span class="nc" id="L262">			logger.info(&quot;Mock reservations correctly registered&quot;);</span>
+<span class="nc" id="L263">			return true;</span>
+		}
+	}
+	
+	/**
+	 * Reads the csv with the demo data and creates the different lists for dividing users, vans and reservations.
+	 * Then, it calls three different methods for storing those objects in the system DB.
+	 */
+	public void initializeDemoData() {
+<span class="fc" id="L272">		ArrayList&lt;UserData&gt; users = new ArrayList&lt;UserData&gt;();</span>
+<span class="fc" id="L273">		ArrayList&lt;VanData&gt; vans = new ArrayList&lt;VanData&gt;();</span>
+<span class="fc" id="L274">		ArrayList&lt;ReservationData&gt; reservations = new ArrayList&lt;ReservationData&gt;();</span>
+<span class="fc" id="L275">		BufferedReader br = null;</span>
+		try {
+<span class="nc" id="L277">			br = new BufferedReader(new FileReader(demoDataPath));</span>
+<span class="nc" id="L278">			String line = br.readLine();</span>
+<span class="nc bnc" id="L279" title="All 2 branches missed.">			while (line != null) {</span>
+<span class="nc" id="L280">				String[] fields = line.split(&quot;,&quot;);</span>
+<span class="nc bnc" id="L281" title="All 2 branches missed.">				if (fields.length == 4) { // User</span>
+<span class="nc" id="L282">					users.add( new UserData(fields[0], fields[1], fields[2], fields[3]) );</span>
+<span class="nc bnc" id="L283" title="All 2 branches missed.">				} else if (fields.length == 5) { // Reservation</span>
+<span class="nc" id="L284">					Date d = null;</span>
+					try {
+<span class="nc" id="L286">						d = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(fields[0]);</span>
+<span class="nc" id="L287">					} catch (ParseException e) {</span>
+<span class="nc" id="L288">						e.printStackTrace();</span>
+<span class="nc" id="L289">						logger.error(&quot;Error parsing pickup date&quot;);</span>
+					}
+<span class="nc" id="L291">					reservations.add( new ReservationData(d, Integer.parseInt(fields[1]), fields[2], fields[3]) );</span>
+<span class="nc" id="L292">				} else { // Van</span>
+<span class="nc" id="L293">					vans.add( new VanData(fields[0], fields[1], fields[2], fields[3], Integer.parseInt(fields[4]), Boolean.parseBoolean(fields[5]),</span>
+<span class="nc" id="L294">							Boolean.parseBoolean(fields[6]), Boolean.parseBoolean(fields[7]), Double.parseDouble(fields[8]), fields[9]) );</span>
+				}
+<span class="nc" id="L296">				line = br.readLine();</span>
+			}
+<span class="nc" id="L298">			registerUsersList(users);</span>
+<span class="nc" id="L299">			registerVansList(vans);</span>
+<span class="nc" id="L300">			registerReservationsList(reservations);</span>
+<span class="pc" id="L301">		} catch (Exception e) {</span>
+<span class="fc" id="L302">			logger.error(&quot;It wasn't possible to read the demo data&quot;);</span>
+		} finally {
+<span class="pc bpc" id="L304" title="1 of 2 branches missed.">			if (br != null) {</span>
+				try {
+<span class="nc" id="L306">					br.close();</span>
+<span class="nc" id="L307">				} catch (IOException e) {</span>
+<span class="nc" id="L308">					logger.error(&quot;It wasn't possible to close the buffered reader&quot;);</span>
+				}
+			}
+		}
+<span class="fc" id="L312">	}</span>
 	
 	/**
 	 * Returns the ResourceBundle
 	 * @return ResourceBundle
 	 */
 	public ResourceBundle getResourcebundle() {
-<span class="fc" id="L219">		return resourceBundle;</span>
+<span class="fc" id="L319">		return resourceBundle;</span>
 	}
 	
 	/**
@@ -224,15 +324,15 @@ public class Controller {
 	 * @param locale
 	 */
 	public void setLocale(String locale){
-<span class="nc bnc" id="L227" title="All 2 branches missed.">		if(locale.equals(&quot;es&quot;)){</span>
-<span class="nc" id="L228">			currentLocale = new Locale(&quot;es&quot;);</span>
-<span class="nc bnc" id="L229" title="All 2 branches missed.">		}else if(locale.equals(&quot;eu&quot;)){</span>
-<span class="nc" id="L230">			currentLocale = new Locale(&quot;eu&quot;);</span>
-<span class="nc bnc" id="L231" title="All 2 branches missed.">		}else if(locale.equals(&quot;en&quot;)){</span>
-<span class="nc" id="L232">			currentLocale = new Locale(&quot;en&quot;);</span>
+<span class="nc bnc" id="L327" title="All 2 branches missed.">		if(locale.equals(&quot;es&quot;)){</span>
+<span class="nc" id="L328">			currentLocale = new Locale(&quot;es&quot;);</span>
+<span class="nc bnc" id="L329" title="All 2 branches missed.">		}else if(locale.equals(&quot;eu&quot;)){</span>
+<span class="nc" id="L330">			currentLocale = new Locale(&quot;eu&quot;);</span>
+<span class="nc bnc" id="L331" title="All 2 branches missed.">		}else if(locale.equals(&quot;en&quot;)){</span>
+<span class="nc" id="L332">			currentLocale = new Locale(&quot;en&quot;);</span>
 		}
-<span class="nc" id="L234">		resourceBundle = ResourceBundle.getBundle(&quot;SystemMessages&quot;, currentLocale);</span>
-<span class="nc" id="L235">	}</span>
+<span class="nc" id="L334">		resourceBundle = ResourceBundle.getBundle(&quot;SystemMessages&quot;, currentLocale);</span>
+<span class="nc" id="L335">	}</span>
 	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -36,10 +36,11 @@ public class SearchWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 <span class="fc" id="L37">	private static Logger logger = Logger.getLogger(SearchWindow.class.getName());</span>
 	private Controller controller;
+	private boolean visible;
 	private UserData user;
 	private JFrame mainWindow;
 	
-<span class="fc" id="L42">	private JFrame frmSearchVans = new JFrame();</span>
+<span class="fc" id="L43">	private JFrame frmSearchVans = new JFrame();</span>
 	private JPanel searchPanel;
 	private JPanel visualizePanel;
 	private JLabel lblSearchTitle;
@@ -51,244 +52,245 @@ public class SearchWindow extends JFrame{
 	private JTextField txtPickUp;
 	private JTextField txtReturn;
 	private JSeparator separator;
-<span class="fc" id="L54">	private JTable jtVansTable = new JTable();</span>
+<span class="fc" id="L55">	private JTable jtVansTable = new JTable();</span>
 	private JScrollPane scrollVans;
-<span class="fc" id="L56">	private ArrayList&lt;VanData&gt; vans = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L57">	private ArrayList&lt;VanData&gt; vans = new ArrayList&lt;&gt;();</span>
 	private Date pickUpDate;
 	private Date returnDate;
 	JButton btnCharacteristics;
 	JButton btnBook;
 	private DefaultTableModel tableModel;
 	
-<span class="fc" id="L63">	private javax.swing.DefaultListModel&lt;String&gt; vansList = new javax.swing.DefaultListModel&lt;String&gt;();</span>
+<span class="fc" id="L64">	private javax.swing.DefaultListModel&lt;String&gt; vansList = new javax.swing.DefaultListModel&lt;String&gt;();</span>
 
 	/**
 	 * Create the application.
 	 */
-<span class="fc" id="L68">	public SearchWindow(Controller controller, UserData user, JFrame mainWindow) {</span>
-<span class="fc" id="L69">		this.controller = controller;</span>
-<span class="fc" id="L70">		this.user = user;</span>
-<span class="fc" id="L71">		this.mainWindow = mainWindow;</span>
-<span class="fc" id="L72">		frmSearchVans.setTitle(controller.getResourcebundle().getString(&quot;search_window_tittle_msg&quot;));</span>
-<span class="fc" id="L73">		frmSearchVans.setResizable(false);</span>
-<span class="fc" id="L74">		frmSearchVans.setVisible(true);</span>
-<span class="fc" id="L75">		initialize();</span>
-<span class="fc" id="L76">	}</span>
+<span class="fc" id="L69">	public SearchWindow(Controller controller, UserData user, JFrame mainWindow, boolean visible) {</span>
+<span class="fc" id="L70">		this.controller = controller;</span>
+<span class="fc" id="L71">		this.visible = visible;</span>
+<span class="fc" id="L72">		this.user = user;</span>
+<span class="fc" id="L73">		this.mainWindow = mainWindow;</span>
+<span class="fc" id="L74">		frmSearchVans.setTitle(controller.getResourcebundle().getString(&quot;search_window_tittle_msg&quot;));</span>
+<span class="fc" id="L75">		frmSearchVans.setResizable(false);</span>
+<span class="fc" id="L76">		frmSearchVans.setVisible(visible);</span>
+<span class="fc" id="L77">		initialize();</span>
+<span class="fc" id="L78">	}</span>
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-<span class="fc" id="L82">		frmSearchVans.setBounds(100, 100, 668, 400);</span>
-<span class="fc" id="L83">		frmSearchVans.setLocationRelativeTo(null);</span>
-<span class="fc" id="L84">		frmSearchVans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
-<span class="fc" id="L85">		frmSearchVans.getContentPane().setLayout(null);</span>
-<span class="fc" id="L86">		frmSearchVans.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
+<span class="fc" id="L84">		frmSearchVans.setBounds(100, 100, 668, 400);</span>
+<span class="fc" id="L85">		frmSearchVans.setLocationRelativeTo(null);</span>
+<span class="fc" id="L86">		frmSearchVans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L87">		frmSearchVans.getContentPane().setLayout(null);</span>
+<span class="fc" id="L88">		frmSearchVans.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
 		
-<span class="fc" id="L88">		searchPanel = new JPanel();</span>
-<span class="fc" id="L89">		searchPanel.setBounds(0, 0, 662, 165);</span>
-<span class="fc" id="L90">		frmSearchVans.getContentPane().add(searchPanel);</span>
-<span class="fc" id="L91">		searchPanel.setLayout(null);</span>
+<span class="fc" id="L90">		searchPanel = new JPanel();</span>
+<span class="fc" id="L91">		searchPanel.setBounds(0, 0, 662, 165);</span>
+<span class="fc" id="L92">		frmSearchVans.getContentPane().add(searchPanel);</span>
+<span class="fc" id="L93">		searchPanel.setLayout(null);</span>
 		
-<span class="fc" id="L93">		lblLocation = new JLabel(controller.getResourcebundle().getString(&quot;location_msg&quot;));</span>
-<span class="fc" id="L94">		lblLocation.setBounds(20, 61, 100, 14);</span>
-<span class="fc" id="L95">		searchPanel.add(lblLocation);</span>
+<span class="fc" id="L95">		lblLocation = new JLabel(controller.getResourcebundle().getString(&quot;location_msg&quot;));</span>
+<span class="fc" id="L96">		lblLocation.setBounds(20, 61, 100, 14);</span>
+<span class="fc" id="L97">		searchPanel.add(lblLocation);</span>
 		
-<span class="fc" id="L97">		lblPickUp = new JLabel(controller.getResourcebundle().getString(&quot;pick_up_date_msg&quot;));</span>
-<span class="fc" id="L98">		lblPickUp.setBounds(325, 55, 125, 14);</span>
-<span class="fc" id="L99">		searchPanel.add(lblPickUp);</span>
+<span class="fc" id="L99">		lblPickUp = new JLabel(controller.getResourcebundle().getString(&quot;pick_up_date_msg&quot;));</span>
+<span class="fc" id="L100">		lblPickUp.setBounds(325, 55, 125, 14);</span>
+<span class="fc" id="L101">		searchPanel.add(lblPickUp);</span>
 		
-<span class="fc" id="L101">		lblReturn = new JLabel(controller.getResourcebundle().getString(&quot;return_date_msg&quot;));</span>
-<span class="fc" id="L102">		lblReturn.setBounds(325, 85, 125, 14);</span>
-<span class="fc" id="L103">		searchPanel.add(lblReturn);</span>
+<span class="fc" id="L103">		lblReturn = new JLabel(controller.getResourcebundle().getString(&quot;return_date_msg&quot;));</span>
+<span class="fc" id="L104">		lblReturn.setBounds(325, 85, 125, 14);</span>
+<span class="fc" id="L105">		searchPanel.add(lblReturn);</span>
 		
-<span class="fc" id="L105">		txtLocation = new JTextField();</span>
-<span class="fc" id="L106">		txtLocation.setBounds(131, 58, 140, 20);</span>
-<span class="fc" id="L107">		searchPanel.add(txtLocation);</span>
-<span class="fc" id="L108">		txtLocation.updateUI();</span>
-<span class="fc" id="L109">		txtLocation.setToolTipText(controller.getResourcebundle().getString(&quot;location_tool_tip_msg&quot;));</span>
-<span class="fc" id="L110">		txtLocation.setColumns(10);</span>
+<span class="fc" id="L107">		txtLocation = new JTextField();</span>
+<span class="fc" id="L108">		txtLocation.setBounds(131, 58, 140, 20);</span>
+<span class="fc" id="L109">		searchPanel.add(txtLocation);</span>
+<span class="fc" id="L110">		txtLocation.updateUI();</span>
+<span class="fc" id="L111">		txtLocation.setToolTipText(controller.getResourcebundle().getString(&quot;location_tool_tip_msg&quot;));</span>
+<span class="fc" id="L112">		txtLocation.setColumns(10);</span>
 		
-<span class="fc" id="L112">		txtPickUp = new JTextField();</span>
-<span class="fc" id="L113">		txtPickUp.setBounds(460, 52, 133, 20);</span>
-<span class="fc" id="L114">		searchPanel.add(txtPickUp);</span>
-<span class="fc" id="L115">		txtPickUp.updateUI();</span>
-<span class="fc" id="L116">		txtPickUp.setColumns(10);</span>
+<span class="fc" id="L114">		txtPickUp = new JTextField();</span>
+<span class="fc" id="L115">		txtPickUp.setBounds(460, 52, 133, 20);</span>
+<span class="fc" id="L116">		searchPanel.add(txtPickUp);</span>
+<span class="fc" id="L117">		txtPickUp.updateUI();</span>
+<span class="fc" id="L118">		txtPickUp.setColumns(10);</span>
 		
-<span class="fc" id="L118">		txtReturn = new JTextField();</span>
-<span class="fc" id="L119">		txtReturn.setBounds(460, 82, 133, 20);</span>
-<span class="fc" id="L120">		searchPanel.add(txtReturn);</span>
-<span class="fc" id="L121">		txtReturn.updateUI();</span>
-<span class="fc" id="L122">		txtReturn.setColumns(10);</span>
+<span class="fc" id="L120">		txtReturn = new JTextField();</span>
+<span class="fc" id="L121">		txtReturn.setBounds(460, 82, 133, 20);</span>
+<span class="fc" id="L122">		searchPanel.add(txtReturn);</span>
+<span class="fc" id="L123">		txtReturn.updateUI();</span>
+<span class="fc" id="L124">		txtReturn.setColumns(10);</span>
 		
 		//SEARCH BUTTON
-<span class="fc" id="L125">		JButton btnSearch = new JButton(controller.getResourcebundle().getString(&quot;search_button_msg&quot;));</span>
-<span class="fc" id="L126">		btnSearch.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L127">		JButton btnSearch = new JButton(controller.getResourcebundle().getString(&quot;search_button_msg&quot;));</span>
+<span class="fc" id="L128">		btnSearch.addActionListener(new ActionListener() {</span>
 			public void actionPerformed(ActionEvent e) {
-<span class="nc bnc" id="L128" title="All 6 branches missed.">				if(txtPickUp.getText() != null &amp;&amp; txtReturn.getText() != null &amp;&amp; txtLocation.getText() != null) {</span>
-<span class="nc" id="L129">					vans = controller.searchVans(txtLocation.getText(), txtPickUp.getText(), txtReturn.getText());</span>
-<span class="nc" id="L130">					updateLists(vans);</span>
-<span class="nc" id="L131">					logger.debug(&quot;List of vans updated&quot;);</span>
-				}else {
-<span class="nc" id="L133">					JOptionPane.showMessageDialog(frmSearchVans, controller.getResourcebundle().getString(&quot;search_window_error_empty_txt_fields_msg&quot;));</span>
-<span class="nc" id="L134">					logger.error(&quot;Wrong data entered into parameters&quot;);</span>
+<span class="nc bnc" id="L130" title="All 6 branches missed.">				if(txtPickUp.getText() != null &amp;&amp; txtReturn.getText() != null &amp;&amp; txtLocation.getText() != null) {</span>
+<span class="nc" id="L131">					vans = controller.searchVans(txtLocation.getText(), txtPickUp.getText(), txtReturn.getText());</span>
+<span class="nc" id="L132">					updateLists(vans);</span>
+<span class="nc" id="L133">					logger.debug(&quot;List of vans updated&quot;);</span>
+<span class="nc" id="L134">				}else {</span>
+<span class="nc" id="L135">					JOptionPane.showMessageDialog(frmSearchVans, controller.getResourcebundle().getString(&quot;search_window_error_empty_txt_fields_msg&quot;));</span>
+<span class="nc" id="L136">					logger.error(&quot;Wrong data entered into parameters&quot;);</span>
 				}
-<span class="nc" id="L136">			}</span>
+<span class="nc" id="L138">			}</span>
 		});
-<span class="fc" id="L138">		btnSearch.setFont(new Font(&quot;Tahoma&quot;, Font.ITALIC, 11));</span>
-<span class="fc" id="L139">		btnSearch.setBounds(276, 134, 87, 20);</span>
-<span class="fc" id="L140">		searchPanel.add(btnSearch);</span>
-<span class="fc" id="L141">		btnSearch.updateUI();</span>
+<span class="fc" id="L140">		btnSearch.setFont(new Font(&quot;Tahoma&quot;, Font.ITALIC, 11));</span>
+<span class="fc" id="L141">		btnSearch.setBounds(276, 134, 87, 20);</span>
+<span class="fc" id="L142">		searchPanel.add(btnSearch);</span>
+<span class="fc" id="L143">		btnSearch.updateUI();</span>
 		
-<span class="fc" id="L143">		lblSearchTitle = new JLabel(controller.getResourcebundle().getString(&quot;lbl_search_title_msg&quot;));</span>
-<span class="fc" id="L144">		lblSearchTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
-<span class="fc" id="L145">		lblSearchTitle.setBounds(10, 11, 320, 34);</span>
-<span class="fc" id="L146">		searchPanel.add(lblSearchTitle);</span>
+<span class="fc" id="L145">		lblSearchTitle = new JLabel(controller.getResourcebundle().getString(&quot;lbl_search_title_msg&quot;));</span>
+<span class="fc" id="L146">		lblSearchTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
+<span class="fc" id="L147">		lblSearchTitle.setBounds(10, 11, 320, 34);</span>
+<span class="fc" id="L148">		searchPanel.add(lblSearchTitle);</span>
 		
-<span class="fc" id="L148">		JLabel lblNDateExample = new JLabel(controller.getResourcebundle().getString(&quot;date_example_msg&quot;));</span>
-<span class="fc" id="L149">		lblNDateExample.setForeground(Color.BLUE);</span>
-<span class="fc" id="L150">		lblNDateExample.setBounds(484, 32, 93, 13);</span>
-<span class="fc" id="L151">		searchPanel.add(lblNDateExample);</span>
-<span class="fc" id="L152">		lblSearchTitle.updateUI();</span>
+<span class="fc" id="L150">		JLabel lblNDateExample = new JLabel(controller.getResourcebundle().getString(&quot;date_example_msg&quot;));</span>
+<span class="fc" id="L151">		lblNDateExample.setForeground(Color.BLUE);</span>
+<span class="fc" id="L152">		lblNDateExample.setBounds(484, 32, 93, 13);</span>
+<span class="fc" id="L153">		searchPanel.add(lblNDateExample);</span>
+<span class="fc" id="L154">		lblSearchTitle.updateUI();</span>
 		
-<span class="fc" id="L154">		visualizePanel = new JPanel();</span>
-<span class="fc" id="L155">		visualizePanel.setBounds(0, 170, 662, 200);</span>
-<span class="fc" id="L156">		frmSearchVans.getContentPane().add(visualizePanel);</span>
-<span class="fc" id="L157">		visualizePanel.setLayout(null);</span>
+<span class="fc" id="L156">		visualizePanel = new JPanel();</span>
+<span class="fc" id="L157">		visualizePanel.setBounds(0, 170, 662, 200);</span>
+<span class="fc" id="L158">		frmSearchVans.getContentPane().add(visualizePanel);</span>
+<span class="fc" id="L159">		visualizePanel.setLayout(null);</span>
 		
-<span class="fc" id="L159">		lblResultsTitle = new JLabel(controller.getResourcebundle().getString(&quot;lbl_results_title_msg&quot;));</span>
-<span class="fc" id="L160">		lblResultsTitle.setBounds(10, 11, 148, 29);</span>
-<span class="fc" id="L161">		lblResultsTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
-<span class="fc" id="L162">		visualizePanel.add(lblResultsTitle);</span>
-<span class="fc" id="L163">		lblResultsTitle.updateUI();</span>
+<span class="fc" id="L161">		lblResultsTitle = new JLabel(controller.getResourcebundle().getString(&quot;lbl_results_title_msg&quot;));</span>
+<span class="fc" id="L162">		lblResultsTitle.setBounds(10, 11, 148, 29);</span>
+<span class="fc" id="L163">		lblResultsTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
+<span class="fc" id="L164">		visualizePanel.add(lblResultsTitle);</span>
+<span class="fc" id="L165">		lblResultsTitle.updateUI();</span>
 		
 		//TABLE MODEL
-<span class="fc" id="L166">		tableModel = new DefaultTableModel() {</span>
+<span class="fc" id="L168">		tableModel = new DefaultTableModel() {</span>
 			@Override
 		    public boolean isCellEditable(int row, int column) {
 		       //all cells false
-<span class="nc" id="L170">		       return false;</span>
+<span class="nc" id="L172">		       return false;</span>
 		    }
 		};
-<span class="fc" id="L173">		tableModel.setColumnIdentifiers(new String[] {controller.getResourcebundle().getString(&quot;brand_msg&quot;), </span>
-<span class="fc" id="L174">													controller.getResourcebundle().getString(&quot;model_msg&quot;),</span>
-<span class="fc" id="L175">													controller.getResourcebundle().getString(&quot;location_msg&quot;),</span>
-<span class="fc" id="L176">													controller.getResourcebundle().getString(&quot;capacity_msg&quot;),</span>
-<span class="fc" id="L177">													controller.getResourcebundle().getString(&quot;price_per_day_msg&quot;)</span>
+<span class="fc" id="L175">		tableModel.setColumnIdentifiers(new String[] {controller.getResourcebundle().getString(&quot;brand_msg&quot;), </span>
+<span class="fc" id="L176">													controller.getResourcebundle().getString(&quot;model_msg&quot;),</span>
+<span class="fc" id="L177">													controller.getResourcebundle().getString(&quot;location_msg&quot;),</span>
+<span class="fc" id="L178">													controller.getResourcebundle().getString(&quot;capacity_msg&quot;),</span>
+<span class="fc" id="L179">													controller.getResourcebundle().getString(&quot;price_per_day_msg&quot;)</span>
 													});
-<span class="fc" id="L179">		logger.debug(&quot;Table model well generated&quot;);</span>
+<span class="fc" id="L181">		logger.debug(&quot;Table model well generated&quot;);</span>
 		
 		//JTABLE
-<span class="fc" id="L182">		jtVansTable.setBounds(574, 118, -558, -83);</span>
-<span class="fc" id="L183">		jtVansTable.setModel(tableModel);</span>
-<span class="fc" id="L184">		jtVansTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
-<span class="fc" id="L185">		jtVansTable.getTableHeader().setResizingAllowed(false);	  //not allow resizing of columns</span>
-<span class="fc" id="L186">		jtVansTable.getTableHeader().setReorderingAllowed(false); // not allow re-ordering of columns</span>
+<span class="fc" id="L184">		jtVansTable.setBounds(574, 118, -558, -83);</span>
+<span class="fc" id="L185">		jtVansTable.setModel(tableModel);</span>
+<span class="fc" id="L186">		jtVansTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+<span class="fc" id="L187">		jtVansTable.getTableHeader().setResizingAllowed(false);	  //not allow resizing of columns</span>
+<span class="fc" id="L188">		jtVansTable.getTableHeader().setReorderingAllowed(false); // not allow re-ordering of columns</span>
 		
-<span class="fc" id="L188">		scrollVans = new JScrollPane();</span>
-<span class="fc" id="L189">		scrollVans.setBounds(10, 40, 633, 84);</span>
-<span class="fc" id="L190">		scrollVans.setViewportView(jtVansTable);</span>
-<span class="fc" id="L191">		visualizePanel.add(scrollVans);</span>
+<span class="fc" id="L190">		scrollVans = new JScrollPane();</span>
+<span class="fc" id="L191">		scrollVans.setBounds(10, 40, 633, 84);</span>
+<span class="fc" id="L192">		scrollVans.setViewportView(jtVansTable);</span>
+<span class="fc" id="L193">		visualizePanel.add(scrollVans);</span>
 		
 		//BOOK BUTTON
-<span class="fc" id="L194">		btnBook = new JButton(controller.getResourcebundle().getString(&quot;book_button_msg&quot;));</span>
-<span class="fc" id="L195">		btnBook.setEnabled(false);</span>
-<span class="fc" id="L196">		btnBook.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L196">		btnBook = new JButton(controller.getResourcebundle().getString(&quot;book_button_msg&quot;));</span>
+<span class="fc" id="L197">		btnBook.setEnabled(false);</span>
+<span class="fc" id="L198">		btnBook.addActionListener(new ActionListener() {</span>
 			public void actionPerformed(ActionEvent e) {
 			
-<span class="nc" id="L199">				String pickUp = txtPickUp.getText();</span>
+<span class="nc" id="L201">				String pickUp = txtPickUp.getText();</span>
 				try {
-<span class="nc" id="L201">					pickUpDate = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(pickUp);</span>
-<span class="nc" id="L202">				} catch (ParseException e1) {</span>
-<span class="nc" id="L203">					e1.printStackTrace();</span>
-<span class="nc" id="L204">					logger.error(&quot;Error parsing pickup date&quot;);</span>
-<span class="nc" id="L205">				}</span>
-				
-				try {
-<span class="nc" id="L208">					returnDate = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(txtReturn.getText());</span>
-<span class="nc" id="L209">				} catch (ParseException e1) {</span>
-<span class="nc" id="L210">					e1.printStackTrace();</span>
-<span class="nc" id="L211">					logger.error(&quot;Error parsing return date&quot;);</span>
-<span class="nc" id="L212">				}</span>
-				
-<span class="nc" id="L214">				VanData van = vans.get(jtVansTable.getSelectedRow());</span>
-				
-<span class="nc" id="L216">				int milisecondsByDay = 86400000;</span>
-<span class="nc" id="L217">				int days = (int) ((returnDate.getTime()-pickUpDate.getTime()) / milisecondsByDay);</span>
-				
-<span class="nc bnc" id="L219" title="All 6 branches missed.">				if(txtPickUp.getText() != null &amp;&amp; txtReturn.getText() != null &amp;&amp; txtLocation.getText() != null) {</span>
-<span class="nc" id="L220">					controller.registerReservation(pickUpDate, days, van, user);</span>
-<span class="nc" id="L221">					logger.debug(&quot;Reservation well generated&quot;);</span>
+<span class="nc" id="L203">					pickUpDate = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(pickUp);</span>
+<span class="nc" id="L204">				} catch (ParseException e1) {</span>
+<span class="nc" id="L205">					e1.printStackTrace();</span>
+<span class="nc" id="L206">					logger.error(&quot;Error parsing pickup date&quot;);</span>
 				}
-<span class="nc" id="L223">				mainWindow.setVisible(true);</span>
-<span class="nc" id="L224">				frmSearchVans.dispose();</span>
 				
-<span class="nc" id="L226">			}</span>
+				try {
+<span class="nc" id="L210">					returnDate = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(txtReturn.getText());</span>
+<span class="nc" id="L211">				} catch (ParseException e1) {</span>
+<span class="nc" id="L212">					e1.printStackTrace();</span>
+<span class="nc" id="L213">					logger.error(&quot;Error parsing return date&quot;);</span>
+				}
+				
+<span class="nc" id="L216">				VanData van = vans.get(jtVansTable.getSelectedRow());</span>
+				
+<span class="nc" id="L218">				int milisecondsByDay = 86400000;</span>
+<span class="nc" id="L219">				int days = (int) ((returnDate.getTime()-pickUpDate.getTime()) / milisecondsByDay);</span>
+				
+<span class="nc bnc" id="L221" title="All 6 branches missed.">				if(txtPickUp.getText() != null &amp;&amp; txtReturn.getText() != null &amp;&amp; txtLocation.getText() != null) {</span>
+<span class="nc" id="L222">					controller.registerReservation(pickUpDate, days, van, user);</span>
+<span class="nc" id="L223">					logger.debug(&quot;Reservation well generated&quot;);</span>
+				}
+<span class="nc" id="L225">				mainWindow.setVisible(visible);</span>
+<span class="nc" id="L226">				frmSearchVans.dispose();</span>
+				
+<span class="nc" id="L228">			}</span>
 		});
-<span class="fc" id="L228">		btnBook.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 11));</span>
-<span class="fc" id="L229">		btnBook.setBounds(209, 138, 100, 20);</span>
-<span class="fc" id="L230">		visualizePanel.add(btnBook);</span>
+<span class="fc" id="L230">		btnBook.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD | Font.ITALIC, 11));</span>
+<span class="fc" id="L231">		btnBook.setBounds(209, 138, 100, 20);</span>
+<span class="fc" id="L232">		visualizePanel.add(btnBook);</span>
 		
 		//CHARACTERISTICS BUTTON
-<span class="fc" id="L233">		btnCharacteristics = new JButton(controller.getResourcebundle().getString(&quot;characteristics_button_msg&quot;));</span>
-<span class="fc" id="L234">		btnCharacteristics.setEnabled(false);</span>
-<span class="fc" id="L235">		btnCharacteristics.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L235">		btnCharacteristics = new JButton(controller.getResourcebundle().getString(&quot;characteristics_button_msg&quot;));</span>
+<span class="fc" id="L236">		btnCharacteristics.setEnabled(false);</span>
+<span class="fc" id="L237">		btnCharacteristics.addActionListener(new ActionListener() {</span>
 			public void actionPerformed(ActionEvent e) {
-<span class="nc bnc" id="L237" title="All 2 branches missed.">				if(jtVansTable.getSelectedRow() != -1) {</span>
-<span class="nc" id="L238">					VanData van = vans.get(jtVansTable.getSelectedRow());</span>
-<span class="nc" id="L239">					frmSearchVans.setVisible(false);</span>
-<span class="nc" id="L240">					new CharacteristicsWindow(controller, van, frmSearchVans);</span>
+<span class="nc bnc" id="L239" title="All 2 branches missed.">				if(jtVansTable.getSelectedRow() != -1) {</span>
+<span class="nc" id="L240">					VanData van = vans.get(jtVansTable.getSelectedRow());</span>
+<span class="nc" id="L241">					frmSearchVans.setVisible(false);</span>
+<span class="nc" id="L242">					new CharacteristicsWindow(controller, van, frmSearchVans, visible);</span>
 				}
-<span class="nc" id="L242">			}</span>
+<span class="nc" id="L244">			}</span>
 		});
-<span class="fc" id="L244">		btnCharacteristics.setFont(new Font(&quot;Tahoma&quot;, Font.ITALIC, 11));</span>
-<span class="fc" id="L245">		btnCharacteristics.setBounds(325, 138, 130, 20);</span>
-<span class="fc" id="L246">		visualizePanel.add(btnCharacteristics);</span>
+<span class="fc" id="L246">		btnCharacteristics.setFont(new Font(&quot;Tahoma&quot;, Font.ITALIC, 11));</span>
+<span class="fc" id="L247">		btnCharacteristics.setBounds(325, 138, 130, 20);</span>
+<span class="fc" id="L248">		visualizePanel.add(btnCharacteristics);</span>
 		
 		//BACK BUTTON
-<span class="fc" id="L249">		JButton btnNewButton = new JButton(controller.getResourcebundle().getString(&quot;back_button_msg&quot;));</span>
-<span class="fc" id="L250">		btnNewButton.setFont(new Font(&quot;Tahoma&quot;, Font.ITALIC, 11));</span>
-<span class="fc" id="L251">		btnNewButton.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L251">		JButton btnNewButton = new JButton(controller.getResourcebundle().getString(&quot;back_button_msg&quot;));</span>
+<span class="fc" id="L252">		btnNewButton.setFont(new Font(&quot;Tahoma&quot;, Font.ITALIC, 11));</span>
+<span class="fc" id="L253">		btnNewButton.addActionListener(new ActionListener() {</span>
 			public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L253">				new MainWindow(controller, user);</span>
-<span class="nc" id="L254">				frmSearchVans.dispose();</span>
-<span class="nc" id="L255">			}</span>
+<span class="nc" id="L255">				new MainWindow(controller, user, visible);</span>
+<span class="nc" id="L256">				frmSearchVans.dispose();</span>
+<span class="nc" id="L257">			}</span>
 		});
-<span class="fc" id="L257">		btnNewButton.setBounds(10, 157, 89, 20);</span>
-<span class="fc" id="L258">		visualizePanel.add(btnNewButton);</span>
-<span class="fc" id="L259">		btnBook.updateUI();</span>
+<span class="fc" id="L259">		btnNewButton.setBounds(10, 157, 89, 20);</span>
+<span class="fc" id="L260">		visualizePanel.add(btnNewButton);</span>
+<span class="fc" id="L261">		btnBook.updateUI();</span>
 		
-<span class="fc" id="L261">		separator = new JSeparator();</span>
-<span class="fc" id="L262">		separator.setBounds(0, 142, 662, 160);</span>
-<span class="fc" id="L263">		frmSearchVans.getContentPane().add(separator);</span>
-<span class="fc" id="L264">		separator.updateUI();</span>
+<span class="fc" id="L263">		separator = new JSeparator();</span>
+<span class="fc" id="L264">		separator.setBounds(0, 142, 662, 160);</span>
+<span class="fc" id="L265">		frmSearchVans.getContentPane().add(separator);</span>
+<span class="fc" id="L266">		separator.updateUI();</span>
 		
-<span class="fc" id="L266">		logger.info(&quot;SearchWindow well initialized&quot;);</span>
-<span class="fc" id="L267">	}</span>
+<span class="fc" id="L268">		logger.info(&quot;SearchWindow well initialized&quot;);</span>
+<span class="fc" id="L269">	}</span>
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
 	private void updateLists(ArrayList&lt;VanData&gt; vans) {
-<span class="nc" id="L271">		logger.debug(&quot;Inside method updateLists -&gt; &quot; + vans);</span>
-<span class="nc bnc" id="L272" title="All 2 branches missed.">		if(vans.size() &gt; 0) {</span>
-<span class="nc" id="L273">			btnCharacteristics.setEnabled(true);</span>
-<span class="nc" id="L274">			tableModel.setRowCount(0); //CLEAR THE TABLE</span>
-<span class="nc bnc" id="L275" title="All 2 branches missed.">			for (int i = 0; i &lt; vans.size(); i++) {</span>
-<span class="nc" id="L276">				VanData v = vans.get(i);</span>
-<span class="nc" id="L277">				String[] row = {v.getBrand(), v.getModel(), v.getLocation(), String.valueOf(v.getCapacity()), String.valueOf(v.getPricePerDay())};</span>
-<span class="nc" id="L278">				tableModel.addRow(row);</span>
+<span class="nc" id="L273">		logger.debug(&quot;Inside method updateLists -&gt; &quot; + vans);</span>
+<span class="nc bnc" id="L274" title="All 2 branches missed.">		if(vans.size() &gt; 0) {</span>
+<span class="nc" id="L275">			btnCharacteristics.setEnabled(true);</span>
+<span class="nc" id="L276">			tableModel.setRowCount(0); //CLEAR THE TABLE</span>
+<span class="nc bnc" id="L277" title="All 2 branches missed.">			for (int i = 0; i &lt; vans.size(); i++) {</span>
+<span class="nc" id="L278">				VanData v = vans.get(i);</span>
+<span class="nc" id="L279">				String[] row = {v.getBrand(), v.getModel(), v.getLocation(), String.valueOf(v.getCapacity()), String.valueOf(v.getPricePerDay())};</span>
+<span class="nc" id="L280">				tableModel.addRow(row);</span>
 			}
-<span class="nc" id="L280">			jtVansTable.setRowSelectionInterval(0, 0);</span>
-<span class="nc" id="L281">			btnBook.setEnabled(true);</span>
-		} else {
-<span class="nc" id="L283">			btnCharacteristics.setEnabled(false);</span>
-<span class="nc" id="L284">			btnBook.setEnabled(false);</span>
-<span class="nc" id="L285">			tableModel.setRowCount(0); //CLEAR THE TABLE</span>
+<span class="nc" id="L282">			jtVansTable.setRowSelectionInterval(0, 0);</span>
+<span class="nc" id="L283">			btnBook.setEnabled(true);</span>
+<span class="nc" id="L284">		} else {</span>
+<span class="nc" id="L285">			btnCharacteristics.setEnabled(false);</span>
+<span class="nc" id="L286">			btnBook.setEnabled(false);</span>
+<span class="nc" id="L287">			tableModel.setRowCount(0); //CLEAR THE TABLE</span>
 		}
-<span class="nc" id="L287">		jtVansTable.setModel(tableModel);</span>
-<span class="nc" id="L288">		jtVansTable.updateUI();</span>
-<span class="nc" id="L289">		scrollVans.updateUI();</span>
-<span class="nc" id="L290">		visualizePanel.updateUI();</span>
-<span class="nc" id="L291">	}</span>
+<span class="nc" id="L289">		jtVansTable.setModel(tableModel);</span>
+<span class="nc" id="L290">		jtVansTable.updateUI();</span>
+<span class="nc" id="L291">		scrollVans.updateUI();</span>
+<span class="nc" id="L292">		visualizePanel.updateUI();</span>
+<span class="nc" id="L293">	}</span>
 }
 
 

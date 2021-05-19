@@ -26,145 +26,148 @@ public class RegisterUserWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
 <span class="nc" id="L27">	private static Logger logger = Logger.getLogger(RegisterUserWindow.class.getName());</span>
 	private Controller controller;
+	private boolean visible;
 	
-<span class="nc" id="L30">	private JFrame frmRegisterYourself = new JFrame();</span>
+<span class="nc" id="L31">	private JFrame frmRegisterYourself = new JFrame();</span>
 
 	private JTextField txtIdNumber, txtName, txtEmail;
 	private JPasswordField passwordField;
 	private JButton btnBack, btnRegister;
 	
-<span class="nc" id="L36">	public RegisterUserWindow(Controller controller) {</span>
-<span class="nc" id="L37">		this.controller = controller;</span>
-<span class="nc" id="L38">		initialize();</span>
-<span class="nc" id="L39">		frmRegisterYourself.setTitle(controller.getResourcebundle().getString(&quot;register_yourself_msg&quot;));</span>
-<span class="nc" id="L40">		frmRegisterYourself.setResizable(false);</span>
-<span class="nc" id="L41">		frmRegisterYourself.setVisible(true);</span>
+<span class="nc" id="L37">	public RegisterUserWindow(Controller controller, boolean visible) {</span>
+<span class="nc" id="L38">		this.controller = controller;</span>
+<span class="nc" id="L39">		this.visible = visible;</span>
+<span class="nc" id="L40">		initialize();</span>
+<span class="nc" id="L41">		frmRegisterYourself.setTitle(controller.getResourcebundle().getString(&quot;register_yourself_msg&quot;));</span>
+<span class="nc" id="L42">		frmRegisterYourself.setResizable(false);</span>
+<span class="nc" id="L43">		frmRegisterYourself.setVisible(visible);</span>
 
-<span class="nc" id="L43">	}</span>
+<span class="nc" id="L45">	}</span>
 	
-<span class="nc" id="L45">	public RegisterUserWindow() {</span>
-<span class="nc" id="L46">		this.controller = null;</span>
-<span class="nc" id="L47">		initialize();</span>
-<span class="nc" id="L48">		frmRegisterYourself.setTitle(controller.getResourcebundle().getString(&quot;register_yourself_msg&quot;));</span>
-<span class="nc" id="L49">		frmRegisterYourself.setResizable(false);</span>
-<span class="nc" id="L50">		frmRegisterYourself.setVisible(true);</span>
+<span class="nc" id="L47">	public RegisterUserWindow(boolean visible) {</span>
+<span class="nc" id="L48">		this.controller = null;</span>
+<span class="nc" id="L49">		this.visible = visible;</span>
+<span class="nc" id="L50">		initialize();</span>
+<span class="nc" id="L51">		frmRegisterYourself.setTitle(controller.getResourcebundle().getString(&quot;register_yourself_msg&quot;));</span>
+<span class="nc" id="L52">		frmRegisterYourself.setResizable(false);</span>
+<span class="nc" id="L53">		frmRegisterYourself.setVisible(visible);</span>
 
-<span class="nc" id="L52">	}</span>
+<span class="nc" id="L55">	}</span>
 	
 	private void initialize() {
-<span class="nc" id="L55">		frmRegisterYourself.setBounds(100, 100, 385, 315);</span>
-<span class="nc" id="L56">		frmRegisterYourself.setLocationRelativeTo(null);</span>
-<span class="nc" id="L57">		frmRegisterYourself.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
-<span class="nc" id="L58">		frmRegisterYourself.getContentPane().setLayout(null);</span>
-<span class="nc" id="L59">		frmRegisterYourself.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
+<span class="nc" id="L58">		frmRegisterYourself.setBounds(100, 100, 385, 315);</span>
+<span class="nc" id="L59">		frmRegisterYourself.setLocationRelativeTo(null);</span>
+<span class="nc" id="L60">		frmRegisterYourself.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L61">		frmRegisterYourself.getContentPane().setLayout(null);</span>
+<span class="nc" id="L62">		frmRegisterYourself.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
 		
-<span class="nc" id="L61">		JLabel lblRegisterTitle = new JLabel(controller.getResourcebundle().getString(&quot;register_as_new_user_msg&quot;));</span>
-<span class="nc" id="L62">		lblRegisterTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
-<span class="nc" id="L63">		lblRegisterTitle.setBounds(49, 20, 294, 19);</span>
-<span class="nc" id="L64">		frmRegisterYourself.getContentPane().add(lblRegisterTitle);</span>
+<span class="nc" id="L64">		JLabel lblRegisterTitle = new JLabel(controller.getResourcebundle().getString(&quot;register_as_new_user_msg&quot;));</span>
+<span class="nc" id="L65">		lblRegisterTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
+<span class="nc" id="L66">		lblRegisterTitle.setBounds(49, 20, 294, 19);</span>
+<span class="nc" id="L67">		frmRegisterYourself.getContentPane().add(lblRegisterTitle);</span>
 		
 		//JLabels
-<span class="nc" id="L67">		JLabel lblId = new JLabel(controller.getResourcebundle().getString(&quot;id_number_msg&quot;));</span>
-<span class="nc" id="L68">		lblId.setBounds(40, 63, 130, 19);</span>
-<span class="nc" id="L69">		frmRegisterYourself.getContentPane().add(lblId);</span>
+<span class="nc" id="L70">		JLabel lblId = new JLabel(controller.getResourcebundle().getString(&quot;id_number_msg&quot;));</span>
+<span class="nc" id="L71">		lblId.setBounds(40, 63, 130, 19);</span>
+<span class="nc" id="L72">		frmRegisterYourself.getContentPane().add(lblId);</span>
 		
-<span class="nc" id="L71">		JLabel lblName = new JLabel(controller.getResourcebundle().getString(&quot;name_msg&quot;));</span>
-<span class="nc" id="L72">		lblName.setBounds(40, 103, 130, 14);</span>
-<span class="nc" id="L73">		frmRegisterYourself.getContentPane().add(lblName);</span>
+<span class="nc" id="L74">		JLabel lblName = new JLabel(controller.getResourcebundle().getString(&quot;name_msg&quot;));</span>
+<span class="nc" id="L75">		lblName.setBounds(40, 103, 130, 14);</span>
+<span class="nc" id="L76">		frmRegisterYourself.getContentPane().add(lblName);</span>
 		
-<span class="nc" id="L75">		JLabel lblEmail = new JLabel(controller.getResourcebundle().getString(&quot;email_msg&quot;));</span>
-<span class="nc" id="L76">		lblEmail.setBounds(40, 141, 130, 14);</span>
-<span class="nc" id="L77">		frmRegisterYourself.getContentPane().add(lblEmail);</span>
+<span class="nc" id="L78">		JLabel lblEmail = new JLabel(controller.getResourcebundle().getString(&quot;email_msg&quot;));</span>
+<span class="nc" id="L79">		lblEmail.setBounds(40, 141, 130, 14);</span>
+<span class="nc" id="L80">		frmRegisterYourself.getContentPane().add(lblEmail);</span>
 		
-<span class="nc" id="L79">		JLabel lblPassword = new JLabel(controller.getResourcebundle().getString(&quot;password_msg&quot;));</span>
-<span class="nc" id="L80">		lblPassword.setBounds(40, 178, 130, 14);</span>
-<span class="nc" id="L81">		frmRegisterYourself.getContentPane().add(lblPassword);</span>
+<span class="nc" id="L82">		JLabel lblPassword = new JLabel(controller.getResourcebundle().getString(&quot;password_msg&quot;));</span>
+<span class="nc" id="L83">		lblPassword.setBounds(40, 178, 130, 14);</span>
+<span class="nc" id="L84">		frmRegisterYourself.getContentPane().add(lblPassword);</span>
 		
 		
 		//txtFields
-<span class="nc" id="L85">		txtIdNumber = new JTextField();</span>
-<span class="nc" id="L86">		txtIdNumber.setBounds(184, 63, 140, 20);</span>
-<span class="nc" id="L87">		frmRegisterYourself.getContentPane().add(txtIdNumber);</span>
-<span class="nc" id="L88">		txtIdNumber.setColumns(10);</span>
+<span class="nc" id="L88">		txtIdNumber = new JTextField();</span>
+<span class="nc" id="L89">		txtIdNumber.setBounds(184, 63, 140, 20);</span>
+<span class="nc" id="L90">		frmRegisterYourself.getContentPane().add(txtIdNumber);</span>
+<span class="nc" id="L91">		txtIdNumber.setColumns(10);</span>
 		
-<span class="nc" id="L90">		txtName = new JTextField();</span>
-<span class="nc" id="L91">		txtName.setBounds(184, 101, 140, 20);</span>
-<span class="nc" id="L92">		frmRegisterYourself.getContentPane().add(txtName);</span>
-<span class="nc" id="L93">		txtName.setColumns(10);</span>
+<span class="nc" id="L93">		txtName = new JTextField();</span>
+<span class="nc" id="L94">		txtName.setBounds(184, 101, 140, 20);</span>
+<span class="nc" id="L95">		frmRegisterYourself.getContentPane().add(txtName);</span>
+<span class="nc" id="L96">		txtName.setColumns(10);</span>
 		
-<span class="nc" id="L95">		txtEmail = new JTextField();</span>
-<span class="nc" id="L96">		txtEmail.setBounds(184, 139, 140, 20);</span>
-<span class="nc" id="L97">		frmRegisterYourself.getContentPane().add(txtEmail);</span>
-<span class="nc" id="L98">		txtEmail.setColumns(10);</span>
+<span class="nc" id="L98">		txtEmail = new JTextField();</span>
+<span class="nc" id="L99">		txtEmail.setBounds(184, 139, 140, 20);</span>
+<span class="nc" id="L100">		frmRegisterYourself.getContentPane().add(txtEmail);</span>
+<span class="nc" id="L101">		txtEmail.setColumns(10);</span>
 		
 		//passwordFields
-<span class="nc" id="L101">		passwordField = new JPasswordField();</span>
-<span class="nc" id="L102">		passwordField.setBounds(184, 176, 140, 19);</span>
-<span class="nc" id="L103">		frmRegisterYourself.getContentPane().add(passwordField);</span>
+<span class="nc" id="L104">		passwordField = new JPasswordField();</span>
+<span class="nc" id="L105">		passwordField.setBounds(184, 176, 140, 19);</span>
+<span class="nc" id="L106">		frmRegisterYourself.getContentPane().add(passwordField);</span>
 		
 		
-<span class="nc" id="L106">		btnBack = new JButton(controller.getResourcebundle().getString(&quot;back_button_msg&quot;));</span>
-<span class="nc" id="L107">		btnBack.addActionListener(new ActionListener() {</span>
+<span class="nc" id="L109">		btnBack = new JButton(controller.getResourcebundle().getString(&quot;back_button_msg&quot;));</span>
+<span class="nc" id="L110">		btnBack.addActionListener(new ActionListener() {</span>
 			public void actionPerformed(ActionEvent e) {
 				
-<span class="nc" id="L110">				goToInitialWindow();</span>
-<span class="nc" id="L111">			}</span>
+<span class="nc" id="L113">				goToInitialWindow();</span>
+<span class="nc" id="L114">			}</span>
 		});
-<span class="nc" id="L113">		btnBack.addMouseListener(new MouseAdapter() {</span>
+<span class="nc" id="L116">		btnBack.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
-<span class="nc" id="L115">        		btnBack.setBounds(28, 229, 150, 29);</span>
-<span class="nc" id="L116">        		btnBack.setBackground(Color.RED);</span>
-<span class="nc" id="L117">        		btnBack.updateUI();</span>
-<span class="nc" id="L118">		    }</span>
+<span class="nc" id="L118">        		btnBack.setBounds(28, 229, 150, 29);</span>
+<span class="nc" id="L119">        		btnBack.setBackground(Color.RED);</span>
+<span class="nc" id="L120">        		btnBack.updateUI();</span>
+<span class="nc" id="L121">		    }</span>
 		    public void mouseExited(MouseEvent e) {
-<span class="nc" id="L120">		    	btnBack.setBounds(40, 229, 125, 25);</span>
-<span class="nc" id="L121">		    	btnBack.setBackground(btnRegister.getBackground());</span>
-<span class="nc" id="L122">		    	btnBack.updateUI();</span>
-<span class="nc" id="L123">		    }</span>
+<span class="nc" id="L123">		    	btnBack.setBounds(40, 229, 125, 25);</span>
+<span class="nc" id="L124">		    	btnBack.setBackground(btnRegister.getBackground());</span>
+<span class="nc" id="L125">		    	btnBack.updateUI();</span>
+<span class="nc" id="L126">		    }</span>
 		});
-<span class="nc" id="L125">		btnBack.setBounds(40, 229, 125, 25);</span>
-<span class="nc" id="L126">		frmRegisterYourself.getContentPane().add(btnBack);</span>
+<span class="nc" id="L128">		btnBack.setBounds(40, 229, 125, 25);</span>
+<span class="nc" id="L129">		frmRegisterYourself.getContentPane().add(btnBack);</span>
 		
 		//Register Button
-<span class="nc" id="L129">		btnRegister = new JButton(controller.getResourcebundle().getString(&quot;register_msg&quot;));</span>
-<span class="nc" id="L130">		btnRegister.addActionListener(new ActionListener() {</span>
+<span class="nc" id="L132">		btnRegister = new JButton(controller.getResourcebundle().getString(&quot;register_msg&quot;));</span>
+<span class="nc" id="L133">		btnRegister.addActionListener(new ActionListener() {</span>
 				public void actionPerformed(ActionEvent e) {
 				
-<span class="nc bnc" id="L133" title="All 6 branches missed.">				if(txtIdNumber.getText() != &quot;&quot; &amp;&amp; txtName.getText() != &quot;&quot; &amp;&amp; txtEmail.getText() != &quot;&quot;) {</span>
-<span class="nc" id="L134">					controller.registerUsers(txtIdNumber.getText(), txtName.getText(), txtEmail.getText(), new String( passwordField.getPassword() ) );</span>
+<span class="nc bnc" id="L136" title="All 6 branches missed.">				if(txtIdNumber.getText() != &quot;&quot; &amp;&amp; txtName.getText() != &quot;&quot; &amp;&amp; txtEmail.getText() != &quot;&quot;) {</span>
+<span class="nc" id="L137">					controller.registerUsers(txtIdNumber.getText(), txtName.getText(), txtEmail.getText(), new String( passwordField.getPassword() ) );</span>
 				}
-<span class="nc" id="L136">				frmRegisterYourself.dispose();</span>
+<span class="nc" id="L139">				frmRegisterYourself.dispose();</span>
 				
-<span class="nc" id="L138">				UserData userData = new UserData(txtIdNumber.getText(), txtName.getText(), txtEmail.getText(), new String( passwordField.getPassword() ) );</span>
+<span class="nc" id="L141">				UserData userData = new UserData(txtIdNumber.getText(), txtName.getText(), txtEmail.getText(), new String( passwordField.getPassword() ) );</span>
 				
 				
-<span class="nc" id="L141">				new MainWindow(controller, userData);</span>
-<span class="nc" id="L142">				logger.debug(&quot;User registered&quot;);</span>
-<span class="nc" id="L143">			}</span>
+<span class="nc" id="L144">				new MainWindow(controller, userData, visible);</span>
+<span class="nc" id="L145">				logger.debug(&quot;User registered&quot;);</span>
+<span class="nc" id="L146">			}</span>
 		});
-<span class="nc" id="L145">		btnRegister.addMouseListener(new MouseAdapter() {</span>
+<span class="nc" id="L148">		btnRegister.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
-<span class="nc" id="L147">        		btnRegister.setBounds(183, 229, 150, 29);</span>
-<span class="nc" id="L148">        		btnRegister.updateUI();</span>
-<span class="nc" id="L149">		    }</span>
+<span class="nc" id="L150">        		btnRegister.setBounds(183, 229, 150, 29);</span>
+<span class="nc" id="L151">        		btnRegister.updateUI();</span>
+<span class="nc" id="L152">		    }</span>
 		    public void mouseExited(MouseEvent e) {
-<span class="nc" id="L151">		    	btnRegister.setBounds(195, 229, 125, 25);</span>
-<span class="nc" id="L152">		    	btnRegister.updateUI();</span>
-<span class="nc" id="L153">		    }</span>
+<span class="nc" id="L154">		    	btnRegister.setBounds(195, 229, 125, 25);</span>
+<span class="nc" id="L155">		    	btnRegister.updateUI();</span>
+<span class="nc" id="L156">		    }</span>
 		});
-<span class="nc" id="L155">		btnRegister.setBounds(195, 229, 125, 25);</span>
-<span class="nc" id="L156">		frmRegisterYourself.getContentPane().add(btnRegister);</span>
+<span class="nc" id="L158">		btnRegister.setBounds(195, 229, 125, 25);</span>
+<span class="nc" id="L159">		frmRegisterYourself.getContentPane().add(btnRegister);</span>
 		
-<span class="nc" id="L158">		logger.info(&quot;RegisterUserWindow well initialized&quot;);</span>
-<span class="nc" id="L159">	}</span>
+<span class="nc" id="L161">		logger.info(&quot;RegisterUserWindow well initialized&quot;);</span>
+<span class="nc" id="L162">	}</span>
 	
     /**
      * Closes this window and opens the Initial window.
      */
     private void goToInitialWindow() {
-<span class="nc" id="L165">        new InitialWindow(controller);</span>
-<span class="nc" id="L166">        frmRegisterYourself.dispose();</span>
-<span class="nc" id="L167">    }</span>
+<span class="nc" id="L168">        new InitialWindow(controller, visible);</span>
+<span class="nc" id="L169">        frmRegisterYourself.dispose();</span>
+<span class="nc" id="L170">    }</span>
 	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
