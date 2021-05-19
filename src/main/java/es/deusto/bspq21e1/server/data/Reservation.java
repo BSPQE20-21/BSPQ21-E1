@@ -1,13 +1,17 @@
 package es.deusto.bspq21e1.server.data;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
 
+
 @PersistenceCapable
 public class Reservation {
+	
 	@PrimaryKey
     private String code;
     private Date bookingDate;
@@ -54,7 +58,7 @@ public class Reservation {
 	
 	public Date getFinalDate() {
 		Calendar c = Calendar.getInstance(); 
-		c.setTime(this.bookingDate); 
+		c.setTime(this.bookingDate);
 		c.add(Calendar.DATE, this.duration);
 		return c.getTime();
 	}

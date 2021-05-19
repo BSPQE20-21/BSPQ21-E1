@@ -385,84 +385,41 @@ public class DBManager {
 		return c.getTime();
 	}
 	
-	private boolean isVanAvailable(Date resPickUp, Date resReturn,
-										Date queryPickUp, Date queryReturn ) {
-		return true;
-//		return ( queryPickUp.before(resPickUp) && queryReturn.before(resReturn) ||
-//				queryPickUp.after(resPickUp) );
+	private boolean isVanAvailable(Date resPickUp, Date resReturn, Date queryPickUp, Date queryReturn ) {
+		System.out.println("res return: " + resReturn);
+		System.out.println("query pickup: " + queryPickUp);
+		System.out.println("query return: " + queryReturn);
+		System.out.println("res pickup: " + resPickUp);
+		if(resReturn.before(queryPickUp) || resPickUp.after(queryReturn)) {
+			System.out.println("BIEN");
+			return true;
+		}
+		System.out.println("MAL");
+		return false;
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<Van> getVansByDates( String location, Date pickUpDate, Date returnDate ) {
+	public List<Van> getVansByDates(String location, Date pickUpDate, Date returnDate) {
+		List<Van> vans = new ArrayList<Van>();
 		
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = null;
+		List<Van> vansInLocation = this.getVansByLocation(location);
+		boolean available;
 		
-		try {
-			logger.info("   * Retrieving vans from " + location + "; with dates: [" + pickUpDate + " —— " + returnDate + "]");
-
-			
-			/* We first get all the vans from a location,
-			 * then we filter by date. 
-			 */
-			
-			List<Van> availableVans = new ArrayList<>();
-			List<Van> vansByLocation = this.getVansByLocation(location);
-			boolean validReservation = true;
-			System.out.println(" DEBUGGING: número de vans in " + location + ": " + vansByLocation.size() );
-			for( Van v : vansByLocation ) {
-				List<Reservation> vanReservations = this.getReservationsByVan( v.getLicensePlate() );
-				
-				/*
-				 * Self explanatory code is a myth sometimes...
-				 * The logic behind this is that if there are any 
-				 * already booked/reserved dates that concur with
-				 * the query dates, the query dates would not be
-				 * valid (van not available for those dates).
-				 * I.e:
-				 * 		Query date: [17/05 - 22/05]
-				 * 		Booked dates 1: [12/05 - 14/05; 15/05 - 18/05] --> second date would make the van not available
-				 * 		Booked dates 2: [12/05 - 14/05; 23/05 - 24/05] --> no intersection of dates, therefore van is available
-				 * 
-				 * Long story short, if the function isVanAvailable
-				 * returns ANY false, then the van is not available.
-				 */
-				
-				if ( null != vanReservations ) {
-					for( Reservation r : vanReservations ) {
-						System.out.println(" DEBUGGING: número de reservas en la van: " + v.getLicensePlate() + ": " + vansByLocation.size() );
-						if ( !isVanAvailable(r.getBookingDate(),
-								calculateReturnDate(r.getBookingDate(), r.getDuration()),
-								pickUpDate,
-								returnDate) ) {
-							validReservation = false;
-							break;
-						}
-					}
-					
-					if ( validReservation ) {
-						availableVans.add( v );
-					}
-					validReservation = true;
+		for (Van van : vansInLocation) {
+			available = true;
+			List<Reservation> vanReservations = this.getReservationsByVan( van.getLicensePlate() );
+			for (Reservation r : vanReservations) {
+				if(!isVanAvailable(r.getBookingDate(), r.getFinalDate(), pickUpDate, returnDate)) {
+					available = false;
+					break;
 				}
 			}
 			
-			System.out.println(" DEBUGGING: devolviendo " + availableVans.size() + " vans");
-			return availableVans;
-			
-		} catch (Exception e) {
-			logger.error("   $ Error retrieving vans " + e.getMessage() );
-		} finally {
-			if (tx != null && tx.isActive()) {
-				tx.rollback();
-			}	
-			pm.close();
+			if(available) {
+				vans.add(van);
+			}
 		}
-
-		return new ArrayList<Van>();
+		return vans;
 	}
-	
-
 	
 	@SuppressWarnings("unchecked")
 	public List<Reservation> getReservationsByVan( String vanLicensePlate ) { 
@@ -482,7 +439,18 @@ public class DBManager {
 			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
 			List<Reservation> listOfReservations = (List<Reservation>)query.execute();
 			
-			return listOfReservations;
+			List<Reservation> res = new ArrayList<Reservation>();
+			for (Reservation r : listOfReservations) {
+				Reservation reser = new Reservation();
+				reser.setBookingDate(r.getBookingDate());
+				reser.setCode(r.getCode());
+				reser.setDuration(r.getDuration());
+				reser.setVan(r.getVan());
+				reser.setVanRenter(r.getVanRenter());
+				res.add(reser);
+			}
+			
+			return res;
 		} catch (Exception e) {
 			logger.error("   $ Error retrieving vans with location: " + e.getMessage() );
 		} finally {

@@ -48,10 +48,14 @@ public class DBManagerTest {
 	private static User user1;
 	private static User user2;
 	private static Van van1;
+	private static Van van2;
 	private static Reservation res1;
 	private static Reservation res2;
 	static Date date = null;
     static Date date2 = null;
+    static Date date3 = null;
+	static Date date4 = null;
+	static Date date5 = null;
 	private static Review rev1;
 	
 	@Rule public ContiPerfRule rule = new ContiPerfRule();
@@ -74,23 +78,28 @@ public class DBManagerTest {
         user1 = new User("1234567A", "userOne", "user1@gmail.com", "123");
         user2 = new User("7654321Z", "userTwo", "user2@gmail.com", "321");
         van1 = new Van("1111ABC", "Volkswagen", "T25", "qwerty", true, false, false, 2, 100, user1.getDni());
+        van2 = new Van("1112ABC", "Volkswagen", "T25", "qwerty", true, false, false, 2, 100, user1.getDni());
         rev1 = new Review(5, "It is wonderful", van1.getLicensePlate());
         
         try {
 			date = new SimpleDateFormat("dd-MM-yyyy").parse("30-09-2021");
-			date2 = new SimpleDateFormat("dd-MM-yyyy").parse("08-12-2025");
+			date2 = new SimpleDateFormat("dd-MM-yyyy").parse("11-10-2021");
+			date3 = new SimpleDateFormat("dd-MM-yyyy").parse("15-10-2021");
+			date4 = new SimpleDateFormat("dd-MM-yyyy").parse("03-12-2025");
+			date5 = new SimpleDateFormat("dd-MM-yyyy").parse("08-12-2025");
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
         res1 = new Reservation(date, 3, van1.getLicensePlate(), user1.getDni());
-        res2 = new Reservation(date2, 10, van1.getLicensePlate(), user1.getDni());
+        res2 = new Reservation(date3, 5, van1.getLicensePlate(), user1.getDni());
         
         assertTrue(DBManager.getInstance().store(user1));
 		assertTrue(DBManager.getInstance().store(user2));
 		assertTrue(DBManager.getInstance().store(van1));
+		assertTrue(DBManager.getInstance().store(van2));
+		assertTrue(DBManager.getInstance().store(rev1));
 		assertTrue(DBManager.getInstance().store(res1));
 		assertTrue(DBManager.getInstance().store(res2));
-		assertTrue(DBManager.getInstance().store(rev1));
 		
 		logger.info("Leaving setUp");
 	}
@@ -106,6 +115,7 @@ public class DBManagerTest {
 		assertFalse(DBManager.getInstance().deleteReservation(res1.getCode()));
 		
 		assertTrue(DBManager.getInstance().deleteVan(van1.getLicensePlate()));
+		assertTrue(DBManager.getInstance().deleteVan(van2.getLicensePlate()));
 		assertFalse(DBManager.getInstance().deleteVan("54154"));
 		
 		assertTrue(DBManager.getInstance().deleteUser(user1.getDni()));
@@ -160,7 +170,7 @@ public class DBManagerTest {
 	public void getVansByUser() {
 		logger.info("Testing getting vans by user");
 		
-		assertEquals(1, DBManager.getInstance().getVansByUser("1234567A").size());
+		assertEquals(2, DBManager.getInstance().getVansByUser("1234567A").size());
 		assertEquals(0, DBManager.getInstance().getVansByUser("7654321Z").size());
 		
 		logger.info("Getting vans by users tested");
@@ -172,7 +182,8 @@ public class DBManagerTest {
 	public void getVansByLocationTest() {
 		logger.info("Testing searching of vans");
 		
-		assertEquals(1, DBManager.getInstance().getVansByLocation("qwerty").size());
+		assertEquals(2, DBManager.getInstance().getVansByLocation("qwerty").size());
+		assertEquals(0, DBManager.getInstance().getVansByLocation("Bilbao").size());
 		
 		logger.info("Searching of vans tested");
 	}
@@ -183,17 +194,9 @@ public class DBManagerTest {
 	public void getVansByDatesTest() {
 		logger.info("Testing searching of vans by dates");
 		
-		Date date3 = null;
-		Date date4 = null;
-		try {
-			date3 = new SimpleDateFormat("dd-MM-yyyy").parse("11-10-2021");
-			date4 = new SimpleDateFormat("dd-MM-yyyy").parse("15-10-2021");
-		} catch (ParseException e1) {
-			e1.printStackTrace();
-		}
 		
-		assertEquals(1, DBManager.getInstance().getVansByDates("qwerty", date3, date4).size());
-		assertEquals(0, DBManager.getInstance().getVansByDates("qwerty", date, date3).size());
+		assertEquals(1, DBManager.getInstance().getVansByDates("qwerty", date, date2).size());
+		assertEquals(2, DBManager.getInstance().getVansByDates("qwerty", date4, date5).size());
 		
 		logger.info("Searching of vans by dates tested");
 	}
