@@ -280,18 +280,22 @@ public class Controller {
 				String[] fields = line.split(",");
 				if (fields.length == 4) { // User
 					users.add( new UserData(fields[0], fields[1], fields[2], fields[3]) );
+					logger.debug("User created from csv. Password: " + fields[3]);
 				} else if (fields.length == 5) { // Reservation
 					Date d = null;
 					try {
 						d = new SimpleDateFormat("dd-MM-yyyy").parse(fields[0]);
+						logger.debug("Date from reservation well parsed");
 					} catch (ParseException e) {
 						e.printStackTrace();
 						logger.error("Error parsing pickup date");
 					}
 					reservations.add( new ReservationData(d, Integer.parseInt(fields[1]), fields[2], fields[3]) );
-				} else { // Van
+					logger.debug("Reservation created from csv");
+				} else { // Van -> DEBUG HERE
 					vans.add( new VanData(fields[0], fields[1], fields[2], fields[3], Integer.parseInt(fields[4]), Boolean.parseBoolean(fields[5]),
 							Boolean.parseBoolean(fields[6]), Boolean.parseBoolean(fields[7]), Double.parseDouble(fields[8]), fields[9]) );
+					logger.debug("Van created from csv");
 				}
 				line = br.readLine();
 			}
@@ -332,6 +336,10 @@ public class Controller {
 			currentLocale = new Locale("en");
 		}
 		resourceBundle = ResourceBundle.getBundle("SystemMessages", currentLocale);
+	}
+
+	public String getDemoDataPath() {
+		return demoDataPath;
 	}
 	
 }
