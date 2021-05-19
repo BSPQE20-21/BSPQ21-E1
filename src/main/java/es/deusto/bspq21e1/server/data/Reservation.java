@@ -1,5 +1,6 @@
 package es.deusto.bspq21e1.server.data;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.jdo.annotations.PersistenceCapable;
@@ -49,6 +50,13 @@ public class Reservation {
 
 	public void setDuration(int duration) {
 		this.duration = duration;
+	}
+	
+	public Date getFinalDate() {
+		Calendar c = Calendar.getInstance(); 
+		c.setTime(this.bookingDate); 
+		c.add(Calendar.DATE, this.duration);
+		return c.getTime();
 	}
 
 	public String getVan() {
