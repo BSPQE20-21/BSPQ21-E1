@@ -57,6 +57,9 @@ public class AirBV {
 	private static final String registerReservation = "/registerReservation";
 	private static final String cancelReservation = "/cancelReservation/{code}";
 	private static final String getMyVans = "/getMyVans/{dni}";
+	private static final String registerUsersList = "/registerUsersList";
+	private static final String registerVansList = "/registerVansList";
+	private static final String registerReservationsList = "/registerReservationsList";
 
     public AirBV() { }
     
@@ -188,4 +191,49 @@ public class AirBV {
 		}
 		return vanData;
 	}
+	
+	@POST
+    @Path(registerUsersList)
+    public Response registerUsersList(ArrayList<UserData> usersData) {
+		logger.info("Register new users from list received");
+		ArrayList<User> users = new ArrayList<User>();
+		Assembler as = new Assembler();
+		for (UserData u : usersData) {
+			users.add( as.disassembleUser(u) );
+		}
+    	if ( airbvService.registerUsersList(users) ) {
+    		return Response.ok().build();
+    	}
+    	return Response.status(400).build();
+    }
+    
+    @POST
+    @Path(registerVansList)
+    public Response registerVansList(ArrayList<VanData> vansData) {
+    	logger.info("Register new vans from list received");
+    	ArrayList<Van> vans = new ArrayList<Van>();
+    	Assembler as = new Assembler();
+    	for (VanData v : vansData) {
+    		vans.add( as.disassembleVan(v) );
+    	}
+    	if ( airbvService.registerVansList(vans) ) {
+    		return Response.ok().build();
+    	}
+    	return Response.status(400).build();
+    }
+    
+    @POST
+    @Path(registerReservationsList)
+    public Response registerReservationsList(ArrayList<ReservationData> reservationsData) {
+    	logger.info("Register new reservations from list received");
+    	ArrayList<Reservation> reservations = new ArrayList<Reservation>();
+    	Assembler as = new Assembler();
+    	for (ReservationData r : reservationsData) {
+    		reservations.add( as.disassembleReservation(r) );
+    	}
+    	if ( airbvService.registerReservationsList(reservations) ) {
+    		return Response.ok().build();
+    	}
+    	return Response.status(400).build();
+    }
 }

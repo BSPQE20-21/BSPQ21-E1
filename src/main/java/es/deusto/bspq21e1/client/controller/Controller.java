@@ -220,7 +220,7 @@ public class Controller {
 	}
 	
 	public boolean registerUsersList(ArrayList<UserData> users) {
-		WebTarget usersWebTarget = webTarget.path("AirBV/registerUsersList/");
+		WebTarget usersWebTarget = webTarget.path("AirBV/registerUsersList");
 		
 		Invocation.Builder invocationBuilder = usersWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.post(Entity.entity(users, MediaType.APPLICATION_JSON));
@@ -235,7 +235,7 @@ public class Controller {
 	}
 	
 	public boolean registerVansList(ArrayList<VanData> vans) {
-		WebTarget vansWebTarget = webTarget.path("AirBV/registerVansList/");
+		WebTarget vansWebTarget = webTarget.path("AirBV/registerVansList");
 		
 		Invocation.Builder invocationBuilder = vansWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.post(Entity.entity(vans, MediaType.APPLICATION_JSON));
@@ -250,7 +250,7 @@ public class Controller {
 	}
 	
 	public boolean registerReservationsList(ArrayList<ReservationData> reservations) {
-		WebTarget reservationsWebTarget = webTarget.path("AirBV/registerReservationsList/");
+		WebTarget reservationsWebTarget = webTarget.path("AirBV/registerReservationsList");
 		
 		Invocation.Builder invocationBuilder = reservationsWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.post(Entity.entity(reservations, MediaType.APPLICATION_JSON));

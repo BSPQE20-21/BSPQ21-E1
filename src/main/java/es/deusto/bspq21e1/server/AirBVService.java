@@ -138,5 +138,35 @@ public class AirBVService {
 		}
 		return DBManager.getInstance().deleteVan(licensePlate);
 	}
+
+	public boolean registerUsersList(ArrayList<User> users) {
+    	logger.info("Storing mock users");
+    	for (User u : users) {
+    		if (!DBManager.getInstance().store(u)) {
+    			return false;
+    		}
+    	}
+    	return true;
+    }
+    
+    public boolean registerVansList(ArrayList<Van> vans) {
+    	logger.info("Storing mock vans");
+    	for (Van v : vans) {
+    		if (!DBManager.getInstance().store(v)) {
+    			return false;
+    		}
+    	}
+    	return true;
+    }
+    
+    public boolean registerReservationsList(ArrayList<Reservation> reservations) {
+    	logger.info("Storing mock reservations");
+    	for (Reservation r : reservations) {
+    		if (!DBManager.getInstance().store(r)) {
+    			return false;
+    		}
+    	}
+    	return true;
+    }
     
 }
