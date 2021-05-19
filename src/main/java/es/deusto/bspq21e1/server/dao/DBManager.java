@@ -385,11 +385,11 @@ public class DBManager {
 		return c.getTime();
 	}
 	
-	// TODO
 	private boolean isVanAvailable(Date resPickUp, Date resReturn,
 										Date queryPickUp, Date queryReturn ) {
-		return ( queryPickUp.before(resPickUp) && queryReturn.before(resReturn) ||
-				queryPickUp.after(resPickUp) );
+		return true;
+//		return ( queryPickUp.before(resPickUp) && queryReturn.before(resReturn) ||
+//				queryPickUp.after(resPickUp) );
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -400,19 +400,18 @@ public class DBManager {
 		
 		try {
 			logger.info("   * Retrieving vans from " + location + "; with dates: [" + pickUpDate + " —— " + returnDate + "]");
-			pm.getFetchPlan().setMaxFetchDepth(4);
-			tx = pm.currentTransaction();
-			tx.begin();
+
 			
 			/* We first get all the vans from a location,
 			 * then we filter by date. 
 			 */
 			
 			List<Van> availableVans = new ArrayList<>();
-			
-			for( Van v : this.getVansByLocation(location) ) {
+			List<Van> vansByLocation = this.getVansByLocation(location);
+			boolean validReservation = true;
+			System.out.println(" DEBUGGING: número de vans in " + location + ": " + vansByLocation.size() );
+			for( Van v : vansByLocation ) {
 				List<Reservation> vanReservations = this.getReservationsByVan( v.getLicensePlate() );
-				boolean validReservation = true;
 				
 				/*
 				 * Self explanatory code is a myth sometimes...
@@ -430,8 +429,8 @@ public class DBManager {
 				 */
 				
 				if ( null != vanReservations ) {
-					
 					for( Reservation r : vanReservations ) {
+						System.out.println(" DEBUGGING: número de reservas en la van: " + v.getLicensePlate() + ": " + vansByLocation.size() );
 						if ( !isVanAvailable(r.getBookingDate(),
 								calculateReturnDate(r.getBookingDate(), r.getDuration()),
 								pickUpDate,
@@ -444,9 +443,11 @@ public class DBManager {
 					if ( validReservation ) {
 						availableVans.add( v );
 					}
+					validReservation = true;
 				}
 			}
 			
+			System.out.println(" DEBUGGING: devolviendo " + availableVans.size() + " vans");
 			return availableVans;
 			
 		} catch (Exception e) {
