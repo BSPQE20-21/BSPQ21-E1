@@ -386,15 +386,9 @@ public class DBManager {
 	}
 	
 	private boolean isVanAvailable(Date resPickUp, Date resReturn, Date queryPickUp, Date queryReturn ) {
-		System.out.println("res return: " + resReturn);
-		System.out.println("query pickup: " + queryPickUp);
-		System.out.println("query return: " + queryReturn);
-		System.out.println("res pickup: " + resPickUp);
 		if(resReturn.before(queryPickUp) || resPickUp.after(queryReturn)) {
-			System.out.println("BIEN");
 			return true;
 		}
-		System.out.println("MAL");
 		return false;
 	}
 	
