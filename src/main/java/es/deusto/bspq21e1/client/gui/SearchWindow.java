@@ -51,6 +51,7 @@ public class SearchWindow extends JFrame{
 	private JTextField txtLocation;
 	private JTextField txtPickUp;
 	private JTextField txtReturn;
+	private JLabel lblNDateExample;
 	private JSeparator separator;
 	private JTable jtVansTable = new JTable();
 	private JScrollPane scrollVans;
@@ -149,7 +150,7 @@ public class SearchWindow extends JFrame{
 		lblSearchTitle.setBounds(10, 11, 320, 34);
 		searchPanel.add(lblSearchTitle);
 		
-		JLabel lblNDateExample = new JLabel(controller.getResourcebundle().getString("date_example_msg"));
+		lblNDateExample = new JLabel(controller.getResourcebundle().getString("date_example_msg"));
 		lblNDateExample.setForeground(Color.BLUE);
 		lblNDateExample.setBounds(484, 32, 93, 13);
 		searchPanel.add(lblNDateExample);
@@ -506,6 +507,30 @@ public class SearchWindow extends JFrame{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public JButton getBtnBackButton() {
+		return btnBackButton;
+	}
+
+	public void setBtnBackButton(JButton btnBackButton) {
+		this.btnBackButton = btnBackButton;
+	}
+
+	public JButton getBtnSearch() {
+		return btnSearch;
+	}
+
+	public void setBtnSearch(JButton btnSearch) {
+		this.btnSearch = btnSearch;
+	}
+
+	public JLabel getLblNDateExample() {
+		return lblNDateExample;
+	}
+
+	public void setLblNDateExample(JLabel lblNDateExample) {
+		this.lblNDateExample = lblNDateExample;
 	}
 
 }
