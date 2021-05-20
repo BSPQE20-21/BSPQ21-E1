@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.awt.HeadlessException;
 
 import javax.swing.JFrame;
+import javax.swing.ListSelectionModel;
 
 import org.apache.log4j.Logger;
 import org.junit.Before;
@@ -26,6 +27,8 @@ public class RemoveVanWindowTest {
 	Controller controller;
 	UserData user;
 	JFrame frmMain;
+	
+	RemoveVanWindow w;
 	
 	public static junit.framework.Test suite() {
 		return new JUnit4TestAdapter(RegisterVanWindowTest.class);
@@ -49,7 +52,7 @@ public class RemoveVanWindowTest {
 	@Test
 	public void constructorTest() {
 		try {
-			RemoveVanWindow w = new RemoveVanWindow(controller, user, frmMain, false);
+			w = new RemoveVanWindow(controller, user, frmMain, false);
 			
 			assertEquals(w.getClass(), RemoveVanWindow.class);
 			assertTrue(w.getFrmRemoveVan().getTitle().length() > 0);
@@ -58,10 +61,51 @@ public class RemoveVanWindowTest {
 			
 			logger.info("RemoveVanWindow's constructor tested");
 			
-
+			assertTrue(w.getFrmRemoveVan().getBounds().getWidth() > 710);
+			assertTrue(w.getFrmRemoveVan().getBounds().getHeight() > 490);
+			assertEquals(w.getFrmRemoveVan().getDefaultCloseOperation(), JFrame.DISPOSE_ON_CLOSE);
+			assertNull(w.getFrmRemoveVan().getContentPane().getLayout());
+			assertNotNull(w.getFrmRemoveVan().getIconImage());
+			
+			assertNotNull(w.getJtVansTable().getModel());
+			assertEquals(w.getJtVansTable().getSelectionModel(), ListSelectionModel.SINGLE_SELECTION);
+			assertFalse(w.getJtVansTable().getTableHeader().getResizingAllowed());
+			assertFalse(w.getJtVansTable().getTableHeader().getReorderingAllowed());
+			
+			assertTrue(w.getScrollVans().getBounds().getWidth() > 625);
+			assertTrue(w.getScrollVans().getBounds().getHeight() > 315);
+			
+			assertTrue(w.getBtnBack().getText().length() > 0);
+			assertTrue(w.getBtnBack().getBounds().getWidth() > 95);
+			assertTrue(w.getBtnBack().getBounds().getHeight() > 23);
+			assertTrue(w.getBtnBack().getActionListeners().length > 0);
+			assertTrue(w.getBtnBack().getMouseListeners().length > 0);
+			
+			assertTrue(w.getBtnRemove().getText().length() > 0);
+			assertTrue(w.getBtnRemove().getBounds().getWidth() > 95);
+			assertTrue(w.getBtnRemove().getBounds().getHeight() > 23);
+			assertTrue(w.getBtnRemove().getActionListeners().length > 0);
+			assertTrue(w.getBtnRemove().getMouseListeners().length > 0);
+			
+			assertTrue(w.getLblText().getText().length() > 0);
+			assertEquals(w.getLblText().getFont(), new Font("Tahoma", Font.BOLD, 18));
+			assertTrue(w.getLblText().getBounds().getWidth() > 575);
+			assertTrue(w.getLblText().getBounds().getHeight() > 45);
+			
+			logger.info("Initialize method tested");
 			
 		} catch(HeadlessException e) {
-			System.out.println("You are in ubuntu, it's not posible to do window's test");
+			logger.error("You are in ubuntu, it's not posible to do window's test");
+		}
+	}
+	
+	@Test
+	public void updateListTest() {
+		try {
+			assertFalse(w.getBtnRemove().isEnabled());
+			logger.info("updateList method tested");
+		} catch (HeadlessException e) {
+			logger.error("You are in ubuntu, it's not posible to do window's test");
 		}
 	}
 	
