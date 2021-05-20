@@ -140,10 +140,15 @@ public class AirBVService {
 	}
 
 	public boolean registerUsersList(ArrayList<User> users) {
-    	logger.info("Storing mock users");
+    	logger.debug("Trying to store mock users in AirBVService");
     	for (User u : users) {
-    		if (!DBManager.getInstance().store(u)) {
+    		logger.debug("User " + users.indexOf( u ) + " DNI: " + u.getDni() + "   Name: " + u.getName());
+    		boolean result = DBManager.getInstance().store(u);
+    		if (!result) {
+    			logger.debug("The DBManager returns a false from the user " + u.getDni());
     			return false;
+    		} else {
+    			logger.debug("It returns a true value. Good");
     		}
     	}
     	return true;

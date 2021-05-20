@@ -229,14 +229,16 @@ public class Controller {
 			logger.error("Error: " + response.toString());
 			return false;
 		} else {
-			logger.info("Mock users correctly registered");
+			logger.info("Mock users correctly registered. Message from Controller.");
 			return true;
 		}
 	}
 	
 	public boolean registerVansList(ArrayList<VanData> vans) {
 		WebTarget vansWebTarget = webTarget.path("AirBV/registerVansList");
-		
+		for (VanData v : vans) {
+			logger.debug("Van " + vans.indexOf( v ) + "   Kitchen: " + v.hasKitchen() + "   Shower: " + v.hasShower() + "   Off-road: " + v.isOffRoad());
+		}
 		Invocation.Builder invocationBuilder = vansWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.post(Entity.entity(vans, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
@@ -244,7 +246,7 @@ public class Controller {
 			logger.error("Error: " + response.toString());
 			return false;
 		} else {
-			logger.info("Mock vans correctly registered");
+			logger.info("Mock vans correctly registered. Message from Controller.");
 			return true;
 		}
 	}
@@ -259,7 +261,7 @@ public class Controller {
 			logger.error("Error: " + response.toString());
 			return false;
 		} else {
-			logger.info("Mock reservations correctly registered");
+			logger.info("Mock reservations correctly registered. Message from Controller.");
 			return true;
 		}
 	}
@@ -311,12 +313,16 @@ public class Controller {
 					logger.debug("User's dni: " + fields[9]);
 					v.setUser( fields[9] ); logger.debug("User's dni from van stored");
 					logger.debug("Van created from csv");
+					vans.add(v);
 				}
 				line = br.readLine();
 			}
 			registerUsersList(users);
+			logger.debug("registerUsersList method in Controller executed");
 			registerVansList(vans);
+			logger.debug("registerVansList method in Controller executed");
 			registerReservationsList(reservations);
+			logger.debug("registerReservationsList method in Controller executed");
 		} catch (Exception e) {
 			logger.error("It wasn't possible to read the demo data");
 		} finally {

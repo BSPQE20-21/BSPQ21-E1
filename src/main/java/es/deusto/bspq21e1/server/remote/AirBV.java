@@ -202,23 +202,30 @@ public class AirBV {
 			users.add( as.disassembleUser(u) );
 		}
     	if ( airbvService.registerUsersList(users) ) {
+    		logger.debug("registerUsersList methods in airBV seems to work");
     		return Response.ok().build();
     	}
+    	logger.debug("airbvService doesn't return a true boolean. Check for errors and if users are stored");
     	return Response.status(400).build();
     }
     
     @POST
     @Path(registerVansList)
     public Response registerVansList(ArrayList<VanData> vansData) {
-    	logger.info("Register new vans from list received");
+    	logger.debug("Register new vans from list received. vansData size: " + vansData.size() + " + first: " + vansData.get(0).getLicensePlate());
+    	logger.debug("Debug for kitchen 1: " + vansData.get(0).hasKitchen() + " " + vansData.get(1).hasKitchen() + " " + vansData.get(2).hasKitchen());
+    	logger.debug("Debug for kitchen 2: " + vansData.get(3).hasKitchen() + " " + vansData.get(4).hasKitchen() + " " + vansData.get(5).hasKitchen());
     	ArrayList<Van> vans = new ArrayList<Van>();
     	Assembler as = new Assembler();
     	for (VanData v : vansData) {
     		vans.add( as.disassembleVan(v) );
+    		logger.debug("Van diassembled and added to new array -> " + vans.get( vansData.indexOf(v) ).getLicensePlate());
     	}
     	if ( airbvService.registerVansList(vans) ) {
+    		logger.debug("registerVansList methods in airBV seems to work");
     		return Response.ok().build();
     	}
+    	logger.debug("airbvService doesn't return a true boolean. Check for errors and if vans are stored");
     	return Response.status(400).build();
     }
     
