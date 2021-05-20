@@ -11,6 +11,7 @@ import java.awt.Font;
 import java.awt.HeadlessException;
 
 import javax.swing.JFrame;
+import javax.swing.ListSelectionModel;
 
 import org.apache.log4j.Logger;
 import org.junit.Before;
@@ -27,6 +28,7 @@ static Logger logger = Logger.getLogger(SearchWindowTest.class.getName());
 	Controller controller;
 	UserData user;
 	JFrame frmMain;
+	SearchWindow w;
 	
 	public static junit.framework.Test suite() {
 		return new JUnit4TestAdapter(RegisterVanWindowTest.class);
@@ -50,7 +52,7 @@ static Logger logger = Logger.getLogger(SearchWindowTest.class.getName());
 	@Test
 	public void constructorTest() {
 		try {
-			SearchWindow w = new SearchWindow(controller, user, frmMain, false);
+			w = new SearchWindow(controller, user, frmMain, false);
 			
 			assertEquals(w.getClass(), SearchWindow.class);
 			assertTrue(w.getFrmSearchVans().getTitle().length() > 0);
@@ -133,6 +135,8 @@ static Logger logger = Logger.getLogger(SearchWindowTest.class.getName());
 			assertEquals(w.getTableModel().getColumnCount(), 5);
 			assertTrue(w.getTableModel().getRowCount() == 0);
 			
+			assertNotNull(w.getJtVansTable().getModel());
+			assertEquals(w.getJtVansTable().getSelectionModel(), ListSelectionModel.SINGLE_SELECTION);
 			assertTrue(w.getJtVansTable().getBounds().getWidth() > -559);
 			assertFalse(w.getJtVansTable().getTableHeader().getResizingAllowed());
 			assertFalse(w.getJtVansTable().getTableHeader().getReorderingAllowed());
@@ -172,6 +176,17 @@ static Logger logger = Logger.getLogger(SearchWindowTest.class.getName());
 			
 			
 		} catch(HeadlessException e) {
+			logger.error("You are in ubuntu, it's not posible to do window's test");
+		}
+	}
+	
+	@Test
+	public void updateListstTest() {
+		try {
+			assertFalse(w.getBtnBook().isEnabled());
+			assertFalse(w.getBtnCharacteristics().isEnabled());
+			logger.info("updateList method tested");
+		} catch (HeadlessException e) {
 			logger.error("You are in ubuntu, it's not posible to do window's test");
 		}
 	}
