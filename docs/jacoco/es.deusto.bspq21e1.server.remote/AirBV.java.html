@@ -57,25 +57,28 @@ public class AirBV {
 	private static final String registerReservation = &quot;/registerReservation&quot;;
 	private static final String cancelReservation = &quot;/cancelReservation/{code}&quot;;
 	private static final String getMyVans = &quot;/getMyVans/{dni}&quot;;
+	private static final String registerUsersList = &quot;/registerUsersList&quot;;
+	private static final String registerVansList = &quot;/registerVansList&quot;;
+	private static final String registerReservationsList = &quot;/registerReservationsList&quot;;
 
-<span class="nc" id="L61">    public AirBV() { }</span>
+<span class="nc" id="L64">    public AirBV() { }</span>
     
     @POST
     @Path(registerUser)
     public Response registerUser(UserData userData) {
-<span class="nc" id="L66">    	logger.info(&quot;Register new User request from client received.&quot;);</span>
-<span class="nc bnc" id="L67" title="All 2 branches missed.">        if(airbvService.registerUser( userData.getDni(), userData.getName(), userData.getEmail(), userData.getPassword() )) {</span>
-<span class="nc" id="L68">        	return Response.ok().build();</span>
+<span class="nc" id="L69">    	logger.info(&quot;Register new User request from client received.&quot;);</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">        if(airbvService.registerUser( userData.getDni(), userData.getName(), userData.getEmail(), userData.getPassword() )) {</span>
+<span class="nc" id="L71">        	return Response.ok().build();</span>
         }
-<span class="nc" id="L70">        return Response.status(400).build();</span>
+<span class="nc" id="L73">        return Response.status(400).build();</span>
     }
     
     @DELETE
     @Path(deleteUser)
     public Response deleteUser(@PathParam(&quot;dni&quot;) String dni) {
-<span class="nc" id="L76">    	logger.info(&quot;Delete a user request from client received.&quot;);</span>
-<span class="nc" id="L77">        airbvService.deleteUser( dni );</span>
-<span class="nc" id="L78">        return Response.status(Response.Status.OK).build();</span>
+<span class="nc" id="L79">    	logger.info(&quot;Delete a user request from client received.&quot;);</span>
+<span class="nc" id="L80">        airbvService.deleteUser( dni );</span>
+<span class="nc" id="L81">        return Response.status(Response.Status.OK).build();</span>
     }
 
     /**
@@ -85,108 +88,153 @@ public class AirBV {
     @POST
     @Path(registerVan)
     public Response registerVan(VanData vanData, @PathParam(&quot;kitchen&quot;) boolean kitchen, @PathParam(&quot;shower&quot;) boolean shower) {
-<span class="nc" id="L88">    	logger.info(&quot;Register new Van request from client received.&quot;);</span>
-<span class="nc" id="L89">    	vanData.setKitchen(kitchen);</span>
-<span class="nc" id="L90">    	vanData.setShower(shower);</span>
-<span class="nc" id="L91">    	logger.debug(&quot;$ DEBUGGING\n&quot; +</span>
+<span class="nc" id="L91">    	logger.info(&quot;Register new Van request from client received.&quot;);</span>
+<span class="nc" id="L92">    	vanData.setKitchen(kitchen);</span>
+<span class="nc" id="L93">    	vanData.setShower(shower);</span>
+<span class="nc" id="L94">    	logger.debug(&quot;$ DEBUGGING\n&quot; +</span>
 				&quot;\tPrinting VanData and User from AirBV in Server side:\n&quot;+
 				&quot;\tVan: &quot; + vanData +
-<span class="nc" id="L94">				&quot;\n\tUser: &quot; + vanData.getUser() +</span>
+<span class="nc" id="L97">				&quot;\n\tUser: &quot; + vanData.getUser() +</span>
 				&quot;\n=======================\n&quot;);
-<span class="nc" id="L96">    	Assembler as = new Assembler();</span>
+<span class="nc" id="L99">    	Assembler as = new Assembler();</span>
     	
-<span class="nc" id="L98">    	Van van = as.disassembleVan(vanData);</span>
-<span class="nc bnc" id="L99" title="All 2 branches missed.">    	if(airbvService.registerVan(van)) {</span>
-<span class="nc" id="L100">    		return Response.ok().build();</span>
+<span class="nc" id="L101">    	Van van = as.disassembleVan(vanData);</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">    	if(airbvService.registerVan(van)) {</span>
+<span class="nc" id="L103">    		return Response.ok().build();</span>
     	}
-<span class="nc" id="L102">    	return Response.status(400).build();</span>
+<span class="nc" id="L105">    	return Response.status(400).build();</span>
     }
     
     @DELETE
     @Path(deleteVan)
     public Response deleteVan(@PathParam(&quot;licensePlate&quot;) String licensePlate) {
-<span class="nc" id="L108">    	logger.info(&quot;Delete van request from client received.&quot;);</span>
-<span class="nc bnc" id="L109" title="All 2 branches missed.">    	if(airbvService.deleteVan(licensePlate)) {</span>
-<span class="nc" id="L110">    		return Response.status(Response.Status.OK).build();</span>
+<span class="nc" id="L111">    	logger.info(&quot;Delete van request from client received.&quot;);</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">    	if(airbvService.deleteVan(licensePlate)) {</span>
+<span class="nc" id="L113">    		return Response.status(Response.Status.OK).build();</span>
     	}
-<span class="nc" id="L112">    	return Response.status(400).build();</span>
+<span class="nc" id="L115">    	return Response.status(400).build();</span>
     }
 
     @DELETE
     @Path(cancelReservation)
     public Response cancelReservation(@PathParam(&quot;code&quot;) String code) {
-<span class="nc" id="L118">    	logger.info(&quot;Cancel a Reservation request from client received.&quot;);</span>
-<span class="nc bnc" id="L119" title="All 2 branches missed.">        if(airbvService.cancelReservation(code)) {</span>
-<span class="nc" id="L120">        	return Response.status(Response.Status.OK).build();</span>
+<span class="nc" id="L121">    	logger.info(&quot;Cancel a Reservation request from client received.&quot;);</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">        if(airbvService.cancelReservation(code)) {</span>
+<span class="nc" id="L123">        	return Response.status(Response.Status.OK).build();</span>
         }
-<span class="nc" id="L122">        return Response.status(400).build();        </span>
+<span class="nc" id="L125">        return Response.status(400).build();        </span>
     }
     
     @POST
     @Path(registerReservation)
     public Response registerReservation(ReservationData rD) {
-<span class="nc" id="L128">    	logger.info(&quot;Register new Reservation request from client received.&quot;);</span>
-<span class="nc" id="L129">    	Assembler as = new Assembler();</span>
+<span class="nc" id="L131">    	logger.info(&quot;Register new Reservation request from client received.&quot;);</span>
+<span class="nc" id="L132">    	Assembler as = new Assembler();</span>
     	
-<span class="nc bnc" id="L131" title="All 2 branches missed.">    	if(airbvService.registerReservation(as.disassembleReservation(rD).getBookingDate(), </span>
-<span class="nc" id="L132">    			as.disassembleReservation(rD).getDuration(),</span>
-<span class="nc" id="L133">    			as.disassembleReservation(rD).getVan(),</span>
-<span class="nc" id="L134">    			as.disassembleReservation(rD).getVanRenter()</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">    	if(airbvService.registerReservation(as.disassembleReservation(rD).getBookingDate(), </span>
+<span class="nc" id="L135">    			as.disassembleReservation(rD).getDuration(),</span>
+<span class="nc" id="L136">    			as.disassembleReservation(rD).getVan(),</span>
+<span class="nc" id="L137">    			as.disassembleReservation(rD).getVanRenter()</span>
     			)) {
-<span class="nc" id="L136">    		return Response.ok().build();</span>
+<span class="nc" id="L139">    		return Response.ok().build();</span>
     	}
-<span class="nc" id="L138">    	return Response.status(400).build();</span>
+<span class="nc" id="L141">    	return Response.status(400).build();</span>
     	
     }
 
     @GET
     @Path(getVans)
 	public ArrayList&lt;VanData&gt; searchVans( @PathParam(&quot;location&quot;) String location, @PathParam(&quot;pickUpDate&quot;) String pickUpDate, @PathParam(&quot;returnDate&quot;) String returnDate) {	
-<span class="nc" id="L145">    	logger.info(&quot;Search with location: &quot;+location+&quot; from &quot; + pickUpDate + &quot; to &quot; + returnDate + &quot; request from client received.&quot;);</span>
-<span class="nc" id="L146">    	ArrayList&lt;VanData&gt; vansData = new ArrayList&lt;VanData&gt;();</span>
-<span class="nc" id="L147">		Assembler as = new Assembler();</span>
-<span class="nc bnc" id="L148" title="All 2 branches missed.">		for (Van van : airbvService.searchVans(location, pickUpDate, returnDate)) {</span>
-<span class="nc" id="L149">			vansData.add(as.assembleVan(van));</span>
-<span class="nc" id="L150">		}</span>
-<span class="nc" id="L151">		return vansData;</span>
+<span class="nc" id="L148">    	logger.info(&quot;Search with location: &quot;+location+&quot; from &quot; + pickUpDate + &quot; to &quot; + returnDate + &quot; request from client received.&quot;);</span>
+<span class="nc" id="L149">    	ArrayList&lt;VanData&gt; vansData = new ArrayList&lt;VanData&gt;();</span>
+<span class="nc" id="L150">		Assembler as = new Assembler();</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">		for (Van van : airbvService.searchVans(location, pickUpDate, returnDate)) {</span>
+<span class="nc" id="L152">			vansData.add(as.assembleVan(van));</span>
+<span class="nc" id="L153">		}</span>
+<span class="nc" id="L154">		return vansData;</span>
 	}
     
     @GET
     @Path(loginUser)
     public Response login(@PathParam(&quot;email&quot;) String email, @PathParam(&quot;password&quot;) String password) { 
-<span class="nc" id="L157">    	logger.info(&quot;User's login with credentials request received from client.&quot;);</span>
-<span class="nc" id="L158">    	User u = airbvService.login(email, password);</span>
-<span class="nc" id="L159">    	UserData userData = null;</span>
-<span class="nc bnc" id="L160" title="All 2 branches missed.">    	if (u != null) {</span>
-<span class="nc" id="L161">    		Assembler as = new Assembler();</span>
-<span class="nc" id="L162">        	userData = as.assembleUser( u );</span>
+<span class="nc" id="L160">    	logger.info(&quot;User's login with credentials request received from client.&quot;);</span>
+<span class="nc" id="L161">    	User u = airbvService.login(email, password);</span>
+<span class="nc" id="L162">    	UserData userData = null;</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">    	if (u != null) {</span>
+<span class="nc" id="L164">    		Assembler as = new Assembler();</span>
+<span class="nc" id="L165">        	userData = as.assembleUser( u );</span>
     	}
-<span class="nc" id="L164">    	return Response.ok(userData).build();</span>
+<span class="nc" id="L167">    	return Response.ok(userData).build();</span>
     }
 
 	@GET
 	@Path(getMyReservations)
 	public ArrayList&lt;ReservationData&gt; getUserReservations( @PathParam(&quot;dni&quot;) String dni ) {
-<span class="nc" id="L170">		logger.info(&quot;Get user's reservations request from client received.&quot;);</span>
-<span class="nc" id="L171">		Assembler as = new Assembler();</span>
-<span class="nc" id="L172">		ArrayList&lt;ReservationData&gt; resData = new ArrayList&lt;ReservationData&gt;();</span>
-<span class="nc bnc" id="L173" title="All 2 branches missed.">		for (Reservation reservation : airbvService.getUserReservations(dni)) {</span>
-<span class="nc" id="L174">			resData.add(as.assembleReservation(reservation));</span>
-<span class="nc" id="L175">		}</span>
+<span class="nc" id="L173">		logger.info(&quot;Get user's reservations request from client received.&quot;);</span>
+<span class="nc" id="L174">		Assembler as = new Assembler();</span>
+<span class="nc" id="L175">		ArrayList&lt;ReservationData&gt; resData = new ArrayList&lt;ReservationData&gt;();</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">		for (Reservation reservation : airbvService.getUserReservations(dni)) {</span>
+<span class="nc" id="L177">			resData.add(as.assembleReservation(reservation));</span>
+<span class="nc" id="L178">		}</span>
 		
-<span class="nc" id="L177">		return resData;</span>
+<span class="nc" id="L180">		return resData;</span>
 	}
 
 	@GET
 	@Path(getMyVans)
 	public ArrayList&lt;VanData&gt; getUserVans( @PathParam(&quot;dni&quot;) String dni ) {
-<span class="nc" id="L183">		logger.info(&quot;Get user's vans request from client received.&quot;);</span>
-<span class="nc" id="L184">		Assembler as = new Assembler();</span>
-<span class="nc" id="L185">		ArrayList&lt;VanData&gt; vanData = new ArrayList&lt;VanData&gt;();</span>
-<span class="nc bnc" id="L186" title="All 2 branches missed.">		for (Van van : airbvService.getUserVans(dni)) {</span>
-<span class="nc" id="L187">			vanData.add(as.assembleVan(van));</span>
-<span class="nc" id="L188">		}</span>
-<span class="nc" id="L189">		return vanData;</span>
+<span class="nc" id="L186">		logger.info(&quot;Get user's vans request from client received.&quot;);</span>
+<span class="nc" id="L187">		Assembler as = new Assembler();</span>
+<span class="nc" id="L188">		ArrayList&lt;VanData&gt; vanData = new ArrayList&lt;VanData&gt;();</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">		for (Van van : airbvService.getUserVans(dni)) {</span>
+<span class="nc" id="L190">			vanData.add(as.assembleVan(van));</span>
+<span class="nc" id="L191">		}</span>
+<span class="nc" id="L192">		return vanData;</span>
 	}
+	
+	@POST
+    @Path(registerUsersList)
+    public Response registerUsersList(ArrayList&lt;UserData&gt; usersData) {
+<span class="nc" id="L198">		logger.info(&quot;Register new users from list received&quot;);</span>
+<span class="nc" id="L199">		ArrayList&lt;User&gt; users = new ArrayList&lt;User&gt;();</span>
+<span class="nc" id="L200">		Assembler as = new Assembler();</span>
+<span class="nc bnc" id="L201" title="All 2 branches missed.">		for (UserData u : usersData) {</span>
+<span class="nc" id="L202">			users.add( as.disassembleUser(u) );</span>
+<span class="nc" id="L203">		}</span>
+<span class="nc bnc" id="L204" title="All 2 branches missed.">    	if ( airbvService.registerUsersList(users) ) {</span>
+<span class="nc" id="L205">    		return Response.ok().build();</span>
+    	}
+<span class="nc" id="L207">    	return Response.status(400).build();</span>
+    }
+    
+    @POST
+    @Path(registerVansList)
+    public Response registerVansList(ArrayList&lt;VanData&gt; vansData) {
+<span class="nc" id="L213">    	logger.info(&quot;Register new vans from list received&quot;);</span>
+<span class="nc" id="L214">    	ArrayList&lt;Van&gt; vans = new ArrayList&lt;Van&gt;();</span>
+<span class="nc" id="L215">    	Assembler as = new Assembler();</span>
+<span class="nc bnc" id="L216" title="All 2 branches missed.">    	for (VanData v : vansData) {</span>
+<span class="nc" id="L217">    		vans.add( as.disassembleVan(v) );</span>
+<span class="nc" id="L218">    	}</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">    	if ( airbvService.registerVansList(vans) ) {</span>
+<span class="nc" id="L220">    		return Response.ok().build();</span>
+    	}
+<span class="nc" id="L222">    	return Response.status(400).build();</span>
+    }
+    
+    @POST
+    @Path(registerReservationsList)
+    public Response registerReservationsList(ArrayList&lt;ReservationData&gt; reservationsData) {
+<span class="nc" id="L228">    	logger.info(&quot;Register new reservations from list received&quot;);</span>
+<span class="nc" id="L229">    	ArrayList&lt;Reservation&gt; reservations = new ArrayList&lt;Reservation&gt;();</span>
+<span class="nc" id="L230">    	Assembler as = new Assembler();</span>
+<span class="nc bnc" id="L231" title="All 2 branches missed.">    	for (ReservationData r : reservationsData) {</span>
+<span class="nc" id="L232">    		reservations.add( as.disassembleReservation(r) );</span>
+<span class="nc" id="L233">    	}</span>
+<span class="nc bnc" id="L234" title="All 2 branches missed.">    	if ( airbvService.registerReservationsList(reservations) ) {</span>
+<span class="nc" id="L235">    		return Response.ok().build();</span>
+    	}
+<span class="nc" id="L237">    	return Response.status(400).build();</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

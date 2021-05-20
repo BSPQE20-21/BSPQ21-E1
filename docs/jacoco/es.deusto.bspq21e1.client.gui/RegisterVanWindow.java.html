@@ -255,16 +255,16 @@ public class RegisterVanWindow extends JFrame{
 <span class="nc" id="L255">				double pricePerDay = (Double) spinnerPrice.getValue();</span>
 				
 				//CONTROLLER
-<span class="nc bnc" id="L258" title="All 8 branches missed.">				if( licensePlate != &quot;&quot; &amp;&amp; brand != &quot;&quot; &amp;&amp; model != &quot;&quot; &amp;&amp; location != &quot;&quot;</span>
-<span class="nc bnc" id="L259" title="All 8 branches missed.">						&amp;&amp; null != licensePlate &amp;&amp; null != brand &amp;&amp; null != model &amp;&amp; null != location ) {</span>
+<span class="nc bnc" id="L258" title="All 16 branches missed.">				if( licensePlate != &quot;&quot; &amp;&amp; brand != &quot;&quot; &amp;&amp; model != &quot;&quot; &amp;&amp; location != &quot;&quot;</span>
+						&amp;&amp; null != licensePlate &amp;&amp; null != brand &amp;&amp; null != model &amp;&amp; null != location ) {
 					
 <span class="nc" id="L261">					VanData vanData = new VanData(licensePlate, brand, model, location, capacity, kitchen, shower, offRoad, pricePerDay, user.getDni());</span>
 					// DEBUGGING:
 <span class="nc" id="L263">					logger.debug(&quot;$ DEBUGGING\n&quot; +</span>
 							&quot;\tPrinting VanData and User from RegisterVanWindow in Client side:\n&quot;+
-<span class="nc" id="L265">							&quot;\tVan: &quot; + vanData +</span>
+							&quot;\tVan: &quot; + vanData +
 <span class="nc" id="L266">							&quot;\n\tUser: &quot; + vanData.getUser() +</span>
-<span class="nc" id="L267">							&quot;\n=======================\n&quot;);</span>
+							&quot;\n=======================\n&quot;);
 <span class="nc" id="L268">					controller.registerVan(vanData);</span>
 <span class="nc" id="L269">					frmMain.setVisible(visible);</span>
 <span class="nc" id="L270">					frmRegistrationOfVans.dispose();</span>

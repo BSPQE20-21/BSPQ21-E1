@@ -150,7 +150,7 @@ public class RemoveVanWindow extends JFrame {
 <span class="nc" id="L150">		vans = controller.getMyVans(user.getDni());</span>
 <span class="nc bnc" id="L151" title="All 2 branches missed.">		if (vans.size() != 0) {</span>
 <span class="nc" id="L152">			updateList();</span>
-<span class="nc" id="L153">		} else {</span>
+		} else {
 <span class="nc" id="L154">			btnRemove.setEnabled(false);</span>
 		}
 		
@@ -167,7 +167,7 @@ public class RemoveVanWindow extends JFrame {
 			}
 <span class="nc" id="L168">			jtVansTable.setModel(tableModel);</span>
 <span class="nc" id="L169">			jtVansTable.setRowSelectionInterval(0, 0);</span>
-<span class="nc" id="L170">		}else {</span>
+		}else {
 <span class="nc" id="L171">			btnRemove.setEnabled(false);</span>
 		}
 <span class="nc" id="L173">		jtVansTable.updateUI();</span>

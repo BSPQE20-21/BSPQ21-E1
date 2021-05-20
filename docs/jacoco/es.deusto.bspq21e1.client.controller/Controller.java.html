@@ -145,9 +145,9 @@ public class Controller {
     public boolean registerVan(VanData vanData) {
 <span class="fc" id="L146">    	logger.debug(&quot;$ DEBUGGING:\n&quot; +</span>
 				&quot;\tPrinting VanData and User from Controller in Client side:\n&quot;+
-<span class="fc" id="L148">				&quot;\tVan: &quot; + vanData +</span>
+				&quot;\tVan: &quot; + vanData +
 <span class="fc" id="L149">				&quot;\n\tUser: &quot; + vanData.getUser() +</span>
-<span class="fc" id="L150">				&quot;\n=======================\n&quot;);</span>
+				&quot;\n=======================\n&quot;);
     	
 <span class="fc" id="L152">    	WebTarget registerVanWebTarget = webTarget.path(&quot;AirBV/registerVan/&quot;+vanData.hasKitchen()+&quot;/&quot;+vanData.hasShower()); </span>
 <span class="fc" id="L153">		Invocation.Builder invocationBuilder = registerVanWebTarget.request(MediaType.APPLICATION_JSON);</span>
@@ -220,7 +220,7 @@ public class Controller {
 	}
 	
 	public boolean registerUsersList(ArrayList&lt;UserData&gt; users) {
-<span class="nc" id="L223">		WebTarget usersWebTarget = webTarget.path(&quot;AirBV/registerUsersList/&quot;);</span>
+<span class="nc" id="L223">		WebTarget usersWebTarget = webTarget.path(&quot;AirBV/registerUsersList&quot;);</span>
 		
 <span class="nc" id="L225">		Invocation.Builder invocationBuilder = usersWebTarget.request(MediaType.APPLICATION_JSON);</span>
 <span class="nc" id="L226">		Response response = invocationBuilder.post(Entity.entity(users, MediaType.APPLICATION_JSON));</span>
@@ -235,7 +235,7 @@ public class Controller {
 	}
 	
 	public boolean registerVansList(ArrayList&lt;VanData&gt; vans) {
-<span class="nc" id="L238">		WebTarget vansWebTarget = webTarget.path(&quot;AirBV/registerVansList/&quot;);</span>
+<span class="nc" id="L238">		WebTarget vansWebTarget = webTarget.path(&quot;AirBV/registerVansList&quot;);</span>
 		
 <span class="nc" id="L240">		Invocation.Builder invocationBuilder = vansWebTarget.request(MediaType.APPLICATION_JSON);</span>
 <span class="nc" id="L241">		Response response = invocationBuilder.post(Entity.entity(vans, MediaType.APPLICATION_JSON));</span>
@@ -250,7 +250,7 @@ public class Controller {
 	}
 	
 	public boolean registerReservationsList(ArrayList&lt;ReservationData&gt; reservations) {
-<span class="nc" id="L253">		WebTarget reservationsWebTarget = webTarget.path(&quot;AirBV/registerReservationsList/&quot;);</span>
+<span class="nc" id="L253">		WebTarget reservationsWebTarget = webTarget.path(&quot;AirBV/registerReservationsList&quot;);</span>
 		
 <span class="nc" id="L255">		Invocation.Builder invocationBuilder = reservationsWebTarget.request(MediaType.APPLICATION_JSON);</span>
 <span class="nc" id="L256">		Response response = invocationBuilder.post(Entity.entity(reservations, MediaType.APPLICATION_JSON));</span>
@@ -280,43 +280,47 @@ public class Controller {
 <span class="nc" id="L280">				String[] fields = line.split(&quot;,&quot;);</span>
 <span class="nc bnc" id="L281" title="All 2 branches missed.">				if (fields.length == 4) { // User</span>
 <span class="nc" id="L282">					users.add( new UserData(fields[0], fields[1], fields[2], fields[3]) );</span>
-<span class="nc bnc" id="L283" title="All 2 branches missed.">				} else if (fields.length == 5) { // Reservation</span>
-<span class="nc" id="L284">					Date d = null;</span>
+<span class="nc" id="L283">					logger.debug(&quot;User created from csv. Password: &quot; + fields[3]);</span>
+<span class="nc bnc" id="L284" title="All 2 branches missed.">				} else if (fields.length == 5) { // Reservation</span>
+<span class="nc" id="L285">					Date d = null;</span>
 					try {
-<span class="nc" id="L286">						d = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(fields[0]);</span>
-<span class="nc" id="L287">					} catch (ParseException e) {</span>
-<span class="nc" id="L288">						e.printStackTrace();</span>
-<span class="nc" id="L289">						logger.error(&quot;Error parsing pickup date&quot;);</span>
-					}
-<span class="nc" id="L291">					reservations.add( new ReservationData(d, Integer.parseInt(fields[1]), fields[2], fields[3]) );</span>
-<span class="nc" id="L292">				} else { // Van</span>
-<span class="nc" id="L293">					vans.add( new VanData(fields[0], fields[1], fields[2], fields[3], Integer.parseInt(fields[4]), Boolean.parseBoolean(fields[5]),</span>
-<span class="nc" id="L294">							Boolean.parseBoolean(fields[6]), Boolean.parseBoolean(fields[7]), Double.parseDouble(fields[8]), fields[9]) );</span>
+<span class="nc" id="L287">						d = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(fields[0]);</span>
+<span class="nc" id="L288">						logger.debug(&quot;Date from reservation well parsed&quot;);</span>
+<span class="nc" id="L289">					} catch (ParseException e) {</span>
+<span class="nc" id="L290">						e.printStackTrace();</span>
+<span class="nc" id="L291">						logger.error(&quot;Error parsing pickup date&quot;);</span>
+<span class="nc" id="L292">					}</span>
+<span class="nc" id="L293">					reservations.add( new ReservationData(d, Integer.parseInt(fields[1]), fields[2], fields[3]) );</span>
+<span class="nc" id="L294">					logger.debug(&quot;Reservation created from csv&quot;);</span>
+<span class="nc" id="L295">				} else { // Van -&gt; DEBUG HERE</span>
+<span class="nc" id="L296">					vans.add( new VanData(fields[0], fields[1], fields[2], fields[3], Integer.parseInt(fields[4]), Boolean.parseBoolean(fields[5]),</span>
+<span class="nc" id="L297">							Boolean.parseBoolean(fields[6]), Boolean.parseBoolean(fields[7]), Double.parseDouble(fields[8]), fields[9]) );</span>
+<span class="nc" id="L298">					logger.debug(&quot;Van created from csv&quot;);</span>
 				}
-<span class="nc" id="L296">				line = br.readLine();</span>
-			}
-<span class="nc" id="L298">			registerUsersList(users);</span>
-<span class="nc" id="L299">			registerVansList(vans);</span>
-<span class="nc" id="L300">			registerReservationsList(reservations);</span>
-<span class="pc" id="L301">		} catch (Exception e) {</span>
-<span class="fc" id="L302">			logger.error(&quot;It wasn't possible to read the demo data&quot;);</span>
+<span class="nc" id="L300">				line = br.readLine();</span>
+<span class="nc" id="L301">			}</span>
+<span class="nc" id="L302">			registerUsersList(users);</span>
+<span class="nc" id="L303">			registerVansList(vans);</span>
+<span class="nc" id="L304">			registerReservationsList(reservations);</span>
+<span class="fc" id="L305">		} catch (Exception e) {</span>
+<span class="fc" id="L306">			logger.error(&quot;It wasn't possible to read the demo data&quot;);</span>
 		} finally {
-<span class="pc bpc" id="L304" title="1 of 2 branches missed.">			if (br != null) {</span>
+<span class="pc bpc" id="L308" title="1 of 2 branches missed.">			if (br != null) {</span>
 				try {
-<span class="nc" id="L306">					br.close();</span>
-<span class="nc" id="L307">				} catch (IOException e) {</span>
-<span class="nc" id="L308">					logger.error(&quot;It wasn't possible to close the buffered reader&quot;);</span>
-				}
+<span class="nc" id="L310">					br.close();</span>
+<span class="nc" id="L311">				} catch (IOException e) {</span>
+<span class="nc" id="L312">					logger.error(&quot;It wasn't possible to close the buffered reader&quot;);</span>
+<span class="nc" id="L313">				}</span>
 			}
 		}
-<span class="fc" id="L312">	}</span>
+<span class="fc" id="L316">	}</span>
 	
 	/**
 	 * Returns the ResourceBundle
 	 * @return ResourceBundle
 	 */
 	public ResourceBundle getResourcebundle() {
-<span class="fc" id="L319">		return resourceBundle;</span>
+<span class="fc" id="L323">		return resourceBundle;</span>
 	}
 	
 	/**
@@ -324,15 +328,19 @@ public class Controller {
 	 * @param locale
 	 */
 	public void setLocale(String locale){
-<span class="nc bnc" id="L327" title="All 2 branches missed.">		if(locale.equals(&quot;es&quot;)){</span>
-<span class="nc" id="L328">			currentLocale = new Locale(&quot;es&quot;);</span>
-<span class="nc bnc" id="L329" title="All 2 branches missed.">		}else if(locale.equals(&quot;eu&quot;)){</span>
-<span class="nc" id="L330">			currentLocale = new Locale(&quot;eu&quot;);</span>
-<span class="nc bnc" id="L331" title="All 2 branches missed.">		}else if(locale.equals(&quot;en&quot;)){</span>
-<span class="nc" id="L332">			currentLocale = new Locale(&quot;en&quot;);</span>
+<span class="nc bnc" id="L331" title="All 2 branches missed.">		if(locale.equals(&quot;es&quot;)){</span>
+<span class="nc" id="L332">			currentLocale = new Locale(&quot;es&quot;);</span>
+<span class="nc bnc" id="L333" title="All 2 branches missed.">		}else if(locale.equals(&quot;eu&quot;)){</span>
+<span class="nc" id="L334">			currentLocale = new Locale(&quot;eu&quot;);</span>
+<span class="nc bnc" id="L335" title="All 2 branches missed.">		}else if(locale.equals(&quot;en&quot;)){</span>
+<span class="nc" id="L336">			currentLocale = new Locale(&quot;en&quot;);</span>
 		}
-<span class="nc" id="L334">		resourceBundle = ResourceBundle.getBundle(&quot;SystemMessages&quot;, currentLocale);</span>
-<span class="nc" id="L335">	}</span>
+<span class="nc" id="L338">		resourceBundle = ResourceBundle.getBundle(&quot;SystemMessages&quot;, currentLocale);</span>
+<span class="nc" id="L339">	}</span>
+
+	public String getDemoDataPath() {
+<span class="fc" id="L342">		return demoDataPath;</span>
+	}
 	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

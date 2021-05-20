@@ -138,6 +138,36 @@ public class AirBVService {
 		}
 <span class="fc" id="L139">		return DBManager.getInstance().deleteVan(licensePlate);</span>
 	}
+
+	public boolean registerUsersList(ArrayList&lt;User&gt; users) {
+<span class="nc" id="L143">    	logger.info(&quot;Storing mock users&quot;);</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">    	for (User u : users) {</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">    		if (!DBManager.getInstance().store(u)) {</span>
+<span class="nc" id="L146">    			return false;</span>
+    		}
+<span class="nc" id="L148">    	}</span>
+<span class="nc" id="L149">    	return true;</span>
+    }
+    
+    public boolean registerVansList(ArrayList&lt;Van&gt; vans) {
+<span class="nc" id="L153">    	logger.info(&quot;Storing mock vans&quot;);</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">    	for (Van v : vans) {</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">    		if (!DBManager.getInstance().store(v)) {</span>
+<span class="nc" id="L156">    			return false;</span>
+    		}
+<span class="nc" id="L158">    	}</span>
+<span class="nc" id="L159">    	return true;</span>
+    }
+    
+    public boolean registerReservationsList(ArrayList&lt;Reservation&gt; reservations) {
+<span class="nc" id="L163">    	logger.info(&quot;Storing mock reservations&quot;);</span>
+<span class="nc bnc" id="L164" title="All 2 branches missed.">    	for (Reservation r : reservations) {</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">    		if (!DBManager.getInstance().store(r)) {</span>
+<span class="nc" id="L166">    			return false;</span>
+    		}
+<span class="nc" id="L168">    	}</span>
+<span class="nc" id="L169">    	return true;</span>
+    }
     
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
