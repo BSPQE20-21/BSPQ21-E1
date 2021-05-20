@@ -19,7 +19,6 @@ import org.junit.Test;
 import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.serialization.UserData;
 import junit.framework.JUnit4TestAdapter;
-import mayo20.SearchWindow;
 
 public class SearchWindowTest {
 
