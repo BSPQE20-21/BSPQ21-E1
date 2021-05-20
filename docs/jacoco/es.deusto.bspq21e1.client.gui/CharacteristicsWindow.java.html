@@ -137,7 +137,7 @@ public class CharacteristicsWindow extends JFrame{
 <span class="fc" id="L137">		frmCharacteristics.getContentPane().add(lblKitchen);</span>
 		
 <span class="fc" id="L139">		lblKitchenA = new JLabel(&quot;&quot;);</span>
-<span class="pc bpc" id="L140" title="1 of 2 branches missed.">		if(van.hasKitchen()) {</span>
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">		if(van.isKitchen()) {</span>
 <span class="fc" id="L141">			lblKitchenA.setText(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
 		} else {
 <span class="nc" id="L143">			lblKitchenA.setText(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
@@ -151,7 +151,7 @@ public class CharacteristicsWindow extends JFrame{
 <span class="fc" id="L151">		frmCharacteristics.getContentPane().add(lblShower);</span>
 		
 <span class="fc" id="L153">		lblShowerA = new JLabel(&quot;&quot;);</span>
-<span class="pc bpc" id="L154" title="1 of 2 branches missed.">		if(van.hasShower()) {</span>
+<span class="pc bpc" id="L154" title="1 of 2 branches missed.">		if(van.isShower()) {</span>
 <span class="fc" id="L155">			lblShowerA.setText(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
 		} else {
 <span class="nc" id="L157">			lblShowerA.setText(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>

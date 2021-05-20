@@ -173,6 +173,124 @@ public class RemoveVanWindow extends JFrame {
 <span class="nc" id="L173">		jtVansTable.updateUI();</span>
 <span class="nc" id="L174">		scrollVans.updateUI();</span>
 <span class="nc" id="L175">	}</span>
+
+	//GETTERS AND SETTERS
+	
+	public static Logger getLogger() {
+<span class="nc" id="L180">		return logger;</span>
+	}
+
+	public static void setLogger(Logger logger) {
+<span class="nc" id="L184">		RemoveVanWindow.logger = logger;</span>
+<span class="nc" id="L185">	}</span>
+
+	public Controller getController() {
+<span class="nc" id="L188">		return controller;</span>
+	}
+
+	public void setController(Controller controller) {
+<span class="nc" id="L192">		this.controller = controller;</span>
+<span class="nc" id="L193">	}</span>
+
+	public boolean isVisible() {
+<span class="nc" id="L196">		return visible;</span>
+	}
+
+	public void setVisible(boolean visible) {
+<span class="nc" id="L200">		this.visible = visible;</span>
+<span class="nc" id="L201">	}</span>
+
+	public UserData getUser() {
+<span class="nc" id="L204">		return user;</span>
+	}
+
+	public void setUser(UserData user) {
+<span class="nc" id="L208">		this.user = user;</span>
+<span class="nc" id="L209">	}</span>
+
+	public JFrame getFrmMain() {
+<span class="nc" id="L212">		return frmMain;</span>
+	}
+
+	public void setFrmMain(JFrame frmMain) {
+<span class="nc" id="L216">		this.frmMain = frmMain;</span>
+<span class="nc" id="L217">	}</span>
+
+	public JFrame getFrmRemoveVan() {
+<span class="nc" id="L220">		return frmRemoveVan;</span>
+	}
+
+	public void setFrmRemoveVan(JFrame frmRemoveVan) {
+<span class="nc" id="L224">		this.frmRemoveVan = frmRemoveVan;</span>
+<span class="nc" id="L225">	}</span>
+
+	public JLabel getLblText() {
+<span class="nc" id="L228">		return lblText;</span>
+	}
+
+	public void setLblText(JLabel lblText) {
+<span class="nc" id="L232">		this.lblText = lblText;</span>
+<span class="nc" id="L233">	}</span>
+
+	public JButton getBtnRemove() {
+<span class="nc" id="L236">		return btnRemove;</span>
+	}
+
+	public void setBtnRemove(JButton btnRemove) {
+<span class="nc" id="L240">		this.btnRemove = btnRemove;</span>
+<span class="nc" id="L241">	}</span>
+
+	public JButton getBtnBack() {
+<span class="nc" id="L244">		return btnBack;</span>
+	}
+
+	public void setBtnBack(JButton btnBack) {
+<span class="nc" id="L248">		this.btnBack = btnBack;</span>
+<span class="nc" id="L249">	}</span>
+
+	public JTable getJtVansTable() {
+<span class="nc" id="L252">		return jtVansTable;</span>
+	}
+
+	public void setJtVansTable(JTable jtVansTable) {
+<span class="nc" id="L256">		this.jtVansTable = jtVansTable;</span>
+<span class="nc" id="L257">	}</span>
+
+	public JScrollPane getScrollVans() {
+<span class="nc" id="L260">		return scrollVans;</span>
+	}
+
+	public void setScrollVans(JScrollPane scrollVans) {
+<span class="nc" id="L264">		this.scrollVans = scrollVans;</span>
+<span class="nc" id="L265">	}</span>
+
+	public ArrayList&lt;VanData&gt; getVans() {
+<span class="nc" id="L268">		return vans;</span>
+	}
+
+	public void setVans(ArrayList&lt;VanData&gt; vans) {
+<span class="nc" id="L272">		this.vans = vans;</span>
+<span class="nc" id="L273">	}</span>
+
+	public DefaultListModel&lt;String&gt; getVansList() {
+<span class="nc" id="L276">		return vansList;</span>
+	}
+
+	public void setVansList(DefaultListModel&lt;String&gt; vansList) {
+<span class="nc" id="L280">		this.vansList = vansList;</span>
+<span class="nc" id="L281">	}</span>
+
+	public DefaultTableModel getTableModel() {
+<span class="nc" id="L284">		return tableModel;</span>
+	}
+
+	public void setTableModel(DefaultTableModel tableModel) {
+<span class="nc" id="L288">		this.tableModel = tableModel;</span>
+<span class="nc" id="L289">	}</span>
+
+	public static long getSerialversionuid() {
+<span class="nc" id="L292">		return serialVersionUID;</span>
+	}
 	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

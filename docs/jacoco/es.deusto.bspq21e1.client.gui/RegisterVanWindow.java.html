@@ -28,13 +28,13 @@ import java.awt.event.ActionEvent;
 public class RegisterVanWindow extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-<span class="nc" id="L31">	private static Logger logger = Logger.getLogger(RegisterVanWindow.class.getName());</span>
+<span class="fc" id="L31">	private static Logger logger = Logger.getLogger(RegisterVanWindow.class.getName());</span>
 	private Controller controller;
 	private boolean visible;
 	private UserData user;
 	private JFrame frmMain;
 	
-<span class="nc" id="L37">	private JFrame frmRegistrationOfVans = new JFrame();</span>
+<span class="fc" id="L37">	private JFrame frmRegistrationOfVans = new JFrame();</span>
 	
 	private JLabel lblTitle;
 	
@@ -75,156 +75,156 @@ public class RegisterVanWindow extends JFrame{
 	/**
 	 * Create the application.
 	 */
-<span class="nc" id="L78">	public RegisterVanWindow(Controller controller, UserData user, JFrame frmMain, boolean visible) {</span>
-<span class="nc" id="L79">		this.controller = controller;</span>
-<span class="nc" id="L80">		this.visible = visible;</span>
-<span class="nc" id="L81">		this.user = user;</span>
-<span class="nc" id="L82">		this.frmMain = frmMain;</span>
-<span class="nc" id="L83">		initialize();</span>
-<span class="nc" id="L84">		frmRegistrationOfVans.setTitle(controller.getResourcebundle().getString(&quot;resgister_van_window_tittle_msg&quot;));</span>
-<span class="nc" id="L85">		frmRegistrationOfVans.setVisible(visible);</span>
-<span class="nc" id="L86">	}</span>
+<span class="fc" id="L78">	public RegisterVanWindow(Controller controller, UserData user, JFrame frmMain, boolean visible) {</span>
+<span class="fc" id="L79">		this.controller = controller;</span>
+<span class="fc" id="L80">		this.visible = visible;</span>
+<span class="fc" id="L81">		this.user = user;</span>
+<span class="fc" id="L82">		this.frmMain = frmMain;</span>
+<span class="fc" id="L83">		initialize();</span>
+<span class="fc" id="L84">		frmRegistrationOfVans.setTitle(controller.getResourcebundle().getString(&quot;resgister_van_window_tittle_msg&quot;));</span>
+<span class="fc" id="L85">		frmRegistrationOfVans.setVisible(visible);</span>
+<span class="fc" id="L86">	}</span>
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-<span class="nc" id="L92">		frmRegistrationOfVans.setResizable(false);</span>
-<span class="nc" id="L93">		frmRegistrationOfVans.setBounds(100, 100, 380, 575);</span>
-<span class="nc" id="L94">		frmRegistrationOfVans.setLocationRelativeTo(null);</span>
-<span class="nc" id="L95">		frmRegistrationOfVans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
-<span class="nc" id="L96">		frmRegistrationOfVans.getContentPane().setLayout(null);</span>
-<span class="nc" id="L97">		frmRegistrationOfVans.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
+<span class="fc" id="L92">		frmRegistrationOfVans.setResizable(false);</span>
+<span class="fc" id="L93">		frmRegistrationOfVans.setBounds(100, 100, 380, 575);</span>
+<span class="fc" id="L94">		frmRegistrationOfVans.setLocationRelativeTo(null);</span>
+<span class="fc" id="L95">		frmRegistrationOfVans.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="fc" id="L96">		frmRegistrationOfVans.getContentPane().setLayout(null);</span>
+<span class="fc" id="L97">		frmRegistrationOfVans.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
 		
-<span class="nc" id="L99">		lblTitle = new JLabel(controller.getResourcebundle().getString(&quot;register_your_van_msg&quot;));</span>
-<span class="nc" id="L100">		lblTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
-<span class="nc" id="L101">		lblTitle.setBounds(100, 30, 200, 20);</span>
-<span class="nc" id="L102">		frmRegistrationOfVans.getContentPane().add(lblTitle);</span>
+<span class="fc" id="L99">		lblTitle = new JLabel(controller.getResourcebundle().getString(&quot;register_your_van_msg&quot;));</span>
+<span class="fc" id="L100">		lblTitle.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 15));</span>
+<span class="fc" id="L101">		lblTitle.setBounds(100, 30, 200, 20);</span>
+<span class="fc" id="L102">		frmRegistrationOfVans.getContentPane().add(lblTitle);</span>
 		
 		//LicensePlate
-<span class="nc" id="L105">		lblLicensePlate = new JLabel(controller.getResourcebundle().getString(&quot;license_plate_msg&quot;));</span>
-<span class="nc" id="L106">		lblLicensePlate.setBounds(40, 81, 125, 19);</span>
-<span class="nc" id="L107">		frmRegistrationOfVans.getContentPane().add(lblLicensePlate);</span>
+<span class="fc" id="L105">		lblLicensePlate = new JLabel(controller.getResourcebundle().getString(&quot;license_plate_msg&quot;));</span>
+<span class="fc" id="L106">		lblLicensePlate.setBounds(40, 81, 125, 19);</span>
+<span class="fc" id="L107">		frmRegistrationOfVans.getContentPane().add(lblLicensePlate);</span>
 		
-<span class="nc" id="L109">		txtFieldLicensePlate = new JTextField(&quot;&quot;);</span>
-<span class="nc" id="L110">		txtFieldLicensePlate.setBounds(200, 81, 120, 19);</span>
-<span class="nc" id="L111">		frmRegistrationOfVans.getContentPane().add(txtFieldLicensePlate);</span>
-<span class="nc" id="L112">		txtFieldLicensePlate.setColumns(10);</span>
+<span class="fc" id="L109">		txtFieldLicensePlate = new JTextField(&quot;&quot;);</span>
+<span class="fc" id="L110">		txtFieldLicensePlate.setBounds(200, 81, 120, 19);</span>
+<span class="fc" id="L111">		frmRegistrationOfVans.getContentPane().add(txtFieldLicensePlate);</span>
+<span class="fc" id="L112">		txtFieldLicensePlate.setColumns(10);</span>
 		
 		//Brand
-<span class="nc" id="L115">		lblBrand = new JLabel(controller.getResourcebundle().getString(&quot;brand_msg&quot;));</span>
-<span class="nc" id="L116">		lblBrand.setBounds(40, 120, 125, 13);</span>
-<span class="nc" id="L117">		frmRegistrationOfVans.getContentPane().add(lblBrand);</span>
+<span class="fc" id="L115">		lblBrand = new JLabel(controller.getResourcebundle().getString(&quot;brand_msg&quot;));</span>
+<span class="fc" id="L116">		lblBrand.setBounds(40, 120, 125, 13);</span>
+<span class="fc" id="L117">		frmRegistrationOfVans.getContentPane().add(lblBrand);</span>
 		
-<span class="nc" id="L119">		txtFieldBrand = new JTextField(&quot;&quot;);</span>
-<span class="nc" id="L120">		txtFieldBrand.setBounds(200, 117, 120, 19);</span>
-<span class="nc" id="L121">		frmRegistrationOfVans.getContentPane().add(txtFieldBrand);</span>
-<span class="nc" id="L122">		txtFieldBrand.setColumns(10);</span>
+<span class="fc" id="L119">		txtFieldBrand = new JTextField(&quot;&quot;);</span>
+<span class="fc" id="L120">		txtFieldBrand.setBounds(200, 117, 120, 19);</span>
+<span class="fc" id="L121">		frmRegistrationOfVans.getContentPane().add(txtFieldBrand);</span>
+<span class="fc" id="L122">		txtFieldBrand.setColumns(10);</span>
 		
 		//Model
-<span class="nc" id="L125">		lblMoldel = new JLabel(controller.getResourcebundle().getString(&quot;model_msg&quot;));</span>
-<span class="nc" id="L126">		lblMoldel.setBounds(40, 160, 125, 13);</span>
-<span class="nc" id="L127">		frmRegistrationOfVans.getContentPane().add(lblMoldel);</span>
+<span class="fc" id="L125">		lblMoldel = new JLabel(controller.getResourcebundle().getString(&quot;model_msg&quot;));</span>
+<span class="fc" id="L126">		lblMoldel.setBounds(40, 160, 125, 13);</span>
+<span class="fc" id="L127">		frmRegistrationOfVans.getContentPane().add(lblMoldel);</span>
 		
-<span class="nc" id="L129">		txtFieldModel = new JTextField(&quot;&quot;);</span>
-<span class="nc" id="L130">		txtFieldModel.setBounds(200, 156, 120, 19);</span>
-<span class="nc" id="L131">		frmRegistrationOfVans.getContentPane().add(txtFieldModel);</span>
-<span class="nc" id="L132">		txtFieldModel.setColumns(10);</span>
+<span class="fc" id="L129">		txtFieldModel = new JTextField(&quot;&quot;);</span>
+<span class="fc" id="L130">		txtFieldModel.setBounds(200, 156, 120, 19);</span>
+<span class="fc" id="L131">		frmRegistrationOfVans.getContentPane().add(txtFieldModel);</span>
+<span class="fc" id="L132">		txtFieldModel.setColumns(10);</span>
 		
 		//Location
-<span class="nc" id="L135">		lblLocation = new JLabel(controller.getResourcebundle().getString(&quot;location_msg&quot;));</span>
-<span class="nc" id="L136">		lblLocation.setBounds(40, 200, 125, 13);</span>
-<span class="nc" id="L137">		frmRegistrationOfVans.getContentPane().add(lblLocation);</span>
+<span class="fc" id="L135">		lblLocation = new JLabel(controller.getResourcebundle().getString(&quot;location_msg&quot;));</span>
+<span class="fc" id="L136">		lblLocation.setBounds(40, 200, 125, 13);</span>
+<span class="fc" id="L137">		frmRegistrationOfVans.getContentPane().add(lblLocation);</span>
 		
-<span class="nc" id="L139">		txtFieldLocation = new JTextField(&quot;&quot;);</span>
-<span class="nc" id="L140">		txtFieldLocation.setColumns(10);</span>
-<span class="nc" id="L141">		txtFieldLocation.setBounds(200, 197, 120, 19);</span>
-<span class="nc" id="L142">		frmRegistrationOfVans.getContentPane().add(txtFieldLocation);</span>
+<span class="fc" id="L139">		txtFieldLocation = new JTextField(&quot;&quot;);</span>
+<span class="fc" id="L140">		txtFieldLocation.setColumns(10);</span>
+<span class="fc" id="L141">		txtFieldLocation.setBounds(200, 197, 120, 19);</span>
+<span class="fc" id="L142">		frmRegistrationOfVans.getContentPane().add(txtFieldLocation);</span>
 		
 		//Capacity
-<span class="nc" id="L145">		lblCapacity = new JLabel(controller.getResourcebundle().getString(&quot;capacity_msg&quot;));</span>
-<span class="nc" id="L146">		lblCapacity.setBounds(40, 250, 125, 13);</span>
-<span class="nc" id="L147">		frmRegistrationOfVans.getContentPane().add(lblCapacity);</span>
+<span class="fc" id="L145">		lblCapacity = new JLabel(controller.getResourcebundle().getString(&quot;capacity_msg&quot;));</span>
+<span class="fc" id="L146">		lblCapacity.setBounds(40, 250, 125, 13);</span>
+<span class="fc" id="L147">		frmRegistrationOfVans.getContentPane().add(lblCapacity);</span>
 		
-<span class="nc" id="L149">		SpinnerNumberModel capacitySpinnerModel = new SpinnerNumberModel(1, 1, 10, 1);  </span>
-<span class="nc" id="L150">		spinnerCapacity = new JSpinner(capacitySpinnerModel);</span>
-<span class="nc" id="L151">		spinnerCapacity.setBounds(200, 247, 54, 20);</span>
-<span class="nc" id="L152">		frmRegistrationOfVans.getContentPane().add(spinnerCapacity);</span>
+<span class="fc" id="L149">		SpinnerNumberModel capacitySpinnerModel = new SpinnerNumberModel(1, 1, 10, 1);  </span>
+<span class="fc" id="L150">		spinnerCapacity = new JSpinner(capacitySpinnerModel);</span>
+<span class="fc" id="L151">		spinnerCapacity.setBounds(200, 247, 54, 20);</span>
+<span class="fc" id="L152">		frmRegistrationOfVans.getContentPane().add(spinnerCapacity);</span>
 		
 		//Kitchen
-<span class="nc" id="L155">		lblKitchen = new JLabel(controller.getResourcebundle().getString(&quot;kitchen_msg&quot;));</span>
-<span class="nc" id="L156">		lblKitchen.setBounds(40, 300, 125, 13);</span>
-<span class="nc" id="L157">		frmRegistrationOfVans.getContentPane().add(lblKitchen);</span>
+<span class="fc" id="L155">		lblKitchen = new JLabel(controller.getResourcebundle().getString(&quot;kitchen_msg&quot;));</span>
+<span class="fc" id="L156">		lblKitchen.setBounds(40, 300, 125, 13);</span>
+<span class="fc" id="L157">		frmRegistrationOfVans.getContentPane().add(lblKitchen);</span>
 		
-<span class="nc" id="L159">		kitchenButtonGroup = new ButtonGroup();</span>
+<span class="fc" id="L159">		kitchenButtonGroup = new ButtonGroup();</span>
 		
-<span class="nc" id="L161">		rdbtnKitchenTrue = new JRadioButton(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
-<span class="nc" id="L162">		rdbtnKitchenTrue.setBounds(180, 296, 70, 21);</span>
-<span class="nc" id="L163">		rdbtnKitchenTrue.setSelected(true);</span>
-<span class="nc" id="L164">		frmRegistrationOfVans.getContentPane().add(rdbtnKitchenTrue);</span>
-<span class="nc" id="L165">		kitchenButtonGroup.add(rdbtnKitchenTrue);</span>
+<span class="fc" id="L161">		rdbtnKitchenTrue = new JRadioButton(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
+<span class="fc" id="L162">		rdbtnKitchenTrue.setBounds(180, 296, 70, 21);</span>
+<span class="fc" id="L163">		rdbtnKitchenTrue.setSelected(true);</span>
+<span class="fc" id="L164">		frmRegistrationOfVans.getContentPane().add(rdbtnKitchenTrue);</span>
+<span class="fc" id="L165">		kitchenButtonGroup.add(rdbtnKitchenTrue);</span>
 		
-<span class="nc" id="L167">		rdbtnKitchenFalse = new JRadioButton(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
-<span class="nc" id="L168">		rdbtnKitchenFalse.setBounds(270, 296, 70, 21);</span>
-<span class="nc" id="L169">		frmRegistrationOfVans.getContentPane().add(rdbtnKitchenFalse);</span>
-<span class="nc" id="L170">		kitchenButtonGroup.add(rdbtnKitchenFalse);</span>
+<span class="fc" id="L167">		rdbtnKitchenFalse = new JRadioButton(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
+<span class="fc" id="L168">		rdbtnKitchenFalse.setBounds(270, 296, 70, 21);</span>
+<span class="fc" id="L169">		frmRegistrationOfVans.getContentPane().add(rdbtnKitchenFalse);</span>
+<span class="fc" id="L170">		kitchenButtonGroup.add(rdbtnKitchenFalse);</span>
 		
 		//Shower
-<span class="nc" id="L173">		lblShower = new JLabel(controller.getResourcebundle().getString(&quot;shower_msg&quot;));</span>
-<span class="nc" id="L174">		lblShower.setBounds(40, 350, 125, 13);</span>
-<span class="nc" id="L175">		frmRegistrationOfVans.getContentPane().add(lblShower);</span>
+<span class="fc" id="L173">		lblShower = new JLabel(controller.getResourcebundle().getString(&quot;shower_msg&quot;));</span>
+<span class="fc" id="L174">		lblShower.setBounds(40, 350, 125, 13);</span>
+<span class="fc" id="L175">		frmRegistrationOfVans.getContentPane().add(lblShower);</span>
 		
-<span class="nc" id="L177">		showerButtonGroup = new ButtonGroup();</span>
+<span class="fc" id="L177">		showerButtonGroup = new ButtonGroup();</span>
 		
-<span class="nc" id="L179">		rdbtnShowerTrue = new JRadioButton(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
-<span class="nc" id="L180">		rdbtnShowerTrue.setBounds(180, 346, 70, 21);</span>
-<span class="nc" id="L181">		rdbtnShowerTrue.setSelected(true);</span>
-<span class="nc" id="L182">		frmRegistrationOfVans.getContentPane().add(rdbtnShowerTrue);</span>
-<span class="nc" id="L183">		showerButtonGroup.add(rdbtnShowerTrue);</span>
+<span class="fc" id="L179">		rdbtnShowerTrue = new JRadioButton(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
+<span class="fc" id="L180">		rdbtnShowerTrue.setBounds(180, 346, 70, 21);</span>
+<span class="fc" id="L181">		rdbtnShowerTrue.setSelected(true);</span>
+<span class="fc" id="L182">		frmRegistrationOfVans.getContentPane().add(rdbtnShowerTrue);</span>
+<span class="fc" id="L183">		showerButtonGroup.add(rdbtnShowerTrue);</span>
 		
-<span class="nc" id="L185">		rdbtnShowerFalse = new JRadioButton(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
-<span class="nc" id="L186">		rdbtnShowerFalse.setBounds(270, 346, 70, 21);</span>
-<span class="nc" id="L187">		frmRegistrationOfVans.getContentPane().add(rdbtnShowerFalse);</span>
-<span class="nc" id="L188">		showerButtonGroup.add(rdbtnShowerFalse);</span>
+<span class="fc" id="L185">		rdbtnShowerFalse = new JRadioButton(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
+<span class="fc" id="L186">		rdbtnShowerFalse.setBounds(270, 346, 70, 21);</span>
+<span class="fc" id="L187">		frmRegistrationOfVans.getContentPane().add(rdbtnShowerFalse);</span>
+<span class="fc" id="L188">		showerButtonGroup.add(rdbtnShowerFalse);</span>
 		
 		//Off-road
-<span class="nc" id="L191">		lblOffRoad = new JLabel(controller.getResourcebundle().getString(&quot;off_road_msg&quot;));</span>
-<span class="nc" id="L192">		lblOffRoad.setBounds(40, 400, 125, 13);</span>
-<span class="nc" id="L193">		frmRegistrationOfVans.getContentPane().add(lblOffRoad);</span>
+<span class="fc" id="L191">		lblOffRoad = new JLabel(controller.getResourcebundle().getString(&quot;off_road_msg&quot;));</span>
+<span class="fc" id="L192">		lblOffRoad.setBounds(40, 400, 125, 13);</span>
+<span class="fc" id="L193">		frmRegistrationOfVans.getContentPane().add(lblOffRoad);</span>
 		
-<span class="nc" id="L195">		offRoadButtonGroup = new ButtonGroup(); </span>
+<span class="fc" id="L195">		offRoadButtonGroup = new ButtonGroup(); </span>
 		
-<span class="nc" id="L197">		rdbtnOffRoadTrue = new JRadioButton(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
-<span class="nc" id="L198">		rdbtnOffRoadTrue.setSelected(true);</span>
-<span class="nc" id="L199">		rdbtnOffRoadTrue.setBounds(180, 396, 70, 21);</span>
-<span class="nc" id="L200">		frmRegistrationOfVans.getContentPane().add(rdbtnOffRoadTrue);</span>
-<span class="nc" id="L201">		offRoadButtonGroup.add(rdbtnOffRoadTrue);</span>
+<span class="fc" id="L197">		rdbtnOffRoadTrue = new JRadioButton(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
+<span class="fc" id="L198">		rdbtnOffRoadTrue.setSelected(true);</span>
+<span class="fc" id="L199">		rdbtnOffRoadTrue.setBounds(180, 396, 70, 21);</span>
+<span class="fc" id="L200">		frmRegistrationOfVans.getContentPane().add(rdbtnOffRoadTrue);</span>
+<span class="fc" id="L201">		offRoadButtonGroup.add(rdbtnOffRoadTrue);</span>
 		
-<span class="nc" id="L203">		rdbtnOffRoadFalse = new JRadioButton(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
-<span class="nc" id="L204">		rdbtnOffRoadFalse.setBounds(270, 396, 70, 21);</span>
-<span class="nc" id="L205">		frmRegistrationOfVans.getContentPane().add(rdbtnOffRoadFalse);</span>
-<span class="nc" id="L206">		offRoadButtonGroup.add(rdbtnOffRoadFalse);</span>
+<span class="fc" id="L203">		rdbtnOffRoadFalse = new JRadioButton(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
+<span class="fc" id="L204">		rdbtnOffRoadFalse.setBounds(270, 396, 70, 21);</span>
+<span class="fc" id="L205">		frmRegistrationOfVans.getContentPane().add(rdbtnOffRoadFalse);</span>
+<span class="fc" id="L206">		offRoadButtonGroup.add(rdbtnOffRoadFalse);</span>
 		
 		//Price
-<span class="nc" id="L209">		lblPricePerDay = new JLabel(controller.getResourcebundle().getString(&quot;price_per_day_msg&quot;));</span>
-<span class="nc" id="L210">		lblPricePerDay.setBounds(40, 450, 125, 13);</span>
-<span class="nc" id="L211">		frmRegistrationOfVans.getContentPane().add(lblPricePerDay);</span>
+<span class="fc" id="L209">		lblPricePerDay = new JLabel(controller.getResourcebundle().getString(&quot;price_per_day_msg&quot;));</span>
+<span class="fc" id="L210">		lblPricePerDay.setBounds(40, 450, 125, 13);</span>
+<span class="fc" id="L211">		frmRegistrationOfVans.getContentPane().add(lblPricePerDay);</span>
 		
-<span class="nc" id="L213">		SpinnerNumberModel priceSpinnerModel = new SpinnerNumberModel(99.99, 0.0, 1500.0, 10.0);</span>
-<span class="nc" id="L214">		spinnerPrice = new JSpinner(priceSpinnerModel);</span>
-<span class="nc" id="L215">		spinnerPrice.setBounds(200, 447, 94, 20);</span>
-<span class="nc" id="L216">		frmRegistrationOfVans.getContentPane().add(spinnerPrice);</span>
+<span class="fc" id="L213">		SpinnerNumberModel priceSpinnerModel = new SpinnerNumberModel(99.99, 0.0, 1500.0, 10.0);</span>
+<span class="fc" id="L214">		spinnerPrice = new JSpinner(priceSpinnerModel);</span>
+<span class="fc" id="L215">		spinnerPrice.setBounds(200, 447, 94, 20);</span>
+<span class="fc" id="L216">		frmRegistrationOfVans.getContentPane().add(spinnerPrice);</span>
 		
 		//BUTTON: Cancel
-<span class="nc" id="L219">		btnCancel = new JButton(controller.getResourcebundle().getString(&quot;cancel_button_msg&quot;));</span>
-<span class="nc" id="L220">		btnCancel.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L219">		btnCancel = new JButton(controller.getResourcebundle().getString(&quot;cancel_button_msg&quot;));</span>
+<span class="fc" id="L220">		btnCancel.addActionListener(new ActionListener() {</span>
 			public void actionPerformed(ActionEvent e) {
 <span class="nc" id="L222">				frmMain.setVisible(visible);</span>
 <span class="nc" id="L223">				frmRegistrationOfVans.dispose();</span>
 				
 <span class="nc" id="L225">			}</span>
 		});
-<span class="nc" id="L227">		btnCancel.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L227">		btnCancel.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
 <span class="nc" id="L229">        		btnCancel.setBounds(35, 495, 110, 26);</span>
 <span class="nc" id="L230">        		btnCancel.setBackground(Color.RED);</span>
@@ -236,12 +236,12 @@ public class RegisterVanWindow extends JFrame{
 <span class="nc" id="L236">		    	btnCancel.updateUI();</span>
 <span class="nc" id="L237">		    }</span>
 		});
-<span class="nc" id="L239">		btnCancel.setBounds(40, 495, 100, 25);</span>
-<span class="nc" id="L240">		frmRegistrationOfVans.getContentPane().add(btnCancel);</span>
+<span class="fc" id="L239">		btnCancel.setBounds(40, 495, 100, 25);</span>
+<span class="fc" id="L240">		frmRegistrationOfVans.getContentPane().add(btnCancel);</span>
 		
 		//BUTTON: Register Van
-<span class="nc" id="L243">		btnRegisterVan = new JButton(controller.getResourcebundle().getString(&quot;register_van_button_msg&quot;));</span>
-<span class="nc" id="L244">		btnRegisterVan.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L243">		btnRegisterVan = new JButton(controller.getResourcebundle().getString(&quot;register_van_button_msg&quot;));</span>
+<span class="fc" id="L244">		btnRegisterVan.addActionListener(new ActionListener() {</span>
 			public void actionPerformed(ActionEvent e) {
 			
 <span class="nc" id="L247">				String licensePlate = txtFieldLicensePlate.getText();</span>
@@ -272,7 +272,7 @@ public class RegisterVanWindow extends JFrame{
 				}
 <span class="nc" id="L273">			}</span>
 		});
-<span class="nc" id="L275">		btnRegisterVan.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L275">		btnRegisterVan.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
 <span class="nc" id="L277">        		btnRegisterVan.setBounds(165, 495, 165, 26);</span>
 <span class="nc" id="L278">        		btnRegisterVan.updateUI();</span>
@@ -282,10 +282,279 @@ public class RegisterVanWindow extends JFrame{
 <span class="nc" id="L282">		    	btnRegisterVan.updateUI();</span>
 <span class="nc" id="L283">		    }</span>
 		});
-<span class="nc" id="L285">		btnRegisterVan.setBounds(170, 495, 155, 25);</span>
-<span class="nc" id="L286">		frmRegistrationOfVans.getContentPane().add(btnRegisterVan);</span>
+<span class="fc" id="L285">		btnRegisterVan.setBounds(170, 495, 155, 25);</span>
+<span class="fc" id="L286">		frmRegistrationOfVans.getContentPane().add(btnRegisterVan);</span>
 	
-<span class="nc" id="L288">		logger.info(&quot;RegisterVanWindow well initialized&quot;);</span>
-<span class="nc" id="L289">	}</span>
+<span class="fc" id="L288">		logger.info(&quot;RegisterVanWindow well initialized&quot;);</span>
+<span class="fc" id="L289">	}</span>
+
+	public static Logger getLogger() {
+<span class="nc" id="L292">		return logger;</span>
+	}
+
+	public static void setLogger(Logger logger) {
+<span class="nc" id="L296">		RegisterVanWindow.logger = logger;</span>
+<span class="nc" id="L297">	}</span>
+
+	public Controller getController() {
+<span class="nc" id="L300">		return controller;</span>
+	}
+
+	public void setController(Controller controller) {
+<span class="nc" id="L304">		this.controller = controller;</span>
+<span class="nc" id="L305">	}</span>
+
+	public boolean isVisible() {
+<span class="nc" id="L308">		return visible;</span>
+	}
+
+	public void setVisible(boolean visible) {
+<span class="nc" id="L312">		this.visible = visible;</span>
+<span class="nc" id="L313">	}</span>
+
+	public UserData getUser() {
+<span class="nc" id="L316">		return user;</span>
+	}
+
+	public void setUser(UserData user) {
+<span class="nc" id="L320">		this.user = user;</span>
+<span class="nc" id="L321">	}</span>
+
+	public JFrame getFrmMain() {
+<span class="nc" id="L324">		return frmMain;</span>
+	}
+
+	public void setFrmMain(JFrame frmMain) {
+<span class="nc" id="L328">		this.frmMain = frmMain;</span>
+<span class="nc" id="L329">	}</span>
+
+	public JFrame getFrmRegistrationOfVans() {
+<span class="fc" id="L332">		return frmRegistrationOfVans;</span>
+	}
+
+	public void setFrmRegistrationOfVans(JFrame frmRegistrationOfVans) {
+<span class="nc" id="L336">		this.frmRegistrationOfVans = frmRegistrationOfVans;</span>
+<span class="nc" id="L337">	}</span>
+
+	public JLabel getLblTitle() {
+<span class="fc" id="L340">		return lblTitle;</span>
+	}
+
+	public void setLblTitle(JLabel lblTitle) {
+<span class="nc" id="L344">		this.lblTitle = lblTitle;</span>
+<span class="nc" id="L345">	}</span>
+
+	public JLabel getLblLicensePlate() {
+<span class="fc" id="L348">		return lblLicensePlate;</span>
+	}
+
+	public void setLblLicensePlate(JLabel lblLicensePlate) {
+<span class="nc" id="L352">		this.lblLicensePlate = lblLicensePlate;</span>
+<span class="nc" id="L353">	}</span>
+
+	public JTextField getTxtFieldLicensePlate() {
+<span class="nc" id="L356">		return txtFieldLicensePlate;</span>
+	}
+
+	public void setTxtFieldLicensePlate(JTextField txtFieldLicensePlate) {
+<span class="nc" id="L360">		this.txtFieldLicensePlate = txtFieldLicensePlate;</span>
+<span class="nc" id="L361">	}</span>
+
+	public JLabel getLblBrand() {
+<span class="fc" id="L364">		return lblBrand;</span>
+	}
+
+	public void setLblBrand(JLabel lblBrand) {
+<span class="nc" id="L368">		this.lblBrand = lblBrand;</span>
+<span class="nc" id="L369">	}</span>
+
+	public JTextField getTxtFieldBrand() {
+<span class="nc" id="L372">		return txtFieldBrand;</span>
+	}
+
+	public void setTxtFieldBrand(JTextField txtFieldBrand) {
+<span class="nc" id="L376">		this.txtFieldBrand = txtFieldBrand;</span>
+<span class="nc" id="L377">	}</span>
+
+	public JLabel getLblMoldel() {
+<span class="fc" id="L380">		return lblMoldel;</span>
+	}
+
+	public void setLblMoldel(JLabel lblMoldel) {
+<span class="nc" id="L384">		this.lblMoldel = lblMoldel;</span>
+<span class="nc" id="L385">	}</span>
+
+	public JTextField getTxtFieldModel() {
+<span class="nc" id="L388">		return txtFieldModel;</span>
+	}
+
+	public void setTxtFieldModel(JTextField txtFieldModel) {
+<span class="nc" id="L392">		this.txtFieldModel = txtFieldModel;</span>
+<span class="nc" id="L393">	}</span>
+
+	public JLabel getLblLocation() {
+<span class="fc" id="L396">		return lblLocation;</span>
+	}
+
+	public void setLblLocation(JLabel lblLocation) {
+<span class="nc" id="L400">		this.lblLocation = lblLocation;</span>
+<span class="nc" id="L401">	}</span>
+
+	public JTextField getTxtFieldLocation() {
+<span class="nc" id="L404">		return txtFieldLocation;</span>
+	}
+
+	public void setTxtFieldLocation(JTextField txtFieldLocation) {
+<span class="nc" id="L408">		this.txtFieldLocation = txtFieldLocation;</span>
+<span class="nc" id="L409">	}</span>
+
+	public JLabel getLblCapacity() {
+<span class="fc" id="L412">		return lblCapacity;</span>
+	}
+
+	public void setLblCapacity(JLabel lblCapacity) {
+<span class="nc" id="L416">		this.lblCapacity = lblCapacity;</span>
+<span class="nc" id="L417">	}</span>
+
+	public JSpinner getSpinnerCapacity() {
+<span class="fc" id="L420">		return spinnerCapacity;</span>
+	}
+
+	public void setSpinnerCapacity(JSpinner spinnerCapacity) {
+<span class="nc" id="L424">		this.spinnerCapacity = spinnerCapacity;</span>
+<span class="nc" id="L425">	}</span>
+
+	public JLabel getLblKitchen() {
+<span class="nc" id="L428">		return lblKitchen;</span>
+	}
+
+	public void setLblKitchen(JLabel lblKitchen) {
+<span class="nc" id="L432">		this.lblKitchen = lblKitchen;</span>
+<span class="nc" id="L433">	}</span>
+
+	public ButtonGroup getKitchenButtonGroup() {
+<span class="nc" id="L436">		return kitchenButtonGroup;</span>
+	}
+
+	public void setKitchenButtonGroup(ButtonGroup kitchenButtonGroup) {
+<span class="nc" id="L440">		this.kitchenButtonGroup = kitchenButtonGroup;</span>
+<span class="nc" id="L441">	}</span>
+
+	public JRadioButton getRdbtnKitchenTrue() {
+<span class="nc" id="L444">		return rdbtnKitchenTrue;</span>
+	}
+
+	public void setRdbtnKitchenTrue(JRadioButton rdbtnKitchenTrue) {
+<span class="nc" id="L448">		this.rdbtnKitchenTrue = rdbtnKitchenTrue;</span>
+<span class="nc" id="L449">	}</span>
+
+	public JRadioButton getRdbtnKitchenFalse() {
+<span class="nc" id="L452">		return rdbtnKitchenFalse;</span>
+	}
+
+	public void setRdbtnKitchenFalse(JRadioButton rdbtnKitchenFalse) {
+<span class="nc" id="L456">		this.rdbtnKitchenFalse = rdbtnKitchenFalse;</span>
+<span class="nc" id="L457">	}</span>
+
+	public JLabel getLblShower() {
+<span class="nc" id="L460">		return lblShower;</span>
+	}
+
+	public void setLblShower(JLabel lblShower) {
+<span class="nc" id="L464">		this.lblShower = lblShower;</span>
+<span class="nc" id="L465">	}</span>
+
+	public ButtonGroup getShowerButtonGroup() {
+<span class="nc" id="L468">		return showerButtonGroup;</span>
+	}
+
+	public void setShowerButtonGroup(ButtonGroup showerButtonGroup) {
+<span class="nc" id="L472">		this.showerButtonGroup = showerButtonGroup;</span>
+<span class="nc" id="L473">	}</span>
+
+	public JRadioButton getRdbtnShowerTrue() {
+<span class="nc" id="L476">		return rdbtnShowerTrue;</span>
+	}
+
+	public void setRdbtnShowerTrue(JRadioButton rdbtnShowerTrue) {
+<span class="nc" id="L480">		this.rdbtnShowerTrue = rdbtnShowerTrue;</span>
+<span class="nc" id="L481">	}</span>
+
+	public JRadioButton getRdbtnShowerFalse() {
+<span class="nc" id="L484">		return rdbtnShowerFalse;</span>
+	}
+
+	public void setRdbtnShowerFalse(JRadioButton rdbtnShowerFalse) {
+<span class="nc" id="L488">		this.rdbtnShowerFalse = rdbtnShowerFalse;</span>
+<span class="nc" id="L489">	}</span>
+
+	public ButtonGroup getOffRoadButtonGroup() {
+<span class="nc" id="L492">		return offRoadButtonGroup;</span>
+	}
+
+	public void setOffRoadButtonGroup(ButtonGroup offRoadButtonGroup) {
+<span class="nc" id="L496">		this.offRoadButtonGroup = offRoadButtonGroup;</span>
+<span class="nc" id="L497">	}</span>
+
+	public JLabel getLblOffRoad() {
+<span class="nc" id="L500">		return lblOffRoad;</span>
+	}
+
+	public void setLblOffRoad(JLabel lblOffRoad) {
+<span class="nc" id="L504">		this.lblOffRoad = lblOffRoad;</span>
+<span class="nc" id="L505">	}</span>
+
+	public JRadioButton getRdbtnOffRoadTrue() {
+<span class="nc" id="L508">		return rdbtnOffRoadTrue;</span>
+	}
+
+	public void setRdbtnOffRoadTrue(JRadioButton rdbtnOffRoadTrue) {
+<span class="nc" id="L512">		this.rdbtnOffRoadTrue = rdbtnOffRoadTrue;</span>
+<span class="nc" id="L513">	}</span>
+
+	public JRadioButton getRdbtnOffRoadFalse() {
+<span class="nc" id="L516">		return rdbtnOffRoadFalse;</span>
+	}
+
+	public void setRdbtnOffRoadFalse(JRadioButton rdbtnOffRoadFalse) {
+<span class="nc" id="L520">		this.rdbtnOffRoadFalse = rdbtnOffRoadFalse;</span>
+<span class="nc" id="L521">	}</span>
+
+	public JLabel getLblPricePerDay() {
+<span class="nc" id="L524">		return lblPricePerDay;</span>
+	}
+
+	public void setLblPricePerDay(JLabel lblPricePerDay) {
+<span class="nc" id="L528">		this.lblPricePerDay = lblPricePerDay;</span>
+<span class="nc" id="L529">	}</span>
+
+	public JSpinner getSpinnerPrice() {
+<span class="nc" id="L532">		return spinnerPrice;</span>
+	}
+
+	public void setSpinnerPrice(JSpinner spinnerPrice) {
+<span class="nc" id="L536">		this.spinnerPrice = spinnerPrice;</span>
+<span class="nc" id="L537">	}</span>
+
+	public JButton getBtnCancel() {
+<span class="fc" id="L540">		return btnCancel;</span>
+	}
+
+	public void setBtnCancel(JButton btnCancel) {
+<span class="nc" id="L544">		this.btnCancel = btnCancel;</span>
+<span class="nc" id="L545">	}</span>
+
+	public JButton getBtnRegisterVan() {
+<span class="fc" id="L548">		return btnRegisterVan;</span>
+	}
+
+	public void setBtnRegisterVan(JButton btnRegisterVan) {
+<span class="nc" id="L552">		this.btnRegisterVan = btnRegisterVan;</span>
+<span class="nc" id="L553">	}</span>
+
+	public static long getSerialversionuid() {
+<span class="nc" id="L556">		return serialVersionUID;</span>
+	}
+	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

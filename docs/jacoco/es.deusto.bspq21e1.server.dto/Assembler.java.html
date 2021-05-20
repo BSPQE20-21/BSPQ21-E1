@@ -28,7 +28,7 @@ import es.deusto.bspq21e1.server.data.Review;
     }
 
     public VanData assembleVan(Van v) {
-<span class="fc" id="L31">    	VanData vanData = new VanData(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.getCapacity(), v.hasKitchen(), v.hasShower(), v.isOffRoad(),  v.getPricePerDay(), v.getUser());</span>
+<span class="fc" id="L31">    	VanData vanData = new VanData(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.getCapacity(), v.isKitchen(), v.isShower(), v.isOffRoad(),  v.getPricePerDay(), v.getUser());</span>
 <span class="fc" id="L32">    	logger.info(&quot;Van assembled&quot;);</span>
 <span class="fc" id="L33">    	return vanData;	</span>
     }
@@ -53,13 +53,13 @@ import es.deusto.bspq21e1.server.data.Review;
     }
 
     public Van disassembleVan(VanData v) {
-<span class="fc" id="L56">    	Van van = new Van(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.hasKitchen(), v.hasShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay(), v.getUser());</span>
+<span class="fc" id="L56">    	Van van = new Van(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.isKitchen(), v.isShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay(), v.getUser());</span>
     	
 <span class="fc" id="L58">		logger.debug(&quot;$ DEBUGGING\n&quot; +</span>
 				&quot;\tPrinting Van and User from Assembler in Server side:\n&quot;+
-<span class="fc" id="L60">				&quot;\tVan: &quot; + van +</span>
+				&quot;\tVan: &quot; + van +
 <span class="fc" id="L61">				&quot;\n\tUser: &quot; + van.getUser().toString() +</span>
-<span class="fc" id="L62">				&quot;\n=======================\n&quot;);</span>
+				&quot;\n=======================\n&quot;);
 <span class="fc" id="L63">		logger.info(&quot;Van disassembled&quot;);</span>
 <span class="fc" id="L64">    	return van;</span>
     	

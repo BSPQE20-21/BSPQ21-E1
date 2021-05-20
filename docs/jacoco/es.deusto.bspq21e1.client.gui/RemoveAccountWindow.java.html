@@ -19,44 +19,44 @@ import es.deusto.bspq21e1.serialization.UserData;
 public class RemoveAccountWindow extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-<span class="nc" id="L22">	private static Logger logger = Logger.getLogger(RemoveAccountWindow.class.getName());</span>
+<span class="fc" id="L22">	private static Logger logger = Logger.getLogger(RemoveAccountWindow.class.getName());</span>
 	private Controller controller;
 	private boolean visible;
 	private UserData userData;
 	private JFrame frmMain;
 	
-<span class="nc" id="L28">	private JFrame frmRemoveAccount = new JFrame();</span>
+<span class="fc" id="L28">	private JFrame frmRemoveAccount = new JFrame();</span>
 	private JButton btnYes, btnNo;
 	private JLabel lblText;
 	
-<span class="nc" id="L32">	public RemoveAccountWindow(Controller controller, UserData userData, JFrame frmMain, boolean visible) {</span>
-<span class="nc" id="L33">		this.controller = controller;</span>
-<span class="nc" id="L34">		this.userData = userData;</span>
-<span class="nc" id="L35">		this.visible = visible;</span>
-<span class="nc" id="L36">		this.frmMain = frmMain;</span>
-<span class="nc" id="L37">		initialize();</span>
-<span class="nc" id="L38">		frmRemoveAccount.setTitle(controller.getResourcebundle().getString(&quot;remove_user_btn_msg&quot;));</span>
-<span class="nc" id="L39">		frmRemoveAccount.setResizable(false);</span>
-<span class="nc" id="L40">		frmRemoveAccount.setVisible(visible);</span>
-<span class="nc" id="L41">	}</span>
+<span class="fc" id="L32">	public RemoveAccountWindow(Controller controller, UserData userData, JFrame frmMain, boolean visible) {</span>
+<span class="fc" id="L33">		this.controller = controller;</span>
+<span class="fc" id="L34">		this.userData = userData;</span>
+<span class="fc" id="L35">		this.visible = visible;</span>
+<span class="fc" id="L36">		this.frmMain = frmMain;</span>
+<span class="fc" id="L37">		initialize();</span>
+<span class="fc" id="L38">		frmRemoveAccount.setTitle(controller.getResourcebundle().getString(&quot;remove_user_btn_msg&quot;));</span>
+<span class="fc" id="L39">		frmRemoveAccount.setResizable(false);</span>
+<span class="fc" id="L40">		frmRemoveAccount.setVisible(visible);</span>
+<span class="fc" id="L41">	}</span>
 	
 	private void initialize() {
-<span class="nc" id="L44">		frmRemoveAccount.setBounds(400, 200, 340, 130);</span>
-<span class="nc" id="L45">		frmRemoveAccount.setLocationRelativeTo(null);</span>
-<span class="nc" id="L46">		frmRemoveAccount.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
-<span class="nc" id="L47">		frmRemoveAccount.getContentPane().setLayout(null);</span>
-<span class="nc" id="L48">		frmRemoveAccount.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
+<span class="fc" id="L44">		frmRemoveAccount.setBounds(400, 200, 340, 130);</span>
+<span class="fc" id="L45">		frmRemoveAccount.setLocationRelativeTo(null);</span>
+<span class="fc" id="L46">		frmRemoveAccount.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="fc" id="L47">		frmRemoveAccount.getContentPane().setLayout(null);</span>
+<span class="fc" id="L48">		frmRemoveAccount.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
 		
-<span class="nc" id="L50">		btnNo = new JButton(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
-<span class="nc" id="L51">		btnNo.setBounds(25, 50, 100, 25);</span>
-<span class="nc" id="L52">		btnNo.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L50">		btnNo = new JButton(controller.getResourcebundle().getString(&quot;no_msg&quot;));</span>
+<span class="fc" id="L51">		btnNo.setBounds(25, 50, 100, 25);</span>
+<span class="fc" id="L52">		btnNo.addActionListener(new ActionListener() {</span>
 			@Override
 			public void actionPerformed(ActionEvent e) {
 <span class="nc" id="L55">				frmMain.setVisible(visible);</span>
 <span class="nc" id="L56">				frmRemoveAccount.dispose();</span>
 <span class="nc" id="L57">			}</span>
 		});
-<span class="nc" id="L59">		btnNo.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L59">		btnNo.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
 <span class="nc" id="L61">        		btnNo.setBounds(20, 50, 110, 26);</span>
 <span class="nc" id="L62">        		btnNo.updateUI();</span>
@@ -66,11 +66,11 @@ public class RemoveAccountWindow extends JFrame {
 <span class="nc" id="L66">		    	btnNo.updateUI();</span>
 <span class="nc" id="L67">		    }</span>
 		});
-<span class="nc" id="L69">		frmRemoveAccount.getContentPane().add(btnNo);</span>
+<span class="fc" id="L69">		frmRemoveAccount.getContentPane().add(btnNo);</span>
 		
-<span class="nc" id="L71">		btnYes = new JButton(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
-<span class="nc" id="L72">		btnYes.setBounds(200, 50, 100, 25);</span>
-<span class="nc" id="L73">		btnYes.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L71">		btnYes = new JButton(controller.getResourcebundle().getString(&quot;yes_msg&quot;));</span>
+<span class="fc" id="L72">		btnYes.setBounds(200, 50, 100, 25);</span>
+<span class="fc" id="L73">		btnYes.addActionListener(new ActionListener() {</span>
 			@Override
 			public void actionPerformed(ActionEvent e) {
 <span class="nc" id="L76">				controller.eraseUser( userData.getDni() );</span>
@@ -78,7 +78,7 @@ public class RemoveAccountWindow extends JFrame {
 <span class="nc" id="L78">				frmRemoveAccount.dispose();</span>
 <span class="nc" id="L79">			}</span>
 		});
-<span class="nc" id="L81">		btnYes.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L81">		btnYes.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
 <span class="nc" id="L83">        		btnYes.setBounds(195, 50, 110, 26);</span>
 <span class="nc" id="L84">        		btnYes.setBackground(Color.RED);</span>
@@ -90,13 +90,91 @@ public class RemoveAccountWindow extends JFrame {
 <span class="nc" id="L90">		    	btnYes.updateUI();</span>
 <span class="nc" id="L91">		    }</span>
 		});
-<span class="nc" id="L93">		frmRemoveAccount.getContentPane().add(btnYes);</span>
+<span class="fc" id="L93">		frmRemoveAccount.getContentPane().add(btnYes);</span>
 		
-<span class="nc" id="L95">		lblText = new JLabel(controller.getResourcebundle().getString(&quot;ensure_remove_msg&quot;));</span>
-<span class="nc" id="L96">		lblText.setBounds(25, 5, 350, 35);</span>
-<span class="nc" id="L97">		frmRemoveAccount.getContentPane().add(lblText);</span>
+<span class="fc" id="L95">		lblText = new JLabel(controller.getResourcebundle().getString(&quot;ensure_remove_msg&quot;));</span>
+<span class="fc" id="L96">		lblText.setBounds(25, 5, 350, 35);</span>
+<span class="fc" id="L97">		frmRemoveAccount.getContentPane().add(lblText);</span>
 		
-<span class="nc" id="L99">		logger.info(&quot;RemoveAccountWindow well initialized&quot;);</span>
-<span class="nc" id="L100">	}</span>
+<span class="fc" id="L99">		logger.info(&quot;RemoveAccountWindow well initialized&quot;);</span>
+<span class="fc" id="L100">	}</span>
+
+	public static Logger getLogger() {
+<span class="nc" id="L103">		return logger;</span>
+	}
+
+	public static void setLogger(Logger logger) {
+<span class="nc" id="L107">		RemoveAccountWindow.logger = logger;</span>
+<span class="nc" id="L108">	}</span>
+
+	public Controller getController() {
+<span class="nc" id="L111">		return controller;</span>
+	}
+
+	public void setController(Controller controller) {
+<span class="nc" id="L115">		this.controller = controller;</span>
+<span class="nc" id="L116">	}</span>
+
+	public boolean isVisible() {
+<span class="nc" id="L119">		return visible;</span>
+	}
+
+	public void setVisible(boolean visible) {
+<span class="nc" id="L123">		this.visible = visible;</span>
+<span class="nc" id="L124">	}</span>
+
+	public UserData getUserData() {
+<span class="nc" id="L127">		return userData;</span>
+	}
+
+	public void setUserData(UserData userData) {
+<span class="nc" id="L131">		this.userData = userData;</span>
+<span class="nc" id="L132">	}</span>
+
+	public JFrame getFrmMain() {
+<span class="nc" id="L135">		return frmMain;</span>
+	}
+
+	public void setFrmMain(JFrame frmMain) {
+<span class="nc" id="L139">		this.frmMain = frmMain;</span>
+<span class="nc" id="L140">	}</span>
+
+	public JFrame getFrmRemoveAccount() {
+<span class="fc" id="L143">		return frmRemoveAccount;</span>
+	}
+
+	public void setFrmRemoveAccount(JFrame frmRemoveAccount) {
+<span class="nc" id="L147">		this.frmRemoveAccount = frmRemoveAccount;</span>
+<span class="nc" id="L148">	}</span>
+
+	public JButton getBtnYes() {
+<span class="fc" id="L151">		return btnYes;</span>
+	}
+
+	public void setBtnYes(JButton btnYes) {
+<span class="nc" id="L155">		this.btnYes = btnYes;</span>
+<span class="nc" id="L156">	}</span>
+
+	public JButton getBtnNo() {
+<span class="fc" id="L159">		return btnNo;</span>
+	}
+
+	public void setBtnNo(JButton btnNo) {
+<span class="nc" id="L163">		this.btnNo = btnNo;</span>
+<span class="nc" id="L164">	}</span>
+
+	public JLabel getLblText() {
+<span class="fc" id="L167">		return lblText;</span>
+	}
+
+	public void setLblText(JLabel lblText) {
+<span class="nc" id="L171">		this.lblText = lblText;</span>
+<span class="nc" id="L172">	}</span>
+
+	public static long getSerialversionuid() {
+<span class="nc" id="L175">		return serialVersionUID;</span>
+	}
+	
+	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -131,10 +131,10 @@ public class AirBV {
     	logger.info("Register new Reservation request from client received.");
     	Assembler as = new Assembler();
     	
-    	if(airbvService.registerReservation(as.disassembleReservation(rD).getBookingDate(), 
-    			as.disassembleReservation(rD).getDuration(),
-    			as.disassembleReservation(rD).getVan(),
-    			as.disassembleReservation(rD).getVanRenter()
+    	if(airbvService.registerReservation(rD.getBookingDate(), 
+    			rD.getDuration(),
+    			rD.getVan(),
+    			rD.getVanRenter()
     			)) {
     		return Response.ok().build();
     	}
