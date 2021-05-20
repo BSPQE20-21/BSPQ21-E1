@@ -83,8 +83,11 @@ public class VanTest {
 	}
 	
 	@Test
-	public void setterGettersTest() {
+	public void equalsTest() {
+		Van v1 = new Van(licensePlate, brand, model, location, kitchen, shower, offRoad, capacity, pricePerDay, user);
+		Van v2 = new Van(licensePlate, brand, model, location, kitchen, shower, offRoad, capacity, pricePerDay, user);
 		
+		assertEquals(v1, v2);
 	}
 
 }

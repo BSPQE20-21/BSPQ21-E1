@@ -2,9 +2,7 @@ package es.deusto.bspq21e1.server.dao;
 
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 
 import javax.jdo.JDOHelper;
@@ -13,8 +11,6 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
 import org.apache.log4j.Logger;
-
-import com.mysql.cj.QueryResult;
 
 import javax.jdo.Query;
 
@@ -151,13 +147,13 @@ public class DBManager {
 			return true;
 		} catch (Exception e) {
 			logger.error("   $ Error deleting an object: " + e.getMessage());
-			return false;
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
 			}	
 			pm.close();
 		}
+		return false;
 	}
 	
 	public boolean deleteUser(String dni) {
@@ -178,6 +174,12 @@ public class DBManager {
 			}
 
 			logger.info("   * Deleting an object: " + user.getName());
+			
+			ArrayList<Reservation> listOfRes = (ArrayList<Reservation>)getReservationsByUser(dni);
+			
+			for (Reservation res : listOfRes) {
+				deleteReservation(res.getCode());
+			}
 			
 			ArrayList<Van> listOfVans = (ArrayList<Van>)getVansByUser(dni);
 			
@@ -369,20 +371,6 @@ public class DBManager {
 		}
 		
 		return null;
-	}
-	
-	
-	/**
-	 * Methods used in getVansByDatess
-	 * @param initialDate
-	 * @param duration
-	 * @return initialDate + duration in Date format.
-	 */
-	private Date calculateReturnDate( Date initialDate, int duration ) {
-		Calendar c = Calendar.getInstance();
-		c.setTime( initialDate );
-		c.add(Calendar.DAY_OF_MONTH, duration);
-		return c.getTime();
 	}
 	
 	private boolean isVanAvailable(Date resPickUp, Date resReturn, Date queryPickUp, Date queryReturn ) {

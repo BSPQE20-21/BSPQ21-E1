@@ -2,9 +2,7 @@
 
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 
 import javax.jdo.JDOHelper;
@@ -13,8 +11,6 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
 import org.apache.log4j.Logger;
-
-import com.mysql.cj.QueryResult;
 
 import javax.jdo.Query;
 
@@ -30,22 +26,22 @@ import es.deusto.bspq21e1.server.data.Van;
  */
 public class DBManager {
 
-<span class="fc" id="L33">	private static DBManager instance = null;</span>
+<span class="fc" id="L29">	private static DBManager instance = null;</span>
 	private PersistenceManagerFactory pmf;
-<span class="fc" id="L35">	private static Logger logger = Logger.getLogger(DBManager.class.getName());</span>
+<span class="fc" id="L31">	private static Logger logger = Logger.getLogger(DBManager.class.getName());</span>
 
-<span class="fc" id="L37">	private DBManager() {</span>
-<span class="fc" id="L38">		pmf = JDOHelper.getPersistenceManagerFactory(&quot;datanucleus.properties&quot;);</span>
-<span class="fc" id="L39">	}</span>
+<span class="fc" id="L33">	private DBManager() {</span>
+<span class="fc" id="L34">		pmf = JDOHelper.getPersistenceManagerFactory(&quot;datanucleus.properties&quot;);</span>
+<span class="fc" id="L35">	}</span>
 
 	/**
 	 * Method that creates a DBManager instance if needed and returns it.
 	 * @return DBManager instance
 	 */
 	public static DBManager getInstance() {
-<span class="fc bfc" id="L46" title="All 2 branches covered.">		if ( null==instance ) instance = new DBManager();</span>
-<span class="fc" id="L47">		logger.info(&quot;DBManager instance created or/and returned&quot;);</span>
-<span class="fc" id="L48">		return instance;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">		if ( null==instance ) instance = new DBManager();</span>
+<span class="fc" id="L43">		logger.info(&quot;DBManager instance created or/and returned&quot;);</span>
+<span class="fc" id="L44">		return instance;</span>
 	}
 
 
@@ -57,8 +53,8 @@ public class DBManager {
 	 * @param user
 	 */
 	public boolean store( User user ) {
-<span class="fc" id="L60">		logger.info(&quot;User stored in DB&quot;);</span>
-<span class="fc" id="L61">		return this.storeObject( user );</span>
+<span class="fc" id="L56">		logger.info(&quot;User stored in DB&quot;);</span>
+<span class="fc" id="L57">		return this.storeObject( user );</span>
 	}
 
 	/**
@@ -66,8 +62,8 @@ public class DBManager {
 	 * @param van
 	 */
 	public boolean store( Van van ) {
-<span class="fc" id="L69">		logger.info(&quot;Van stored in DB&quot;);</span>
-<span class="fc" id="L70">		return this.storeObject( van );</span>
+<span class="fc" id="L65">		logger.info(&quot;Van stored in DB&quot;);</span>
+<span class="fc" id="L66">		return this.storeObject( van );</span>
 	}
 
 	/**
@@ -75,8 +71,8 @@ public class DBManager {
 	 * @param review
 	 */
 	public boolean store( Review review ) {
-<span class="fc" id="L78">		logger.info(&quot;Review stored in DB&quot;);</span>
-<span class="fc" id="L79">		return this.storeObject( review );</span>
+<span class="fc" id="L74">		logger.info(&quot;Review stored in DB&quot;);</span>
+<span class="fc" id="L75">		return this.storeObject( review );</span>
 	}
 
 	/**
@@ -84,14 +80,14 @@ public class DBManager {
 	 * @param reservation
 	 */
 	public boolean store( Reservation reservation ) {
-<span class="fc bfc" id="L87" title="All 2 branches covered.">		if(getUser(reservation.getVanRenter()) == null) {</span>
-<span class="fc" id="L88">			return false;</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">		if(getUser(reservation.getVanRenter()) == null) {</span>
+<span class="fc" id="L84">			return false;</span>
 		}
-<span class="fc bfc" id="L90" title="All 2 branches covered.">		if(getVan(reservation.getVan()) == null) {</span>
-<span class="fc" id="L91">			return false;</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">		if(getVan(reservation.getVan()) == null) {</span>
+<span class="fc" id="L87">			return false;</span>
 		}
-<span class="fc" id="L93">		logger.info(&quot;Reservation stored in DB&quot;);</span>
-<span class="fc" id="L94">		return this.storeObject( reservation );</span>
+<span class="fc" id="L89">		logger.info(&quot;Reservation stored in DB&quot;);</span>
+<span class="fc" id="L90">		return this.storeObject( reservation );</span>
 	}
 	
 	/**
@@ -99,24 +95,24 @@ public class DBManager {
 	 * @param object
 	 */
 	private boolean storeObject( Object object ) {
-<span class="fc" id="L102">		PersistenceManager pm = pmf.getPersistenceManager();</span>
-<span class="fc" id="L103">		Transaction tx = pm.currentTransaction();</span>
+<span class="fc" id="L98">		PersistenceManager pm = pmf.getPersistenceManager();</span>
+<span class="fc" id="L99">		Transaction tx = pm.currentTransaction();</span>
 
 		try {
-<span class="fc" id="L106">			tx.begin();</span>
-<span class="fc" id="L107">			logger.info(&quot;   * Storing an object: &quot; + object);</span>
-<span class="fc" id="L108">			pm.makePersistent(object);</span>
-<span class="fc" id="L109">			tx.commit();</span>
-<span class="fc" id="L110">		} catch (Exception e) {</span>
-<span class="fc" id="L111">			logger.error(&quot;   $ Error storing an object: &quot; + e.getMessage());</span>
-<span class="fc" id="L112">			return false;</span>
+<span class="fc" id="L102">			tx.begin();</span>
+<span class="fc" id="L103">			logger.info(&quot;   * Storing an object: &quot; + object);</span>
+<span class="fc" id="L104">			pm.makePersistent(object);</span>
+<span class="fc" id="L105">			tx.commit();</span>
+<span class="fc" id="L106">		} catch (Exception e) {</span>
+<span class="fc" id="L107">			logger.error(&quot;   $ Error storing an object: &quot; + e.getMessage());</span>
+<span class="fc" id="L108">			return false;</span>
 		} finally {
-<span class="pc bpc" id="L114" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
-<span class="nc" id="L115">				tx.rollback();</span>
+<span class="pc bpc" id="L110" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="nc" id="L111">				tx.rollback();</span>
 			}	
-<span class="fc" id="L117">			pm.close();</span>
+<span class="fc" id="L113">			pm.close();</span>
 		}
-<span class="fc" id="L119">		return true;</span>
+<span class="fc" id="L115">		return true;</span>
 	}
 	
 	//////////////////////////////
@@ -127,110 +123,116 @@ public class DBManager {
 	 * @param reservation
 	 */
 	public boolean deleteReservation( String reservation ) {
-<span class="fc" id="L130">		PersistenceManager pm = pmf.getPersistenceManager();</span>
-<span class="fc" id="L131">		Transaction tx = pm.currentTransaction();</span>
+<span class="fc" id="L126">		PersistenceManager pm = pmf.getPersistenceManager();</span>
+<span class="fc" id="L127">		Transaction tx = pm.currentTransaction();</span>
 		
 		try {
-<span class="fc" id="L134">			tx.begin();</span>
+<span class="fc" id="L130">			tx.begin();</span>
 			
-<span class="fc" id="L136">			Query&lt;Reservation&gt; query = pm.newQuery(Reservation.class);</span>
+<span class="fc" id="L132">			Query&lt;Reservation&gt; query = pm.newQuery(Reservation.class);</span>
 			
-<span class="fc" id="L138">			query.setFilter(&quot;code == '&quot; + reservation + &quot;'&quot;);</span>
-<span class="fc" id="L139">			query.setUnique(true);</span>
+<span class="fc" id="L134">			query.setFilter(&quot;code == '&quot; + reservation + &quot;'&quot;);</span>
+<span class="fc" id="L135">			query.setUnique(true);</span>
 			
-<span class="fc" id="L141">			Reservation res = (Reservation)query.execute();</span>
+<span class="fc" id="L137">			Reservation res = (Reservation)query.execute();</span>
 
-<span class="fc" id="L143">			logger.info(&quot;   * Deleting a reservation&quot;);</span>
+<span class="fc" id="L139">			logger.info(&quot;   * Deleting a reservation&quot;);</span>
 			
-<span class="fc bfc" id="L145" title="All 2 branches covered.">			if(res == null) {</span>
-<span class="fc" id="L146">				return false;</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">			if(res == null) {</span>
+<span class="fc" id="L142">				return false;</span>
 			}
 			
-<span class="fc" id="L149">			pm.deletePersistent(res);</span>
-<span class="fc" id="L150">			tx.commit();</span>
-<span class="fc" id="L151">			return true;</span>
-<span class="nc" id="L152">		} catch (Exception e) {</span>
-<span class="nc" id="L153">			logger.error(&quot;   $ Error deleting an object: &quot; + e.getMessage());</span>
-<span class="nc" id="L154">			return false;</span>
+<span class="fc" id="L145">			pm.deletePersistent(res);</span>
+<span class="fc" id="L146">			tx.commit();</span>
+<span class="fc" id="L147">			return true;</span>
+<span class="nc" id="L148">		} catch (Exception e) {</span>
+<span class="nc" id="L149">			logger.error(&quot;   $ Error deleting an object: &quot; + e.getMessage());</span>
 		} finally {
-<span class="pc bpc" id="L156" title="1 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
-<span class="fc" id="L157">				tx.rollback();</span>
+<span class="pc bpc" id="L151" title="1 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="fc" id="L152">				tx.rollback();</span>
 			}	
-<span class="fc" id="L159">			pm.close();</span>
+<span class="fc" id="L154">			pm.close();</span>
 		}
+<span class="nc" id="L156">		return false;</span>
 	}
 	
 	public boolean deleteUser(String dni) {
-<span class="fc" id="L164">		PersistenceManager pm = pmf.getPersistenceManager();</span>
-<span class="fc" id="L165">		Transaction tx = pm.currentTransaction();</span>
+<span class="fc" id="L160">		PersistenceManager pm = pmf.getPersistenceManager();</span>
+<span class="fc" id="L161">		Transaction tx = pm.currentTransaction();</span>
 		
 		try {
-<span class="fc" id="L168">			tx.begin();</span>
+<span class="fc" id="L164">			tx.begin();</span>
 			
-<span class="fc" id="L170">			Query&lt;User&gt; query = pm.newQuery(User.class);</span>
-<span class="fc" id="L171">			query.setFilter(&quot;dni== '&quot; + dni+ &quot;'&quot;);</span>
-<span class="fc" id="L172">			query.setUnique(true);</span>
+<span class="fc" id="L166">			Query&lt;User&gt; query = pm.newQuery(User.class);</span>
+<span class="fc" id="L167">			query.setFilter(&quot;dni== '&quot; + dni+ &quot;'&quot;);</span>
+<span class="fc" id="L168">			query.setUnique(true);</span>
 			
-<span class="fc" id="L174">			User user = (User)query.execute();</span>
+<span class="fc" id="L170">			User user = (User)query.execute();</span>
 			
-<span class="fc bfc" id="L176" title="All 2 branches covered.">			if(user == null) {</span>
-<span class="fc" id="L177">				return false;</span>
+<span class="fc bfc" id="L172" title="All 2 branches covered.">			if(user == null) {</span>
+<span class="fc" id="L173">				return false;</span>
 			}
 
-<span class="fc" id="L180">			logger.info(&quot;   * Deleting an object: &quot; + user.getName());</span>
+<span class="fc" id="L176">			logger.info(&quot;   * Deleting an object: &quot; + user.getName());</span>
 			
-<span class="fc" id="L182">			ArrayList&lt;Van&gt; listOfVans = (ArrayList&lt;Van&gt;)getVansByUser(dni);</span>
+<span class="fc" id="L178">			ArrayList&lt;Van&gt; listOfVans = (ArrayList&lt;Van&gt;)getVansByUser(dni);</span>
 			
-<span class="fc bfc" id="L184" title="All 2 branches covered.">			for (Van van : listOfVans) {</span>
-<span class="fc" id="L185">				deleteVan(van.getLicensePlate());</span>
-<span class="fc" id="L186">			}</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">			for (Van van : listOfVans) {</span>
+<span class="fc" id="L181">				deleteVan(van.getLicensePlate());</span>
+			}
 			
-<span class="fc" id="L188">			pm.deletePersistent(user);</span>
-<span class="fc" id="L189">			tx.commit();</span>
-<span class="fc" id="L190">			return true;</span>
-<span class="nc" id="L191">		} catch (Exception e) {</span>
-<span class="nc" id="L192">			logger.error(&quot;   $ Error deleting an object: &quot; + e.getMessage());</span>
+<span class="fc" id="L184">			ArrayList&lt;Reservation&gt; listOfRes = (ArrayList&lt;Reservation&gt;)getReservationsByUser(dni);</span>
+			
+<span class="fc bfc" id="L186" title="All 2 branches covered.">			for (Reservation res : listOfRes) {</span>
+<span class="fc" id="L187">				deleteReservation(res.getCode());</span>
+			}
+			
+<span class="fc" id="L190">			pm.deletePersistent(user);</span>
+<span class="fc" id="L191">			tx.commit();</span>
+<span class="fc" id="L192">			return true;</span>
+<span class="nc" id="L193">		} catch (Exception e) {</span>
+<span class="nc" id="L194">			logger.error(&quot;   $ Error deleting an object: &quot; + e.getMessage());</span>
 		} finally {
-<span class="pc bpc" id="L194" title="1 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
-<span class="fc" id="L195">				tx.rollback();</span>
+<span class="pc bpc" id="L196" title="1 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="fc" id="L197">				tx.rollback();</span>
 			}	
-<span class="fc" id="L197">			pm.close();</span>
+<span class="fc" id="L199">			pm.close();</span>
 		}
-<span class="nc" id="L199">		return false;</span>
+<span class="nc" id="L201">		return false;</span>
 		
 	}
 	
 	public boolean deleteVan(String licensePlate) {
-<span class="fc" id="L204">		PersistenceManager pm = pmf.getPersistenceManager();</span>
-<span class="fc" id="L205">		Transaction tx = pm.currentTransaction();</span>
+<span class="fc" id="L206">		PersistenceManager pm = pmf.getPersistenceManager();</span>
+<span class="fc" id="L207">		Transaction tx = pm.currentTransaction();</span>
 		
 		try {
-<span class="fc" id="L208">			tx.begin();</span>
+<span class="fc" id="L210">			tx.begin();</span>
 			
-<span class="fc" id="L210">			Query&lt;Van&gt; query = pm.newQuery(Van.class);</span>
-<span class="fc" id="L211">			query.setFilter(&quot;licensePlate== '&quot; + licensePlate+ &quot;'&quot;);</span>
-<span class="fc" id="L212">			query.setUnique(true);</span>
+<span class="fc" id="L212">			Query&lt;Van&gt; query = pm.newQuery(Van.class);</span>
+<span class="fc" id="L213">			query.setFilter(&quot;licensePlate== '&quot; + licensePlate+ &quot;'&quot;);</span>
+<span class="fc" id="L214">			query.setUnique(true);</span>
 			
-<span class="fc" id="L214">			Van van = (Van)query.execute();</span>
+<span class="fc" id="L216">			Van van = (Van)query.execute();</span>
 			
-<span class="fc bfc" id="L216" title="All 2 branches covered.">			if(van == null) {</span>
-<span class="fc" id="L217">				return false;</span>
+<span class="fc bfc" id="L218" title="All 2 branches covered.">			if(van == null) {</span>
+<span class="fc" id="L219">				return false;</span>
 			}
 
-<span class="fc" id="L220">			logger.info(&quot;   * Deleting an object: &quot; + van.getLicensePlate());</span>
+<span class="fc" id="L222">			logger.info(&quot;   * Deleting an object: &quot; + van.getLicensePlate());</span>
 			
-<span class="fc" id="L222">			pm.deletePersistent(van);</span>
-<span class="fc" id="L223">			tx.commit();</span>
-<span class="fc" id="L224">			return true;</span>
-<span class="nc" id="L225">		} catch (Exception e) {</span>
-<span class="nc" id="L226">			logger.error(&quot;   $ Error deleting an object: &quot; + e.getMessage());</span>
+<span class="fc" id="L224">			pm.deletePersistent(van);</span>
+<span class="fc" id="L225">			tx.commit();</span>
+<span class="fc" id="L226">			return true;</span>
+<span class="nc" id="L227">		} catch (Exception e) {</span>
+<span class="nc" id="L228">			logger.error(&quot;   $ Error deleting an object: &quot; + e.getMessage());</span>
 		} finally {
-<span class="pc bpc" id="L228" title="1 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
-<span class="fc" id="L229">				tx.rollback();</span>
+<span class="pc bpc" id="L230" title="1 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="fc" id="L231">				tx.rollback();</span>
 			}	
-<span class="fc" id="L231">			pm.close();</span>
+<span class="fc" id="L233">			pm.close();</span>
 		}
-<span class="nc" id="L233">		return false;</span>
+<span class="nc" id="L235">		return false;</span>
 		
 	}
 	
@@ -263,66 +265,66 @@ public class DBManager {
 	//		SPECIFIC QUERIES      //
 	////////////////////////////////
 	public User getUser( String dni) { 
-<span class="fc" id="L266">		PersistenceManager pm = pmf.getPersistenceManager();</span>
-<span class="fc" id="L267">		Transaction tx = null;</span>
+<span class="fc" id="L268">		PersistenceManager pm = pmf.getPersistenceManager();</span>
+<span class="fc" id="L269">		Transaction tx = null;</span>
 		
 		try {			
-<span class="fc" id="L270">			logger.info(&quot;   * Retrieving user with dni: &quot; + dni);</span>
-<span class="fc" id="L271">			pm.getFetchPlan().setMaxFetchDepth(4);</span>
-<span class="fc" id="L272">			tx = pm.currentTransaction();</span>
-<span class="fc" id="L273">			tx.begin();</span>
+<span class="fc" id="L272">			logger.info(&quot;   * Retrieving user with dni: &quot; + dni);</span>
+<span class="fc" id="L273">			pm.getFetchPlan().setMaxFetchDepth(4);</span>
+<span class="fc" id="L274">			tx = pm.currentTransaction();</span>
+<span class="fc" id="L275">			tx.begin();</span>
 			
-<span class="fc" id="L275">			Query&lt;User&gt; query = pm.newQuery(User.class);</span>
-<span class="fc" id="L276">			query.setFilter(&quot;dni== '&quot; + dni+ &quot;'&quot;);</span>
-<span class="fc" id="L277">			query.setUnique(true);</span>
+<span class="fc" id="L277">			Query&lt;User&gt; query = pm.newQuery(User.class);</span>
+<span class="fc" id="L278">			query.setFilter(&quot;dni== '&quot; + dni+ &quot;'&quot;);</span>
+<span class="fc" id="L279">			query.setUnique(true);</span>
 			
-<span class="fc" id="L279">			User user = (User)query.execute();</span>
-<span class="fc" id="L280">			logger.info(&quot;User retrieved from DB: &quot; + user.getName());</span>
+<span class="fc" id="L281">			User user = (User)query.execute();</span>
+<span class="fc" id="L282">			logger.info(&quot;User retrieved from DB: &quot; + user.getName());</span>
 			
-<span class="fc" id="L282">			return user;</span>
-<span class="fc" id="L283">		} catch (Exception e) {</span>
-<span class="fc" id="L284">			logger.error(&quot;   $ Error retrieving user: &quot; + e.getMessage() );</span>
+<span class="fc" id="L284">			return user;</span>
+<span class="fc" id="L285">		} catch (Exception e) {</span>
+<span class="fc" id="L286">			logger.error(&quot;   $ Error retrieving user: &quot; + e.getMessage() );</span>
 		} finally {
-<span class="pc bpc" id="L286" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
-<span class="fc" id="L287">				tx.rollback();</span>
+<span class="pc bpc" id="L288" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="fc" id="L289">				tx.rollback();</span>
 			}	
-<span class="fc" id="L289">			pm.close();</span>
+<span class="fc" id="L291">			pm.close();</span>
 		}
 	
-<span class="fc" id="L292">		return null;</span>
+<span class="fc" id="L294">		return null;</span>
 	}
 	
 	public Van getVan( String licensePlate) { 
-<span class="pc bpc" id="L296" title="1 of 2 branches missed.">		if(licensePlate == null) {</span>
-<span class="nc" id="L297">			return null;</span>
+<span class="pc bpc" id="L298" title="1 of 2 branches missed.">		if(licensePlate == null) {</span>
+<span class="nc" id="L299">			return null;</span>
 		}
-<span class="fc" id="L299">		PersistenceManager pm = pmf.getPersistenceManager();</span>
-<span class="fc" id="L300">		Transaction tx = null;</span>
+<span class="fc" id="L301">		PersistenceManager pm = pmf.getPersistenceManager();</span>
+<span class="fc" id="L302">		Transaction tx = null;</span>
 		
 		try {			
-<span class="fc" id="L303">			logger.info(&quot;   * Retrieving van with license plate: &quot; + licensePlate);</span>
-<span class="fc" id="L304">			pm.getFetchPlan().setMaxFetchDepth(4);</span>
-<span class="fc" id="L305">			tx = pm.currentTransaction();</span>
-<span class="fc" id="L306">			tx.begin();</span>
+<span class="fc" id="L305">			logger.info(&quot;   * Retrieving van with license plate: &quot; + licensePlate);</span>
+<span class="fc" id="L306">			pm.getFetchPlan().setMaxFetchDepth(4);</span>
+<span class="fc" id="L307">			tx = pm.currentTransaction();</span>
+<span class="fc" id="L308">			tx.begin();</span>
 			
-<span class="fc" id="L308">			Query&lt;Van&gt; query = pm.newQuery(Van.class);</span>
-<span class="fc" id="L309">			query.setFilter(&quot;licensePlate== '&quot; + licensePlate+ &quot;'&quot;);</span>
-<span class="fc" id="L310">			query.setUnique(true);</span>
+<span class="fc" id="L310">			Query&lt;Van&gt; query = pm.newQuery(Van.class);</span>
+<span class="fc" id="L311">			query.setFilter(&quot;licensePlate== '&quot; + licensePlate+ &quot;'&quot;);</span>
+<span class="fc" id="L312">			query.setUnique(true);</span>
 			
-<span class="fc" id="L312">			Van van = (Van)query.execute();</span>
-<span class="fc" id="L313">			logger.info(&quot;Van retrieved from DB: &quot; + van.getLicensePlate());</span>
+<span class="fc" id="L314">			Van van = (Van)query.execute();</span>
+<span class="fc" id="L315">			logger.info(&quot;Van retrieved from DB: &quot; + van.getLicensePlate());</span>
 			
-<span class="fc" id="L315">			return van;</span>
-<span class="fc" id="L316">		} catch (Exception e) {</span>
-<span class="fc" id="L317">			logger.error(&quot;   $ Error retrieving user: &quot; + e.getMessage() );</span>
+<span class="fc" id="L317">			return van;</span>
+<span class="fc" id="L318">		} catch (Exception e) {</span>
+<span class="fc" id="L319">			logger.error(&quot;   $ Error retrieving user: &quot; + e.getMessage() );</span>
 		} finally {
-<span class="pc bpc" id="L319" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
-<span class="fc" id="L320">				tx.rollback();</span>
+<span class="pc bpc" id="L321" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="fc" id="L322">				tx.rollback();</span>
 			}	
-<span class="fc" id="L322">			pm.close();</span>
+<span class="fc" id="L324">			pm.close();</span>
 		}
 	
-<span class="fc" id="L325">		return null;</span>
+<span class="fc" id="L327">		return null;</span>
 	}
 	
 	
@@ -333,128 +335,114 @@ public class DBManager {
 	 */
 	@SuppressWarnings(&quot;unchecked&quot;)
 	public List&lt;Reservation&gt; getReservationsByUser( String vanRenter ) {
-<span class="fc" id="L336">		PersistenceManager pm = pmf.getPersistenceManager();</span>
-<span class="fc" id="L337">		Transaction tx = null;</span>
+<span class="fc" id="L338">		PersistenceManager pm = pmf.getPersistenceManager();</span>
+<span class="fc" id="L339">		Transaction tx = null;</span>
 		
 		try {
-<span class="fc" id="L340">			logger.info(&quot;   * Retrieving reservation for user: &quot; + vanRenter);</span>
-<span class="fc" id="L341">			pm.getFetchPlan().setMaxFetchDepth(4);</span>
-<span class="fc" id="L342">			tx = pm.currentTransaction();</span>
-<span class="fc" id="L343">			tx.begin();</span>
+<span class="fc" id="L342">			logger.info(&quot;   * Retrieving reservation for user: &quot; + vanRenter);</span>
+<span class="fc" id="L343">			pm.getFetchPlan().setMaxFetchDepth(4);</span>
+<span class="fc" id="L344">			tx = pm.currentTransaction();</span>
+<span class="fc" id="L345">			tx.begin();</span>
 			
-<span class="fc" id="L345">			Query&lt;Reservation&gt; query = pm.newQuery(Reservation.class);</span>
-<span class="fc" id="L346">			query.setFilter(&quot;vanRenter== '&quot; + vanRenter+ &quot;'&quot;);</span>
+<span class="fc" id="L347">			Query&lt;Reservation&gt; query = pm.newQuery(Reservation.class);</span>
+<span class="fc" id="L348">			query.setFilter(&quot;vanRenter== '&quot; + vanRenter+ &quot;'&quot;);</span>
 			
 			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
-<span class="fc" id="L349">			List&lt;Reservation&gt; list = (List&lt;Reservation&gt;)query.execute();</span>
+<span class="fc" id="L351">			List&lt;Reservation&gt; list = (List&lt;Reservation&gt;)query.execute();</span>
 			
-<span class="fc" id="L351">			List&lt;Reservation&gt; ress = new ArrayList&lt;Reservation&gt;();</span>
-<span class="fc bfc" id="L352" title="All 2 branches covered.">			for (Reservation r : list) {</span>
-<span class="fc" id="L353">				Reservation res = new Reservation();</span>
-<span class="fc" id="L354">				res.setBookingDate(r.getBookingDate());</span>
-<span class="fc" id="L355">				res.setCode(r.getCode());</span>
-<span class="fc" id="L356">				res.setDuration(r.getDuration());</span>
-<span class="fc" id="L357">				res.setVan(r.getVan());</span>
-<span class="fc" id="L358">				res.setVanRenter(r.getVanRenter());</span>
-<span class="fc" id="L359">				ress.add(res);</span>
-<span class="fc" id="L360">			}</span>
-<span class="fc" id="L361">			return ress;</span>
-<span class="nc" id="L362">		} catch (Exception e) {</span>
-<span class="nc" id="L363">			logger.error(&quot;   $ Error retrieving reservations from van renter: &quot; + e.getMessage() );</span>
+<span class="fc" id="L353">			List&lt;Reservation&gt; ress = new ArrayList&lt;Reservation&gt;();</span>
+<span class="fc bfc" id="L354" title="All 2 branches covered.">			for (Reservation r : list) {</span>
+<span class="fc" id="L355">				Reservation res = new Reservation();</span>
+<span class="fc" id="L356">				res.setBookingDate(r.getBookingDate());</span>
+<span class="fc" id="L357">				res.setCode(r.getCode());</span>
+<span class="fc" id="L358">				res.setDuration(r.getDuration());</span>
+<span class="fc" id="L359">				res.setVan(r.getVan());</span>
+<span class="fc" id="L360">				res.setVanRenter(r.getVanRenter());</span>
+<span class="fc" id="L361">				ress.add(res);</span>
+			}
+<span class="fc" id="L363">			return ress;</span>
+<span class="nc" id="L364">		} catch (Exception e) {</span>
+<span class="nc" id="L365">			logger.error(&quot;   $ Error retrieving reservations from van renter: &quot; + e.getMessage() );</span>
 		} finally {
-<span class="pc bpc" id="L365" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
-<span class="fc" id="L366">				tx.rollback();</span>
+<span class="pc bpc" id="L367" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="fc" id="L368">				tx.rollback();</span>
 			}	
-<span class="fc" id="L368">			pm.close();</span>
+<span class="fc" id="L370">			pm.close();</span>
 		}
 		
-<span class="nc" id="L371">		return null;</span>
-	}
-	
-	
-	/**
-	 * Methods used in getVansByDatess
-	 * @param initialDate
-	 * @param duration
-	 * @return initialDate + duration in Date format.
-	 */
-	private Date calculateReturnDate( Date initialDate, int duration ) {
-<span class="nc" id="L382">		Calendar c = Calendar.getInstance();</span>
-<span class="nc" id="L383">		c.setTime( initialDate );</span>
-<span class="nc" id="L384">		c.add(Calendar.DAY_OF_MONTH, duration);</span>
-<span class="nc" id="L385">		return c.getTime();</span>
+<span class="nc" id="L373">		return null;</span>
 	}
 	
 	private boolean isVanAvailable(Date resPickUp, Date resReturn, Date queryPickUp, Date queryReturn ) {
-<span class="pc bpc" id="L389" title="1 of 4 branches missed.">		if(resReturn.before(queryPickUp) || resPickUp.after(queryReturn)) {</span>
-<span class="fc" id="L390">			return true;</span>
+<span class="pc bpc" id="L377" title="1 of 4 branches missed.">		if(resReturn.before(queryPickUp) || resPickUp.after(queryReturn)) {</span>
+<span class="fc" id="L378">			return true;</span>
 		}
-<span class="fc" id="L392">		return false;</span>
+<span class="fc" id="L380">		return false;</span>
 	}
 	
 	public List&lt;Van&gt; getVansByDates(String location, Date pickUpDate, Date returnDate) {
-<span class="fc" id="L396">		List&lt;Van&gt; vans = new ArrayList&lt;Van&gt;();</span>
+<span class="fc" id="L384">		List&lt;Van&gt; vans = new ArrayList&lt;Van&gt;();</span>
 		
-<span class="fc" id="L398">		List&lt;Van&gt; vansInLocation = this.getVansByLocation(location);</span>
+<span class="fc" id="L386">		List&lt;Van&gt; vansInLocation = this.getVansByLocation(location);</span>
 		boolean available;
 		
-<span class="fc bfc" id="L401" title="All 2 branches covered.">		for (Van van : vansInLocation) {</span>
-<span class="fc" id="L402">			available = true;</span>
-<span class="fc" id="L403">			List&lt;Reservation&gt; vanReservations = this.getReservationsByVan( van.getLicensePlate() );</span>
-<span class="fc bfc" id="L404" title="All 2 branches covered.">			for (Reservation r : vanReservations) {</span>
-<span class="fc bfc" id="L405" title="All 2 branches covered.">				if(!isVanAvailable(r.getBookingDate(), r.getFinalDate(), pickUpDate, returnDate)) {</span>
-<span class="fc" id="L406">					available = false;</span>
-<span class="fc" id="L407">					break;</span>
+<span class="fc bfc" id="L389" title="All 2 branches covered.">		for (Van van : vansInLocation) {</span>
+<span class="fc" id="L390">			available = true;</span>
+<span class="fc" id="L391">			List&lt;Reservation&gt; vanReservations = this.getReservationsByVan( van.getLicensePlate() );</span>
+<span class="fc bfc" id="L392" title="All 2 branches covered.">			for (Reservation r : vanReservations) {</span>
+<span class="fc bfc" id="L393" title="All 2 branches covered.">				if(!isVanAvailable(r.getBookingDate(), r.getFinalDate(), pickUpDate, returnDate)) {</span>
+<span class="fc" id="L394">					available = false;</span>
+<span class="fc" id="L395">					break;</span>
 				}
-<span class="fc" id="L409">			}</span>
-			
-<span class="fc bfc" id="L411" title="All 2 branches covered.">			if(available) {</span>
-<span class="fc" id="L412">				vans.add(van);</span>
 			}
-<span class="fc" id="L414">		}</span>
-<span class="fc" id="L415">		return vans;</span>
+			
+<span class="fc bfc" id="L399" title="All 2 branches covered.">			if(available) {</span>
+<span class="fc" id="L400">				vans.add(van);</span>
+			}
+		}
+<span class="fc" id="L403">		return vans;</span>
 	}
 	
 	@SuppressWarnings(&quot;unchecked&quot;)
 	public List&lt;Reservation&gt; getReservationsByVan( String vanLicensePlate ) { 
  
-<span class="fc" id="L421">		PersistenceManager pm = pmf.getPersistenceManager();</span>
-<span class="fc" id="L422">		Transaction tx = null;</span>
+<span class="fc" id="L409">		PersistenceManager pm = pmf.getPersistenceManager();</span>
+<span class="fc" id="L410">		Transaction tx = null;</span>
 		
 		try {
-<span class="fc" id="L425">			logger.info(&quot;   * Retrieving all reservations from van: &quot; + vanLicensePlate);</span>
-<span class="fc" id="L426">			pm.getFetchPlan().setMaxFetchDepth(1);</span>
-<span class="fc" id="L427">			tx = pm.currentTransaction();</span>
-<span class="fc" id="L428">			tx.begin();</span>
+<span class="fc" id="L413">			logger.info(&quot;   * Retrieving all reservations from van: &quot; + vanLicensePlate);</span>
+<span class="fc" id="L414">			pm.getFetchPlan().setMaxFetchDepth(1);</span>
+<span class="fc" id="L415">			tx = pm.currentTransaction();</span>
+<span class="fc" id="L416">			tx.begin();</span>
 			
-<span class="fc" id="L430">			Query&lt;Reservation&gt; query = pm.newQuery(Reservation.class);</span>
-<span class="fc" id="L431">			query.setFilter(&quot;van== '&quot; + vanLicensePlate+ &quot;'&quot;);</span>
+<span class="fc" id="L418">			Query&lt;Reservation&gt; query = pm.newQuery(Reservation.class);</span>
+<span class="fc" id="L419">			query.setFilter(&quot;van== '&quot; + vanLicensePlate+ &quot;'&quot;);</span>
 			
 			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
-<span class="fc" id="L434">			List&lt;Reservation&gt; listOfReservations = (List&lt;Reservation&gt;)query.execute();</span>
+<span class="fc" id="L422">			List&lt;Reservation&gt; listOfReservations = (List&lt;Reservation&gt;)query.execute();</span>
 			
-<span class="fc" id="L436">			List&lt;Reservation&gt; res = new ArrayList&lt;Reservation&gt;();</span>
-<span class="fc bfc" id="L437" title="All 2 branches covered.">			for (Reservation r : listOfReservations) {</span>
-<span class="fc" id="L438">				Reservation reser = new Reservation();</span>
-<span class="fc" id="L439">				reser.setBookingDate(r.getBookingDate());</span>
-<span class="fc" id="L440">				reser.setCode(r.getCode());</span>
-<span class="fc" id="L441">				reser.setDuration(r.getDuration());</span>
-<span class="fc" id="L442">				reser.setVan(r.getVan());</span>
-<span class="fc" id="L443">				reser.setVanRenter(r.getVanRenter());</span>
-<span class="fc" id="L444">				res.add(reser);</span>
-<span class="fc" id="L445">			}</span>
+<span class="fc" id="L424">			List&lt;Reservation&gt; res = new ArrayList&lt;Reservation&gt;();</span>
+<span class="fc bfc" id="L425" title="All 2 branches covered.">			for (Reservation r : listOfReservations) {</span>
+<span class="fc" id="L426">				Reservation reser = new Reservation();</span>
+<span class="fc" id="L427">				reser.setBookingDate(r.getBookingDate());</span>
+<span class="fc" id="L428">				reser.setCode(r.getCode());</span>
+<span class="fc" id="L429">				reser.setDuration(r.getDuration());</span>
+<span class="fc" id="L430">				reser.setVan(r.getVan());</span>
+<span class="fc" id="L431">				reser.setVanRenter(r.getVanRenter());</span>
+<span class="fc" id="L432">				res.add(reser);</span>
+			}
 			
-<span class="fc" id="L447">			return res;</span>
-<span class="nc" id="L448">		} catch (Exception e) {</span>
-<span class="nc" id="L449">			logger.error(&quot;   $ Error retrieving vans with location: &quot; + e.getMessage() );</span>
+<span class="fc" id="L435">			return res;</span>
+<span class="nc" id="L436">		} catch (Exception e) {</span>
+<span class="nc" id="L437">			logger.error(&quot;   $ Error retrieving vans with location: &quot; + e.getMessage() );</span>
 		} finally {
-<span class="pc bpc" id="L451" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
-<span class="fc" id="L452">				tx.rollback();</span>
+<span class="pc bpc" id="L439" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="fc" id="L440">				tx.rollback();</span>
 			}	
-<span class="fc" id="L454">			pm.close();</span>
+<span class="fc" id="L442">			pm.close();</span>
 		}
 		
-<span class="nc" id="L457">		return null;</span>
+<span class="nc" id="L445">		return null;</span>
 		
 	}
 	
@@ -462,94 +450,94 @@ public class DBManager {
 	@SuppressWarnings(&quot;unchecked&quot;)
 	public List&lt;Van&gt; getVansByLocation( String location ) { 
  
-<span class="fc" id="L465">		PersistenceManager pm = pmf.getPersistenceManager();</span>
-<span class="fc" id="L466">		Transaction tx = null;</span>
+<span class="fc" id="L453">		PersistenceManager pm = pmf.getPersistenceManager();</span>
+<span class="fc" id="L454">		Transaction tx = null;</span>
 		
 		try {
-<span class="fc" id="L469">			logger.info(&quot;   * Retrieving all vans from location: &quot; + location);</span>
-<span class="fc" id="L470">			pm.getFetchPlan().setMaxFetchDepth(4);</span>
-<span class="fc" id="L471">			tx = pm.currentTransaction();</span>
-<span class="fc" id="L472">			tx.begin();</span>
+<span class="fc" id="L457">			logger.info(&quot;   * Retrieving all vans from location: &quot; + location);</span>
+<span class="fc" id="L458">			pm.getFetchPlan().setMaxFetchDepth(4);</span>
+<span class="fc" id="L459">			tx = pm.currentTransaction();</span>
+<span class="fc" id="L460">			tx.begin();</span>
 			
-<span class="fc" id="L474">			Query&lt;Van&gt; query = pm.newQuery(Van.class);</span>
-<span class="fc" id="L475">			query.setFilter(&quot;location== '&quot; + location+ &quot;'&quot;);</span>
+<span class="fc" id="L462">			Query&lt;Van&gt; query = pm.newQuery(Van.class);</span>
+<span class="fc" id="L463">			query.setFilter(&quot;location== '&quot; + location+ &quot;'&quot;);</span>
 			
 			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
-<span class="fc" id="L478">			List&lt;Van&gt; listOfVans = (List&lt;Van&gt;)query.execute();</span>
+<span class="fc" id="L466">			List&lt;Van&gt; listOfVans = (List&lt;Van&gt;)query.execute();</span>
 			
-<span class="fc" id="L480">			List&lt;Van&gt; vans = new ArrayList&lt;Van&gt;();</span>
-<span class="fc bfc" id="L481" title="All 2 branches covered.">			for (Van v : listOfVans) {</span>
-<span class="fc" id="L482">				Van van = new Van();</span>
-<span class="fc" id="L483">				van.setBrand(v.getBrand());</span>
-<span class="fc" id="L484">				van.setCapacity(v.getCapacity());</span>
-<span class="fc" id="L485">				van.setKitchen(v.isKitchen());</span>
-<span class="fc" id="L486">				van.setLicensePlate(v.getLicensePlate());</span>
-<span class="fc" id="L487">				van.setLocation(v.getLocation());</span>
-<span class="fc" id="L488">				van.setModel(v.getModel());</span>
-<span class="fc" id="L489">				van.setOffRoad(v.isOffRoad());</span>
-<span class="fc" id="L490">				van.setPricePerDay(v.getPricePerDay());</span>
-<span class="fc" id="L491">				van.setShower(v.isShower());</span>
-<span class="fc" id="L492">				van.setStatus(v.getStatus());</span>
-<span class="fc" id="L493">				van.setUser(v.getUser());</span>
-<span class="fc" id="L494">				vans.add(van);</span>
-<span class="fc" id="L495">			}</span>
-<span class="fc" id="L496">			return vans;</span>
-<span class="nc" id="L497">		} catch (Exception e) {</span>
-<span class="nc" id="L498">			logger.error(&quot;   $ Error retrieving vans with location: &quot; + e.getMessage() );</span>
+<span class="fc" id="L468">			List&lt;Van&gt; vans = new ArrayList&lt;Van&gt;();</span>
+<span class="fc bfc" id="L469" title="All 2 branches covered.">			for (Van v : listOfVans) {</span>
+<span class="fc" id="L470">				Van van = new Van();</span>
+<span class="fc" id="L471">				van.setBrand(v.getBrand());</span>
+<span class="fc" id="L472">				van.setCapacity(v.getCapacity());</span>
+<span class="fc" id="L473">				van.setKitchen(v.isKitchen());</span>
+<span class="fc" id="L474">				van.setLicensePlate(v.getLicensePlate());</span>
+<span class="fc" id="L475">				van.setLocation(v.getLocation());</span>
+<span class="fc" id="L476">				van.setModel(v.getModel());</span>
+<span class="fc" id="L477">				van.setOffRoad(v.isOffRoad());</span>
+<span class="fc" id="L478">				van.setPricePerDay(v.getPricePerDay());</span>
+<span class="fc" id="L479">				van.setShower(v.isShower());</span>
+<span class="fc" id="L480">				van.setStatus(v.getStatus());</span>
+<span class="fc" id="L481">				van.setUser(v.getUser());</span>
+<span class="fc" id="L482">				vans.add(van);</span>
+			}
+<span class="fc" id="L484">			return vans;</span>
+<span class="nc" id="L485">		} catch (Exception e) {</span>
+<span class="nc" id="L486">			logger.error(&quot;   $ Error retrieving vans with location: &quot; + e.getMessage() );</span>
 		} finally {
-<span class="pc bpc" id="L500" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
-<span class="fc" id="L501">				tx.rollback();</span>
+<span class="pc bpc" id="L488" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="fc" id="L489">				tx.rollback();</span>
 			}	
-<span class="fc" id="L503">			pm.close();</span>
+<span class="fc" id="L491">			pm.close();</span>
 		}
 		
-<span class="nc" id="L506">		return null;</span>
+<span class="nc" id="L494">		return null;</span>
 		
 	}
 	
 	public List&lt;Van&gt; getVansByUser( String user) { 
-<span class="fc" id="L511">		PersistenceManager pm = pmf.getPersistenceManager();</span>
-<span class="fc" id="L512">		Transaction tx = null;</span>
+<span class="fc" id="L499">		PersistenceManager pm = pmf.getPersistenceManager();</span>
+<span class="fc" id="L500">		Transaction tx = null;</span>
 		
 		try {
-<span class="fc" id="L515">			logger.info(&quot;   * Retrieving all user's (&quot; + user + &quot;) vans&quot;);</span>
-<span class="fc" id="L516">			pm.getFetchPlan().setMaxFetchDepth(4);</span>
-<span class="fc" id="L517">			tx = pm.currentTransaction();</span>
-<span class="fc" id="L518">			tx.begin();</span>
+<span class="fc" id="L503">			logger.info(&quot;   * Retrieving all user's (&quot; + user + &quot;) vans&quot;);</span>
+<span class="fc" id="L504">			pm.getFetchPlan().setMaxFetchDepth(4);</span>
+<span class="fc" id="L505">			tx = pm.currentTransaction();</span>
+<span class="fc" id="L506">			tx.begin();</span>
 			
-<span class="fc" id="L520">			Query&lt;Van&gt; query = pm.newQuery(Van.class);</span>
-<span class="fc" id="L521">			query.setFilter(&quot;user== '&quot; + user+ &quot;'&quot;);</span>
+<span class="fc" id="L508">			Query&lt;Van&gt; query = pm.newQuery(Van.class);</span>
+<span class="fc" id="L509">			query.setFilter(&quot;user== '&quot; + user+ &quot;'&quot;);</span>
 			
 			// Java's error is due to a possible ClassCastException. In this case, it should not happen.
-<span class="fc" id="L524">			List&lt;Van&gt; listOfVans = (List&lt;Van&gt;)query.execute();</span>
+<span class="fc" id="L512">			List&lt;Van&gt; listOfVans = (List&lt;Van&gt;)query.execute();</span>
 			
-<span class="fc" id="L526">			List&lt;Van&gt; vans = new ArrayList&lt;Van&gt;();</span>
-<span class="fc bfc" id="L527" title="All 2 branches covered.">			for (Van v : listOfVans) {</span>
-<span class="fc" id="L528">				Van van = new Van();</span>
-<span class="fc" id="L529">				van.setBrand(v.getBrand());</span>
-<span class="fc" id="L530">				van.setCapacity(v.getCapacity());</span>
-<span class="fc" id="L531">				van.setKitchen(v.isKitchen());</span>
-<span class="fc" id="L532">				van.setLicensePlate(v.getLicensePlate());</span>
-<span class="fc" id="L533">				van.setLocation(v.getLocation());</span>
-<span class="fc" id="L534">				van.setModel(v.getModel());</span>
-<span class="fc" id="L535">				van.setOffRoad(v.isOffRoad());</span>
-<span class="fc" id="L536">				van.setPricePerDay(v.getPricePerDay());</span>
-<span class="fc" id="L537">				van.setShower(v.isShower());</span>
-<span class="fc" id="L538">				van.setStatus(v.getStatus());</span>
-<span class="fc" id="L539">				van.setUser(v.getUser());</span>
-<span class="fc" id="L540">				vans.add(van);</span>
-<span class="fc" id="L541">			}</span>
-<span class="fc" id="L542">			return vans;</span>
-<span class="nc" id="L543">		} catch (Exception e) {</span>
-<span class="nc" id="L544">			logger.error(&quot;   $ Error retrieving vans by user: &quot; + e.getMessage() );</span>
+<span class="fc" id="L514">			List&lt;Van&gt; vans = new ArrayList&lt;Van&gt;();</span>
+<span class="fc bfc" id="L515" title="All 2 branches covered.">			for (Van v : listOfVans) {</span>
+<span class="fc" id="L516">				Van van = new Van();</span>
+<span class="fc" id="L517">				van.setBrand(v.getBrand());</span>
+<span class="fc" id="L518">				van.setCapacity(v.getCapacity());</span>
+<span class="fc" id="L519">				van.setKitchen(v.isKitchen());</span>
+<span class="fc" id="L520">				van.setLicensePlate(v.getLicensePlate());</span>
+<span class="fc" id="L521">				van.setLocation(v.getLocation());</span>
+<span class="fc" id="L522">				van.setModel(v.getModel());</span>
+<span class="fc" id="L523">				van.setOffRoad(v.isOffRoad());</span>
+<span class="fc" id="L524">				van.setPricePerDay(v.getPricePerDay());</span>
+<span class="fc" id="L525">				van.setShower(v.isShower());</span>
+<span class="fc" id="L526">				van.setStatus(v.getStatus());</span>
+<span class="fc" id="L527">				van.setUser(v.getUser());</span>
+<span class="fc" id="L528">				vans.add(van);</span>
+			}
+<span class="fc" id="L530">			return vans;</span>
+<span class="nc" id="L531">		} catch (Exception e) {</span>
+<span class="nc" id="L532">			logger.error(&quot;   $ Error retrieving vans by user: &quot; + e.getMessage() );</span>
 		} finally {
-<span class="pc bpc" id="L546" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
-<span class="fc" id="L547">				tx.rollback();</span>
+<span class="pc bpc" id="L534" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="fc" id="L535">				tx.rollback();</span>
 			}	
-<span class="fc" id="L549">			pm.close();</span>
+<span class="fc" id="L537">			pm.close();</span>
 		}
 		
-<span class="nc" id="L552">		return null;</span>
+<span class="nc" id="L540">		return null;</span>
 		
 	}
 	
@@ -559,47 +547,47 @@ public class DBManager {
 	 * @return user if valid login, null otherwise
 	 */
 	public User validateLogin( String email, String password ) {
-<span class="fc" id="L562">		PersistenceManager pm = pmf.getPersistenceManager();</span>
-<span class="fc" id="L563">		Transaction tx = null;</span>
+<span class="fc" id="L550">		PersistenceManager pm = pmf.getPersistenceManager();</span>
+<span class="fc" id="L551">		Transaction tx = null;</span>
 		
 		try {			
-<span class="fc" id="L566">			logger.info(&quot;   * Attempting loging for user: &quot; + email);</span>
-<span class="fc" id="L567">			pm.getFetchPlan().setMaxFetchDepth(4);</span>
-<span class="fc" id="L568">			tx = pm.currentTransaction();</span>
-<span class="fc" id="L569">			tx.begin();</span>
+<span class="fc" id="L554">			logger.info(&quot;   * Attempting loging for user: &quot; + email);</span>
+<span class="fc" id="L555">			pm.getFetchPlan().setMaxFetchDepth(4);</span>
+<span class="fc" id="L556">			tx = pm.currentTransaction();</span>
+<span class="fc" id="L557">			tx.begin();</span>
 			
-<span class="fc" id="L571">			Query&lt;User&gt; query = pm.newQuery(User.class);</span>
-<span class="fc" id="L572">			query.setFilter(&quot;email == '&quot; + email+ &quot;' &amp;&amp; password == '&quot; + password + &quot;'&quot;);</span>
-<span class="fc" id="L573">			query.setUnique(true);</span>
+<span class="fc" id="L559">			Query&lt;User&gt; query = pm.newQuery(User.class);</span>
+<span class="fc" id="L560">			query.setFilter(&quot;email == '&quot; + email+ &quot;' &amp;&amp; password == '&quot; + password + &quot;'&quot;);</span>
+<span class="fc" id="L561">			query.setUnique(true);</span>
 			
-<span class="fc" id="L575">			User user = (User)query.execute(); // The UNIQUE query itself returns null if there are no results. </span>
+<span class="fc" id="L563">			User user = (User)query.execute(); // The UNIQUE query itself returns null if there are no results. </span>
 			
-<span class="fc bfc" id="L577" title="All 2 branches covered.">			if( null == user ) {</span>
-<span class="fc" id="L578">				logger.error(&quot;   * Email or passord incorrect in login query&quot; );</span>
-<span class="fc" id="L579">				return null;</span>
+<span class="fc bfc" id="L565" title="All 2 branches covered.">			if( null == user ) {</span>
+<span class="fc" id="L566">				logger.error(&quot;   * Email or passord incorrect in login query&quot; );</span>
+<span class="fc" id="L567">				return null;</span>
 			} else {
-<span class="fc" id="L581">				logger.error(&quot;   * User retrieved from DB: &quot; + user.getName());</span>
+<span class="fc" id="L569">				logger.error(&quot;   * User retrieved from DB: &quot; + user.getName());</span>
 			}
 			
-<span class="fc" id="L584">			User u = new User();</span>
+<span class="fc" id="L572">			User u = new User();</span>
 			
-<span class="fc" id="L586">			u.setDni(user.getDni());</span>
-<span class="fc" id="L587">			u.setEmail(user.getEmail());</span>
-<span class="fc" id="L588">			u.setName(user.getName());</span>
-<span class="fc" id="L589">			u.setPassword(user.getPassword());</span>
-<span class="fc" id="L590">			u.setStars(user.getStars());</span>
+<span class="fc" id="L574">			u.setDni(user.getDni());</span>
+<span class="fc" id="L575">			u.setEmail(user.getEmail());</span>
+<span class="fc" id="L576">			u.setName(user.getName());</span>
+<span class="fc" id="L577">			u.setPassword(user.getPassword());</span>
+<span class="fc" id="L578">			u.setStars(user.getStars());</span>
 			
-<span class="fc" id="L592">			return u;</span>
+<span class="fc" id="L580">			return u;</span>
 			
-<span class="nc" id="L594">		} catch (Exception e) {</span>
-<span class="nc" id="L595">			logger.error(&quot;   $ Error retrieving user: &quot; + e.getMessage() );</span>
+<span class="nc" id="L582">		} catch (Exception e) {</span>
+<span class="nc" id="L583">			logger.error(&quot;   $ Error retrieving user: &quot; + e.getMessage() );</span>
 		} finally {
-<span class="pc bpc" id="L597" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
-<span class="fc" id="L598">				tx.rollback();</span>
+<span class="pc bpc" id="L585" title="2 of 4 branches missed.">			if (tx != null &amp;&amp; tx.isActive()) {</span>
+<span class="fc" id="L586">				tx.rollback();</span>
 			}	
-<span class="fc" id="L600">			pm.close();</span>
+<span class="fc" id="L588">			pm.close();</span>
 		}
-<span class="nc" id="L602">		return null;</span>
+<span class="nc" id="L590">		return null;</span>
 	}
 	
 	////////////////////////////

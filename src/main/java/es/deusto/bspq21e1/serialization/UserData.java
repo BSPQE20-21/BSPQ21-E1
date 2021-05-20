@@ -76,7 +76,7 @@ public class UserData {
 
 	@Override
 	public String toString() {
-		return "UserData [dni=" + dni + ", name=" + name + ", email=" + email + ", stars=" + stars + "]";
+		return "UserData [dni=" + dni + ", name=" + name + ", email=" + email + "]";
 	}
 
 
