@@ -33,6 +33,11 @@ public class RegisterUserWindow extends JFrame{
 	private JTextField txtIdNumber, txtName, txtEmail;
 	private JPasswordField passwordField;
 	private JButton btnBack, btnRegister;
+	private JLabel lblRegisterTitle;
+	private JLabel lblId;
+	private JLabel lblName;
+	private JLabel lblEmail;
+	private JLabel lblPassword;
 	
 	public RegisterUserWindow(Controller controller, boolean visible) {
 		this.controller = controller;
@@ -61,25 +66,25 @@ public class RegisterUserWindow extends JFrame{
 		frmRegisterYourself.getContentPane().setLayout(null);
 		frmRegisterYourself.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		
-		JLabel lblRegisterTitle = new JLabel(controller.getResourcebundle().getString("register_as_new_user_msg"));
+		//JLabels
+		lblRegisterTitle = new JLabel(controller.getResourcebundle().getString("register_as_new_user_msg"));
 		lblRegisterTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblRegisterTitle.setBounds(49, 20, 294, 19);
 		frmRegisterYourself.getContentPane().add(lblRegisterTitle);
 		
-		//JLabels
-		JLabel lblId = new JLabel(controller.getResourcebundle().getString("id_number_msg"));
+		lblId = new JLabel(controller.getResourcebundle().getString("id_number_msg"));
 		lblId.setBounds(40, 63, 130, 19);
 		frmRegisterYourself.getContentPane().add(lblId);
 		
-		JLabel lblName = new JLabel(controller.getResourcebundle().getString("name_msg"));
+		lblName = new JLabel(controller.getResourcebundle().getString("name_msg"));
 		lblName.setBounds(40, 103, 130, 14);
 		frmRegisterYourself.getContentPane().add(lblName);
 		
-		JLabel lblEmail = new JLabel(controller.getResourcebundle().getString("email_msg"));
+		lblEmail = new JLabel(controller.getResourcebundle().getString("email_msg"));
 		lblEmail.setBounds(40, 141, 130, 14);
 		frmRegisterYourself.getContentPane().add(lblEmail);
 		
-		JLabel lblPassword = new JLabel(controller.getResourcebundle().getString("password_msg"));
+		lblPassword = new JLabel(controller.getResourcebundle().getString("password_msg"));
 		lblPassword.setBounds(40, 178, 130, 14);
 		frmRegisterYourself.getContentPane().add(lblPassword);
 		
@@ -105,7 +110,7 @@ public class RegisterUserWindow extends JFrame{
 		passwordField.setBounds(184, 176, 140, 19);
 		frmRegisterYourself.getContentPane().add(passwordField);
 		
-		
+		//Back Button
 		btnBack = new JButton(controller.getResourcebundle().getString("back_button_msg"));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -168,5 +173,129 @@ public class RegisterUserWindow extends JFrame{
         new InitialWindow(controller, visible);
         frmRegisterYourself.dispose();
     }
+
+	public static Logger getLogger() {
+		return logger;
+	}
+
+	public static void setLogger(Logger logger) {
+		RegisterUserWindow.logger = logger;
+	}
+
+	public Controller getController() {
+		return controller;
+	}
+
+	public void setController(Controller controller) {
+		this.controller = controller;
+	}
+
+	public boolean isVisible() {
+		return visible;
+	}
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
+
+	public JFrame getFrmRegisterYourself() {
+		return frmRegisterYourself;
+	}
+
+	public void setFrmRegisterYourself(JFrame frmRegisterYourself) {
+		this.frmRegisterYourself = frmRegisterYourself;
+	}
+
+	public JTextField getTxtIdNumber() {
+		return txtIdNumber;
+	}
+
+	public void setTxtIdNumber(JTextField txtIdNumber) {
+		this.txtIdNumber = txtIdNumber;
+	}
+
+	public JTextField getTxtName() {
+		return txtName;
+	}
+
+	public void setTxtName(JTextField txtName) {
+		this.txtName = txtName;
+	}
+
+	public JTextField getTxtEmail() {
+		return txtEmail;
+	}
+
+	public void setTxtEmail(JTextField txtEmail) {
+		this.txtEmail = txtEmail;
+	}
+
+	public JPasswordField getPasswordField() {
+		return passwordField;
+	}
+
+	public void setPasswordField(JPasswordField passwordField) {
+		this.passwordField = passwordField;
+	}
+
+	public JButton getBtnBack() {
+		return btnBack;
+	}
+
+	public void setBtnBack(JButton btnBack) {
+		this.btnBack = btnBack;
+	}
+
+	public JButton getBtnRegister() {
+		return btnRegister;
+	}
+
+	public void setBtnRegister(JButton btnRegister) {
+		this.btnRegister = btnRegister;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public JLabel getLblRegisterTitle() {
+		return lblRegisterTitle;
+	}
+
+	public void setLblRegisterTitle(JLabel lblRegisterTitle) {
+		this.lblRegisterTitle = lblRegisterTitle;
+	}
+
+	public JLabel getLblId() {
+		return lblId;
+	}
+
+	public void setLblId(JLabel lblId) {
+		this.lblId = lblId;
+	}
+
+	public JLabel getLblName() {
+		return lblName;
+	}
+
+	public void setLblName(JLabel lblName) {
+		this.lblName = lblName;
+	}
+
+	public JLabel getLblEmail() {
+		return lblEmail;
+	}
+
+	public void setLblEmail(JLabel lblEmail) {
+		this.lblEmail = lblEmail;
+	}
+
+	public JLabel getLblPassword() {
+		return lblPassword;
+	}
+
+	public void setLblPassword(JLabel lblPassword) {
+		this.lblPassword = lblPassword;
+	}
 	
 }
