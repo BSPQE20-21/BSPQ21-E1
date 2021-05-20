@@ -293,8 +293,23 @@ public class Controller {
 					reservations.add( new ReservationData(d, Integer.parseInt(fields[1]), fields[2], fields[3]) );
 					logger.debug("Reservation created from csv");
 				} else { // Van -> DEBUG HERE
-					vans.add( new VanData(fields[0], fields[1], fields[2], fields[3], Integer.parseInt(fields[4]), Boolean.parseBoolean(fields[5]),
-							Boolean.parseBoolean(fields[6]), Boolean.parseBoolean(fields[7]), Double.parseDouble(fields[8]), fields[9]) );
+					VanData v = new VanData();
+					v.setLicensePlate( fields[0] ); logger.debug("License plate from van stored");
+					v.setBrand( fields[1] ); logger.debug("Brand from van stored");
+					v.setModel( fields[2] ); logger.debug("Model from van stored");
+					v.setLocation( fields[3] ); logger.debug("Location from van stored");
+					logger.debug("Capacity: " + fields[4]);
+					v.setCapacity( Integer.parseInt( fields[4] ) ); logger.debug("Capacity from van stored");
+					logger.debug("Kitchen: " + fields[5]);
+					v.setKitchen( Boolean.parseBoolean( fields[5] ) ); logger.debug("Kitchen from van stored");
+					logger.debug("Shower: " + fields[6]);
+					v.setShower( Boolean.parseBoolean( fields[6] ) ); logger.debug("Shower from van stored");
+					logger.debug("Off-road: " + fields[7]);
+					v.setOffRoad( Boolean.parseBoolean( fields[7] ) ); logger.debug("Off-road from van stored");
+					logger.debug("Price: " + fields[8]);
+					v.setPricePerDay( Double.parseDouble( fields[8] ) ); logger.debug("Price from van stored");
+					logger.debug("User's dni: " + fields[9]);
+					v.setUser( fields[9] ); logger.debug("User's dni from van stored");
 					logger.debug("Van created from csv");
 				}
 				line = br.readLine();
