@@ -88,6 +88,7 @@ public class RegisterUserWindowTest {
 			assertTrue(w.getBtnRegister().getBounds().getWidth() > 120);
 			assertTrue(w.getBtnRegister().getBounds().getHeight() > 22);
 			
+			logger.info("Initialize method tested");
 			
 		} catch(HeadlessException e) {
 			logger.debug("You are in ubuntu, it's not posible to do window's test");

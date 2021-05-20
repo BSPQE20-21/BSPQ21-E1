@@ -83,6 +83,8 @@ public class RemoveAccountWindowTest {
 			assertTrue(w.getLblText().getBounds().getHeight() > 30);
 			assertEquals(w.getLblText().getText(), controller.getResourcebundle().getString("ensure_remove_msg"));
 			
+			logger.info("Initialize method tested");
+			
 		} catch(HeadlessException e) {
 			System.out.println("You are in ubuntu, it's not posible to do window's test");
 		}

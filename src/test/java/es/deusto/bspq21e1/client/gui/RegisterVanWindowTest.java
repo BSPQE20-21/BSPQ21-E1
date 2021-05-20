@@ -117,6 +117,8 @@ public class RegisterVanWindowTest {
 			assertTrue(w.getSpinnerCapacity().getBounds().getWidth() > 50);
 			assertTrue(w.getSpinnerCapacity().getBounds().getHeight() > 15);
 			
+			logger.info("Initialize method tested");
+			
 		} catch(HeadlessException e) {
 			System.out.println("You are in ubuntu, it's not posible to do window's test");
 		}
