@@ -130,7 +130,7 @@ public class DBManagerTest {
     }
 	
 	@Test
-	@PerfTest(invocations = 5)
+	@PerfTest(invocations = 5, threads = 10)
 	@Required(max = 1200, average = 250)
 	public void validateUserTest() {
 		logger.info("Testing validation of users");
@@ -142,7 +142,7 @@ public class DBManagerTest {
 	}
 	
 	@Test
-	@PerfTest(invocations = 5)
+	@PerfTest(invocations = 5, threads = 10)
 	@Required(max = 1200, average = 250)
 	public void getReservationsByUser() {
 		logger.info("Testing getting reservations by user");
@@ -154,7 +154,7 @@ public class DBManagerTest {
 	}
 	
 	@Test
-	@PerfTest(invocations = 5)
+	@PerfTest(invocations = 5, threads = 10)
 	@Required(max = 1200, average = 250)
 	public void getReservationsByVan() {
 		logger.info("Testing getting reservations by van");
@@ -166,7 +166,7 @@ public class DBManagerTest {
 	}
 	
 	@Test
-	@PerfTest(invocations = 5)
+	@PerfTest(invocations = 5, threads = 10)
 	@Required(max = 1200, average = 250)
 	public void getVansByUser() {
 		logger.info("Testing getting vans by user");
@@ -178,7 +178,7 @@ public class DBManagerTest {
 	}
 	
 	@Test
-	@PerfTest(invocations = 5)
+	@PerfTest(invocations = 5, threads = 10)
 	@Required(max = 1200, average = 250)
 	public void getVansByLocationTest() {
 		logger.info("Testing searching of vans");
@@ -190,7 +190,7 @@ public class DBManagerTest {
 	}
 	
 	@Test
-	@PerfTest(invocations = 5)
+	@PerfTest(invocations = 5, threads = 10)
 	@Required(max = 1200, average = 250)
 	public void getVansByDatesTest() {
 		logger.info("Testing searching of vans by dates");
@@ -203,7 +203,7 @@ public class DBManagerTest {
 	}
 	
 	@Test
-	@PerfTest(invocations = 5)
+	@PerfTest(invocations = 5, threads = 10)
 	@Required(max = 1200, average = 250)
 	public void getUserTest() {
 		logger.info("Testing getting a user");
