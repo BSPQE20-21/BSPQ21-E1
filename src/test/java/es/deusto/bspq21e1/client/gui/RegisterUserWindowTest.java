@@ -49,7 +49,7 @@ public class RegisterUserWindowTest {
 			
 			assertFalse(w.getFrmRegisterYourself().isResizable());
 			assertTrue(w.getFrmRegisterYourself().getBounds().getWidth() > 375);
-			assertTrue(w.getFrmRegisterYourself().getBounds().getHeight() > 570);
+			assertTrue(w.getFrmRegisterYourself().getBounds().getHeight() > 310);
 			assertEquals(w.getFrmRegisterYourself().getDefaultCloseOperation(), JFrame.DISPOSE_ON_CLOSE);
 			assertNull(w.getFrmRegisterYourself().getContentPane().getLayout());
 			assertNotNull(w.getFrmRegisterYourself().getIconImage());

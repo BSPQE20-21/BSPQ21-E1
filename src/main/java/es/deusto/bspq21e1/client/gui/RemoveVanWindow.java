@@ -173,5 +173,123 @@ public class RemoveVanWindow extends JFrame {
 		jtVansTable.updateUI();
 		scrollVans.updateUI();
 	}
+
+	//GETTERS AND SETTERS
+	
+	public static Logger getLogger() {
+		return logger;
+	}
+
+	public static void setLogger(Logger logger) {
+		RemoveVanWindow.logger = logger;
+	}
+
+	public Controller getController() {
+		return controller;
+	}
+
+	public void setController(Controller controller) {
+		this.controller = controller;
+	}
+
+	public boolean isVisible() {
+		return visible;
+	}
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
+
+	public UserData getUser() {
+		return user;
+	}
+
+	public void setUser(UserData user) {
+		this.user = user;
+	}
+
+	public JFrame getFrmMain() {
+		return frmMain;
+	}
+
+	public void setFrmMain(JFrame frmMain) {
+		this.frmMain = frmMain;
+	}
+
+	public JFrame getFrmRemoveVan() {
+		return frmRemoveVan;
+	}
+
+	public void setFrmRemoveVan(JFrame frmRemoveVan) {
+		this.frmRemoveVan = frmRemoveVan;
+	}
+
+	public JLabel getLblText() {
+		return lblText;
+	}
+
+	public void setLblText(JLabel lblText) {
+		this.lblText = lblText;
+	}
+
+	public JButton getBtnRemove() {
+		return btnRemove;
+	}
+
+	public void setBtnRemove(JButton btnRemove) {
+		this.btnRemove = btnRemove;
+	}
+
+	public JButton getBtnBack() {
+		return btnBack;
+	}
+
+	public void setBtnBack(JButton btnBack) {
+		this.btnBack = btnBack;
+	}
+
+	public JTable getJtVansTable() {
+		return jtVansTable;
+	}
+
+	public void setJtVansTable(JTable jtVansTable) {
+		this.jtVansTable = jtVansTable;
+	}
+
+	public JScrollPane getScrollVans() {
+		return scrollVans;
+	}
+
+	public void setScrollVans(JScrollPane scrollVans) {
+		this.scrollVans = scrollVans;
+	}
+
+	public ArrayList<VanData> getVans() {
+		return vans;
+	}
+
+	public void setVans(ArrayList<VanData> vans) {
+		this.vans = vans;
+	}
+
+	public DefaultListModel<String> getVansList() {
+		return vansList;
+	}
+
+	public void setVansList(DefaultListModel<String> vansList) {
+		this.vansList = vansList;
+	}
+
+	public DefaultTableModel getTableModel() {
+		return tableModel;
+	}
+
+	public void setTableModel(DefaultTableModel tableModel) {
+		this.tableModel = tableModel;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 }

@@ -92,7 +92,7 @@ public class RegisterVanWindow extends JFrame{
 		frmRegistrationOfVans.setResizable(false);
 		frmRegistrationOfVans.setBounds(100, 100, 380, 575);
 		frmRegistrationOfVans.setLocationRelativeTo(null);
-		frmRegistrationOfVans.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRegistrationOfVans.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmRegistrationOfVans.getContentPane().setLayout(null);
 		frmRegistrationOfVans.setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/images/AirBV.png"));
 		

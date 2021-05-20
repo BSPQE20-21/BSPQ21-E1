@@ -51,7 +51,7 @@ public class RemoveAccountWindowTest {
 		try {
 			RemoveAccountWindow w = new RemoveAccountWindow(controller, user, frmMain, false);
 			
-			assertEquals(w.getClass(), RegisterVanWindow.class);
+			assertEquals(w.getClass(), RemoveAccountWindow.class);
 			assertTrue(w.getFrmRemoveAccount().getTitle().length() > 0);
 			assertEquals(w.getFrmRemoveAccount().getTitle(), controller.getResourcebundle().getString("remove_user_btn_msg"));
 			assertFalse(w.getFrmRemoveAccount().isResizable());
