@@ -19,6 +19,7 @@ import org.junit.Test;
 import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.serialization.UserData;
 import junit.framework.JUnit4TestAdapter;
+import mayo20.SearchWindow;
 
 public class SearchWindowTest {
 
@@ -118,7 +119,58 @@ static Logger logger = Logger.getLogger(SearchWindowTest.class.getName());
 			assertTrue(w.getLblNDateExample().getBounds().getWidth() > 90);
 			assertTrue(w.getLblNDateExample().getBounds().getHeight() > 12);
 			
+			assertTrue(w.getVisualizePanel().getWidth() > 660);
+			assertTrue(w.getVisualizePanel().getHeight() > 197);
+			
+			assertTrue(w.getLblResultsTitle().getText().length() > 0);
+			assertEquals(w.getLblResultsTitle().getText(), controller.getResourcebundle().getString("lbl_results_title_msg"));
+			assertEquals(w.getLblResultsTitle().getFont(), new Font("Tahoma", Font.BOLD, 15));
+			assertTrue(w.getLblResultsTitle().getBounds().getWidth() > 146);
+			assertTrue(w.getLblResultsTitle().getBounds().getWidth() < 150);
+			assertTrue(w.getLblResultsTitle().getBounds().getHeight() > 28);
+			assertTrue(w.getLblResultsTitle().getBounds().getHeight() < 30);
+			
 			assertFalse(w.getTableModel().isCellEditable(0, 0));
+			assertEquals(w.getTableModel().getColumnCount(), 5);
+			assertTrue(w.getTableModel().getRowCount() == 0);
+			
+			assertTrue(w.getJtVansTable().getBounds().getWidth() > -559);
+			assertFalse(w.getJtVansTable().getTableHeader().getResizingAllowed());
+			assertFalse(w.getJtVansTable().getTableHeader().getReorderingAllowed());
+			
+			assertTrue(w.getScrollVans().getBounds().getWidth() > 630);
+			assertTrue(w.getScrollVans().getBounds().getHeight() > 82);
+			
+			assertTrue(w.getBtnBook().getText().length() > 0);
+			assertEquals(w.getBtnBook().getText(), controller.getResourcebundle().getString("book_button_msg"));
+			assertEquals(w.getBtnBook().getFont(), new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+			assertTrue(w.getBtnBook().getActionListeners().length > 0);
+			assertTrue(w.getBtnBook().getMouseListeners().length > 0);
+			assertTrue(w.getBtnBook().getBounds().getWidth() > 98);
+			assertTrue(w.getBtnBook().getBounds().getHeight() > 29);
+			
+			assertTrue(w.getBtnCharacteristics().getText().length() > 0);
+			assertEquals(w.getBtnCharacteristics().getText(), controller.getResourcebundle().getString("characteristics_button_msg"));
+			assertEquals(w.getBtnCharacteristics().getFont(), new Font("Tahoma", Font.ITALIC, 11));
+			assertTrue(w.getBtnCharacteristics().getActionListeners().length > 0);
+			assertTrue(w.getBtnCharacteristics().getMouseListeners().length > 0);
+			assertTrue(w.getBtnCharacteristics().getBounds().getWidth() > 128);
+			assertTrue(w.getBtnCharacteristics().getBounds().getHeight() > 19);
+			
+			assertTrue(w.getBtnBackButton().getText().length() > 0);
+			assertEquals(w.getBtnBackButton().getText(), controller.getResourcebundle().getString("back_button_msg"));
+			assertEquals(w.getBtnBackButton().getFont(), new Font("Tahoma", Font.ITALIC, 11));
+			assertTrue(w.getBtnBackButton().getActionListeners().length > 0);
+			assertTrue(w.getBtnBackButton().getMouseListeners().length > 0);
+			assertTrue(w.getBtnBackButton().getBounds().getWidth() > 79);
+			assertTrue(w.getBtnBackButton().getBounds().getHeight() > 19);
+			
+			assertTrue(w.getSeparator().getBounds().getWidth() > 660);
+			assertTrue(w.getSeparator().getBounds().getHeight() > 159);
+			
+			assertFalse(w.getBtnBook().isEnabled());
+			assertFalse(w.getBtnCharacteristics().isEnabled());
+			
 			
 		} catch(HeadlessException e) {
 			System.out.println("You are in ubuntu, it's not posible to do window's test");
