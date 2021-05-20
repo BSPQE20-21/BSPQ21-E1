@@ -113,6 +113,9 @@ public class RegisterVanWindowTest {
 			assertFalse(w.getLblCapacity().getMouseListeners().length > 0);
 			assertTrue(w.getLblCapacity().getBounds().getWidth() > 120);
 			assertTrue(w.getLblCapacity().getBounds().getHeight() > 10);
+		
+			assertTrue(w.getSpinnerCapacity().getBounds().getWidth() > 50);
+			assertTrue(w.getSpinnerCapacity().getBounds().getHeight() > 15);
 			
 		} catch(HeadlessException e) {
 			System.out.println("You are in ubuntu, it's not posible to do window's test");

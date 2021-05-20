@@ -98,4 +98,82 @@ public class RemoveAccountWindow extends JFrame {
 		
 		logger.info("RemoveAccountWindow well initialized");
 	}
+
+	public static Logger getLogger() {
+		return logger;
+	}
+
+	public static void setLogger(Logger logger) {
+		RemoveAccountWindow.logger = logger;
+	}
+
+	public Controller getController() {
+		return controller;
+	}
+
+	public void setController(Controller controller) {
+		this.controller = controller;
+	}
+
+	public boolean isVisible() {
+		return visible;
+	}
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
+
+	public UserData getUserData() {
+		return userData;
+	}
+
+	public void setUserData(UserData userData) {
+		this.userData = userData;
+	}
+
+	public JFrame getFrmMain() {
+		return frmMain;
+	}
+
+	public void setFrmMain(JFrame frmMain) {
+		this.frmMain = frmMain;
+	}
+
+	public JFrame getFrmRemoveAccount() {
+		return frmRemoveAccount;
+	}
+
+	public void setFrmRemoveAccount(JFrame frmRemoveAccount) {
+		this.frmRemoveAccount = frmRemoveAccount;
+	}
+
+	public JButton getBtnYes() {
+		return btnYes;
+	}
+
+	public void setBtnYes(JButton btnYes) {
+		this.btnYes = btnYes;
+	}
+
+	public JButton getBtnNo() {
+		return btnNo;
+	}
+
+	public void setBtnNo(JButton btnNo) {
+		this.btnNo = btnNo;
+	}
+
+	public JLabel getLblText() {
+		return lblText;
+	}
+
+	public void setLblText(JLabel lblText) {
+		this.lblText = lblText;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
 }
