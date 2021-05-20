@@ -149,7 +149,7 @@ public class Controller {
 				"\n\tUser: " + vanData.getUser() +
 				"\n=======================\n");
     	
-    	WebTarget registerVanWebTarget = webTarget.path("AirBV/registerVan/"+vanData.hasKitchen()+"/"+vanData.hasShower()); 
+    	WebTarget registerVanWebTarget = webTarget.path("AirBV/registerVan/"+vanData.isKitchen()+"/"+vanData.isShower()); 
 		Invocation.Builder invocationBuilder = registerVanWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.post(Entity.entity(vanData, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
@@ -237,7 +237,7 @@ public class Controller {
 	public boolean registerVansList(ArrayList<VanData> vans) {
 		WebTarget vansWebTarget = webTarget.path("AirBV/registerVansList");
 		for (VanData v : vans) {
-			logger.debug("Van " + vans.indexOf( v ) + "   Kitchen: " + v.hasKitchen() + "   Shower: " + v.hasShower() + "   Off-road: " + v.isOffRoad());
+			logger.debug("Van " + vans.indexOf( v ) + "   Kitchen: " + v.isKitchen() + "   Shower: " + v.isShower() + "   Off-road: " + v.isOffRoad());
 		}
 		Invocation.Builder invocationBuilder = vansWebTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.post(Entity.entity(vans, MediaType.APPLICATION_JSON));

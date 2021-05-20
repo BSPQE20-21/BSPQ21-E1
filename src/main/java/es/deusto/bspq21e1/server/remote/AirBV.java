@@ -213,8 +213,8 @@ public class AirBV {
     @Path(registerVansList)
     public Response registerVansList(ArrayList<VanData> vansData) {
     	logger.debug("Register new vans from list received. vansData size: " + vansData.size() + " + first: " + vansData.get(0).getLicensePlate());
-    	logger.debug("Debug for kitchen 1: " + vansData.get(0).hasKitchen() + " " + vansData.get(1).hasKitchen() + " " + vansData.get(2).hasKitchen());
-    	logger.debug("Debug for kitchen 2: " + vansData.get(3).hasKitchen() + " " + vansData.get(4).hasKitchen() + " " + vansData.get(5).hasKitchen());
+    	logger.debug("Debug for kitchen 1: " + vansData.get(0).isKitchen() + " " + vansData.get(1).isKitchen() + " " + vansData.get(2).isKitchen());
+    	logger.debug("Debug for kitchen 2: " + vansData.get(3).isKitchen() + " " + vansData.get(4).isKitchen() + " " + vansData.get(5).isKitchen());
     	ArrayList<Van> vans = new ArrayList<Van>();
     	Assembler as = new Assembler();
     	for (VanData v : vansData) {

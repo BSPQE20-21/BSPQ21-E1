@@ -77,7 +77,7 @@ public class VanData {
 		this.location = location;
 	}
 
-	public boolean hasKitchen() {
+	public boolean isKitchen() {
 		return kitchen;
 	}
 
@@ -85,7 +85,7 @@ public class VanData {
 		this.kitchen = kitchen;
 	}
 
-	public boolean hasShower() {
+	public boolean isShower() {
 		return shower;
 	}
 

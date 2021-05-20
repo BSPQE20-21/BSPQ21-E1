@@ -62,8 +62,8 @@ public class VanTest {
 		assertNull(v.getUser());
 		assertEquals(0, v.getCapacity());
 		assertEquals(0.0, v.getPricePerDay(), 0.00000001);
-		assertFalse(v.hasShower());
-		assertFalse(v.hasKitchen());
+		assertFalse(v.isShower());
+		assertFalse(v.isKitchen());
 		assertFalse(v.isOffRoad());
 		
 		Van v1 = new Van(licensePlate, brand, model, location, kitchen, shower, offRoad, capacity, pricePerDay, user);
@@ -76,8 +76,8 @@ public class VanTest {
 		assertEquals(user, v1.getUser());
 		assertEquals(capacity, v1.getCapacity());
 		assertEquals(pricePerDay, v1.getPricePerDay(), 0.00000001);
-		assertTrue(v1.hasShower());
-		assertTrue(v1.hasKitchen());
+		assertTrue(v1.isShower());
+		assertTrue(v1.isKitchen());
 		assertTrue(v1.isOffRoad());
 		logger.info("Reservation constructor tested");
 	}

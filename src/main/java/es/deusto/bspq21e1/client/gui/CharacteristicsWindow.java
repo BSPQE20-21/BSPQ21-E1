@@ -137,7 +137,7 @@ public class CharacteristicsWindow extends JFrame{
 		frmCharacteristics.getContentPane().add(lblKitchen);
 		
 		lblKitchenA = new JLabel("");
-		if(van.hasKitchen()) {
+		if(van.isKitchen()) {
 			lblKitchenA.setText(controller.getResourcebundle().getString("yes_msg"));
 		} else {
 			lblKitchenA.setText(controller.getResourcebundle().getString("no_msg"));
@@ -151,7 +151,7 @@ public class CharacteristicsWindow extends JFrame{
 		frmCharacteristics.getContentPane().add(lblShower);
 		
 		lblShowerA = new JLabel("");
-		if(van.hasShower()) {
+		if(van.isShower()) {
 			lblShowerA.setText(controller.getResourcebundle().getString("yes_msg"));
 		} else {
 			lblShowerA.setText(controller.getResourcebundle().getString("no_msg"));

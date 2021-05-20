@@ -28,7 +28,7 @@ public class Assembler {
     }
 
     public VanData assembleVan(Van v) {
-    	VanData vanData = new VanData(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.getCapacity(), v.hasKitchen(), v.hasShower(), v.isOffRoad(),  v.getPricePerDay(), v.getUser());
+    	VanData vanData = new VanData(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.getCapacity(), v.isKitchen(), v.isShower(), v.isOffRoad(),  v.getPricePerDay(), v.getUser());
     	logger.info("Van assembled");
     	return vanData;	
     }
@@ -53,7 +53,7 @@ public class Assembler {
     }
 
     public Van disassembleVan(VanData v) {
-    	Van van = new Van(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.hasKitchen(), v.hasShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay(), v.getUser());
+    	Van van = new Van(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.isKitchen(), v.isShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay(), v.getUser());
     	
 		logger.debug("$ DEBUGGING\n" +
 				"\tPrinting Van and User from Assembler in Server side:\n"+
