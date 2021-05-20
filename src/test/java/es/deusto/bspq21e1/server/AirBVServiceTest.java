@@ -107,6 +107,13 @@ public class AirBVServiceTest {
 	}
 	
 	@Test
+	public void searchVansByLocationTest() {
+		assertEquals(2, service.searchVansByLocation("Bilbao").size());
+		assertEquals(0, service.searchVansByLocation("Madrid").size());
+		logger.info("Test of searchVans done");
+	}
+	
+	@Test
 	public void loginTest() {
 		User us = service.login(userEmail2, userPass);
 		assertEquals(userDni2, us.getDni());

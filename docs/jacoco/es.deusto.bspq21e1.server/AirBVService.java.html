@@ -75,35 +75,35 @@ public class AirBVService {
 <span class="fc" id="L75">		Date pickUpDate = null;</span>
 		try {
 <span class="fc" id="L77">			pickUpDate = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(pickUpDateString);</span>
-<span class="nc" id="L78">		} catch (ParseException e1) {</span>
+<span class="pc" id="L78">		} catch (ParseException e1) {</span>
 <span class="nc" id="L79">			e1.printStackTrace();</span>
-<span class="fc" id="L80">		}</span>
+		}
 		
 <span class="fc" id="L82">		Date returnDate = null;</span>
 		try {
 <span class="fc" id="L84">			returnDate = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(returnDateString);</span>
-<span class="nc" id="L85">		} catch (ParseException e1) {</span>
+<span class="pc" id="L85">		} catch (ParseException e1) {</span>
 <span class="nc" id="L86">			e1.printStackTrace();</span>
-<span class="fc" id="L87">		}</span>
+		}
 		
 <span class="fc" id="L89">		ArrayList&lt;Van&gt; vanAL = new ArrayList&lt;Van&gt;(DBManager.getInstance().getVansByDates(location, pickUpDate, returnDate));</span>
 <span class="fc bfc" id="L90" title="All 2 branches covered.">		for( Van v : vanAL ) { </span>
 <span class="fc" id="L91">			logger.debug(&quot;Van in AIRBVService: &quot; + v);</span>
 <span class="fc" id="L92">			vansHM.put(v.getLicensePlate(), v); </span>
-<span class="fc" id="L93">		}</span>
+		}
 		
 <span class="fc" id="L95">		return vanAL;</span>
 	}
 	
 	public ArrayList&lt;Van&gt; searchVansByLocation(String location) {
-<span class="nc" id="L99">		logger.info(&quot;Searching vans with location: &quot;+ location);</span>
-<span class="nc" id="L100">		ArrayList&lt;Van&gt; vanAL = new ArrayList&lt;Van&gt;(DBManager.getInstance().getVansByLocation(location));</span>
-<span class="nc bnc" id="L101" title="All 2 branches missed.">		for( Van v : vanAL ) { </span>
-<span class="nc" id="L102">			logger.debug(&quot;Van in AIRBVService: &quot; + v);</span>
-<span class="nc" id="L103">			vansHM.put(v.getLicensePlate(), v); </span>
-<span class="nc" id="L104">		}</span>
+<span class="fc" id="L99">		logger.info(&quot;Searching vans with location: &quot;+ location);</span>
+<span class="fc" id="L100">		ArrayList&lt;Van&gt; vanAL = new ArrayList&lt;Van&gt;(DBManager.getInstance().getVansByLocation(location));</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">		for( Van v : vanAL ) { </span>
+<span class="fc" id="L102">			logger.debug(&quot;Van in AIRBVService: &quot; + v);</span>
+<span class="fc" id="L103">			vansHM.put(v.getLicensePlate(), v); </span>
+		}
 		
-<span class="nc" id="L106">		return vanAL;</span>
+<span class="fc" id="L106">		return vanAL;</span>
 	}
 	
 	public User login(String email, String password) {
@@ -125,7 +125,7 @@ public class AirBVService {
 
 	public boolean deleteUser(String dni) {
 <span class="fc" id="L127">		logger.info(&quot;Deleting user with dni: &quot; + dni);</span>
-<span class="pc bpc" id="L128" title="1 of 2 branches missed.">		if(usersHM.get(dni) != null ) {</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">		if(usersHM.get(dni) != null ) {</span>
 <span class="fc" id="L129">			usersHM.remove(dni);</span>
 		}
 <span class="fc" id="L131">		return DBManager.getInstance().deleteUser(dni);</span>
@@ -140,38 +140,38 @@ public class AirBVService {
 	}
 
 	public boolean registerUsersList(ArrayList&lt;User&gt; users) {
-<span class="nc" id="L143">    	logger.debug(&quot;Trying to store mock users in AirBVService&quot;);</span>
-<span class="nc bnc" id="L144" title="All 2 branches missed.">    	for (User u : users) {</span>
-<span class="nc" id="L145">    		logger.debug(&quot;User &quot; + users.indexOf( u ) + &quot; DNI: &quot; + u.getDni() + &quot;   Name: &quot; + u.getName());</span>
-<span class="nc" id="L146">    		boolean result = DBManager.getInstance().store(u);</span>
-<span class="nc bnc" id="L147" title="All 2 branches missed.">    		if (!result) {</span>
-<span class="nc" id="L148">    			logger.debug(&quot;The DBManager returns a false from the user &quot; + u.getDni());</span>
-<span class="nc" id="L149">    			return false;</span>
+<span class="fc" id="L143">    	logger.debug(&quot;Trying to store mock users in AirBVService&quot;);</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">    	for (User u : users) {</span>
+<span class="fc" id="L145">    		logger.debug(&quot;User &quot; + users.indexOf( u ) + &quot; DNI: &quot; + u.getDni() + &quot;   Name: &quot; + u.getName());</span>
+<span class="fc" id="L146">    		boolean result = DBManager.getInstance().store(u);</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">    		if (!result) {</span>
+<span class="fc" id="L148">    			logger.debug(&quot;The DBManager returns a false from the user &quot; + u.getDni());</span>
+<span class="fc" id="L149">    			return false;</span>
     		} else {
-<span class="nc" id="L151">    			logger.debug(&quot;It returns a true value. Good&quot;);</span>
+<span class="fc" id="L151">    			logger.debug(&quot;It returns a true value. Good&quot;);</span>
     		}
-<span class="nc" id="L153">    	}</span>
-<span class="nc" id="L154">    	return true;</span>
+    	}
+<span class="fc" id="L154">    	return true;</span>
     }
     
     public boolean registerVansList(ArrayList&lt;Van&gt; vans) {
-<span class="nc" id="L158">    	logger.info(&quot;Storing mock vans&quot;);</span>
-<span class="nc bnc" id="L159" title="All 2 branches missed.">    	for (Van v : vans) {</span>
-<span class="nc bnc" id="L160" title="All 2 branches missed.">    		if (!DBManager.getInstance().store(v)) {</span>
-<span class="nc" id="L161">    			return false;</span>
+<span class="fc" id="L158">    	logger.info(&quot;Storing mock vans&quot;);</span>
+<span class="fc bfc" id="L159" title="All 2 branches covered.">    	for (Van v : vans) {</span>
+<span class="fc bfc" id="L160" title="All 2 branches covered.">    		if (!DBManager.getInstance().store(v)) {</span>
+<span class="fc" id="L161">    			return false;</span>
     		}
-<span class="nc" id="L163">    	}</span>
-<span class="nc" id="L164">    	return true;</span>
+    	}
+<span class="fc" id="L164">    	return true;</span>
     }
     
     public boolean registerReservationsList(ArrayList&lt;Reservation&gt; reservations) {
-<span class="nc" id="L168">    	logger.info(&quot;Storing mock reservations&quot;);</span>
-<span class="nc bnc" id="L169" title="All 2 branches missed.">    	for (Reservation r : reservations) {</span>
-<span class="nc bnc" id="L170" title="All 2 branches missed.">    		if (!DBManager.getInstance().store(r)) {</span>
-<span class="nc" id="L171">    			return false;</span>
+<span class="fc" id="L168">    	logger.info(&quot;Storing mock reservations&quot;);</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">    	for (Reservation r : reservations) {</span>
+<span class="fc bfc" id="L170" title="All 2 branches covered.">    		if (!DBManager.getInstance().store(r)) {</span>
+<span class="fc" id="L171">    			return false;</span>
     		}
-<span class="nc" id="L173">    	}</span>
-<span class="nc" id="L174">    	return true;</span>
+    	}
+<span class="fc" id="L174">    	return true;</span>
     }
     
 }

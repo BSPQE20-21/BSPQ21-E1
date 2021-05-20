@@ -1,4 +1,4 @@
-package es.deusto.bspq21e1.remote;
+package es.deusto.bspq21e1.server.remote;
 
 import static org.junit.Assert.*;
 
@@ -50,7 +50,6 @@ public class AirBVTest {
 	String userPass;
 	
 	VanData van;
-	ArrayList<VanData> vans = new ArrayList<VanData>();
 	String licensePlate;
 	String location;
 	
@@ -63,6 +62,10 @@ public class AirBVTest {
 	String d4;
 	int duration;
 	ReservationData r;
+	
+	ArrayList<UserData> users = new ArrayList<UserData>();
+	ArrayList<VanData> vans = new ArrayList<VanData>();
+	ArrayList<ReservationData> reservations = new ArrayList<ReservationData>(); 
     
 	@Before
 	public void setUp() throws Exception {
@@ -72,7 +75,7 @@ public class AirBVTest {
     	resourceBundle = ResourceBundle.getBundle("SystemMessages", Locale.getDefault());
     	airBV = new AirBV();
     	
-    	userDni = "12345689ABC";
+    	userDni = "12345689A";
     	userName = "Pepa";
     	userEmail = "pepa@gmail.com";
     	userPass = "123";
@@ -98,61 +101,88 @@ public class AirBVTest {
     	
     	r = new ReservationData(date1, duration, licensePlate, userDni);
     	
+    	users.add(new UserData("14725836D", "Fede", "fede@gmail.com", "123"));
+    	users.add(new UserData("14725836E", "Rober", "rober@gmail.com", "123"));
+    	users.add(new UserData("14725836F", "Rita", "rita@gmail.com", "123"));
+    	
+    	vans.add(new VanData("7894ABC", "Fiat", "555", "Madrid", 5, false, true, false, 32, userDni));
+    	vans.add(new VanData("3020ADD", "Furgo", "Fur", "Bilbao", 5, false, true, false, 32, "14725836D"));
+    	vans.add(new VanData("8495GTY", "Cara", "van", "Madrid", 5, false, true, false, 32, "14725836E"));
+    	
+    	reservations.add(new ReservationData(date2, 5, "3020ADD", "14725836F"));
+    	reservations.add(new ReservationData(date1, 5, "7894ABC", "14725836F"));
+    	reservations.add(new ReservationData(date1, 2, "3020ADD", "14725836F"));
+    	
     	// Register user test
-    	assertEquals(Status.OK.getStatusCode(), airBV.registerUser(user).getStatus());
+    	airBV.registerUser(user);
     	assertEquals(400, airBV.registerUser(user).getStatus());
     	
     	//Register van test
-    	assertEquals(Status.OK.getStatusCode(), airBV.registerVan(van, true, false).getStatus());
+    	airBV.registerVan(van, true, false);
     	assertEquals(400, airBV.registerVan(van, true, false).getStatus());
     	
     	//Register reservation test
-//    	assertEquals(Status.OK.getStatusCode(), airBV.registerReservation(r).getStatus());
+    	airBV.registerReservation(r);
+    	
+    	//Register user list test
+    	airBV.registerUsersList(users);
+    	assertEquals(400, airBV.registerUsersList(users).getStatus());
+    	
+    	//Register van list test
+    	airBV.registerVansList(vans);
+    	assertEquals(400, airBV.registerVansList(vans).getStatus());
+    	
+    	//Register reservation list test
+    	airBV.registerReservationsList(reservations);
+    	assertEquals(400, airBV.registerReservationsList(reservations).getStatus());
 	}
 
 	@After
 	public void tearDown() throws Exception {
 		// Delete reservation
-//		assertEquals(Status.OK.getStatusCode(), airBV.cancelReservation(resCode).getStatus());
+		airBV.cancelReservation(resCode);
 				
 		// Delete van test
-		assertEquals(Status.OK.getStatusCode(), airBV.deleteVan(licensePlate).getStatus());
-		assertEquals(400, airBV.deleteVan(licensePlate).getStatus());
+		airBV.deleteVan(licensePlate);
 		
 		// Delete user test
-		assertEquals(Status.OK.getStatusCode(), airBV.deleteUser(userDni).getStatus());
+		airBV.deleteUser(userDni);
+		airBV.deleteUser("14725836D");
+		airBV.deleteUser("14725836E");
+		airBV.deleteUser("14725836F");
 		
 	}
 
     @Test
 	public void searchVans() {	
-    	assertEquals(1, airBV.searchVans(location, d1, d2).size());
-    	assertEquals(licensePlate, airBV.searchVans(location, d1, d2).get(0).getLicensePlate());
+    	assertEquals(1, airBV.searchVans(location, d2, d2).size());
+    	assertEquals(2, airBV.searchVans("Madrid", d2, d2).size());
+    	assertEquals(0, airBV.searchVans(location, d1, d2).size());
+    	assertEquals(1, airBV.searchVans("Madrid", d1, d2).size());
 	}
     
 	@Test
     public void loginTest() { 
 		assertEquals(Status.OK.getStatusCode(), airBV.login(userEmail, userPass).getStatus());
+		assertEquals(Status.OK.getStatusCode(), airBV.login("14725836D", userPass).getStatus());
+		assertEquals(Status.OK.getStatusCode(), airBV.login("14725836E", userPass).getStatus());
+		assertEquals(Status.OK.getStatusCode(), airBV.login("14725836F", userPass).getStatus());
     }
 
+	@Test
 	public void getUserReservations() {
-		
+		assertEquals(1, airBV.getUserReservations(userDni).size());
+		assertEquals(3, airBV.getUserReservations("14725836F").size());
+		assertEquals(0, airBV.getUserReservations("14725836D").size());
+		assertEquals(0, airBV.getUserReservations("14725836E").size());
 	}
 
+	@Test
 	public void getUserVans() {
-		assertEquals(licensePlate, airBV.getUserVans(userDni).get(0).getLicensePlate());
+		assertEquals(2, airBV.getUserVans(userDni).size());
+		assertEquals(1, airBV.getUserVans("14725836D").size());
+		assertEquals(1, airBV.getUserVans("14725836E").size());
+		assertEquals(0, airBV.getUserVans("14725836F").size());
 	}
-	
-    public void registerUsersList() {
-		
-    }
-    
-    public void registerVansList() {
-    	
-    }
-    
-    public void registerReservationsList() {
-    	
-    }
 
 }
