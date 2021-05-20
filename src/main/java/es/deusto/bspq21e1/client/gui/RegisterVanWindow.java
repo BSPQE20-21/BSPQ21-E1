@@ -287,4 +287,273 @@ public class RegisterVanWindow extends JFrame{
 	
 		logger.info("RegisterVanWindow well initialized");
 	}
+
+	public static Logger getLogger() {
+		return logger;
+	}
+
+	public static void setLogger(Logger logger) {
+		RegisterVanWindow.logger = logger;
+	}
+
+	public Controller getController() {
+		return controller;
+	}
+
+	public void setController(Controller controller) {
+		this.controller = controller;
+	}
+
+	public boolean isVisible() {
+		return visible;
+	}
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
+
+	public UserData getUser() {
+		return user;
+	}
+
+	public void setUser(UserData user) {
+		this.user = user;
+	}
+
+	public JFrame getFrmMain() {
+		return frmMain;
+	}
+
+	public void setFrmMain(JFrame frmMain) {
+		this.frmMain = frmMain;
+	}
+
+	public JFrame getFrmRegistrationOfVans() {
+		return frmRegistrationOfVans;
+	}
+
+	public void setFrmRegistrationOfVans(JFrame frmRegistrationOfVans) {
+		this.frmRegistrationOfVans = frmRegistrationOfVans;
+	}
+
+	public JLabel getLblTitle() {
+		return lblTitle;
+	}
+
+	public void setLblTitle(JLabel lblTitle) {
+		this.lblTitle = lblTitle;
+	}
+
+	public JLabel getLblLicensePlate() {
+		return lblLicensePlate;
+	}
+
+	public void setLblLicensePlate(JLabel lblLicensePlate) {
+		this.lblLicensePlate = lblLicensePlate;
+	}
+
+	public JTextField getTxtFieldLicensePlate() {
+		return txtFieldLicensePlate;
+	}
+
+	public void setTxtFieldLicensePlate(JTextField txtFieldLicensePlate) {
+		this.txtFieldLicensePlate = txtFieldLicensePlate;
+	}
+
+	public JLabel getLblBrand() {
+		return lblBrand;
+	}
+
+	public void setLblBrand(JLabel lblBrand) {
+		this.lblBrand = lblBrand;
+	}
+
+	public JTextField getTxtFieldBrand() {
+		return txtFieldBrand;
+	}
+
+	public void setTxtFieldBrand(JTextField txtFieldBrand) {
+		this.txtFieldBrand = txtFieldBrand;
+	}
+
+	public JLabel getLblMoldel() {
+		return lblMoldel;
+	}
+
+	public void setLblMoldel(JLabel lblMoldel) {
+		this.lblMoldel = lblMoldel;
+	}
+
+	public JTextField getTxtFieldModel() {
+		return txtFieldModel;
+	}
+
+	public void setTxtFieldModel(JTextField txtFieldModel) {
+		this.txtFieldModel = txtFieldModel;
+	}
+
+	public JLabel getLblLocation() {
+		return lblLocation;
+	}
+
+	public void setLblLocation(JLabel lblLocation) {
+		this.lblLocation = lblLocation;
+	}
+
+	public JTextField getTxtFieldLocation() {
+		return txtFieldLocation;
+	}
+
+	public void setTxtFieldLocation(JTextField txtFieldLocation) {
+		this.txtFieldLocation = txtFieldLocation;
+	}
+
+	public JLabel getLblCapacity() {
+		return lblCapacity;
+	}
+
+	public void setLblCapacity(JLabel lblCapacity) {
+		this.lblCapacity = lblCapacity;
+	}
+
+	public JSpinner getSpinnerCapacity() {
+		return spinnerCapacity;
+	}
+
+	public void setSpinnerCapacity(JSpinner spinnerCapacity) {
+		this.spinnerCapacity = spinnerCapacity;
+	}
+
+	public JLabel getLblKitchen() {
+		return lblKitchen;
+	}
+
+	public void setLblKitchen(JLabel lblKitchen) {
+		this.lblKitchen = lblKitchen;
+	}
+
+	public ButtonGroup getKitchenButtonGroup() {
+		return kitchenButtonGroup;
+	}
+
+	public void setKitchenButtonGroup(ButtonGroup kitchenButtonGroup) {
+		this.kitchenButtonGroup = kitchenButtonGroup;
+	}
+
+	public JRadioButton getRdbtnKitchenTrue() {
+		return rdbtnKitchenTrue;
+	}
+
+	public void setRdbtnKitchenTrue(JRadioButton rdbtnKitchenTrue) {
+		this.rdbtnKitchenTrue = rdbtnKitchenTrue;
+	}
+
+	public JRadioButton getRdbtnKitchenFalse() {
+		return rdbtnKitchenFalse;
+	}
+
+	public void setRdbtnKitchenFalse(JRadioButton rdbtnKitchenFalse) {
+		this.rdbtnKitchenFalse = rdbtnKitchenFalse;
+	}
+
+	public JLabel getLblShower() {
+		return lblShower;
+	}
+
+	public void setLblShower(JLabel lblShower) {
+		this.lblShower = lblShower;
+	}
+
+	public ButtonGroup getShowerButtonGroup() {
+		return showerButtonGroup;
+	}
+
+	public void setShowerButtonGroup(ButtonGroup showerButtonGroup) {
+		this.showerButtonGroup = showerButtonGroup;
+	}
+
+	public JRadioButton getRdbtnShowerTrue() {
+		return rdbtnShowerTrue;
+	}
+
+	public void setRdbtnShowerTrue(JRadioButton rdbtnShowerTrue) {
+		this.rdbtnShowerTrue = rdbtnShowerTrue;
+	}
+
+	public JRadioButton getRdbtnShowerFalse() {
+		return rdbtnShowerFalse;
+	}
+
+	public void setRdbtnShowerFalse(JRadioButton rdbtnShowerFalse) {
+		this.rdbtnShowerFalse = rdbtnShowerFalse;
+	}
+
+	public ButtonGroup getOffRoadButtonGroup() {
+		return offRoadButtonGroup;
+	}
+
+	public void setOffRoadButtonGroup(ButtonGroup offRoadButtonGroup) {
+		this.offRoadButtonGroup = offRoadButtonGroup;
+	}
+
+	public JLabel getLblOffRoad() {
+		return lblOffRoad;
+	}
+
+	public void setLblOffRoad(JLabel lblOffRoad) {
+		this.lblOffRoad = lblOffRoad;
+	}
+
+	public JRadioButton getRdbtnOffRoadTrue() {
+		return rdbtnOffRoadTrue;
+	}
+
+	public void setRdbtnOffRoadTrue(JRadioButton rdbtnOffRoadTrue) {
+		this.rdbtnOffRoadTrue = rdbtnOffRoadTrue;
+	}
+
+	public JRadioButton getRdbtnOffRoadFalse() {
+		return rdbtnOffRoadFalse;
+	}
+
+	public void setRdbtnOffRoadFalse(JRadioButton rdbtnOffRoadFalse) {
+		this.rdbtnOffRoadFalse = rdbtnOffRoadFalse;
+	}
+
+	public JLabel getLblPricePerDay() {
+		return lblPricePerDay;
+	}
+
+	public void setLblPricePerDay(JLabel lblPricePerDay) {
+		this.lblPricePerDay = lblPricePerDay;
+	}
+
+	public JSpinner getSpinnerPrice() {
+		return spinnerPrice;
+	}
+
+	public void setSpinnerPrice(JSpinner spinnerPrice) {
+		this.spinnerPrice = spinnerPrice;
+	}
+
+	public JButton getBtnCancel() {
+		return btnCancel;
+	}
+
+	public void setBtnCancel(JButton btnCancel) {
+		this.btnCancel = btnCancel;
+	}
+
+	public JButton getBtnRegisterVan() {
+		return btnRegisterVan;
+	}
+
+	public void setBtnRegisterVan(JButton btnRegisterVan) {
+		this.btnRegisterVan = btnRegisterVan;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 }
