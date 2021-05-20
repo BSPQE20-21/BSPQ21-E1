@@ -59,6 +59,8 @@ public class SearchWindow extends JFrame{
 	private Date returnDate;
 	JButton btnCharacteristics;
 	JButton btnBook;
+	JButton btnBackButton;
+	JButton btnSearch;
 	private DefaultTableModel tableModel;
 	
 	private javax.swing.DefaultListModel<String> vansList = new javax.swing.DefaultListModel<String>();
@@ -124,7 +126,7 @@ public class SearchWindow extends JFrame{
 		txtReturn.setColumns(10);
 		
 		//SEARCH BUTTON
-		JButton btnSearch = new JButton(controller.getResourcebundle().getString("search_button_msg"));
+		btnSearch = new JButton(controller.getResourcebundle().getString("search_button_msg"));
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(txtPickUp.getText() != null && txtReturn.getText() != null && txtLocation.getText() != null) {
@@ -248,16 +250,16 @@ public class SearchWindow extends JFrame{
 		visualizePanel.add(btnCharacteristics);
 		
 		//BACK BUTTON
-		JButton btnNewButton = new JButton(controller.getResourcebundle().getString("back_button_msg"));
-		btnNewButton.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		btnNewButton.addActionListener(new ActionListener() {
+		btnBackButton = new JButton(controller.getResourcebundle().getString("back_button_msg"));
+		btnBackButton.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		btnBackButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new MainWindow(controller, user, visible);
 				frmSearchVans.dispose();
 			}
 		});
-		btnNewButton.setBounds(10, 157, 89, 20);
-		visualizePanel.add(btnNewButton);
+		btnBackButton.setBounds(10, 157, 89, 20);
+		visualizePanel.add(btnBackButton);
 		btnBook.updateUI();
 		
 		separator = new JSeparator();
@@ -291,6 +293,219 @@ public class SearchWindow extends JFrame{
 		scrollVans.updateUI();
 		visualizePanel.updateUI();
 	}
+
+	//GETTERS AND SETTERS
+	
+	public static Logger getLogger() {
+		return logger;
+	}
+
+	public static void setLogger(Logger logger) {
+		SearchWindow.logger = logger;
+	}
+
+	public Controller getController() {
+		return controller;
+	}
+
+	public void setController(Controller controller) {
+		this.controller = controller;
+	}
+
+	public boolean isVisible() {
+		return visible;
+	}
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
+
+	public UserData getUser() {
+		return user;
+	}
+
+	public void setUser(UserData user) {
+		this.user = user;
+	}
+
+	public JFrame getMainWindow() {
+		return mainWindow;
+	}
+
+	public void setMainWindow(JFrame mainWindow) {
+		this.mainWindow = mainWindow;
+	}
+
+	public JFrame getFrmSearchVans() {
+		return frmSearchVans;
+	}
+
+	public void setFrmSearchVans(JFrame frmSearchVans) {
+		this.frmSearchVans = frmSearchVans;
+	}
+
+	public JPanel getSearchPanel() {
+		return searchPanel;
+	}
+
+	public void setSearchPanel(JPanel searchPanel) {
+		this.searchPanel = searchPanel;
+	}
+
+	public JPanel getVisualizePanel() {
+		return visualizePanel;
+	}
+
+	public void setVisualizePanel(JPanel visualizePanel) {
+		this.visualizePanel = visualizePanel;
+	}
+
+	public JLabel getLblSearchTitle() {
+		return lblSearchTitle;
+	}
+
+	public void setLblSearchTitle(JLabel lblSearchTitle) {
+		this.lblSearchTitle = lblSearchTitle;
+	}
+
+	public JLabel getLblResultsTitle() {
+		return lblResultsTitle;
+	}
+
+	public void setLblResultsTitle(JLabel lblResultsTitle) {
+		this.lblResultsTitle = lblResultsTitle;
+	}
+
+	public JLabel getLblLocation() {
+		return lblLocation;
+	}
+
+	public void setLblLocation(JLabel lblLocation) {
+		this.lblLocation = lblLocation;
+	}
+
+	public JLabel getLblPickUp() {
+		return lblPickUp;
+	}
+
+	public void setLblPickUp(JLabel lblPickUp) {
+		this.lblPickUp = lblPickUp;
+	}
+
+	public JLabel getLblReturn() {
+		return lblReturn;
+	}
+
+	public void setLblReturn(JLabel lblReturn) {
+		this.lblReturn = lblReturn;
+	}
+
+	public JTextField getTxtLocation() {
+		return txtLocation;
+	}
+
+	public void setTxtLocation(JTextField txtLocation) {
+		this.txtLocation = txtLocation;
+	}
+
+	public JTextField getTxtPickUp() {
+		return txtPickUp;
+	}
+
+	public void setTxtPickUp(JTextField txtPickUp) {
+		this.txtPickUp = txtPickUp;
+	}
+
+	public JTextField getTxtReturn() {
+		return txtReturn;
+	}
+
+	public void setTxtReturn(JTextField txtReturn) {
+		this.txtReturn = txtReturn;
+	}
+
+	public JSeparator getSeparator() {
+		return separator;
+	}
+
+	public void setSeparator(JSeparator separator) {
+		this.separator = separator;
+	}
+
+	public JTable getJtVansTable() {
+		return jtVansTable;
+	}
+
+	public void setJtVansTable(JTable jtVansTable) {
+		this.jtVansTable = jtVansTable;
+	}
+
+	public JScrollPane getScrollVans() {
+		return scrollVans;
+	}
+
+	public void setScrollVans(JScrollPane scrollVans) {
+		this.scrollVans = scrollVans;
+	}
+
+	public ArrayList<VanData> getVans() {
+		return vans;
+	}
+
+	public void setVans(ArrayList<VanData> vans) {
+		this.vans = vans;
+	}
+
+	public Date getPickUpDate() {
+		return pickUpDate;
+	}
+
+	public void setPickUpDate(Date pickUpDate) {
+		this.pickUpDate = pickUpDate;
+	}
+
+	public Date getReturnDate() {
+		return returnDate;
+	}
+
+	public void setReturnDate(Date returnDate) {
+		this.returnDate = returnDate;
+	}
+
+	public JButton getBtnCharacteristics() {
+		return btnCharacteristics;
+	}
+
+	public void setBtnCharacteristics(JButton btnCharacteristics) {
+		this.btnCharacteristics = btnCharacteristics;
+	}
+
+	public JButton getBtnBook() {
+		return btnBook;
+	}
+
+	public void setBtnBook(JButton btnBook) {
+		this.btnBook = btnBook;
+	}
+
+	public DefaultTableModel getTableModel() {
+		return tableModel;
+	}
+
+	public void setTableModel(DefaultTableModel tableModel) {
+		this.tableModel = tableModel;
+	}
+
+	public javax.swing.DefaultListModel<String> getVansList() {
+		return vansList;
+	}
+
+	public void setVansList(javax.swing.DefaultListModel<String> vansList) {
+		this.vansList = vansList;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 }
-
-
