@@ -61,7 +61,7 @@ public class RemoveAccountWindowTest {
 			
 			assertTrue(w.getFrmRemoveAccount().getBounds().getWidth() > 330);
 			assertTrue(w.getFrmRemoveAccount().getBounds().getHeight() > 120);
-			assertEquals(w.getFrmRemoveAccount().getDefaultCloseOperation(), JFrame.EXIT_ON_CLOSE);
+			assertEquals(w.getFrmRemoveAccount().getDefaultCloseOperation(), JFrame.DISPOSE_ON_CLOSE);
 			assertNull(w.getFrmRemoveAccount().getContentPane().getLayout());
 			assertNotNull(w.getFrmRemoveAccount().getIconImage());
 			

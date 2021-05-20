@@ -54,7 +54,7 @@ public class RegisterUserWindowTest {
 			assertNull(w.getFrmRegisterYourself().getContentPane().getLayout());
 			assertNotNull(w.getFrmRegisterYourself().getIconImage());
 			
-			assertEquals(w.getLblRegisterTitle().getText(), controller.getResourcebundle().getString("register_your_van_msg"));
+			assertEquals(w.getLblRegisterTitle().getText(), controller.getResourcebundle().getString("register_as_new_user_msg"));
 			assertEquals(w.getLblRegisterTitle().getFont(), new Font("Tahoma", Font.BOLD, 15));
 			assertTrue(w.getLblRegisterTitle().getText().length() > 0);
 			assertTrue(w.getLblRegisterTitle().getWidth() > 290);
