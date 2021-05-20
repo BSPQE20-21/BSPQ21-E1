@@ -45,7 +45,7 @@ public class CancelReservationWindowTest {
 			
 			logger.info("Before tests code execution ends properly");
 		} catch(HeadlessException e) {
-			
+			logger.error("You are in ubuntu, it's not posible to do window's test");
 		}
 	}
 	
@@ -102,7 +102,7 @@ public class CancelReservationWindowTest {
 			
 			logger.info("Update lists methods tested");
 		} catch(HeadlessException e) {
-			System.out.println("You are in ubuntu, it's not posible to do window's test");
+			logger.error("You are in ubuntu, it's not posible to do window's test");
 		}
 	}
 

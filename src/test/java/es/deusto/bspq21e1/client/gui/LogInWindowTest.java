@@ -86,7 +86,7 @@ public class LogInWindowTest {
 			
 			logger.info("Initialize method tested");
 		} catch(HeadlessException e) {
-			System.out.println("You are in ubuntu, it's not posible to do window's test");
+			logger.debug("You are in ubuntu, it's not posible to do window's test");
 		}
 	}
 }

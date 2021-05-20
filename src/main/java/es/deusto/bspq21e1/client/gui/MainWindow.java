@@ -1,6 +1,5 @@
 package es.deusto.bspq21e1.client.gui;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -181,6 +180,46 @@ public class MainWindow extends JFrame {
 		frmMain.getContentPane().add(btnlogOut);
 		
 		logger.info("MainWindow well initialized");
+	}
+
+	public boolean isVisible() {
+		return visible;
+	}
+
+	public UserData getUser() {
+		return user;
+	}
+
+	public JFrame getFrmMain() {
+		return frmMain;
+	}
+
+	public JButton getBtnRegisterVan() {
+		return btnRegisterVan;
+	}
+
+	public JButton getBtnSearchVan() {
+		return btnSearchVan;
+	}
+
+	public JButton getBtnCancelRes() {
+		return btnCancelRes;
+	}
+
+	public JButton getBtnRemoveVan() {
+		return btnRemoveVan;
+	}
+
+	public JButton getBtnRemoveAccount() {
+		return btnRemoveAccount;
+	}
+
+	public JButton getBtnlogOut() {
+		return btnlogOut;
+	}
+
+	public JLabel getLblTitle() {
+		return lblTitle;
 	}
 	
 }

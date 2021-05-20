@@ -45,8 +45,8 @@ public class CharacteristicsWindowTest {
 			frmSearch = new SearchWindow(controller, u, new MainWindow(controller, u, false), false);
 			
 			logger.info("Before tests code execution ends properly");
-		} catch(HeadlessException e) {
-			
+		} catch (HeadlessException e) {
+			logger.error("You are in ubuntu, it's not posible to do window's test");
 		}
 	}
 	
@@ -162,7 +162,7 @@ public class CharacteristicsWindowTest {
 			
 			logger.info("Initialize method tested");
 		} catch(HeadlessException e) {
-			System.out.println("You are in ubuntu, it's not posible to do window's test");
+			logger.error("You are in ubuntu, it's not posible to do window's test");
 		}
 	}
 	
