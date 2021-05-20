@@ -65,15 +65,15 @@ public class RegisterUserWindowTest {
 			assertTrue(w.getLblId().getBounds().getHeight() > 17);
 			
 			assertTrue(w.getLblName().getText().length() > 0);
-			assertTrue(w.getLblName().getWidth() > 290);
+			assertTrue(w.getLblName().getWidth() > 125);
 			assertTrue(w.getLblName().getBounds().getHeight() > 13);
 			
 			assertTrue(w.getLblEmail().getText().length() > 0);
-			assertTrue(w.getLblEmail().getWidth() > 290);
+			assertTrue(w.getLblEmail().getBounds().getWidth() > 125);
 			assertTrue(w.getLblEmail().getBounds().getHeight() > 13);
 			
 			assertTrue(w.getLblPassword().getText().length() > 0);
-			assertTrue(w.getLblPassword().getWidth() > 290);
+			assertTrue(w.getLblPassword().getBounds().getWidth() > 125);
 			assertTrue(w.getLblPassword().getBounds().getHeight() > 13);
 		
 			assertTrue(w.getBtnBack().getText().length() > 0);
