@@ -175,16 +175,16 @@ public class DBManager {
 
 <span class="fc" id="L176">			logger.info(&quot;   * Deleting an object: &quot; + user.getName());</span>
 			
-<span class="fc" id="L178">			ArrayList&lt;Van&gt; listOfVans = (ArrayList&lt;Van&gt;)getVansByUser(dni);</span>
+<span class="fc" id="L178">			ArrayList&lt;Reservation&gt; listOfRes = (ArrayList&lt;Reservation&gt;)getReservationsByUser(dni);</span>
 			
-<span class="fc bfc" id="L180" title="All 2 branches covered.">			for (Van van : listOfVans) {</span>
-<span class="fc" id="L181">				deleteVan(van.getLicensePlate());</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">			for (Reservation res : listOfRes) {</span>
+<span class="fc" id="L181">				deleteReservation(res.getCode());</span>
 			}
 			
-<span class="fc" id="L184">			ArrayList&lt;Reservation&gt; listOfRes = (ArrayList&lt;Reservation&gt;)getReservationsByUser(dni);</span>
+<span class="fc" id="L184">			ArrayList&lt;Van&gt; listOfVans = (ArrayList&lt;Van&gt;)getVansByUser(dni);</span>
 			
-<span class="fc bfc" id="L186" title="All 2 branches covered.">			for (Reservation res : listOfRes) {</span>
-<span class="fc" id="L187">				deleteReservation(res.getCode());</span>
+<span class="fc bfc" id="L186" title="All 2 branches covered.">			for (Van van : listOfVans) {</span>
+<span class="fc" id="L187">				deleteVan(van.getLicensePlate());</span>
 			}
 			
 <span class="fc" id="L190">			pm.deletePersistent(user);</span>

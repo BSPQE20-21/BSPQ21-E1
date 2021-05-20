@@ -103,7 +103,13 @@ public class ControllerTest {
     	controller.registerUsersList(users);
     	controller.registerVansList(vans);
     	controller.registerReservationsList(reservations);
+    	
     	controller.initializeDemoData();
+    	controller.eraseUser("11111111A");
+		controller.eraseUser("22222222B");
+		controller.eraseUser("33333333C");
+		controller.eraseUser("44444444D");
+		controller.eraseUser("55555555E");
     	
     	logger.info("Before tests code execution ends properly");
 	}
@@ -119,17 +125,11 @@ public class ControllerTest {
     	
     	assertTrue(controller.eraseUser(userDni));
 		assertTrue(controller.eraseUser(userDni2));
-		assertEquals(4, controller.searchVans("Bilbao", "10-10-2021", "20-10-2021").size());
+		assertEquals(0, controller.searchVans("Bilbao", "10-10-2021", "20-10-2021").size());
 		
 		controller.eraseUser("14725836D");
 		controller.eraseUser("14725836E");
 		controller.eraseUser("14725836F");
-		
-		controller.eraseUser("11111111A");
-		controller.eraseUser("22222222B");
-		controller.eraseUser("33333333C");
-		controller.eraseUser("44444444D");
-		controller.eraseUser("55555555E");
 
 		logger.info("After tests code execution begins properly");
 	}
@@ -154,7 +154,7 @@ public class ControllerTest {
 	
 	@Test
 	public void searchVansTest() {
-		assertEquals(5, controller.searchVans("Bilbao", "30-09-2021", "20-10-2021").size());
+		assertEquals(1, controller.searchVans("Bilbao", "30-09-2021", "20-10-2021").size());
 		assertEquals(0, controller.searchVans("Leon", "10-10-2021", "20-10-2021").size());
 		logger.info("Test of searchVans done");
 	}
