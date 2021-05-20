@@ -172,7 +172,7 @@ static Logger logger = Logger.getLogger(SearchWindowTest.class.getName());
 			
 			
 		} catch(HeadlessException e) {
-			System.out.println("You are in ubuntu, it's not posible to do window's test");
+			logger.error("You are in ubuntu, it's not posible to do window's test");
 		}
 	}
 	
