@@ -11,64 +11,64 @@ import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
 import es.deusto.bspq21e1.server.data.Review;
 
-<span class="nc" id="L14">public class Assembler {</span>
+<span class="fc" id="L14">public class Assembler {</span>
     
-<span class="nc" id="L16">	private static Logger logger = Logger.getLogger(Assembler.class.getName());</span>
+<span class="fc" id="L16">	private static Logger logger = Logger.getLogger(Assembler.class.getName());</span>
 	
     public UserData assembleUser(User u) {
-<span class="nc" id="L19">		UserData userData = new UserData(u.getDni(), u.getName(), u.getName(), u.getPassword());</span>
-<span class="nc" id="L20">		logger.info(&quot;User assembled&quot;);</span>
-<span class="nc" id="L21">		return userData;</span>
+<span class="fc" id="L19">		UserData userData = new UserData(u.getDni(), u.getName(), u.getEmail(), u.getPassword());</span>
+<span class="fc" id="L20">		logger.info(&quot;User assembled&quot;);</span>
+<span class="fc" id="L21">		return userData;</span>
     }
 
 	public ReservationData assembleReservation(Reservation r) {		
-<span class="nc" id="L25">		ReservationData reservationData = new ReservationData(r.getCode() , r.getBookingDate(), r.getDuration(), r.getVan(), r.getVanRenter());</span>
-<span class="nc" id="L26">		logger.info(&quot;Reservation assembled&quot;);</span>
-<span class="nc" id="L27">		return reservationData;</span>
+<span class="fc" id="L25">		ReservationData reservationData = new ReservationData(r.getCode() , r.getBookingDate(), r.getDuration(), r.getVan(), r.getVanRenter());</span>
+<span class="fc" id="L26">		logger.info(&quot;Reservation assembled&quot;);</span>
+<span class="fc" id="L27">		return reservationData;</span>
     }
 
     public VanData assembleVan(Van v) {
-<span class="nc" id="L31">    	VanData vanData = new VanData(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.getCapacity(), v.hasKitchen(), v.hasShower(), v.isOffRoad(),  v.getPricePerDay(), v.getUser());</span>
-<span class="nc" id="L32">    	logger.info(&quot;Van assembled&quot;);</span>
-<span class="nc" id="L33">    	return vanData;	</span>
+<span class="fc" id="L31">    	VanData vanData = new VanData(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.getCapacity(), v.hasKitchen(), v.hasShower(), v.isOffRoad(),  v.getPricePerDay(), v.getUser());</span>
+<span class="fc" id="L32">    	logger.info(&quot;Van assembled&quot;);</span>
+<span class="fc" id="L33">    	return vanData;	</span>
     }
     
     public ReviewData assembleReview(Review r) {
-<span class="nc" id="L37">		ReviewData reviewData = new ReviewData(r.getCode(), r.getComment(), r.getVan());</span>
-<span class="nc" id="L38">		logger.info(&quot;Review assembled&quot;);</span>
-<span class="nc" id="L39">		return reviewData;</span>
+<span class="fc" id="L37">		ReviewData reviewData = new ReviewData(r.getCode(), r.getStars(), r.getComment(), r.getVan());</span>
+<span class="fc" id="L38">		logger.info(&quot;Review assembled&quot;);</span>
+<span class="fc" id="L39">		return reviewData;</span>
     }
 
     public User disassembleUser(UserData u) {
-<span class="nc" id="L43">    	User user = new User(u.getDni(), u.getName(), u.getEmail(), u.getPassword());</span>
-<span class="nc" id="L44">    	logger.info(&quot;User disassembled&quot;);</span>
-<span class="nc" id="L45">    	return user;</span>
+<span class="fc" id="L43">    	User user = new User(u.getDni(), u.getName(), u.getEmail(), u.getPassword());</span>
+<span class="fc" id="L44">    	logger.info(&quot;User disassembled&quot;);</span>
+<span class="fc" id="L45">    	return user;</span>
 
     }
 
     public Reservation disassembleReservation(ReservationData r) {    	
-<span class="nc" id="L50">    	Reservation reservationData = new Reservation(r.getBookingDate(), r.getDuration(), r.getVan(), r.getVanRenter());</span>
-<span class="nc" id="L51">    	logger.info(&quot;Reservation disassembled&quot;);</span>
-<span class="nc" id="L52">    	return reservationData;</span>
+<span class="fc" id="L50">    	Reservation reservationData = new Reservation(r.getBookingDate(), r.getDuration(), r.getVan(), r.getVanRenter());</span>
+<span class="fc" id="L51">    	logger.info(&quot;Reservation disassembled&quot;);</span>
+<span class="fc" id="L52">    	return reservationData;</span>
     }
 
     public Van disassembleVan(VanData v) {
-<span class="nc" id="L56">    	Van van = new Van(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.hasKitchen(), v.hasShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay(), v.getUser());</span>
+<span class="fc" id="L56">    	Van van = new Van(v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), v.hasKitchen(), v.hasShower(), v.isOffRoad(), v.getCapacity(), v.getPricePerDay(), v.getUser());</span>
     	
-<span class="nc" id="L58">		logger.debug(&quot;$ DEBUGGING\n&quot; +</span>
+<span class="fc" id="L58">		logger.debug(&quot;$ DEBUGGING\n&quot; +</span>
 				&quot;\tPrinting Van and User from Assembler in Server side:\n&quot;+
-				&quot;\tVan: &quot; + van +
-<span class="nc" id="L61">				&quot;\n\tUser: &quot; + van.getUser().toString() +</span>
-				&quot;\n=======================\n&quot;);
-<span class="nc" id="L63">		logger.info(&quot;Van disassembled&quot;);</span>
-<span class="nc" id="L64">    	return van;</span>
+<span class="fc" id="L60">				&quot;\tVan: &quot; + van +</span>
+<span class="fc" id="L61">				&quot;\n\tUser: &quot; + van.getUser().toString() +</span>
+<span class="fc" id="L62">				&quot;\n=======================\n&quot;);</span>
+<span class="fc" id="L63">		logger.info(&quot;Van disassembled&quot;);</span>
+<span class="fc" id="L64">    	return van;</span>
     	
     }
 
     public Review disassembleReview(ReviewData r) {
-<span class="nc" id="L69">		Review review = new Review(r.getCode(), r.getComment(), r.getVan());</span>
-<span class="nc" id="L70">		logger.info(&quot;Review disassembled&quot;);</span>
-<span class="nc" id="L71">		return review;</span>
+<span class="fc" id="L69">		Review review = new Review(r.getCode(), r.getStars(), r.getComment(), r.getVan());</span>
+<span class="fc" id="L70">		logger.info(&quot;Review disassembled&quot;);</span>
+<span class="fc" id="L71">		return review;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

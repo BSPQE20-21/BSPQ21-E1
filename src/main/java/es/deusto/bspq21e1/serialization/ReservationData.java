@@ -46,6 +46,7 @@ public class ReservationData {
 	 */
     public ReservationData(Date bookingDate, int duration, String van, String vanRenter) {
 		super();
+		this.code = bookingDate.getTime()+van;
 		this.bookingDate = bookingDate;
 		this.duration = duration;
 		this.van = van;

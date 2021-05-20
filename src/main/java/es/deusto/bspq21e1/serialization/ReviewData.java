@@ -11,6 +11,13 @@ public class ReviewData {
     private int stars;
     private String comment;
     private String van;
+    
+    public ReviewData(int code, int stars, String comment, String van) {
+        this.code = code;
+        this.stars = stars;
+        this.comment = comment;
+        this.van = van;
+    }
 
 	/**
 	 * Creates the object that has the data from Review.

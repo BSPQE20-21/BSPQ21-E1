@@ -11,54 +11,61 @@ public class ReviewData {
     private int stars;
     private String comment;
     private String van;
+    
+<span class="fc" id="L15">    public ReviewData(int code, int stars, String comment, String van) {</span>
+<span class="fc" id="L16">        this.code = code;</span>
+<span class="fc" id="L17">        this.stars = stars;</span>
+<span class="fc" id="L18">        this.comment = comment;</span>
+<span class="fc" id="L19">        this.van = van;</span>
+<span class="fc" id="L20">    }</span>
 
 	/**
 	 * Creates the object that has the data from Review.
 	 * @param stars Rating between zero and five stars.
 	 * @param comment Comment of the review.
 	 */
-<span class="nc" id="L20">    public ReviewData(int stars, String comment, String van) {</span>
-<span class="nc" id="L21">        this.code = (int)Math.random()*10000;</span>
-<span class="nc" id="L22">        this.stars = stars;</span>
-<span class="nc" id="L23">        this.comment = comment;</span>
-<span class="nc" id="L24">        this.van = van;</span>
-<span class="nc" id="L25">    }</span>
+<span class="fc" id="L27">    public ReviewData(int stars, String comment, String van) {</span>
+<span class="fc" id="L28">        this.code = (int)Math.random()*10000;</span>
+<span class="fc" id="L29">        this.stars = stars;</span>
+<span class="fc" id="L30">        this.comment = comment;</span>
+<span class="fc" id="L31">        this.van = van;</span>
+<span class="fc" id="L32">    }</span>
 
     public int getCode() {
-<span class="nc" id="L28">		return code;</span>
+<span class="fc" id="L35">		return code;</span>
 	}
 
 	public void setCode(int code) {
-<span class="nc" id="L32">		this.code = code;</span>
-<span class="nc" id="L33">	}</span>
+<span class="nc" id="L39">		this.code = code;</span>
+<span class="nc" id="L40">	}</span>
 
 	public int getStars() {
-<span class="nc" id="L36">		return stars;</span>
+<span class="fc" id="L43">		return stars;</span>
 	}
 
 	public void setStars(int stars) {
-<span class="nc" id="L40">		this.stars = stars;</span>
-<span class="nc" id="L41">	}</span>
+<span class="nc" id="L47">		this.stars = stars;</span>
+<span class="nc" id="L48">	}</span>
 
 	public String getComment() {
-<span class="nc" id="L44">		return comment;</span>
+<span class="fc" id="L51">		return comment;</span>
 	}
 
 	public void setComment(String comment) {
-<span class="nc" id="L48">		this.comment = comment;</span>
-<span class="nc" id="L49">	}</span>
+<span class="nc" id="L55">		this.comment = comment;</span>
+<span class="nc" id="L56">	}</span>
 
 	public String getVan() {
-<span class="nc" id="L52">		return van;</span>
+<span class="fc" id="L59">		return van;</span>
 	}
 
 	public void setVan(String van) {
-<span class="nc" id="L56">		this.van = van;</span>
-<span class="nc" id="L57">	}</span>
+<span class="nc" id="L63">		this.van = van;</span>
+<span class="nc" id="L64">	}</span>
 
 	@Override
 	public String toString() {
-<span class="nc" id="L61">		return &quot;ReviewData [code=&quot; + code + &quot;, stars=&quot; + stars + &quot;, comment=&quot; + comment +&quot;, van=&quot; + van + &quot;]&quot;;</span>
+<span class="nc" id="L68">		return &quot;ReviewData [code=&quot; + code + &quot;, stars=&quot; + stars + &quot;, comment=&quot; + comment +&quot;, van=&quot; + van + &quot;]&quot;;</span>
 	}
 
 }

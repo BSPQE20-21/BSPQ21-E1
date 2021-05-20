@@ -293,34 +293,49 @@ public class Controller {
 <span class="nc" id="L293">					reservations.add( new ReservationData(d, Integer.parseInt(fields[1]), fields[2], fields[3]) );</span>
 <span class="nc" id="L294">					logger.debug(&quot;Reservation created from csv&quot;);</span>
 <span class="nc" id="L295">				} else { // Van -&gt; DEBUG HERE</span>
-<span class="nc" id="L296">					vans.add( new VanData(fields[0], fields[1], fields[2], fields[3], Integer.parseInt(fields[4]), Boolean.parseBoolean(fields[5]),</span>
-<span class="nc" id="L297">							Boolean.parseBoolean(fields[6]), Boolean.parseBoolean(fields[7]), Double.parseDouble(fields[8]), fields[9]) );</span>
-<span class="nc" id="L298">					logger.debug(&quot;Van created from csv&quot;);</span>
+<span class="nc" id="L296">					VanData v = new VanData();</span>
+<span class="nc" id="L297">					v.setLicensePlate( fields[0] ); logger.debug(&quot;License plate from van stored&quot;);</span>
+<span class="nc" id="L298">					v.setBrand( fields[1] ); logger.debug(&quot;Brand from van stored&quot;);</span>
+<span class="nc" id="L299">					v.setModel( fields[2] ); logger.debug(&quot;Model from van stored&quot;);</span>
+<span class="nc" id="L300">					v.setLocation( fields[3] ); logger.debug(&quot;Location from van stored&quot;);</span>
+<span class="nc" id="L301">					logger.debug(&quot;Capacity: &quot; + fields[4]);</span>
+<span class="nc" id="L302">					v.setCapacity( Integer.parseInt( fields[4] ) ); logger.debug(&quot;Capacity from van stored&quot;);</span>
+<span class="nc" id="L303">					logger.debug(&quot;Kitchen: &quot; + fields[5]);</span>
+<span class="nc" id="L304">					v.setKitchen( Boolean.parseBoolean( fields[5] ) ); logger.debug(&quot;Kitchen from van stored&quot;);</span>
+<span class="nc" id="L305">					logger.debug(&quot;Shower: &quot; + fields[6]);</span>
+<span class="nc" id="L306">					v.setShower( Boolean.parseBoolean( fields[6] ) ); logger.debug(&quot;Shower from van stored&quot;);</span>
+<span class="nc" id="L307">					logger.debug(&quot;Off-road: &quot; + fields[7]);</span>
+<span class="nc" id="L308">					v.setOffRoad( Boolean.parseBoolean( fields[7] ) ); logger.debug(&quot;Off-road from van stored&quot;);</span>
+<span class="nc" id="L309">					logger.debug(&quot;Price: &quot; + fields[8]);</span>
+<span class="nc" id="L310">					v.setPricePerDay( Double.parseDouble( fields[8] ) ); logger.debug(&quot;Price from van stored&quot;);</span>
+<span class="nc" id="L311">					logger.debug(&quot;User's dni: &quot; + fields[9]);</span>
+<span class="nc" id="L312">					v.setUser( fields[9] ); logger.debug(&quot;User's dni from van stored&quot;);</span>
+<span class="nc" id="L313">					logger.debug(&quot;Van created from csv&quot;);</span>
 				}
-<span class="nc" id="L300">				line = br.readLine();</span>
-<span class="nc" id="L301">			}</span>
-<span class="nc" id="L302">			registerUsersList(users);</span>
-<span class="nc" id="L303">			registerVansList(vans);</span>
-<span class="nc" id="L304">			registerReservationsList(reservations);</span>
-<span class="fc" id="L305">		} catch (Exception e) {</span>
-<span class="fc" id="L306">			logger.error(&quot;It wasn't possible to read the demo data&quot;);</span>
+<span class="nc" id="L315">				line = br.readLine();</span>
+<span class="nc" id="L316">			}</span>
+<span class="nc" id="L317">			registerUsersList(users);</span>
+<span class="nc" id="L318">			registerVansList(vans);</span>
+<span class="nc" id="L319">			registerReservationsList(reservations);</span>
+<span class="fc" id="L320">		} catch (Exception e) {</span>
+<span class="fc" id="L321">			logger.error(&quot;It wasn't possible to read the demo data&quot;);</span>
 		} finally {
-<span class="pc bpc" id="L308" title="1 of 2 branches missed.">			if (br != null) {</span>
+<span class="pc bpc" id="L323" title="1 of 2 branches missed.">			if (br != null) {</span>
 				try {
-<span class="nc" id="L310">					br.close();</span>
-<span class="nc" id="L311">				} catch (IOException e) {</span>
-<span class="nc" id="L312">					logger.error(&quot;It wasn't possible to close the buffered reader&quot;);</span>
-<span class="nc" id="L313">				}</span>
+<span class="nc" id="L325">					br.close();</span>
+<span class="nc" id="L326">				} catch (IOException e) {</span>
+<span class="nc" id="L327">					logger.error(&quot;It wasn't possible to close the buffered reader&quot;);</span>
+<span class="nc" id="L328">				}</span>
 			}
 		}
-<span class="fc" id="L316">	}</span>
+<span class="fc" id="L331">	}</span>
 	
 	/**
 	 * Returns the ResourceBundle
 	 * @return ResourceBundle
 	 */
 	public ResourceBundle getResourcebundle() {
-<span class="fc" id="L323">		return resourceBundle;</span>
+<span class="fc" id="L338">		return resourceBundle;</span>
 	}
 	
 	/**
@@ -328,18 +343,18 @@ public class Controller {
 	 * @param locale
 	 */
 	public void setLocale(String locale){
-<span class="nc bnc" id="L331" title="All 2 branches missed.">		if(locale.equals(&quot;es&quot;)){</span>
-<span class="nc" id="L332">			currentLocale = new Locale(&quot;es&quot;);</span>
-<span class="nc bnc" id="L333" title="All 2 branches missed.">		}else if(locale.equals(&quot;eu&quot;)){</span>
-<span class="nc" id="L334">			currentLocale = new Locale(&quot;eu&quot;);</span>
-<span class="nc bnc" id="L335" title="All 2 branches missed.">		}else if(locale.equals(&quot;en&quot;)){</span>
-<span class="nc" id="L336">			currentLocale = new Locale(&quot;en&quot;);</span>
+<span class="nc bnc" id="L346" title="All 2 branches missed.">		if(locale.equals(&quot;es&quot;)){</span>
+<span class="nc" id="L347">			currentLocale = new Locale(&quot;es&quot;);</span>
+<span class="nc bnc" id="L348" title="All 2 branches missed.">		}else if(locale.equals(&quot;eu&quot;)){</span>
+<span class="nc" id="L349">			currentLocale = new Locale(&quot;eu&quot;);</span>
+<span class="nc bnc" id="L350" title="All 2 branches missed.">		}else if(locale.equals(&quot;en&quot;)){</span>
+<span class="nc" id="L351">			currentLocale = new Locale(&quot;en&quot;);</span>
 		}
-<span class="nc" id="L338">		resourceBundle = ResourceBundle.getBundle(&quot;SystemMessages&quot;, currentLocale);</span>
-<span class="nc" id="L339">	}</span>
+<span class="nc" id="L353">		resourceBundle = ResourceBundle.getBundle(&quot;SystemMessages&quot;, currentLocale);</span>
+<span class="nc" id="L354">	}</span>
 
 	public String getDemoDataPath() {
-<span class="fc" id="L342">		return demoDataPath;</span>
+<span class="fc" id="L357">		return demoDataPath;</span>
 	}
 	
 }

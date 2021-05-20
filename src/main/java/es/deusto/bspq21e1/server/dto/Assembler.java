@@ -16,7 +16,7 @@ public class Assembler {
 	private static Logger logger = Logger.getLogger(Assembler.class.getName());
 	
     public UserData assembleUser(User u) {
-		UserData userData = new UserData(u.getDni(), u.getName(), u.getName(), u.getPassword());
+		UserData userData = new UserData(u.getDni(), u.getName(), u.getEmail(), u.getPassword());
 		logger.info("User assembled");
 		return userData;
     }
@@ -34,7 +34,7 @@ public class Assembler {
     }
     
     public ReviewData assembleReview(Review r) {
-		ReviewData reviewData = new ReviewData(r.getCode(), r.getComment(), r.getVan());
+		ReviewData reviewData = new ReviewData(r.getCode(), r.getStars(), r.getComment(), r.getVan());
 		logger.info("Review assembled");
 		return reviewData;
     }
@@ -66,7 +66,7 @@ public class Assembler {
     }
 
     public Review disassembleReview(ReviewData r) {
-		Review review = new Review(r.getCode(), r.getComment(), r.getVan());
+		Review review = new Review(r.getCode(), r.getStars(), r.getComment(), r.getVan());
 		logger.info("Review disassembled");
 		return review;
     }
