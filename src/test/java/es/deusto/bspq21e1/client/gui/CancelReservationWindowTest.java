@@ -111,16 +111,20 @@ public class CancelReservationWindowTest {
 	
 	@Test
 	public void updateListTest() {
-		VanData van = new VanData("1234PML", "Furgo", "Fur", "Bilbao", 5, true, false, true, 65, user.getDni());
-		controller.registerUsers(user.getDni(), user.getName(), user.getEmail(), user.getPassword());
-		controller.registerVan(van);
-		ReservationData r = new ReservationData(new Date(), 8, van.getLicensePlate(), user.getDni());
-		controller.registerReservation(new Date(), 8, van, user);
-		
-		CancelReservationWindow w = new CancelReservationWindow(controller, user, frmMain, false);
-		
-		controller.eraseUser(user.getDni());
-		controller.cancelReservation(null);
+		try {
+			VanData van = new VanData("1234PML", "Furgo", "Fur", "Bilbao", 5, true, false, true, 65, user.getDni());
+			controller.registerUsers(user.getDni(), user.getName(), user.getEmail(), user.getPassword());
+			controller.registerVan(van);
+			ReservationData r = new ReservationData(new Date(), 8, van.getLicensePlate(), user.getDni());
+			controller.registerReservation(new Date(), 8, van, user);
+			
+			CancelReservationWindow w = new CancelReservationWindow(controller, user, frmMain, false);
+			
+			controller.eraseUser(user.getDni());
+			controller.cancelReservation(null);
+		} catch (HeadlessException e) {
+			
+		}
 	}
 
 }

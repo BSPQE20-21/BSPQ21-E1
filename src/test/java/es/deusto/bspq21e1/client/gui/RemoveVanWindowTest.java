@@ -53,7 +53,6 @@ public class RemoveVanWindowTest {
 	@Test
 	public void constructorTest() {
 		try {
-			
 			assertEquals(w.getClass(), RemoveVanWindow.class);
 			assertTrue(w.getFrmRemoveVan().getTitle().length() > 0);
 			assertFalse(w.getFrmRemoveVan().isResizable());
