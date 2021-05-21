@@ -139,8 +139,8 @@ public class ControllerTest {
 	}
 	
 	@Test
-	@PerfTest(invocations = 5, threads = 10)
-	@Required(max = 1200, average = 250)
+	@PerfTest(invocations = 5, threads = 20)
+	@Required(max = 2500, average = 500)
 	public void loginUserTest() {
     	UserData us = controller.loginUser(userEmail2, userPass);
 		assertEquals(userDni2, us.getDni());
@@ -152,8 +152,8 @@ public class ControllerTest {
     }
 	
 	@Test
-	@PerfTest(invocations = 5, threads = 10)
-	@Required(max = 1200, average = 250)
+	@PerfTest(invocations = 5, threads = 20)
+	@Required(max = 2500, average = 500)
 	public void getMyVansTest() {
 		assertEquals(2, controller.getMyVans(userDni).size());
 		assertEquals(0, controller.getMyVans("9516203").size());
@@ -161,8 +161,8 @@ public class ControllerTest {
 	}
 	
 	@Test
-	@PerfTest(invocations = 5, threads = 10)
-	@Required(max = 1200, average = 250)
+	@PerfTest(invocations = 5, threads = 20)
+	@Required(max = 2500, average = 500)
 	public void searchVansTest() {
 		assertEquals(1, controller.searchVans("Bilbao", "30-09-2021", "20-10-2021").size());
 		assertEquals(0, controller.searchVans("Leon", "10-10-2021", "20-10-2021").size());
@@ -170,8 +170,8 @@ public class ControllerTest {
 	}
 	
 	@Test
-	@PerfTest(invocations = 5, threads = 10)
-	@Required(max = 1200, average = 250)
+	@PerfTest(invocations = 5, threads = 20)
+	@Required(max = 2500, average = 500)
 	public void getMyReservations() {		
 		assertEquals(1, controller.getMyReservations(u).size());
 		assertEquals(0, controller.getMyReservations(new UserData()).size());
@@ -179,8 +179,8 @@ public class ControllerTest {
 	}
 	
 	@Test
-	@PerfTest(invocations = 5, threads = 10)
-	@Required(max = 1200, average = 250)
+	@PerfTest(invocations = 5, threads = 20)
+	@Required(max = 2500, average = 500)
 	public void setLocaleTest() {		
 		controller.setLocale("es");
 		assertEquals(ResourceBundle.getBundle("SystemMessages", new Locale("es")).getBaseBundleName(), controller.getResourcebundle().getBaseBundleName());
