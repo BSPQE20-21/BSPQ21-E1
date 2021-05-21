@@ -121,7 +121,7 @@ public class CancelReservationWindowTest {
 			CancelReservationWindow w = new CancelReservationWindow(controller, user, frmMain, false);
 			
 			controller.eraseUser(user.getDni());
-			controller.cancelReservation(null);
+			controller.cancelReservation(r.getCode());
 		} catch (HeadlessException e) {
 			
 		}
