@@ -2,11 +2,6 @@ package es.deusto.bspq21e1.server.data;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.jdo.annotations.Join;
-
 import org.apache.log4j.Logger;
 import org.junit.*;
 

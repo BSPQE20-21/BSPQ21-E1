@@ -9,12 +9,11 @@ import java.util.Date;
 import org.apache.log4j.Logger;
 import org.junit.*;
 
-import es.deusto.bspq21e1.server.dao.DBManagerTest;
 import junit.framework.JUnit4TestAdapter;
 
 public class ReservationTest {
 	
-	static Logger logger = Logger.getLogger(DBManagerTest.class.getName());
+	static Logger logger = Logger.getLogger(ReservationTest.class.getName());
 	
 	Date date;
 	String code;

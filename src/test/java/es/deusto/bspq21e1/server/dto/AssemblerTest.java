@@ -8,7 +8,6 @@ import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.deusto.bspq21e1.client.gui.MainWindowTest;
 import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.ReviewData;
 import es.deusto.bspq21e1.serialization.UserData;
@@ -19,7 +18,7 @@ import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
 
 public class AssemblerTest {
-	static Logger logger = Logger.getLogger(MainWindowTest.class.getName());
+	static Logger logger = Logger.getLogger(AssemblerTest.class.getName());
 	private Assembler as;
 	
 	@Before

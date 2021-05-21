@@ -11,12 +11,7 @@ import java.util.ResourceBundle;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import org.apache.log4j.Logger;
@@ -24,22 +19,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
-import es.deusto.bspq21e1.server.AirBVService;
-import es.deusto.bspq21e1.server.data.Reservation;
-import es.deusto.bspq21e1.server.data.User;
-import es.deusto.bspq21e1.server.data.Van;
-import es.deusto.bspq21e1.server.dto.Assembler;
-import es.deusto.bspq21e1.server.remote.AirBV;
 
 public class AirBVTest {
 
 	private Client client;
     private WebTarget webTarget;
-    private static Logger logger = Logger.getLogger(Controller.class.getName());
+    private static Logger logger = Logger.getLogger(AirBVTest.class.getName());
     private ResourceBundle resourceBundle;
     private AirBV airBV;
 	

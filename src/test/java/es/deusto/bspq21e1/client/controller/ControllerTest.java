@@ -21,7 +21,6 @@ import org.junit.Test;
 import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
-import es.deusto.bspq21e1.server.dao.DBManagerTest;
 import junit.framework.JUnit4TestAdapter;
 
 public class ControllerTest {

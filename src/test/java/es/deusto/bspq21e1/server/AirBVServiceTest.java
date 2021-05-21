@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
@@ -12,18 +11,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.deusto.bspq21e1.client.controller.Controller;
-import es.deusto.bspq21e1.client.controller.ControllerTest;
 import es.deusto.bspq21e1.serialization.UserData;
-import es.deusto.bspq21e1.serialization.VanData;
-import es.deusto.bspq21e1.server.dao.DBManager;
-import es.deusto.bspq21e1.server.data.Reservation;
 import es.deusto.bspq21e1.server.data.User;
 import es.deusto.bspq21e1.server.data.Van;
 
 public class AirBVServiceTest {
 	
-	static Logger logger = Logger.getLogger(ControllerTest.class.getName());
+	static Logger logger = Logger.getLogger(AirBVServiceTest.class.getName());
 	
 	AirBVService service;
 	String userDni;
