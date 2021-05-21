@@ -31,7 +31,7 @@ public class RemoveVanWindowTest {
 	RemoveVanWindow w;
 	
 	public static junit.framework.Test suite() {
-		return new JUnit4TestAdapter(RegisterVanWindowTest.class);
+		return new JUnit4TestAdapter(RemoveVanWindowTest.class);
 	}
 	
 	@Before
@@ -42,6 +42,7 @@ public class RemoveVanWindowTest {
 			controller = new Controller("127.0.0.1", "8080", "");
 			user = new UserData("00001111A", "Carlos", "carlos@gmail.com", "admin");
 			frmMain = new MainWindow(controller, user, false);
+			w = new RemoveVanWindow(controller, user, frmMain, false);
 			
 			logger.info("Before tests code execution ends properly");
 		} catch(HeadlessException e) {
@@ -52,7 +53,6 @@ public class RemoveVanWindowTest {
 	@Test
 	public void constructorTest() {
 		try {
-			w = new RemoveVanWindow(controller, user, frmMain, false);
 			
 			assertEquals(w.getClass(), RemoveVanWindow.class);
 			assertTrue(w.getFrmRemoveVan().getTitle().length() > 0);
@@ -68,7 +68,7 @@ public class RemoveVanWindowTest {
 			assertNotNull(w.getFrmRemoveVan().getIconImage());
 			
 			assertNotNull(w.getJtVansTable().getModel());
-			assertEquals(w.getJtVansTable().getSelectionModel(), ListSelectionModel.SINGLE_SELECTION);
+			assertEquals(w.getJtVansTable().getSelectionModel().getSelectionMode(), ListSelectionModel.SINGLE_SELECTION);
 			assertFalse(w.getJtVansTable().getTableHeader().getResizingAllowed());
 			assertFalse(w.getJtVansTable().getTableHeader().getReorderingAllowed());
 			

@@ -179,13 +179,13 @@ public class DBManager {
 			
 <span class="fc bfc" id="L180" title="All 2 branches covered.">			for (Reservation res : listOfRes) {</span>
 <span class="fc" id="L181">				deleteReservation(res.getCode());</span>
-			}
+<span class="fc" id="L182">			}</span>
 			
 <span class="fc" id="L184">			ArrayList&lt;Van&gt; listOfVans = (ArrayList&lt;Van&gt;)getVansByUser(dni);</span>
 			
 <span class="fc bfc" id="L186" title="All 2 branches covered.">			for (Van van : listOfVans) {</span>
 <span class="fc" id="L187">				deleteVan(van.getLicensePlate());</span>
-			}
+<span class="fc" id="L188">			}</span>
 			
 <span class="fc" id="L190">			pm.deletePersistent(user);</span>
 <span class="fc" id="L191">			tx.commit();</span>
@@ -359,7 +359,7 @@ public class DBManager {
 <span class="fc" id="L359">				res.setVan(r.getVan());</span>
 <span class="fc" id="L360">				res.setVanRenter(r.getVanRenter());</span>
 <span class="fc" id="L361">				ress.add(res);</span>
-			}
+<span class="fc" id="L362">			}</span>
 <span class="fc" id="L363">			return ress;</span>
 <span class="nc" id="L364">		} catch (Exception e) {</span>
 <span class="nc" id="L365">			logger.error(&quot;   $ Error retrieving reservations from van renter: &quot; + e.getMessage() );</span>
@@ -394,12 +394,12 @@ public class DBManager {
 <span class="fc" id="L394">					available = false;</span>
 <span class="fc" id="L395">					break;</span>
 				}
-			}
+<span class="fc" id="L397">			}</span>
 			
 <span class="fc bfc" id="L399" title="All 2 branches covered.">			if(available) {</span>
 <span class="fc" id="L400">				vans.add(van);</span>
 			}
-		}
+<span class="fc" id="L402">		}</span>
 <span class="fc" id="L403">		return vans;</span>
 	}
 	
@@ -430,7 +430,7 @@ public class DBManager {
 <span class="fc" id="L430">				reser.setVan(r.getVan());</span>
 <span class="fc" id="L431">				reser.setVanRenter(r.getVanRenter());</span>
 <span class="fc" id="L432">				res.add(reser);</span>
-			}
+<span class="fc" id="L433">			}</span>
 			
 <span class="fc" id="L435">			return res;</span>
 <span class="nc" id="L436">		} catch (Exception e) {</span>
@@ -480,7 +480,7 @@ public class DBManager {
 <span class="fc" id="L480">				van.setStatus(v.getStatus());</span>
 <span class="fc" id="L481">				van.setUser(v.getUser());</span>
 <span class="fc" id="L482">				vans.add(van);</span>
-			}
+<span class="fc" id="L483">			}</span>
 <span class="fc" id="L484">			return vans;</span>
 <span class="nc" id="L485">		} catch (Exception e) {</span>
 <span class="nc" id="L486">			logger.error(&quot;   $ Error retrieving vans with location: &quot; + e.getMessage() );</span>
@@ -526,7 +526,7 @@ public class DBManager {
 <span class="fc" id="L526">				van.setStatus(v.getStatus());</span>
 <span class="fc" id="L527">				van.setUser(v.getUser());</span>
 <span class="fc" id="L528">				vans.add(van);</span>
-			}
+<span class="fc" id="L529">			}</span>
 <span class="fc" id="L530">			return vans;</span>
 <span class="nc" id="L531">		} catch (Exception e) {</span>
 <span class="nc" id="L532">			logger.error(&quot;   $ Error retrieving vans by user: &quot; + e.getMessage() );</span>

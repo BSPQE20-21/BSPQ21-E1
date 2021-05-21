@@ -75,22 +75,22 @@ public class AirBVService {
 <span class="fc" id="L75">		Date pickUpDate = null;</span>
 		try {
 <span class="fc" id="L77">			pickUpDate = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(pickUpDateString);</span>
-<span class="pc" id="L78">		} catch (ParseException e1) {</span>
+<span class="nc" id="L78">		} catch (ParseException e1) {</span>
 <span class="nc" id="L79">			e1.printStackTrace();</span>
-		}
+<span class="fc" id="L80">		}</span>
 		
 <span class="fc" id="L82">		Date returnDate = null;</span>
 		try {
 <span class="fc" id="L84">			returnDate = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(returnDateString);</span>
-<span class="pc" id="L85">		} catch (ParseException e1) {</span>
+<span class="nc" id="L85">		} catch (ParseException e1) {</span>
 <span class="nc" id="L86">			e1.printStackTrace();</span>
-		}
+<span class="fc" id="L87">		}</span>
 		
 <span class="fc" id="L89">		ArrayList&lt;Van&gt; vanAL = new ArrayList&lt;Van&gt;(DBManager.getInstance().getVansByDates(location, pickUpDate, returnDate));</span>
 <span class="fc bfc" id="L90" title="All 2 branches covered.">		for( Van v : vanAL ) { </span>
 <span class="fc" id="L91">			logger.debug(&quot;Van in AIRBVService: &quot; + v);</span>
 <span class="fc" id="L92">			vansHM.put(v.getLicensePlate(), v); </span>
-		}
+<span class="fc" id="L93">		}</span>
 		
 <span class="fc" id="L95">		return vanAL;</span>
 	}
@@ -101,7 +101,7 @@ public class AirBVService {
 <span class="fc bfc" id="L101" title="All 2 branches covered.">		for( Van v : vanAL ) { </span>
 <span class="fc" id="L102">			logger.debug(&quot;Van in AIRBVService: &quot; + v);</span>
 <span class="fc" id="L103">			vansHM.put(v.getLicensePlate(), v); </span>
-		}
+<span class="fc" id="L104">		}</span>
 		
 <span class="fc" id="L106">		return vanAL;</span>
 	}
@@ -150,7 +150,7 @@ public class AirBVService {
     		} else {
 <span class="fc" id="L151">    			logger.debug(&quot;It returns a true value. Good&quot;);</span>
     		}
-    	}
+<span class="fc" id="L153">    	}</span>
 <span class="fc" id="L154">    	return true;</span>
     }
     
@@ -160,7 +160,7 @@ public class AirBVService {
 <span class="fc bfc" id="L160" title="All 2 branches covered.">    		if (!DBManager.getInstance().store(v)) {</span>
 <span class="fc" id="L161">    			return false;</span>
     		}
-    	}
+<span class="fc" id="L163">    	}</span>
 <span class="fc" id="L164">    	return true;</span>
     }
     
@@ -170,7 +170,7 @@ public class AirBVService {
 <span class="fc bfc" id="L170" title="All 2 branches covered.">    		if (!DBManager.getInstance().store(r)) {</span>
 <span class="fc" id="L171">    			return false;</span>
     		}
-    	}
+<span class="fc" id="L173">    	}</span>
 <span class="fc" id="L174">    	return true;</span>
     }
     

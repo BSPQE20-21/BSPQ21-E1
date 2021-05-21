@@ -109,10 +109,10 @@ public class AirBV {
     @Path(deleteVan)
     public Response deleteVan(@PathParam(&quot;licensePlate&quot;) String licensePlate) {
 <span class="fc" id="L111">    	logger.info(&quot;Delete van request from client received.&quot;);</span>
-<span class="fc bfc" id="L112" title="All 2 branches covered.">    	if(airbvService.deleteVan(licensePlate)) {</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">    	if(airbvService.deleteVan(licensePlate)) {</span>
 <span class="fc" id="L113">    		return Response.status(Response.Status.OK).build();</span>
     	}
-<span class="fc" id="L115">    	return Response.status(400).build();</span>
+<span class="nc" id="L115">    	return Response.status(400).build();</span>
     }
 
     @DELETE
@@ -131,14 +131,14 @@ public class AirBV {
 <span class="fc" id="L131">    	logger.info(&quot;Register new Reservation request from client received.&quot;);</span>
 <span class="fc" id="L132">    	Assembler as = new Assembler();</span>
     	
-<span class="fc bfc" id="L134" title="All 2 branches covered.">    	if(airbvService.registerReservation(rD.getBookingDate(), </span>
+<span class="pc bpc" id="L134" title="1 of 2 branches missed.">    	if(airbvService.registerReservation(rD.getBookingDate(), </span>
 <span class="fc" id="L135">    			rD.getDuration(),</span>
 <span class="fc" id="L136">    			rD.getVan(),</span>
 <span class="fc" id="L137">    			rD.getVanRenter()</span>
     			)) {
 <span class="fc" id="L139">    		return Response.ok().build();</span>
     	}
-<span class="fc" id="L141">    	return Response.status(400).build();</span>
+<span class="nc" id="L141">    	return Response.status(400).build();</span>
     	
     }
 
