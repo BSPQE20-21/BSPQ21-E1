@@ -20,8 +20,10 @@ import javax.ws.rs.core.Response.Status;
 import org.apache.log4j.Logger;
 import org.databene.contiperf.PerfTest;
 import org.databene.contiperf.Required;
+import org.databene.contiperf.junit.ContiPerfRule;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 import es.deusto.bspq21e1.serialization.ReservationData;
@@ -49,6 +51,8 @@ public class ControllerTest {
 	ArrayList<UserData> users = new ArrayList<UserData>();
 	ArrayList<VanData> vans = new ArrayList<VanData>();
 	ArrayList<ReservationData> reservations = new ArrayList<ReservationData>(); 
+	
+	@Rule public ContiPerfRule rule = new ContiPerfRule();
 
 	@Before
 	public void setUp() throws Exception {

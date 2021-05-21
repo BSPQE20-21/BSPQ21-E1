@@ -105,9 +105,9 @@ public class AirBV {
 <span class="fc" id="L105">    	vanData.setShower(shower);</span>
 <span class="fc" id="L106">    	logger.debug(&quot;$ DEBUGGING\n&quot; +</span>
 				&quot;\tPrinting VanData and User from AirBV in Server side:\n&quot;+
-				&quot;\tVan: &quot; + vanData +
+<span class="fc" id="L108">				&quot;\tVan: &quot; + vanData +</span>
 <span class="fc" id="L109">				&quot;\n\tUser: &quot; + vanData.getUser() +</span>
-				&quot;\n=======================\n&quot;);
+<span class="fc" id="L110">				&quot;\n=======================\n&quot;);</span>
 <span class="fc" id="L111">    	Assembler as = new Assembler();</span>
     	
 <span class="fc" id="L113">    	Van van = as.disassembleVan(vanData);</span>
@@ -156,11 +156,11 @@ public class AirBV {
     @Path(registerReservation)
     public Response registerReservation(ReservationData rD) {
 <span class="fc" id="L158">    	logger.info(&quot;Register new Reservation request from client received.&quot;);</span>
-<span class="pc bpc" id="L159" title="1 of 2 branches missed.">    	if (airbvService.registerReservation(rD.getBookingDate(), </span>
+<span class="fc" id="L159">    	if (airbvService.registerReservation(rD.getBookingDate(), </span>
 <span class="fc" id="L160">    			rD.getDuration(),</span>
 <span class="fc" id="L161">    			rD.getVan(),</span>
 <span class="fc" id="L162">    			rD.getVanRenter()</span>
-    			)) {
+<span class="pc bpc" id="L163" title="1 of 2 branches missed.">    			)) {</span>
 <span class="fc" id="L164">    		return Response.ok().build();</span>
     	}
 <span class="nc" id="L166">    	return Response.status(400).build();</span>
@@ -183,7 +183,7 @@ public class AirBV {
 <span class="fc" id="L183">		Assembler as = new Assembler();</span>
 <span class="fc bfc" id="L184" title="All 2 branches covered.">		for (Van van : airbvService.searchVans(location, pickUpDate, returnDate)) {</span>
 <span class="fc" id="L185">			vansData.add(as.assembleVan(van));</span>
-<span class="fc" id="L186">		}</span>
+		}
 <span class="fc" id="L187">		return vansData;</span>
 	}
     
@@ -219,7 +219,7 @@ public class AirBV {
 <span class="fc" id="L219">		ArrayList&lt;ReservationData&gt; resData = new ArrayList&lt;ReservationData&gt;();</span>
 <span class="fc bfc" id="L220" title="All 2 branches covered.">		for (Reservation reservation : airbvService.getUserReservations(dni)) {</span>
 <span class="fc" id="L221">			resData.add(as.assembleReservation(reservation));</span>
-<span class="fc" id="L222">		}</span>
+		}
 		
 <span class="fc" id="L224">		return resData;</span>
 	}
@@ -237,7 +237,7 @@ public class AirBV {
 <span class="fc" id="L237">		ArrayList&lt;VanData&gt; vanData = new ArrayList&lt;VanData&gt;();</span>
 <span class="fc bfc" id="L238" title="All 2 branches covered.">		for (Van van : airbvService.getUserVans(dni)) {</span>
 <span class="fc" id="L239">			vanData.add(as.assembleVan(van));</span>
-<span class="fc" id="L240">		}</span>
+		}
 <span class="fc" id="L241">		return vanData;</span>
 	}
 	
@@ -254,7 +254,7 @@ public class AirBV {
 <span class="fc" id="L254">		Assembler as = new Assembler();</span>
 <span class="fc bfc" id="L255" title="All 2 branches covered.">		for (UserData u : usersData) {</span>
 <span class="fc" id="L256">			users.add( as.disassembleUser(u) );</span>
-<span class="fc" id="L257">		}</span>
+		}
 <span class="fc bfc" id="L258" title="All 2 branches covered.">    	if ( airbvService.registerUsersList(users) ) {</span>
 <span class="fc" id="L259">    		logger.debug(&quot;registerUsersList methods in airBV seems to work&quot;);</span>
 <span class="fc" id="L260">    		return Response.ok().build();</span>
@@ -277,7 +277,7 @@ public class AirBV {
 <span class="fc bfc" id="L277" title="All 2 branches covered.">    	for (VanData v : vansData) {</span>
 <span class="fc" id="L278">    		vans.add( as.disassembleVan(v) );</span>
 <span class="fc" id="L279">    		logger.debug(&quot;Van diassembled and added to new array -&gt; &quot; + vans.get( vansData.indexOf(v) ).getLicensePlate());</span>
-<span class="fc" id="L280">    	}</span>
+    	}
 <span class="fc bfc" id="L281" title="All 2 branches covered.">    	if ( airbvService.registerVansList(vans) ) {</span>
 <span class="fc" id="L282">    		logger.debug(&quot;registerVansList methods in airBV seems to work&quot;);</span>
 <span class="fc" id="L283">    		return Response.ok().build();</span>
@@ -299,7 +299,7 @@ public class AirBV {
 <span class="fc" id="L299">    	Assembler as = new Assembler();</span>
 <span class="fc bfc" id="L300" title="All 2 branches covered.">    	for (ReservationData r : reservationsData) {</span>
 <span class="fc" id="L301">    		reservations.add( as.disassembleReservation(r) );</span>
-<span class="fc" id="L302">    	}</span>
+    	}
 <span class="fc bfc" id="L303" title="All 2 branches covered.">    	if ( airbvService.registerReservationsList(reservations) ) {</span>
 <span class="fc" id="L304">    		return Response.ok().build();</span>
     	}
