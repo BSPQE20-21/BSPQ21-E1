@@ -103,7 +103,6 @@ public class RemoveVanWindowTest {
 	public void updateListTest() {
 		try {
 			w = new RemoveVanWindow(controller, user, frmMain, false);
-			
 			assertFalse(w.getBtnRemove().isEnabled());
 			logger.info("updateList method tested");
 		} catch (HeadlessException e) {
