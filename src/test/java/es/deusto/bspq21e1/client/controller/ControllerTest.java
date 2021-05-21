@@ -9,14 +9,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
-
 import org.apache.log4j.Logger;
 import org.databene.contiperf.PerfTest;
 import org.databene.contiperf.Required;
@@ -29,6 +21,8 @@ import org.junit.Test;
 import es.deusto.bspq21e1.serialization.ReservationData;
 import es.deusto.bspq21e1.serialization.UserData;
 import es.deusto.bspq21e1.serialization.VanData;
+import es.deusto.bspq21e1.server.dao.DBManagerTest;
+import junit.framework.JUnit4TestAdapter;
 
 public class ControllerTest {
 	
@@ -53,6 +47,10 @@ public class ControllerTest {
 	ArrayList<ReservationData> reservations = new ArrayList<ReservationData>(); 
 	
 	@Rule public ContiPerfRule rule = new ContiPerfRule();
+	
+	public static junit.framework.Test suite() {
+		 return new JUnit4TestAdapter(ControllerTest.class);
+	}
 
 	@Before
 	public void setUp() throws Exception {
