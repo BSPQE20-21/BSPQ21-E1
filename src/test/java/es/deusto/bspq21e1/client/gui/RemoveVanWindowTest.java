@@ -46,7 +46,6 @@ public class RemoveVanWindowTest {
 			controller = new Controller("127.0.0.1", "8080", "");
 			user = new UserData("00001111A", "Carlos", "carlos@gmail.com", "admin");
 			frmMain = new MainWindow(controller, user, false);
-			w = new RemoveVanWindow(controller, user, frmMain, false);
 			
 			logger.info("Before tests code execution ends properly");
 		} catch(HeadlessException e) {
@@ -59,6 +58,8 @@ public class RemoveVanWindowTest {
 	@Required(max = 1200, average = 250)
 	public void constructorTest() {
 		try {
+			w = new RemoveVanWindow(controller, user, frmMain, false);
+			
 			assertEquals(w.getClass(), RemoveVanWindow.class);
 			assertTrue(w.getFrmRemoveVan().getTitle().length() > 0);
 			assertFalse(w.getFrmRemoveVan().isResizable());
@@ -109,6 +110,8 @@ public class RemoveVanWindowTest {
 	@Required(max = 1200, average = 250)
 	public void updateListTest() {
 		try {
+			w = new RemoveVanWindow(controller, user, frmMain, false);
+			
 			VanData van = new VanData("1234LMK", "Furgo", "Fur", "Bilbao", 3, true, false, true, 45, user.getDni());
 			ArrayList<VanData> vans = new ArrayList<VanData>();
 			vans.add(van);
