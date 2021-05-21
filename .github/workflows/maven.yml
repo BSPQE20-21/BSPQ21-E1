@@ -35,7 +35,7 @@ jobs:
       with:
         time: '10s'
     - name: Test with Maven
-      run: mvn test -DargLine="-Dcontiperf.active=false"
+      run: mvn test
     - name: Install doxygen
       run: sudo apt-get install -y doxygen
     - name: Install graphviz
