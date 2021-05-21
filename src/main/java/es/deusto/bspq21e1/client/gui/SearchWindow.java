@@ -261,7 +261,7 @@ public class SearchWindow extends JFrame{
 	}
 	
 	// METHODS FOR DATA DISPLAY IN THE GUI WINDOW
-	private void updateLists(ArrayList<VanData> vans) {
+	protected void updateLists(ArrayList<VanData> vans) {
 		logger.debug("Inside method updateLists -> " + vans);
 		if(vans.size() > 0) {
 			btnCharacteristics.setEnabled(true);
