@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.ListSelectionModel;
 
 import org.apache.log4j.Logger;
+import org.databene.contiperf.PerfTest;
+import org.databene.contiperf.Required;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -50,6 +52,8 @@ public class RemoveVanWindowTest {
 	}
 	
 	@Test
+	@PerfTest(invocations = 5, threads = 10)
+	@Required(max = 1200, average = 250)
 	public void constructorTest() {
 		try {
 			w = new RemoveVanWindow(controller, user, frmMain, false);
@@ -100,6 +104,8 @@ public class RemoveVanWindowTest {
 	}
 	
 	@Test
+	@PerfTest(invocations = 5, threads = 10)
+	@Required(max = 1200, average = 250)
 	public void updateListTest() {
 		try {
 			w = new RemoveVanWindow(controller, user, frmMain, false);

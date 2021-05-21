@@ -15,6 +15,8 @@ import javax.swing.JFrame;
 import javax.swing.ListSelectionModel;
 
 import org.apache.log4j.Logger;
+import org.databene.contiperf.PerfTest;
+import org.databene.contiperf.Required;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -53,6 +55,8 @@ public class CancelReservationWindowTest {
 	}
 	
 	@Test
+	@PerfTest(invocations = 5, threads = 10)
+	@Required(max = 1200, average = 250)
 	public void constructorTest() {
 		try {
 			CancelReservationWindow w = new CancelReservationWindow(controller, user, frmMain, false);
@@ -110,6 +114,8 @@ public class CancelReservationWindowTest {
 	}
 	
 	@Test
+	@PerfTest(invocations = 5, threads = 10)
+	@Required(max = 1200, average = 250)
 	public void updateListTest() {
 		try {
 			VanData van = new VanData("1234PML", "Furgo", "Fur", "Bilbao", 5, true, false, true, 65, user.getDni());

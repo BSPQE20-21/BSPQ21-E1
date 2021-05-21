@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 
 import org.apache.log4j.Logger;
+import org.databene.contiperf.PerfTest;
+import org.databene.contiperf.Required;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -51,6 +53,8 @@ static Logger logger = Logger.getLogger(SearchWindowTest.class.getName());
 	}
 	
 	@Test
+	@PerfTest(invocations = 5, threads = 10)
+	@Required(max = 1200, average = 250)
 	public void constructorTest() {
 		try {
 			w = new SearchWindow(controller, user, frmMain, false);
@@ -182,6 +186,8 @@ static Logger logger = Logger.getLogger(SearchWindowTest.class.getName());
 	}
 	
 	@Test
+	@PerfTest(invocations = 5, threads = 10)
+	@Required(max = 1200, average = 250)
 	public void updateListsTest() {
 		try {
 			assertFalse(w.getBtnBook().isEnabled());
@@ -193,6 +199,8 @@ static Logger logger = Logger.getLogger(SearchWindowTest.class.getName());
 	}
 	
 	@Test
+	@PerfTest(invocations = 5, threads = 10)
+	@Required(max = 1200, average = 250)
 	public void gettersSettersTest() {
 		try {
 			w.setSearchPanel(new JPanel());

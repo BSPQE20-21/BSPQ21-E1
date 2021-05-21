@@ -12,6 +12,8 @@ import java.awt.HeadlessException;
 import javax.swing.JFrame;
 
 import org.apache.log4j.Logger;
+import org.databene.contiperf.PerfTest;
+import org.databene.contiperf.Required;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -47,6 +49,8 @@ public class RemoveAccountWindowTest {
 	}
 	
 	@Test
+	@PerfTest(invocations = 5, threads = 10)
+	@Required(max = 1200, average = 250)
 	public void constructorTest() {
 		try {
 			RemoveAccountWindow w = new RemoveAccountWindow(controller, user, frmMain, false);
