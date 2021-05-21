@@ -89,4 +89,5 @@ public class LogInWindowTest {
 			logger.debug("You are in ubuntu, it's not posible to do window's test");
 		}
 	}
+	
 }

@@ -170,16 +170,16 @@ public class CancelReservationWindow extends JFrame{
 	private void updateLists(ArrayList&lt;ReservationData&gt; reservations) {
 <span class="fc" id="L171">		logger.debug(&quot;Inside function updateLists -&gt; &quot; + reservations);</span>
 <span class="fc" id="L172">		tableModel.setRowCount(0); //CLEAR THE TABLE</span>
-<span class="pc bpc" id="L173" title="1 of 2 branches missed.">		if(reservations.size()&gt;0) {</span>
-<span class="nc bnc" id="L174" title="All 2 branches missed.">			for (int i = 0; i &lt; reservations.size(); i++) {</span>
-<span class="nc" id="L175">				ReservationData v = (ReservationData) reservations.get(i);</span>
-<span class="nc" id="L176">				SimpleDateFormat formatter = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;);</span>
-<span class="nc" id="L177">				String strDate= formatter.format(v.getBookingDate());</span>
-<span class="nc" id="L178">				String[] row = {v.getCode(), strDate, String.valueOf(v.getDuration()), v.getVan(), v.getVanRenter()};</span>
-<span class="nc" id="L179">				tableModel.addRow(row);</span>
+<span class="fc bfc" id="L173" title="All 2 branches covered.">		if(reservations.size()&gt;0) {</span>
+<span class="fc bfc" id="L174" title="All 2 branches covered.">			for (int i = 0; i &lt; reservations.size(); i++) {</span>
+<span class="fc" id="L175">				ReservationData v = (ReservationData) reservations.get(i);</span>
+<span class="fc" id="L176">				SimpleDateFormat formatter = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;);</span>
+<span class="fc" id="L177">				String strDate= formatter.format(v.getBookingDate());</span>
+<span class="fc" id="L178">				String[] row = {v.getCode(), strDate, String.valueOf(v.getDuration()), v.getVan(), v.getVanRenter()};</span>
+<span class="fc" id="L179">				tableModel.addRow(row);</span>
 			}
-<span class="nc" id="L181">			jtReservationsTable.setModel(tableModel);</span>
-<span class="nc" id="L182">			jtReservationsTable.setRowSelectionInterval(0, 0);</span>
+<span class="fc" id="L181">			jtReservationsTable.setModel(tableModel);</span>
+<span class="fc" id="L182">			jtReservationsTable.setRowSelectionInterval(0, 0);</span>
 		}else {
 <span class="fc" id="L184">			btnCancel.setEnabled(false);</span>
 <span class="fc" id="L185">			tableModel.setRowCount(0); //CLEAR THE TABLE</span>

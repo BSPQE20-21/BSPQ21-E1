@@ -38,7 +38,6 @@ public class RegisterUserWindowTest {
 	@Test
 	public void constructorTest() {
 		try {
-			
 			w = new RegisterUserWindow(controller, false);
 			
 			assertEquals(w.getClass(), RegisterUserWindow.class);

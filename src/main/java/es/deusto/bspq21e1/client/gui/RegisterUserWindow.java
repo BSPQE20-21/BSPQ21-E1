@@ -49,16 +49,6 @@ public class RegisterUserWindow extends JFrame{
 
 	}
 	
-	public RegisterUserWindow(boolean visible) {
-		this.controller = null;
-		this.visible = visible;
-		initialize();
-		frmRegisterYourself.setTitle(controller.getResourcebundle().getString("register_yourself_msg"));
-		frmRegisterYourself.setResizable(false);
-		frmRegisterYourself.setVisible(visible);
-
-	}
-	
 	private void initialize() {
 		frmRegisterYourself.setBounds(100, 100, 385, 315);
 		frmRegisterYourself.setLocationRelativeTo(null);

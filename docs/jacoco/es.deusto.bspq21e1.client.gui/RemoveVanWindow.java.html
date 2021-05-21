@@ -28,79 +28,79 @@ import es.deusto.bspq21e1.serialization.VanData;
 public class RemoveVanWindow extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-<span class="nc" id="L31">	private static Logger logger = Logger.getLogger(CancelReservationWindow.class.getName());</span>
+<span class="fc" id="L31">	private static Logger logger = Logger.getLogger(CancelReservationWindow.class.getName());</span>
 	private Controller controller;
 	private boolean visible;
 	private UserData user;
 	private JFrame frmMain;
 	
-<span class="nc" id="L37">	private JFrame frmRemoveVan = new JFrame();</span>
+<span class="fc" id="L37">	private JFrame frmRemoveVan = new JFrame();</span>
 	
 	private JLabel lblText;
 	private JButton btnRemove, btnBack;
-<span class="nc" id="L41">	private JTable jtVansTable = new JTable();</span>
+<span class="fc" id="L41">	private JTable jtVansTable = new JTable();</span>
 	private JScrollPane scrollVans;
-<span class="nc" id="L43">	private ArrayList&lt;VanData&gt; vans = new ArrayList&lt;VanData&gt;();</span>
-<span class="nc" id="L44">	private DefaultListModel&lt;String&gt; vansList = new DefaultListModel&lt;String&gt;();</span>
+<span class="fc" id="L43">	private ArrayList&lt;VanData&gt; vans = new ArrayList&lt;VanData&gt;();</span>
+<span class="fc" id="L44">	private DefaultListModel&lt;String&gt; vansList = new DefaultListModel&lt;String&gt;();</span>
 	private DefaultTableModel tableModel;
 	
-<span class="nc" id="L47">	public RemoveVanWindow(Controller controller, UserData user, JFrame frmMain, boolean visible) {</span>
-<span class="nc" id="L48">		this.controller = controller;</span>
-<span class="nc" id="L49">		this.visible = visible;</span>
-<span class="nc" id="L50">		this.user = user;</span>
-<span class="nc" id="L51">		this.frmMain = frmMain;</span>
-<span class="nc" id="L52">		frmRemoveVan.setTitle(controller.getResourcebundle().getString(&quot;remove_van_btn_msg&quot;));</span>
-<span class="nc" id="L53">		frmRemoveVan.setResizable(false);</span>
-<span class="nc" id="L54">		frmRemoveVan.setVisible(visible);</span>
-<span class="nc" id="L55">		initialize();</span>
-<span class="nc" id="L56">	}</span>
+<span class="fc" id="L47">	public RemoveVanWindow(Controller controller, UserData user, JFrame frmMain, boolean visible) {</span>
+<span class="fc" id="L48">		this.controller = controller;</span>
+<span class="fc" id="L49">		this.visible = visible;</span>
+<span class="fc" id="L50">		this.user = user;</span>
+<span class="fc" id="L51">		this.frmMain = frmMain;</span>
+<span class="fc" id="L52">		frmRemoveVan.setTitle(controller.getResourcebundle().getString(&quot;remove_van_btn_msg&quot;));</span>
+<span class="fc" id="L53">		frmRemoveVan.setResizable(false);</span>
+<span class="fc" id="L54">		frmRemoveVan.setVisible(visible);</span>
+<span class="fc" id="L55">		initialize();</span>
+<span class="fc" id="L56">	}</span>
 	
 	private void initialize() {
-<span class="nc" id="L59">		frmRemoveVan.setBounds(50, 50, 715, 500);</span>
-<span class="nc" id="L60">		frmRemoveVan.setLocationRelativeTo(null);</span>
-<span class="nc" id="L61">		frmRemoveVan.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
-<span class="nc" id="L62">		frmRemoveVan.getContentPane().setLayout(null);</span>
-<span class="nc" id="L63">		frmRemoveVan.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
+<span class="fc" id="L59">		frmRemoveVan.setBounds(50, 50, 715, 500);</span>
+<span class="fc" id="L60">		frmRemoveVan.setLocationRelativeTo(null);</span>
+<span class="fc" id="L61">		frmRemoveVan.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="fc" id="L62">		frmRemoveVan.getContentPane().setLayout(null);</span>
+<span class="fc" id="L63">		frmRemoveVan.setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;src/main/resources/images/AirBV.png&quot;));</span>
 		
 		//TABLE MODEL
-<span class="nc" id="L66">		tableModel = new DefaultTableModel() {</span>
+<span class="fc" id="L66">		tableModel = new DefaultTableModel() {</span>
 			@Override
 		    public boolean isCellEditable(int row, int column) {
 		       //all cells false
 <span class="nc" id="L70">		       return false;</span>
 		    }
 		};
-<span class="nc" id="L73">		tableModel.setColumnIdentifiers(new String[] {controller.getResourcebundle().getString(&quot;license_plate_msg&quot;), </span>
-<span class="nc" id="L74">													controller.getResourcebundle().getString(&quot;brand_msg&quot;),</span>
-<span class="nc" id="L75">													controller.getResourcebundle().getString(&quot;model_msg&quot;),</span>
-<span class="nc" id="L76">													controller.getResourcebundle().getString(&quot;location_msg&quot;),</span>
-<span class="nc" id="L77">													controller.getResourcebundle().getString(&quot;capacity_msg&quot;),</span>
-<span class="nc" id="L78">													controller.getResourcebundle().getString(&quot;price_per_day_msg&quot;)</span>
+<span class="fc" id="L73">		tableModel.setColumnIdentifiers(new String[] {controller.getResourcebundle().getString(&quot;license_plate_msg&quot;), </span>
+<span class="fc" id="L74">													controller.getResourcebundle().getString(&quot;brand_msg&quot;),</span>
+<span class="fc" id="L75">													controller.getResourcebundle().getString(&quot;model_msg&quot;),</span>
+<span class="fc" id="L76">													controller.getResourcebundle().getString(&quot;location_msg&quot;),</span>
+<span class="fc" id="L77">													controller.getResourcebundle().getString(&quot;capacity_msg&quot;),</span>
+<span class="fc" id="L78">													controller.getResourcebundle().getString(&quot;price_per_day_msg&quot;)</span>
 													});
-<span class="nc" id="L80">		logger.debug(&quot;Table model well generated&quot;);</span>
+<span class="fc" id="L80">		logger.debug(&quot;Table model well generated&quot;);</span>
 		
 		//JTABLE
-<span class="nc" id="L83">		jtVansTable.setModel(tableModel);</span>
-<span class="nc" id="L84">		jtVansTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
-<span class="nc" id="L85">		jtVansTable.getTableHeader().setResizingAllowed(false);</span>
-<span class="nc" id="L86">		jtVansTable.getTableHeader().setReorderingAllowed(false); // not allow re-ordering of columns</span>
+<span class="fc" id="L83">		jtVansTable.setModel(tableModel);</span>
+<span class="fc" id="L84">		jtVansTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);</span>
+<span class="fc" id="L85">		jtVansTable.getTableHeader().setResizingAllowed(false);</span>
+<span class="fc" id="L86">		jtVansTable.getTableHeader().setReorderingAllowed(false); // not allow re-ordering of columns</span>
 		
-<span class="nc" id="L88">		scrollVans = new JScrollPane();</span>
-<span class="nc" id="L89">		scrollVans.setBounds(25, 80, 650, 320);</span>
-<span class="nc" id="L90">		scrollVans.setViewportView(jtVansTable);</span>
-<span class="nc" id="L91">		frmRemoveVan.getContentPane().add(scrollVans);</span>
+<span class="fc" id="L88">		scrollVans = new JScrollPane();</span>
+<span class="fc" id="L89">		scrollVans.setBounds(25, 80, 650, 320);</span>
+<span class="fc" id="L90">		scrollVans.setViewportView(jtVansTable);</span>
+<span class="fc" id="L91">		frmRemoveVan.getContentPane().add(scrollVans);</span>
 		
 		//BACK BUTTON
-<span class="nc" id="L94">		btnBack = new JButton(controller.getResourcebundle().getString(&quot;back_button_msg&quot;));</span>
-<span class="nc" id="L95">		btnBack.setBounds(25, 420, 100, 25);</span>
-<span class="nc" id="L96">		btnBack.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L94">		btnBack = new JButton(controller.getResourcebundle().getString(&quot;back_button_msg&quot;));</span>
+<span class="fc" id="L95">		btnBack.setBounds(25, 420, 100, 25);</span>
+<span class="fc" id="L96">		btnBack.addActionListener(new ActionListener() {</span>
 			@Override
 			public void actionPerformed(ActionEvent e) {
 <span class="nc" id="L99">				frmMain.setVisible(visible);</span>
 <span class="nc" id="L100">				frmRemoveVan.dispose();</span>
 <span class="nc" id="L101">			}</span>
 		});
-<span class="nc" id="L103">		btnBack.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L103">		btnBack.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
 <span class="nc" id="L105">        		btnBack.setBounds(20, 420, 110, 26);</span>
 <span class="nc" id="L106">        		btnBack.updateUI();</span>
@@ -110,13 +110,13 @@ public class RemoveVanWindow extends JFrame {
 <span class="nc" id="L110">		    	btnBack.updateUI();</span>
 <span class="nc" id="L111">		    }</span>
 		});
-<span class="nc" id="L113">		frmRemoveVan.getContentPane().add(btnBack);</span>
-<span class="nc" id="L114">		btnBack.updateUI();</span>
+<span class="fc" id="L113">		frmRemoveVan.getContentPane().add(btnBack);</span>
+<span class="fc" id="L114">		btnBack.updateUI();</span>
 		
 		//REMOVE BUTTON
-<span class="nc" id="L117">		btnRemove = new JButton(controller.getResourcebundle().getString(&quot;remove_msg&quot;));</span>
-<span class="nc" id="L118">		btnRemove.setBounds(575, 420, 100, 25);</span>
-<span class="nc" id="L119">		btnRemove.addActionListener(new ActionListener() {</span>
+<span class="fc" id="L117">		btnRemove = new JButton(controller.getResourcebundle().getString(&quot;remove_msg&quot;));</span>
+<span class="fc" id="L118">		btnRemove.setBounds(575, 420, 100, 25);</span>
+<span class="fc" id="L119">		btnRemove.addActionListener(new ActionListener() {</span>
 			@Override
 			public void actionPerformed(ActionEvent e) {
 <span class="nc" id="L122">				VanData van = vans.get(jtVansTable.getSelectedRow());</span>
@@ -126,7 +126,7 @@ public class RemoveVanWindow extends JFrame {
 <span class="nc" id="L126">				logger.debug(&quot;Van is removed&quot;);</span>
 <span class="nc" id="L127">			}</span>
 		});
-<span class="nc" id="L129">		btnRemove.addMouseListener(new MouseAdapter() {</span>
+<span class="fc" id="L129">		btnRemove.addMouseListener(new MouseAdapter() {</span>
         	public void mouseEntered(MouseEvent e) {
 <span class="nc" id="L131">        		btnRemove.setBounds(570, 420, 110, 26);</span>
 <span class="nc" id="L132">        		btnRemove.setBackground(Color.RED);</span>
@@ -138,41 +138,41 @@ public class RemoveVanWindow extends JFrame {
 <span class="nc" id="L138">		    	btnRemove.updateUI();</span>
 <span class="nc" id="L139">		    }</span>
 		});
-<span class="nc" id="L141">		frmRemoveVan.getContentPane().add(btnRemove);</span>
-<span class="nc" id="L142">		btnRemove.updateUI();</span>
+<span class="fc" id="L141">		frmRemoveVan.getContentPane().add(btnRemove);</span>
+<span class="fc" id="L142">		btnRemove.updateUI();</span>
 		
-<span class="nc" id="L144">		lblText = new JLabel(controller.getResourcebundle().getString(&quot;choose_van_msg&quot;));</span>
-<span class="nc" id="L145">		lblText.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 18));</span>
-<span class="nc" id="L146">		lblText.setBounds(135, 10, 580, 50);</span>
-<span class="nc" id="L147">		frmRemoveVan.getContentPane().add(lblText);</span>
-<span class="nc" id="L148">		lblText.updateUI();</span>
+<span class="fc" id="L144">		lblText = new JLabel(controller.getResourcebundle().getString(&quot;choose_van_msg&quot;));</span>
+<span class="fc" id="L145">		lblText.setFont(new Font(&quot;Tahoma&quot;, Font.BOLD, 18));</span>
+<span class="fc" id="L146">		lblText.setBounds(135, 10, 580, 50);</span>
+<span class="fc" id="L147">		frmRemoveVan.getContentPane().add(lblText);</span>
+<span class="fc" id="L148">		lblText.updateUI();</span>
 		
-<span class="nc" id="L150">		vans = controller.getMyVans(user.getDni());</span>
-<span class="nc bnc" id="L151" title="All 2 branches missed.">		if (vans.size() != 0) {</span>
-<span class="nc" id="L152">			updateList();</span>
+<span class="fc" id="L150">		vans = controller.getMyVans(user.getDni());</span>
+<span class="fc bfc" id="L151" title="All 2 branches covered.">		if (vans.size() != 0) {</span>
+<span class="fc" id="L152">			updateList();</span>
 		} else {
-<span class="nc" id="L154">			btnRemove.setEnabled(false);</span>
+<span class="fc" id="L154">			btnRemove.setEnabled(false);</span>
 		}
 		
-<span class="nc" id="L157">		logger.info(&quot;RemoveVanWindow well initialized&quot;);</span>
-<span class="nc" id="L158">	}</span>
+<span class="fc" id="L157">		logger.info(&quot;RemoveVanWindow well initialized&quot;);</span>
+<span class="fc" id="L158">	}</span>
 	
 	private void updateList() {
-<span class="nc" id="L161">		logger.debug(&quot;Inside function updateList -&gt; &quot; + vans);</span>
-<span class="nc bnc" id="L162" title="All 2 branches missed.">		if(vans.size()&gt;0) {</span>
-<span class="nc bnc" id="L163" title="All 2 branches missed.">			for (int i = 0; i &lt; vans.size(); i++) {</span>
-<span class="nc" id="L164">				VanData v = vans.get(i);</span>
-<span class="nc" id="L165">				String[] row = {v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), String.valueOf(v.getCapacity()), String.valueOf(v.getPricePerDay())};</span>
-<span class="nc" id="L166">				tableModel.addRow(row);</span>
+<span class="fc" id="L161">		logger.debug(&quot;Inside function updateList -&gt; &quot; + vans);</span>
+<span class="pc bpc" id="L162" title="1 of 2 branches missed.">		if(vans.size()&gt;0) {</span>
+<span class="fc bfc" id="L163" title="All 2 branches covered.">			for (int i = 0; i &lt; vans.size(); i++) {</span>
+<span class="fc" id="L164">				VanData v = vans.get(i);</span>
+<span class="fc" id="L165">				String[] row = {v.getLicensePlate(), v.getBrand(), v.getModel(), v.getLocation(), String.valueOf(v.getCapacity()), String.valueOf(v.getPricePerDay())};</span>
+<span class="fc" id="L166">				tableModel.addRow(row);</span>
 			}
-<span class="nc" id="L168">			jtVansTable.setModel(tableModel);</span>
-<span class="nc" id="L169">			jtVansTable.setRowSelectionInterval(0, 0);</span>
+<span class="fc" id="L168">			jtVansTable.setModel(tableModel);</span>
+<span class="fc" id="L169">			jtVansTable.setRowSelectionInterval(0, 0);</span>
 		}else {
 <span class="nc" id="L171">			btnRemove.setEnabled(false);</span>
 		}
-<span class="nc" id="L173">		jtVansTable.updateUI();</span>
-<span class="nc" id="L174">		scrollVans.updateUI();</span>
-<span class="nc" id="L175">	}</span>
+<span class="fc" id="L173">		jtVansTable.updateUI();</span>
+<span class="fc" id="L174">		scrollVans.updateUI();</span>
+<span class="fc" id="L175">	}</span>
 
 	//GETTERS AND SETTERS
 	
@@ -217,7 +217,7 @@ public class RemoveVanWindow extends JFrame {
 <span class="nc" id="L217">	}</span>
 
 	public JFrame getFrmRemoveVan() {
-<span class="nc" id="L220">		return frmRemoveVan;</span>
+<span class="fc" id="L220">		return frmRemoveVan;</span>
 	}
 
 	public void setFrmRemoveVan(JFrame frmRemoveVan) {
@@ -225,7 +225,7 @@ public class RemoveVanWindow extends JFrame {
 <span class="nc" id="L225">	}</span>
 
 	public JLabel getLblText() {
-<span class="nc" id="L228">		return lblText;</span>
+<span class="fc" id="L228">		return lblText;</span>
 	}
 
 	public void setLblText(JLabel lblText) {
@@ -233,7 +233,7 @@ public class RemoveVanWindow extends JFrame {
 <span class="nc" id="L233">	}</span>
 
 	public JButton getBtnRemove() {
-<span class="nc" id="L236">		return btnRemove;</span>
+<span class="fc" id="L236">		return btnRemove;</span>
 	}
 
 	public void setBtnRemove(JButton btnRemove) {
@@ -241,7 +241,7 @@ public class RemoveVanWindow extends JFrame {
 <span class="nc" id="L241">	}</span>
 
 	public JButton getBtnBack() {
-<span class="nc" id="L244">		return btnBack;</span>
+<span class="fc" id="L244">		return btnBack;</span>
 	}
 
 	public void setBtnBack(JButton btnBack) {
@@ -249,7 +249,7 @@ public class RemoveVanWindow extends JFrame {
 <span class="nc" id="L249">	}</span>
 
 	public JTable getJtVansTable() {
-<span class="nc" id="L252">		return jtVansTable;</span>
+<span class="fc" id="L252">		return jtVansTable;</span>
 	}
 
 	public void setJtVansTable(JTable jtVansTable) {
@@ -257,7 +257,7 @@ public class RemoveVanWindow extends JFrame {
 <span class="nc" id="L257">	}</span>
 
 	public JScrollPane getScrollVans() {
-<span class="nc" id="L260">		return scrollVans;</span>
+<span class="fc" id="L260">		return scrollVans;</span>
 	}
 
 	public void setScrollVans(JScrollPane scrollVans) {
