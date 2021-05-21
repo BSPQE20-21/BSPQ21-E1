@@ -5,11 +5,11 @@ AirBVJDOREST,es.deusto.bspq21e1.serialization,VanData,0,163,0,0,0,45,0,23,0,23
 AirBVJDOREST,es.deusto.bspq21e1.serialization,ReviewData,0,88,0,0,0,25,0,11,0,11
 AirBVJDOREST,es.deusto.bspq21e1.serialization,ReservationData,0,114,0,0,0,32,0,14,0,14
 AirBVJDOREST,es.deusto.bspq21e1.client.controller,Controller.new GenericType() {...},0,6,0,0,0,1,0,1,0,1
-AirBVJDOREST,es.deusto.bspq21e1.client.controller,Controller,158,1160,7,35,23,191,7,33,0,19
+AirBVJDOREST,es.deusto.bspq21e1.client.controller,Controller,230,1088,10,32,32,182,10,30,0,19
 AirBVJDOREST,es.deusto.bspq21e1.client.controller,Controller.new GenericType() {...},0,6,0,0,0,1,0,1,0,1
 AirBVJDOREST,es.deusto.bspq21e1.client.controller,Controller.new GenericType() {...},0,6,0,0,0,1,0,1,0,1
 AirBVJDOREST,es.deusto.bspq21e1.client.controller,Controller.new GenericType() {...},0,6,0,0,0,1,0,1,0,1
-AirBVJDOREST,es.deusto.bspq21e1.server.remote,AirBV,12,457,3,27,3,89,3,26,0,14
+AirBVJDOREST,es.deusto.bspq21e1.server.remote,AirBV,12,461,3,27,3,92,3,26,0,14
 AirBVJDOREST,es.deusto.bspq21e1.server.dao,DBManager,116,1167,21,63,26,270,21,41,0,20
 AirBVJDOREST,es.deusto.bspq21e1.client.main,AirBVClient,40,0,2,0,9,0,4,0,3,0
 AirBVJDOREST,es.deusto.bspq21e1.server.data,Van,410,925,89,113,0,50,80,118,10,72

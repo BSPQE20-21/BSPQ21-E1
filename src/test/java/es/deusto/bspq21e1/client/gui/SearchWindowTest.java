@@ -190,31 +190,6 @@ static Logger logger = Logger.getLogger(SearchWindowTest.class.getName());
 	@Test
 	@PerfTest(invocations = 5, threads = 10)
 	@Required(max = 1200, average = 250)
-	public void updateListsTest() {
-		try {
-			ArrayList<VanData> l = new ArrayList<VanData>();
-			l.add(new VanData("9999AAA", "Ford", "Focus", "Bilbao", 3, true, false, true, 50, "11111111A"));
-			w.updateLists(l);
-			assertTrue(w.getBtnCharacteristics().isEnabled());
-			assertTrue(w.getTableModel().getRowCount() > 0);
-			assertTrue(w.getBtnBook().isEnabled());
-			
-			l.remove(0);
-			w.updateLists(l);
-			assertFalse(w.getBtnBook().isEnabled());
-			assertFalse(w.getBtnCharacteristics().isEnabled());
-			assertTrue(w.getTableModel().getRowCount() == 0);
-			
-			logger.info("updateList method tested");
-			logger.info("updateList method tested");
-		} catch (HeadlessException e) {
-			logger.error("You are in ubuntu, it's not posible to do window's test");
-		}
-	}
-	
-	@Test
-	@PerfTest(invocations = 5, threads = 10)
-	@Required(max = 1200, average = 250)
 	public void gettersSettersTest() {
 		try {
 			w.setSearchPanel(new JPanel());

@@ -20,6 +20,7 @@ import org.junit.Test;
 
 import es.deusto.bspq21e1.client.controller.Controller;
 import es.deusto.bspq21e1.serialization.UserData;
+import es.deusto.bspq21e1.serialization.VanData;
 import junit.framework.JUnit4TestAdapter;
 
 public class RemoveVanWindowTest {
@@ -108,8 +109,13 @@ public class RemoveVanWindowTest {
 	@Required(max = 1200, average = 250)
 	public void updateListTest() {
 		try {
+			VanData van = new VanData("1234LMK", "Furgo", "Fur", "Bilbao", 3, true, false, true, 45, user.getDni());
+			controller.registerUsers(user.getDni(), user.getName(), user.getEmail(), user.getPassword());
+			controller.registerVan(van);
 			w = new RemoveVanWindow(controller, user, frmMain, false);
-			assertFalse(w.getBtnRemove().isEnabled());
+			assertTrue(w.getBtnRemove().isEnabled());
+			controller.eraseVan(van.getLicensePlate());
+			controller.eraseUser(user.getDni());
 			logger.info("updateList method tested");
 		} catch (HeadlessException e) {
 			logger.error("You are in ubuntu, it's not posible to do window's test");

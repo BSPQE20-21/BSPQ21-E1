@@ -139,8 +139,8 @@ public class ControllerTest {
 	}
 	
 	@Test
-	@PerfTest(invocations = 10, threads = 20)
-	@Required(max = 1500, average = 500)
+	@PerfTest(invocations = 5, threads = 20)
+	@Required(max = 2500, average = 750)
 	public void loginUserTest() {
     	UserData us = controller.loginUser(userEmail2, userPass);
 		assertEquals(userDni2, us.getDni());
