@@ -34,7 +34,6 @@ import org.apache.log4j.Logger;
  * @author Group 3
  *
  */
-
 @Path("/AirBV")
 @Produces(MediaType.APPLICATION_JSON)
 public class AirBV {
@@ -43,10 +42,9 @@ public class AirBV {
 	private Logger logger = Logger.getLogger(AirBV.class.getName());
 
 	/**
-	 * Variables needed for the post and get methods paths.
+	 * Variables needed for the POST/GET/DELETE methods paths.
 	 * Should correspond to those of the client side methods.
 	 */
-	
 	private static final String registerUser = "/registerUser";
 	private static final String loginUser = "/loginUser/{email}/{password}";
 	private static final String deleteUser = "/deleteUser/{dni}";
@@ -61,8 +59,16 @@ public class AirBV {
 	private static final String registerVansList = "/registerVansList";
 	private static final String registerReservationsList = "/registerReservationsList";
 
+	/**
+	 * Empty constructor for the class.
+	 */
     public AirBV() { }
     
+    /**
+     * Gets the data from the user from the client, transforms it into a User and sends it to the Application Service to register it.
+     * @param userData Data from the new user.
+     * @return Response depending on the result of the execution.
+     */
     @POST
     @Path(registerUser)
     public Response registerUser(UserData userData) {
@@ -73,6 +79,11 @@ public class AirBV {
         return Response.status(400).build();
     }
     
+    /**
+     * Gets the ID number from the user the client wants to delete and sends it to the Application Service for that.
+     * @param dni ID number of the user client wants to delete.
+     * @return Response depending on the result of the execution.
+     */
     @DELETE
     @Path(deleteUser)
     public Response deleteUser(@PathParam("dni") String dni) {
@@ -82,8 +93,9 @@ public class AirBV {
     }
 
     /**
-     * Transforms VanData into Van and uses a method from the Application Service to store a Van
-     * @param vanData
+     * Transforms VanData into Van and uses a method from the Application Service to store a Van.
+     * @param vanData Data of the van client wants to register.
+     * @return Response depending on the result of the execution.
      */
     @POST
     @Path(registerVan)
@@ -105,6 +117,11 @@ public class AirBV {
     	return Response.status(400).build();
     }
     
+    /**
+     * Gets the license plate of the van client wants to erase and sends it to the Application Service for that.
+     * @param licensePlate License plate of the van client wants to delete.
+     * @return Response depending on the result of the execution.
+     */
     @DELETE
     @Path(deleteVan)
     public Response deleteVan(@PathParam("licensePlate") String licensePlate) {
@@ -115,6 +132,11 @@ public class AirBV {
     	return Response.status(400).build();
     }
 
+    /**
+     * Gets the code of the reservation client wants to delete and sends it to the Application Service for that.
+     * @param code Code of the reservation client wants to erase.
+     * @return Response depending on the result of the execution.
+     */
     @DELETE
     @Path(cancelReservation)
     public Response cancelReservation(@PathParam("code") String code) {
@@ -125,13 +147,16 @@ public class AirBV {
         return Response.status(400).build();        
     }
     
+    /**
+     * Gets the data of a new reservation client wants to register and sends it to the Application Service for that.
+     * @param rD Gets the data of a new reservation client wants to register.
+     * @return Response depending on the result of the execution.
+     */
     @POST
     @Path(registerReservation)
     public Response registerReservation(ReservationData rD) {
     	logger.info("Register new Reservation request from client received.");
-    	Assembler as = new Assembler();
-    	
-    	if(airbvService.registerReservation(rD.getBookingDate(), 
+    	if (airbvService.registerReservation(rD.getBookingDate(), 
     			rD.getDuration(),
     			rD.getVan(),
     			rD.getVanRenter()
@@ -142,6 +167,14 @@ public class AirBV {
     	
     }
 
+    /**
+     * Gets the location and dates which client has put as parameters and sends it to the Application Service to return the vans that
+     * meet those requirements.
+     * @param location Location of the van.
+     * @param pickUpDate Date of pickup of the van.
+     * @param returnDate Date of return of the van.
+     * @return List of vans which meet the requirements.
+     */
     @GET
     @Path(getVans)
 	public ArrayList<VanData> searchVans( @PathParam("location") String location, @PathParam("pickUpDate") String pickUpDate, @PathParam("returnDate") String returnDate) {	
@@ -154,6 +187,12 @@ public class AirBV {
 		return vansData;
 	}
     
+    /**
+     * Gets the email and password of a user and checks if they are good credentials sending them to the Application Service.
+     * @param email Email of the user.
+     * @param password Password of the user.
+     * @return Response depending on the result of the execution.
+     */
     @GET
     @Path(loginUser)
     public Response login(@PathParam("email") String email, @PathParam("password") String password) { 
@@ -167,6 +206,11 @@ public class AirBV {
     	return Response.ok(userData).build();
     }
 
+    /**
+     * Gets the ID number of a user to get all their reservations using the Application Service.
+     * @param dni ID number of the user.
+     * @return List of reservations of the user.
+     */
 	@GET
 	@Path(getMyReservations)
 	public ArrayList<ReservationData> getUserReservations( @PathParam("dni") String dni ) {
@@ -180,6 +224,11 @@ public class AirBV {
 		return resData;
 	}
 
+	/**
+	 * Gets the ID number of a user to get all their vans using the Application Service.
+	 * @param dni ID number of the user.
+	 * @return List of vans of the user.
+	 */
 	@GET
 	@Path(getMyVans)
 	public ArrayList<VanData> getUserVans( @PathParam("dni") String dni ) {
@@ -192,6 +241,11 @@ public class AirBV {
 		return vanData;
 	}
 	
+	/**
+	 * Gets the data from a list of users to register them in the system using the Application Service.
+	 * @param usersData List of data from the users.
+	 * @return Response depending on the result of the execution.
+	 */
 	@POST
     @Path(registerUsersList)
     public Response registerUsersList(ArrayList<UserData> usersData) {
@@ -209,6 +263,11 @@ public class AirBV {
     	return Response.status(400).build();
     }
     
+	/**
+	 * Gets the data from a list of vans to register them in the system using the Application Service.
+	 * @param vansData List of data from the vans.
+	 * @return Response depending on the result of the execution.
+	 */
     @POST
     @Path(registerVansList)
     public Response registerVansList(ArrayList<VanData> vansData) {
@@ -227,6 +286,11 @@ public class AirBV {
     	return Response.status(400).build();
     }
     
+    /**
+	 * Gets the data from a list of reservations to register them in the system using the Application Service.
+	 * @param reservationsData List of data from the reservations.
+	 * @return Response depending on the result of the execution.
+	 */
     @POST
     @Path(registerReservationsList)
     public Response registerReservationsList(ArrayList<ReservationData> reservationsData) {
