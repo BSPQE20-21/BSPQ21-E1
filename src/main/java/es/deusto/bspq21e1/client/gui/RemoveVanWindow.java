@@ -13,7 +13,6 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -55,7 +54,7 @@ public class RemoveVanWindow extends JFrame {
 		initialize();
 	}
 	
-	private void initialize() {
+	protected void initialize() {
 		frmRemoveVan.setBounds(50, 50, 715, 500);
 		frmRemoveVan.setLocationRelativeTo(null);
 		frmRemoveVan.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -157,7 +156,7 @@ public class RemoveVanWindow extends JFrame {
 		logger.info("RemoveVanWindow well initialized");
 	}
 	
-	private void updateList() {
+	protected void updateList() {
 		logger.debug("Inside function updateList -> " + vans);
 		if(vans.size()>0) {
 			for (int i = 0; i < vans.size(); i++) {
@@ -167,6 +166,7 @@ public class RemoveVanWindow extends JFrame {
 			}
 			jtVansTable.setModel(tableModel);
 			jtVansTable.setRowSelectionInterval(0, 0);
+			btnRemove.setEnabled(true);
 		}else {
 			btnRemove.setEnabled(false);
 		}
@@ -269,7 +269,9 @@ public class RemoveVanWindow extends JFrame {
 	}
 
 	public void setVans(ArrayList<VanData> vans) {
-		this.vans = vans;
+		for (VanData vanData : vans) {
+			this.vans.add(vanData);
+		}
 	}
 
 	public DefaultListModel<String> getVansList() {
