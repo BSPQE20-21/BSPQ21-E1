@@ -125,7 +125,7 @@ public class ControllerTest {
     	
     	assertTrue(controller.eraseUser(userDni));
 		assertTrue(controller.eraseUser(userDni2));
-		assertEquals(0, controller.searchVans("Bilbao", "10-10-2021", "20-10-2021").size());
+		assertEquals(1, controller.searchVans("Bilbao", "10-10-2021", "20-10-2021").size());
 		
 		controller.eraseUser("14725836D");
 		controller.eraseUser("14725836E");

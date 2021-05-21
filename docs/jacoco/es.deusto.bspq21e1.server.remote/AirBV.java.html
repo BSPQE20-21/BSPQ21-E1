@@ -34,19 +34,17 @@ import org.apache.log4j.Logger;
  * @author Group 3
  *
  */
-
 @Path(&quot;/AirBV&quot;)
 @Produces(MediaType.APPLICATION_JSON)
 public class AirBV {
 
-<span class="fc" id="L42">	private AirBVService airbvService = new AirBVService();</span>
-<span class="fc" id="L43">	private Logger logger = Logger.getLogger(AirBV.class.getName());</span>
+<span class="fc" id="L41">	private AirBVService airbvService = new AirBVService();</span>
+<span class="fc" id="L42">	private Logger logger = Logger.getLogger(AirBV.class.getName());</span>
 
 	/**
-	 * Variables needed for the post and get methods paths.
+	 * Variables needed for the POST/GET/DELETE methods paths.
 	 * Should correspond to those of the client side methods.
 	 */
-	
 	private static final String registerUser = &quot;/registerUser&quot;;
 	private static final String loginUser = &quot;/loginUser/{email}/{password}&quot;;
 	private static final String deleteUser = &quot;/deleteUser/{dni}&quot;;
@@ -61,185 +59,251 @@ public class AirBV {
 	private static final String registerVansList = &quot;/registerVansList&quot;;
 	private static final String registerReservationsList = &quot;/registerReservationsList&quot;;
 
-<span class="fc" id="L64">    public AirBV() { }</span>
+	/**
+	 * Empty constructor for the class.
+	 */
+<span class="fc" id="L65">    public AirBV() { }</span>
     
+    /**
+     * Gets the data from the user from the client, transforms it into a User and sends it to the Application Service to register it.
+     * @param userData Data from the new user.
+     * @return Response depending on the result of the execution.
+     */
     @POST
     @Path(registerUser)
     public Response registerUser(UserData userData) {
-<span class="fc" id="L69">    	logger.info(&quot;Register new User request from client received.&quot;);</span>
-<span class="fc bfc" id="L70" title="All 2 branches covered.">        if(airbvService.registerUser( userData.getDni(), userData.getName(), userData.getEmail(), userData.getPassword() )) {</span>
-<span class="fc" id="L71">        	return Response.ok().build();</span>
+<span class="fc" id="L75">    	logger.info(&quot;Register new User request from client received.&quot;);</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">        if(airbvService.registerUser( userData.getDni(), userData.getName(), userData.getEmail(), userData.getPassword() )) {</span>
+<span class="fc" id="L77">        	return Response.ok().build();</span>
         }
-<span class="fc" id="L73">        return Response.status(400).build();</span>
+<span class="fc" id="L79">        return Response.status(400).build();</span>
     }
     
+    /**
+     * Gets the ID number from the user the client wants to delete and sends it to the Application Service for that.
+     * @param dni ID number of the user client wants to delete.
+     * @return Response depending on the result of the execution.
+     */
     @DELETE
     @Path(deleteUser)
     public Response deleteUser(@PathParam(&quot;dni&quot;) String dni) {
-<span class="fc" id="L79">    	logger.info(&quot;Delete a user request from client received.&quot;);</span>
-<span class="fc" id="L80">        airbvService.deleteUser( dni );</span>
-<span class="fc" id="L81">        return Response.status(Response.Status.OK).build();</span>
+<span class="fc" id="L90">    	logger.info(&quot;Delete a user request from client received.&quot;);</span>
+<span class="fc" id="L91">        airbvService.deleteUser( dni );</span>
+<span class="fc" id="L92">        return Response.status(Response.Status.OK).build();</span>
     }
 
     /**
-     * Transforms VanData into Van and uses a method from the Application Service to store a Van
-     * @param vanData
+     * Transforms VanData into Van and uses a method from the Application Service to store a Van.
+     * @param vanData Data of the van client wants to register.
+     * @return Response depending on the result of the execution.
      */
     @POST
     @Path(registerVan)
     public Response registerVan(VanData vanData, @PathParam(&quot;kitchen&quot;) boolean kitchen, @PathParam(&quot;shower&quot;) boolean shower) {
-<span class="fc" id="L91">    	logger.info(&quot;Register new Van request from client received.&quot;);</span>
-<span class="fc" id="L92">    	vanData.setKitchen(kitchen);</span>
-<span class="fc" id="L93">    	vanData.setShower(shower);</span>
-<span class="fc" id="L94">    	logger.debug(&quot;$ DEBUGGING\n&quot; +</span>
+<span class="fc" id="L103">    	logger.info(&quot;Register new Van request from client received.&quot;);</span>
+<span class="fc" id="L104">    	vanData.setKitchen(kitchen);</span>
+<span class="fc" id="L105">    	vanData.setShower(shower);</span>
+<span class="fc" id="L106">    	logger.debug(&quot;$ DEBUGGING\n&quot; +</span>
 				&quot;\tPrinting VanData and User from AirBV in Server side:\n&quot;+
 				&quot;\tVan: &quot; + vanData +
-<span class="fc" id="L97">				&quot;\n\tUser: &quot; + vanData.getUser() +</span>
+<span class="fc" id="L109">				&quot;\n\tUser: &quot; + vanData.getUser() +</span>
 				&quot;\n=======================\n&quot;);
-<span class="fc" id="L99">    	Assembler as = new Assembler();</span>
+<span class="fc" id="L111">    	Assembler as = new Assembler();</span>
     	
-<span class="fc" id="L101">    	Van van = as.disassembleVan(vanData);</span>
-<span class="fc bfc" id="L102" title="All 2 branches covered.">    	if(airbvService.registerVan(van)) {</span>
-<span class="fc" id="L103">    		return Response.ok().build();</span>
+<span class="fc" id="L113">    	Van van = as.disassembleVan(vanData);</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">    	if(airbvService.registerVan(van)) {</span>
+<span class="fc" id="L115">    		return Response.ok().build();</span>
     	}
-<span class="fc" id="L105">    	return Response.status(400).build();</span>
+<span class="fc" id="L117">    	return Response.status(400).build();</span>
     }
     
+    /**
+     * Gets the license plate of the van client wants to erase and sends it to the Application Service for that.
+     * @param licensePlate License plate of the van client wants to delete.
+     * @return Response depending on the result of the execution.
+     */
     @DELETE
     @Path(deleteVan)
     public Response deleteVan(@PathParam(&quot;licensePlate&quot;) String licensePlate) {
-<span class="fc" id="L111">    	logger.info(&quot;Delete van request from client received.&quot;);</span>
-<span class="pc bpc" id="L112" title="1 of 2 branches missed.">    	if(airbvService.deleteVan(licensePlate)) {</span>
-<span class="fc" id="L113">    		return Response.status(Response.Status.OK).build();</span>
+<span class="fc" id="L128">    	logger.info(&quot;Delete van request from client received.&quot;);</span>
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">    	if(airbvService.deleteVan(licensePlate)) {</span>
+<span class="fc" id="L130">    		return Response.status(Response.Status.OK).build();</span>
     	}
-<span class="nc" id="L115">    	return Response.status(400).build();</span>
+<span class="nc" id="L132">    	return Response.status(400).build();</span>
     }
 
+    /**
+     * Gets the code of the reservation client wants to delete and sends it to the Application Service for that.
+     * @param code Code of the reservation client wants to erase.
+     * @return Response depending on the result of the execution.
+     */
     @DELETE
     @Path(cancelReservation)
     public Response cancelReservation(@PathParam(&quot;code&quot;) String code) {
-<span class="fc" id="L121">    	logger.info(&quot;Cancel a Reservation request from client received.&quot;);</span>
-<span class="pc bpc" id="L122" title="1 of 2 branches missed.">        if(airbvService.cancelReservation(code)) {</span>
-<span class="nc" id="L123">        	return Response.status(Response.Status.OK).build();</span>
+<span class="fc" id="L143">    	logger.info(&quot;Cancel a Reservation request from client received.&quot;);</span>
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">        if(airbvService.cancelReservation(code)) {</span>
+<span class="nc" id="L145">        	return Response.status(Response.Status.OK).build();</span>
         }
-<span class="fc" id="L125">        return Response.status(400).build();        </span>
+<span class="fc" id="L147">        return Response.status(400).build();        </span>
     }
     
+    /**
+     * Gets the data of a new reservation client wants to register and sends it to the Application Service for that.
+     * @param rD Gets the data of a new reservation client wants to register.
+     * @return Response depending on the result of the execution.
+     */
     @POST
     @Path(registerReservation)
     public Response registerReservation(ReservationData rD) {
-<span class="fc" id="L131">    	logger.info(&quot;Register new Reservation request from client received.&quot;);</span>
-<span class="fc" id="L132">    	Assembler as = new Assembler();</span>
-    	
-<span class="pc bpc" id="L134" title="1 of 2 branches missed.">    	if(airbvService.registerReservation(rD.getBookingDate(), </span>
-<span class="fc" id="L135">    			rD.getDuration(),</span>
-<span class="fc" id="L136">    			rD.getVan(),</span>
-<span class="fc" id="L137">    			rD.getVanRenter()</span>
+<span class="fc" id="L158">    	logger.info(&quot;Register new Reservation request from client received.&quot;);</span>
+<span class="pc bpc" id="L159" title="1 of 2 branches missed.">    	if (airbvService.registerReservation(rD.getBookingDate(), </span>
+<span class="fc" id="L160">    			rD.getDuration(),</span>
+<span class="fc" id="L161">    			rD.getVan(),</span>
+<span class="fc" id="L162">    			rD.getVanRenter()</span>
     			)) {
-<span class="fc" id="L139">    		return Response.ok().build();</span>
+<span class="fc" id="L164">    		return Response.ok().build();</span>
     	}
-<span class="nc" id="L141">    	return Response.status(400).build();</span>
+<span class="nc" id="L166">    	return Response.status(400).build();</span>
     	
     }
 
+    /**
+     * Gets the location and dates which client has put as parameters and sends it to the Application Service to return the vans that
+     * meet those requirements.
+     * @param location Location of the van.
+     * @param pickUpDate Date of pickup of the van.
+     * @param returnDate Date of return of the van.
+     * @return List of vans which meet the requirements.
+     */
     @GET
     @Path(getVans)
 	public ArrayList&lt;VanData&gt; searchVans( @PathParam(&quot;location&quot;) String location, @PathParam(&quot;pickUpDate&quot;) String pickUpDate, @PathParam(&quot;returnDate&quot;) String returnDate) {	
-<span class="fc" id="L148">    	logger.info(&quot;Search with location: &quot;+location+&quot; from &quot; + pickUpDate + &quot; to &quot; + returnDate + &quot; request from client received.&quot;);</span>
-<span class="fc" id="L149">    	ArrayList&lt;VanData&gt; vansData = new ArrayList&lt;VanData&gt;();</span>
-<span class="fc" id="L150">		Assembler as = new Assembler();</span>
-<span class="fc bfc" id="L151" title="All 2 branches covered.">		for (Van van : airbvService.searchVans(location, pickUpDate, returnDate)) {</span>
-<span class="fc" id="L152">			vansData.add(as.assembleVan(van));</span>
-<span class="fc" id="L153">		}</span>
-<span class="fc" id="L154">		return vansData;</span>
+<span class="fc" id="L181">    	logger.info(&quot;Search with location: &quot;+location+&quot; from &quot; + pickUpDate + &quot; to &quot; + returnDate + &quot; request from client received.&quot;);</span>
+<span class="fc" id="L182">    	ArrayList&lt;VanData&gt; vansData = new ArrayList&lt;VanData&gt;();</span>
+<span class="fc" id="L183">		Assembler as = new Assembler();</span>
+<span class="fc bfc" id="L184" title="All 2 branches covered.">		for (Van van : airbvService.searchVans(location, pickUpDate, returnDate)) {</span>
+<span class="fc" id="L185">			vansData.add(as.assembleVan(van));</span>
+<span class="fc" id="L186">		}</span>
+<span class="fc" id="L187">		return vansData;</span>
 	}
     
+    /**
+     * Gets the email and password of a user and checks if they are good credentials sending them to the Application Service.
+     * @param email Email of the user.
+     * @param password Password of the user.
+     * @return Response depending on the result of the execution.
+     */
     @GET
     @Path(loginUser)
     public Response login(@PathParam(&quot;email&quot;) String email, @PathParam(&quot;password&quot;) String password) { 
-<span class="fc" id="L160">    	logger.info(&quot;User's login with credentials request received from client.&quot;);</span>
-<span class="fc" id="L161">    	User u = airbvService.login(email, password);</span>
-<span class="fc" id="L162">    	UserData userData = null;</span>
-<span class="fc bfc" id="L163" title="All 2 branches covered.">    	if (u != null) {</span>
-<span class="fc" id="L164">    		Assembler as = new Assembler();</span>
-<span class="fc" id="L165">        	userData = as.assembleUser( u );</span>
+<span class="fc" id="L199">    	logger.info(&quot;User's login with credentials request received from client.&quot;);</span>
+<span class="fc" id="L200">    	User u = airbvService.login(email, password);</span>
+<span class="fc" id="L201">    	UserData userData = null;</span>
+<span class="fc bfc" id="L202" title="All 2 branches covered.">    	if (u != null) {</span>
+<span class="fc" id="L203">    		Assembler as = new Assembler();</span>
+<span class="fc" id="L204">        	userData = as.assembleUser( u );</span>
     	}
-<span class="fc" id="L167">    	return Response.ok(userData).build();</span>
+<span class="fc" id="L206">    	return Response.ok(userData).build();</span>
     }
 
+    /**
+     * Gets the ID number of a user to get all their reservations using the Application Service.
+     * @param dni ID number of the user.
+     * @return List of reservations of the user.
+     */
 	@GET
 	@Path(getMyReservations)
 	public ArrayList&lt;ReservationData&gt; getUserReservations( @PathParam(&quot;dni&quot;) String dni ) {
-<span class="fc" id="L173">		logger.info(&quot;Get user's reservations request from client received.&quot;);</span>
-<span class="fc" id="L174">		Assembler as = new Assembler();</span>
-<span class="fc" id="L175">		ArrayList&lt;ReservationData&gt; resData = new ArrayList&lt;ReservationData&gt;();</span>
-<span class="fc bfc" id="L176" title="All 2 branches covered.">		for (Reservation reservation : airbvService.getUserReservations(dni)) {</span>
-<span class="fc" id="L177">			resData.add(as.assembleReservation(reservation));</span>
-<span class="fc" id="L178">		}</span>
+<span class="fc" id="L217">		logger.info(&quot;Get user's reservations request from client received.&quot;);</span>
+<span class="fc" id="L218">		Assembler as = new Assembler();</span>
+<span class="fc" id="L219">		ArrayList&lt;ReservationData&gt; resData = new ArrayList&lt;ReservationData&gt;();</span>
+<span class="fc bfc" id="L220" title="All 2 branches covered.">		for (Reservation reservation : airbvService.getUserReservations(dni)) {</span>
+<span class="fc" id="L221">			resData.add(as.assembleReservation(reservation));</span>
+<span class="fc" id="L222">		}</span>
 		
-<span class="fc" id="L180">		return resData;</span>
+<span class="fc" id="L224">		return resData;</span>
 	}
 
+	/**
+	 * Gets the ID number of a user to get all their vans using the Application Service.
+	 * @param dni ID number of the user.
+	 * @return List of vans of the user.
+	 */
 	@GET
 	@Path(getMyVans)
 	public ArrayList&lt;VanData&gt; getUserVans( @PathParam(&quot;dni&quot;) String dni ) {
-<span class="fc" id="L186">		logger.info(&quot;Get user's vans request from client received.&quot;);</span>
-<span class="fc" id="L187">		Assembler as = new Assembler();</span>
-<span class="fc" id="L188">		ArrayList&lt;VanData&gt; vanData = new ArrayList&lt;VanData&gt;();</span>
-<span class="fc bfc" id="L189" title="All 2 branches covered.">		for (Van van : airbvService.getUserVans(dni)) {</span>
-<span class="fc" id="L190">			vanData.add(as.assembleVan(van));</span>
-<span class="fc" id="L191">		}</span>
-<span class="fc" id="L192">		return vanData;</span>
+<span class="fc" id="L235">		logger.info(&quot;Get user's vans request from client received.&quot;);</span>
+<span class="fc" id="L236">		Assembler as = new Assembler();</span>
+<span class="fc" id="L237">		ArrayList&lt;VanData&gt; vanData = new ArrayList&lt;VanData&gt;();</span>
+<span class="fc bfc" id="L238" title="All 2 branches covered.">		for (Van van : airbvService.getUserVans(dni)) {</span>
+<span class="fc" id="L239">			vanData.add(as.assembleVan(van));</span>
+<span class="fc" id="L240">		}</span>
+<span class="fc" id="L241">		return vanData;</span>
 	}
 	
+	/**
+	 * Gets the data from a list of users to register them in the system using the Application Service.
+	 * @param usersData List of data from the users.
+	 * @return Response depending on the result of the execution.
+	 */
 	@POST
     @Path(registerUsersList)
     public Response registerUsersList(ArrayList&lt;UserData&gt; usersData) {
-<span class="fc" id="L198">		logger.info(&quot;Register new users from list received&quot;);</span>
-<span class="fc" id="L199">		ArrayList&lt;User&gt; users = new ArrayList&lt;User&gt;();</span>
-<span class="fc" id="L200">		Assembler as = new Assembler();</span>
-<span class="fc bfc" id="L201" title="All 2 branches covered.">		for (UserData u : usersData) {</span>
-<span class="fc" id="L202">			users.add( as.disassembleUser(u) );</span>
-<span class="fc" id="L203">		}</span>
-<span class="fc bfc" id="L204" title="All 2 branches covered.">    	if ( airbvService.registerUsersList(users) ) {</span>
-<span class="fc" id="L205">    		logger.debug(&quot;registerUsersList methods in airBV seems to work&quot;);</span>
-<span class="fc" id="L206">    		return Response.ok().build();</span>
+<span class="fc" id="L252">		logger.info(&quot;Register new users from list received&quot;);</span>
+<span class="fc" id="L253">		ArrayList&lt;User&gt; users = new ArrayList&lt;User&gt;();</span>
+<span class="fc" id="L254">		Assembler as = new Assembler();</span>
+<span class="fc bfc" id="L255" title="All 2 branches covered.">		for (UserData u : usersData) {</span>
+<span class="fc" id="L256">			users.add( as.disassembleUser(u) );</span>
+<span class="fc" id="L257">		}</span>
+<span class="fc bfc" id="L258" title="All 2 branches covered.">    	if ( airbvService.registerUsersList(users) ) {</span>
+<span class="fc" id="L259">    		logger.debug(&quot;registerUsersList methods in airBV seems to work&quot;);</span>
+<span class="fc" id="L260">    		return Response.ok().build();</span>
     	}
-<span class="fc" id="L208">    	logger.debug(&quot;airbvService doesn't return a true boolean. Check for errors and if users are stored&quot;);</span>
-<span class="fc" id="L209">    	return Response.status(400).build();</span>
+<span class="fc" id="L262">    	logger.debug(&quot;airbvService doesn't return a true boolean. Check for errors and if users are stored&quot;);</span>
+<span class="fc" id="L263">    	return Response.status(400).build();</span>
     }
     
+	/**
+	 * Gets the data from a list of vans to register them in the system using the Application Service.
+	 * @param vansData List of data from the vans.
+	 * @return Response depending on the result of the execution.
+	 */
     @POST
     @Path(registerVansList)
     public Response registerVansList(ArrayList&lt;VanData&gt; vansData) {
-<span class="fc" id="L215">    	logger.debug(&quot;Register new vans from list received. vansData size: &quot; + vansData.size() + &quot; + first: &quot; + vansData.get(0).getLicensePlate());</span>
-<span class="fc" id="L216">    	ArrayList&lt;Van&gt; vans = new ArrayList&lt;Van&gt;();</span>
-<span class="fc" id="L217">    	Assembler as = new Assembler();</span>
-<span class="fc bfc" id="L218" title="All 2 branches covered.">    	for (VanData v : vansData) {</span>
-<span class="fc" id="L219">    		vans.add( as.disassembleVan(v) );</span>
-<span class="fc" id="L220">    		logger.debug(&quot;Van diassembled and added to new array -&gt; &quot; + vans.get( vansData.indexOf(v) ).getLicensePlate());</span>
-<span class="fc" id="L221">    	}</span>
-<span class="fc bfc" id="L222" title="All 2 branches covered.">    	if ( airbvService.registerVansList(vans) ) {</span>
-<span class="fc" id="L223">    		logger.debug(&quot;registerVansList methods in airBV seems to work&quot;);</span>
-<span class="fc" id="L224">    		return Response.ok().build();</span>
+<span class="fc" id="L274">    	logger.debug(&quot;Register new vans from list received. vansData size: &quot; + vansData.size() + &quot; + first: &quot; + vansData.get(0).getLicensePlate());</span>
+<span class="fc" id="L275">    	ArrayList&lt;Van&gt; vans = new ArrayList&lt;Van&gt;();</span>
+<span class="fc" id="L276">    	Assembler as = new Assembler();</span>
+<span class="fc bfc" id="L277" title="All 2 branches covered.">    	for (VanData v : vansData) {</span>
+<span class="fc" id="L278">    		vans.add( as.disassembleVan(v) );</span>
+<span class="fc" id="L279">    		logger.debug(&quot;Van diassembled and added to new array -&gt; &quot; + vans.get( vansData.indexOf(v) ).getLicensePlate());</span>
+<span class="fc" id="L280">    	}</span>
+<span class="fc bfc" id="L281" title="All 2 branches covered.">    	if ( airbvService.registerVansList(vans) ) {</span>
+<span class="fc" id="L282">    		logger.debug(&quot;registerVansList methods in airBV seems to work&quot;);</span>
+<span class="fc" id="L283">    		return Response.ok().build();</span>
     	}
-<span class="fc" id="L226">    	logger.debug(&quot;airbvService doesn't return a true boolean. Check for errors and if vans are stored&quot;);</span>
-<span class="fc" id="L227">    	return Response.status(400).build();</span>
+<span class="fc" id="L285">    	logger.debug(&quot;airbvService doesn't return a true boolean. Check for errors and if vans are stored&quot;);</span>
+<span class="fc" id="L286">    	return Response.status(400).build();</span>
     }
     
+    /**
+	 * Gets the data from a list of reservations to register them in the system using the Application Service.
+	 * @param reservationsData List of data from the reservations.
+	 * @return Response depending on the result of the execution.
+	 */
     @POST
     @Path(registerReservationsList)
     public Response registerReservationsList(ArrayList&lt;ReservationData&gt; reservationsData) {
-<span class="fc" id="L233">    	logger.info(&quot;Register new reservations from list received&quot;);</span>
-<span class="fc" id="L234">    	ArrayList&lt;Reservation&gt; reservations = new ArrayList&lt;Reservation&gt;();</span>
-<span class="fc" id="L235">    	Assembler as = new Assembler();</span>
-<span class="fc bfc" id="L236" title="All 2 branches covered.">    	for (ReservationData r : reservationsData) {</span>
-<span class="fc" id="L237">    		reservations.add( as.disassembleReservation(r) );</span>
-<span class="fc" id="L238">    	}</span>
-<span class="fc bfc" id="L239" title="All 2 branches covered.">    	if ( airbvService.registerReservationsList(reservations) ) {</span>
-<span class="fc" id="L240">    		return Response.ok().build();</span>
+<span class="fc" id="L297">    	logger.info(&quot;Register new reservations from list received&quot;);</span>
+<span class="fc" id="L298">    	ArrayList&lt;Reservation&gt; reservations = new ArrayList&lt;Reservation&gt;();</span>
+<span class="fc" id="L299">    	Assembler as = new Assembler();</span>
+<span class="fc bfc" id="L300" title="All 2 branches covered.">    	for (ReservationData r : reservationsData) {</span>
+<span class="fc" id="L301">    		reservations.add( as.disassembleReservation(r) );</span>
+<span class="fc" id="L302">    	}</span>
+<span class="fc bfc" id="L303" title="All 2 branches covered.">    	if ( airbvService.registerReservationsList(reservations) ) {</span>
+<span class="fc" id="L304">    		return Response.ok().build();</span>
     	}
-<span class="fc" id="L242">    	return Response.status(400).build();</span>
+<span class="fc" id="L306">    	return Response.status(400).build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

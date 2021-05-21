@@ -123,7 +123,7 @@ public class SearchWindow extends JFrame{
 <span class="nc" id="L123">					vans = controller.searchVans(txtLocation.getText(), txtPickUp.getText(), txtReturn.getText());</span>
 <span class="nc" id="L124">					updateLists(vans);</span>
 <span class="nc" id="L125">					logger.debug(&quot;List of vans updated&quot;);</span>
-<span class="nc" id="L126">				}else {</span>
+				}else {
 <span class="nc" id="L127">					JOptionPane.showMessageDialog(frmSearchVans, controller.getResourcebundle().getString(&quot;search_window_error_empty_txt_fields_msg&quot;));</span>
 <span class="nc" id="L128">					logger.error(&quot;Wrong data entered into parameters&quot;);</span>
 				}
@@ -196,14 +196,14 @@ public class SearchWindow extends JFrame{
 <span class="nc" id="L196">				} catch (ParseException e1) {</span>
 <span class="nc" id="L197">					e1.printStackTrace();</span>
 <span class="nc" id="L198">					logger.error(&quot;Error parsing pickup date&quot;);</span>
-				}
+<span class="nc" id="L199">				}</span>
 				
 				try {
 <span class="nc" id="L202">					returnDate = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;).parse(txtReturn.getText());</span>
 <span class="nc" id="L203">				} catch (ParseException e1) {</span>
 <span class="nc" id="L204">					e1.printStackTrace();</span>
 <span class="nc" id="L205">					logger.error(&quot;Error parsing return date&quot;);</span>
-				}
+<span class="nc" id="L206">				}</span>
 				
 <span class="nc" id="L208">				VanData van = vans.get(jtVansTable.getSelectedRow());</span>
 				
@@ -273,7 +273,7 @@ public class SearchWindow extends JFrame{
 			}
 <span class="nc" id="L274">			jtVansTable.setRowSelectionInterval(0, 0);</span>
 <span class="nc" id="L275">			btnBook.setEnabled(true);</span>
-<span class="nc" id="L276">		} else {</span>
+		} else {
 <span class="nc" id="L277">			btnCharacteristics.setEnabled(false);</span>
 <span class="nc" id="L278">			btnBook.setEnabled(false);</span>
 <span class="nc" id="L279">			tableModel.setRowCount(0); //CLEAR THE TABLE</span>
