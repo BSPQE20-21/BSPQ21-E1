@@ -11,6 +11,7 @@ import java.awt.Font;
 import java.awt.HeadlessException;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 
 import org.apache.log4j.Logger;
@@ -181,7 +182,7 @@ static Logger logger = Logger.getLogger(SearchWindowTest.class.getName());
 	}
 	
 	@Test
-	public void updateListstTest() {
+	public void updateListsTest() {
 		try {
 			assertFalse(w.getBtnBook().isEnabled());
 			assertFalse(w.getBtnCharacteristics().isEnabled());
@@ -191,5 +192,14 @@ static Logger logger = Logger.getLogger(SearchWindowTest.class.getName());
 		}
 	}
 	
+	@Test
+	public void gettersSettersTest() {
+		try {
+			w.setSearchPanel(new JPanel());
+			assertNotNull(w.getSearchPanel());
+		} catch (HeadlessException e) {
+			logger.error("You are in ubuntu, it's not posible to do window's test");
+		}
+	}
 	
 }

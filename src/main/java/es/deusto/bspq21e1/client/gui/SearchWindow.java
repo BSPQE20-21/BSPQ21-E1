@@ -41,27 +41,16 @@ public class SearchWindow extends JFrame{
 	private JFrame mainWindow;
 	
 	private JFrame frmSearchVans = new JFrame();
-	private JPanel searchPanel;
-	private JPanel visualizePanel;
-	private JLabel lblSearchTitle;
-	private JLabel lblResultsTitle;
-	private JLabel lblLocation;
-	private JLabel lblPickUp;
-	private JLabel lblReturn;
-	private JTextField txtLocation;
-	private JTextField txtPickUp;
-	private JTextField txtReturn;
-	private JLabel lblNDateExample;
+	private JPanel searchPanel, visualizePanel;
+	private JLabel lblSearchTitle, lblResultsTitle, lblLocation, lblPickUp, lblReturn, lblNDateExample;
+	private JTextField txtLocation, txtPickUp, txtReturn;
 	private JSeparator separator;
 	private JTable jtVansTable = new JTable();
 	private JScrollPane scrollVans;
 	private ArrayList<VanData> vans = new ArrayList<>();
 	private Date pickUpDate;
 	private Date returnDate;
-	JButton btnCharacteristics;
-	JButton btnBook;
-	JButton btnBackButton;
-	JButton btnSearch;
+	private JButton btnCharacteristics, btnBook, btnBackButton, btnSearch;
 	private DefaultTableModel tableModel;
 	
 	private javax.swing.DefaultListModel<String> vansList = new javax.swing.DefaultListModel<String>();
