@@ -7,8 +7,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
+import org.databene.contiperf.PerfTest;
+import org.databene.contiperf.Required;
+import org.databene.contiperf.junit.ContiPerfRule;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 import es.deusto.bspq21e1.serialization.UserData;
@@ -31,6 +35,8 @@ public class AirBVServiceTest {
 	Van van2;
 	Date date1 = null;
 	Date date2 = null;
+	
+	@Rule public ContiPerfRule rule = new ContiPerfRule();
 
 	@Before
 	public void setUp() throws Exception {
@@ -94,6 +100,8 @@ public class AirBVServiceTest {
 	}
 
 	@Test
+	@PerfTest(invocations = 5, threads = 20)
+	@Required(max = 1200, average = 600)
 	public void searchVansTest() {
 		assertEquals(1, service.searchVans("Bilbao", "10-10-2021", "20-10-2021").size());
 		assertEquals(0, service.searchVans("Madrid", "10-10-2021", "20-10-2021").size());
@@ -101,6 +109,8 @@ public class AirBVServiceTest {
 	}
 	
 	@Test
+	@PerfTest(invocations = 5, threads = 20)
+	@Required(max = 1200, average = 600)
 	public void searchVansByLocationTest() {
 		assertEquals(2, service.searchVansByLocation("Bilbao").size());
 		assertEquals(0, service.searchVansByLocation("Madrid").size());
@@ -108,6 +118,8 @@ public class AirBVServiceTest {
 	}
 	
 	@Test
+	@PerfTest(invocations = 5, threads = 20)
+	@Required(max = 750, average = 500)
 	public void loginTest() {
 		User us = service.login(userEmail2, userPass);
 		assertEquals(userDni2, us.getDni());
@@ -118,6 +130,8 @@ public class AirBVServiceTest {
 	}
 
 	@Test
+	@PerfTest(invocations = 5, threads = 20)
+	@Required(max = 600, average = 250)
 	public void getUserReservationsTest() {
 		assertEquals(1, service.getUserReservations(u.getDni()).size());
 		assertEquals(0, service.getUserReservations(new UserData().getDni()).size());
@@ -125,6 +139,8 @@ public class AirBVServiceTest {
 	}
 	
 	@Test
+	@PerfTest(invocations = 5, threads = 20)
+	@Required(max = 600, average = 250)
 	public void getUserVans() {
 		assertEquals(1, service.getUserVans(userDni).size());
 		assertEquals(0, service.getUserVans("9516203").size());
