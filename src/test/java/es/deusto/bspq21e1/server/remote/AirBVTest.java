@@ -149,7 +149,7 @@ public class AirBVTest {
 
     @Test
     @PerfTest(invocations = 5, threads = 15)
-	@Required(max = 1200, average = 500)
+	@Required(max = 1200, average = 600)
 	public void searchVans() {	
     	assertEquals(1, airBV.searchVans(location, d2, d2).size());
     	assertEquals(2, airBV.searchVans("Madrid", d2, d2).size());
@@ -158,8 +158,8 @@ public class AirBVTest {
 	}
     
 	@Test
-	@PerfTest(invocations = 5, threads = 10)
-	@Required(max = 500, average = 100)
+	@PerfTest(invocations = 5, threads = 15)
+	@Required(max = 1200, average = 600)
     public void loginTest() { 
 		assertEquals(Status.OK.getStatusCode(), airBV.login(userEmail, userPass).getStatus());
 		assertEquals(Status.OK.getStatusCode(), airBV.login("14725836D", userPass).getStatus());
@@ -168,7 +168,7 @@ public class AirBVTest {
     }
 
 	@Test
-	@PerfTest(invocations = 5, threads = 10)
+	@PerfTest(invocations = 5, threads = 15)
 	@Required(max = 500, average = 100)
 	public void getUserReservations() {
 		assertEquals(1, airBV.getUserReservations(userDni).size());
@@ -178,8 +178,8 @@ public class AirBVTest {
 	}
 
 	@Test
-	@PerfTest(invocations = 5, threads = 10)
-	@Required(max = 1000, average = 200)
+	@PerfTest(invocations = 5, threads = 15)
+	@Required(max = 1000, average = 500)
 	public void getUserVans() {
 		assertEquals(2, airBV.getUserVans(userDni).size());
 		assertEquals(1, airBV.getUserVans("14725836D").size());
