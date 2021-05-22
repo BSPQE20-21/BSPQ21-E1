@@ -15,8 +15,12 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response.Status;
 
 import org.apache.log4j.Logger;
+import org.databene.contiperf.PerfTest;
+import org.databene.contiperf.Required;
+import org.databene.contiperf.junit.ContiPerfRule;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 import es.deusto.bspq21e1.serialization.ReservationData;
@@ -54,6 +58,8 @@ public class AirBVTest {
 	ArrayList<UserData> users = new ArrayList<UserData>();
 	ArrayList<VanData> vans = new ArrayList<VanData>();
 	ArrayList<ReservationData> reservations = new ArrayList<ReservationData>(); 
+	
+	@Rule public ContiPerfRule rule = new ContiPerfRule();
     
 	@Before
 	public void setUp() throws Exception {
@@ -142,6 +148,8 @@ public class AirBVTest {
 	}
 
     @Test
+    @PerfTest(invocations = 5, threads = 15)
+	@Required(max = 1200, average = 500)
 	public void searchVans() {	
     	assertEquals(1, airBV.searchVans(location, d2, d2).size());
     	assertEquals(2, airBV.searchVans("Madrid", d2, d2).size());
@@ -150,6 +158,8 @@ public class AirBVTest {
 	}
     
 	@Test
+	@PerfTest(invocations = 5, threads = 10)
+	@Required(max = 500, average = 100)
     public void loginTest() { 
 		assertEquals(Status.OK.getStatusCode(), airBV.login(userEmail, userPass).getStatus());
 		assertEquals(Status.OK.getStatusCode(), airBV.login("14725836D", userPass).getStatus());
@@ -158,6 +168,8 @@ public class AirBVTest {
     }
 
 	@Test
+	@PerfTest(invocations = 5, threads = 10)
+	@Required(max = 500, average = 100)
 	public void getUserReservations() {
 		assertEquals(1, airBV.getUserReservations(userDni).size());
 		assertEquals(3, airBV.getUserReservations("14725836F").size());
@@ -166,6 +178,8 @@ public class AirBVTest {
 	}
 
 	@Test
+	@PerfTest(invocations = 5, threads = 10)
+	@Required(max = 1000, average = 200)
 	public void getUserVans() {
 		assertEquals(2, airBV.getUserVans(userDni).size());
 		assertEquals(1, airBV.getUserVans("14725836D").size());
