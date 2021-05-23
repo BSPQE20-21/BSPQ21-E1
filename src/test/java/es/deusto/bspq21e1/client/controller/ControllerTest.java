@@ -161,7 +161,7 @@ public class ControllerTest {
 	
 	@Test
 	@PerfTest(invocations = 10, threads = 20)
-	@Required(max = 1000, average = 400)
+	@Required(max = 1500, average = 700)
 	public void searchVansTest() {
 		assertEquals(1, controller.searchVans("Bilbao", "30-09-2021", "20-10-2021").size());
 		assertEquals(0, controller.searchVans("Leon", "10-10-2021", "20-10-2021").size());
