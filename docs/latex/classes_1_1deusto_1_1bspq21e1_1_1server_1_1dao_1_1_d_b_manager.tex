@@ -25,6 +25,8 @@ List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_res
 \item 
 List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}} $>$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_abd8f369e862c772078d4e6e4d1936f1a}{get\+Vans\+By\+Dates}} (String location, Date pick\+Up\+Date, Date return\+Date)
 \item 
+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_reservation}{Reservation}} $>$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a5aec9fdea8da9c415fc48422668dd15a}{get\+Reservations\+By\+Van}} (String van\+License\+Plate)
+\item 
 List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}} $>$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a0ca6553cb7103c1504d1a6f3949f80c0}{get\+Vans\+By\+Location}} (String location)
 \item 
 List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van}{Van}} $>$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a1d5856fc8098a18c539b3a9ae434e192}{get\+Vans\+By\+User}} (String user)
@@ -47,7 +49,7 @@ Group E1
 \end{DoxyVersion}
 
 
-Definition at line 26 of file DBManager.\+java.
+Definition at line 27 of file DBManager.\+java.
 
 
 
@@ -65,7 +67,7 @@ Deletes a reservation from the DB.
 \end{DoxyParams}
 
 
-Definition at line 124 of file DBManager.\+java.
+Definition at line 125 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a9c5ef19cfc64ff3bb9c99dcb100ef8e4}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a9c5ef19cfc64ff3bb9c99dcb100ef8e4}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!deleteUser@{deleteUser}}
@@ -75,7 +77,7 @@ Definition at line 124 of file DBManager.\+java.
 
 
 
-Definition at line 158 of file DBManager.\+java.
+Definition at line 159 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a8d62bf3617f005d1e1a8ba4e76e58b01}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a8d62bf3617f005d1e1a8ba4e76e58b01}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!deleteVan@{deleteVan}}
@@ -85,7 +87,7 @@ Definition at line 158 of file DBManager.\+java.
 
 
 
-Definition at line 198 of file DBManager.\+java.
+Definition at line 205 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a179a1c7558d48588e233ce7d2c74710c}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a179a1c7558d48588e233ce7d2c74710c}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getInstance@{getInstance}}
@@ -98,7 +100,7 @@ Method that creates a \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1
 \end{DoxyReturn}
 
 
-Definition at line 40 of file DBManager.\+java.
+Definition at line 41 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a3320432a6640c43bfd2248173aa022f6}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a3320432a6640c43bfd2248173aa022f6}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getReservationsByUser@{getReservationsByUser}}
@@ -117,7 +119,17 @@ an Array\+List with all of the user\textquotesingle{}s reservations ~\newline
 \end{DoxyReturn}
 
 
-Definition at line 330 of file DBManager.\+java.
+Definition at line 337 of file DBManager.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a5aec9fdea8da9c415fc48422668dd15a}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a5aec9fdea8da9c415fc48422668dd15a}} 
+\index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getReservationsByVan@{getReservationsByVan}}
+\index{getReservationsByVan@{getReservationsByVan}!es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}}
+\doxysubsubsection{\texorpdfstring{getReservationsByVan()}{getReservationsByVan()}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_reservation}{Reservation}}$>$ es.\+deusto.\+bspq21e1.\+server.\+dao.\+DBManager.\+get\+Reservations\+By\+Van (\begin{DoxyParamCaption}\item[{String}]{van\+License\+Plate }\end{DoxyParamCaption})}
+
+
+
+Definition at line 407 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_aae73631e27e43e61b59bc9385f0e7551}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_aae73631e27e43e61b59bc9385f0e7551}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getUser@{getUser}}
@@ -127,7 +139,7 @@ Definition at line 330 of file DBManager.\+java.
 
 
 
-Definition at line 260 of file DBManager.\+java.
+Definition at line 267 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a30578c6e52b947a2a004c5cf338961ee}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a30578c6e52b947a2a004c5cf338961ee}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getVan@{getVan}}
@@ -137,7 +149,7 @@ Definition at line 260 of file DBManager.\+java.
 
 
 
-Definition at line 290 of file DBManager.\+java.
+Definition at line 297 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_abd8f369e862c772078d4e6e4d1936f1a}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_abd8f369e862c772078d4e6e4d1936f1a}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getVansByDates@{getVansByDates}}
@@ -147,7 +159,7 @@ Definition at line 290 of file DBManager.\+java.
 
 
 
-Definition at line 370 of file DBManager.\+java.
+Definition at line 383 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a0ca6553cb7103c1504d1a6f3949f80c0}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a0ca6553cb7103c1504d1a6f3949f80c0}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getVansByLocation@{getVansByLocation}}
@@ -157,7 +169,7 @@ Definition at line 370 of file DBManager.\+java.
 
 
 
-Definition at line 380 of file DBManager.\+java.
+Definition at line 451 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a1d5856fc8098a18c539b3a9ae434e192}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a1d5856fc8098a18c539b3a9ae434e192}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!getVansByUser@{getVansByUser}}
@@ -167,7 +179,7 @@ Definition at line 380 of file DBManager.\+java.
 
 
 
-Definition at line 427 of file DBManager.\+java.
+Definition at line 498 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a170d8ecf23d748e2a9af520bc7df017d}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a170d8ecf23d748e2a9af520bc7df017d}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!store@{store}}
@@ -182,7 +194,7 @@ Stores a reservation in the DB (makes the object persistent).
 \end{DoxyParams}
 
 
-Definition at line 81 of file DBManager.\+java.
+Definition at line 82 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_adcf7679fe1cbf3224fa784928d1f1d6f}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_adcf7679fe1cbf3224fa784928d1f1d6f}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!store@{store}}
@@ -197,7 +209,7 @@ Stores a review in the DB (makes the object persistent).
 \end{DoxyParams}
 
 
-Definition at line 72 of file DBManager.\+java.
+Definition at line 73 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a805de44d2ef371e19c27c8e2f12f7106}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a805de44d2ef371e19c27c8e2f12f7106}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!store@{store}}
@@ -212,7 +224,7 @@ Stores a user in the DB (makes the object persistent).
 \end{DoxyParams}
 
 
-Definition at line 54 of file DBManager.\+java.
+Definition at line 55 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a70a4d0ad6a31e896d3763c6d0f313173}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a70a4d0ad6a31e896d3763c6d0f313173}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!store@{store}}
@@ -227,7 +239,7 @@ Stores a van in the DB (makes the object persistent).
 \end{DoxyParams}
 
 
-Definition at line 63 of file DBManager.\+java.
+Definition at line 64 of file DBManager.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a47b0f2e573215a7b4cd17ad013e447ff}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_a47b0f2e573215a7b4cd17ad013e447ff}} 
 \index{es.deusto.bspq21e1.server.dao.DBManager@{es.deusto.bspq21e1.server.dao.DBManager}!validateLogin@{validateLogin}}
@@ -245,7 +257,7 @@ user if valid login, null otherwise
 \end{DoxyReturn}
 
 
-Definition at line 478 of file DBManager.\+java.
+Definition at line 549 of file DBManager.\+java.
 
 
 

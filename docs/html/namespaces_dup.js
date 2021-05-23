@@ -1,6 +1,7 @@
 var namespaces_dup =
 [
     [ "client", null, [
+      [ "<strong>Table of contents</strong><br>", "index.html#autotoc_md1", null ],
       [ "main", "namespaceclient_1_1main.html", null ]
     ] ],
     [ "es", null, [

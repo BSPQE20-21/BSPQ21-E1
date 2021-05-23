@@ -1,15 +1,15 @@
 var searchData=
 [
-  ['controller_37',['controller',['../namespacees_1_1deusto_1_1bspq21e1_1_1client_1_1controller.html',1,'es::deusto::bspq21e1::client']]],
-  ['dao_38',['dao',['../namespacees_1_1deusto_1_1bspq21e1_1_1server_1_1dao.html',1,'es::deusto::bspq21e1::server']]],
-  ['data_39',['data',['../namespacees_1_1deusto_1_1bspq21e1_1_1server_1_1data.html',1,'es::deusto::bspq21e1::server']]],
-  ['dto_40',['dto',['../namespacees_1_1deusto_1_1bspq21e1_1_1server_1_1dto.html',1,'es::deusto::bspq21e1::server']]],
-  ['equals_41',['equals',['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_user.html#a41e2954b77b5a24d423b12747dcd7adb',1,'es.deusto.bspq21e1.server.data.User.equals()'],['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van.html#a5ca3c29d1c6a56222d7e62104e8da7ae',1,'es.deusto.bspq21e1.server.data.Van.equals()']]],
-  ['eraseuser_42',['eraseUser',['../classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#a950a5222cb13b43079d818aaaf7d3a52',1,'es::deusto::bspq21e1::client::controller::Controller']]],
-  ['erasevan_43',['eraseVan',['../classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#a3e168598462e0354e86a6037d337f792',1,'es::deusto::bspq21e1::client::controller::Controller']]],
-  ['gui_44',['gui',['../namespacees_1_1deusto_1_1bspq21e1_1_1client_1_1gui.html',1,'es::deusto::bspq21e1::client']]],
-  ['main_45',['main',['../namespacees_1_1deusto_1_1bspq21e1_1_1client_1_1main.html',1,'es::deusto::bspq21e1::client']]],
-  ['remote_46',['remote',['../namespacees_1_1deusto_1_1bspq21e1_1_1server_1_1remote.html',1,'es::deusto::bspq21e1::server']]],
-  ['serialization_47',['serialization',['../namespacees_1_1deusto_1_1bspq21e1_1_1serialization.html',1,'es::deusto::bspq21e1']]],
-  ['server_48',['server',['../namespacees_1_1deusto_1_1bspq21e1_1_1server.html',1,'es::deusto::bspq21e1']]]
+  ['dbmanager_36',['DBManager',['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager.html',1,'es::deusto::bspq21e1::server::dao']]],
+  ['dbmanager_2ejava_37',['DBManager.java',['../_d_b_manager_8java.html',1,'']]],
+  ['dbmanagertest_38',['DBManagerTest',['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager_test.html',1,'es::deusto::bspq21e1::server::dao']]],
+  ['dbmanagertest_2ejava_39',['DBManagerTest.java',['../_d_b_manager_test_8java.html',1,'']]],
+  ['deletereservation_40',['deleteReservation',['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager.html#af6c56fe567c42e051e6f9408f96fc28b',1,'es::deusto::bspq21e1::server::dao::DBManager']]],
+  ['deleteuser_41',['deleteUser',['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service.html#a82823f3cea9ac9979fcce02390a2e018',1,'es.deusto.bspq21e1.server.AirBVService.deleteUser()'],['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager.html#a9c5ef19cfc64ff3bb9c99dcb100ef8e4',1,'es.deusto.bspq21e1.server.dao.DBManager.deleteUser()'],['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v.html#a80b19437616871c4b686dae1ed617e57',1,'es.deusto.bspq21e1.server.remote.AirBV.deleteUser()']]],
+  ['deletevan_42',['deleteVan',['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service.html#a72493a74aeaeb093e35441000aea5bdb',1,'es.deusto.bspq21e1.server.AirBVService.deleteVan()'],['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager.html#a8d62bf3617f005d1e1a8ba4e76e58b01',1,'es.deusto.bspq21e1.server.dao.DBManager.deleteVan()'],['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v.html#a88d49197a8f2eab2e15a16e7a233096b',1,'es.deusto.bspq21e1.server.remote.AirBV.deleteVan()']]],
+  ['disassemblereservation_43',['disassembleReservation',['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler.html#ab2818c4ee89fe850590854b90d252e33',1,'es.deusto.bspq21e1.server.dto.Assembler.disassembleReservation()'],['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler_test.html#a1a10e9ece5de683139210c23809b9aab',1,'es.deusto.bspq21e1.server.dto.AssemblerTest.disassembleReservation()']]],
+  ['disassemblereview_44',['disassembleReview',['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler.html#a235679f86073bff22dea7df0d2f3d910',1,'es.deusto.bspq21e1.server.dto.Assembler.disassembleReview()'],['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler_test.html#a6746678bbc846fa8dd6901019efa9946',1,'es.deusto.bspq21e1.server.dto.AssemblerTest.disassembleReview()']]],
+  ['disassembleuser_45',['disassembleUser',['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler.html#a8b9714875b8a99175c762640ea21dee5',1,'es::deusto::bspq21e1::server::dto::Assembler']]],
+  ['disassembleusertest_46',['disassembleUserTest',['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler_test.html#acaea5019e156670ffd0e71907cfd7485',1,'es::deusto::bspq21e1::server::dto::AssemblerTest']]],
+  ['disassemblevan_47',['disassembleVan',['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler.html#a62eb7389f6845119a404fe25a3eb14b3',1,'es.deusto.bspq21e1.server.dto.Assembler.disassembleVan()'],['../classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler_test.html#a524ba4a17941c8c2d1b0d999bf61595a',1,'es.deusto.bspq21e1.server.dto.AssemblerTest.disassembleVan()']]]
 ];

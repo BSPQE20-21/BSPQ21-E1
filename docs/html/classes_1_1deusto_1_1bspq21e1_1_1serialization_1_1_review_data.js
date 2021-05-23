@@ -1,5 +1,6 @@
 var classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_review_data =
 [
+    [ "ReviewData", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_review_data.html#aeca03a6fe6813fe895ff66db04e1141c", null ],
     [ "ReviewData", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_review_data.html#ae3f78244f33325518ea75dd92ac0e2b3", null ],
     [ "getCode", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_review_data.html#a454d11c2ca0eaa3f24473330db9a71c2", null ],
     [ "getComment", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_review_data.html#a00bc04f0e27e034803f68670d33a5a25", null ],

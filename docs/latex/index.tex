@@ -1,0 +1,80 @@
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ \hypertarget{index_autotoc_md1}{}\doxysubsubsection{$<$strong$>$\+Table of contents$<$/strong$>$$<$br$>$}\label{index_autotoc_md1}
+\href{\#about-us}{\texttt{ About us}}~\newline
+ \href{\#about-the-project}{\texttt{ About the project}}~\newline
+ \href{\#pre-requisites}{\texttt{ Pre-\/requisites}}~\newline
+ \href{\#building-and-running-the-project}{\texttt{ Building and running the project}}\hypertarget{index_autotoc_md2}{}\doxysection{About us}\label{index_autotoc_md2}
+BSPQ21-\/\+E1 \hypertarget{index_autotoc_md3}{}\doxysection{About the project}\label{index_autotoc_md3}
+AirB\&V offers an application dedicated to the supply of caravans to individuals and holidaymakers (holiday rentals) through which hosts can advertise and contract the rental of their caravans with their guests.
+
+You can see our website on\+: \href{https://bspqe20-21.github.io/BSPQ21-E1/}{\texttt{ https\+://bspqe20-\/21.\+github.\+io/\+BSPQ21-\/\+E1/}}\hypertarget{index_autotoc_md4}{}\doxysection{Pre-\/requisites}\label{index_autotoc_md4}
+
+\begin{DoxyItemize}
+\item Java JDK ($>$=12)
+\item My\+SQL
+\item My\+SQL Workbench
+\item Maven
+\end{DoxyItemize}
+
+-\/$>$ Also the following libraries should be added to pom.\+xml file for the project to work\+: Jetty, JUnit, Open\+CSV, My\+SQL, Datanucleus, Log4J, Jersey, Jacoco, Conti\+Perf, DOxygen.\hypertarget{index_autotoc_md5}{}\doxysection{Building and running the project}\label{index_autotoc_md5}
+These are the steps that must be followed in order to succesfully build and run the project\+:
+
+{\itshape cmd\textquotesingle{}s must be opened in the directory where pom.\+xml is located.}
+
+
+\begin{DoxyEnumerate}
+\item Compile the project\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mvn clean compile}
+
+\end{DoxyCode}
+
+\item Execute .sql script in My\+SQL Work\+Bench\+: Click on the thunder icon and refesh tables.
+\item Create SQL schema\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mvn datanucleus:schema-\/create}
+
+\end{DoxyCode}
+
+\item Run Web Server\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mvn jetty:run}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}
+
+{\itshape Open another cmd window to run client side}
+
+
+\begin{DoxyEnumerate}
+\item Run Client App\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mvn exec:java -\/Pclient}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md6}{}\doxysection{Generating reports}\label{index_autotoc_md6}
+
+\begin{DoxyEnumerate}
+\item Generate doxygen reports (It is needed to be compiled first)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mvn doxygen:report}
+
+\end{DoxyCode}
+
+\item Create the PDF (if anything is asked, just press enter)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd target/doxygen/latex}
+\DoxyCodeLine{make}
+
+\end{DoxyCode}
+
+\item Validate\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mvn validate}
+
+\end{DoxyCode}
+ 
+\end{DoxyEnumerate}

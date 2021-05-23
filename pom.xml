@@ -255,13 +255,13 @@
 									<filtering>true</filtering>
 									</resource>
 								</resources> 
-							<outputDirectory>${basedir}/docs/contiperf-report</outputDirectory>
+							<!-- <outputDirectory>${basedir}/docs/contiperf-report</outputDirectory>
 								<resources>          
 									<resource>
 									<directory>${basedir}/target/contiperf-report</directory>
 									<filtering>true</filtering>
 									</resource>
-								</resources>          
+								</resources>    -->       
 						</configuration>            
 					</execution>
 				</executions>

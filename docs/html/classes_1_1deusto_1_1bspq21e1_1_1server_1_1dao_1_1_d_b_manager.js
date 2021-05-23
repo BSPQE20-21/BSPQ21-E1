@@ -4,6 +4,7 @@ var classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager =
     [ "deleteUser", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager.html#a9c5ef19cfc64ff3bb9c99dcb100ef8e4", null ],
     [ "deleteVan", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager.html#a8d62bf3617f005d1e1a8ba4e76e58b01", null ],
     [ "getReservationsByUser", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager.html#a3320432a6640c43bfd2248173aa022f6", null ],
+    [ "getReservationsByVan", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager.html#a5aec9fdea8da9c415fc48422668dd15a", null ],
     [ "getUser", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager.html#aae73631e27e43e61b59bc9385f0e7551", null ],
     [ "getVan", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager.html#a30578c6e52b947a2a004c5cf338961ee", null ],
     [ "getVansByDates", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1dao_1_1_d_b_manager.html#abd8f369e862c772078d4e6e4d1936f1a", null ],

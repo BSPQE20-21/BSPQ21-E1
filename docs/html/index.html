@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AirBV: Main Page</title>
+<title>AirB&amp;V: &lt;img src=&quot;https://github.com/BSPQE20-21/BSPQ21-E1/blob/main/src/main/resources/images/AirBV.png&quot; alt=&quot;alt text&quot; title=&quot;Logo&quot;/&gt; AirB&amp;V project</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">AirBV
+   <div id="projectname">AirB&amp;V
    </div>
   </td>
  </tr>
@@ -80,11 +80,64 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">AirBV Documentation</div>  </div>
+<div class="title"><img src="https://github.com/BSPQE20-21/BSPQ21-E1/blob/main/src/main/resources/images/AirBV.png" alt="alt text" title="Logo" class="inline"/> AirB&amp;V project </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_README"></a> </p>
+<h3><a class="anchor" id="autotoc_md1"></a>
+&lt;strong&gt;Table of contents&lt;/strong&gt;&lt;br&gt;</h3>
+<p><a href="#about-us">About us</a><br  />
+ <a href="#about-the-project">About the project</a><br  />
+ <a href="#pre-requisites">Pre-requisites</a><br  />
+ <a href="#building-and-running-the-project">Building and running the project</a></p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+About us</h1>
+<p>BSPQ21-E1 </p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+About the project</h1>
+<p>AirB&amp;V offers an application dedicated to the supply of caravans to individuals and holidaymakers (holiday rentals) through which hosts can advertise and contract the rental of their caravans with their guests.</p>
+<p>You can see our website on: <a href="https://bspqe20-21.github.io/BSPQ21-E1/">https://bspqe20-21.github.io/BSPQ21-E1/</a></p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Pre-requisites</h1>
+<ul>
+<li>Java JDK (&gt;=12)</li>
+<li>MySQL</li>
+<li>MySQL Workbench</li>
+<li>Maven</li>
+</ul>
+<p>-&gt; Also the following libraries should be added to pom.xml file for the project to work: Jetty, JUnit, OpenCSV, MySQL, Datanucleus, Log4J, Jersey, Jacoco, ContiPerf, DOxygen.</p>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Building and running the project</h1>
+<p>These are the steps that must be followed in order to succesfully build and run the project:</p>
+<p><em>cmd's must be opened in the directory where pom.xml is located.</em></p>
+<ol type="1">
+<li>Compile the project: <div class="fragment"><div class="line">mvn clean compile</div>
+</div><!-- fragment --></li>
+<li>Execute .sql script in MySQL WorkBench: Click on the thunder icon and refesh tables.</li>
+<li>Create SQL schema: <div class="fragment"><div class="line">mvn datanucleus:schema-create</div>
+</div><!-- fragment --></li>
+<li>Run Web Server: <div class="fragment"><div class="line">mvn jetty:run</div>
+</div><!-- fragment --></li>
+</ol>
+<p><em>Open another cmd window to run client side</em></p>
+<ol type="1">
+<li>Run Client App: <div class="fragment"><div class="line">mvn exec:java -Pclient</div>
+</div><!-- fragment --></li>
+</ol>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Generating reports</h1>
+<ol type="1">
+<li>Generate doxygen reports (It is needed to be compiled first): <div class="fragment"><div class="line">mvn doxygen:report</div>
+</div><!-- fragment --></li>
+<li>Create the PDF (if anything is asked, just press enter): <div class="fragment"><div class="line">cd target/doxygen/latex</div>
+<div class="line">make</div>
+</div><!-- fragment --></li>
+<li>Validate: <div class="fragment"><div class="line">mvn validate</div>
+</div><!-- fragment --> </li>
+</ol>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
