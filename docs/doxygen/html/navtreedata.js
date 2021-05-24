@@ -24,7 +24,14 @@
 */
 var NAVTREE =
 [
-  [ "AirBV", "index.html", [
+  [ "AirB&V", "index.html", [
+    [ "<img src=\"https://github.com/BSPQE20-21/BSPQ21-E1/blob/main/src/main/resources/images/AirBV.png\" alt=\"alt text\" title=\"Logo\"/> AirB&V project", "index.html", [
+      [ "About us", "index.html#autotoc_md2", null ],
+      [ "About the project", "index.html#autotoc_md3", null ],
+      [ "Pre-requisites", "index.html#autotoc_md4", null ],
+      [ "Building and running the project", "index.html#autotoc_md5", null ],
+      [ "Generating reports", "index.html#autotoc_md6", null ]
+    ] ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ]
     ] ],
@@ -46,8 +53,10 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_air_b_v_8java.html",
-"classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_user.html#a2e7d1032d66655ac367d9a5e0539eaf4"
+"",
+"classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_register_van_window.html#a1328ed215176cfc4c3969184d6079692",
+"classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a876551ab54a06572254fba92eac1c63a",
+"index.html#autotoc_md3"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

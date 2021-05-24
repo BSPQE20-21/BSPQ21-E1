@@ -245,23 +245,46 @@
 						</goals>
 						<configuration>
 							<outputDirectory>${basedir}/docs</outputDirectory>
+								<resources>     
+									<resource>
+									<directory>${basedir}/target/site</directory>
+									<filtering>true</filtering>
+									</resource>
+								</resources>     
+						</configuration>            
+					</execution>
+					<execution>
+						<id>copy-resources-2</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/docs/doxygen</outputDirectory>
 								<resources>          
 									<resource>
 									<directory>${basedir}/target/doxygen</directory>
 									<filtering>true</filtering>
 									</resource>
-									<resource>
-									<directory>${basedir}/target/site</directory>
-									<filtering>true</filtering>
-									</resource>
-								</resources> 
-							<!-- <outputDirectory>${basedir}/docs/contiperf-report</outputDirectory>
+								</resources>      
+						</configuration>            
+					</execution>
+					<execution>
+						<id>copy-resources-3</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/docs/contiperf-report</outputDirectory>
 								<resources>          
 									<resource>
 									<directory>${basedir}/target/contiperf-report</directory>
 									<filtering>true</filtering>
 									</resource>
-								</resources>    -->       
+								</resources>      
 						</configuration>            
 					</execution>
 				</executions>

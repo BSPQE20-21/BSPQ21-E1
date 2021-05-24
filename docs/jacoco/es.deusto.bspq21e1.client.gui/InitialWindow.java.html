@@ -253,58 +253,63 @@ public class InitialWindow extends JFrame {
         
 <span class="fc" id="L254">        logger.info(&quot;InitialWindow well initialized&quot;);</span>
         
-<span class="fc" id="L256">    }</span>
+<span class="pc bpc" id="L256" title="1 of 2 branches missed.">        if (controller.getDemoDataPath() != null) {</span>
+<span class="fc" id="L257">        	controller.initializeDemoData();</span>
+<span class="fc" id="L258">        	logger.info(&quot;Initialization of demo data&quot;);</span>
+        }
+        
+<span class="fc" id="L261">    }</span>
 
 	public JLabel getLblHead() {
-<span class="fc" id="L259">		return lblHead;</span>
+<span class="fc" id="L264">		return lblHead;</span>
 	}
 
 	public JPanel getPanel() {
-<span class="fc" id="L263">		return panel;</span>
+<span class="fc" id="L268">		return panel;</span>
 	}
 
 	public JButton getBtnRegister() {
-<span class="fc" id="L267">		return btnRegister;</span>
+<span class="fc" id="L272">		return btnRegister;</span>
 	}
 
 	public JButton getBtnLogin() {
-<span class="fc" id="L271">		return btnLogin;</span>
+<span class="fc" id="L276">		return btnLogin;</span>
 	}
 
 	public JButton getBtnExit() {
-<span class="fc" id="L275">		return btnExit;</span>
+<span class="fc" id="L280">		return btnExit;</span>
 	}
 
 	public JLabel getLblLogoImg() {
-<span class="fc" id="L279">		return lblLogoImg;</span>
+<span class="fc" id="L284">		return lblLogoImg;</span>
 	}
 
 	public JLabel getLblSpanishImg() {
-<span class="fc" id="L283">		return lblSpanishImg;</span>
+<span class="fc" id="L288">		return lblSpanishImg;</span>
 	}
 
 	public JLabel getLblEnglishImg() {
-<span class="fc" id="L287">		return lblEnglishImg;</span>
+<span class="fc" id="L292">		return lblEnglishImg;</span>
 	}
 
 	public JLabel getLblBasqueImg() {
-<span class="fc" id="L291">		return lblBasqueImg;</span>
+<span class="fc" id="L296">		return lblBasqueImg;</span>
 	}
 
 	public JLabel getLblSpanishButton() {
-<span class="fc" id="L295">		return lblSpanishButton;</span>
+<span class="fc" id="L300">		return lblSpanishButton;</span>
 	}
 
 	public JLabel getLblEnglishButton() {
-<span class="fc" id="L299">		return lblEnglishButton;</span>
+<span class="fc" id="L304">		return lblEnglishButton;</span>
 	}
 
 	public JLabel getLblBasqueButton() {
-<span class="fc" id="L303">		return lblBasqueButton;</span>
+<span class="fc" id="L308">		return lblBasqueButton;</span>
 	}
 
 	public JFrame getFrmAirbv() {
-<span class="fc" id="L307">		return frmAirbv;</span>
+<span class="fc" id="L312">		return frmAirbv;</span>
 	}
     
 }

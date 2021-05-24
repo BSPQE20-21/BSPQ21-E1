@@ -24,6 +24,12 @@ Response \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_
 Array\+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_reservation_data}{Reservation\+Data}} $>$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a4c305e5b88da1158a69bc7ac20fdc496}{get\+User\+Reservations}} ( @Path\+Param(\char`\"{}dni\char`\"{}) String dni)
 \item 
 Array\+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data}{Van\+Data}} $>$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_ace985f55738e6748c57c07a95fc4d89b}{get\+User\+Vans}} ( @Path\+Param(\char`\"{}dni\char`\"{}) String dni)
+\item 
+Response \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a2444ad49156e5859ada4674839213160}{register\+Users\+List}} (Array\+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data}{User\+Data}} $>$ users\+Data)
+\item 
+Response \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a702b951df861b15eaf61d75fb0c2772b}{register\+Vans\+List}} (Array\+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data}{Van\+Data}} $>$ vans\+Data)
+\item 
+Response \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a97531030f11aea8b630edaab0f6ee41f}{register\+Reservations\+List}} (Array\+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_reservation_data}{Reservation\+Data}} $>$ reservations\+Data)
 \end{DoxyCompactItemize}
 
 
@@ -37,7 +43,7 @@ Group 3
 \end{DoxyAuthor}
 
 
-Definition at line 40 of file Air\+BV.\+java.
+Definition at line 39 of file Air\+BV.\+java.
 
 
 
@@ -48,9 +54,9 @@ Definition at line 40 of file Air\+BV.\+java.
 \doxysubsubsection{\texorpdfstring{AirBV()}{AirBV()}}
 {\footnotesize\ttfamily es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+Air\+BV (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Empty constructor for the class. 
 
-
-Definition at line 61 of file Air\+BV.\+java.
+Definition at line 65 of file Air\+BV.\+java.
 
 
 
@@ -61,9 +67,17 @@ Definition at line 61 of file Air\+BV.\+java.
 \doxysubsubsection{\texorpdfstring{cancelReservation()}{cancelReservation()}}
 {\footnotesize\ttfamily Response es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+cancel\+Reservation (\begin{DoxyParamCaption}\item[{@Path\+Param(\char`\"{}code\char`\"{}) String}]{code }\end{DoxyParamCaption})}
 
+Gets the code of the reservation client wants to delete and sends it to the Application Service for that. 
+\begin{DoxyParams}{Parameters}
+{\em code} & Code of the reservation client wants to erase. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response depending on the result of the execution. 
+\end{DoxyReturn}
 
 
-Definition at line 117 of file Air\+BV.\+java.
+Definition at line 142 of file Air\+BV.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a80b19437616871c4b686dae1ed617e57}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a80b19437616871c4b686dae1ed617e57}} 
 \index{es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}!deleteUser@{deleteUser}}
@@ -71,9 +85,17 @@ Definition at line 117 of file Air\+BV.\+java.
 \doxysubsubsection{\texorpdfstring{deleteUser()}{deleteUser()}}
 {\footnotesize\ttfamily Response es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+delete\+User (\begin{DoxyParamCaption}\item[{@Path\+Param(\char`\"{}dni\char`\"{}) String}]{dni }\end{DoxyParamCaption})}
 
+Gets the ID number from the user the client wants to delete and sends it to the Application Service for that. 
+\begin{DoxyParams}{Parameters}
+{\em dni} & ID number of the user client wants to delete. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response depending on the result of the execution. 
+\end{DoxyReturn}
 
 
-Definition at line 75 of file Air\+BV.\+java.
+Definition at line 89 of file Air\+BV.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a88d49197a8f2eab2e15a16e7a233096b}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a88d49197a8f2eab2e15a16e7a233096b}} 
 \index{es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}!deleteVan@{deleteVan}}
@@ -81,9 +103,17 @@ Definition at line 75 of file Air\+BV.\+java.
 \doxysubsubsection{\texorpdfstring{deleteVan()}{deleteVan()}}
 {\footnotesize\ttfamily Response es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+delete\+Van (\begin{DoxyParamCaption}\item[{@Path\+Param(\char`\"{}license\+Plate\char`\"{}) String}]{license\+Plate }\end{DoxyParamCaption})}
 
+Gets the license plate of the van client wants to erase and sends it to the Application Service for that. 
+\begin{DoxyParams}{Parameters}
+{\em license\+Plate} & License plate of the van client wants to delete. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response depending on the result of the execution. 
+\end{DoxyReturn}
 
 
-Definition at line 107 of file Air\+BV.\+java.
+Definition at line 127 of file Air\+BV.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a4c305e5b88da1158a69bc7ac20fdc496}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a4c305e5b88da1158a69bc7ac20fdc496}} 
 \index{es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}!getUserReservations@{getUserReservations}}
@@ -91,9 +121,17 @@ Definition at line 107 of file Air\+BV.\+java.
 \doxysubsubsection{\texorpdfstring{getUserReservations()}{getUserReservations()}}
 {\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_reservation_data}{Reservation\+Data}}$>$ es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+get\+User\+Reservations (\begin{DoxyParamCaption}\item[{@Path\+Param(\char`\"{}dni\char`\"{}) String}]{dni }\end{DoxyParamCaption})}
 
+Gets the ID number of a user to get all their reservations using the Application Service. 
+\begin{DoxyParams}{Parameters}
+{\em dni} & ID number of the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of reservations of the user. 
+\end{DoxyReturn}
 
 
-Definition at line 169 of file Air\+BV.\+java.
+Definition at line 216 of file Air\+BV.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_ace985f55738e6748c57c07a95fc4d89b}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_ace985f55738e6748c57c07a95fc4d89b}} 
 \index{es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}!getUserVans@{getUserVans}}
@@ -101,9 +139,17 @@ Definition at line 169 of file Air\+BV.\+java.
 \doxysubsubsection{\texorpdfstring{getUserVans()}{getUserVans()}}
 {\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data}{Van\+Data}}$>$ es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+get\+User\+Vans (\begin{DoxyParamCaption}\item[{@Path\+Param(\char`\"{}dni\char`\"{}) String}]{dni }\end{DoxyParamCaption})}
 
+Gets the ID number of a user to get all their vans using the Application Service. 
+\begin{DoxyParams}{Parameters}
+{\em dni} & ID number of the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of vans of the user. 
+\end{DoxyReturn}
 
 
-Definition at line 182 of file Air\+BV.\+java.
+Definition at line 234 of file Air\+BV.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_ad9994c2d89e8d418d744fa30db08c27a}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_ad9994c2d89e8d418d744fa30db08c27a}} 
 \index{es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}!login@{login}}
@@ -111,9 +157,19 @@ Definition at line 182 of file Air\+BV.\+java.
 \doxysubsubsection{\texorpdfstring{login()}{login()}}
 {\footnotesize\ttfamily Response es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+login (\begin{DoxyParamCaption}\item[{@Path\+Param(\char`\"{}email\char`\"{}) String}]{email,  }\item[{@Path\+Param(\char`\"{}password\char`\"{}) String}]{password }\end{DoxyParamCaption})}
 
+Gets the email and password of a user and checks if they are good credentials sending them to the Application Service. 
+\begin{DoxyParams}{Parameters}
+{\em email} & Email of the user. \\
+\hline
+{\em password} & Password of the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response depending on the result of the execution. 
+\end{DoxyReturn}
 
 
-Definition at line 156 of file Air\+BV.\+java.
+Definition at line 198 of file Air\+BV.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_ade0af932cb404477ff541d2ed8268500}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_ade0af932cb404477ff541d2ed8268500}} 
 \index{es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}!registerReservation@{registerReservation}}
@@ -121,9 +177,35 @@ Definition at line 156 of file Air\+BV.\+java.
 \doxysubsubsection{\texorpdfstring{registerReservation()}{registerReservation()}}
 {\footnotesize\ttfamily Response es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+register\+Reservation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_reservation_data}{Reservation\+Data}}}]{rD }\end{DoxyParamCaption})}
 
+Gets the data of a new reservation client wants to register and sends it to the Application Service for that. 
+\begin{DoxyParams}{Parameters}
+{\em rD} & Gets the data of a new reservation client wants to register. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response depending on the result of the execution. 
+\end{DoxyReturn}
 
 
-Definition at line 127 of file Air\+BV.\+java.
+Definition at line 157 of file Air\+BV.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a97531030f11aea8b630edaab0f6ee41f}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a97531030f11aea8b630edaab0f6ee41f}} 
+\index{es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}!registerReservationsList@{registerReservationsList}}
+\index{registerReservationsList@{registerReservationsList}!es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}}
+\doxysubsubsection{\texorpdfstring{registerReservationsList()}{registerReservationsList()}}
+{\footnotesize\ttfamily Response es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+register\+Reservations\+List (\begin{DoxyParamCaption}\item[{Array\+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_reservation_data}{Reservation\+Data}} $>$}]{reservations\+Data }\end{DoxyParamCaption})}
+
+Gets the data from a list of reservations to register them in the system using the Application Service. 
+\begin{DoxyParams}{Parameters}
+{\em reservations\+Data} & List of data from the reservations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response depending on the result of the execution. 
+\end{DoxyReturn}
+
+
+Definition at line 296 of file Air\+BV.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a71bc3ea2b54422d62e7c2530471bf7a6}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a71bc3ea2b54422d62e7c2530471bf7a6}} 
 \index{es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}!registerUser@{registerUser}}
@@ -131,9 +213,35 @@ Definition at line 127 of file Air\+BV.\+java.
 \doxysubsubsection{\texorpdfstring{registerUser()}{registerUser()}}
 {\footnotesize\ttfamily Response es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+register\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data}{User\+Data}}}]{user\+Data }\end{DoxyParamCaption})}
 
+Gets the data from the user from the client, transforms it into a User and sends it to the Application Service to register it. 
+\begin{DoxyParams}{Parameters}
+{\em user\+Data} & Data from the new user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response depending on the result of the execution. 
+\end{DoxyReturn}
 
 
-Definition at line 65 of file Air\+BV.\+java.
+Definition at line 74 of file Air\+BV.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a2444ad49156e5859ada4674839213160}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a2444ad49156e5859ada4674839213160}} 
+\index{es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}!registerUsersList@{registerUsersList}}
+\index{registerUsersList@{registerUsersList}!es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}}
+\doxysubsubsection{\texorpdfstring{registerUsersList()}{registerUsersList()}}
+{\footnotesize\ttfamily Response es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+register\+Users\+List (\begin{DoxyParamCaption}\item[{Array\+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data}{User\+Data}} $>$}]{users\+Data }\end{DoxyParamCaption})}
+
+Gets the data from a list of users to register them in the system using the Application Service. 
+\begin{DoxyParams}{Parameters}
+{\em users\+Data} & List of data from the users. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response depending on the result of the execution. 
+\end{DoxyReturn}
+
+
+Definition at line 251 of file Air\+BV.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_ae71fcd7d245e13e25ecefbc65bff1db5}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_ae71fcd7d245e13e25ecefbc65bff1db5}} 
 \index{es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}!registerVan@{registerVan}}
@@ -141,14 +249,35 @@ Definition at line 65 of file Air\+BV.\+java.
 \doxysubsubsection{\texorpdfstring{registerVan()}{registerVan()}}
 {\footnotesize\ttfamily Response es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+register\+Van (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data}{Van\+Data}}}]{van\+Data,  }\item[{@Path\+Param(\char`\"{}kitchen\char`\"{}) boolean}]{kitchen,  }\item[{@Path\+Param(\char`\"{}shower\char`\"{}) boolean}]{shower }\end{DoxyParamCaption})}
 
-Transforms Van\+Data into Van and uses a method from the Application Service to store a Van 
+Transforms Van\+Data into Van and uses a method from the Application Service to store a Van. 
 \begin{DoxyParams}{Parameters}
-{\em van\+Data} & \\
+{\em van\+Data} & Data of the van client wants to register. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response depending on the result of the execution. 
+\end{DoxyReturn}
 
 
-Definition at line 87 of file Air\+BV.\+java.
+Definition at line 102 of file Air\+BV.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a702b951df861b15eaf61d75fb0c2772b}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a702b951df861b15eaf61d75fb0c2772b}} 
+\index{es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}!registerVansList@{registerVansList}}
+\index{registerVansList@{registerVansList}!es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}}
+\doxysubsubsection{\texorpdfstring{registerVansList()}{registerVansList()}}
+{\footnotesize\ttfamily Response es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+register\+Vans\+List (\begin{DoxyParamCaption}\item[{Array\+List$<$ \mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data}{Van\+Data}} $>$}]{vans\+Data }\end{DoxyParamCaption})}
+
+Gets the data from a list of vans to register them in the system using the Application Service. 
+\begin{DoxyParams}{Parameters}
+{\em vans\+Data} & List of data from the vans. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response depending on the result of the execution. 
+\end{DoxyReturn}
+
+
+Definition at line 273 of file Air\+BV.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a56c99070c1ba88b96e785ce0c3e5eeec}\label{classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_a56c99070c1ba88b96e785ce0c3e5eeec}} 
 \index{es.deusto.bspq21e1.server.remote.AirBV@{es.deusto.bspq21e1.server.remote.AirBV}!searchVans@{searchVans}}
@@ -156,9 +285,21 @@ Definition at line 87 of file Air\+BV.\+java.
 \doxysubsubsection{\texorpdfstring{searchVans()}{searchVans()}}
 {\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data}{Van\+Data}}$>$ es.\+deusto.\+bspq21e1.\+server.\+remote.\+Air\+BV.\+search\+Vans (\begin{DoxyParamCaption}\item[{@Path\+Param(\char`\"{}location\char`\"{}) String}]{location,  }\item[{@Path\+Param(\char`\"{}pick\+Up\+Date\char`\"{}) String}]{pick\+Up\+Date,  }\item[{@Path\+Param(\char`\"{}return\+Date\char`\"{}) String}]{return\+Date }\end{DoxyParamCaption})}
 
+Gets the location and dates which client has put as parameters and sends it to the Application Service to return the vans that meet those requirements. 
+\begin{DoxyParams}{Parameters}
+{\em location} & Location of the van. \\
+\hline
+{\em pick\+Up\+Date} & Date of pickup of the van. \\
+\hline
+{\em return\+Date} & Date of return of the van. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of vans which meet the requirements. 
+\end{DoxyReturn}
 
 
-Definition at line 144 of file Air\+BV.\+java.
+Definition at line 180 of file Air\+BV.\+java.
 
 
 

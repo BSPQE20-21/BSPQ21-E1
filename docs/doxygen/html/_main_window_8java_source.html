@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AirBV: src/main/java/es/deusto/bspq21e1/client/gui/MainWindow.java Source File</title>
+<title>AirB&amp;V: src/main/java/es/deusto/bspq21e1/client/gui/MainWindow.java Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">AirBV
+   <div id="projectname">AirB&amp;V
    </div>
   </td>
  </tr>
@@ -87,8 +87,8 @@ $(document).ready(function(){initNavTree('_main_window_8java_source.html',''); i
 <div class="contents">
 <a href="_main_window_8java.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>es.deusto.bspq21e1.client.gui;</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> java.awt.Color;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> java.awt.Font;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> java.awt.Font;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> java.awt.Toolkit;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> java.awt.event.ActionEvent;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> java.awt.event.ActionListener;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> java.awt.event.MouseAdapter;</div>
@@ -108,170 +108,223 @@ $(document).ready(function(){initNavTree('_main_window_8java_source.html',''); i
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keywordtype">long</span> serialVersionUID = 1L;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">private</span> <span class="keyword">static</span> Logger logger = Logger.getLogger(<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html">MainWindow</a>.class.getName());</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">private</span> <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html">Controller</a> controller;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">private</span> <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data.html">UserData</a> user;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">private</span> JFrame frmMain = <span class="keyword">new</span> JFrame();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">private</span> JButton btnRegisterVan, btnSearchVan, btnCancelRes, btnRemoveVan,</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    btnRemoveAccount, btnlogOut;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">private</span> JLabel lblTitle;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a16930bf4acacb794f2e946526b426c7b">   32</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a16930bf4acacb794f2e946526b426c7b">MainWindow</a>(<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html">Controller</a> controller, <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data.html">UserData</a> user) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        this.controller = controller;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        this.user = user;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        initialize();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        frmMain.setResizable(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        frmMain.setVisible(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">private</span> <span class="keywordtype">void</span> initialize() {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        frmMain.setBounds(300, 100, 260, 410);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        frmMain.setLocationRelativeTo(<span class="keyword">null</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        frmMain.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        frmMain.getContentPane().setLayout(<span class="keyword">null</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        lblTitle = <span class="keyword">new</span> JLabel(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;main_title_msg&quot;</span>));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        lblTitle.setBounds(40, 20, 300, 30);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        lblTitle.setFont(<span class="keyword">new</span> Font(<span class="stringliteral">&quot;Tahoma&quot;</span>, Font.BOLD, 18));</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        frmMain.getContentPane().add(lblTitle);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        btnSearchVan = <span class="keyword">new</span> JButton(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;search_btn_msg&quot;</span>));</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        btnSearchVan.setBounds(35, 70, 175, 25);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        btnSearchVan.addActionListener(<span class="keyword">new</span> ActionListener() {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            @Override</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                frmMain.setVisible(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keyword">new</span> <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_search_window.html">SearchWindow</a>(controller, user, frmMain);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        });</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        btnSearchVan.addMouseListener(<span class="keyword">new</span> MouseAdapter() {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseEntered(MouseEvent e) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                btnSearchVan.setBounds(23, 70, 200, 29);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                btnSearchVan.updateUI();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseExited(MouseEvent e) {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                btnSearchVan.setBounds(35, 70, 175, 25);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                btnSearchVan.updateUI();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        });</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        frmMain.getContentPane().add(btnSearchVan);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        btnRegisterVan = <span class="keyword">new</span> JButton(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;register_btn_msg&quot;</span>));</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        btnRegisterVan.setBounds(35, 120, 175, 25);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        btnRegisterVan.addActionListener(<span class="keyword">new</span> ActionListener() {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            @Override</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                frmMain.setVisible(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keyword">new</span> RegisterVanWindow(controller, user, frmMain);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        });</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        btnRegisterVan.addMouseListener(<span class="keyword">new</span> MouseAdapter() {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseEntered(MouseEvent e) {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                btnRegisterVan.setBounds(23, 120, 200, 29);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                btnRegisterVan.updateUI();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseExited(MouseEvent e) {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                btnRegisterVan.setBounds(35, 120, 175, 25);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                btnRegisterVan.updateUI();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        });</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        frmMain.getContentPane().add(btnRegisterVan);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        btnCancelRes = <span class="keyword">new</span> JButton(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;cancel_btn_msg&quot;</span>));</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        btnCancelRes.setBounds(35, 170, 175, 25);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        btnCancelRes.addActionListener(<span class="keyword">new</span> ActionListener() {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            @Override</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                frmMain.setVisible(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keyword">new</span> CancelReservationWindow(controller, user, frmMain);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        });</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        btnCancelRes.addMouseListener(<span class="keyword">new</span> MouseAdapter() {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseEntered(MouseEvent e) {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                btnCancelRes.setBounds(23, 170, 200, 29);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                btnCancelRes.updateUI();</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseExited(MouseEvent e) {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                btnCancelRes.setBounds(35, 170, 175, 25);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                btnCancelRes.updateUI();</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        });</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        frmMain.getContentPane().add(btnCancelRes);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        btnRemoveVan = <span class="keyword">new</span> JButton(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;remove_van_btn_msg&quot;</span>));</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        btnRemoveVan.setBounds(35, 220, 175, 25);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        btnRemoveVan.addActionListener(<span class="keyword">new</span> ActionListener() {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            @Override</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                frmMain.setVisible(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="keyword">new</span> RemoveVanWindow(controller, user, frmMain);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        });</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        btnRemoveVan.addMouseListener(<span class="keyword">new</span> MouseAdapter() {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseEntered(MouseEvent e) {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                btnRemoveVan.setBounds(23, 220, 200, 29);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                btnRemoveVan.updateUI();</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseExited(MouseEvent e) {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                btnRemoveVan.setBounds(35, 220, 175, 25);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                btnRemoveVan.updateUI();</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            }</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        });</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        frmMain.getContentPane().add(btnRemoveVan);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        btnRemoveAccount = <span class="keyword">new</span> JButton(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;remove_user_btn_msg&quot;</span>));</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        btnRemoveAccount.setBounds(35, 270, 175, 25);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        btnRemoveAccount.addActionListener(<span class="keyword">new</span> ActionListener() {</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            @Override</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                frmMain.setVisible(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                <span class="keyword">new</span> RemoveAccountWindow(controller, user, frmMain);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            }</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        });</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        btnRemoveAccount.addMouseListener(<span class="keyword">new</span> MouseAdapter() {</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseEntered(MouseEvent e) {</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                btnRemoveAccount.setBounds(23, 270, 200, 29);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                btnRemoveAccount.updateUI();</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            }</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseExited(MouseEvent e) {</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                btnRemoveAccount.setBounds(35, 270, 175, 25);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                btnRemoveAccount.updateUI();</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            }</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        });</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        frmMain.getContentPane().add(btnRemoveAccount);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        btnlogOut = <span class="keyword">new</span> JButton(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;logout_btn_msg&quot;</span>));</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        btnlogOut.setBounds(35, 325, 175, 25);</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        btnlogOut.addActionListener(<span class="keyword">new</span> ActionListener() {</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            @Override</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <span class="keyword">new</span> InitialWindow(controller);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                frmMain.dispose();</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            }</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        });</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        btnlogOut.addMouseListener(<span class="keyword">new</span> MouseAdapter() {</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseEntered(MouseEvent e) {</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                btnlogOut.setBounds(23, 325, 200, 29);</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                btnlogOut.setBackground(java.awt.Color.RED);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                btnlogOut.updateUI();</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            }</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseExited(MouseEvent e) {</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                btnlogOut.setBounds(35, 325, 175, 25);</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                btnlogOut.setBackground(btnCancelRes.getBackground());</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                btnlogOut.updateUI();</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            }</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        });</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        frmMain.getContentPane().add(btnlogOut);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        logger.info(<span class="stringliteral">&quot;MainWindow well initialized&quot;</span>);</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    }</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;}</div>
-<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller_html"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html">es.deusto.bspq21e1.client.controller.Controller</a></div><div class="ttdef"><b>Definition:</b> <a href="_controller_8java_source.html#l00024">Controller.java:24</a></div></div>
-<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller_html_ae5d70479c660384fd05303bd8fe628e8"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">es.deusto.bspq21e1.client.controller.Controller.getResourcebundle</a></div><div class="ttdeci">ResourceBundle getResourcebundle()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8java_source.html#l00218">Controller.java:218</a></div></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">private</span> <span class="keywordtype">boolean</span> visible;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">private</span> <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data.html">UserData</a> user;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">private</span> JFrame frmMain = <span class="keyword">new</span> JFrame();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">private</span> JButton btnRegisterVan, btnSearchVan, btnCancelRes, btnRemoveVan,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    btnRemoveAccount, btnlogOut;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">private</span> JLabel lblTitle;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a5603e97176d3c9669c97905e775081e8">   33</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a5603e97176d3c9669c97905e775081e8">MainWindow</a>(<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html">Controller</a> controller, <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data.html">UserData</a> user, <span class="keywordtype">boolean</span> visible) {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        this.controller = controller;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        this.visible = visible;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        this.user = user;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        initialize();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        frmMain.setResizable(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        frmMain.setVisible(visible);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">private</span> <span class="keywordtype">void</span> initialize() {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        frmMain.setBounds(300, 100, 260, 410);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        frmMain.setLocationRelativeTo(<span class="keyword">null</span>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        frmMain.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        frmMain.getContentPane().setLayout(<span class="keyword">null</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        frmMain.setIconImage(Toolkit.getDefaultToolkit().getImage(<span class="stringliteral">&quot;src/main/resources/images/AirBV.png&quot;</span>));</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        lblTitle = <span class="keyword">new</span> JLabel(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;main_title_msg&quot;</span>));</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        lblTitle.setBounds(40, 20, 300, 30);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        lblTitle.setFont(<span class="keyword">new</span> Font(<span class="stringliteral">&quot;Tahoma&quot;</span>, Font.BOLD, 18));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        frmMain.getContentPane().add(lblTitle);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        btnSearchVan = <span class="keyword">new</span> JButton(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;search_btn_msg&quot;</span>));</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        btnSearchVan.setBounds(35, 70, 175, 25);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        btnSearchVan.addActionListener(<span class="keyword">new</span> ActionListener() {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            @Override</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                frmMain.setVisible(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keyword">new</span> <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_search_window.html">SearchWindow</a>(controller, user, frmMain, visible);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        });</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        btnSearchVan.addMouseListener(<span class="keyword">new</span> MouseAdapter() {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseEntered(MouseEvent e) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                btnSearchVan.setBounds(23, 70, 200, 29);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                btnSearchVan.updateUI();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseExited(MouseEvent e) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                btnSearchVan.setBounds(35, 70, 175, 25);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                btnSearchVan.updateUI();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        });</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        frmMain.getContentPane().add(btnSearchVan);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        btnRegisterVan = <span class="keyword">new</span> JButton(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;register_btn_msg&quot;</span>));</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        btnRegisterVan.setBounds(35, 120, 175, 25);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        btnRegisterVan.addActionListener(<span class="keyword">new</span> ActionListener() {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            @Override</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                frmMain.setVisible(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keyword">new</span> RegisterVanWindow(controller, user, frmMain, visible);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        });</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        btnRegisterVan.addMouseListener(<span class="keyword">new</span> MouseAdapter() {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseEntered(MouseEvent e) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                btnRegisterVan.setBounds(23, 120, 200, 29);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                btnRegisterVan.updateUI();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseExited(MouseEvent e) {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                btnRegisterVan.setBounds(35, 120, 175, 25);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                btnRegisterVan.updateUI();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        });</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        frmMain.getContentPane().add(btnRegisterVan);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        btnCancelRes = <span class="keyword">new</span> JButton(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;cancel_btn_msg&quot;</span>));</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        btnCancelRes.setBounds(35, 170, 175, 25);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        btnCancelRes.addActionListener(<span class="keyword">new</span> ActionListener() {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            @Override</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                frmMain.setVisible(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keyword">new</span> CancelReservationWindow(controller, user, frmMain, visible);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        });</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        btnCancelRes.addMouseListener(<span class="keyword">new</span> MouseAdapter() {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseEntered(MouseEvent e) {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                btnCancelRes.setBounds(23, 170, 200, 29);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                btnCancelRes.updateUI();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseExited(MouseEvent e) {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                btnCancelRes.setBounds(35, 170, 175, 25);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                btnCancelRes.updateUI();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        });</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        frmMain.getContentPane().add(btnCancelRes);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        btnRemoveVan = <span class="keyword">new</span> JButton(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;remove_van_btn_msg&quot;</span>));</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        btnRemoveVan.setBounds(35, 220, 175, 25);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        btnRemoveVan.addActionListener(<span class="keyword">new</span> ActionListener() {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            @Override</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                frmMain.setVisible(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="keyword">new</span> RemoveVanWindow(controller, user, frmMain, visible);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        });</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        btnRemoveVan.addMouseListener(<span class="keyword">new</span> MouseAdapter() {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseEntered(MouseEvent e) {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                btnRemoveVan.setBounds(23, 220, 200, 29);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                btnRemoveVan.updateUI();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseExited(MouseEvent e) {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                btnRemoveVan.setBounds(35, 220, 175, 25);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                btnRemoveVan.updateUI();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        });</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        frmMain.getContentPane().add(btnRemoveVan);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        btnRemoveAccount = <span class="keyword">new</span> JButton(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;remove_user_btn_msg&quot;</span>));</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        btnRemoveAccount.setBounds(35, 270, 175, 25);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        btnRemoveAccount.addActionListener(<span class="keyword">new</span> ActionListener() {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            @Override</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                frmMain.setVisible(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <span class="keyword">new</span> RemoveAccountWindow(controller, user, frmMain, visible);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        });</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        btnRemoveAccount.addMouseListener(<span class="keyword">new</span> MouseAdapter() {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseEntered(MouseEvent e) {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                btnRemoveAccount.setBounds(23, 270, 200, 29);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                btnRemoveAccount.updateUI();</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseExited(MouseEvent e) {</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                btnRemoveAccount.setBounds(35, 270, 175, 25);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                btnRemoveAccount.updateUI();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        });</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        frmMain.getContentPane().add(btnRemoveAccount);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        btnlogOut = <span class="keyword">new</span> JButton(controller.<a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">getResourcebundle</a>().getString(<span class="stringliteral">&quot;logout_btn_msg&quot;</span>));</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        btnlogOut.setBounds(35, 325, 175, 25);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        btnlogOut.addActionListener(<span class="keyword">new</span> ActionListener() {</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            @Override</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> actionPerformed(ActionEvent e) {</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                <span class="keyword">new</span> InitialWindow(controller, visible);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                frmMain.dispose();</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        });</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        btnlogOut.addMouseListener(<span class="keyword">new</span> MouseAdapter() {</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseEntered(MouseEvent e) {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                btnlogOut.setBounds(23, 325, 200, 29);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                btnlogOut.setBackground(java.awt.Color.RED);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                btnlogOut.updateUI();</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            <span class="keyword">public</span> <span class="keywordtype">void</span> mouseExited(MouseEvent e) {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                btnlogOut.setBounds(35, 325, 175, 25);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                btnlogOut.setBackground(btnCancelRes.getBackground());</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                btnlogOut.updateUI();</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            }</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        });</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        frmMain.getContentPane().add(btnlogOut);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        logger.info(<span class="stringliteral">&quot;MainWindow well initialized&quot;</span>);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    }</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a58f9ccefde0753daad1558990a3a8ac8">  185</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a58f9ccefde0753daad1558990a3a8ac8">isVisible</a>() {</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keywordflow">return</span> visible;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a2ee9e439e03993e5a01e121d6fa0c97e">  189</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data.html">UserData</a> <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a2ee9e439e03993e5a01e121d6fa0c97e">getUser</a>() {</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">return</span> user;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    }</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#af8ed586f595e9b60d653116d799bf955">  193</a></span>&#160;    <span class="keyword">public</span> JFrame <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#af8ed586f595e9b60d653116d799bf955">getFrmMain</a>() {</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keywordflow">return</span> frmMain;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    }</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#abf0bcc3958586941f153f0e8556ee2f8">  197</a></span>&#160;    <span class="keyword">public</span> JButton <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#abf0bcc3958586941f153f0e8556ee2f8">getBtnRegisterVan</a>() {</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">return</span> btnRegisterVan;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    }</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a75135a91450718e3f8da52ba9e7fde70">  201</a></span>&#160;    <span class="keyword">public</span> JButton <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a75135a91450718e3f8da52ba9e7fde70">getBtnSearchVan</a>() {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">return</span> btnSearchVan;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#aeb76b2242a481e20d65623e2cf80b996">  205</a></span>&#160;    <span class="keyword">public</span> JButton <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#aeb76b2242a481e20d65623e2cf80b996">getBtnCancelRes</a>() {</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordflow">return</span> btnCancelRes;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    }</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a2d7c28335f8cfff37ec8d5f28ffe4b81">  209</a></span>&#160;    <span class="keyword">public</span> JButton <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a2d7c28335f8cfff37ec8d5f28ffe4b81">getBtnRemoveVan</a>() {</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keywordflow">return</span> btnRemoveVan;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    }</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a8bfb4345f1373ef24b1cf112be7942a7">  213</a></span>&#160;    <span class="keyword">public</span> JButton <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a8bfb4345f1373ef24b1cf112be7942a7">getBtnRemoveAccount</a>() {</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">return</span> btnRemoveAccount;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    }</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a62e12a68c7b010a3681fc50ca1368621">  217</a></span>&#160;    <span class="keyword">public</span> JButton <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a62e12a68c7b010a3681fc50ca1368621">getBtnlogOut</a>() {</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">return</span> btnlogOut;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a0fadb57eb127862f3f803c92fadd8f48">  221</a></span>&#160;    <span class="keyword">public</span> JLabel <a class="code" href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a0fadb57eb127862f3f803c92fadd8f48">getLblTitle</a>() {</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">return</span> lblTitle;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    }</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;}</div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller_html"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html">es.deusto.bspq21e1.client.controller.Controller</a></div><div class="ttdef"><b>Definition:</b> <a href="_controller_8java_source.html#l00029">Controller.java:29</a></div></div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller_html_ae5d70479c660384fd05303bd8fe628e8"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1controller_1_1_controller.html#ae5d70479c660384fd05303bd8fe628e8">es.deusto.bspq21e1.client.controller.Controller.getResourcebundle</a></div><div class="ttdeci">ResourceBundle getResourcebundle()</div><div class="ttdef"><b>Definition:</b> <a href="_controller_8java_source.html#l00343">Controller.java:343</a></div></div>
 <div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_html"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html">es.deusto.bspq21e1.client.gui.MainWindow</a></div><div class="ttdef"><b>Definition:</b> <a href="_main_window_8java_source.html#l00019">MainWindow.java:19</a></div></div>
-<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_html_a16930bf4acacb794f2e946526b426c7b"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a16930bf4acacb794f2e946526b426c7b">es.deusto.bspq21e1.client.gui.MainWindow.MainWindow</a></div><div class="ttdeci">MainWindow(Controller controller, UserData user)</div><div class="ttdef"><b>Definition:</b> <a href="_main_window_8java_source.html#l00032">MainWindow.java:32</a></div></div>
-<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_search_window_html"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_search_window.html">es.deusto.bspq21e1.client.gui.SearchWindow</a></div><div class="ttdef"><b>Definition:</b> <a href="_search_window_8java_source.html#l00033">SearchWindow.java:33</a></div></div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_html_a0fadb57eb127862f3f803c92fadd8f48"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a0fadb57eb127862f3f803c92fadd8f48">es.deusto.bspq21e1.client.gui.MainWindow.getLblTitle</a></div><div class="ttdeci">JLabel getLblTitle()</div><div class="ttdef"><b>Definition:</b> <a href="_main_window_8java_source.html#l00221">MainWindow.java:221</a></div></div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_html_a2d7c28335f8cfff37ec8d5f28ffe4b81"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a2d7c28335f8cfff37ec8d5f28ffe4b81">es.deusto.bspq21e1.client.gui.MainWindow.getBtnRemoveVan</a></div><div class="ttdeci">JButton getBtnRemoveVan()</div><div class="ttdef"><b>Definition:</b> <a href="_main_window_8java_source.html#l00209">MainWindow.java:209</a></div></div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_html_a2ee9e439e03993e5a01e121d6fa0c97e"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a2ee9e439e03993e5a01e121d6fa0c97e">es.deusto.bspq21e1.client.gui.MainWindow.getUser</a></div><div class="ttdeci">UserData getUser()</div><div class="ttdef"><b>Definition:</b> <a href="_main_window_8java_source.html#l00189">MainWindow.java:189</a></div></div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_html_a5603e97176d3c9669c97905e775081e8"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a5603e97176d3c9669c97905e775081e8">es.deusto.bspq21e1.client.gui.MainWindow.MainWindow</a></div><div class="ttdeci">MainWindow(Controller controller, UserData user, boolean visible)</div><div class="ttdef"><b>Definition:</b> <a href="_main_window_8java_source.html#l00033">MainWindow.java:33</a></div></div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_html_a58f9ccefde0753daad1558990a3a8ac8"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a58f9ccefde0753daad1558990a3a8ac8">es.deusto.bspq21e1.client.gui.MainWindow.isVisible</a></div><div class="ttdeci">boolean isVisible()</div><div class="ttdef"><b>Definition:</b> <a href="_main_window_8java_source.html#l00185">MainWindow.java:185</a></div></div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_html_a62e12a68c7b010a3681fc50ca1368621"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a62e12a68c7b010a3681fc50ca1368621">es.deusto.bspq21e1.client.gui.MainWindow.getBtnlogOut</a></div><div class="ttdeci">JButton getBtnlogOut()</div><div class="ttdef"><b>Definition:</b> <a href="_main_window_8java_source.html#l00217">MainWindow.java:217</a></div></div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_html_a75135a91450718e3f8da52ba9e7fde70"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a75135a91450718e3f8da52ba9e7fde70">es.deusto.bspq21e1.client.gui.MainWindow.getBtnSearchVan</a></div><div class="ttdeci">JButton getBtnSearchVan()</div><div class="ttdef"><b>Definition:</b> <a href="_main_window_8java_source.html#l00201">MainWindow.java:201</a></div></div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_html_a8bfb4345f1373ef24b1cf112be7942a7"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#a8bfb4345f1373ef24b1cf112be7942a7">es.deusto.bspq21e1.client.gui.MainWindow.getBtnRemoveAccount</a></div><div class="ttdeci">JButton getBtnRemoveAccount()</div><div class="ttdef"><b>Definition:</b> <a href="_main_window_8java_source.html#l00213">MainWindow.java:213</a></div></div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_html_abf0bcc3958586941f153f0e8556ee2f8"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#abf0bcc3958586941f153f0e8556ee2f8">es.deusto.bspq21e1.client.gui.MainWindow.getBtnRegisterVan</a></div><div class="ttdeci">JButton getBtnRegisterVan()</div><div class="ttdef"><b>Definition:</b> <a href="_main_window_8java_source.html#l00197">MainWindow.java:197</a></div></div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_html_aeb76b2242a481e20d65623e2cf80b996"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#aeb76b2242a481e20d65623e2cf80b996">es.deusto.bspq21e1.client.gui.MainWindow.getBtnCancelRes</a></div><div class="ttdeci">JButton getBtnCancelRes()</div><div class="ttdef"><b>Definition:</b> <a href="_main_window_8java_source.html#l00205">MainWindow.java:205</a></div></div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_html_af8ed586f595e9b60d653116d799bf955"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window.html#af8ed586f595e9b60d653116d799bf955">es.deusto.bspq21e1.client.gui.MainWindow.getFrmMain</a></div><div class="ttdeci">JFrame getFrmMain()</div><div class="ttdef"><b>Definition:</b> <a href="_main_window_8java_source.html#l00193">MainWindow.java:193</a></div></div>
+<div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_search_window_html"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_search_window.html">es.deusto.bspq21e1.client.gui.SearchWindow</a></div><div class="ttdef"><b>Definition:</b> <a href="_search_window_8java_source.html#l00034">SearchWindow.java:34</a></div></div>
 <div class="ttc" id="aclasses_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data_html"><div class="ttname"><a href="classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data.html">es.deusto.bspq21e1.serialization.UserData</a></div><div class="ttdef"><b>Definition:</b> <a href="_user_data_8java_source.html#l00011">UserData.java:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

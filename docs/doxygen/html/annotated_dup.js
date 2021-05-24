@@ -18,7 +18,17 @@ var annotated_dup =
               [ "RegisterVanWindow", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_register_van_window.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_register_van_window" ],
               [ "RemoveAccountWindow", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_remove_account_window.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_remove_account_window" ],
               [ "RemoveVanWindow", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_remove_van_window.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_remove_van_window" ],
-              [ "SearchWindow", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_search_window.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_search_window" ]
+              [ "SearchWindow", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_search_window.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_search_window" ],
+              [ "CancelReservationWindowTest", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_cancel_reservation_window_test.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_cancel_reservation_window_test" ],
+              [ "CharacteristicsWindowTest", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_characteristics_window_test.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_characteristics_window_test" ],
+              [ "InitialWindowTest", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_initial_window_test.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_initial_window_test" ],
+              [ "LogInWindowTest", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_log_in_window_test.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_log_in_window_test" ],
+              [ "MainWindowTest", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_test.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_main_window_test" ],
+              [ "RegisterUserWindowTest", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_register_user_window_test.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_register_user_window_test" ],
+              [ "RegisterVanWindowTest", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_register_van_window_test.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_register_van_window_test" ],
+              [ "RemoveAccountWindowTest", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_remove_account_window_test.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_remove_account_window_test" ],
+              [ "RemoveVanWindowTest", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_remove_van_window_test.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_remove_van_window_test" ],
+              [ "SearchWindowTest", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_search_window_test.html", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1gui_1_1_search_window_test" ]
             ] ],
             [ "main", "namespacees_1_1deusto_1_1bspq21e1_1_1client_1_1main.html", [
               [ "AirBVClient", "classes_1_1deusto_1_1bspq21e1_1_1client_1_1main_1_1_air_b_v_client.html", null ]
@@ -28,7 +38,9 @@ var annotated_dup =
             [ "ReservationData", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_reservation_data.html", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_reservation_data" ],
             [ "ReviewData", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_review_data.html", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_review_data" ],
             [ "UserData", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data.html", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data" ],
-            [ "VanData", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data" ]
+            [ "VanData", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data" ],
+            [ "ReviewDataTest", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_review_data_test.html", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_review_data_test" ],
+            [ "UserDataTest", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data_test.html", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_user_data_test" ]
           ] ],
           [ "server", "namespacees_1_1deusto_1_1bspq21e1_1_1server.html", [
             [ "dao", "namespacees_1_1deusto_1_1bspq21e1_1_1server_1_1dao.html", [
@@ -46,10 +58,12 @@ var annotated_dup =
               [ "VanTest", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van_test.html", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1data_1_1_van_test" ]
             ] ],
             [ "dto", "namespacees_1_1deusto_1_1bspq21e1_1_1server_1_1dto.html", [
-              [ "Assembler", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler.html", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler" ]
+              [ "Assembler", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler.html", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler" ],
+              [ "AssemblerTest", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler_test.html", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1dto_1_1_assembler_test" ]
             ] ],
             [ "remote", "namespacees_1_1deusto_1_1bspq21e1_1_1server_1_1remote.html", [
-              [ "AirBV", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v.html", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v" ]
+              [ "AirBV", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v.html", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v" ],
+              [ "AirBVTest", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_test.html", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1remote_1_1_air_b_v_test" ]
             ] ],
             [ "AirBVService", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service.html", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service" ],
             [ "AirBVServiceTest", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_test.html", "classes_1_1deusto_1_1bspq21e1_1_1server_1_1_air_b_v_service_test" ]
