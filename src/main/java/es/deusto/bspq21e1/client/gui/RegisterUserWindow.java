@@ -154,6 +154,11 @@ public class RegisterUserWindow extends JFrame{
 		frmRegisterYourself.getContentPane().add(btnRegister);
 		
 		logger.info("RegisterUserWindow well initialized");
+		
+		if (controller.getDemoDataPath() != null) {
+        	controller.initializeDemoData();
+        	logger.info("Initialization of demo data");
+        }
 	}
 	
     /**

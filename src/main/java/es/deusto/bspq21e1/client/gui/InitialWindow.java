@@ -253,11 +253,6 @@ public class InitialWindow extends JFrame {
         
         logger.info("InitialWindow well initialized");
         
-        if (controller.getDemoDataPath() != null) {
-        	controller.initializeDemoData();
-        	logger.info("Initialization of demo data");
-        }
-        
     }
 
 	public JLabel getLblHead() {
