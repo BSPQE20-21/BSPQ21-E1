@@ -1,0 +1,26 @@
+var classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data =
+[
+    [ "VanData", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a6007d2eca150a5142d8ae65fbb8329c7", null ],
+    [ "VanData", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a01bb13b1452f8c086383e1c4e03505bd", null ],
+    [ "getBrand", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a70d30d5d8225338a5bb85b628d903382", null ],
+    [ "getCapacity", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a78fa4d480a6a5fb3b6480a1e8b46f19a", null ],
+    [ "getLicensePlate", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#abb5133507cad53481f6e9a89fd7c1b02", null ],
+    [ "getLocation", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a59fbf4b75fc330e82c6fec6de390cc89", null ],
+    [ "getModel", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#afc1e71a9e8114a5b638b5321c8fbb174", null ],
+    [ "getPricePerDay", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a4a1742452265f0e35f66c7cb562bca32", null ],
+    [ "getUser", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a274049a1214d4997adec267e39fed353", null ],
+    [ "isKitchen", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a85d06fed83b8623559ea9c0cb2dd2816", null ],
+    [ "isOffRoad", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a853fa84c30134b47ebd505fc49479679", null ],
+    [ "isShower", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a861bae1ec761f668a6d1ef06b994ead3", null ],
+    [ "setBrand", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#aac2a9a03fe2452e0b8915766a23da6ea", null ],
+    [ "setCapacity", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a1dd98b44b4572f37a65dd2ffad44c759", null ],
+    [ "setKitchen", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a7f111cf6b4ebd53bde2d54ef19c7f14e", null ],
+    [ "setLicensePlate", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a463346fb154e725ce15ba01b43310028", null ],
+    [ "setLocation", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#ada24dc7616bd75324aa76f9a62f6d69b", null ],
+    [ "setModel", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a5d7521fd1779f914a7a05ee8876250b4", null ],
+    [ "setOffRoad", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#aa5475eb6975e4397360431ab8d53a331", null ],
+    [ "setPricePerDay", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a876551ab54a06572254fba92eac1c63a", null ],
+    [ "setShower", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#af508b653833de0d842947f3e09f1c0fb", null ],
+    [ "setUser", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a94822a895512a5110471caf7f869a9c4", null ],
+    [ "toString", "classes_1_1deusto_1_1bspq21e1_1_1serialization_1_1_van_data.html#a781df3b311e386c958e5deab7963e41f", null ]
+];
