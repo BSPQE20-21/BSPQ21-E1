@@ -5,7 +5,7 @@
   \item {AirBV}
     \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{16}
   \item {AirBVService}
-    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{22}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{23}
   \item {assembleReservation}
     \subitem {es.deusto.bspq21e1.server.dto.Assembler}, \hyperpage{30}
     \subitem {es.deusto.bspq21e1.server.dto.AssemblerTest}, 
@@ -495,7 +495,7 @@
     \subitem {suite}, \hyperpage{134}
   \item {es.deusto.bspq21e1.client.main}, \hyperpage{12}
   \item {es.deusto.bspq21e1.client.main.AirBVClient}, \hyperpage{21}
-    \subitem {main}, \hyperpage{21}
+    \subitem {main}, \hyperpage{22}
   \item {es.deusto.bspq21e1.serialization}, \hyperpage{12}
   \item {es.deusto.bspq21e1.serialization.ReservationData}, 
 		\hyperpage{108}
@@ -574,13 +574,13 @@
     \subitem {VanData}, \hyperpage{150}
   \item {es.deusto.bspq21e1.server}, \hyperpage{12}
   \item {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{22}
-    \subitem {AirBVService}, \hyperpage{22}
+    \subitem {AirBVService}, \hyperpage{23}
     \subitem {cancelReservation}, \hyperpage{23}
     \subitem {deleteUser}, \hyperpage{23}
     \subitem {deleteVan}, \hyperpage{23}
     \subitem {getUserReservations}, \hyperpage{23}
-    \subitem {getUserVans}, \hyperpage{23}
-    \subitem {login}, \hyperpage{23}
+    \subitem {getUserVans}, \hyperpage{24}
+    \subitem {login}, \hyperpage{24}
     \subitem {registerReservation}, \hyperpage{24}
     \subitem {registerReservationsList}, \hyperpage{24}
     \subitem {registerUser}, \hyperpage{24}
@@ -744,7 +744,7 @@
     \subitem {registerReservation}, \hyperpage{18}
     \subitem {registerReservationsList}, \hyperpage{19}
     \subitem {registerUser}, \hyperpage{19}
-    \subitem {registerUsersList}, \hyperpage{19}
+    \subitem {registerUsersList}, \hyperpage{20}
     \subitem {registerVan}, \hyperpage{20}
     \subitem {registerVansList}, \hyperpage{20}
     \subitem {searchVans}, \hyperpage{21}
@@ -1295,7 +1295,7 @@
     \subitem {es.deusto.bspq21e1.server.dao.DBManagerTest}, 
 		\hyperpage{56}
   \item {getUserVans}
-    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{23}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{24}
     \subitem {es.deusto.bspq21e1.server.AirBVServiceTest}, 
 		\hyperpage{26}
     \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{17}
@@ -1382,7 +1382,7 @@
   \indexspace
 
   \item {login}
-    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{23}
+    \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{24}
     \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{18}
   \item {loginTest}
     \subitem {es.deusto.bspq21e1.server.AirBVServiceTest}, 
@@ -1403,7 +1403,7 @@
 
   \item {main}
     \subitem {es.deusto.bspq21e1.client.main.AirBVClient}, 
-		\hyperpage{21}
+		\hyperpage{22}
   \item {MainWindow}
     \subitem {es.deusto.bspq21e1.client.gui.MainWindow}, \hyperpage{66}
 
@@ -1430,7 +1430,7 @@
     \subitem {es.deusto.bspq21e1.client.controller.Controller}, 
 		\hyperpage{47}
     \subitem {es.deusto.bspq21e1.server.AirBVService}, \hyperpage{25}
-    \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{19}
+    \subitem {es.deusto.bspq21e1.server.remote.AirBV}, \hyperpage{20}
   \item {RegisterUserWindow}
     \subitem {es.deusto.bspq21e1.client.gui.RegisterUserWindow}, 
 		\hyperpage{70}
